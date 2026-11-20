@@ -54,7 +54,16 @@ class CatalogSectionArrangements(unittest.TestCase):
             with self.subTest(source=source):
                 proc = subprocess.run(["node", str(base / "scripts/song_forms.mjs"), "create", source],
                                       input=json.dumps({"variant": variant, "counts": {}}),
-                                      text=True, capture_output=True, check=True)
+                                      text=True, capture_output=True)
+                # (#902) A crown past the owner's 150-line cap is refused by
+                # name (exit 3), with no contract to plan.
+                if 14 * (size + master) > plan.ENVELOPE["total_lines"][1]:
+                    self.assertEqual(proc.returncode, 3, proc.stderr)
+                    refused = json.loads(proc.stdout)
+                    self.assertEqual([r["code"] for r in refused["reasons"]], ["native-line-limit"])
+                    self.assertIsNone(refused["contract"])
+                    continue
+                self.assertEqual(proc.returncode, 0, proc.stderr)
                 contract = json.loads(proc.stdout)["contract"]
                 wrong = copy.deepcopy(contract)
                 wrong["returnGroups"][0][-1] -= 1

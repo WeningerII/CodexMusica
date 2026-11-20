@@ -196,9 +196,10 @@ def test_the_denominator_is_drawn():
           all(_masked(make_plan(seed=k)) == _fixed[k] for k in _seeds),
           f"seeds {_seeds}")
 
-    # REACHABLE FROM DEFAULT PLANS, pinned by seed (make_plan is a function
-    # of its seed, so these are pins, not statistics). The four meters Don
-    # named, and one of each denominator.
+    # REACHABLE FROM DEFAULT PLANS, found by searching the seeds in order
+    # (make_plan is a function of its seed, so a hit is a fact, not a
+    # statistic). The four meters Don named, and one of each denominator.
+    # The seeds were pinned by hand until 2026-11-19; the history is below.
     # ~~seeds 32 (3/4), 77 (2/2), 167 (5/4), 270 (7/4)~~ — REPINNED
     # 2026-10-21: the beat count is drawn under the owner's equal-weight
     # default now (`beats_weights`), and the unit is drawn LAST, so every
@@ -235,44 +236,47 @@ def test_the_denominator_is_drawn():
     # to throw away and every seed's stream re-deals; each seed below is
     # again the first default seed in that meter, re-measured by running
     # `make_plan` over seeds 0-122.
-    for k, want in ((119, "3/4"), (8, "2/2"), (17, "5/4"), (122, "7/4")):
-        p, m, units = _sig(k)
-        check(f"default plan seed {k} is in {want}, and the brief says so",
-              f"{m['beats']}/{m['unit']}" == want and len(units) == 1
+    # ~~(119, "3/4"), (8, "2/2"), (17, "5/4"), (122, "7/4")~~ and
+    # ~~(0, 1, 2, 4, 5, 7, 22)~~ — REPLACED 2026-11-19 (#902, the owner's
+    # 150-line cap): every change to the draw re-dealt these seeds and they
+    # were re-measured by hand six times. The test now SEARCHES the default
+    # seeds in order for the witnesses it needs, under a bound, so the
+    # witness is a property of the draw and not a seed picked by hand.
+    SEARCH = 600
+    meters = {"3/4": None, "2/2": None, "5/4": None, "7/4": None}
+    _units, three_off_8, twos_off_4 = {}, None, None
+    for k in range(SEARCH):
+        if (all(meters.values()) and len(_units) == len(NOTE_DENOMINATORS)
+                and three_off_8 and twos_off_4):
+            break
+        try:
+            p, m, units = _sig(k)
+        except PLN.SeedRefused:
+            continue
+        sig = f"{m['beats']}/{m['unit']}"
+        if sig in meters and meters[sig] is None and len(units) == 1:
+            meters[sig] = (k, p, m)
+        _units.setdefault(m["unit"], (k, m["beats"], tuple(m["groups"])))
+        if three_off_8 is None and 3 in m["groups"] and m["unit"] != 8:
+            three_off_8 = (k, sig, tuple(m["groups"]))
+        if twos_off_4 is None and 3 not in m["groups"] and m["unit"] != 4:
+            twos_off_4 = (k, sig, tuple(m["groups"]))
+    for want, hit in meters.items():
+        k, p, m = hit if hit else (None, None, None)
+        check(f"a default plan in the first {SEARCH} seeds is in {want} "
+              f"throughout, and the brief says so",
+              hit is not None
               and f"Feel: {want} grouped" in p["writer_brief"]
               and p["choices"]["unit"]["value"] == m["unit"],
-              f"{m['beats']}/{m['unit']} grouped {m['groups']}")
-    _units = {}
-    # ~~(1, 2, 7, 9, 10, 17, 32)~~ — REPINNED 2026-10-21 with the draw
-    # above: the first default seed of each denominator under the
-    # equal-weight beat count (0 is /8, 1 /64, 3 /16, 7 /32, 13 /4, 17 /1,
-    # 19 /2), and among them 19 is /2 with a 3 in its bar and 17 is /1 with
-    # 2s only, the two outcomes the independence check needs.
-    # ~~(0, 1, 3, 7, 13, 17, 19)~~ — REPINNED 2026-10-27 with the meters
-    # above: 0 is /64, 4 /2, 5 /4, 6 /8, 7 /1 (with 2s only), 16 /32 and
-    # 18 /16, and among them 4 is /2 with a 3 in its bar.
-    # Only seed 5 changes under #676; seed 11 now witnesses /4.
-    # ~~(0, 4, 11, 6, 7, 16, 18)~~ — REPINNED 2026-11-13 with the meters
-    # above: 0 is /64 (with 2s only), 1 /8, 2 /1 (with a 3 in its bar),
-    # 4 /16, 5 /32, 8 /4 and 11 /2, each the first default seed of its
-    # denominator.
-    # ~~(0, 1, 2, 4, 5, 8, 11)~~ — REPINNED 2026-11-16 with the meters
-    # above (stage 4): 0 is /16 (with 2s only), 1 /8, 2 /1 (with a 3 in its
-    # bar), 4 /4, 5 /2, 7 /32 and 22 /64, each the first default seed of
-    # its denominator.
-    for k in (0, 1, 2, 4, 5, 7, 22):
-        p, m, units = _sig(k)
-        _units[m["unit"]] = (k, m["beats"], tuple(m["groups"]))
+              f"seed {k}" + (f" grouped {m['groups']}" if m else ""))
     check("every declarable denominator is reachable from default plans",
           set(_units) == set(NOTE_DENOMINATORS),
           {u: v[:2] for u, v in sorted(_units.items())})
     check("...independently of the grouping: a bar with a 3 in it comes out "
           "other than /8, and a bar of 2s only comes out other than /4 — the "
           "two outcomes `_unit_for` made unreachable",
-          any(3 in g and u != 8 for u, (_k, _b, g) in _units.items())
-          and any(3 not in g and u != 4 for u, (_k, _b, g) in _units.items()),
-          {u: (v[1], "has 3" if 3 in v[2] else "2s only")
-           for u, v in sorted(_units.items())})
+          three_off_8 is not None and twos_off_4 is not None,
+          {"has 3": three_off_8, "2s only": twos_off_4})
 
 
 def test_refusals():
@@ -1675,9 +1679,26 @@ def test_the_measure():
     catalog_grid = {node.attr for node in ast.walk(catalog_tree)
                     if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name)
                     and node.value.id == "grid"}
+    # The two predicate CLASSES joined 2026-11-19 (#902): a line-end type
+    # whose members span words is admitted by the classes of its declared
+    # channels. They are read only as `isinstance` types, never called, so
+    # no word is read through them.
+    predicate_classes = {"Agree", "TailPhonesAgree"}
+    predicate_reads = [n for n in ast.walk(catalog_tree)
+                       if isinstance(n, ast.Name) and n.id in predicate_classes
+                       and isinstance(n.ctx, ast.Load)]
+    isinstance_types = {id(e) for n in ast.walk(catalog_tree)
+                        if isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+                        and n.func.id == "isinstance" and len(n.args) == 2
+                        for e in (n.args[1].elts if isinstance(n.args[1], ast.Tuple)
+                                  else [n.args[1]])}
     check("catalog layout reads only declared grid, partition, and terminal rhyme rules",
           catalog_imports == {("quality", "grid"), ("quality", "plan"),
-                              ("quality.relations", "audible_as_end_rhyme")}
+                              ("quality.relations", "audible_as_end_rhyme"),
+                              ("quality.relations", "Agree"),
+                              ("quality.relations", "TailPhonesAgree")}
+          and predicate_reads
+          and all(id(n) in isinstance_types for n in predicate_reads)
           and catalog_plain == {"re"}
           and catalog_grid == {"placement_findings", "SECTION_FUNCTIONS", "setting_roles"}
           and not any(isinstance(n, ast.Name) and n.id == "open" for n in ast.walk(catalog_tree)))
@@ -3329,13 +3350,18 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # song set is no longer a strict subset of the union — it IS the union.
     # The claim that survives: the planner draws from the SONG set, and
     # that set is never wider than what some profile can grade.
+    # REPINNED 2026-11-19 (#902, owner ruling): the song set is the union
+    # up to the owner's cap, `SONG_LINE_CAP` (150), which is under the
+    # union's 463.
     check("the SONG band is contained in the union of every live profile's "
           "reach — this never widens what the planner volunteers past what "
-          "the floor can grade; since M-239 the two coincide, because the "
-          "lyric-sheet profile's range contains the quatrain's and the "
-          "sonnet's",
-          song <= union and song == union,
-          f"song {len(song)} of union {len(union)}")
+          "the floor can grade; since M-239 the two coincide up to the "
+          "owner's line cap (#902), because the lyric-sheet profile's range "
+          "contains the quatrain's and the sonnet's",
+          song <= union
+          and song == {n for n in union if n <= _PL.SONG_LINE_CAP}
+          and max(union) > _PL.SONG_LINE_CAP == max(song),
+          f"song {len(song)} of union {len(union)}, cap {_PL.SONG_LINE_CAP}")
     # REPINNED 2026-09-01 (`MISSING.md` M-193): a SECOND lyric-sheet
     # profile, `short` (50-150 tokens), reaches 6..20 lines, so the SONG
     # set is {6..20} | {22..55} with ONE hole at the seam between the two
@@ -3514,15 +3540,16 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     _tlo, _thi = _PL.tokens_per_line_band()
     check("the band is the reach of exactly the LIVE profile(s) declaring "
           "`n_lines == 0` — ONE since M-239 (the two band rows are "
-          "superseded and read by nothing), and the set is its reach: "
-          "a lyric sheet has no fixed line count, which is the coordinate, "
-          "not the string 'song'",
+          "superseded and read by nothing), and the set is its reach up to "
+          "the owner's line cap (#902): a lyric sheet has no fixed line "
+          "count, which is the coordinate, not the string 'song'",
           len(lyric) == 1 and min(song) >= 1
-          and max(song) == max(int(p.hi // _tlo) for p in lyric)
+          and max(song) == min(_PL.SONG_LINE_CAP,
+                               max(int(p.hi // _tlo) for p in lyric))
           and min(song) == min(math.ceil(p.lo / _thi) for p in lyric)
-          and song == set().union(*[
+          and song == {n for n in set().union(*[
               set(range(max(1, math.ceil(p.lo / _thi)), int(p.hi // _tlo) + 1))
-              for p in lyric]),
+              for p in lyric]) if n <= _PL.SONG_LINE_CAP},
           f"{[p.name for p in lyric]}, {min(song)}..{max(song)}")
 
     # MUTATION 1 — the band must be a FUNCTION of the ~~song~~ lyric-sheet
@@ -3530,20 +3557,35 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # 2026-09-05 (`MISSING.md` M-239): `lyric[0]` below is the one LIVE
     # `n_lines == 0` row, which is `lyric` (4-3,245 tokens); `song`
     # (200-400) and `short` (50-150) are superseded and read by nothing.
+    # REPINNED 2026-11-19 (#902): under the owner's line cap a WIDER band
+    # cannot widen the song set, so the band is shown READ by narrowing it
+    # under the cap, and the cap by raising it.
     old_hi = lyric[0].hi
     try:
-        lyric[0].hi = old_hi + 200
+        lyric[0].hi = _tlo * (_PL.SONG_LINE_CAP // 2)
         _PL.song_line_counts.cache_clear()
-        widened = set(_PL.song_line_counts())
+        narrowed = set(_PL.song_line_counts())
     finally:
         lyric[0].hi = old_hi
         _PL.song_line_counts.cache_clear()
-    check("MUTATION — widening the LIVE lyric-sheet profile's measured "
-          "token band (`lyric` since M-239, not the superseded `song` row) "
-          "widens the SONG line band with it, and the perturbation is "
-          "restored",
-          widened > song and set(_PL.song_line_counts()) == song,
-          f"{len(song)} -> {len(widened)} values")
+    old_cap = _PL.SONG_LINE_CAP
+    try:
+        _PL.SONG_LINE_CAP = old_cap + 200
+        _PL.song_line_counts.cache_clear()
+        uncapped = set(_PL.song_line_counts())
+    finally:
+        _PL.SONG_LINE_CAP = old_cap
+        _PL.song_line_counts.cache_clear()
+    check("MUTATION — the SONG line band is read from the LIVE lyric-sheet "
+          "profile's measured token band (`lyric` since M-239, not the "
+          "superseded `song` row) under the owner's line cap (#902): "
+          "narrowing the band below the cap narrows the song set, raising "
+          "the cap widens it toward the band's reach, and both "
+          "perturbations are restored",
+          narrowed < song and uncapped > song
+          and set(_PL.song_line_counts()) == song,
+          f"{len(song)} -> {len(narrowed)} narrowed, {len(uncapped)} with "
+          f"the cap raised")
 
     # MUTATION 2 — the stanza floor must be a FUNCTION of the section
     # profile, since it is what bounds the section COUNT.
@@ -4465,8 +4507,19 @@ def test_the_delegated_rulings(FAILURES=None):
     # and coda may now be dealt more than once, so every stream re-deals;
     # ~~mutant 12 alone redraws and 39 are compared~~ -> no mutant redraws
     # and all 40 are compared.
-    check("...no mutant redraws, none refuse; 40 compared",
-          m_redrawn == [] and m_refused == [] and len(mutant) == 40,
+    # ~~no mutant redraws and all 40 are compared~~ — REPLACED 2026-11-19
+    # (#902, the owner's 150-line cap re-deals every stream; measured:
+    # mutants 6, 23 and 35 redraw, 37 compared). The count was re-measured
+    # by hand at every change to the draw. What the comparison needs is a
+    # PROPERTY: no mutant is refused (option (b) redraws each one the joint
+    # gate refuses), every seed is either compared or named as redrawn,
+    # and the redrawn are a small minority, so the comparison below speaks
+    # for most of the sweep.
+    check("...no mutant is refused; every seed is compared or named as "
+          "redrawn, and fewer than a quarter redraw",
+          m_refused == []
+          and sorted(list(mutant) + m_redrawn) == sorted(SEEDS)
+          and len(m_redrawn) * 4 < len(SEEDS),
           f"compared {len(mutant)}, redrawn {m_redrawn}, refused {m_refused}")
     check("...and EXACTLY the seeds whose first admissible pattern lacked a "
           "second chorus moved — rejection sampling leaves every accepted "
@@ -4561,7 +4614,10 @@ def test_the_delegated_rulings(FAILURES=None):
         hdr = [i for i, l in enumerate(lines_b)
                if _re.match(r"^  \[[A-Z]", l) and l.rstrip().endswith("]")]
         headers_ok = headers_ok and len(hdr) == len(p["sections"])
+        ceiling_of, seen_label = {}, {}
         for i, sec in zip(hdr, p["sections"]):
+            lab = _PL.section_label(sec)
+            seen_label[lab] = seen_label.get(lab, 0) + 1
             slots = [s for s in p["line_slots"] if s["section"] == sec["name"]]
             headers_ok = headers_ok and "syllable" not in lines_b[i]
             if not slots:
@@ -4569,21 +4625,36 @@ def test_the_delegated_rulings(FAILURES=None):
             capn = int(_PL.line_syllable_ceiling(
                 slots[0]["duration"] * p["subdivision"]))
             exp = f"      up to {capn} syllables a line after the pickup"
+            # REPINNED #902 (John: "say repeated lines once"): a section
+            # whose rows an earlier section printed names it in one row, and
+            # the ceiling the writer finds there is this section's own.
+            named = _re.match(r"^    as in the (\d+)\w\w (\S+) above$",
+                              lines_b[i + 1])
+            ceiling_of[(lab, seen_label[lab])] = exp
+            if named:
+                key = (named.group(2), int(named.group(1)))
+                cap_ok = (cap_ok and key != (lab, seen_label[lab])
+                          and ceiling_of.get(key) == exp)
+                continue
             # REPINNED 2026-10-18 from ~~lines_b[i + 1]~~: the beat and
             # strong-beat rows lead and the ceiling follows them (Jony's
-            # review of #587), so the ceiling is the row after those.
-            cap_ok = cap_ok and lines_b[
-                i + 1 + len(_PL._pulse_rows(sec, slots[0]))] == exp
+            # review of #587), so the ceiling is the row after those, or
+            # after the one row naming an earlier section's (#902).
+            rows = _PL._pulse_rows(sec, slots[0])
+            shown = (1 if lines_b[i + 1].startswith("      each line: as in the ")
+                     else len(rows))
+            cap_ok = cap_ok and lines_b[i + 1 + shown] == exp
     check("...the brief states every group's RULE: each group cites one, every "
           "cited rule is stated, generated from the type's fields, and no "
           "type name is printed (2026-10-27, D5; it once printed `T5`, "
           "`headrime` and type names with no gloss a writer could reach)",
           legend_ok)
     check("...and the number SLOTS_EXCEEDED grades against is printed UNDER "
-          "every sung section's bracket — the ceiling of syllables a line "
-          "after the pickup beside the band's floor — and never INSIDE it: "
-          "the bracket is the measurement carrier every gate reads byte for "
-          "byte (M-97)",
+          "every sung section's bracket, or under the earlier bracket a "
+          "section with the same rows names (#902) — the ceiling of "
+          "syllables a line after the pickup beside the band's floor — and "
+          "never INSIDE it: the bracket is the measurement carrier every "
+          "gate reads byte for byte (M-97)",
           cap_ok and headers_ok)
 
     # ── 2026-10-18: the pulses and heads the density notes count against ──
@@ -4608,16 +4679,48 @@ def test_the_delegated_rulings(FAILURES=None):
     _hdr = [i for i, l in enumerate(_bl)
             if re.match(r"^  \[[A-Z]", l) and l.rstrip().endswith("]")]
     _rows_ok = len(_hdr) == len(_pp["sections"])
+    _first, _once, _seen = {}, 0, {}
     for i, sec in zip(_hdr, _pp["sections"]):
+        _lab = _PL.section_label(sec)
+        _seen[_lab] = _seen.get(_lab, 0) + 1
         s0 = next(s for s in _pp["line_slots"] if s["section"] == sec["name"])
         d, h = _PL.line_pulses_and_heads(sec, s0)
         rows = _PL._pulse_rows(sec, s0)
+        # SAID ONCE (#902, John: "say repeated lines once"): the first
+        # section with these rows prints them and its ceiling; a later one
+        # names that section in one row, and the next bracket follows.
+        here = (_lab, _seen[_lab])
+        first = _first.setdefault(tuple(rows), here)
+        _once += first != here
+        if first != here:
+            _rows_ok = (_rows_ok and _bl[i + 1] ==
+                        f"    as in the {_PL._ordinal(first[1])} {first[0]} "
+                        f"above"
+                        and (_bl[i + 2].startswith("  [")
+                             or not _bl[i + 2].startswith("    ")))
+            continue
         _rows_ok = (_rows_ok and len(rows) == 3
                     and _bl[i + 1:i + 4] == rows
                     and _bl[i + 4].startswith("      up to ")
                     and f"{h} of them strong" in rows[0]
                     and rows[1].endswith("the ceiling below is room, not a "
                                          "target"))
+    check("...and a section whose rows an earlier section printed names "
+          "that section in one row instead of printing them again, counted "
+          "among the brackets that print its name (#902: songs of 68 to 115 "
+          "sections printed the same rows once a section and outgrew what a "
+          "client was seen to receive)",
+          _rows_ok and _once == 2
+          and "\n    as in the 1st VERSE above\n" in _pp["writer_brief"]
+          and "\n    as in the 1st CHORUS above\n" in _pp["writer_brief"]
+          and [_PL._ordinal(n) for n in (1, 2, 3, 4, 11, 12, 13, 21, 102, 111)]
+          == ["1st", "2nd", "3rd", "4th", "11th", "12th", "13th", "21st",
+              "102nd", "111th"]
+          and _pp["writer_brief"].count("each line: 7½ beats (pulses)") == 1
+          and _pp["writer_brief"].count("each line: 8 beats (pulses)") == 1
+          and _pp["writer_brief"].count("syllables a line after the pickup")
+          == 2,
+          _pp["writer_brief"][:900])
     check("...and UNDER the bracket, BEFORE the ceiling, the beats (pulses) "
           "and strong beats (group heads) the density and prominence notes "
           "count against, in a writer's words (seed 1822: 7½ beats and 2 "
@@ -4889,18 +4992,37 @@ def test_the_seed_redraw():
     # and coda may be dealt any number of times, so the stream re-deals and
     # seed 369's own draw passes; 337 is the first default seed refused for
     # NO_FREE_WORD alone, over seeds 0-337.
-    FAIL_SEED = 337
+    # ~~337~~ and ~~1861~~ below — REPLACED 2026-11-19 (#902, the owner's
+    # 150-line cap re-deals every stream; measured: 6 and 749). Both were
+    # re-measured by hand at every change to the draw, so the test now
+    # SEARCHES the default seeds in order, under a bound: FAIL_SEED is the
+    # first whose own draw the gate refuses for NO_FREE_WORD alone and that
+    # one redraw plans, TWO_SEED the first that needs more than one redraw.
+    SEARCH = 3000
+    FAIL_SEED = TWO_SEED = None
+    raw_codes = None
+    for k in range(SEARCH):
+        if FAIL_SEED is not None and TWO_SEED is not None:
+            break
+        try:
+            PLN._make_plan_candidate(k)
+            continue
+        except JointRefused as exc:
+            codes = exc.codes
+        n_refused = len(make_plan(seed=k)["choices"]["seed_redraw"]["refused"])
+        if FAIL_SEED is None and codes == ("NO_FREE_WORD",) and n_refused == 1:
+            FAIL_SEED, raw_codes = k, codes
+        if TWO_SEED is None and n_refused >= 2:
+            TWO_SEED = k
 
     # (1) AN ACTUAL FAILING SEED, RAW PLAN AGAINST SWEEP.
-    try:
-        PLN._make_plan_candidate(FAIL_SEED)
-        raw_codes = None
-    except JointRefused as exc:
-        raw_codes = exc.codes
-    check(f"seed {FAIL_SEED}'s own draw is refused by the JOINT GATE for "
-          "NO_FREE_WORD — the premise, so the cases below cannot pass on a "
-          "seed that no longer poses the question",
+    check(f"a default seed in the first {SEARCH} ({FAIL_SEED}) has its own "
+          "draw refused by the JOINT GATE for NO_FREE_WORD, and one redraw "
+          "plans it — the premise, so the cases below cannot pass on a seed "
+          "that no longer poses the question",
           raw_codes == ("NO_FREE_WORD",), f"codes {raw_codes}")
+    if FAIL_SEED is None:
+        return
     p = make_plan(seed=FAIL_SEED)
     red = p["choices"].get("seed_redraw") or {}
     cand = red.get("candidate_seed")
@@ -4966,21 +5088,22 @@ def test_the_seed_redraw():
     # needs two (measured over 0-11999: 323 seeds need one, 9 need two).
     # ~~2330~~ -> 1861 (2026-11-13, the 22-function roster): the first
     # default seed that needs two redraws.
-    p2 = make_plan(seed=1861)
+    # ~~1861~~ -> TWO_SEED, found by the search above (#902).
+    p2 = make_plan(seed=TWO_SEED) if TWO_SEED is not None else {"choices": {}}
     r2 = (p2["choices"].get("seed_redraw") or {}).get("refused", [])
-    check("...a seed needing several redraws discloses EVERY refused "
-          "candidate, in order, the first being the caller's own seed",
-          len(r2) == 2 and r2[0]["seed"] == "1861"
-          and len({x["seed"] for x in r2}) == 2
+    check(f"...a seed needing several redraws ({TWO_SEED}) discloses EVERY "
+          "refused candidate, in order, the first being the caller's own seed",
+          len(r2) >= 2 and r2[0]["seed"] == str(TWO_SEED)
+          and len({x["seed"] for x in r2}) == len(r2)
           and all(x["codes"] and x["findings"] for x in r2),
           f"refused {[(x['seed'], x['codes']) for x in r2]}")
     # THE PRINTED LINE IS FOLDED BY CODE (stage 4, 2026-11-16): each of
-    # seed 1861's two refused candidates carries a finding on more than 200
+    # seed 1861's two refused candidates carried a finding on more than 200
     # lines, and the line used to print every one (a session published
     # 119,258 characters for one such plan). The plan keeps every finding;
     # the plan verb prints, per code, the count, the lines and one detail.
     r3 = subprocess.run(
-        [sys.executable, "lyric_harness.py", "plan", "--seed=1861",
+        [sys.executable, "lyric_harness.py", "plan", f"--seed={TWO_SEED}",
          f"--form={PLN.DEFAULT_FORM}"],
         capture_output=True, text=True,
         cwd=os.path.join(HERE, ".."), timeout=560)
@@ -5507,23 +5630,43 @@ def test_the_type_draw():
     vcs = [make_plan(seed, lines=104, form="verse-chorus")
            for seed in range(1, 9)]
     # REPINNED 2026-11-14 (#671 A7): a REPRISE's return pair is planned in
-    # every form -- its first line comes back from the first chorus before
-    # it, else from line 1.
+    # every form -- ~~its first line comes back from the first chorus before
+    # it, else from line 1~~ (#902) its first line comes back from the first
+    # line of an earlier sung section with new words, the one the receipt
+    # `choices.reprise` says was drawn from exactly those lines.
     # REPINNED 2026-11-15 (owner's ruling): a section whose ROW returns
     # verbatim comes back word for word in every form too, so an open
     # plan's returns are exactly the reprises' pairs and those sections'
     # line-for-line pairs, in section order. ~~No chorus returns under
     # `open`~~; the hook stays undeclared, which is the form's half of D7.
     def _expected_returns(p):
-        want, first_of, verbatim = [], {}, False
+        want, first_of, verbatim, heads = [], {}, False, []
+        drawn = (p["choices"].get("reprise") or {})
+        value = iter(drawn.get("value", ()))
+        sources = iter(drawn.get("sources", ()))
+        lineless = set(drawn.get("no_line_before", ()))
         for sec in p["sections"]:
             ls = [sl["line"] for sl in p["line_slots"]
                   if sl["section"] == sec["name"]]
             if not ls:
                 continue
             fn = sec["function"]
-            if fn == "reprise" and ls[0] > 1:
-                want.append(f"{first_of.get('chorus', 1)},{ls[0]}")
+            copy = fn in PLN.VERBATIM_RETURNERS and fn in first_of
+            # (#902) a reprise with no sung section before it brings back
+            # no line, and the receipt lists its first line instead. Before
+            # the 150-line cap no open seed in 1-40 drew one, so the helper
+            # never met the case; seed 38 now does.
+            # It is not a source for a later reprise either.
+            if fn == "reprise" and not heads and ls[0] in lineless:
+                first_of.setdefault(fn, ls[0])
+                continue
+            if fn == "reprise":
+                src, line = next(value, (None, None))
+                if line != ls[0] or src not in heads or next(sources, None) != heads:
+                    src = "not a drawn source"
+                want.append(f"{src},{ls[0]}")
+            elif not copy:
+                heads.append(ls[0])
             if fn in PLN.VERBATIM_RETURNERS and fn in first_of:
                 want.extend(f"{first_of[fn] + i},{ln}"
                             for i, ln in enumerate(ls))
@@ -5549,6 +5692,59 @@ def test_the_type_draw():
           and any(not _expected_returns(p)[1] for p in opens_40),
           [(p["returns"][:20], _expected_returns(p)[0][:20], p["hook_slot"])
            for p in opens + opens_40][:4])
+    # NO FIXED REPRISE SOURCE (#902): where a chorus precedes the reprise,
+    # the draw still takes another section's first line on some seeds, and
+    # the chorus's on others. ~~The first chorus line always came back.~~
+    _rep = [(src, line, srcs, p)
+            for p in [make_plan(seed, form="verse-chorus") for seed in range(40)]
+            for (src, line), srcs in zip(
+                (p["choices"].get("reprise") or {}).get("value", ()),
+                (p["choices"].get("reprise") or {}).get("sources", ()))]
+    def _chorus_head(p, line):
+        """-> the first chorus line before `line`, or None."""
+        firsts = {}
+        for sl in p["line_slots"]:
+            firsts.setdefault(sl["section"], sl["line"])
+        return min((firsts[sec["name"]] for sec in p["sections"]
+                    if sec["function"] == "chorus" and sec["name"] in firsts
+                    and firsts[sec["name"]] < line), default=None)
+    _after_chorus = [(src, _chorus_head(p, line)) for src, line, srcs, p in _rep
+                     if _chorus_head(p, line) is not None]
+    check("a reprise after a chorus brings back the chorus's first line on "
+          "some seeds and another section's first line on others",
+          any(src == ch for src, ch in _after_chorus)
+          and any(src != ch for src, ch in _after_chorus),
+          _after_chorus[:8])
+    # A REPRISE AFTER WORDLESS SECTIONS ONLY (#902): its row asks only for
+    # some section before it, so such an order plans, as `placement_findings`
+    # says, and the reprise brings back no line; the receipt says so. Every
+    # reprise with a sung section before it has its return pair. ~~That
+    # order was drawn again, a rule the length proof could not read.~~
+    _lead = [make_plan(seed, functions=["solo", "reprise", "verse"], lines=12)
+             for seed in range(12)]
+    def _reprise_heads(p):
+        """-> [(first line of a reprise, whether a sung section came first)]."""
+        firsts, out = {}, []
+        for sl in p["line_slots"]:
+            firsts.setdefault(sl["section"], sl["line"])
+        sung = False
+        for sec in p["sections"]:
+            if sec["function"] == "reprise" and sec["name"] in firsts:
+                out.append((firsts[sec["name"]], sung))
+            sung = sung or sec["name"] in firsts
+        return out
+    _heads = [(h, p) for p in _lead for h in _reprise_heads(p)]
+    _pairs = lambda p: {line for _s, line in (p["choices"].get("reprise") or {}).get("value", ())}
+    check("a reprise with only wordless sections before it plans with no "
+          "return pair and is named in the receipt; every other reprise has "
+          "its pair",
+          any(not sung for (_l, sung), _p in _heads)
+          and any(sung for (_l, sung), _p in _heads)
+          and all((line in _pairs(p)) == sung
+                  and (line in (p["choices"].get("reprise") or {}).get(
+                      "no_line_before", ())) == (not sung)
+                  for (line, sung), p in _heads),
+          [(h, p["returns"]) for h, p in _heads][:6])
     # A BRIDGE NEEDS A SECTION BEFORE IT (owner's ruling, 2026-11-15): both
     # live retests of 2026-11-14 planned one as the song's first section.
     _all = opens + opens_40 + vcs
@@ -6680,7 +6876,9 @@ class OnceGeneration(unittest.TestCase):
         for _ in range(8):
             form = rng.choice(PLN.PLAN_FORMS)
             fn, n = rng.choice(rows), rng.randint(5, 12)
-            lines = rng.randint(top - 180, top)
+            # ~~`top - 180`~~ (#902): the upper two fifths of the range, so
+            # the draw stays long under the owner's 150-line cap.
+            lines = rng.randint(top * 3 // 5, top)
             seed = rng.randint(1, 999)
             try:
                 p = make_plan(seed=seed, form=form, lines=lines,
@@ -6707,9 +6905,12 @@ class OnceGeneration(unittest.TestCase):
             raise PLN.PlanRefused('no admissible section pattern here. more')
 
         wants = [PLN.parse_sweep_want('sections.verse=3')]
+        # ~~lines=200~~ (#902): the longest song the planner fills, which
+        # the owner's cap holds to 150.
+        top = max(PLN.fillable_line_counts('open'))
         with patch.object(PLN, '_sample_pattern', refuse):
             with self.assertRaises(PLN.SeedRefused) as raised:
-                PLN._make_plan_candidate(5, form='open', lines=200,
+                PLN._make_plan_candidate(5, form='open', lines=top,
                                          _wants=wants, _recurrence_wants=wants)
         message = str(raised.exception)
         self.assertEqual(seen[0], seen[1])
@@ -6724,7 +6925,7 @@ class OnceGeneration(unittest.TestCase):
 
         with patch.object(PLN, '_sample_pattern', none):
             with self.assertRaises(PLN.SeedRefused) as raised:
-                PLN._make_plan_candidate(5, form='open', lines=200,
+                PLN._make_plan_candidate(5, form='open', lines=top,
                                          _wants=wants, _recurrence_wants=wants)
         message = str(raised.exception)
         self.assertIn('No section pattern was drawn', message)
@@ -6975,8 +7176,12 @@ class OnceGeneration(unittest.TestCase):
                 with patch.object(PLN, '_sample_pattern', side_effect=
                                   AssertionError('refused before any draw')):
                     with self.assertRaises(PLN.PlanRefused) as again:
+                        # ~~80 to 200~~ (#902): the longer half of the
+                        # envelope, which the owner's cap holds to 150.
                         make_plan(rng.randint(1, 999), wants=wants,
-                                  lines=rng.randint(80, 200))
+                                  lines=rng.randint(
+                                      ENVELOPE['total_lines'][1] // 2,
+                                      ENVELOPE['total_lines'][1]))
                 self.assertEqual(str(again.exception), message)
         PLN._BUILT_CACHE.clear()
 
@@ -6992,7 +7197,7 @@ class OnceGeneration(unittest.TestCase):
         rng = random.Random('stage4-left-named')
         free = _free_rows()
         clause = 'checked on each draw, not built into it'
-        named = 0
+        named = unstated = 0
         for _ in range(40):
             if named >= 4:
                 break
@@ -7028,7 +7233,21 @@ class OnceGeneration(unittest.TestCase):
                 self.assertEqual(remedy, 'State fewer counts, or smaller ones.')
                 listed = listed.split(', ')
                 self.assertTrue(listed)
-                self.assertLessEqual(set(listed), set(wants))
+                # (#902) A count the request did not state (the form's own
+                # recurrence, or a row a stated row needs) is named with its
+                # floor and what raised it. It used to leave the list empty.
+                rows = PLN._folded_rows(self.policy(None, *wants, form=form),
+                                        form)
+                said = {w.split('=')[0].rstrip('<>') for w in wants}
+                for item in listed:
+                    if item in wants:
+                        continue
+                    m = re.fullmatch(r'sections\.(\w+)>=(\d+) \(not stated; '
+                                     r'[^,()]+\)', item)
+                    self.assertIsNotNone(m, item)
+                    self.assertNotIn(f'sections.{m[1]}', said)
+                    self.assertEqual(int(m[2]), rows[m[1]][0])
+                    unstated += 1
                 self.assertIn(str(bound), first)
                 # Whole table: nothing was left to the check.
                 PLN._BUILT_CACHE.clear()
@@ -7051,6 +7270,7 @@ class OnceGeneration(unittest.TestCase):
                             self.assertIn(clause, str(exc))
         PLN._BUILT_CACHE.clear()
         self.assertGreaterEqual(named, 4)
+        self.assertGreaterEqual(unstated, 1)
 
     def test_a_count_that_cannot_bind_changes_nothing(self):
         """Fix round (18 Nov): a stated cap no draw could reach leaves the

@@ -10,6 +10,24 @@ def catalog(form_id, sections, rhymes=(), returns=()):
             "sections": sections, "rhymeGroups": list(rhymes), "returnGroups": list(returns)}
 
 
+def terminal_types():
+    """-> the relations a prescribed group with no stated type can draw (#902)."""
+    from quality.catalog_shape import terminal_rhyme_relation
+    return {f"schema:{name}" for name in plan.eligible_types() if terminal_rhyme_relation(name)}
+
+
+def ends(*lines, relation=None):
+    """-> a line-end group as the planner spells it: each line's last word
+    for a type the grader judges at a named word (`pair_bindable`), else the
+    bare lines, as for a type whose members may span words (#902)."""
+    if relation is not None:
+        from quality import relations
+        schema = plan._schema_of(relation)[1]
+        if schema is not None and not relations.pair_bindable(schema):
+            return ",".join(map(str, lines))
+    return ",".join(f"{line}.endword" for line in lines)
+
+
 class CatalogPlannerTests(unittest.TestCase):
     def test_repeated_riff_and_break_are_measured_in_the_filled_score(self):
         import json
@@ -45,6 +63,86 @@ class CatalogPlannerTests(unittest.TestCase):
         beat["ticks"] -= 1
         unmeasured_break[1]["sectionMelody"]["notes"].append({"ticks": 1, "pitch_hz": 333})
         self.assertEqual(verdict(unmeasured_break), "unknown")
+
+    def test_a_section_with_rows_printed_above_names_the_section_that_printed_them(self):
+        """#902 (John: "say repeated lines once"; R2's case): a section whose
+        rows under its bracket an earlier section printed names that section,
+        by its bracket's name and its count among those brackets, and the one
+        it names is the right one when an earlier section of the same name
+        has other rows. Only the beats and strong beats repeating names the
+        section for those rows alone. Over every catalog form at seed 1, the
+        rows each section should get are read from the plan's own fields."""
+        import json
+        import re
+        import subprocess
+        from pathlib import Path
+        script = Path(__file__).resolve().parents[2] / "scripts" / "song_forms.mjs"
+        forms = json.loads(subprocess.check_output(["node", str(script), "list"],
+                                                   stdin=subprocess.DEVNULL, text=True))
+        fields = ("accompaniment", "closing_chord", "voice_score", "section_melody",
+                  "section_parts", "source_role")
+        def create(form_id, counts):
+            return json.loads(subprocess.run(
+                ["node", str(script), "create", form_id], input=json.dumps({"counts": counts}),
+                capture_output=True, text=True).stdout)
+
+        named_later = pulses_named = whole_named = 0
+        for form in forms:
+            # A form that needs repeat counts gets each at its least.
+            made = create(form["id"], {})
+            if made["status"] == "needs-input" and all(n["kind"] == "count" for n in made["needs"]):
+                made = create(form["id"], {n["path"]: n["min"] for n in made["needs"]})
+            if made["contract"] is None:
+                continue
+            try:
+                built = plan.make_plan(1, song_form=made["contract"])
+            except plan.SeedRefused:
+                continue
+            lines = built["writer_brief"].splitlines()
+            brackets = [i for i, line in enumerate(lines)
+                        if re.match(r"^  \[[A-Z]", line) and line.endswith("]")]
+            self.assertEqual(len(brackets), len(built["sections"]), form["id"])
+            seen, rows_of, beats_of = {}, {}, {}
+            for i, sec in zip(brackets, built["sections"]):
+                label = plan.section_label(sec)
+                seen[label] = seen.get(label, 0) + 1
+                here = (label, seen[label])
+                slots = [s for s in built["line_slots"] if s["section"] == sec["name"]]
+                own = {k: sec.get(k) for k in fields}
+                if "accompaniment" in sec:
+                    own["speech"] = slots[-1]["speech_event"]
+                if "source_role" in sec or "section_melody" in sec:
+                    own["function"] = sec["function"]
+                beats = (plan.line_pulses_and_heads(sec, slots[0]) if slots else None)
+                ceiling = (int(plan.line_syllable_ceiling(slots[0]["duration"] * built["subdivision"]))
+                           if slots else None)
+                key = (json.dumps(own, sort_keys=True), repr(beats), ceiling)
+                if not slots and not any(own.values()):
+                    continue
+                first = rows_of.setdefault(key, here)
+                under = lines[i + 1:i + 2]
+                with self.subTest(form=form["id"], section=sec["name"]):
+                    if first != here:
+                        self.assertEqual(under, [f"    as in the {plan._ordinal(first[1])} {first[0]} above"])
+                        whole_named += 1
+                        named_later += first[0] == label and first[1] > 1
+                        continue
+                    self.assertFalse(under[0].startswith("    as in the "), under)
+                    if beats is None:
+                        continue
+                    seen_beats = beats_of.setdefault(repr(beats), here)
+                    expect = (f"      each line: as in the {plan._ordinal(seen_beats[1])} "
+                              f"{seen_beats[0]} above")
+                    shown = lines[i + 1:brackets[brackets.index(i) + 1]
+                                  if i != brackets[-1] else len(lines)]
+                    self.assertEqual(expect in shown, seen_beats != here, shown[:6])
+                    pulses_named += seen_beats != here
+        # The two cases this test is for are present: a section names a later
+        # one of its own name over the first, and a section with other rows
+        # names an earlier one for its beats and strong beats alone.
+        self.assertGreater(named_later, 0)
+        self.assertGreater(pulses_named, 0)
+        self.assertGreater(whole_named, named_later)
 
     def test_multi_voice_scores_use_actual_written_parts(self):
         import json
@@ -371,27 +469,110 @@ class CatalogPlannerTests(unittest.TestCase):
 
     def test_prescribed_pair_uses_the_native_terminal_binder_and_retains_requested_relation(self):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 2}], rhymes=[[1, 2]])
+        drawn = set()
         for seed in range(5):
             native = plan.make_plan(seed, song_form=data)
-            self.assertEqual(native["groups"], "1,2")
-            self.assertEqual(native["relations"], {"A": "class:RHYME"})
+            self.assertEqual(native["groups"], ends(1, 2, relation=native["relations"]["A"]))
+            self.assertEqual(set(native["relations"]), {"A"})
+            self.assertIn(native["relations"]["A"], terminal_types())
+            drawn.add(native["relations"]["A"])
+            record, = native["choices"]["relations"]["groups"]
+            self.assertEqual(record["chosen_from"], f"equal odds over {len(terminal_types())} "
+                             "eligible types that rhyme at both line endings")
+            self.assertIn(f"the {len(terminal_types())} eligible types that rhyme",
+                          native["choices"]["relations"]["chosen_from"])
             self.assertEqual(native["request"]["relations"], {})
             self.assertEqual(plan.fill_plan(native, ["1", "2"])["song_form"], data)
+        self.assertGreater(len(drawn), 1)
+        coarse = plan.make_plan(11, song_form=data, relation="class:RHYME")
+        self.assertEqual((coarse["groups"], coarse["relations"]), ("1,2", {"A": "class:RHYME"}))
         chosen = plan.make_plan(11, song_form=data, relations={"A": "schema:perfect rhyme"})
         self.assertEqual(chosen["groups"], "1.endword,2.endword")
         self.assertEqual(chosen["relations"], {"A": "schema:perfect rhyme"})
         with self.assertRaisesRegex(plan.PlanRefused, "every selected line ending"):
             plan.make_plan(11, song_form=data, relation="class:ASSONANCE")
 
+    def test_each_catalog_rhyme_group_is_judged_by_its_own_type(self):
+        # A form with two rhyme groups (#902). The catalog reader also compares
+        # each group's last words from the last stressed vowel; that stands in
+        # for the coarse class only. A group given a rhyme type is judged by
+        # that type, so a pair the type accepts passes even where those
+        # sounds differ, and the coarse class still needs them to agree. The
+        # mandate is the planner's own, for every type a group can draw.
+        from quality import schemes
+        from quality.catalog_grading import _native_rhyme
+        groups = [[1, 3], [2, 4]]
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 4}],
+                       rhymes=groups)
+        report = {"verdicts": [{"lines": g, "group": k, "satisfied_by": ["judged"]}
+                               for k, g in enumerate(groups)]}
+
+        def judged(**chosen):
+            for seed in range(20):
+                try:
+                    native = plan.make_plan(seed, song_form=data, **chosen)
+                    break
+                except plan.SeedRefused:
+                    continue
+            mandate = schemes.mandate([g.split(",") for g in native["groups"].split(";")], 4,
+                                      relations=native["relations"],
+                                      default_relation=native["relation"])
+            result = {"verdict": "fail", "checks": [
+                {"kind": "rhyme", "label": "A", "lines": [1, 3], "outcome": "fail"},
+                {"kind": "rhyme", "label": "B", "lines": [2, 4], "outcome": "pass"},
+                {"kind": "rhyme-distinct", "labels": ["A", "B"], "outcome": "pass"}]}
+            return _native_rhyme(result, ["a"] * 4, mandate, report, terminal_groups=groups)
+
+        for relation in sorted(terminal_types()):
+            with self.subTest(relation=relation):
+                graded = judged(relations={"A": relation, "B": relation})
+                self.assertEqual(graded["verdict"], "pass")
+                self.assertEqual([c["outcome"] for c in graded["checks"]], ["pass"] * 3)
+        coarse = judged(relation="class:RHYME")
+        self.assertEqual(coarse["verdict"], "fail")
+        self.assertEqual([(c["nativeOutcome"], c["identityOutcome"], c["outcome"])
+                          for c in coarse["checks"] if c["kind"] == "rhyme"],
+                         [("pass", "fail", "fail"), ("pass", "pass", "pass")])
+
+    def test_line_end_groups_draw_types_that_span_words_only_if_they_end_both_lines(self):
+        # Read from the registry (#902): a type a catalog group may draw is
+        # read at each line's last word, or its members may span words but
+        # must each end their line. A type that may sit inside a line, or run
+        # across its end, is not drawn.
+        from quality import relations
+        from quality.catalog_shape import terminal_rhyme_relation
+        spanning = [n for n in plan.eligible_types()
+                    if any(s.cross_word for s in plan._schema_of(n)[1].spans)]
+        self.assertTrue(spanning)
+        for name in spanning:
+            schema = plan._schema_of(name)[1]
+            ends = any(p.kind == "both_line_final" for p in schema.placement)
+            with self.subTest(name=name):
+                self.assertEqual(terminal_rhyme_relation(name), ends)
+        drawn = {f"schema:{n}" for n in spanning if terminal_rhyme_relation(n)}
+        self.assertTrue(drawn and drawn <= terminal_types())
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 4}],
+                       rhymes=[[1, 3], [2, 4]])
+        seen = set()
+        for seed in range(60):
+            try:
+                seen |= set(plan.make_plan(seed, song_form=data)["relations"].values())
+            except plan.SeedRefused:
+                continue
+        self.assertTrue(drawn <= seen, (drawn, seen))
+        self.assertFalse(relations.audible_as_end_rhyme(plan._schema_of(sorted(drawn)[0][7:])[1]))
+
     def test_additional_relation_preserves_the_other_catalog_group(self):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 4}],
                        rhymes=[[1, 3], [2, 4]])
         for seed in (0, 11):
             native = plan.make_plan(seed, song_form=data, relations={"B": "schema:internal rhyme"})
-            self.assertEqual(native["relations"], {"A": "class:RHYME", "B": "class:RHYME",
-                                                   "C": "schema:internal rhyme"})
+            self.assertEqual(set(native["relations"]), {"A", "B", "C"})
+            self.assertLessEqual({native["relations"]["A"], native["relations"]["B"]}, terminal_types())
+            self.assertEqual(native["relations"]["C"], "schema:internal rhyme")
             a, b, extra = native["groups"].split(";")
-            self.assertEqual((a, b), ("1,3", "2,4"))
+            rel = native["relations"]
+            self.assertEqual((a, b), (ends(1, 3, relation=rel["A"]), ends(2, 4, relation=rel["B"])))
             self.assertRegex(extra, r"^2\.(?:T[0-9]+|head),4\.(?:T[0-9]+|head)$")
             self.assertEqual(plan.fill_plan(native, ["1", "2", "3", "4"])["song_form"], data)
         with self.assertRaises(plan.PlanRefused):
@@ -422,8 +603,8 @@ class CatalogPlannerTests(unittest.TestCase):
             data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": count}], rhymes=[lines])
             for seed in range(5):
                 native = plan.make_plan(seed, song_form=data)
-                self.assertEqual(native["groups"], ",".join(map(str, lines)))
-                self.assertEqual(native["relations"], {"A": "class:RHYME"})
+                self.assertEqual(native["groups"], ends(*lines, relation=native["relations"]["A"]))
+                self.assertIn(native["relations"]["A"], terminal_types())
             chosen = plan.make_plan(11, song_form=data, relations={"A": "schema:perfect rhyme"})
             self.assertEqual(chosen["groups"], ",".join(f"{line}.endword" for line in lines))
             with self.assertRaisesRegex(plan.PlanRefused, "whole prescribed terminal group"):
@@ -435,8 +616,11 @@ class CatalogPlannerTests(unittest.TestCase):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 8}],
                        rhymes=[[1, 3], [2, 5, 7], [4, 6, 8]])
         native = plan.make_plan(11, song_form=data, relations={"B": "schema:perfect rhyme"})
-        self.assertEqual(native["groups"], "1,3;2.endword,5.endword,7.endword;4,6,8")
-        self.assertEqual(native["relations"], {"A": "class:RHYME", "B": "schema:perfect rhyme", "C": "class:RHYME"})
+        rel = native["relations"]
+        self.assertEqual(native["groups"], f"{ends(1, 3, relation=rel['A'])};"
+                         f"{ends(2, 5, 7, relation=rel['B'])};{ends(4, 6, 8, relation=rel['C'])}")
+        self.assertEqual(native["relations"]["B"], "schema:perfect rhyme")
+        self.assertLessEqual({native["relations"]["A"], native["relations"]["C"]}, terminal_types())
         for invalid in ([[1, 3], [2, 3, 5], [4, 6, 8]], [[2, 5, 7], [1, 3], [4, 6, 8]], [[i] for i in range(1, 9)]):
             with self.subTest(groups=invalid), self.assertRaises(plan.PlanRefused):
                 plan.make_plan(11, song_form={**data, "rhymeGroups": invalid})
@@ -447,7 +631,9 @@ class CatalogPlannerTests(unittest.TestCase):
         classes = [[1, 7], [2, 4], [3, 5], [6], [8]]
         data = catalog("fixture", sections, rhymes=classes)
         native = plan.make_plan(11, song_form=data, relations={"C": "schema:perfect rhyme"})
-        self.assertEqual(native["groups"], "1,7;2,4;3.endword,5.endword")
+        rel = native["relations"]
+        self.assertEqual(native["groups"], f"{ends(1, 7, relation=rel['A'])};"
+                         f"{ends(2, 4, relation=rel['B'])};{ends(3, 5, relation=rel['C'])}")
         self.assertEqual(plan._sweep_coords(native).n_sounds, 5)
         self.assertEqual([s["section"] for s in native["line_slots"]], ["VERSE1"] * 4 + ["VERSE2"] * 4)
         self.assertEqual([s["rgs"] for s in native["choices"]["schemes"].values()],
@@ -458,7 +644,8 @@ class CatalogPlannerTests(unittest.TestCase):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 6}],
                        rhymes=[[1, 2, 3, 4], [5, 6]], returns=[[1, 2, 4]])
         native = plan.make_plan(11, song_form=data)
-        self.assertEqual(native["groups"], "1,3;5,6")
+        rel = native["relations"]
+        self.assertEqual(native["groups"], f"{ends(1, 3, relation=rel['A'])};{ends(5, 6, relation=rel['B'])}")
         self.assertEqual(native["returns"], "1,2,4")
         for classes in ([[1, 5]], [[1, 2], [2, 3]], [[1, 2, 3, 4]], [[True, 2]]):
             with self.subTest(classes=classes), self.assertRaises(plan.PlanRefused):
@@ -559,6 +746,88 @@ class CatalogPlannerTests(unittest.TestCase):
                 self.assertEqual(score["verdict"], expected, score)
                 self.assertEqual([c["outcome"] for c in score["checks"]], [expected, "pass"])
         self.assertNotIn("caesuralRhyme", _reading(lex, lines[0]))
+
+    def test_hook_follows_the_form_own_returning_section(self):
+        """Every setting the automatic draw can choose: the plan names a hook
+        line exactly when the form places a sung section whose row returns
+        word for word more than once, and that line is in such a section."""
+        import json
+        import subprocess
+        from collections import Counter
+        from pathlib import Path
+        from quality import grid
+        root = Path(__file__).resolve().parents[2]
+        source = ("import { automaticFormCandidates } from './mcp/lyric_form.js';"
+                  "process.stdout.write(JSON.stringify("
+                  "await automaticFormCandidates({ lines: null })));")
+        drawn = json.loads(subprocess.check_output(
+            ["node", "--input-type=module", "-e", source], cwd=root, text=True))
+        rows = sorted({json.dumps([c["id"], c["variant"], c["counts"]], sort_keys=True): c
+                       for c in drawn}.items())
+        seen = Counter()
+        for index, (key, contract) in enumerate(rows):
+            built = None
+            for seed in range(10 * index + 1, 10 * index + 11):
+                try:
+                    built = plan.make_plan(seed, song_form=contract)
+                    break
+                except plan.PlanRefused:
+                    pass
+            if built is None:
+                seen["unplanned"] += 1
+                continue
+            count = Counter(s["function"] for s in built["sections"])
+            returning = {fn for fn, n in count.items() if n > 1 and getattr(
+                grid.SECTION_FUNCTIONS.get(fn), "returns_as", "") == "verbatim"}
+            with self.subTest(setting=key):
+                if returning:
+                    seen["hook"] += 1
+                    slot = [s for s in built["line_slots"] if s["line"] == built["hook_slot"]]
+                    self.assertEqual(len(slot), 1, built["hook_slot_refused"])
+                    self.assertIn(slot[0]["function"], returning)
+                    self.assertEqual(built["choices"]["hook"]["value"], built["hook_slot"])
+                else:
+                    seen["none"] += 1
+                    self.assertFalse(built["hook_slot"])
+                    self.assertIn(repr(contract["id"]), built["hook_slot_refused"])
+                    self.assertNotIn("hook", built["choices"])
+        self.assertTrue(seen["hook"] and seen["none"], seen)
+        self.assertLess(seen["unplanned"], len(rows) / 10, seen)
+
+    def test_reprise_source_is_drawn_kept_as_declared_or_absent(self):
+        """A reprise's first line comes back from the first line of an
+        earlier sung section, drawn with equal odds; a copy the form declares
+        there is kept; a reprise with nothing sung before it brings back no
+        line, and the receipt says so (#902). It used to copy line 1 whatever
+        came before."""
+        section = lambda role, lines=None: {"unit": "section", "role": role, "lines": lines}
+        three = catalog("probe", [section("verse"), section("bridge"), section("reprise")])
+        drawn = set()
+        for seed in range(1, 9):
+            built = plan.make_plan(seed, lines=12, song_form=three)
+            firsts = {}
+            for slot in built["line_slots"]:
+                firsts.setdefault(slot["section"], slot["line"])
+            heads = [firsts[s["name"]] for s in built["sections"] if s["function"] != "reprise"]
+            target = next(firsts[s["name"]] for s in built["sections"] if s["function"] == "reprise")
+            (source, line), = built["choices"]["reprise"]["value"]
+            self.assertEqual((line, built["choices"]["reprise"]["sources"]), (target, [heads]))
+            self.assertIn(source, heads)
+            self.assertIn(f"{source},{target}", built["returns"].split(";"))
+            self.assertIn(f"Line {target} opens the reprise by repeating line {source} word for word.",
+                          built["writer_brief"])
+            self.assertEqual(plan.make_plan(seed, lines=12, song_form=three)["returns"], built["returns"])
+            drawn.add(heads.index(source))
+        self.assertEqual(drawn, {0, 1})
+        declared = catalog("probe", [section("verse", 4), section("reprise", 4)], returns=[[2, 5]])
+        built = plan.make_plan(1, lines=8, song_form=declared)
+        self.assertEqual(built["returns"], "2,5")
+        self.assertNotIn("reprise", built["choices"])
+        wordless_first = catalog("probe", [section("solo"), section("reprise"), section("verse")])
+        built = plan.make_plan(1, lines=8, song_form=wordless_first)
+        self.assertEqual(built["returns"], "")
+        self.assertEqual(built["choices"]["reprise"]["value"], [])
+        self.assertEqual(built["choices"]["reprise"]["no_line_before"], [1])
 
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])

@@ -11,8 +11,9 @@ export const DEFAULT_FORM = 'open';
 // STATE IT OR SAY DRAW (writer plan, stage 3). A new song's lyric_sweep states
 // each of these things: a value in its field, a sweep `want` on one of its
 // `wants` names (a name ending `.*` stands for that name with any section
-// function), or, where `draw` is true, its field named in `draw`. There is no
-// draw over forms, so form takes a name. The `wants` names are the planner's
+// function), or, where `draw` is true, its field named in `draw`. A form is
+// named with `catalog_form`, or the sweep chooses one when both form fields
+// are left out (#902); `draw` never names it. The `wants` names are the planner's
 // own (`quality/plan.py` SWEEP_MEASURES, SWEEP_SETS and SWEEP_ORDERS),
 // checked there by test_high_report. A want states sections when it bounds
 // how many there are or which functions appear: `uses` and `before` hold
@@ -531,6 +532,20 @@ export function statementsOf(args, wantKey = 'want') {
 // STATEMENT_CONFLICT. The creation gate's own rule is statementsOf, where
 // any `lines` want states the length: there the question is whether the
 // person chose something about it, and a cap is that choice.
+export const isAutomaticForm = (args) => args.form === undefined && args.catalog_form === undefined;
+
+export function automaticSweepArgs(args) {
+  if (!isAutomaticForm(args)) return args;
+  const { missing } = statementsOf(args);
+  return {
+    ...args,
+    draw: drawList([
+      ...(args.draw ?? []),
+      ...missing.filter((row) => row.draw).map((row) => row.field),
+    ]),
+  };
+}
+
 const pinned = (want) => /(<=|>=|=)/.exec(String(want))?.[1] === '=';
 export const noneKeptDeclared = (args, wantKey = 'want') =>
   Object.fromEntries(
@@ -543,16 +558,6 @@ export const noneKeptDeclared = (args, wantKey = 'want') =>
   );
 const rowName = (r) => (r.thing === r.field ? r.field : `${r.thing} (${r.field})`);
 const wantLabel = (k) => (k.endsWith('.*') ? `${k.slice(0, -1)}F` : k);
-// `floor` false leaves out the form's fewest lines: published schema text
-// states no line count (test_prompt_provenance); a refusal states it.
-export const formRowText = (f, floor = true) => {
-  const needs = [
-    ...f.requires.map((fn) => (f.recurs.includes(fn) ? `${fn} at least twice` : fn)),
-    ...f.recurs.filter((fn) => !f.requires.includes(fn)).map((fn) => `${fn} at least twice`),
-    ...(floor && f.min_lines > LINES_FLOOR ? [`at least ${f.min_lines} lines`] : []),
-  ];
-  return `${f.form}, which requires ${needs.length ? joined(needs) : 'nothing'}`;
-};
 // -> what a STATEABLE field's own description says a new-song session's
 // lyric_sweep needs of it, read from its row.
 export const sweepNeeds = (field) => {
@@ -568,7 +573,7 @@ const NOT_YET_TEXT = joined(NOT_STATEABLE_YET.map((r) => `${r.thing} (${r.what})
 const named = STATEABLE.filter((r) => !r.draw).map((r) => r.field);
 const STATEMENT_RULE =
   `a new song's lyric_sweep states each of ${joined(STATEABLE.map(rowName))}: a value, or the field named in \`draw\` ` +
-  `(${joined(named)} takes a name; there is no draw over ${joined(named.map((f) => `${f}s`))}). ` +
+  `(${joined(named)} is named with \`catalog_form\`, or the sweep chooses one when \`form\` and \`catalog_form\` are both left out). ` +
   `A \`want\` on ${joined(
     STATEABLE.filter((r) => r.wants.length).map(
       (r) => `${joined(r.wants.map(wantLabel), 'or')} states ${r.thing}`
@@ -583,18 +588,26 @@ export function statementConflict(fields, code = 'CREATION_STATEMENT') {
 // draw is a choice the person makes too.
 export const ASK_PERSON =
   'Ask the person for each one they have not said; a draw is theirs to choose too. Do not choose for them.';
+// ONE FORM MECHANISM (#902). A new song's form is a catalog form: named in
+// catalog_form, or chosen by the sweep when both form fields are left out
+// (isAutomaticForm). The native `form` stays for raw, low-level callers and
+// for a job whose recorded sweep already holds one (sweepFor's `anyForm` and
+// the plan restore in creationRefusal), so only a new-song sweep refuses it.
+export const CREATION_FORM =
+  "CREATION_FORM: a new song's form is a catalog form. Name it with catalog_form, or leave out form and catalog_form and the sweep chooses an executable catalog setting. `form` remains for raw, low-level callers and for songs planned before. Nothing ran.";
+const withoutForm = ({ form: _legacy, ...rest }) => rest;
+// -> a new-song sweep's refusal, or null: a legacy `form` first, then what
+// it does not state.
+export const sweepRefusal = (args) =>
+  args?.form !== undefined ? CREATION_FORM : statementRefusal(args);
 // -> a new-song sweep's refusal for what it does not state, or null.
 export function statementRefusal(args) {
   const { missing, conflict } = statementsOf(args);
   if (conflict.length) return statementConflict(conflict);
-  if (!missing.length) return null;
-  const forms = missing.some((r) => !r.draw)
-    ? ` ${named.map((f) => f[0].toUpperCase() + f.slice(1)).join(', ')} takes one name: ${FORM_ROWS.map(formRowText).join('; ')}. A catalog form can be named with catalog_form instead.`
-    : '';
+  if (isAutomaticForm(args) || !missing.length) return null;
   return (
     `CREATION_STATEMENT: ${STATEMENT_RULE} This call leaves out ${joined(missing.map(rowName))}. Nothing ran.` +
     ` ${ASK_PERSON}` +
-    forms +
     ` Cannot be stated yet, so tell the person: ${NOT_YET_TEXT}.`
   );
 }
@@ -749,8 +762,9 @@ export function creationRefusal(task, name, args, lyric = null) {
   const w = workflowFor(task);
   if (!w || !name.startsWith('lyric_')) return null;
   // STATE IT OR SAY DRAW (stage 3): every new-song sweep states each
-  // STATEABLE thing, and none twice. Refused before dispatch: nothing runs.
-  if (name === 'lyric_sweep') return statementRefusal(args);
+  // STATEABLE thing, and none twice; its form is a catalog form (#902).
+  // Refused before dispatch: nothing runs.
+  if (name === 'lyric_sweep') return sweepRefusal(args);
   // THE WORD-CHECK FOLLOWS THE PLAN (writer plan, stage 3; the owner's ruling
   // of 15 Nov 2026). It was forced before the plan, where no rhyming line was
   // known yet. Its receipt now names the plan it ran under, and a grade needs
@@ -1155,6 +1169,8 @@ export function recordCreation(task, name, args, verdict, isError = false) {
   const w = workflowFor(task);
   if (!w || isError || !verdict) return;
   if (name === 'lyric_sweep') {
+    if (isAutomaticForm(args) && verdict.catalog_selection)
+      args = { ...automaticSweepArgs(args), ...verdict.catalog_selection };
     const request = sweepRequest(args);
     if (verdict.sweep_outcome === 'planner refused every seed' && Number.isInteger(verdict.swept))
       w.refused_sweep = {
@@ -1371,9 +1387,17 @@ export function nextCreationCall(task, carried, name, args = null) {
   const move = carriedMove(carried);
   if (move === 'hold') return null;
   if (name === 'lyric_sweep' && args) {
-    const { missing, conflict } = statementsOf(args);
-    if (conflict.length) return { tool: 'lyric_sweep', args: {}, missing: [], conflict };
-    if (missing.length) return { tool: 'lyric_sweep', args: {}, missing, conflict: [] };
+    // A sweep refused for a legacy `form` (CREATION_FORM) is answered by the
+    // same sweep without it, with whatever else that sweep must still fix.
+    const legacy = args.form !== undefined;
+    const rest = legacy ? withoutForm(args) : args;
+    const { missing, conflict } = statementsOf(rest);
+    const without = legacy ? { without: ['form'] } : {};
+    if (conflict.length)
+      return { tool: 'lyric_sweep', args: {}, missing: [], conflict, ...without };
+    if (missing.length && !(legacy && isAutomaticForm(rest)))
+      return { tool: 'lyric_sweep', args: {}, missing, conflict: [], ...without };
+    if (legacy) return { tool: 'lyric_sweep', args: {}, missing: [], conflict: [], ...without };
   }
   if (!w.sweeps.length) return { tool: 'lyric_sweep', args: {} };
   const stale =
@@ -1462,16 +1486,23 @@ export function formatNextCall(next) {
   const { tool, args } = next;
   if (tool === 'lyric_sweep') {
     const plan = `the plan repeats the sweep's ${joined([...SWEEP_COORDINATES, '`want`'])}`;
+    const without = next.without?.length
+      ? `this call's other arguments and no ${joined(next.without.map((f) => `\`${f}\``))}`
+      : null;
     if (next.conflict?.length)
-      return `NEXT: lyric_sweep with ${joined(next.conflict)} as a value or in \`draw\`, not both; ${plan}.`;
+      return `NEXT: lyric_sweep with ${without ? `${without}, and ` : ''}${joined(next.conflict)} as a value or in \`draw\`, not both; ${plan}.`;
+    if (without && !next.missing?.length) return `NEXT: lyric_sweep with ${without}; ${plan}.`;
     const rows = next.missing?.length ? next.missing : STATEABLE;
     const drawn = rows.filter((r) => r.draw).map((r) => r.field);
     const names = rows.filter((r) => !r.draw).map((r) => r.field);
+    // The one row with no draw is the form: a catalog form by name, or none
+    // for the sweep to choose (#902).
+    const byName = 'as a catalog_form name, or neither form field for the sweep to choose';
     const how = !drawn.length
-      ? 'as one name'
+      ? byName
       : `${rows.length > 1 ? 'each ' : ''}as a value or in \`draw\`` +
-        (names.length ? ` (${joined(names)} as one name)` : '');
-    return `NEXT: lyric_sweep stating ${joined(rows.map((r) => r.field))}, ${how}; ${plan}.`;
+        (names.length ? ` (${joined(names)} ${byName})` : '');
+    return `NEXT: lyric_sweep ${without ? `with ${without}, ` : ''}stating ${joined(rows.map((r) => r.field))}, ${how}; ${plan}.`;
   }
   if (tool === 'lyric_plan') {
     const quiet = new Set(['melody', ...(next.kept || [])]);
@@ -1565,7 +1596,7 @@ export function outcomeOf(tool, v, args = {}) {
       ? v.next_call
       : null;
   if (tool === 'lyric_sweep') {
-    if (code === 0) return takeOn(callOf('lyric_plan'));
+    if (code === 0) return takeOn(named ?? callOf('lyric_plan'));
     // Nothing planned or kept. A cause in a seed's own draw is answered by
     // the next window; a cause in the request is answered by changing it.
     const reasons = Array.isArray(v.planner_refusals) ? v.planner_refusals : [];
@@ -1825,10 +1856,14 @@ export const withSessionOutcome = (task, name, result, carried, args = {}) =>
 export const SWEEP_NEXT = /NEXT: lyric_plan with seed -?\d+[^\n]*/;
 // A raw lyric_sweep's NEXT line: the plan call for its first accepted seed,
 // built exactly as a session builds it from a fresh sweep receipt (#671, C2).
-export function sweepNextLine(args, seed) {
+export function sweepNextCall(args, seed) {
   const task = { domain: 'lyrics', phase: 'create' };
   workflowFor(task).sweeps.push({ args: structuredClone(args), accepted: [seed] });
-  return formatNextCall(nextCreationCall(task, null, 'lyric_plan'));
+  return nextCreationCall(task, null, 'lyric_plan');
+}
+
+export function sweepNextLine(args, seed) {
+  return formatNextCall(sweepNextCall(args, seed));
 }
 // THE GRADE VERDICT'S NEXT STEP (#671, B9/C4). `next` is the sentence a
 // caller reads; `next_call` is its tool and the args the server sets (seed,

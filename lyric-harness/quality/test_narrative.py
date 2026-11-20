@@ -143,8 +143,9 @@ def enumerated_lineups(functions):
 def test_measured_seeds():
     print("\n5. measured seeds, 2026-09-28: the 12..31 work envelope is "
           "deleted (owner ruling) and plans draw the whole 12..463 envelope "
-          "again; the sweeps below are retained as history. Current seeds "
-          "1..40: 38 admit / 2 zero (#676).")
+          "again; the sweeps below are retained as history. Since "
+          "2026-11-19 a new song is planned with at most 150 lines (#902). "
+          "Current seeds 1..40: 37 admit / 3 zero.")
     from quality import plan as P
     #: REPINNED 2026-08-26 (`MISSING.md` M-133) BY THE M-131 SONG-PROFILE
     #: RE-ADOPTION, AND THE PIN THAT MOVED IS NOT THE PIN THAT MATTERS.
@@ -444,23 +445,44 @@ def test_measured_seeds():
     # now, more than before: a false_ending (a RESOLVE) may come twice and
     # opens or follows early more often. The six old zeros are positive
     # now and stay pinned with their new counts.
-    ZEROS = (11, 13, 19, 24, 28, 29, 36, 38, 39, 50, 59, 65, 77, 83, 90)
-    pins = {1:2825912320, 6:1762983936, 7:37995520,
-            9:9565051879776593997987840,
-            15:34800, 23:11600, 25:5324800, 27:1475592192, 30:2234880,
-            31:246016, 34:466228598538240, 89:66060288,
-            41:276480,
-            56:2396160, 73:195969024, 82:3242437115904,
-            4:199437189120, 12:3833856, 62:768, 67:2722332672,
-            85:231824424960000, 94:363134976,
+    # REPINNED 2026-11-19 (the 150-line writing cap, John, #902; measured):
+    # a new song is planned with at most 150 lines, so the length draw's
+    # equal odds run over fewer totals and every seed re-deals its length
+    # first and its roster after. ~~ZEROS = (11, 13, 19, 24, 28, 29, 36, 38,
+    # 39, 50, 59, 65, 77, 83, 90)~~: fifteen zeros become ten. Thirteen of
+    # the stage-4 zeros are positive now and stay pinned with their new
+    # counts; 28 and 38 stay zero. Seed 82, a former bridge-first zero that
+    # stage 4 made positive (~~82:3242437115904~~), is a zero again, at the
+    # eighth section. Every other pin moved: ~~1:2825912320, 6:1762983936,
+    # 7:37995520, 9:9565051879776593997987840, 15:34800, 23:11600,
+    # 25:5324800, 27:1475592192, 30:2234880, 31:246016,
+    # 34:466228598538240, 89:66060288, 41:276480, 56:2396160,
+    # 73:195969024, 4:199437189120, 12:3833856, 62:768, 67:2722332672,
+    # 85:231824424960000, 94:363134976~~.
+    ZEROS = (20, 28, 38, 48, 64, 79, 81, 82, 97, 100)
+    pins = {1:9635328, 6:32747520, 7:513802240,
+            9:5865799680,
+            15:15257600, 23:3533517619200, 25:21307392000, 27:221184,
+            30:5548032,
+            31:384, 34:1847350886400, 89:29952,
+            41:37995520,
+            56:59904, 73:29696,
+            4:1159004160, 12:3568640, 62:26726400, 67:245760,
+            85:4313088, 94:6311936,
+            # the stage-4 zeros that are positive under the cap
+            11:10416036145161830400, 13:483065856, 19:76288, 24:100352,
+            29:100352, 36:1010974720, 39:239616, 50:62400610959360000,
+            59:17599692800, 65:8759624991768576000, 77:228864,
+            83:63311576039424000, 90:3070080,
             **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed, form="verse-chorus")["sections"]]
         got[seed] = N.count_lineups(fns)
     check("all eighteen historical seeds, the three former bridge-first "
-          "zeros, the six zeros before stage 4 and all fifteen current zero "
-          "exemplars re-derive exactly under the plan envelope",
+          "zeros, the six zeros before stage 4, the thirteen stage-4 zeros "
+          "that are positive now and all ten current zero exemplars "
+          "re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
     # (2026-10-21). Under the owner's equal-weight beat draw a two-beat line
@@ -485,11 +507,13 @@ def test_measured_seeds():
     # 55 refuses here~~ — since option (b) (2026-10-22) a draw the joint gate
     # refuses is redrawn, so NO seed refuses and the denominator is all 100
     # again; any refusal fails this check.
-    check("the complete current 100-seed denominator has exactly fifteen "
-          "zero shapes, nine of them among the first forty, over all 100 "
+    # REPINNED 2026-11-19 (the 150-line writing cap): ~~exactly fifteen
+    # zero shapes, nine of them among the first forty (31 positive)~~.
+    check("the complete current 100-seed denominator has exactly ten "
+          "zero shapes, three of them among the first forty, over all 100 "
           "plans with no seed refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
-          and sum(sweep[seed] > 0 for seed in range(1,41)) == 31
+          and sum(sweep[seed] > 0 for seed in range(1,41)) == 37
           and refused == [],
           f"{len(sweep)} plans of 100 seeds; refused NO_FREE_WORD: "
           f"{refused or 'none'}")
@@ -547,10 +571,15 @@ def test_measured_seeds():
     # length-1 prefix counts 0 for a reason that is not a refusal.
     # REPINNED 2026-11-16 (stage 4): ~~{4: 1, 12: 1, 62: 1, 67: 1, 85: 1,
     # 94: 3}~~. The fifteen zeros now collapse at every depth from 1 to 6.
+    # REPINNED 2026-11-19 (the 150-line writing cap): ~~{11: 5, 13: 2,
+    # 19: 1, 24: 3, 28: 3, 29: 2, 36: 6, 38: 4, 39: 1, 50: 5, 59: 1, 65: 1,
+    # 77: 1, 83: 1, 90: 6}~~. The ten zeros collapse at the first, second,
+    # third, sixth and eighth sections; no seed in 1-100 collapses at the
+    # fourth or fifth now, and the declared shapes below cover those depths.
     check("actual current zeros distinguish opening refusals from refusals "
-          "at the second to the sixth section",
-          at == {11: 5, 13: 2, 19: 1, 24: 3, 28: 3, 29: 2, 36: 6, 38: 4,
-                 39: 1, 50: 5, 59: 1, 65: 1, 77: 1, 83: 1, 90: 6},
+          "at the second, third, sixth and eighth sections",
+          at == {20: 1, 28: 3, 38: 6, 48: 3, 64: 6, 79: 1, 81: 1, 82: 8,
+                 97: 2, 100: 2},
           at)
     # THE THREE SHAPES THE BRIDGE RULE DISPLACED, KEPT AS AUTHORED INPUT
     # (2026-11-15). Each opened on a bridge and the story layer already
@@ -751,11 +780,16 @@ def test_the_wired_draw():
     #: roster re-deals to [intro, chorus, verse, verse, prechorus, chorus,
     #: coda], so the cover moves with it: 81 -> 125 characters and 4 -> 5
     #: labels; the line count holds at 18.
-    check("seed 31 draws 18 lines, with a 125-character groups spelling "
-          "placed by type and 5 labels; the capped 12/79/0 draw is recorded "
+    #: REPINNED 2026-11-19 (the 150-line writing cap, John, #902; measured):
+    #: the length draw runs over fewer totals, so seed 31 re-deals its
+    #: length ~~18~~ -> 15 and its roster to [verse, burden, chorus, chorus,
+    #: outro]; the cover moves with it: ~~125~~ -> 45 characters and ~~5~~ ->
+    #: 3 labels.
+    check("seed 31 draws 15 lines, with a 45-character groups spelling "
+          "placed by type and 3 labels; the capped 12/79/0 draw is recorded "
           "above",
-          pl["total_lines"] == 18
-          and len(pl["groups"]) == 125 and len(pl["relations"]) == 5,
+          pl["total_lines"] == 15
+          and len(pl["groups"]) == 45 and len(pl["relations"]) == 3,
           f"lines {pl['total_lines']}, groups {len(pl['groups'])}, labels {len(pl['relations'])}")
     nar = pl["narrative"]
     #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is
@@ -764,10 +798,13 @@ def test_the_wired_draw():
     #: atom count equals the section count here where it did not before
     #: (the old nine carried one wordless section: 8 atoms, 7 junctions).
     #: ~~lineups 136448, 8 atoms, 7 junctions~~ -> 63232, 7, 6.
+    #: REPINNED 2026-11-19 (the 150-line writing cap): the five-section
+    #: roster above is every one sung: ~~lineups 246016, 7 atoms, 6
+    #: junctions~~ -> 384, 5, 4.
     check("the collapse is RECORDED: mode drawn, the exact line-up "
           "count disclosed, one atom per sung section, one junction "
-          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 246016
-          and len(nar["atoms"]) == 7 and len(nar["junctions"]) == 6)
+          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 384
+          and len(nar["atoms"]) == 5 and len(nar["junctions"]) == 4)
     check("the drawn line-up VALIDATES under the one shared validator",
           N.validate_lineup([sec["function"] for sec in pl["sections"]],
                             nar["atoms"], nar["junctions"]) == [])
@@ -812,7 +849,16 @@ def test_the_wired_draw():
     # ~~seed 4~~ -> seed 19 (2026-11-16, stage 4): the same kind, a sung
     # false-ending opening refusal (roster opens false_ending, tag, verse;
     # collapse depth 1).
-    pzero = P.make_plan(19, form="verse-chorus")
+    # ~~seed 19~~ -> found by its property (2026-11-19, the 150-line writing
+    # cap re-dealt seed 19 to a shape): the first seed in 1-100 whose roster
+    # opens on false_ending and whose roster the counter itself counts zero,
+    # the same kind each earlier carrier was. Measured: seed 20.
+    def _roster(seed):
+        return [s["function"] for s in P.make_plan(seed, form="verse-chorus")["sections"]]
+    zero_seed = next(seed for seed in range(1, 101)
+                     if (r := _roster(seed))[0] == "false_ending"
+                     and N.count_lineups(r) == 0)
+    pzero = P.make_plan(zero_seed, form="verse-chorus")
     check("a zero-shape seed DISCLOSES and still ships: mode none, "
           "lineups 0, the brief's story record reads mode none (#671 A3), "
           "and the sound plan is intact",
@@ -853,25 +899,40 @@ def test_the_wired_draw():
     # validator refuses by name whatever that section is, unless it
     # carries a TURN face — asserted first so the refusal below is known
     # to be the validator's and not luck's.
-    _atoms, _juncs = nar["atoms"], nar["junctions"]
+    # REPINNED 2026-11-19 (the 150-line writing cap): ~~seed 31~~ -> the
+    # first seed found by the property. The cap re-dealt seed 31 to open on
+    # a verse, which has a TURN face, so a TURN there is refused as an
+    # opening ("TURN cannot open the song") and not as a face the section
+    # lacks. The declaration seed is now the first seed in 1-100 whose story
+    # is drawn and whose first sung section has no TURN face in the atom
+    # table; the validator is then asked for its own word. Measured: seed 1.
+    def _turn_free_first(seed):
+        p = P.make_plan(seed, form="verse-chorus")
+        first = next(s["function"] for s in p["sections"]
+                     if N.FUNCTION_ATOMS[s["function"]])
+        return p["narrative"]["mode"] == "drawn" and \
+            "TURN" not in N.FUNCTION_ATOMS[first]
+    decl_seed = next(seed for seed in range(1, 101) if _turn_free_first(seed))
+    pdecl = P.make_plan(decl_seed, form="verse-chorus")
+    _atoms, _juncs = pdecl["narrative"]["atoms"], pdecl["narrative"]["junctions"]
     dec_spelling = ",".join(
         [_atoms[0][2]] + [f"{a[2]}/{j[2]}" for a, j in zip(_atoms[1:], _juncs)])
     bad_spelling = ",".join(
         ["TURN"] + [f"{a[2]}/{j[2]}" for a, j in zip(_atoms[1:], _juncs)])
     _turn_first = N.validate_lineup(
-        [sec["function"] for sec in pl["sections"]],
+        [sec["function"] for sec in pdecl["sections"]],
         [[a[0], a[1], "TURN"] if i == 0 else a for i, a in enumerate(_atoms)],
         _juncs)
-    check("the premise for the illegal spelling: seed 31's first sung "
-          "section cannot carry TURN, by the validator's own word",
+    check(f"the premise for the illegal spelling: seed {decl_seed}'s first "
+          "sung section cannot carry TURN, by the validator's own word",
           any("cannot carry TURN" in x for x in _turn_first), f"{_turn_first[:1]}")
     dec = subprocess.run(
-        [sys.executable, "lyric_harness.py", "plan", "--seed=31", "--form=verse-chorus",
-         f"--narrative={dec_spelling}"],
+        [sys.executable, "lyric_harness.py", "plan", f"--seed={decl_seed}",
+         "--form=verse-chorus", f"--narrative={dec_spelling}"],
         cwd=HERE, capture_output=True, text=True)
     bad = subprocess.run(
-        [sys.executable, "lyric_harness.py", "plan", "--seed=31", "--form=verse-chorus",
-         f"--narrative={bad_spelling}"],
+        [sys.executable, "lyric_harness.py", "plan", f"--seed={decl_seed}",
+         "--form=verse-chorus", f"--narrative={bad_spelling}"],
         cwd=HERE, capture_output=True, text=True)
     check("the CLI spelling is REACHABLE (the M-55 lesson): "
           "--narrative=off prints no story plan, the declared grammar "
@@ -924,13 +985,20 @@ def test_the_wired_draw():
     # ~~3..5 around seed 4~~ -> 18..20 around seed 19 (2026-11-16, stage 4
     # re-dealt seed 4): seed 19 is the same kind, a false_ending-first
     # opening refusal, between two positive shapes.
-    res = P.sweep(range(18, 21),
+    # ~~18..20 around seed 19~~ -> the window around the zero-shape seed
+    # found above (2026-11-19, the 150-line writing cap re-dealt seed 19 to
+    # a shape): that seed is the first false_ending-first opening refusal in
+    # 1-100, and the check still needs both its neighbours to admit, so a
+    # filter that rejects nothing cannot pass. Measured: 19..21 around 20.
+    window = range(zero_seed - 1, zero_seed + 2)
+    res = P.sweep(window,
                   wants=[P.parse_sweep_want("story_lineups>=1")],
                   form="verse-chorus")
-    check("the seed filter actually accepts 18 and 20 and rejects 19, the "
-          "current false_ending-first opening refusal; both positive and "
+    check(f"the seed filter actually accepts {zero_seed - 1} and "
+          f"{zero_seed + 1} and rejects {zero_seed}, the current "
+          "false_ending-first opening refusal; both positive and "
           "negative arms execute",
-          res["accepted"] == [18, 20], res["accepted"])
+          res["accepted"] == [zero_seed - 1, zero_seed + 1], res["accepted"])
 
 
 

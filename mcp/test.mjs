@@ -5593,7 +5593,6 @@ await check('validation: actionable errors', () => {
         'the revise-loop redesign at the connector (seal, fold, cursor_stripped), executed by CI (test:connector:live)',
       'mcp/test_resume_stopped.mjs':
         'shared test helper: resumes a safe-point stop (exit 5) for test.mjs, test_run_continuation.mjs and test_loop_redesign.mjs',
-      'mcp/qualify_session_workflow.mjs': 'operator-run session qualification and evidence writer',
       'mcp/IMAGE_RELEASE.md': 'immutable image promotion operator documentation',
       'mcp/LYRICS_RUNTIME.md': 'operator documentation',
       'mcp/READER_RUNTIME.md': 'Library reader operator documentation',
@@ -7994,11 +7993,18 @@ if (!runs('offline') || PART === null) {
       );
       for (const t of lyric) {
         const writes = t.name === 'lyric_revise';
+        // A sweep that names no form chooses a catalog form afresh on each
+        // call (#902), so a repeat can answer differently.
+        const draws = t.name === 'lyric_sweep';
         assert.equal(t.annotations?.readOnlyHint, !writes, `${t.name} declares its state effects`);
         // No outside server reaches a model provider: only the website chat's
         // server (buildServer({ kitchen: true })) lets the service writer answer.
         assert.equal(t.annotations?.openWorldHint, false, `${t.name} declares no model access`);
-        assert.equal(t.annotations?.idempotentHint, !writes, `${t.name} declares replay semantics`);
+        assert.equal(
+          t.annotations?.idempotentHint,
+          !writes && !draws,
+          `${t.name} declares replay semantics`
+        );
       }
       console.log(
         '  ok  lyric family advertised: 9 tools, revise declares its state effects and no model access'
@@ -9385,12 +9391,19 @@ if (!runs('offline') || PART === null) {
           1 + HALF,
           'the next window starts where this one ended'
         );
+        // A sweep that names no form draws a catalog setting afresh (#902),
+        // so the next two windows name the setting this one drew: all three
+        // then plan one function of the seed, which is what composition asks.
+        const drawn = sweepA.catalog_selection;
+        assert.equal(typeof drawn?.catalog_form, 'string', 'the sweep names the setting it drew');
         const sweepB = await callText('lyric_sweep', {
+          ...drawn,
           seed_from: 1 + HALF,
           count: HALF,
           want: ['lines>=24'],
         });
         const sweepAB = await callText('lyric_sweep', {
+          ...drawn,
           seed_from: 1,
           count: 2 * HALF,
           want: ['lines>=24'],
@@ -9497,9 +9510,19 @@ if (!runs('offline') || PART === null) {
         // here too rather than dropped, and the unreachability is stated rather
         // than left as a check that quietly always passes (doctrine 48).
         const wide = await callText('lyric_sweep', { seed_from: 1, count: MAX_SWEEP });
+        // A sweep that names no form draws a catalog setting (#902), and that
+        // setting can turn some seeds down, so the window is the seeds swept
+        // and the accepted ones are the seeds that planned.
+        assert.equal(wide.swept, MAX_SWEEP, 'the whole window is swept');
+        assert.ok(wide.planned > 0, 'some seed in the window plans');
+        assert.equal(
+          wide.planned + wide.planner_refused,
+          MAX_SWEEP,
+          'each seed plans or is refused'
+        );
         assert.equal(
           wide.accepted_count,
-          MAX_SWEEP,
+          wide.planned,
           'with no predicate every seed that plans is accepted'
         );
         assert.equal(

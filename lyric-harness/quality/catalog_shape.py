@@ -6,7 +6,7 @@ Length allocation reuses the ordinary exact-uniform native partition engine.
 import re
 
 from quality import grid, plan
-from quality.relations import audible_as_end_rhyme
+from quality.relations import Agree, TailPhonesAgree, audible_as_end_rhyme
 
 
 FIELDS = frozenset(("version", "id", "scope", "variant", "counts", "sections",
@@ -22,9 +22,23 @@ def line_rhyme_contract(contract):
 
 
 def terminal_rhyme_relation(name):
-    """Whether this native declaration can bind an audible rhyme at both line endings."""
+    """Whether this native declaration can bind an audible rhyme at both line
+    endings: a type read at each line's last word (`audible_as_end_rhyme`),
+    or one whose members may span words but must each end their line
+    (`both_line_final`), with the vowel and the sounds after it agreeing
+    (#902). Types that may sit inside a line, or run across its end, are not
+    line-end rhymes."""
+    if name == "class:RHYME":
+        return True
     _, schema = plan._schema_of(name)
-    return name == "class:RHYME" or schema is not None and audible_as_end_rhyme(schema)
+    if schema is None:
+        return False
+    if audible_as_end_rhyme(schema):
+        return True
+    ends = any(p.kind == "both_line_final" and p.polarity for p in schema.placement)
+    agree = {c.channel for c in schema.channels
+             if c.required and isinstance(c.predicate, (Agree, TailPhonesAgree))}
+    return ends and ({"nucleus", "coda"} <= agree or "rime_phones" in agree)
 
 
 def rhyme_source_groups(groups, returns):
@@ -366,7 +380,8 @@ def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
                 or not plan.ENVELOPE["total_lines"][0] <= total <= plan.ENVELOPE["total_lines"][1]
                 or lines is not None and lines != total):
             raise plan.PlanRefused("catalog sections cannot fill the requested gradeable line total")
-        return {"total": total, "sections": [{"function": "verse", "lines": k} for k in sizes],
+        return {"total": total, "total_from": 1,
+                "sections": [{"function": "verse", "lines": k} for k in sizes],
                 "instance_lengths": True}
     fixed = {f: 0 for f in funcs if f in plan.ZERO_LINE_FUNCTIONS}
     for fn, part in zip(funcs, parts):
@@ -408,14 +423,15 @@ def resolve_catalog_shape(contract, rng, *, totals, lines=None, functions=None,
         if by_role:
             raise plan.PlanRefused("catalog section bars cannot fit the declared lines, melody, and native section partition")
         raise plan.PlanRefused("catalog sections cannot fill the requested gradeable line total")
-    total = rng.choice(sorted({n for *_, lengths in options for n in lengths}))
+    feasible = sorted({n for *_, lengths in options for n in lengths})
+    total = rng.choice(feasible)
     fitting = [option for option in options if total in option[-1]]
     bars, fixed, free, weights, base, _ = fitting[0] if len(fitting) == 1 else rng.choice(fitting)
     shares = plan._partition_uniform(weights, total - base, rng)
     counts = {**fixed, **{f: k + minimum - 1 for f, k in zip(free, shares)}}
     if counts.get("tag") and any(0 < k < counts["tag"] for f, k in counts.items() if f != "tag"):
         raise plan.SeedRefused("this catalog partition has a tag longer than an earlier section")
-    result = {"total": total, "sections": [
+    result = {"total": total, "total_from": len(feasible), "sections": [
         {"function": fn, "lines": counts[fn]} for fn in funcs]}
     if bars is not None:
         result["bars_per_line"] = bars

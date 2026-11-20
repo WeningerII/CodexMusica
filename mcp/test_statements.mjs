@@ -22,13 +22,15 @@ import {
   DEFAULT_FORM,
   DRAWABLE,
   FORM_ROWS,
-  LINES_FLOOR,
   NOT_STATEABLE_YET,
   PLAN_FIELDS,
   STATEABLE,
   STATEMENT_FIELDS,
   SWEEP_COORDINATES,
+  CATALOG_FIELDS,
+  catalogSelection,
   ASK_PERSON,
+  CREATION_FORM,
   creationRefusal,
   nextCreationCall,
   planRefusedNext,
@@ -45,7 +47,14 @@ import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
 import { runTurn, LIMITS, buildSurface } from './gemini_agent.js';
-import { stated } from './statement_fixture.mjs';
+import {
+  legacySession,
+  legacySnapshot,
+  legacyStated,
+  legacySweep,
+  stated,
+} from './statement_fixture.mjs';
+import { automaticFormCandidates } from './lyric_form.js';
 
 // ── The planner's own tables, read once ─────────────────────────────────────
 const HARNESS = new URL('../lyric-harness/', import.meta.url).pathname;
@@ -133,15 +142,22 @@ function sweepStating(rows, seed) {
 }
 const fresh = () => ({ domain: 'lyrics', phase: 'create' });
 const DEFAULT_FORM_ROW = FORM_ROWS.find((f) => f.form === DEFAULT_FORM);
+// A new song's form is a catalog form (#902): an id from the Song Forms
+// catalog, picked by seed. The gate reads only that one is named; it states
+// the sections too (statementsOf).
+const CATALOG_IDS = JSON.parse(
+  readFileSync(new URL('../data/song-forms.json', import.meta.url), 'utf8')
+).map((f) => f.id);
+const catalogForm = (seed) => CATALOG_IDS[Math.abs(seed) % CATALOG_IDS.length];
+// The same sweep with its legacy `form` named as a catalog form instead.
+const catalogNamed = ({ form, ...args }, seed) =>
+  form === undefined ? args : { ...args, catalog_form: catalogForm(seed) };
+const CREATION_FORM_NEXT =
+  " NEXT: lyric_sweep with this call's other arguments and no `form`; " +
+  "the plan repeats the sweep's form, lines, functions, relation, melody and `want`.";
 const rowName = (r) => (r.thing === r.field ? r.field : `${r.thing} (${r.field})`);
 const listed = (xs) =>
   xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`;
-// The form clause of a refusal, if it has one.
-const formClause = (text) => {
-  const at = text.indexOf(' takes one name: ');
-  return at < 0 ? null : text.slice(at, text.indexOf('. Cannot be stated yet', at));
-};
-
 // ── The gate, for every subset of the table ─────────────────────────────────
 test('a new-song sweep names exactly what it leaves out, for every subset of STATEABLE, and its NEXT is admitted', () => {
   const subsets = 2 ** STATEABLE.length;
@@ -149,12 +165,29 @@ test('a new-song sweep names exactly what it leaves out, for every subset of STA
   for (let mask = 0; mask < subsets; mask++)
     for (const seed of [mask, mask + 101, mask + 977]) {
       const given = STATEABLE.filter((_, i) => mask & (1 << i));
-      const missing = STATEABLE.filter((_, i) => !(mask & (1 << i)));
-      const args = sweepStating(given, seed);
+      const legacy = sweepStating(given, seed);
       const task = fresh();
+      // #902: a stated form given as the legacy `form` is refused first, and
+      // the NEXT, followed, is admitted.
+      if (legacy.form !== undefined) {
+        const where = `mask ${mask} seed ${seed} ${JSON.stringify(legacy)}`;
+        const refusal = creationRefusal(task, 'lyric_sweep', structuredClone(legacy));
+        assert.equal(refusal, CREATION_FORM, where);
+        const text = withNextCall(refusal, task, null, 'lyric_sweep', legacy);
+        assert.equal(text, refusal + CREATION_FORM_NEXT, where);
+        const { form: _form, ...followed } = legacy;
+        assert.equal(creationRefusal(fresh(), 'lyric_sweep', followed), null, where);
+      }
+      // The same statements with the form named as a catalog form, which
+      // states the sections too.
+      const args = catalogNamed(legacy, seed);
+      const missing = STATEABLE.filter(
+        (row, i) =>
+          !(mask & (1 << i)) && !(args.catalog_form !== undefined && row.field === 'functions')
+      );
       const refusal = creationRefusal(task, 'lyric_sweep', structuredClone(args));
       const where = `mask ${mask} seed ${seed} ${JSON.stringify(args)}`;
-      if (!missing.length) {
+      if (args.catalog_form === undefined || !missing.length) {
         assert.equal(refusal, null, where);
         continue;
       }
@@ -164,31 +197,13 @@ test('a new-song sweep names exactly what it leaves out, for every subset of STA
         refusal.includes(` leaves out ${listed(missing.map(rowName))}. Nothing ran.`),
         `${where}: ${refusal}`
       );
-      // The form rows, only when form is missing; each rebuilt from its data.
-      const clause = formClause(refusal);
-      const formMissing = missing.some((r) => !r.draw);
-      assert.equal(clause !== null, formMissing, `${where}: ${refusal}`);
-      if (clause)
-        for (const f of FORM_ROWS) {
-          const at = clause.indexOf(`${f.form}, which requires `);
-          assert.ok(at >= 0, `${f.form}: ${clause}`);
-          const own = clause.slice(at).split(';')[0];
-          for (const fn of f.requires) assert.ok(own.includes(fn), own);
-          for (const fn of f.recurs) assert.ok(own.includes(`${fn} at least twice`), own);
-          assert.equal(own.includes(`at least ${f.min_lines} lines`), f.min_lines > LINES_FLOOR);
-          assert.equal(
-            own.endsWith('requires nothing'),
-            !f.requires.length && !f.recurs.length && f.min_lines <= LINES_FLOOR,
-            own
-          );
-        }
       // It ends with what cannot be stated yet.
       const tail = refusal.slice(refusal.lastIndexOf('Cannot be stated yet'));
       for (const r of NOT_STATEABLE_YET) assert.ok(tail.includes(`${r.thing} (${r.what})`), tail);
       assert.ok(tail.endsWith('.'), tail);
       // It suggests no value: outside the form rows, no number, and no
       // roster function, relation type or form name.
-      const rest = clause ? refusal.replace(clause, '') : refusal;
+      const rest = refusal;
       assert.doesNotMatch(rest, /\d/, rest);
       for (const word of [...P.roster, ...P.types, ...P.forms])
         assert.ok(!rest.includes(` ${word} `) && !rest.includes(` ${word},`), `${word}: ${rest}`);
@@ -216,7 +231,8 @@ test('a value and a draw for one field are refused on the sweep and the plan, an
   for (const [i, field] of DRAWABLE.entries()) {
     const r = rng(500 + i);
     const form = pick(r, P.forms);
-    const complete = stated({ form }, i);
+    // Both form fields left out: the sweep chooses a catalog form (#902).
+    const complete = stated({});
     const args = { ...complete, [field]: VALUE[field](r, form) };
     assert.ok(args.draw.includes(field));
     const task = fresh();
@@ -243,7 +259,10 @@ test('a value and a draw for one field are refused on the sweep and the plan, an
   }
   // Repeats in `draw` are read once.
   assert.equal(
-    creationRefusal(fresh(), 'lyric_sweep', { form: P.forms[0], draw: [...DRAWABLE, ...DRAWABLE] }),
+    creationRefusal(fresh(), 'lyric_sweep', {
+      catalog_form: catalogForm(0),
+      draw: [...DRAWABLE, ...DRAWABLE],
+    }),
     null
   );
 });
@@ -254,14 +273,22 @@ test('a second sweep refused for what it leaves out names that sweep again, not 
     exit_code: 0,
     accepted_shown: [0],
   });
-  const second = { seed_from: 1, count: 1, form: P.forms[0] };
+  // A named form is a catalog form, which states the sections too (#902).
+  const second = { seed_from: 1, count: 1, catalog_form: catalogForm(1) };
   const refusal = creationRefusal(task, 'lyric_sweep', structuredClone(second));
   assert.match(refusal, /^CREATION_STATEMENT: /);
+  // The rule says how a new song gets its form: named with `catalog_form`, or
+  // chosen by the sweep (#902). It once said there was no draw over forms.
+  assert.match(
+    refusal,
+    /form is named with `catalog_form`, or the sweep chooses one when `form` and `catalog_form` are both left out/
+  );
+  assert.doesNotMatch(refusal, /no draw over forms/);
   const next = nextCreationCall(task, null, 'lyric_sweep', second);
   assert.equal(next.tool, 'lyric_sweep');
   assert.deepEqual(
     next.missing.map((r) => r.field),
-    DRAWABLE
+    DRAWABLE.filter((f) => f !== 'functions')
   );
   assert.match(
     withNextCall(refusal, task, null, 'lyric_sweep', second),
@@ -622,6 +649,13 @@ test("every STATEABLE field's description says what a new-song session's sweep n
     for (const t of holders) {
       const d = t.inputSchema.properties[row.field].description;
       const at = d.indexOf("A new-song session's lyric_sweep needs ");
+      if (row.field === 'form') {
+        // #902: the raw, low-level boundary, refused on a new song's sweep.
+        assert.match(d, /for raw, low-level callers and songs planned before/, t.name);
+        assert.match(d, /A new-song session refuses it on lyric_sweep \(CREATION_FORM\)/, t.name);
+        assert.equal(t.inputSchema.properties.form.enum, undefined, t.name);
+        continue;
+      }
       assert.ok(at >= 0, `${t.name} ${row.field}: ${d}`);
       const clause = /^[^]*?\.(?= |$)/.exec(d.slice(at))[0];
       assert.match(clause, /this field's value/, `${t.name} ${row.field}`);
@@ -992,10 +1026,12 @@ test(
     // the melody's keys reordered and the relation in upper case. The run
     // opens on the plan's spelling; each continuing call is carried on that
     // spelling, not refused as a moved declaration.
+    // The declarations name a legacy form: a job saved with its sweep
+    // recorded (#902), planned, graded and revised here for real.
     const server = buildServer({ task: { domain: 'lyrics' } });
     const [a, b] = InMemoryTransport.createLinkedPair();
     await server.connect(a);
-    const c = await connectConnector({ task: 'lyrics', transport: b });
+    let c = null;
     const verdict = (result, what) => {
       assert.notEqual(result.isError, true, `${what}: ${JSON.stringify(result).slice(0, 800)}`);
       const v = result.content
@@ -1036,13 +1072,15 @@ test(
       const melody = groupedMelody(r2);
       const relation = `type:${pick(r2, P.types)}`;
       const declared = { form, lines, functions: functions.join(','), melody, relation };
-      const sweep = verdict(
-        await c.call(
-          'lyric_sweep',
-          stated({ seed_from: Math.floor(r() * 1000), count: 4, ...declared, want: wants })
-        ),
-        'sweep'
+      const job = await legacySweep(
+        stated({ seed_from: Math.floor(r() * 1000), count: 4, ...declared, want: wants })
       );
+      const sweep = verdict(job.result, 'sweep');
+      c = await connectConnector({
+        task: 'lyrics',
+        transport: b,
+        session: await legacySnapshot(job.task),
+      });
       const seed = sweep.accepted_shown[0];
       verdict(await c.call('lyric_plan', { seed, ...declared, wants }), 'plan');
       const plan = c.snapshot().task.workflow.plan;
@@ -1129,15 +1167,58 @@ test(
       }
       assert.ok(answered > 0, 'an answer continued the run');
     } finally {
-      await c.close();
+      await c?.close();
       await server.close();
     }
   }
 );
 
 // ── Every surface, through the real gate ─────────────────────────────────────
-const missingArgs = { seed_from: 3, count: 1 };
+// A named form is a catalog form (#902), which states the sections too; a
+// sweep that names one and leaves the rest out is refused for the rest.
+// EXECUTABLE is picked by property: the first of the automatic draw's
+// settings, in a fixed order, whose every section has a line count and whose
+// window (seed 3) the raw engine accepts with its length drawn and with it
+// stated. `total` is that length.
+const settingKey = (c) => JSON.stringify([c.id, c.variant, c.counts]);
+let executable = null;
+async function executableSetting() {
+  if (executable) return executable;
+  const { client, close } = await rawClient();
+  try {
+    const all = (await automaticFormCandidates({})).sort((x, y) =>
+      settingKey(x) < settingKey(y) ? -1 : settingKey(x) > settingKey(y) ? 1 : 0
+    );
+    for (const contract of all) {
+      if (!contract.sections.every((section) => Number.isInteger(section.lines))) continue;
+      const selection = catalogSelection({ song_form: contract });
+      const total = contract.sections.reduce((n, section) => n + section.lines, 0);
+      const accepts = async (args) => {
+        const r = await client.callTool({
+          name: 'lyric_sweep',
+          arguments: { seed_from: 3, count: 1, ...selection, ...args },
+        });
+        return !r.isError && JSON.parse(r.content[0].text).accepted_shown?.[0] === 3;
+      };
+      if (
+        (await accepts({ draw: ['lines', 'relation', 'melody'] })) &&
+        (await accepts({ lines: total, draw: ['relation', 'melody'] }))
+      )
+        return (executable = { selection, total });
+    }
+  } finally {
+    await close();
+  }
+  assert.fail('no fixed-length setting of the automatic draw plans seed 3');
+}
+const missingArgs = async () => ({
+  seed_from: 3,
+  count: 1,
+  ...(await executableSetting()).selection,
+});
 const completeArgs = stated({ seed_from: 3, count: 1 });
+// What a catalog form leaves to state: the drawable rows but the sections.
+const CATALOG_LEAVES = STATEABLE.filter((row) => row.draw && row.field !== 'functions');
 
 test(
   'the SDK client refuses an unstated sweep before dispatch, and plans and records a stated one',
@@ -1149,18 +1230,24 @@ test(
     let dispatched = 0;
     const realCall = Client.prototype.callTool;
     const c = await connectConnector({ task: 'lyrics', transport: b });
+    // Found before counting: finding it runs the raw engine.
+    const missing = await missingArgs();
     try {
       Client.prototype.callTool = function (...xs) {
         dispatched++;
         return realCall.apply(this, xs);
       };
-      await assert.rejects(c.call('lyric_sweep', missingArgs), (e) => {
+      await assert.rejects(c.call('lyric_sweep', missing), (e) => {
         assert.equal(e.beforeDispatch, true);
         assert.match(e.message, /^CREATION_STATEMENT: .* NEXT: lyric_sweep stating /s);
         assert.ok(e.message.includes(ASK_PERSON), 'the refusal says to ask the person');
         return true;
       });
       assert.equal(dispatched, 0, 'nothing was dispatched');
+      // Both form fields left out: the sweep chooses a catalog setting, which
+      // states the form and the sections; a length it fixes is a value. The
+      // native statement of the same sweep is on the raw engine above ("the
+      // plan result's statements hold the plan's own values").
       const swept = await c.call('lyric_sweep', completeArgs);
       assert.equal(dispatched, 1);
       const seed = JSON.parse(swept.content[0].text).accepted_shown[0];
@@ -1168,9 +1255,10 @@ test(
       const v = JSON.parse(planned.content[1].text);
       assert.equal(v.exit_code, 0);
       assert.equal(c.snapshot().task.workflow.plan.sha256, v.plan_sha256, 'the plan is recorded');
+      const fixed = v.plan.request.song_form.sections.every((x) => Number.isInteger(x.lines));
       assert.deepEqual(
         v.statements.rows.map((x) => x.said),
-        ['value', 'draw', 'draw', 'draw', 'draw']
+        ['value', fixed ? 'value' : 'draw', 'value', 'draw', 'draw']
       );
     } finally {
       Client.prototype.callTool = realCall;
@@ -1187,15 +1275,21 @@ test(
   "after a drawn-rhyme sweep, a plan with group_types records each group's rhyme as the plan chose it",
   { timeout: 240_000 },
   async () => {
+    // The groups here are the native default form's: a job saved with its
+    // legacy-form sweep recorded (#902), planned here for real.
+    const sweep = legacyStated({ seed_from: 3, count: 1 });
+    assert.ok(statementsOfDraw(sweep).includes('relation'), 'the sweep draws the rhyme');
+    const job = await legacySweep(sweep);
     const server = buildServer({ task: { domain: 'lyrics' } });
     const [a, b] = InMemoryTransport.createLinkedPair();
     await server.connect(a);
-    const c = await connectConnector({ task: 'lyrics', transport: b });
+    const c = await connectConnector({
+      task: 'lyrics',
+      transport: b,
+      session: await legacySnapshot(job.task),
+    });
     try {
-      const sweep = stated({ seed_from: 3, count: 1 });
-      assert.ok(statementsOfDraw(sweep).includes('relation'), 'the sweep draws the rhyme');
-      const swept = await c.call('lyric_sweep', sweep);
-      const seed = JSON.parse(swept.content[0].text).accepted_shown[0];
+      const seed = JSON.parse(job.result.content[0].text).accepted_shown[0];
       const first = JSON.parse((await c.call('lyric_plan', { seed })).content[1].text);
       const groups = first.plan.choices.relations.groups;
       // One group, picked by seed, declared with the type the plan drew for it.
@@ -1233,18 +1327,24 @@ test(
   'through the SDK client and the real planner, a relation the planner respells records the plan its NEXT names',
   { timeout: 240_000 },
   async () => {
+    // A legacy form: a job saved with its sweep recorded (#902), planned here
+    // for real.
+    const r = rng(77);
+    const name = pick(r, VOCAB.ns.class);
+    let relation = respell(r, `class:${name}`);
+    if (relation === `class:${name}`) relation = ` ${relation}`;
+    const sweep = stated({ seed_from: 0, count: 2, form: DEFAULT_FORM_ROW.form, relation });
+    const job = await legacySweep(sweep);
     const server = buildServer({ task: { domain: 'lyrics' } });
     const [a, b] = InMemoryTransport.createLinkedPair();
     await server.connect(a);
-    const c = await connectConnector({ task: 'lyrics', transport: b });
+    const c = await connectConnector({
+      task: 'lyrics',
+      transport: b,
+      session: await legacySnapshot(job.task),
+    });
     try {
-      const r = rng(77);
-      const name = pick(r, VOCAB.ns.class);
-      let relation = respell(r, `class:${name}`);
-      if (relation === `class:${name}`) relation = ` ${relation}`;
-      const sweep = stated({ seed_from: 0, count: 2, form: DEFAULT_FORM_ROW.form, relation });
-      const swept = await c.call('lyric_sweep', sweep);
-      const accepted = JSON.parse(swept.content[0].text).accepted_shown;
+      const accepted = JSON.parse(job.result.content[0].text).accepted_shown;
       assert.ok(accepted.length, 'the sweep accepted a seed');
       const next = nextCreationCall(c.snapshot().task, null, 'lyric_plan');
       assert.equal(next.args.relation, relation, 'NEXT names the sweep spelling');
@@ -1297,7 +1397,8 @@ for (const [surfaceName, build] of [
         ).structuredContent;
       };
       const open = await send('begin_lyrics', {});
-      const refused = await send('lyric_sweep', { session_id: open.session_id, ...missingArgs });
+      const missing = await missingArgs();
+      const refused = await send('lyric_sweep', { session_id: open.session_id, ...missing });
       assert.equal(refused.tool_error, true);
       assert.match(refused.tool_result.content[0].text, /^CREATION_STATEMENT: /);
       assert.ok(
@@ -1308,13 +1409,17 @@ for (const [surfaceName, build] of [
         kind: 'decision',
         by: 'person',
         call: { tool: 'lyric_sweep', args: {} },
-        missing: STATEABLE.map(({ thing, field, draw }) => ({ thing, field, draw })),
+        missing: CATALOG_LEAVES.map(({ thing, field, draw }) => ({
+          thing,
+          field,
+          draw,
+        })),
       });
       // Nothing ran: the session holds no sweep.
       const held = sessions.record(refused.session_id, 'lyrics').session.native.task;
       assert.equal(held.workflow?.sweeps?.length ?? 0, 0);
       // The outcome followed, with the rows it lists stated: admitted.
-      const followed = stated({ ...missingArgs, ...refused.outcome.call.args }, 0);
+      const followed = stated({ ...missing, ...refused.outcome.call.args });
       const swept = await send('lyric_sweep', { session_id: refused.session_id, ...followed });
       assert.notEqual(swept.tool_error, true, JSON.stringify(swept).slice(0, 600));
       const seed = verdictOf(swept.tool_result).accepted_shown[0];
@@ -1322,9 +1427,14 @@ for (const [surfaceName, build] of [
       assert.notEqual(planned.tool_error, true, JSON.stringify(planned).slice(0, 600));
       const short = verdictOf(planned.tool_result);
       assert.equal(Object.hasOwn(short, 'plan'), false, 'the short view');
+      // The catalog form states the form and the sections, and fixes the
+      // length; the rest is drawn.
       assert.deepEqual(
         short.statements.rows.map((x) => [x.field, x.said]),
-        STATEABLE.map((r) => [r.field, r.draw ? 'draw' : 'value'])
+        STATEABLE.map((r) => [
+          r.field,
+          ['form', 'lines', 'functions'].includes(r.field) ? 'value' : 'draw',
+        ])
       );
       const kept = sessions.record(planned.session_id, 'lyrics').session.native.task;
       assert.equal(kept.workflow.plan.sha256, short.plan_sha256, 'the plan is recorded');
@@ -1362,15 +1472,12 @@ test(
         .parts.map((p) => p.functionResponse)
         .filter(Boolean);
     const surface = await buildSurface(client);
-    // What the person says, drawn by seed from the planner's tables: a form
-    // and a length, and a draw for the rest.
-    const r = rng(29);
-    const form = pick(r, P.forms);
-    const lines = pick(
-      r,
-      P.fillable[form].filter((n) => n <= 24)
-    );
-    const choices = { form, lines, draw: DRAWABLE.filter((f) => f !== 'lines') };
+    // What the person says: a form, which is a catalog form (#902) picked
+    // by property (EXECUTABLE above, which states the sections too), and its
+    // length, and a draw for the rest.
+    const { selection, total: lines } = await executableSetting();
+    const choices = { ...selection, lines, draw: ['relation', 'melody'] };
+    const chosen = [...CATALOG_FIELDS, 'lines'];
     let dispatched = [];
     let seen = [];
     let prompts = [];
@@ -1395,19 +1502,19 @@ test(
         },
       });
     try {
-      // Turn 1: the person states nothing. The model sweeps without choices,
-      // is refused, and asks the person.
+      // Turn 1: the person states only the form. The model sweeps with it, is
+      // refused for the rest, and asks the person.
+      const missing = await missingArgs();
       script = [
-        () => [fc('lyric_sweep', missingArgs)],
+        () => [fc('lyric_sweep', missing)],
         () => [{ text: 'Which form, length, sections, rhyme and time do you want?' }],
         () => [{ text: 'unused' }],
       ];
-      const asked = await turn(fresh(), 'A new song.');
+      const asked = await turn(fresh(), 'A new song with the form specified.');
       assert.equal(step, 2, 'the turn ended on the question');
       assert.match(seen[0].error, /^CREATION_STATEMENT: .* NEXT: lyric_sweep stating /s);
       assert.ok(seen[0].error.includes(ASK_PERSON), seen[0].error);
-      assert.ok(prompts[0].includes("are the person's to choose"), 'the system prompt says so');
-      assert.ok(prompts[0].includes(STATEABLE.map((x) => x.thing).at(-1)), prompts[0]);
+      assert.match(prompts[0], /sweep selects a compatible catalog setting/);
       assert.deepEqual(dispatched, [], 'nothing ran');
       assert.deepEqual(asked.task.workflow?.sweeps ?? [], [], 'no sweep is recorded');
       assert.equal(asked.task.workflow?.plan ?? null, null, 'no plan');
@@ -1418,28 +1525,36 @@ test(
       step = 0;
       script = [
         () => [fc('lyric_sweep', { seed_from: 3, count: 1, ...choices })],
-        (got) => [fc('lyric_plan', { seed: got.at(-1).accepted_shown[0], form, lines })],
+        (got) => [fc('lyric_plan', { seed: got.at(-1).accepted_shown[0], ...selection, lines })],
         () => [{ text: 'done' }],
       ];
-      const said = `${form}, ${lines} lines, and draw the rest.`;
+      const said = `That form, ${lines} lines, and draw the rest.`;
       const out = await turn(asked.task, said);
       assert.deepEqual(
         dispatched.map(([n]) => n),
         ['lyric_sweep', 'lyric_plan']
       );
       const sweep = dispatched[0][1];
-      for (const k of ['form', 'lines']) assert.equal(sweep[k], choices[k], k);
+      for (const k of chosen) assert.deepEqual(sweep[k], choices[k], k);
       assert.deepEqual(sweep.draw, choices.draw);
       const recorded = out.task.workflow.sweeps.at(-1).args;
-      for (const k of ['form', 'lines']) assert.equal(recorded[k], choices[k], `recorded ${k}`);
-      for (const k of ['functions', 'relation', 'melody'])
+      for (const k of chosen) assert.deepEqual(recorded[k], choices[k], `recorded ${k}`);
+      for (const k of ['form', 'functions', 'relation', 'melody'])
         assert.equal(recorded[k], undefined, `nothing filled in for ${k}`);
       const v = seen.at(-1).verdict;
-      assert.equal(v.plan_request.form, form, 'the plan has the form the person chose');
+      assert.equal(
+        v.plan_request.song_form.id,
+        selection.catalog_form,
+        'the plan has the form the person chose'
+      );
       assert.ok(out.task.workflow.plan?.sha256, 'the plan is recorded');
+      // The catalog form states the form and the sections.
       assert.deepEqual(
         v.statements.rows.map((x) => [x.field, x.said]),
-        STATEABLE.map((x) => [x.field, ['form', 'lines'].includes(x.field) ? 'value' : 'draw'])
+        STATEABLE.map((x) => [
+          x.field,
+          ['form', 'lines', 'functions'].includes(x.field) ? 'value' : 'draw',
+        ])
       );
       assert.equal(v.statements.rows.find((x) => x.field === 'lines').value, lines);
     } finally {
@@ -1447,5 +1562,324 @@ test(
       await client.close();
       await server.close();
     }
+  }
+);
+
+// ── ONE FORM MECHANISM (#902) ───────────────────────────────────────────────
+// A new song's form is a catalog form. A new-song sweep that sends the legacy
+// `form` is refused before anything runs, on every session surface, and its
+// NEXT is the same sweep without it. The raw engine keeps `form`, and a job
+// whose recorded sweep holds one keeps planning, grading and revising under it.
+// The legacy form is a FORM_ROWS row picked by seed; the rest is drawn.
+const legacyForm = (seed) => FORM_ROWS[Math.abs(seed) % FORM_ROWS.length].form;
+const legacyCall = (seed) => ({ seed_from: 3, count: 1, ...stated({}), form: legacyForm(seed) });
+const formless = ({ form: _legacy, ...rest }) => rest;
+// Engine dispatches: a call to the engine carries no session_id, a call to a
+// session surface does. Counted where every MCP client sends, so a session's
+// own maintained client is counted too.
+function countDispatches(t) {
+  const realCall = Client.prototype.callTool;
+  const sent = [];
+  Client.prototype.callTool = function (params, ...rest) {
+    if (params?.arguments?.session_id === undefined && params?.name?.startsWith('lyric_'))
+      sent.push(params.name);
+    return realCall.call(this, params, ...rest);
+  };
+  t.after(() => {
+    Client.prototype.callTool = realCall;
+  });
+  return sent;
+}
+async function sessionSurface(t, build) {
+  const directory = mkdtempSync(join(tmpdir(), 'creation-form-'));
+  t.after(() => rmSync(directory, { recursive: true, force: true }));
+  const sessions = new WorkflowSessions({ store: new JobStore(directory) });
+  const server = await build(sessions);
+  const client = new Client({ name: 'creation-form', version: '1' }, { capabilities: {} });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await Promise.all([server.connect(a), client.connect(b)]);
+  t.after(async () => {
+    await client.close();
+    await server.close();
+  });
+  const send = async (name, args) => {
+    const r = await client.callTool({ name, arguments: args });
+    const q = r.structuredContent;
+    assert.ok(q, JSON.stringify(r).slice(0, 400));
+    if (q.status !== 'pending') return q;
+    await sessions.wait(q.operation_id);
+    return (
+      await client.callTool({ name: 'get_operation', arguments: { operation_id: q.operation_id } })
+    ).structuredContent;
+  };
+  const taskOf = (id) => sessions.record(id, 'lyrics').session.native.task;
+  return { sessions, client, send, taskOf };
+}
+const SESSION_SURFACES = [
+  ['/mcp', (sessions) => buildWorkflowServer({ sessions, compatibility: true })],
+  ['/mcp/chatgpt', (sessions) => buildWorkflowServer({ domain: 'lyrics', sessions })],
+];
+
+for (const [surfaceName, build] of SESSION_SURFACES)
+  test(
+    `${surfaceName}: a new-song sweep that sends \`form\` is refused and nothing runs; the same sweep without it is admitted and runs`,
+    { timeout: 300_000 },
+    async (t) => {
+      const sent = countDispatches(t);
+      const { send, taskOf } = await sessionSurface(t, build);
+      let id = (await send('begin_lyrics', {})).session_id;
+      for (const seed of FORM_ROWS.keys()) {
+        const before = structuredClone(taskOf(id));
+        const args = legacyCall(seed);
+        const refused = await send('lyric_sweep', { session_id: id, ...args });
+        assert.equal(refused.tool_error, true);
+        assert.equal(refused.tool_result.content[0].text, CREATION_FORM + CREATION_FORM_NEXT);
+        assert.deepEqual(refused.outcome, {
+          kind: 'next_call',
+          by: 'writer',
+          call: { tool: 'lyric_sweep', args: {} },
+        });
+        assert.deepEqual(sent, [], 'nothing reached the engine');
+        assert.deepEqual(taskOf(refused.session_id), before, 'nothing was recorded');
+        id = refused.session_id;
+      }
+      // Followed: the same sweep without `form`. The sweep chooses a catalog
+      // setting, and the session records it.
+      const args = formless(legacyCall(0));
+      const swept = await send('lyric_sweep', { session_id: id, ...args });
+      assert.notEqual(swept.tool_error, true, JSON.stringify(swept).slice(0, 600));
+      assert.deepEqual(sent, ['lyric_sweep']);
+      const recorded = taskOf(swept.session_id).workflow.sweeps.at(-1).args;
+      assert.equal(recorded.form, undefined);
+      assert.ok(CATALOG_IDS.includes(recorded.catalog_form), JSON.stringify(recorded));
+    }
+  );
+
+test('the SDK client refuses a new-song sweep that sends `form` before dispatch, and dispatches it without', async (t) => {
+  const sent = countDispatches(t);
+  const server = buildServer({ task: { domain: 'lyrics' } });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  await server.connect(a);
+  const c = await connectConnector({ task: 'lyrics', transport: b });
+  t.after(async () => {
+    await c.close();
+    await server.close();
+  });
+  // A catalog form beside it, or a field both valued and drawn: the legacy
+  // `form` is refused first, and NEXT names what else to fix.
+  const args = legacyCall(1);
+  for (const [extra, next] of [
+    [{}, CREATION_FORM_NEXT],
+    [{ catalog_form: catalogForm(1) }, CREATION_FORM_NEXT],
+    [
+      { lines: DEFAULT_FORM_ROW.min_lines },
+      " NEXT: lyric_sweep with this call's other arguments and no `form`, and lines as a value or in `draw`, not both; " +
+        "the plan repeats the sweep's form, lines, functions, relation, melody and `want`.",
+    ],
+  ])
+    await assert.rejects(c.call('lyric_sweep', { ...args, ...extra }), (e) => {
+      assert.equal(e.beforeDispatch, true);
+      assert.equal(e.message, CREATION_FORM + next);
+      return true;
+    });
+  assert.deepEqual(sent, [], 'nothing was dispatched');
+  assert.equal(c.snapshot().task.workflow?.sweeps?.length ?? 0, 0, 'nothing was recorded');
+  const swept = await c.call('lyric_sweep', formless(args));
+  assert.notEqual(swept.isError, true);
+  assert.deepEqual(sent, ['lyric_sweep']);
+});
+
+test(
+  'the website chat: a sweep that sends `form` is refused and nothing runs; the model reads NEXT and the same sweep without it runs',
+  { timeout: 300_000 },
+  async () => {
+    const server = buildServer({ task: { domain: 'lyrics' }, kitchen: true });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await server.connect(a);
+    const client = new Client({ name: 'chat-creation-form', version: '1' }, { capabilities: {} });
+    await client.connect(b);
+    const nativeFetch = globalThis.fetch;
+    const reply = (parts) => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [{ content: { parts }, finishReason: 'STOP' }],
+        usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 10, thoughtsTokenCount: 0 },
+      }),
+    });
+    const fc = (name, args) => ({ functionCall: { name, args } });
+    const responses = (init) =>
+      JSON.parse(init.body)
+        .contents.at(-1)
+        .parts.map((p) => p.functionResponse)
+        .filter(Boolean)
+        .map((x) => x.response);
+    const surface = await buildSurface(client);
+    const args = legacyCall(2);
+    const dispatched = [];
+    const seen = [];
+    let prompt = '';
+    let step = 0;
+    globalThis.fetch = async (_url, init) => {
+      const body = JSON.parse(init.body);
+      if (step === 0) prompt = body.systemInstruction?.parts?.[0]?.text ?? '';
+      else seen.push(...responses(init));
+      step++;
+      if (step === 1) return reply([fc('lyric_sweep', args)]);
+      // The model follows the NEXT it read: the same sweep without `form`.
+      if (step === 2) return reply([fc('lyric_sweep', formless(args))]);
+      return reply([{ text: 'done' }]);
+    };
+    try {
+      const out = await runTurn({
+        apiKey: 'offline',
+        surface,
+        userText: 'A new song.',
+        limits: { ...LIMITS, maxSteps: 6, maxTurnMs: 240_000, maxTurnUsd: 0 },
+        task: fresh(),
+        callTool: (n, x) => {
+          dispatched.push([n, structuredClone(x)]);
+          return client.callTool({ name: n, arguments: x });
+        },
+      });
+      assert.ok(prompt.includes('A new-song session refuses `form` on lyric_sweep'), 'the rule');
+      assert.equal(seen[0].error, CREATION_FORM + CREATION_FORM_NEXT);
+      assert.equal(out.calls[0].not_run, true);
+      assert.equal(out.calls[0].error, CREATION_FORM);
+      assert.deepEqual(dispatched, [['lyric_sweep', formless(args)]], 'only the follow-up ran');
+      assert.equal(out.task.workflow.sweeps.length, 1);
+      assert.equal(out.task.workflow.sweeps[0].args.form, undefined);
+    } finally {
+      globalThis.fetch = nativeFetch;
+      await client.close();
+      await server.close();
+    }
+  }
+);
+
+// Schema and runtime together: each session surface describes `form` as the
+// refused legacy field and refuses it; the raw engine publishes the same
+// boundary and keeps accepting it, and plans the native default with neither
+// form field.
+test(
+  'schema and runtime agree on `form`: refused on a new song by every session surface, accepted by the raw engine',
+  { timeout: 300_000 },
+  async (t) => {
+    const published = (tools, instructions) => {
+      const sweep = tools.find((x) => x.name === 'lyric_sweep');
+      assert.match(
+        sweep.inputSchema.properties.form.description,
+        /^Legacy native form, for raw, low-level callers and songs planned before\. A new-song session refuses it on lyric_sweep \(CREATION_FORM\)/
+      );
+      assert.ok(sweep.description.includes('A new-song session refuses `form` (CREATION_FORM)'));
+      assert.ok(instructions.includes('A new-song session refuses `form` on lyric_sweep'));
+    };
+    for (const [surfaceName, build] of SESSION_SURFACES) {
+      const { client, send } = await sessionSurface(t, build);
+      published((await client.listTools()).tools, client.getInstructions());
+      const open = await send('begin_lyrics', {});
+      const refused = await send('lyric_sweep', { session_id: open.session_id, ...legacyCall(3) });
+      assert.ok(refused.tool_result.content[0].text.startsWith(`${CREATION_FORM} `), surfaceName);
+    }
+    const { client, close } = await rawClient();
+    t.after(close);
+    published((await client.listTools()).tools, client.getInstructions());
+    // The raw engine: `form` is accepted and planned.
+    for (const seed of FORM_ROWS.keys()) {
+      const r = await client.callTool({
+        name: 'lyric_sweep',
+        arguments: legacyStated({ seed_from: 31, count: 1, lines: 12, form: legacyForm(seed) }),
+      });
+      assert.notEqual(r.isError, true, JSON.stringify(r).slice(0, 600));
+      assert.ok(!r.content[0].text.includes('CREATION_FORM'));
+      const v = JSON.parse(r.content[0].text);
+      assert.equal(v.exit_code, 0, v.report);
+      const plan = await planOf(client, {
+        seed: v.accepted_shown[0],
+        form: legacyForm(seed),
+        lines: 12,
+      });
+      assert.equal(plan.plan_request.form, legacyForm(seed));
+    }
+    // A raw seeded plan with neither form field plans the native default.
+    const plain = await planOf(client, { seed: 31 });
+    assert.equal(plain.plan_request.form, DEFAULT_FORM);
+    assert.equal(plain.plan_request.song_form, undefined);
+  }
+);
+
+// A job saved before #902: its recorded sweep holds a legacy form. The session
+// plans, grades and revises under it for real. A selector that names another
+// form, or a catalog form, is refused, and the record stays as it was; so is
+// a new legacy sweep.
+test(
+  'a saved legacy job plans, grades and revises under its form; a conflicting selector is refused and never overwrites the record',
+  { timeout: 600_000 },
+  async (t) => {
+    const { sessions, send, taskOf } = await sessionSurface(t, SESSION_SURFACES[0][1]);
+    const form = legacyForm(0);
+    const other = FORM_ROWS.map((r) => r.form).find((f) => f !== form);
+    const job = await legacySweep(legacyStated({ seed_from: 3, count: 1, lines: 12, form }));
+    assert.equal(job.verdict.exit_code, 0, job.verdict.report);
+    const seed = job.verdict.accepted_shown[0];
+    let id = await legacySession(sessions, job.task);
+    const refusedWith = async (name, args, code, field = null) => {
+      const before = structuredClone(taskOf(id));
+      const r = await send(name, { session_id: id, ...args });
+      assert.equal(r.tool_error, true, `${name} ${JSON.stringify(args)}`);
+      assert.ok(
+        r.tool_result.content[0].text.startsWith(`${code}: `),
+        r.tool_result.content[0].text
+      );
+      assert.deepEqual(taskOf(r.session_id), before, `${name}: the record stays as it was`);
+      if (field) assert.ok(r.tool_result.content[0].text.includes(`this call differs in ${field}`));
+      id = r.session_id;
+    };
+    const ran = async (name, args) => {
+      const r = await send(name, { session_id: id, ...args });
+      assert.notEqual(r.tool_error, true, `${name}: ${JSON.stringify(r).slice(0, 800)}`);
+      id = r.session_id;
+      return verdictOf(r.tool_result);
+    };
+    // A new sweep in this job sends no legacy form.
+    await refusedWith(
+      'lyric_sweep',
+      legacyStated({ seed_from: 3, count: 1, lines: 12, form }),
+      'CREATION_FORM'
+    );
+    // The plan: the recorded form, restored when the call names none.
+    for (const selector of [{ form: other }, { catalog_form: catalogForm(seed) }])
+      await refusedWith(
+        'lyric_plan',
+        { seed, lines: 12, ...selector },
+        'CREATION_PLAN',
+        Object.keys(selector)[0]
+      );
+    const plan = await ran('lyric_plan', { seed, lines: 12 });
+    assert.equal(plan.exit_code, 0, JSON.stringify(plan).slice(0, 800));
+    assert.equal(plan.plan_request.form, form);
+    assert.equal(plan.plan_request.song_form, undefined);
+    assert.equal(taskOf(id).workflow.plan.sha256, plan.plan_sha256);
+    await ran('lyric_screen', { words: ['stone', 'road'] });
+    // The grade, under the recorded plan; another selector is refused. The
+    // draft is placeholder text, one numbered line per planned line.
+    const NUMBER = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
+    const draft = Array.from(
+      { length: plan.plan_lines },
+      (_, i) => `Placeholder text for line ${NUMBER[i % 8]} of ${NUMBER[Math.floor(i / 8) % 8]}`
+    );
+    for (const selector of [{ form: other }, { catalog_form: catalogForm(seed) }])
+      await refusedWith('lyric_grade', { seed, draft, ...selector }, 'CREATION_PLAN');
+    const graded = await ran('lyric_grade', { seed, draft });
+    assert.ok(Number.isInteger(graded.exit_code), JSON.stringify(graded).slice(0, 800));
+    assert.equal(taskOf(id).workflow.grade.plan_sha256, plan.plan_sha256);
+    // The revision, under the same plan, with the graded draft from the record.
+    for (const selector of [{ form: other }, { catalog_form: catalogForm(seed) }])
+      await refusedWith('lyric_revise', { seed, ...selector }, 'CREATION_PLAN');
+    const revised = await ran('lyric_revise', { seed, max_rounds: 1, attempts: 0, backtrack: 0 });
+    assert.ok(Number.isInteger(revised.exit_code), JSON.stringify(revised).slice(0, 800));
+    assert.equal(taskOf(id).workflow.plan.sha256, plan.plan_sha256, 'still the same plan');
+    assert.equal(taskOf(id).workflow.sweeps.length, 1, 'still the one recorded sweep');
+    assert.equal(taskOf(id).workflow.sweeps[0].args.form, form);
   }
 );

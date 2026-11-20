@@ -23,6 +23,10 @@ import { buildWorkflowServer } from './workflow_tools.js';
 import { wanderRefusal, _agentInternals } from './gemini_agent.js';
 
 const source = (file) => readFileSync(new URL(file, import.meta.url), 'utf8');
+// A catalog form id, picked by seed from the Song Forms catalog: the gate
+// reads only that one is named (the tool resolves it).
+const CATALOG_IDS = JSON.parse(source('../data/song-forms.json')).map((f) => f.id);
+const catalogForm = CATALOG_IDS[17 % CATALOG_IDS.length];
 const sha = (v) => createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const hex = () => randomBytes(32).toString('hex');
 const draft = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat'];
@@ -216,13 +220,33 @@ row({
   reach: async (r) => r.call('lyric_plan', { session_id: r.seed('lyrics'), seed: 16 }),
 });
 // Stage 3: a new-song sweep states form, length, sections, rhyme and time.
+// A named form is a catalog form (#902), which states the sections too.
 row({
   code: 'CREATION_STATEMENT',
   where: 'lyric_workflow.js: a new-song sweep that leaves a thing out',
   shape: 'receipt',
   phrases: ['NEXT: lyric_sweep stating', 'in `draw`'],
   reach: async (r) =>
-    r.call('lyric_sweep', { session_id: r.seed('lyrics'), seed_from: 0, count: 1 }),
+    r.call('lyric_sweep', {
+      session_id: r.seed('lyrics'),
+      seed_from: 0,
+      count: 1,
+      catalog_form: catalogForm,
+    }),
+});
+// #902: a new song's form is a catalog form; the legacy `form` is refused.
+row({
+  code: 'CREATION_FORM',
+  where: 'lyric_workflow.js: a new-song sweep that sends the legacy form',
+  shape: 'receipt',
+  phrases: ['catalog_form', "NEXT: lyric_sweep with this call's other arguments and no `form`"],
+  reach: async (r) =>
+    r.call('lyric_sweep', {
+      session_id: r.seed('lyrics'),
+      seed_from: 0,
+      count: 1,
+      form: FORM_ROWS[0].form,
+    }),
 });
 row({
   code: 'CREATION_STATEMENT',
@@ -1124,10 +1148,10 @@ test('each refusal arrives in the shape the receipt sentence promises', async ()
   // The init text's receipt sentence (workflow_tools.js) against the rows a
   // published schema reaches: either change to it shows here.
   console.log(`receipt split, published schema: ${JSON.stringify(shapes)}`);
-  assert.deepEqual(shapes, { receipt: 29, bare: 24 });
+  assert.deepEqual(shapes, { receipt: 30, bare: 24 });
 });
 
-test('every coded refusal in the source has a row, and the gate has 17 texts', () => {
+test('every coded refusal in the source has a row, and the gate has 18 texts', () => {
   const rowsFor = (code) => ROWS.filter((r) => r.code === code).length;
   const sessions = source('./workflow_sessions.js');
   const sites = {};
@@ -1159,7 +1183,7 @@ test('every coded refusal in the source has a row, and the gate has 17 texts', (
       .match(/[`'"]CREATION_[A-Z]+: [^`'"$]*/g)
       .map((s) => s.slice(1));
   const gate = literals('./lyric_workflow.js');
-  assert.equal(gate.length, 17, gate.join('\n'));
+  assert.equal(gate.length, 18, gate.join('\n'));
   const client = literals('./client.js');
   assert.equal(client.length, 2, client.join('\n'));
   for (const prefix of [...gate, ...client]) {
@@ -1167,5 +1191,6 @@ test('every coded refusal in the source has a row, and the gate has 17 texts', (
     assert.ok(rowsFor(code), `${prefix}: no row`);
   }
   assert.equal(rowsFor('CREATION_DRAFT'), 4);
+  assert.equal(rowsFor('CREATION_FORM'), 1);
   assert.ok(rowsFor('CREATION_PLAN') >= 5 && rowsFor('CREATION_GRADE') >= 4);
 });

@@ -14124,7 +14124,10 @@ stopped being unioned.
 still empty, and `fillable_line_counts()` is ~~12..447~~ 2..463, so
 ~~`ENVELOPE["total_lines"] == (12, 447)`~~ `ENVELOPE["total_lines"] == (2, 463)`.
 Read those accessors in `quality/plan.py` for the live figures rather than this
-line.
+line. *Later the same day (#902) the owner capped the writing of a new song at
+150 lines (`plan.SONG_LINE_CAP`): `song_line_counts()` is 1..150,
+`fillable_line_counts()` is 2..150 and `ENVELOPE["total_lines"] == (2, 150)`.
+`gradeable_line_counts()` stays 1..463: reading and grading are not capped.*
 
 **DEFECT 2 — A SOUND BOUND WAS BEING USED AS A UNIFORM DRAW, AND IT IS
 `MISSING.md` M-81(A)'s ERROR ONE LAYER OVER.** `_sample_pattern` took
@@ -14160,7 +14163,7 @@ tuning it would mean barring a one-line tag.
 
 **WHAT THIS COSTS, SAID PLAINLY:** a song of fewer than 17 lines is now outside
 the planner's envelope. *(As of 2026-08-24. Superseded: the 2026-09-05 repin
-above and later ones took the envelope to (2, 463) at 2026-11-19, so this cost
+above and later ones took the envelope to (2, 463) at 2026-11-19, then to (2, 150) for writing the same day (#902), so this cost
 and the table's 17–55 range describe the pre-repin planner.)* That is not a narrowing of the harness — a writer
 hand-declares any length and the graders grade it — it is the planner declining
 to volunteer a length the song profile cannot hold to anything.
@@ -23705,7 +23708,12 @@ deleted the 31-line ceiling, `plan.execution_limits()` and inspection-only
 admission (`quality/test_production_harness.py` asserts `execution_limits` is
 gone). Every plan the planner draws can now be written, graded and revised;
 the envelope is `plan.ENVELOPE["total_lines"]`, (2, 463) at 2026-11-19, and the
-connector's `MAX_LINES` in `mcp/lyric_tools.js` is 463.*
+connector's `MAX_LINES` in `mcp/lyric_tools.js` is 463.* *Later the same day the
+owner capped the writing of a new song at 150 lines (#902, `plan.SONG_LINE_CAP`):
+the planner's envelope is (2, 150), and the `lines` field of lyric_plan,
+lyric_sweep, lyric_grade and lyric_revise takes at most `MAX_WRITE_LINES` (150).
+Reading is not capped: `MAX_LINES` stays 463, so a pasted, checked, recovered or
+graded text may still hold 463 lines, the longest poem in the English corpus.*
 
 **HISTORICAL 2026-09-04 RECORD (retained):**
 **THE RULING, verbatim (2026-09-04), when asked whether the envelope

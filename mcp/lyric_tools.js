@@ -1,7 +1,12 @@
 import { printedSteps } from '../src/song-form-printing.mjs';
 import { projectSongFormCreation } from '../src/song-form-creation.mjs';
 import { formMandate, printedPhraseSetting } from '../src/song-form-mandate.mjs';
-import { catalogReadingFlag, prepareFormReview, reviewRecoveredForm } from './lyric_form.js';
+import {
+  automaticFormCandidates,
+  catalogReadingFlag,
+  prepareFormReview,
+  reviewRecoveredForm,
+} from './lyric_form.js';
 import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 // lyric_tools.js — the lyric harness as MCP tools: a DISJOINT family.
 //
@@ -50,7 +55,6 @@ import {
   DRAWABLE,
   drawList,
   FORM_ROWS,
-  formRowText,
   LINES_FLOOR,
   NOT_STATEABLE_YET,
   planStatements,
@@ -69,6 +73,9 @@ import {
   SWEEP_COORDINATES,
   SWEEP_NEXT,
   sweepNextLine,
+  sweepNextCall,
+  isAutomaticForm,
+  automaticSweepArgs,
   noneKeptMeaning,
   noneKeptDeclared,
 } from './lyric_workflow.js';
@@ -138,6 +145,14 @@ const MAX_WORD_CHARS = 40;
 // writable capacity, `EXECUTABLE_MAX_LINES`) — DELETED 2026-09-28 by owner
 // ruling: every plan the planner draws can be written, graded and revised.
 export const MAX_LINES = 463;
+// THE WRITING CAP (owner ruling, John, 2026-11-19, #902: "make the cap 150
+// lines"; confirmed to R2 the same day as for writing only). The most lines a
+// NEW song is planned with: the planner's `SONG_LINE_CAP`, which
+// `ENVELOPE["total_lines"]` reads, checked by test_high_report. It bounds the
+// `lines` field alone. MAX_LINES above stays the READING limit: a pasted,
+// checked, recovered or graded text may hold 463 lines, the longest poem in
+// the English corpus.
+export const MAX_WRITE_LINES = 150;
 // THE ONE LINE LIMIT, in code points: the longest line any lyric tool takes,
 // in a draft it is given to read or grade and in an answer the writer sends.
 // RAISED 200 -> 512 on 2026-11-12 (issue #851): the stored corpus has lines of
@@ -160,7 +175,7 @@ const ANSWER_LINE_JSON_BYTES = 1200;
 // Two closed vocabularies the schemas enumerate, checked the same way:
 // `quality/plan.py` PLAN_FORMS and `quality/rhyme_types.py` POSITION.
 export const PLAN_FORMS = FORM_ROWS.map((r) => r.form);
-// Without a catalog selection or named planner form, the native CLI and connector use open.
+// Legacy low-level planning uses the native fallback; new sweeps can select a catalog form.
 export const TYPE_POSITIONS = ['end', 'internal', 'leonine', 'cross', 'head', 'holorhyme'];
 // The plan declarations lyric_grade and lyric_revise must repeat, and the
 // reading declarations a revision carries from its grade — named from the
@@ -1895,6 +1910,14 @@ async function creationFormArgs(a) {
   }
 }
 
+// The plan a seeded call stands on: the native settings and, for a catalog
+// form, its projected contract. Every seeded plan, finish and brief plan
+// builds its argv here, so none falls back to the native default form when
+// the run's form is a catalog one (#902).
+export async function seededPlanArgs(a) {
+  return [...planArgs(a), ...(await creationFormArgs(a))];
+}
+
 function planArgs(a) {
   const args = [`--seed=${a.seed}`];
   if (a.catalog_form === undefined) args.push(`--form=${a.form || DEFAULT_FORM}`);
@@ -2059,14 +2082,16 @@ const seedField = z
     "REQUIRED declared seed — any integer. Same seed and same declarations, same plan, byte for byte; a different seed is a different song shape. A new song's seed comes from lyric_sweep's accepted list, which sweeps non-negative seeds; a creation session plans only such a seed."
   );
 
-// Built from FORM_ROWS (stage 3): each form with what it requires, and no
-// default offered. A new-song sweep must name one (creationRefusal); what it
-// needs, here and on lines, functions, relation and melody, is sweepNeeds.
+// The native form, read from FORM_ROWS, with no default offered. It is the
+// raw engine's low-level boundary and a saved job's own form: a new-song
+// session's lyric_sweep refuses it (CREATION_FORM, creationRefusal), since a
+// new song's form is a catalog form (#902).
 const formField = z
-  .enum(PLAN_FORMS)
+  .string()
+  .refine((name) => PLAN_FORMS.includes(name), 'Unknown legacy song form')
   .optional()
   .describe(
-    `The song form, one name: ${FORM_ROWS.map((f) => formRowText(f, false)).join('; ')}. A catalog selection uses catalog_form instead. There is no draw over forms. ${sweepNeeds('form')}`
+    'Legacy native form, for raw, low-level callers and songs planned before. A new-song session refuses it on lyric_sweep (CREATION_FORM): name catalog_form, or leave out both and the sweep chooses.'
   );
 
 const linesField = z
@@ -2081,10 +2106,10 @@ const linesField = z
   // floor, and the default form `open` plans any total from 2 (one group of
   // two lines); a verse-chorus request below 12 is refused by the planner.
   .min(LINES_FLOOR)
-  .max(MAX_LINES)
+  .max(MAX_WRITE_LINES)
   .optional()
   .describe(
-    `Exact total line count, at least ${LINES_FLOOR} and at most ${MAX_LINES} (the planner's envelope; a form that requires sections needs more, and the plan refuses a count under its floor). Every plan can be written, graded and revised. ${sweepNeeds('lines')}`
+    `Exact total line count, at least ${LINES_FLOOR} and at most ${MAX_WRITE_LINES} (the planner's envelope; a form that requires sections needs more, and the plan refuses a count under its floor). Every plan can be written, graded and revised. ${sweepNeeds('lines')}`
   );
 
 // STATE IT OR SAY DRAW (stage 3). The things a new song states, read from
@@ -2098,7 +2123,7 @@ const drawField = (role) =>
     .optional()
     .describe(
       `Fields the planner draws, named here instead of given a value: ${joinedNames([...DRAWABLE])}. ` +
-        `A new-song session's lyric_sweep states each of ${joinedNames(STATEABLE.map((r) => r.field))}: a value, ` +
+        `With an explicit form, a new-song session's lyric_sweep states each of ${joinedNames(STATEABLE.map((r) => r.field))}: a value, ` +
         `a \`want\` (${STATEABLE.filter((r) => r.wants.length)
           .map(
             (r) =>
@@ -2190,7 +2215,7 @@ const titleField = z
   .max(MAX_LINE_CHARS)
   .optional()
   .describe(
-    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised test of whole words as one unbroken run, in the same order, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered — which holds nothing back. A title is OPTIONAL. On a plan that declares no hook (the `open` form declares none) a title only names the song — the question is not asked and nothing is held back for it.'
+    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a whole-draft FLAG (counted in whole_flags), so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) keeps the draft from grading clean — lyric_grade exits 3 on it, or 2 when coverage is also incomplete. Containment is a normalised test of whole words as one unbroken run, in the same order, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit it and the question is reported as TITLE_UNDECLARED, not answered — which holds nothing back. A title is OPTIONAL. On a plan that declares no hook (the plan can omit one) a title only names the song — the question is not asked and nothing is held back for it.'
   );
 
 // THE CLI GLOBALS THE CHAT SURFACE COULD NOT SPELL (M-189, 2026-09-01).
@@ -3129,7 +3154,7 @@ export function registerLyricTools(server, tool) {
         "for a seed the sweep accepted under the same declarations, the plan is that seed's shape; `choices.seed_redraw` " +
         "appears only when the draw was conditioned. A `title` is optional. On a plan with a hook slot, declaring one answers 'is the " +
         "title in the hook?' — and the answer can be NO, which is a FLAG, so write the hook line to contain the title's words as a " +
-        'contiguous run. On a plan with no hook slot (the `open` form declares none) a title only names the song and that ' +
+        'contiguous run. On a plan with no hook slot (the plan can omit one) a title only names the song and that ' +
         "question is not asked. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
         'keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The second block is the ' +
         "verdict. Its `next` names the next call: lyric_grade on the complete draft, or in a creation session this plan's " +
@@ -3142,8 +3167,7 @@ export function registerLyricTools(server, tool) {
         if (conflict) throw refuse(conflict);
         const r = await runVerb([
           'plan',
-          ...planArgs(a),
-          ...(await creationFormArgs(a)),
+          ...(await seededPlanArgs(a)),
           `--out=${path.join(dir, 'plan.json')}`,
         ]);
         const verdict = verdictOf(r);
@@ -3240,7 +3264,7 @@ export function registerLyricTools(server, tool) {
         await writeFile(draftPath, serializeWritingDraft(a.draft, a.catalog_form), 'utf8');
 
         // 1. The plan's own mandate halves, from the plan artifact itself.
-        const creationArgs = [...planArgs(a), ...(await creationFormArgs(a))];
+        const creationArgs = await seededPlanArgs(a);
         const p1 = await runVerb(['plan', ...creationArgs, `--out=${planPath}`]);
         if (p1.code !== 0) return verdictOf(p1);
         const plan = JSON.parse(await readFile(planPath, 'utf8'));
@@ -3807,8 +3831,7 @@ export function registerLyricTools(server, tool) {
                   NO_INSTANCE_EVIDENCE,
                   'finish',
                   draftPath,
-                  ...planArgs(a),
-                  ...(await creationFormArgs(a)),
+                  ...(await seededPlanArgs(a)),
                   `--propose=${proposeSpec}`,
                 ];
               } else {
@@ -4292,7 +4315,11 @@ export function registerLyricTools(server, tool) {
                   let plan = null;
                   if (seeded) {
                     const planPath = path.join(dir, 'brief-plan.json');
-                    const p = await runVerb(['plan', ...planArgs(a), `--out=${planPath}`]);
+                    const p = await runVerb([
+                      'plan',
+                      ...(await seededPlanArgs(a)),
+                      `--out=${planPath}`,
+                    ]);
                     if (p.code === 0)
                       try {
                         plan = JSON.parse(await readFile(planPath, 'utf8'));
@@ -4457,6 +4484,7 @@ export function registerLyricTools(server, tool) {
     'lyric_sweep',
     {
       title: 'Find seeds whose shape matches what you want',
+      annotations: { idempotentHint: false },
       description:
         `Under the same declarations (${SWEEP_COORDINATES.join(', ')}) a plan is a function of its seed, so choosing a ` +
         'seed is choosing a shape — and guessing one is how a writer ends up accepting whatever the first seed drew. ' +
@@ -4467,7 +4495,8 @@ export function registerLyricTools(server, tool) {
         'already passed, and an argmax over a swept parameter is biased toward whichever end has more freedom. Plan ' +
         `any seed in \`accepted_shown\` with the same ${joinedNames(SWEEP_COORDINATES)}; ` +
         "a creation session requires them and this `want` list as lyric_plan's `wants`. " +
-        `In a new-song session the sweep states each of ${joinedNames(STATEABLE.map((r) => r.field))} (see \`draw\`). FOUR COUNTS, NEVER ` +
+        'Name a form with catalog_form, or omit catalog_form and form to select an executable setting from the catalog automatically. Unspecified dimensions are drawn on that path. ' +
+        'A new-song session refuses `form` (CREATION_FORM); it remains for raw, low-level callers and songs planned before. FOUR COUNTS, NEVER ' +
         'SUMMED: swept, planned, planner_refused and accepted_count (accepted_shown lists the accepted seeds) — ' +
         'planner_refused is the planner turning a request down (an unbuildable roster, an unattainable length) and ' +
         'is NOT a predicate rejecting a shape, so with `planned 0` the predicates never ran; sweep_outcome names ' +
@@ -4479,6 +4508,10 @@ export function registerLyricTools(server, tool) {
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_sweep,
     },
     async (a) => {
+      const automatic = isAutomaticForm(a);
+      if (automatic && (a.catalog_variant !== undefined || a.catalog_counts !== undefined))
+        throw refuse('catalog_variant and catalog_counts require catalog_form.');
+      a = automaticSweepArgs(a);
       const from = a.seed_from;
       const n = a.count;
       const wants = (a.want || []).map((w) => String(w).trim()).filter(Boolean);
@@ -4496,8 +4529,10 @@ export function registerLyricTools(server, tool) {
       // by construction rather than by validation.
       const args = ['plan', `--sweep=${from}-${from + n}`];
       if (wants.length) args.push(`--want=${wants.join(';')}`);
-      if (a.catalog_form === undefined) args.push(`--form=${a.form || DEFAULT_FORM}`);
-      args.push(...(await creationFormArgs(a)));
+      if (!automatic) {
+        if (a.catalog_form === undefined) args.push(`--form=${a.form || DEFAULT_FORM}`);
+        args.push(...(await creationFormArgs(a)));
+      }
       if (a.lines != null) args.push(`--lines=${a.lines}`);
       if (a.functions) args.push(`--functions=${a.functions}`);
       if (a.relation) args.push(`--relation=${a.relation}`);
@@ -4506,8 +4541,22 @@ export function registerLyricTools(server, tool) {
       // required (a session's gate requires every statement).
       const conflict = statementConflict(statementsOf(a).conflict, 'STATEMENT_CONFLICT');
       if (conflict) throw refuse(conflict);
-      const r = await runVerb(args);
+      const r = automatic
+        ? await withTempDir(async (dir) => {
+            const candidates = await automaticFormCandidates(a);
+            if (!candidates.length)
+              throw refuse('No setting in the automatic catalog draw fits the supplied length.');
+            const file = path.join(dir, 'form-candidates.json');
+            await writeFile(file, JSON.stringify(candidates), 'utf8');
+            return runVerb([...args, `--catalog-candidates=${file}`]);
+          })
+        : await runVerb(args);
       const v = verdictOf(r);
+      const selected = r.lyric_result?.sweep?.catalog_selection;
+      if (automatic && selected && v.exit_code === 0) {
+        v.catalog_selection = catalogSelection({ song_form: selected });
+        Object.assign(a, v.catalog_selection);
+      }
       // The harness's NEXT line carries every flag the sweep planned under;
       // publishedReport keeps only its seed, so the line is rebuilt here from
       // this sweep's own declarations (#671, C2).
@@ -4530,11 +4579,12 @@ export function registerLyricTools(server, tool) {
             Number(/seed (-?\d+)/.exec(seed[0])[1])
           )
         );
-      return sweepVerdict(v, r, {
-        from,
-        n,
-        declared: noneKeptDeclared(a),
-      });
+      const result = sweepVerdict(v, r, { from, n, declared: noneKeptDeclared(a) });
+      if (v.catalog_selection && result.accepted_shown?.length) {
+        const { tool, args: next } = sweepNextCall(a, result.accepted_shown[0]);
+        result.next_call = { tool, args: next };
+      }
+      return result;
     }
   );
 
@@ -4907,10 +4957,8 @@ export function lyricInstructions({ kitchen = false } = {}) {
     (kitchen
       ? "the service's writer answering every question, so ONE call returns the stop condition. "
       : 'the loop asking one question per suspended call (`answer`, or `answers` for a batch or group) until it stops. ') +
-    (kitchen
-      ? `A new song's ${joinedNames(STATEABLE.map((r) => r.thing))} are the person's to choose. If they have not said one, ask them and end the turn; ` +
-        'do not choose it or draw it for them. Send what they chose as they said it. '
-      : '') +
+    'For a new song with no named form, omit the form fields. The sweep selects a compatible catalog setting and draws omitted dimensions. Carry forward the recorded selection. Preserve all explicit user choices. ' +
+    'A named form is a catalog_form. A new-song session refuses `form` on lyric_sweep (CREATION_FORM); it remains for raw, low-level callers and songs planned before. ' +
     "The sweep's NEXT line, a grade verdict's `next` and each CREATION_* refusal name the next call; a create " +
     'session refuses any other (CREATION_*). The first text block of a lyric_grade result, and of a lyric_revise ' +
     'result at a stop condition, is the deliverable: the song under its bracket headers ([NAME — N lines — B bars ' +

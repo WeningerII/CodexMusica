@@ -274,7 +274,14 @@ test(
     const sweep = await call('lyric_sweep', sweepArgs);
     assert.equal(sweep.exit_code, 0);
     recordCreation(task, 'lyric_sweep', sweepArgs, sweep);
+    // A sweep with no form chooses a catalog setting (#902). The plan carries
+    // it: the session gate writes it into a plan that leaves it out, and the
+    // sweep's next call names it.
     const args = { seed: sweep.accepted_shown[0], lines: 24, functions: raw };
+    assert.equal(creationRefusal(task, 'lyric_plan', args), null);
+    assert.equal(typeof sweep.catalog_selection?.catalog_form, 'string');
+    for (const [key, value] of Object.entries(sweep.next_call.args))
+      assert.deepEqual(args[key], value, key);
     const planned = await call('lyric_plan', args);
     assert.equal(planned.exit_code, 0);
     assert.match(
@@ -290,8 +297,11 @@ test(
     const screenArgs = { words: ['rain', 'train'] };
     recordCreation(task, 'lyric_screen', screenArgs, await call('lyric_screen', screenArgs));
     assert.equal(task.workflow.screen?.plan_sha256, planned.plan_sha256);
+    // `draw` is the sweep's statement, which the gate wrote into the plan
+    // call for its record; a grade does not take it.
+    const { draw: _drawn, ...declared } = args;
     const gradeArgs = {
-      ...args,
+      ...declared,
       draft: Array(planned.plan.total_lines).fill('I hold your hand beside the rain'),
     };
     assert.equal(creationRefusal(task, 'lyric_grade', gradeArgs), null);

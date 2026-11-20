@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 import { describeForm, realizeForm } from '../src/song-forms.mjs';
 import { gradeObservations } from '../src/song-form-grade.mjs';
 import { CREATION_LIMITS, projectSongFormCreation } from '../src/song-form-creation.mjs';
+import { _formInternals, automaticFormCandidates, prepareFormReview } from '../mcp/lyric_form.js';
+import { catalogSelection } from '../mcp/lyric_workflow.js';
 
 const catalog = JSON.parse(readFileSync(new URL('../data/song-forms.json', import.meta.url), 'utf8'));
 const make = (unit, fields = {}) => ({ unit, ...fields });
@@ -30,9 +32,55 @@ test('stepped printing is bounded by native physical slots and leaves undeclared
 });
 
 test('a named catalog role retains its spelling on a native verse carrier', () => {
-  const {contract} = projection(catalog, 'heroic-crown', {variant:0});
-  const last = contract.sections.at(-1);
-  assert.deepEqual([last.role, last.sourceRole], ['verse', 'master-sonnet']);
+  // ~~One named form, its last section~~ (#902): that form is past the
+  // owner's 150-line cap and is refused. Every ready setting is read
+  // instead: a section carried as a native verse keeps the catalog role's
+  // own spelling as its sourceRole, hyphens included.
+  let kept = 0;
+  for (const form of catalog) {
+    for (const choice of describeForm(catalog, form.id).variants) {
+      const counts = Object.fromEntries(choice.counts.map(({ path, min, max }) =>
+        [path, Math.min(min + 1, max ?? Infinity)]));
+      const realization = realizeForm(catalog, form.id, { variant: choice.index, counts });
+      const projected = projectSongFormCreation(realization, counts);
+      if (projected.status !== 'ready') continue;
+      const roles = new Set();
+      const collect = (node) => {
+        if (node.role !== undefined) roles.add(node.role);
+        node.children.forEach(collect);
+      };
+      realization.tree.forEach(collect);
+      projected.contract.sections.forEach((part, i) => {
+        if (part.sourceRole === undefined || part.role !== 'verse') return;
+        assert.ok(roles.has(part.sourceRole), `${form.id}/${choice.index}/${i}: ${part.sourceRole}`);
+        if (part.sourceRole.includes('-')) kept++;
+      });
+    }
+  }
+  assert.ok(kept > 0);
+});
+
+test('no ready contract fixes more lines than the cap, and a form past it is refused by name', () => {
+  // #902: the owner's 150-line cap holds every form shape. A form of fixed
+  // named sections was not checked, so one past the cap was advertised as
+  // ready and the planner refused it.
+  let over = 0;
+  for (const form of catalog) {
+    for (const choice of describeForm(catalog, form.id).variants) {
+      const counts = Object.fromEntries(choice.counts.map(({ path, min, max }) =>
+        [path, Math.min(min + 1, max ?? Infinity)]));
+      const projected = projectSongFormCreation(
+        realizeForm(catalog, form.id, { variant: choice.index, counts }), counts);
+      const where = form.id + '/' + choice.index;
+      if (projected.status === 'ready') {
+        const fixed = projected.contract.sections.reduce((n, part) => n + (part.lines ?? 1), 0);
+        assert.ok(fixed <= CREATION_LIMITS.maxLines, `${where}: ${fixed} lines`);
+      } else if (projected.reasons?.some((reason) => reason.code === 'native-line-limit')) {
+        over++;
+      }
+    }
+  }
+  assert.ok(over > 0);
 });
 
 test('every published selection has an exact structural contract or an explicit refusal', () => {
@@ -521,4 +569,262 @@ test('English tanka measures a bounded English reading independently of Japanese
   assert.equal(read([5,7,5,7,7]).verdict,'pass');
   assert.equal(read([5,8,5,7,7]).verdict,'unknown');
   assert.equal(read([2,4,5,5,6]).verdict,'unknown');
+});
+
+// THE AUTOMATIC DRAW (#902). Rows are chosen from the catalog by property; no
+// form is named. The first call below builds the draw's table cold.
+let coldDraw;
+const automaticDraw = () => (coldDraw ??= (async () => {
+  const start = performance.now();
+  const settings = await automaticFormCandidates({ lines: null });
+  return { settings, ms: performance.now() - start };
+})());
+const knownTotal = (contract) => contract.sections.reduce((n, section) => n + (section.lines ?? 0), 0);
+const openTotal = (contract) => contract.sections.some((section) => section.lines === null);
+const insideLimits = (contract) =>
+  contract.sections.length <= CREATION_LIMITS.maxSections &&
+  knownTotal(contract) <= CREATION_LIMITS.maxLines &&
+  (openTotal(contract) || knownTotal(contract) >= CREATION_LIMITS.minLines);
+// A contract the automatic draw may offer for these counts, or null.
+function drawable(id, variant, counts) {
+  let result;
+  try {
+    result = projection(catalog, id, { variant, counts });
+  } catch (error) {
+    if (error instanceof RangeError) return null;
+    throw error;
+  }
+  const contract = result.status === 'ready' ? result.contract : null;
+  return contract && !contract.sections.some((section) => section.textualFunction) && insideLimits(contract)
+    ? contract
+    : null;
+}
+// Every variant with count paths whose every path at its minimum is drawable.
+const floorRows = () => catalog.flatMap((form) =>
+  describeForm(catalog, form.id).variants
+    .filter(({ counts }) => counts.length)
+    .map(({ index, counts }) => ({
+      id: form.id, variant: index, paths: counts,
+      floor: Object.fromEntries(counts.map(({ path, min }) => [path, min])),
+    }))
+    .filter((row) => drawable(row.id, row.variant, row.floor)));
+const offeredOf = (settings, { id, variant }) =>
+  settings.filter((contract) => contract.id === id && contract.variant === variant);
+
+test('the automatic draw takes an unbounded repeat past min+2, and at a length it fits', async () => {
+  const { settings } = await automaticDraw();
+  const rows = floorRows().flatMap((row) => row.paths
+    .filter(({ max }) => max === null)
+    .map(({ path, min }) => ({ ...row, path, min, value: Math.max(min + 3, 5) }))
+    .filter((r) => drawable(r.id, r.variant, { ...r.floor, [r.path]: r.value })));
+  assert.ok(rows.length, 'some unbounded path is drawable at min+3 and at 5 or more');
+  const fixed = [];
+  for (const row of rows) {
+    const past = offeredOf(settings, row).filter((contract) => contract.counts[row.path] >= row.min + 3);
+    assert.ok(past.length, JSON.stringify([row.id, row.variant, row.path]));
+    fixed.push(...past.filter((contract) => !openTotal(contract)));
+  }
+  assert.ok(fixed.length, 'some setting past min+2 has a known total');
+  for (const contract of fixed.filter((_, i) => i % 7 === 0)) {
+    const lines = knownTotal(contract);
+    const offered = await automaticFormCandidates({ lines });
+    assert.ok(offered.some((other) => other.id === contract.id && other.variant === contract.variant &&
+      JSON.stringify(other.counts) === JSON.stringify(contract.counts)), JSON.stringify([lines, contract.counts]));
+  }
+});
+
+test('a stated length reaches the count vector whose known total it is', async () => {
+  await automaticDraw();
+  const rows = floorRows()
+    .filter(({ paths }) => paths.length === 1)
+    .filter(({ paths: [only] }) => only.max === null || only.max >= only.min + 3)
+    .map((row) => {
+      const [{ path, min }] = row.paths;
+      const totals = [0, 1, 2, 3].map((offset) => drawable(row.id, row.variant, { [path]: min + offset }));
+      return { ...row, totals };
+    })
+    .filter(({ totals }) => totals.every((contract) => contract && !openTotal(contract)) &&
+      !totals.slice(0, 3).some((contract) => knownTotal(contract) === knownTotal(totals[3])));
+  assert.ok(rows.length, 'some single-path variant has a fourth total the first three lack');
+  for (const row of rows) {
+    const lines = knownTotal(row.totals[3]);
+    const offered = offeredOf(await automaticFormCandidates({ lines }), row);
+    assert.ok(offered.some((contract) => knownTotal(contract) === lines && !openTotal(contract)),
+      JSON.stringify([row.id, row.variant, lines]));
+  }
+});
+
+// The contract an explicit catalog request (catalog_form, catalog_variant,
+// catalog_counts) compiles for the selection an automatic sweep reports.
+async function replayed(contract) {
+  const { options, plan } = await prepareFormReview(catalogSelection({ song_form: contract }));
+  return projectSongFormCreation(plan, options.counts);
+}
+
+test('count paths take values independently of one another, and replay exactly', async () => {
+  const { settings } = await automaticDraw();
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  // From every path at its minimum, each path stepped alone by one.
+  const rows = floorRows().map((row) => ({
+    ...row,
+    steps: row.paths
+      .map(({ path, min }) => ({ ...row.floor, [path]: min + 1 }))
+      .filter((counts) => drawable(row.id, row.variant, counts)),
+  })).filter(({ steps }) => steps.length);
+  assert.ok(rows.some(({ paths, steps }) => paths.length >= 3 && steps.length >= 2),
+    'some variant of three or more paths steps two of them alone');
+  for (const row of rows) {
+    const offered = offeredOf(settings, row);
+    for (const counts of row.steps) {
+      const where = JSON.stringify([row.id, row.variant, counts]);
+      const contract = offered.find((other) => same(other.counts, counts));
+      assert.ok(contract, where);
+      const again = await replayed(contract);
+      assert.equal(again.status, 'ready', where);
+      assert.deepEqual(again.contract, contract, where);
+    }
+  }
+});
+
+test('a variant of a vast count product is sampled, and its length search ends without enumerating it', async () => {
+  const { settings } = await automaticDraw();
+  const product = ({ paths }) => paths.reduce((n, { min, max }) => n * (max === null ? Infinity : max - min + 1), 1);
+  const rows = floorRows().filter((row) => Number.isFinite(product(row)) && product(row) > 1e6);
+  assert.ok(rows.length, 'some variant has more than a million bounded count vectors');
+  let settled = 0;
+  for (const row of rows) {
+    const where = JSON.stringify([row.id, row.variant]);
+    const offered = offeredOf(settings, row);
+    assert.ok(offered.length <= 3 + 12 * row.paths.length, where);
+    const distinct = (counts) => new Set(row.paths.map(({ path }) => counts[path])).size > 1;
+    assert.ok(offered.some((contract) => JSON.stringify(contract.counts) === JSON.stringify(row.floor)), where);
+    assert.ok(offered.some((contract) => distinct(contract.counts)), where);
+    const totals = new Set(offered.filter((contract) => !openTotal(contract)).map(knownTotal));
+    if (totals.size !== 1) continue;
+    const [total] = totals;
+    const outcome = async (lines) => {
+      const drawn = await automaticFormCandidates({ lines });
+      const entry = (await _formInternals.lengthSearch(lines)).find((v) => v.id === row.id && v.variant === row.variant);
+      return { entry, offered: offeredOf(drawn, row) };
+    };
+    const held = await outcome(total);
+    assert.equal(held.entry.outcome, 'kept', where);
+    assert.equal(held.offered.length, offered.filter((contract) => knownTotal(contract) === total).length, where);
+    const past = await outcome(total + 1);
+    assert.equal(past.entry.outcome, 'infeasible', where);
+    assert.ok(past.entry.counted <= 2 * row.paths.length && past.entry.projected === 0, JSON.stringify(past.entry));
+    assert.equal(past.offered.length, 0, where);
+    settled++;
+  }
+  assert.ok(settled, 'some such variant holds one known total across its settings');
+  // An exhausted search is the one that spent its budget; an infeasible one
+  // did not, and an outcome that found a setting offers it.
+  for (const lines of [7, 30, 150, 300]) {
+    const drawn = await automaticFormCandidates({ lines });
+    const { budget } = _formInternals;
+    const variants = await _formInternals.lengthSearch(lines);
+    const known = new Set(['open', 'kept', 'found', 'infeasible', 'exhausted', 'unmodeled']);
+    for (const entry of variants) {
+      const where = JSON.stringify([lines, entry]);
+      assert.ok(known.has(entry.outcome), where);
+      const spent = entry.counted >= budget.counted || entry.projected >= budget.projected;
+      if (entry.outcome === 'exhausted') assert.ok(spent, where);
+      if (entry.outcome === 'infeasible') assert.ok(!spent, where);
+      if (['found', 'kept'].includes(entry.outcome))
+        assert.ok(offeredOf(drawn, entry).some((contract) => !openTotal(contract) && knownTotal(contract) === lines), where);
+      if (['infeasible', 'exhausted'].includes(entry.outcome))
+        assert.ok(!offeredOf(drawn, entry).some((contract) => !openTotal(contract)), where);
+    }
+  }
+});
+
+test('every offered setting replays ready inside the native limits, up to the last value inside them', async () => {
+  const { settings } = await automaticDraw();
+  const lengths = [2, 3, 4, 6, 8, 12, 16, 24, 30, 48, 64, 100, 200, CREATION_LIMITS.maxLines];
+  const seen = new Map();
+  for (const contract of [settings, ...await Promise.all(lengths.map((lines) => automaticFormCandidates({ lines })))].flat())
+    seen.set(JSON.stringify([contract.id, contract.variant, contract.counts]), contract);
+  for (const contract of seen.values()) {
+    const where = JSON.stringify([contract.id, contract.variant, contract.counts]);
+    const result = await replayed(contract);
+    assert.equal(result.status, 'ready', where);
+    assert.deepEqual(result.contract, contract, where);
+    assert.ok(!contract.sections.some((section) => section.textualFunction), where);
+    assert.ok(insideLimits(contract), where);
+  }
+  // A path whose sections or known lines grow by a fixed step reaches the
+  // last value inside the limits, and nothing past it is offered.
+  const rows = floorRows().flatMap((row) => row.paths
+    .filter(({ max }) => max === null)
+    .map(({ path, min }) => {
+      const [low, next] = [min, min + 1].map((value) => drawable(row.id, row.variant, { ...row.floor, [path]: value }));
+      if (!next) return null;
+      const steps = [];
+      const sections = next.sections.length - low.sections.length;
+      if (sections > 0) steps.push(min + Math.floor((CREATION_LIMITS.maxSections - low.sections.length) / sections));
+      const lines = knownTotal(next) - knownTotal(low);
+      if (!openTotal(low) && lines > 0) steps.push(min + Math.floor((CREATION_LIMITS.maxLines - knownTotal(low)) / lines));
+      const last = Math.min(...steps);
+      return steps.length && drawable(row.id, row.variant, { ...row.floor, [path]: last }) &&
+        !drawable(row.id, row.variant, { ...row.floor, [path]: last + 1 }) ? { ...row, path, last } : null;
+    })
+    .filter(Boolean));
+  assert.ok(rows.length, 'some unbounded path stops at a native limit');
+  for (const row of rows) {
+    const values = offeredOf(settings, row).map((contract) => contract.counts[row.path]);
+    assert.ok(values.includes(row.last), JSON.stringify([row.id, row.variant, row.path, row.last]));
+    assert.ok(values.every((value) => value <= row.last), JSON.stringify([row.id, row.variant, row.path]));
+  }
+});
+
+test('each form holds one contiguous run of the draw however many settings it has', async () => {
+  for (const lines of [null, 12, 30]) {
+    const settings = lines === null ? (await automaticDraw()).settings : await automaticFormCandidates({ lines });
+    const runs = [];
+    for (const contract of settings)
+      if (runs.at(-1)?.id !== contract.id) runs.push({ id: contract.id, variants: [contract.variant], size: 1 });
+      else {
+        const run = runs.at(-1);
+        run.size++;
+        if (run.variants.at(-1) !== contract.variant) run.variants.push(contract.variant);
+      }
+    const ids = runs.map(({ id }) => id);
+    assert.equal(new Set(ids).size, ids.length, 'a form appears in one run only');
+    for (const run of runs)
+      assert.equal(new Set(run.variants).size, run.variants.length, 'a variant appears in one run inside its form');
+    if (lines === null)
+      // The old lockstep window gave a variant at most three settings.
+      assert.ok(runs.some((run) => run.size > 3 * run.variants.length), 'some form offers more than three settings a variant');
+  }
+});
+
+test('the draw is a bounded spread over each path, built in bounded time', async () => {
+  const { settings, ms } = await automaticDraw();
+  assert.ok(ms < 60_000, `cold draw took ${Math.round(ms)} ms`);
+  // The stated bound: 3 lockstep vectors and 12 values per path, and one more
+  // where a stated length's search found a setting.
+  const bound = (paths) => 3 + 12 * paths;
+  for (const lines of [null, 30]) {
+    const offered = lines === null ? settings : await automaticFormCandidates({ lines });
+    const found = new Set(lines === null ? [] : (await _formInternals.lengthSearch(lines))
+      .filter(({ outcome }) => outcome === 'found').map(({ id, variant }) => JSON.stringify([id, variant])));
+    const perVariant = new Map();
+    for (const contract of offered) {
+      const key = JSON.stringify([contract.id, contract.variant]);
+      perVariant.set(key, (perVariant.get(key) ?? 0) + 1);
+    }
+    for (const [key, n] of perVariant) {
+      const [id, variant] = JSON.parse(key);
+      const paths = describeForm(catalog, id).variants[variant].counts.length;
+      assert.ok(n <= Math.max(1, bound(paths) + (found.has(key) ? 1 : 0)), `${key}: ${n}`);
+    }
+  }
+  // A single unbounded path is offered across its range: at least six values,
+  // reaching past half the widest offered value among those paths.
+  const spreads = floorRows()
+    .filter(({ paths }) => paths.length === 1 && paths[0].max === null)
+    .map((row) => [...new Set(offeredOf(settings, row).map((contract) => contract.counts[row.paths[0].path]))]);
+  const widest = Math.max(...spreads.map((values) => Math.max(...values)));
+  assert.ok(spreads.some((values) => values.length >= 6 && Math.max(...values) * 2 > widest),
+    JSON.stringify(spreads.map((values) => values.length)));
 });

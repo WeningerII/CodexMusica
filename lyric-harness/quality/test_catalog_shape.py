@@ -21,7 +21,10 @@ class CatalogShapeTests(unittest.TestCase):
         parts = [{"unit": "section", "role": "verse", "lines": size} for size in (4, 2)]
         contract = {**declaration(parts, rhymes=[[1, 2, 3, 4, 6]]), "openRhymeLines": [5]}
         receipt = plan.make_plan(11, song_form=contract)
-        self.assertEqual(receipt["groups"], "1,2,3,4,6")
+        # The group's lines, whatever end-rhyme type it drew (#902); a type
+        # judged at a named word binds each line's last word (`N.endword`).
+        self.assertEqual([m.split(".")[0] for m in receipt["groups"].split(",")],
+                         ["1", "2", "3", "4", "6"])
         self.assertEqual(plan._sweep_coords(receipt), plan.SC.coordinates((0, 0, 0, 0, 1, 0)))
         self.assertIn("Unconstrained line endings: 5.", plan.writer_brief(receipt))
         for opens in ([], [0], [6], [5, 5], [5, 6], [True], "5"):

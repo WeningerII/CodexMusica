@@ -4,7 +4,8 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
 import { connectConnector } from './client.js';
-import { stated } from './statement_fixture.mjs';
+import { legacyStated } from './statement_fixture.mjs';
+import { recordCreation, withSessionOutcome, withSweepNext } from './lyric_workflow.js';
 import { instructionsForTask } from './task_contract.js';
 import { withExecutionContext } from './execution_context.js';
 import { takeLines, LYRIC_TOOL_SCHEMAS, _verdictInternals } from './lyric_tools.js';
@@ -50,7 +51,7 @@ test('sweep applies advertised dotted predicates and leaves vocabulary refusal t
   const sweep = (want) =>
     c.client.callTool({
       name: 'lyric_sweep',
-      arguments: { seed_from: 31, count: 1, lines: 12, want },
+      arguments: { seed_from: 31, count: 1, form: 'open', lines: 12, want },
     });
   try {
     const accepted = await sweep(['sections.verse>=0', 'min_lines.verse>=0', 'max_lines.verse>=0']);
@@ -80,7 +81,10 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
   const { _agentInternals } = await import('./gemini_agent.js');
   const c = await local({ domain: 'lyrics' });
   const sweep = async (args) =>
-    JSON.parse((await c.client.callTool({ name: 'lyric_sweep', arguments: args })).content[0].text);
+    JSON.parse(
+      (await c.client.callTool({ name: 'lyric_sweep', arguments: { form: 'open', ...args } }))
+        .content[0].text
+    );
   try {
     // Measured on the verse-chorus form, which requires a verse and a
     // chorus; the default `open` form requires none (2026-10-27, D7).
@@ -102,10 +106,13 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
     );
     assert.equal(empty.held_by[1].held, 28);
     assert.match(empty.meaning, /^REFUSED — the harness answered: 28 of 28/);
-    // Each predicate's own count is said, not pointed at.
+    // Each predicate's own count is said, not pointed at. Re-measured
+    // 2026-11-19 under the 150-line writing cap (John, #902): the length is
+    // drawn from 150 lines down, so 2 of these 28 seeds now draw 24 lines or
+    // fewer (it was 0 of 28). Still no seed holds all four.
     assert.match(
       empty.window_meaning,
-      /Each predicate held on its own, of the 28 planned: lines<=24 on 0; uses=verse,chorus on 28; /
+      /Each predicate held on its own, of the 28 planned: lines<=24 on 2; uses=verse,chorus on 28; /
     );
     assert.match(empty.window_meaning, /at most \d+\.\d% of seeds are kept under this request/);
     // `uses=` states the sections, so the roster is not advised. `lines<=24`
@@ -207,22 +214,28 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
       call: { tool: 'lyric_sweep', args: { seed_from: 5 } },
     });
     // A host that keeps receipts adds the windows up (the SDK client, which a
-    // session and the chat run through), here over a local server. After
-    // the fifth refused window a further one is more likely than not to find
-    // no plan even at the bound, and the request becomes the person's to
-    // change.
-    const hostServer = buildServer({ task: { domain: 'lyrics', phase: 'create' } });
-    const [ha, hb] = InMemoryTransport.createLinkedPair();
-    await hostServer.connect(ha);
-    const host = await connectConnector({
-      task: { domain: 'lyrics', phase: 'create' },
-      transport: hb,
-    });
-    try {
+    // session and the chat run through). After the fifth refused window a
+    // further one is more likely than not to find no plan even at the bound,
+    // and the request becomes the person's to change. These windows are the
+    // native default form's, which a new-song sweep refuses now (#902): a job
+    // saved with them, so each is swept on the raw engine and its receipt
+    // kept as the SDK client kept it then (recordCreation, then the published
+    // outcome).
+    const host = { domain: 'lyrics', phase: 'create' };
+    {
       const kept = [];
       for (let from = 0; kept.length < 5; from += 2) {
-        const r = await host.call('lyric_sweep', stated({ seed_from: from, count: 2, functions }));
-        kept.push(JSON.parse(r.content.find((b) => b.text.startsWith('{')).text));
+        const args = legacyStated({ seed_from: from, count: 2, functions });
+        const r = await c.client.callTool({ name: 'lyric_sweep', arguments: args });
+        recordCreation(host, 'lyric_sweep', args, JSON.parse(r.content[0].text), !!r.isError);
+        const shown = withSessionOutcome(
+          host,
+          'lyric_sweep',
+          withSweepNext(host, 'lyric_sweep', r, null),
+          null,
+          args
+        );
+        kept.push(JSON.parse(shown.content.find((b) => b.text.startsWith('{')).text));
       }
       assert.deepEqual(
         kept.map((v) => [v.refused_in_a_row.seeds, v.outcome.kind, v.outcome.by]),
@@ -238,8 +251,6 @@ test('a sweep says what happened from its own record: four outcomes, counts and 
         kept[4].window_meaning,
         /Across the windows refused in a row under this request, none of the 10 seeds planned/
       );
-    } finally {
-      await host.close();
     }
     // And a single plan on that roster: about this seed, so the sweep is next.
     const ownPlan = await plan({ seed: 0, functions });

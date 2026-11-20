@@ -250,6 +250,25 @@ class WritingRhymeBanTests(unittest.TestCase):
             "RHYME", "RIME_RICHE", "PROMOTED_RHYME"})
         self.assertFalse(bans(found))
 
+    def test_no_drawable_end_rhyme_type_lets_a_banned_pair_pass(self):
+        # A catalog form's prescribed group draws one of these types (#902).
+        # Whichever it draws, a banned pair is a flag, a missed type or an
+        # unjudged obligation for writing, and the reader still bans nothing.
+        from quality import plan
+        from quality.catalog_shape import terminal_rhyme_relation
+        names = [n for n in plan.eligible_types() if terminal_rhyme_relation(n)]
+        self.assertGreater(len(names), 1)
+        for name in names:
+            m = mandate([[1, 2]], n_lines=2, default_relation=f"schema:{name}")
+            for lines, code in ((SAME, "HOMEOTELEUTON"), (MODAL, "MODAL_RHYME")):
+                with self.subTest(type=name, code=code):
+                    write = self.writer.inspect(lines, m)
+                    self.assertFalse(bans(self.reader.inspect(lines, m)))
+                    if write["grade"]["violations"] or write["grade"]["pairs_refused"]:
+                        continue
+                    self.assertEqual({f.code for f in bans(write)}, {code})
+                    self.assertTrue(all(f.severity == "flag" for f in bans(write)))
+
     def test_structured_rhyme_ban_scope_reports_what_writing_checked(self):
         from dataclasses import asdict
 

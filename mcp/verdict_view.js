@@ -21,6 +21,7 @@
 // read re-projects the stored result with nothing recomputed.
 import { createHash } from 'node:crypto';
 import { isStanding } from './lyric_tools.js';
+import { catalogSelection } from './lyric_workflow.js';
 import { obligationLines, unjudgedWords } from './coverage_advice.js';
 
 export const SHORT_VIEW_TOOLS = new Set([
@@ -425,8 +426,18 @@ const PLAN_KEPT = [
 ];
 const PLAN_DETAIL_NOTE =
   'The brief above is the whole plan a writer writes to. The structured plan (its slots, ' +
-  'choices and groups as data) is kept with the operation: get_operation with this ' +
-  'operation_id and detail "plan" or "full" returns it.';
+  "choices and groups as data, and a catalog form's whole contract) is kept with the " +
+  'operation: get_operation with this operation_id and detail "plan" or "full" returns it.';
+// A catalog plan's request holds the form's whole verified contract
+// (`song_form`: each section with its division path, and the groups), which
+// grows with the setting. The short view names that form by its public
+// selector, the fields a call sends (catalogSelection), as the gate's own
+// receipts do; the contract stays in the structured plan (#902).
+function shortRequest(request) {
+  if (!request?.song_form) return request;
+  const { song_form: _contract, form: _legacyForm, ...coordinates } = request;
+  return { ...coordinates, ...catalogSelection(request) };
+}
 function planAt(content) {
   if (content.length !== 2) return -1;
   try {
@@ -455,6 +466,7 @@ function planView(content, detail) {
     ];
   const short = {};
   for (const key of PLAN_KEPT) if (v[key] !== undefined) short[key] = v[key];
+  if (short.plan_request) short.plan_request = shortRequest(short.plan_request);
   short.detail = PLAN_DETAIL_NOTE;
   if (v.outcome && typeof v.outcome === 'object') short.outcome = v.outcome;
   if (v.next_call && typeof v.next_call === 'object' && typeof v.next_call.tool === 'string')
