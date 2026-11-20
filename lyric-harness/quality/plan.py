@@ -544,15 +544,19 @@ def line_count_gaps(ok=None):
     return gaps
 
 
-#: THE MOST LINES A SONG HAS: AN OWNER'S CAP, NOT A DERIVATION (John,
-#: 2026-11-19, #902: "make the cap 150 lines"). It replaces, for this one
-#: number, the standing rule that no line count is hard-coded: the floor's
-#: own ceiling was 463 lines, and songs that long had plans too big for a
-#: client to receive (a 444-line plan of 167,847 characters was never
-#: delivered) and grades too big for the server (1,874 MB for one 444-line
-#: grade on a 2 GB host). `song_line_counts()` applies it, and through it
-#: ENVELOPE: total lines, the section ceiling (cap // stanza) and lines per
-#: section. The connector's MAX_LINES mirrors it.
+#: THE MOST LINES A NEW SONG IS PLANNED WITH: AN OWNER'S CAP, NOT A
+#: DERIVATION (John, 2026-11-19, #902: "make the cap 150 lines"; the same
+#: day, for writing only). It replaces, for this one number, the standing
+#: rule that no line count is hard-coded: the floor's own ceiling was 463
+#: lines, and songs that long had plans too big for a client to receive (a
+#: 444-line plan of 167,847 characters was never delivered) and grades too
+#: big for the server (1,874 MB for one 444-line grade on a 2 GB host).
+#: `song_line_counts()` applies it, and through it ENVELOPE: total lines,
+#: the section ceiling (cap // stanza) and lines per section. The
+#: connector's MAX_WRITE_LINES mirrors it. Reading is not capped: the
+#: connector's MAX_LINES stays 463, and `gradeable_line_counts()` is
+#: unchanged, so a pasted, checked, recovered or graded text may still hold
+#: 463 lines.
 SONG_LINE_CAP = 150
 
 
