@@ -2228,7 +2228,7 @@ WORDS_LEFT_FREE = 1
 JOINT_CODES = ("TOKEN_INDEX_UNREACHABLE",
                "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD", "NO_FREE_WORD",
                "HOOK_IN_NONRECURRING_SECTION", "GROUP_CONTRADICTS_ITSELF",
-               "IDENTITY_AT_TWO_LINE_ENDS", "PLACEMENT_CONTRADICTS_SCHEMA",
+               "PLACEMENT_CONTRADICTS_SCHEMA",
                "OVERHANG_EXCEEDS_SPAN")
 
 
@@ -2739,23 +2739,11 @@ def joint_findings(plan):
             _ln, _word = _binding
             _overhangs.setdefault(_ln, {}).setdefault(_word, []).append(
                 SC.label((_gi,)))
-        _ends = [m for m in _mem
-                 if (str(m).split(".", 1)[1] if "." in str(m) else "end")
-                 in ("end", "endword")]
-        if _RL.identity_forced(_s) and len(_ends) >= 2:
-            out.append((
-                "IDENTITY_AT_TWO_LINE_ENDS",
-                min(int(str(m).split(".", 1)[0]) for m in _ends),
-                f"group {SC.label((_gi,))} declares {_name!r}, whose identity "
-                f"rule requires its members to be the SAME TOKEN, at "
-                f"{len(_ends)} line-final slot(s) ({', '.join(_ends)}). "
-                f"Satisfying it means those lines END ON THE SAME WORD, and "
-                f"`floor.REPEAT_IN_VERSE` charges identical end words as a "
-                f"FLAG on a layer that never reads the mandate — so the only "
-                f"legal answer to this group trips another gate, and no "
-                f"choice of words clears both. The figure is not the problem: "
-                f"the same word ending two lines is `epistrophe / radif` in "
-                f"this registry, and that is the schema to declare for it."))
+        # ~~IDENTITY_AT_TWO_LINE_ENDS~~ -- RETIRED 2026-11-20. Its premise
+        # was that `floor.REPEAT_IN_VERSE` charges identical end words as a
+        # FLAG; the owner ruled that a word may rhyme with itself, and that
+        # finding is a note now, so a group whose identity rule puts the same
+        # word at two line ends is writable.
         # THE EIGHTH CAUSE, and it is the one that trapped a real song
         # (2026-09-03, `MISSING.md` M-206). A group whose members ALL sit at
         # DEFAULT slots is judged by the INSTANCES route, and that route
@@ -6885,8 +6873,6 @@ STOP_RULES = {
                             "the hook line"},
     "TITLE_NOT_IN_HOOK": {"applies": "hook_slot_and_title", "stop": "grid",
                           "limit": "title_in_hook"},
-    "REPEAT_IN_VERSE": {"applies": "floor_pairs", "stop": "flag",
-                        "limit": "same_end_word"},
     "HOMEOTELEUTON": {"applies": "groups", "stop": "flag",
                       "limit": "same_spelled_ending"},
     "MODAL_RHYME": {"applies": "groups", "stop": "flag",
@@ -7327,17 +7313,12 @@ def _limit_unjudged_line(plan):
             f"pass {UNJUDGED_UNTIL}, {FALLBACK_UNTIL}")
 
 
-def _limit_same_end_word(plan):
-    frac = _FL.FloorDeclaration().radif_min_pair_fraction
-    return (f"two paired line ends close on the same word or words and that "
-            f"close ends no other pair; or, under a close shared by at least "
-            f"{100 * frac:g}% of the pairs, the words just before it are the "
-            f"same too")
-
-
 def _limit_same_spelled_ending(plan):
-    return ("two paired words whose endings sound alike are also spelled "
-            "the same from the stressed vowel on")
+    # The same word and a homophone are never caught (owner's ruling,
+    # 2026-11-20: a word may rhyme with itself).
+    return ("two different paired words whose endings sound alike are also "
+            "spelled the same from the stressed vowel on (the same word, or "
+            "two words that sound exactly alike, is never caught)")
 
 
 def _limit_common_partner(plan):
@@ -7362,7 +7343,6 @@ _STOP_LIMITS = {
     "unjudged_pair": _limit_unjudged_pair,
     "nothing_read": _limit_nothing_read,
     "unjudged_line": _limit_unjudged_line,
-    "same_end_word": _limit_same_end_word,
     "same_spelled_ending": _limit_same_spelled_ending,
     "common_partner": _limit_common_partner,
 }

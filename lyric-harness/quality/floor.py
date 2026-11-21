@@ -2059,9 +2059,10 @@ class SlopFloor:
                 f"WHAT DID RUN: "
                 f"the relation-level checks (self-rhyme, radif, cliche, "
                 f"shared suffix), which read no percentile and do not depend "
-                f"on length. Of those, only REPEAT_IN_VERSE can still be a "
-                f"FLAG here — a word rhymed with itself is a fact about the "
-                f"two lines and needs no calibration. CLICHE_PAIR is a NOTE "
+                f"on length. REPEAT_IN_VERSE is a NOTE at every length: a "
+                f"word may rhyme with itself (owner's ruling, 2026-11-20), so "
+                f"it is recorded as identical rhyme and never charged. "
+                f"CLICHE_PAIR is a NOTE "
                 f"at this length: nothing about the membership test changes, "
                 f"but the only false-positive rates it has were measured in "
                 f"the two SUPERSEDED band rows — "
@@ -2113,10 +2114,9 @@ class SlopFloor:
                 f"1-3,999 tokens across seven line counts, zero cases. "
                 f"`test_floor.py`'s `_narrowed_lyric` is what reaches this "
                 f"branch now. The relation-level checks all still "
-                f"RAN, and REPEAT_IN_VERSE can still be a FLAG: a word "
-                f"rhymed with itself is a fact about two lines, calibrated "
-                f"against nothing. RADIF_LICENSED and SHARED_SUFFIX are "
-                f"notes at every length"))
+                f"RAN. REPEAT_IN_VERSE, RADIF_LICENSED and SHARED_SUFFIX are "
+                f"notes at every length: a word may rhyme with itself "
+                f"(owner's ruling, 2026-11-20)"))
 
         # THE WINDOW TRAVELS WITH THE DECLARATION. Without this the threshold
         # would come from the declaration and the statistic from whatever
@@ -2426,10 +2426,11 @@ class SlopFloor:
         downgraded to a note. Omitted, `sev` defaults to the identity, which
         is what a direct caller with no length in hand should get.
 
-        NOT everything here goes through it. REPEAT_IN_VERSE stays a flag at
-        any length on purpose: a word rhymed with itself is a fact about two
-        lines, with no percentile and no measured rate behind it, so there is
-        nothing for a length to invalidate. CLICHE_PAIR is the opposite case
+        NOT everything here goes through it. REPEAT_IN_VERSE is a NOTE at
+        any length: a word may rhyme with itself (owner's ruling, 2026-11-20,
+        which retires doctrine 3's "identity is not rhyme" for end words in
+        one group), so it is recorded as identical rhyme and never charged.
+        ~~stays a flag at any length on purpose~~. CLICHE_PAIR is the opposite case
         — the membership test is equally length-blind, but the only thing
         licensing it to REJECT is a false-positive rate measured in a BAND
         rather than at a length. ~~measured in one band, and outside that
@@ -2494,16 +2495,9 @@ class SlopFloor:
                 f"that precedes it. WHAT IS SUPPRESSED IS THIS MODULE'S "
                 f"`REPEAT_IN_VERSE` AND NOTHING ELSE — the MANDATE layer "
                 f"judges an identical end word separately, on the declared "
-                f"`ReviseDeclaration.repeat_licence`, and under the default "
-                f"'unlicensed' it reports every one of these pairs as a "
-                f"`SCHEME_VIOLATION` (REPEAT not rhyme) beside this note. "
-                f"MEASURED on a 5-couplet English ghazal, radif 'turn': 15 "
-                f"violations at the default and 0 at repeat_licence="
-                f"'refrain', with this finding unmoved in both. A radif is a "
-                f"LICENSED repeat and declaring it is the caller's move; "
-                f"saying 'self-rhyme checking is suppressed' full stop would "
-                f"claim a settlement this module cannot make for a layer it "
-                f"does not own (doctrine 1)", ls))
+                f"`ReviseDeclaration.repeat_licence`; under the default "
+                f"'allowed' a word may rhyme with itself (owner's ruling, "
+                f"2026-11-20), so these pairs are not charged there either", ls))
 
         for i, j, a, b, run in stripped:
             if run and run not in licensed:
@@ -2568,9 +2562,10 @@ class SlopFloor:
                 # what locates the repin above in the COUNTS and not in the
                 # mechanism.
                 #
-                # The `a == b` branch below is UNTOUCHED and stays a flag:
-                # there the qafiya UNDER the repetend is the same word too, so
-                # no refrain reading is available and it is plain self-rhyme.
+                # The `a == b` branch below ~~is UNTOUCHED and stays a flag~~
+                # is a note since 2026-11-20 (owner's ruling: a word may rhyme
+                # with itself): there the qafiya UNDER the repetend is the same
+                # word too, so it is plain self-rhyme, read as identical rhyme.
                 # THREE CASES, AND ONLY THE MIDDLE ONE MOVED. `not in
                 # licensed` was covering two unlike things under one severity,
                 # and the 94.7% above (REPINNED 2026-08-14 from ~~93.5%~~) is
@@ -2600,15 +2595,15 @@ class SlopFloor:
                            f"stands and nothing was retuned to recover it")
                 elif len(stripped) > 1:
                     # Closes ONE pair while the item has others to contrast it
-                    # against. Not a repetend at all: a one-off self-rhyme,
-                    # which is the defect this check was built for and is
-                    # outside everything measured above. STAYS A FLAG.
-                    rsev = "flag"
-                    why = (f"carried by {seen} of {npairs} pairs — it recurs "
-                           f"NOWHERE, so no refrain reading is available and "
-                           f"the fraction never enters. A one-off self-rhyme "
-                           f"in an item with {npairs} pairs to contrast it "
-                           f"against")
+                    # against: a one-off self-rhyme. ~~STAYS A FLAG~~ -- A
+                    # NOTE SINCE 2026-11-20, the owner's ruling: a word may
+                    # rhyme with itself, one-off self-rhymes included, so it
+                    # is recorded as identical rhyme and never charged.
+                    rsev = "note"
+                    why = (f"carried by {seen} of {npairs} pairs — a one-off "
+                           f"self-rhyme, read as identical rhyme. DISCLOSED, "
+                           f"NOT CHARGED: a word may rhyme with itself "
+                           f"(owner's ruling, 2026-11-20)")
                 else:
                     rsev = "note"
                     why = ("only one rhyme pair here, so this cannot be told "
@@ -2618,9 +2613,12 @@ class SlopFloor:
             if not a or not b:
                 continue
             if a == b:
-                repeat.append((i + 1, j + 1, a, "flag",
+                # ~~"flag"~~ -> "note", 2026-11-20 (owner's ruling: a word may
+                # rhyme with itself).
+                repeat.append((i + 1, j + 1, a, "note",
                                "the qafiya under the refrain is the same "
-                               "word in both lines"))
+                               "word in both lines, read as identical rhyme "
+                               "and not charged (owner's ruling, 2026-11-20)"))
                 continue
             if frozenset((a, b)) in self.decl.cliche_pairs:
                 cliche.append((i + 1, j + 1, f"{a}/{b}"))

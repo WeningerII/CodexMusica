@@ -589,9 +589,13 @@ def test_rime_riche_reads_the_words_own_onset():
     check("rain ~ reign stands in RIME_RICHE AND RHYME — rime riche is also "
           "rhyme, the same answer vain ~ vein already gave",
           {"RIME_RICHE", "RHYME"} <= _rr, sorted(_rr))
-    check("rite ~ write stands in RIME_RICHE too and carries HOMEOTELEUTON",
+    # REPINNED 2026-11-20 (owner's ruling): ~~and carries HOMEOTELEUTON~~ --
+    # two words that sound exactly alike are exempt from the same-spelled-
+    # ending ban, the same as the same word; the ban stays for dark/bark.
+    check("rite ~ write stands in RIME_RICHE too and is NOT banned as "
+          "HOMEOTELEUTON -- a homophone may rhyme with itself",
           "RIME_RICHE" in rows[("rite", "write")]["coarse_relations"]
-          and rows[("rite", "write")]["codes"] == ["HOMEOTELEUTON"],
+          and rows[("rite", "write")]["codes"] == [],
           rows[("rite", "write")])
     check("CONTROL: rain ~ vein stands in RHYME and NOT RIME_RICHE — the words' own onsets differ",
           "RHYME" in rows[("rain", "vein")]["coarse_relations"]

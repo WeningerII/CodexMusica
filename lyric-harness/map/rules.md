@@ -19,7 +19,6 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | MODAL_RHYME | note/flag when writing | WRITING_BAN_CODES | revise.py |
 | OUT_OF_CALIBRATED_LENGTH | note | LENGTH_GATE_CODES | floor.py |
 | OVERRUNS_SECTION | flag | severity flag | fit.py |
-| REPEAT_IN_VERSE | flag | severity flag | floor.py |
 | RETURN_NOT_VERBATIM | flag | severity flag | revise.py |
 | SCHEME_VIOLATION | flag | severity flag | revise.py |
 | SLOTS_EXCEEDED | flag | severity flag | fit.py |
@@ -61,6 +60,7 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | QUATRAIN_LOCK | note | — | grid.py |
 | RADIF_LICENSED | note | — | floor.py |
 | REFRAIN_REPEAT | note | — | revise.py |
+| REPEAT_IN_VERSE | note | — | floor.py |
 | REPRISE_BRINGS_NOTHING_BACK | note | — | grid.py |
 | RETURNS_WITH_NEW_WORDS | note | — | grid.py |
 | RETURNS_WITH_SAME_WORDS | note | — | grid.py |

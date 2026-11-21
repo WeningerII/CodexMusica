@@ -8679,19 +8679,23 @@ if (!runs('offline') || PART === null) {
           passed++;
           const revisionSeed = 10067;
           const revisionDraft = [...qualifiedDraft];
-          // THE DEFECT IS L1 ENDING ON ITS GROUP PARTNER'S OWN WORD: a word rhymed
-          // with itself (REPEAT_IN_VERSE) in a group that requires class:RHYME
-          // (SCHEME_VIOLATION), so a fresh run suspends on L1 and a zero-attempt
+          // THE DEFECT IS L1 FAILING ITS GROUP'S RELATION (class:RHYME, a
+          // SCHEME_VIOLATION); until 2026-11-20 it was L1 ending on its partner's
+          // own word, so a fresh run suspends on L1 and a zero-attempt
           // run stops at exit 3. ~~'Bone buttons gleam beneath the rain in June'~~
           // ended on L2's 'June' while L2 shared L1's group; RE-MEASURED
           // 2026-10-21, L1's partner is L3 now (1,3 above) and 'June' finishes
           // clean, so L1 must end on L3's own word instead, the same defect.
           // With the clean control now ending on strewn, the negative repeats strewn too.
+          // ~~'... where leaves lie strewn'~~ REPINNED 2026-11-20 (owner's ruling: a
+          // word may rhyme with itself): strewn/strewn now passes class:RHYME as
+          // identical rhyme, so L1 ends on 'still', which does not rhyme with L3's
+          // 'strewn' -- the same kind of defect, a group pair that fails its relation.
           // 2026-10-27 (D7): the returns and hook this draft is written for are
           // planned only for a returning form, so every seed-176 call declares
           // `verse-chorus`; under it the plan is unchanged (1,3;4,5;6,7, returns
           // 6,8;7,9, hook L6).
-          revisionDraft[0] = 'Bone buttons gleam beneath the rain where leaves lie strewn';
+          revisionDraft[0] = 'Bone buttons gleam beneath the rain where leaves lie still';
           const withRevision = (extra) => ({
             seed: revisionSeed,
             lines: 12,

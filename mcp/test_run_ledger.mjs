@@ -122,7 +122,10 @@ try {
   const n1 = verdict(await start());
   const n2 = verdict(await call({ run_id: n1.run_id, run_revision: 1, answer: 'I hold you.' }));
   RUNS.del(n1.run_id);
-  const rewritten = ['Copper cat', 'Azure cat'];
+  // A rewrite that still FAILS rime riche, so the run stays open. ~~'Azure
+  // cat'~~ until 2026-11-20: cat/cat now passes rime riche (owner's ruling: a
+  // word may rhyme with itself); cat/hat differs at the onset, so it does not.
+  const rewritten = ['Copper cat', 'Azure hat'];
   const onward = await call({
     run_id: n1.run_id,
     run_revision: n2.run_revision,

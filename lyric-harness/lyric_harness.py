@@ -5712,14 +5712,11 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                                   "the declared relation; the reading is unresolved."})
                     refused.add((i + 1, j + 1))
                     continue
-                if "REPEAT" in s["relations"]:
-                    # Identity has its own licence machinery (doctrine 3):
-                    # the same word at two ends of a rhyme group is charged
-                    # by the floor's rule, whatever else the pair is.
-                    violations.append(
-                        (i + 1, j + 1, s["total"],
-                         "REPEAT not rhyme (identical word)"))
-                elif reading_verdict is True:
+                if reading_verdict is True:
+                    # ~~"REPEAT" in relations -> "REPEAT not rhyme
+                    # (identical word)"~~ -- RETIRED 2026-11-20, the owner's
+                    # ruling: a word may rhyme with itself. An identical end
+                    # word is judged under the declaration like any pair.
                     continue
                 elif admits_decl(s, decl):
                     violations.append((i + 1, j + 1, s["total"],
@@ -12469,9 +12466,9 @@ def main():
         # report, while `lyric_recover` takes the mandate off the record.
         ms = rec.get("mandate_spelling") or {}
         print("  MANDATE SPELLING (the cover as the two declarations `groups` "
-              "and `returns`, for lyric_check and lyric_revise; `groups` charges a "
-              "REPEAT edge as a violation, `returns` is the only "
-              "declaration that holds one):")
+              "and `returns`, for lyric_check and lyric_revise; `groups` "
+              "allows an equal end word as identical rhyme, `returns` is the "
+              "only declaration that requires a whole line to come back):")
         print(f"    groups: {ms.get('--groups=', '')}")
         print(f"    returns: {ms.get('--returns=', '')}")
         # THE NEXT COMMAND, SPELLED (2026-09-02): `plan` prints GRADE IT and

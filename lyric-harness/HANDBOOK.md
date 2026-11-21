@@ -3249,12 +3249,20 @@ from the first run — do not drift from these either:**, merged into one run.)
    representation (chained slant). Never rebuild a projection-first
    architecture.
 
-3. **Band-pass, TYPED.** Identity is not rhyme. Relations: RHYME
+3. **Band-pass, TYPED.** ~~Identity is not rhyme.~~ Identity is a
+   relation, and it is told apart from rhyme, not banned. Relations: RHYME
    (graded), REPEAT (same word), RIME_RICHE (same sound, different
    word), ASSONANCE (nucleus agrees, coda does not), CONSONANCE (coda
-   agrees, nucleus does not). The band inverts by context: REPEAT is a
-   violation inside a verse, the requirement across chorus instances,
-   licensed as radif/refrain. The conjunctive coda rule RELABELS, never
+   agrees, nucleus does not). OWNER'S RULING, 2026-11-20: a word may
+   rhyme with itself. In any rhyme group, ordinary ones included, the
+   same word and a homophone both pass, read as identical rhyme and
+   folded into rime riche; one-off self-rhymes are disclosed as a note
+   and never charged; pasted songs read them as identical rhyme. What
+   stays flagged: the same word ending lines in two DIFFERENT rhyme
+   groups, and eye rhymes in an ordinary group (they pass only when the
+   eye-rhyme type is asked for). ~~REPEAT is a violation inside a
+   verse~~ — REPEAT is allowed inside a verse, the requirement across
+   chorus instances, licensed as radif/refrain. The conjunctive coda rule RELABELS, never
    rejects — `sun`/`much` is assonance, not a non-relation — because a
    rule that closed the leak by deleting assonance from the taxonomy
    would be a worse defect than the leak. See RESULTS_BAND.md.

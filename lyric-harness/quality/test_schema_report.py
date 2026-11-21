@@ -150,21 +150,30 @@ def test_repeat_handling():
     print("\n3. repeat handling")
     _m, full, red = both()
     f, r = by_lines(full, 4, 5), by_lines(red, 4, 5)
-    check("undeclared, sea~sea is a REPEAT a type satisfies, so it is not "
-          "charged, on both paths",
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+    # sea~sea now passes the group's own relation outright, so -- like any
+    # coarsely passed pair (section 1, record~shore) -- the reduced path keeps
+    # the verdict and drops the reporting lists. ~~and r.get("readings") and
+    # f.get("readings") == r.get("readings")~~
+    check("undeclared, sea~sea is a REPEAT and passes as identical rhyme, "
+          "with the same answer on both paths",
           "REPEAT" in f["relations"] and "REPEAT" in r["relations"]
           and f["why"] is None and r["why"] is None
-          and answer(f) == answer(r) and r.get("readings")
-          and f.get("readings") == r.get("readings"))
+          and answer(f) == answer(r))
     m, full, red = both(returns=[[8, 9]])
     check("with lines 8-9 declared a return, every answer is the same",
           same_answers(full, red))
     f, r = by_lines(full, 4, 5), by_lines(red, 4, 5)
-    check("a return declared elsewhere makes sea~sea a violation on both "
-          "paths", RV._repeat_declared_violation(m, 4, 5)
-          and f["why"] and f["why"] == r["why"]
-          and (4, 5) in [v["lines"] for v in red["violations"]]
-          and (4, 5) in [v["lines"] for v in full["violations"]],
+    # REPINNED 2026-11-20: ~~a return declared elsewhere makes sea~sea a
+    # violation~~ -- REQUIRE_RHYME allows the identity, and no setting
+    # charges it (the strict 'unlicensed' reading was removed by the owner's
+    # ruling), so sea~sea is not charged on either path.
+    check("a return declared elsewhere leaves sea~sea uncharged, on both "
+          "paths",
+          not RV._repeat_declared_violation(m, 4, 5)
+          and f["why"] is None and r["why"] is None
+          and (4, 5) not in [v["lines"] for v in red["violations"]]
+          and (4, 5) not in [v["lines"] for v in full["violations"]],
           (f["why"], r["why"]))
     f, r = by_lines(full, 8, 9), by_lines(red, 8, 9)
     check("the declared return shore~shore passes on both paths",

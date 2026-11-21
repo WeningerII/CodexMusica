@@ -406,14 +406,17 @@ class ReviseDeclaration:
     #: `test_revise.py` test 31 for what reading it per PAIR did instead.
     overlap_rule: str = "conjunctive"
 
-    #: Doctrine 3: REPEAT is a violation inside a verse and the REQUIREMENT
-    #: across chorus instances. The loop does not guess which; the caller
-    #: declares it. "unlicensed" keeps parity with `check_scheme`, which calls
-    #: an identical end word inside a mandated pair a violation. "refrain"
-    #: licenses it and says, in the finding, that the licence was DECLARED and
-    #: not earned by measurement — doctrine 18 requires a count and a fraction
-    #: before a repetend is a form, and this loop measures neither.
-    repeat_licence: str = "unlicensed"
+    #: An identical end word inside a mandated pair. "allowed" (the default
+    #: since 2026-11-20, the owner's ruling: a word may rhyme with itself, as
+    #: identical rhyme) charges nothing for the identity: the pair is judged
+    #: under its group's relation like any other pair, and a mandate that
+    #: DECLARED the repeat a violation keeps that requirement. "refrain"
+    #: licenses it with a note saying the licence was DECLARED and not earned
+    #: by measurement. ~~"unlicensed"~~ (doctrine 3's old reading: an
+    #: identical end word inside a mandated pair is a violation) was REMOVED
+    #: 2026-11-20 by the owner's ruling, and is refused by name below so no
+    #: caller gets it silently.
+    repeat_licence: str = "allowed"
 
     #: Anchor promotion used by the grader. Defaults to the spine's
     #: `Declaration.final_promotion` so this module reproduces `check_scheme`
@@ -439,6 +442,17 @@ class ReviseDeclaration:
     #: and the loop would be volunteering an opinion about a rhyme the
     #: writer did not make on a draft that otherwise passes clean.
     group_merge: str = "report"          # "report" | "off"
+
+    def __post_init__(self):
+        # REFUSED BY NAME (owner's ruling, 2026-11-20): the strict
+        # "unlicensed" reading is gone, and a caller still asking for it
+        # must hear so rather than silently get "allowed".
+        if self.repeat_licence not in ("allowed", "refrain"):
+            raise ValueError(
+                f"repeat_licence={self.repeat_licence!r} is not a setting: "
+                f"use 'allowed' (the default; a word may rhyme with itself) "
+                f"or 'refrain'. The strict 'unlicensed' reading was removed "
+                f"by the owner's ruling of 2026-11-20.")
 
 
 @dataclass
@@ -2088,7 +2102,14 @@ class Reviser:
             # The readings each declared relation was satisfied under, when
             # it held only under one (CLAUDE.md standing rule 5).
             _pair_readings = {}
-            if "REPEAT" in rels and not any(_schema_name_of(_RT, w) for w in wants):
+            # ~~if "REPEAT" in rels and not any(<a schema want>): why =
+            # "REPEAT not rhyme (identical word)"~~ -- REMOVED 2026-11-20 with
+            # the strict repeat licence (owner's rulings: a word may rhyme
+            # with itself, and the old-rule setting is gone). An identical
+            # word is judged under its group's relation like any other pair:
+            # it passes where that relation holds and fails where it does
+            # not (a named type with its own onset rule keeps that rule).
+            # The comment the branch carried, kept for its history:
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
                 # trivially "satisfying" an alliteration demand is exactly
@@ -2109,8 +2130,7 @@ class Reviser:
                 # a BARE group and a class/type relation keep this branch
                 # byte-identically (doctrine 3 stands: REPEAT is still not
                 # rhyme where nothing declared otherwise).
-                why = "REPEAT not rhyme (identical word)"
-            elif wants or _nondefault_struct:
+            if wants or _nondefault_struct:
                 # EVERY DECLARED REQUIREMENT IS ASKED: each relation the group
                 # names (the pair must stand in all of them), then the
                 # declared structure, if any. A refusal on any one refuses.
@@ -2597,9 +2617,10 @@ class Reviser:
                     # a pair the whole vocabulary satisfies passes whatever
                     # else it stands in. A mandate that DECLARED the repeat a
                     # violation (`Return`) keeps that requirement.
-                    if v["why"] and ("REPEAT" not in v["relations"]
-                                     or not self._repeat_declared_violation(
-                                         m, *v["lines"])):
+                    # SINCE 2026-11-20 (owner's ruling: a word may rhyme
+                    # with itself) no mandate charges the identity, so an
+                    # identical pair is rescued like any other.
+                    if v["why"]:
                         v["why"] = None
                 # A REPEAT pair goes on to the bound-word and any-reading
                 # routes below like any other failed pair (#519 finding b,
@@ -2607,9 +2628,7 @@ class Reviser:
                 # `repetition` there, and the instance route above reads only
                 # line ends. A mandate that DECLARED the repeat a violation
                 # keeps it.
-                elif v["why"] and ("REPEAT" not in v["relations"]
-                                   or not self._repeat_declared_violation(
-                                       m, *v["lines"])):
+                elif v["why"]:
                     if _moot and (*v["lines"], v["group"]) in _moot:
                         _open_n = [n for n in (getattr(_wvp, "undecided", {})
                                                .get(tuple(sorted(v["lines"])))
@@ -2691,33 +2710,30 @@ class Reviser:
                         _fan_unknown.add(id(v))
             verdicts = [v for v in verdicts if id(v) not in _fan_unknown]
 
-        default_licensed = self.rdecl.repeat_licence == "refrain"
         violations = []
         for v in verdicts:
             if not v["why"]:
                 continue
             if "REPEAT" in v["relations"]:
                 i, j = v["lines"]
-                # GATED ON THE MANDATE HAVING DECLARED ANY RETURN AT ALL --
-                # fixed 2026-08-13, and the comment below was already claiming
-                # this. A mandated pair under a plain LETTER scheme is
-                # REQUIRE_RHYME, whose declared=True/violation=True means
-                # decided() answers before the fallback is ever consulted, so
-                # `repeat_licence="refrain"` was INERT on every letter scheme:
-                # measured on AABB with two identical-word pairs, "refrain"
-                # used to LICENSE the repeat and had come to charge it.
-                # A letter cannot STATE this question -- two states for a
-                # question with five answers -- so REQUIRE_RHYME's True there
-                # is schemes.py's DEFAULT, not the writer's declaration, and
-                # doctrine 1 says a declared coordinate is not silently
-                # outranked by another layer's default. NOT fixed by weakening
-                # REQUIRE_RHYME: that value is doctrine 3 and three sections of
-                # quality/test_mandate_language.py rest on it.
-                declared, is_violation = (
-                    (False, None) if not m.returns
-                    else m.requirement(i, j).decided("repeat_is_violation"))
-                if not (is_violation if declared else not default_licensed):
+                # 2026-11-20 (owner's ruling: a word may rhyme with itself):
+                # the identity itself is never charged. The MANDATE answers
+                # first, PER PAIR: a pair its `Return` declarations require or
+                # license to repeat is what the writer was asked for, whatever
+                # relation it failed (fixed 2026-08-11 -- a per-song switch
+                # cannot express a per-pair inversion). A letter scheme is
+                # REQUIRE_RHYME everywhere, and its False is the default
+                # allowance, not a licence, so it is not asked. Otherwise a
+                # REPEAT pair whose relation FAILED is a violation, except
+                # under "refrain", which licenses every one.
+                req = m.requirement(i, j) if m.returns else None
+                if (req is not None and req is not SC.REQUIRE_RHYME
+                        and req.decided("repeat_is_violation") == (True, False)):
                     continue
+                if self.rdecl.repeat_licence == "refrain":
+                    continue
+                violations.append(v)
+                continue
             violations.append(v)
         repeats = [v for v in verdicts if "REPEAT" in v["relations"]]
 
@@ -4148,7 +4164,11 @@ class Reviser:
         # of the same predictability list, and same-spelled endings are
         # rank zero: the ones a search finds without even hearing them.
         ri, rj = self._spelled_rime(wi), self._spelled_rime(wj)
-        if ri and ri == rj:
+        # A HOMOPHONE PAIR IS NEVER CAUGHT (owner's ruling, 2026-11-20): the
+        # ban stays for different-sounding words on one spelled ending, but a
+        # word rhyming with itself (returned above) or with a homophone
+        # (knight/night, read as RIME_RICHE) is identical rhyme.
+        if ri and ri == rj and "RIME_RICHE" not in v["relations"]:
             return Finding(
                 "HOMEOTELEUTON", "note",
                 f"L{i}/L{j} rhyme on the SAME SPELLED ENDING "
@@ -4476,6 +4496,11 @@ class Reviser:
                 if is_violation:
                     continue          # SCHEME_VIOLATION already covers it
                 req = m.requirement(i, j)
+                if req is SC.REQUIRE_RHYME:
+                    # A rhyme pair on one word (owner's ruling, 2026-11-20:
+                    # a word may rhyme with itself) is identical rhyme, not
+                    # a refrain; the floor's REPEAT_IN_VERSE note records it.
+                    continue
                 ev = (f"the MANDATE requires this: {req.gloss}. Doctrine 18's "
                       f"count-and-fraction test does not apply here — this "
                       f"is not a claim earned by measurement, it is a "
@@ -4486,7 +4511,8 @@ class Reviser:
                       "fraction of the item's pairs before a repetend is a "
                       "form, and this loop measures neither")
             else:
-                continue              # unlicensed and undeclared: a violation
+                continue              # allowed and undeclared: identical
+                                      # rhyme; the floor's note records it
             add(j, Finding(
                 "REFRAIN_REPEAT", "note",
                 f"L{i} and L{j} are the same end word inside group "

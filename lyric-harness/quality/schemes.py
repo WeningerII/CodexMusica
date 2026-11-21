@@ -949,15 +949,18 @@ class Requirement:
         return self.name
 
 
-#: A relation required, identity FORBIDDEN. What `Mandate.groups` has always
+#: A relation required, identity ALLOWED. What `Mandate.groups` has always
 #: meant. An identical word still stands in its other relations (REPEAT is
-#: one relation in the pair's set, not the negation of rhyme); doctrine 3
-#: rules that inside a verse the identity itself is the violation.
+#: one relation in the pair's set, not the negation of rhyme). ~~doctrine 3
+#: rules that inside a verse the identity itself is the violation~~ --
+#: RETIRED 2026-11-20 by the owner's ruling: a word may rhyme with itself
+#: (identical rhyme), so the identity is not a violation here; the pair is
+#: judged under its group's relation like any other.
 REQUIRE_RHYME = Requirement(
-    "REQUIRE_RHYME", True, False, True,
+    "REQUIRE_RHYME", True, False, False,
     True,
-    "these lines must stand in at least one relation and must not be the "
-    "same word (doctrine 3: REPEAT is a violation inside a verse)")
+    "these lines must stand in at least one relation; the same word may "
+    "rhyme with itself (identical rhyme, owner's ruling 2026-11-20)")
 
 #: Identity required. The refrain, the chorus return, the radif. Rhyme follows
 #: from identity, so it is required too; REPEAT is not a violation here, it is
