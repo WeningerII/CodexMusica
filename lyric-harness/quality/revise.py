@@ -141,6 +141,56 @@ def held_note_standing(codes):
     """
     return f" — HOLDS as written (NOTE {', '.join(tuple(codes))})"
 
+#: What the letters in a rule row stand for. One sentence, printed in every
+#: row, so a row reads on its own wherever a renderer puts it.
+RULE_LEGEND = ("where N and M are any two lines of the group, N first, P is "
+               "the part of line N the rule reads and Q the part of line M")
+
+
+def declared_rule_rows(mandate):
+    """-> {group label: (row, ...)}: the rule each group with a declared
+    relation is graded by, one printable row for each relation it requires.
+    A group under the default obligation (at least one relation) is absent.
+
+    THE REVISE QUESTION GAVE A WEAKER RULE THAN THE GRADER USES (bug hunt
+    2026-11-20, finding 2). A group that declares a type is graded by that
+    type's rule, and the question said only that the line "must stand in at
+    least one relation with" its partners; the rule appeared nowhere in it. A
+    writer told that sent an ordinary rhyme and was rejected again. It is
+    the same shape as a return printed as "must rhyme" (`return_groups`).
+
+    The clauses are `quality.plan.type_rule`'s, the ones the plan brief
+    prints as "must satisfy rule R<n>", so the planner and the revise
+    question state one rule in one wording. A declared relation that is not
+    a registry type gets the sentence the plan brief gives it. The row is
+    built HERE, whole, and carried on the `Brief` (`group_rules`):
+    `quality/propose.py` imports nothing from this module, and two renderers
+    each wording the row would be two statements of it.
+    """
+    relations_of = getattr(mandate, "relations_of", None)
+    if relations_of is None:
+        return {}
+    from quality.plan import type_rule                   # noqa: PLC0415
+    from quality.relations import REGISTRY               # noqa: PLC0415
+    out = {}
+    for k, label in enumerate(mandate.labels):
+        rows = []
+        for name in relations_of(k):
+            bare = (name.split(":", 1)[1] if name.startswith("schema:")
+                    else name)
+            sch = REGISTRY.get(bare)
+            if sch is None:
+                shown, clauses = name, [f"P and Q stand in the declared "
+                                        f"relation {name}"]
+            else:
+                shown, clauses = bare, type_rule(sch)
+            rows.append(f"RULE of group {label} ({shown}), {RULE_LEGEND}: "
+                        + "; ".join(clauses) + ".")
+        if rows:
+            out[label] = tuple(rows)
+    return out
+
+
 #: Findings whose PRESENCE records that a requirement or a licence HOLDS.
 #: Everything else in the finding set names something WRONG, so its
 #: disappearance is a repair; these name something RIGHT, so their
@@ -677,6 +727,15 @@ class Brief:
     #: rendering fix a four-site refactor. The label is the key those sites
     #: already carry.
     return_groups: tuple = ()
+    #: THE RULE EACH OF `must_answer`'s GROUPS IS GRADED BY, where the group
+    #: declares a relation: {label: (row, ...)}, the printable rows of
+    #: `declared_rule_rows`. A group under the default obligation is absent,
+    #: and for it "at least one relation" is the true statement. Added
+    #: 2026-11-21 (bug hunt finding 2): `must_answer` carries the group and
+    #: its words and no rule, so both renderers printed the default
+    #: obligation for every group. Keyed by label for the reason
+    #: `return_groups` is.
+    group_rules: dict = field(default_factory=dict)
     # Exact verbatim equivalence class; never a rhyme-group label.
     return_members: tuple = ()
     #: Was the modal head COMPUTED at all for this line? Added 2026-08-16,
@@ -822,6 +881,8 @@ class Brief:
             else:
                 out.append(f"    must answer group {lab} {mem}{place}: "
                            f"{shown}{standing}")
+                out.extend(f"      {row}"
+                           for row in (self.group_rules or {}).get(lab, ()))
         if self.must_answer and len(self.must_answer) > 1:
             _places = {self.group_slots.get(lab) for lab, _m, _c in
                        self.must_answer} if self.group_slots else {None}
@@ -7037,6 +7098,7 @@ class Reviser:
         m = found["mandate"]
         _, endwords, _, _ = self._matrix(lines, profile=profile)
         briefs = []
+        _rule_rows = declared_rule_rows(m)
         for ln in sorted(found["per_line"]):
             if targets is not None and ln not in targets:
                 continue
@@ -7183,6 +7245,10 @@ class Reviser:
                                  == "REQUIRE_RETURN" for x in mates):
                     _returns.append(m.labels[k])
             b.return_groups = tuple(_returns)
+            b.group_rules = {m.labels[k]: _rule_rows[m.labels[k]]
+                             for k, _ in groups
+                             if m.labels[k] in _rule_rows
+                             and m.labels[k] not in _returns}
             _ret = m.return_of(ln)
             b.return_members = (tuple(_ret.lines)
                                 if _ret is not None and _ret.verbatim is True

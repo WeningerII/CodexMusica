@@ -320,7 +320,7 @@ from lyric_harness import (APOSTROPHES, load_lyric_lines, line_tokens,
                            resolve_reader_scheme, _scheme_of)
 from quality import slots as _SL  # noqa: E402
 from quality.revise import (ReviseDeclaration, Reviser,  # noqa: E402
-                            draft_fingerprint)
+                            declared_rule_rows, draft_fingerprint)
 
 #: The grader's slot resolution, bound ONCE at import (`slots.resolve`
 #: itself, not a copy). A test rig that replaces `slots.resolve` afterwards
@@ -1090,6 +1090,13 @@ class GroupBrief:
     #: verbatim, and () when no answer to it was rejected. The group question
     #: quotes them (bug hunt 2026-11-20, finding 5).
     pivot_line_reasons: tuple = ()
+    #: On the question that repairs the declared requirements together
+    #: (`whole_repair`): the rule every group that declares one is graded
+    #: by, as printable rows in group order (`declared_rule_rows`). The
+    #: mandate description lists each group's lines and no rule (bug hunt
+    #: 2026-11-20, finding 2). Every other group question reads its group's
+    #: rule off `brief.group_rules`.
+    rule_rows: tuple = ()
 
     def proposal_for(self, line_no):
         """-> (text, proposed word, slot) for one member, or `None`.
@@ -1727,6 +1734,13 @@ def _slot_for(mandate, group_index, line):
         return None
 
 
+def _all_rule_rows(mandate):
+    """-> every declared group's rule rows, in the mandate's group order."""
+    rows = declared_rule_rows(mandate)
+    return tuple(row for label in getattr(mandate, "labels", ())
+                 for row in rows.get(label, ()))
+
+
 def _changed_members(members, before, after):
     """-> the members of a group whose text an accepted rewrite changed.
 
@@ -1850,6 +1864,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 gb = GroupBrief(b.line_no, b.text, "", (), (), label, expanded,
                                 b, tuple(lines), attempt, whole=tuple(b.findings) + tuple(whole),
                                 whole_repair=True, mandate_description=mandate.describe(),
+                                rule_rows=_all_rule_rows(mandate),
                                 reasons=reasons,
                                 prior=(_prior_g(expanded, _round)
                                        if _prior_g is not None else None),
@@ -2800,7 +2815,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                                      reasons=_reasons, whole=_global + tuple(
                                          f for b in flagged for f in b.findings
                                          if f.code in REPAIRABLE_UNJUDGED), whole_repair=True,
-                                     mandate_description=_found["mandate"].describe())
+                                     mandate_description=_found["mandate"].describe(),
+                                     rule_rows=_all_rule_rows(_found["mandate"]))
                     _got = propose_group(_gb)
                     if _got is None or _unread(_got) is not None:
                         _reasons = (_unread(_got) or

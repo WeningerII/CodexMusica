@@ -128,6 +128,11 @@ class B:
         #: but not the KIND of requirement, so without this the renderers
         #: printed "must rhyme with" over a declared verbatim return.
         self.return_groups = kw.get("return_groups", ())
+        #: The rule each declared group is graded by, as printable rows
+        #: (bug hunt 2026-11-20, finding 2). `_mandate_block` reads it
+        #: through `getattr`; without it every group renders as the default
+        #: obligation, which is the defect the field was added for.
+        self.group_rules = kw.get("group_rules", {})
         self.return_members = kw.get("return_members", ())
         self.joint_conflict = kw.get("joint_conflict", False)
         #: WHAT EACH CALL CAN BE ANSWERED BY WHEN THE CONJUNCTION IS EMPTY
@@ -1178,7 +1183,12 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
             # `test_audit_regressions.py`. `pivot_line_reasons` is the field
             # added for it.
             "path", "pivot_line_offered", "pivot_line_forbidden",
-            "pivot_line_question", "pivot_line_reasons"}
+            "pivot_line_question", "pivot_line_reasons",
+            # `rule_rows` — every declared group's rule, on the question
+            # that repairs the declared requirements (bug hunt 2026-11-20,
+            # finding 2). Rendered through `PB` in §7e and through the real
+            # loop in `test_audit_regressions.py`.
+            "rule_rows"}
     check("every field this suite builds a `PB` out of is a real "
           "`GroupBrief` field", used <= declared, sorted(used - declared))
     check("...and `GroupBrief` has grown no field this suite is blind to",
@@ -1633,6 +1643,48 @@ def test_the_offer_carries_no_schema_gap_disclosure():
     check("the mandate block says 'must stand in at least one relation with'",
           "must stand in at least one relation with" in out
           and "must rhyme with" not in out, out)
+    # A GROUP THAT DECLARES A RULE IS STATED BY IT (bug hunt 2026-11-20,
+    # finding 2). The sentence above is the default obligation; it was
+    # printed for every group, and a declared group is graded by more.
+    row = ("RULE of group A (a declared type), where N and M are any two "
+           "lines of the group, N first, P is the part of line N the rule "
+           "reads and Q the part of line M: P and Q are the same word.")
+    other = row.replace("the same word", "different words")
+    ruled = "\n".join(_mandate_block(B(
+        must_answer=[("A", [1, 3], [(3, "sight")])], group_rules={"A": (row,)})))
+    check("a group that declares a rule is stated by that rule, printed "
+          "under its row, and not as 'at least one relation'",
+          "  group A [1, 3] — this line must satisfy the rule printed under "
+          "this row with each of: L3 ('sight')\n    " + row == ruled, ruled)
+    both = "\n".join(_mandate_block(B(
+        must_answer=[("A", [1, 3], [(3, "sight")])],
+        group_rules={"A": (row, other)})))
+    check("a group that declares two is stated by both",
+          "  group A [1, 3] — this line must satisfy every rule printed "
+          "under this row with each of: L3 ('sight')\n    " + row
+          + "\n    " + other == both, both)
+    check("a rule declared for another group changes nothing here",
+          "\n".join(_mandate_block(B(
+              must_answer=[("A", [1, 3], [(3, "sight")])],
+              group_rules={"B": (row,)}))) == out)
+    check("a RETURN is stated as a return whatever rule its label carries",
+          "RULE of group" not in "\n".join(_mandate_block(B(
+              must_answer=[("A", [1, 3], [(3, "sight")])],
+              return_groups=("A",), group_rules={"A": (row,)}))))
+    from quality.propose import DECLARED_RULES_HEADING, render_group
+    repair = dict(whole_repair=True, whole=(), mandate_description="  A: lines [1, 3]",
+                  lines=("first line", "second line", "third line"),
+                  attempt=0, reasons=None, members=(1, 3))
+    plain = render_group(PB(**repair))
+    with_rows = render_group(PB(**repair, rule_rows=(row,)))
+    check("the question that repairs the declared requirements prints "
+          "every declared group's rule under the mandate, and nothing "
+          "else in it moves",
+          with_rows == plain.replace(
+              "  A: lines [1, 3]\n\nCURRENT DRAFT",
+              "  A: lines [1, 3]\n\n" + DECLARED_RULES_HEADING + "\n  "
+              + row + "\n\nCURRENT DRAFT")
+          and DECLARED_RULES_HEADING not in plain, with_rows)
 
 
 def test_the_protected_lines_are_every_line_outside_the_question():

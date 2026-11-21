@@ -10638,6 +10638,40 @@ def _legacy_pivot_rejection(kind, prompt):
     return prompt[:found.start()] + was + prompt[found.end():]
 
 
+#: What a question says since 2026-11-21 of a group that declares a rule (bug
+#: hunt 2026-11-20, finding 2), FROZEN as `_BAN_DEFINITIONS_1121` is. Before,
+#: every group was stated as the default obligation and no rule was printed:
+#: the rule rows are removed, each sentence that points at them goes back to
+#: the sentence it replaced, and the heading over the rows in the question
+#: that repairs the declared requirements goes with its rows.
+_RULE_ROW_1121 = re.compile(
+    r"(?m)^ +RULE of group [^\n]*, where N and M are any two lines of the "
+    r"group, N first, P is the part of line N the rule reads and Q the part "
+    r"of line M: [^\n]*\n")
+_RULE_WORDING_1121 = (
+    ("this line must satisfy the rule printed under this row with each of: ",
+     "this line must stand in at least one relation with: "),
+    ("this line must satisfy every rule printed under this row with each of: ",
+     "this line must stand in at least one relation with: "),
+    ("must satisfy this group's rule, printed under this paragraph, with "
+     "what\n",
+     "must stand in a relation with what\n"),
+    ("must satisfy every rule printed under this paragraph with what\n",
+     "must stand in a relation with what\n"),
+    ("\n\nTHE RULE EACH GROUP THAT DECLARES ONE IS GRADED BY\n\nCURRENT "
+     "DRAFT\n",
+     "\n\nCURRENT DRAFT\n"),
+)
+
+
+def _legacy_group_rules(kind, prompt):
+    """-> the question as worded before it stated a declared group's rule."""
+    text = _RULE_ROW_1121.sub("", prompt)
+    for now, was in _RULE_WORDING_1121:
+        text = text.replace(now, was)
+    return None if text == prompt else text
+
+
 #: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
 #: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
 #: it asked and replays an answer only to the same question, so a change to a
@@ -10663,6 +10697,9 @@ LEGACY_QUESTION_RENDERINGS = (
     ("2026-11-21 writer: a group asked for after a rejected line answer says "
      "so (bug hunt finding 5)",
      _legacy_pivot_rejection),
+    ("2026-11-21 writer: a question states the rule a declared group is "
+     "graded by (bug hunt finding 2)",
+     _legacy_group_rules),
 )
 
 

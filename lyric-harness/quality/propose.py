@@ -324,6 +324,25 @@ def _whole_block(whole, indent="  "):
     return out
 
 
+#: What a line owes its group's other members, by how many rules the group
+#: declares: none (the default obligation), one, or several.
+DEFAULT_OBLIGATION = "stand in at least one relation with"
+ONE_RULE_OBLIGATION = "satisfy the rule printed under this row with each of"
+RULES_OBLIGATION = "satisfy every rule printed under this row with each of"
+#: The same for the lines of a group asked for together.
+COUPLED_DEFAULT = "stand in a relation with what"
+COUPLED_RULE = "satisfy this group's rule, printed under this paragraph, with what"
+COUPLED_RULES = "satisfy every rule printed under this paragraph with what"
+#: The heading over every declared group's rule in the question that repairs
+#: the declared requirements together.
+DECLARED_RULES_HEADING = "THE RULE EACH GROUP THAT DECLARES ONE IS GRADED BY"
+
+
+def _obligation(rules):
+    return (DEFAULT_OBLIGATION if not rules else
+            ONE_RULE_OBLIGATION if len(rules) == 1 else RULES_OBLIGATION)
+
+
 def _mandate_block(brief, indent="  "):
     """-> [str]. Every group the line must answer and the words it must
     answer them with — plus the pivot and joint-conflict statements, which
@@ -387,9 +406,19 @@ def _mandate_block(brief, indent="  "):
             out.append(f"{indent}  The tool mirrors your replacement to the "
                        f"exact declared return class; a rhyme alone is not enough.")
         else:
+            # A GROUP THAT DECLARES A RULE IS GRADED BY IT (bug hunt
+            # 2026-11-20, finding 2). "At least one relation" is the default
+            # obligation and is true only of a group that declares nothing;
+            # printed for a declared group it handed the writer a weaker
+            # requirement than the one graded, the mistake the RETURN branch
+            # above was written to stop. The rows are `Brief.group_rules`,
+            # worded once by the grader.
+            rules = tuple((getattr(brief, "group_rules", None) or {})
+                          .get(lab, ()))
             out.append(f"{indent}group {lab} {list(_ordered(mem))}{place} — "
-                       f"this line must stand in at least one relation with: "
+                       f"this line must {_obligation(rules)}: "
                        f"{shown}{standing}")
+            out.extend(f"{indent}  {row}" for row in rules)
     if len(must_answer) > 1:
         places = {gslots.get(lab) for lab, _m, _c in must_answer
                   if lab in gslots}
@@ -926,7 +955,15 @@ def render_group(group_brief):
                "Preserve the line count, placement and all declared relations.",
                "Clear the following whole-draft requirements."]
         out.extend(_finding_lines(g.whole))
-        out.extend(["", "DECLARED MANDATE", g.mandate_description, "", "CURRENT DRAFT"])
+        out.extend(["", "DECLARED MANDATE", g.mandate_description])
+        # THE MANDATE ABOVE LISTS EACH GROUP'S LINES AND NOT ITS RULE (finding
+        # 2). This question asks for the declared relations to be kept, so
+        # every group that declares a rule has it stated here.
+        rules = _ordered(getattr(g, "rule_rows", ()) or ())
+        if rules:
+            out.extend(["", DECLARED_RULES_HEADING])
+            out.extend(f"  {row}" for row in rules)
+        out.extend(["", "CURRENT DRAFT"])
         out.extend(_draft_block(g.lines))
         out.extend(_pivot_rejection_rows(g, _attempt_block(
             g.attempt, g.reasons, prior=getattr(g, "prior", None),
@@ -1025,10 +1062,16 @@ def render_group(group_brief):
             out.append(f"  a new FLAG under rule {NEW_FLAGS_ROW} below.")
             out.append("")
 
+    # THE GROUP'S OWN RULE, where it declares one (finding 2, as in
+    # `_mandate_block`): "a relation" is the default obligation only.
+    rules = tuple((getattr(inner, "group_rules", None) or {}).get(label, ()))
+    coupled = (COUPLED_DEFAULT if not rules else
+               COUPLED_RULE if len(rules) == 1 else COUPLED_RULES)
     out.append(f"  The {k} lines are COUPLED: whatever each binds on must "
-               f"stand in a relation with what")
+               f"{coupled}")
     out.append(f"  every OTHER member binds on, because group {label} "
                f"{list(members)} still holds after the rewrite.")
+    out.extend(f"    {row}" for row in rules)
     out.append("")
 
     out.append("WHAT THE GRADER ENFORCES ON YOUR ANSWER")

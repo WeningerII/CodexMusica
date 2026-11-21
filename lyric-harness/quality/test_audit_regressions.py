@@ -345,13 +345,17 @@ class AuditRegressions(unittest.TestCase):
         # (a group asked for after a rejected line answer says so). That one
         # touches group questions only, so this line question's second undo
         # is still the 671 wording.
+        # REPINNED 2026-11-21 (bug hunt finding 2), below:
+        # ~~LEGACY_QUESTION_RENDERINGS[-3]~~. One more change sits after it
+        # (a question states the rule a declared group is graded by). This
+        # line declares no rule, so that undo leaves its question alone.
         older = LH.legacy_question_texts('propose', now_line)[1]
         self.assertIn('Reviser.verify rejects an answer', now_line)
         self.assertNotIn('Reviser.verify rejects an answer', older)
         self.assertIn('  1. ONE line back, and it replaces L2. The draft stays 2 '
                       'lines — a different', older)
         self.assertIn('New NOTES do not reject.', older)
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-3][1], LH._legacy_671_prose)
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-4][1], LH._legacy_671_prose)
         # The undo reads a FROZEN copy of the rows it replaced; while the
         # table is unchanged the two agree, and a later change to the table
         # needs its own entry.
@@ -388,7 +392,10 @@ class AuditRegressions(unittest.TestCase):
         # REPINNED 2026-11-21 (bug hunt finding 5):
         # ~~LEGACY_QUESTION_RENDERINGS[-1]~~. The undo for the rejected line
         # answer a group question now quotes was added after this one.
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-2][1],
+        # REPINNED 2026-11-21 (bug hunt finding 2):
+        # ~~LEGACY_QUESTION_RENDERINGS[-2]~~. The undo for the rule a
+        # declared group is graded by was added after that one.
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-3][1],
                          LH._legacy_ban_definitions)
         # The undo reads a FROZEN copy of the block; while the block is
         # unchanged the two agree, and a later change needs its own entry.
@@ -720,16 +727,24 @@ class AuditRegressions(unittest.TestCase):
         self.assertIn("  L3's line question (attempt 1, round 1) was asked "
                       "first, and its answer was REJECTED. The grader's "
                       "reasons, verbatim:\n    - nothing was fixed\n", asked)
-        # A run held across this change still replays: the newest undo
-        # restores the question as it was worded before, byte for byte.
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-1][1],
+        # A run held across this change still replays: the undo restores
+        # the question as it was worded before, byte for byte.
+        # REPINNED 2026-11-21 (bug hunt finding 2):
+        # ~~LEGACY_QUESTION_RENDERINGS[-1]~~, and in the comparisons below
+        # ~~legacy_question_texts(...)[0] == before~~. The undo for the rule
+        # a declared group is graded by was added after this one, and these
+        # groups declare a relation, so their questions print that rule. The
+        # question a held run was asked is the second undo, and `before` is
+        # compared with its rule rows taken out the same way.
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-2][1],
                          LH._legacy_pivot_rejection)
         first = groups[0]
         self.assertEqual(first.path, 'escalation')
         before = PRM.render_group(dataclasses.replace(first, pivot_line_reasons=()))
         self.assertIn('  No previous attempt was rejected on this line in this '
                       'round.\n', before)
-        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[0], before)
+        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[1],
+                         LH._legacy_group_rules('propose_group', before))
         # With last round's rejection of the same group also on the question,
         # the old wording had that block and nothing after it.
         earlier = {'round': 1, 'text': 'x', 'reasons': ['nothing was fixed']}
@@ -738,8 +753,9 @@ class AuditRegressions(unittest.TestCase):
         self.assertIn('Your rewrite of this group in ROUND 1 was REJECTED', now)
         self.assertIn("L3's line question (attempt 1, round 1) was asked first", now)
         self.assertEqual(
-            LH.legacy_question_texts('propose_group', now)[0],
-            PRM.render_group(dataclasses.replace(with_prior, pivot_line_reasons=())))
+            LH.legacy_question_texts('propose_group', now)[1],
+            LH._legacy_group_rules('propose_group', PRM.render_group(
+                dataclasses.replace(with_prior, pivot_line_reasons=()))))
         # A second try at the group quotes the group's own rejection, the
         # latest one, and a group asked before any line question has no line
         # answer to cite: neither is reworded, so neither needs an undo.
@@ -790,7 +806,13 @@ class AuditRegressions(unittest.TestCase):
         before = PRM.render_group(dataclasses.replace(first, pivot_line_reasons=()))
         self.assertIn('  No previous attempt was rejected on this line in this '
                       'round.\n', before)
-        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[0], before)
+        # REPINNED 2026-11-21 (bug hunt finding 2):
+        # ~~legacy_question_texts(...)[0] == before~~. This question now
+        # prints the rule its groups declare, under a newer undo; the wording
+        # a held run was asked is the second undo, and `before` is compared
+        # with its rule rows taken out the same way.
+        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[1],
+                         LH._legacy_group_rules('propose_group', before))
         # L4's own line question got no answer, so its group question still
         # says, truly, that no attempt was rejected.
         later = [p for k, p in call.calls if k == 'group'][1]
@@ -880,6 +902,160 @@ class AuditRegressions(unittest.TestCase):
         self.assertEqual(found.locations, list(range(1, 16)))
         self.assertEqual(found.message,
                          '15 of 22 lines open with the same word')
+
+    STREET = ['we walked along the street',
+              'a quiet word was all i had',
+              'the morning brings the meat',
+              'the evening leaves me in the sun']
+    ONLY_THIS_RULE = ('the consonant sound(s) after the vowel at the stressed '
+                      'syllable is present in P and absent in Q')
+
+    def _street_briefs(self, relations):
+        m = mandate([[1, 3], [2, 4]], n_lines=4, relations=relations)
+        return m, {b.line_no: b for b in Reviser().brief(list(self.STREET), m)}
+
+    def test_the_revise_question_states_the_rule_a_declared_group_is_graded_by(self):
+        # Finding 2. Group A declares a type, so the grader holds street/meat
+        # to that type's rule and rejects it, although the two words rhyme.
+        # The question for L3 said only "this line must stand in at least
+        # one relation with: L1 ('street')". That is the rule of a group
+        # that declares nothing, it is weaker than the one graded, and the
+        # type's rule appeared nowhere in the question. A writer told that
+        # sends another plain rhyme and is rejected again.
+        import dataclasses
+        import quality.propose as PRM
+        from quality.plan import type_rule
+        from quality.relations import REGISTRY
+        lines = list(self.STREET)
+        m, briefs = self._street_briefs({'A': 'schema:subtractive rhyme'})
+        self.assertEqual(sorted(briefs), [3, 4])
+        clauses = type_rule(REGISTRY['subtractive rhyme'])
+        self.assertIn(self.ONLY_THIS_RULE, clauses)
+        asked = PRM.render_line(briefs[3], lines)
+        rows = asked[asked.index('THE RHYME MANDATE ON L3'):
+                     asked.index('LINES THAT MUST NOT CHANGE')]
+        self.assertNotIn('at least one relation', rows)
+        self.assertIn("  group A [1, 3] at its end word — this line must "
+                      "satisfy the rule printed under this row with each of: "
+                      "L1 ('street') — VIOLATED, this is the word to change\n"
+                      "    RULE of group A (subtractive rhyme), where N and M "
+                      "are any two lines of the group, N first, P is the "
+                      "part of line N the rule reads and Q the part of line "
+                      "M: ", rows)
+        for clause in clauses:
+            self.assertIn(clause, rows)
+        # The grader's own report of the line gives the rule as well.
+        self.assertIn(self.ONLY_THIS_RULE, str(briefs[3]))
+        # Group B declares nothing. "At least one relation" is its rule, and
+        # its question is the one it always was.
+        plain = PRM.render_line(briefs[4], lines)
+        self.assertIn("  group B [2, 4] at its end word — this line must stand "
+                      "in at least one relation with: L2 ('had')", plain)
+        self.assertNotIn('RULE of group', plain)
+        self.assertEqual(briefs[4].group_rules, {})
+        self.assertIsNone(LH._legacy_group_rules('propose', plain))
+        # A run held before this change recorded the old wording's hash, and
+        # undoing the change restores that wording exactly.
+        before = PRM.render_line(dataclasses.replace(briefs[3], group_rules={}),
+                                 lines)
+        self.assertIn("this line must stand in at least one relation with: "
+                      "L1 ('street')", before)
+        self.assertEqual(LH.legacy_question_texts('propose', asked)[0], before)
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-1][1],
+                         LH._legacy_group_rules)
+
+    def test_a_group_question_states_the_rule_its_lines_are_coupled_by(self):
+        # Finding 2, on the question that asks for a group's lines together.
+        # It said each line "must stand in a relation with what every OTHER
+        # member binds on", for a group graded by a declared rule.
+        import dataclasses
+        from types import SimpleNamespace
+        import quality.loop as LP
+        import quality.propose as PRM
+        lines = list(self.STREET)
+        m, briefs = self._street_briefs({'A': 'schema:subtractive rhyme'})
+        other = SimpleNamespace(line_no=1, text=lines[0], word='', offered=(),
+                                calls=(), slot=None)
+        group = LP.GroupBrief(3, lines[2], '', (), (other,), 'A', (1, 3),
+                              briefs[3], tuple(lines), 0)
+        asked = PRM.render_group(group)
+        self.assertNotIn('must stand in a relation with what', asked)
+        self.assertNotIn('at least one relation', asked)
+        self.assertIn("whatever each binds on must satisfy this group's rule, "
+                      "printed under this paragraph, with what\n  every OTHER "
+                      "member binds on, because group A [1, 3] still holds "
+                      "after the rewrite.\n    RULE of group A (subtractive "
+                      "rhyme), where ", asked)
+        self.assertEqual(asked.count(self.ONLY_THIS_RULE), 2,
+                         'under the pivot\'s mandate and under the paragraph')
+        plain = dataclasses.replace(
+            group, brief=dataclasses.replace(briefs[3], group_rules={}))
+        before = PRM.render_group(plain)
+        self.assertIn('must stand in a relation with what', before)
+        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[0],
+                         before)
+        # A group that requires two relations has two rules, and each is
+        # printed.
+        m2, both = self._street_briefs(
+            {'A': ['schema:subtractive rhyme', 'class:ASSONANCE']})
+        two = PRM.render_line(both[3], lines)
+        self.assertIn('this line must satisfy every rule printed under this '
+                      'row with each of: ', two)
+        self.assertIn('    RULE of group A (class:ASSONANCE), where N and M are '
+                      'any two lines of the group, N first, P is the part of '
+                      'line N the rule reads and Q the part of line M: P and Q '
+                      'stand in the declared relation class:ASSONANCE.\n', two)
+        self.assertIn(self.ONLY_THIS_RULE, two)
+        self.assertEqual(
+            LH.legacy_question_texts('propose', two)[0],
+            PRM.render_line(dataclasses.replace(both[3], group_rules={}), lines))
+        coupled = PRM.render_group(dataclasses.replace(group, brief=both[3]))
+        self.assertIn('must satisfy every rule printed under this paragraph '
+                      'with what\n', coupled)
+        self.assertEqual(
+            LH.legacy_question_texts('propose_group', coupled)[0],
+            PRM.render_group(dataclasses.replace(
+                group, brief=dataclasses.replace(both[3], group_rules={}))))
+
+    def test_the_question_that_repairs_the_declared_requirements_gives_each_rule(self):
+        # Finding 2, on the question headed REPAIR THE DECLARED REQUIREMENTS.
+        # It asks for "all declared relations" to be kept and listed each
+        # group's lines under DECLARED MANDATE with no rule beside any of
+        # them (reproduced on the raw engine by the planner owner,
+        # 2026-11-21). The loop asks it here because L3 also returns as L5.
+        import dataclasses
+        import quality.propose as PRM
+        from quality.propose import ModelProposer
+        draft = self.HILL + [self.HILL[2]]
+        m = mandate([[1, 3], [2, 4]], n_lines=5, returns=[[3, 5]],
+                    relations={'A': 'class:ASSONANCE'})
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=1,
+                                            backtrack_width=1))
+        call = self._fake_writer({'L3': ['My kettle whistles by the door again']})
+        writer, groups = ModelProposer(call), []
+
+        def propose_group(group_brief):
+            groups.append(group_brief)
+            return writer.propose_group(group_brief)
+        with contextlib.redirect_stdout(io.StringIO()):
+            revise_loop(rv, list(draft), m, propose=writer.propose,
+                        propose_group=propose_group)
+        first = groups[0]
+        self.assertTrue(first.whole_repair)
+        asked = [p for k, p in call.calls if k == 'group'][0]
+        row = ('  RULE of group A (class:ASSONANCE), where N and M are any two '
+               'lines of the group, N first, P is the part of line N the rule '
+               'reads and Q the part of line M: P and Q stand in the declared '
+               'relation class:ASSONANCE.')
+        self.assertEqual(first.rule_rows, (row.strip(),))
+        self.assertIn('\n\nTHE RULE EACH GROUP THAT DECLARES ONE IS GRADED BY\n'
+                      + row + '\n\nCURRENT DRAFT\n', asked)
+        # Group B declares nothing and has no row.
+        self.assertNotIn('RULE of group B', asked)
+        before = PRM.render_group(dataclasses.replace(first, rule_rows=()))
+        self.assertNotIn('RULE', before)
+        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[0],
+                         before)
 
     def test_a_round_reports_only_the_lines_it_changed(self):
         # Finding 28. An accepted group answer changed L3 and sent L1 back
