@@ -1215,3 +1215,191 @@ test('an unjudged pair names the word that lacks its place, and a failed pair it
   elsewhere.findings[0].subject[1] = 40;
   assert.deepEqual(unjudgedWords(elsewhere).unanchored, []);
 });
+
+// ── Bug hunt 2026-11-20, findings 30–33. Each fixture below is the shape the
+// raw connector returned for the finding's own repro (a grade of seed 7 at 8
+// lines; three checks), cut down to the rows the projection reads.
+
+// Finding 30. Two undeclared-section questions carry one code, and the short
+// verdict named both rows by the FIRST finding with that code, so the set
+// merged them and the 'bridge' question was never mentioned.
+test('not_checked names each undeclared-section question by its own finding', async () => {
+  const fn = (code, message) => ({ ...note(code, []), message });
+  const row = (code, index) => ({
+    id: `function:${code}:${index}`,
+    layer: 'function',
+    status: 'not_requested',
+    code,
+  });
+  const live = {
+    ...verdict,
+    findings: [
+      ...verdict.findings,
+      fn('FUNCTION_UNDECLARED', "no section declares function 'chorus'"),
+      fn(
+        'SINGLE_INSTANCE',
+        "'refrain' occurs once, so 'does it land in the same place each time' has no second time"
+      ),
+      fn('FUNCTION_UNDECLARED', "no section declares 'bridge'"),
+      fn('HOOK_UNDECLARED', 'no hook was declared, so no hook question was asked'),
+    ],
+    coverage: {
+      certified: true,
+      refused_obligations: [],
+      obligations: [
+        { id: 'function:draft', layer: 'function', status: 'answered' },
+        row('FUNCTION_UNDECLARED', 0),
+        row('SINGLE_INSTANCE', 1),
+        row('FUNCTION_UNDECLARED', 2),
+        row('HOOK_UNDECLARED', 3),
+        { id: 'setting:draft', layer: 'setting', status: 'not_requested' },
+      ],
+    },
+  };
+  const short = JSON.parse(sessionView('lyric_grade', blocks(live))[1].text);
+  assert.deepEqual(short.not_checked, [
+    "function: FUNCTION_UNDECLARED — no section declares function 'chorus'",
+    "function: SINGLE_INSTANCE — 'refrain' occurs once, so 'does it land in the same place each time' has no second time",
+    "function: FUNCTION_UNDECLARED — no section declares 'bridge'",
+    'function: HOOK_UNDECLARED — no hook was declared, so no hook question was asked',
+    'setting (which syllable sits on which pulse): no beat grid or isochrony declared',
+  ]);
+  // The same binding where the rows are REFUSED declarations: each is named
+  // with its own finding's message, not the first one's.
+  const { refusedByRemedy } = await import('./coverage_advice.js');
+  const refused = structuredClone(live);
+  for (const o of refused.coverage.obligations)
+    if (o.code === 'FUNCTION_UNDECLARED') o.status = 'refused';
+  assert.deepEqual(refusedByRemedy(refused).declarations, [
+    "function: FUNCTION_UNDECLARED — no section declares function 'chorus'",
+    "function: FUNCTION_UNDECLARED — no section declares 'bridge'",
+  ]);
+});
+
+// Finding 31. The grader writes the compared words with Python's repr, which
+// puts DOUBLE quotes around a word that has an apostrophe ('stay' ~ "don't").
+// The short verdict matched single quotes only, so the row lost its words.
+test('a failed pair keeps its compared words when one has an apostrophe', () => {
+  const failed = (lines, pair) =>
+    flag(
+      'SCHEME_VIOLATION',
+      lines,
+      'two lines of one group do not stand in the relation it requires',
+      'NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75) — no registry type ' +
+        `holds at its bound words (score 0.527; ${pair}) — NAMED PAIR IS NOT THE EVIDENCE`
+    );
+  const rows = blockingOf({
+    findings: [
+      failed([1, 3], `'stay' ~ "don't"`),
+      failed([2, 4], `'dark' ~ 'stone'`),
+      failed([5, 7], `"can't" ~ "won't"`),
+    ],
+  });
+  assert.equal(rows.length, 3, 'findings that differ only in the pair are not merged');
+  assert.ok(rows[0].endsWith(`; compared 'stay' ~ "don't"`), rows[0]);
+  assert.ok(rows[1].endsWith("; compared 'dark' ~ 'stone'"), rows[1]);
+  assert.ok(rows[2].endsWith(`; compared "can't" ~ "won't"`), rows[2]);
+});
+
+// Finding 32. A pair left unjudged ONLY because an end word has no
+// dictionary reading listed every word with two readings on both lines,
+// function words included. Choosing among those cannot clear the refusal,
+// and the verdict's own `next` names only the unread word.
+test('a pair unjudged for an unread end word lists no two-reading words', () => {
+  const unread = (lines, anchorLine) => ({
+    ...note('SCHEME_UNREADABLE', lines),
+    message:
+      'L1/L2 are mandated together (group(s) A) and the harness could not read a declared ' +
+      'rhyme anchor, so this rhyme is UNKNOWN rather than absent',
+    subject: ['unreadable_anchor', anchorLine],
+  });
+  const two = (word, line) => ({
+    word,
+    matching_lines: [line],
+    dictionary_readings: [{}, {}],
+  });
+  const v = {
+    findings: [unread([1, 2], 1), note('UNREADABLE_END_WORD', [1])],
+    coverage: { refused_obligations: ['rhyme:1:2:0'] },
+    pronunciation_options: {
+      items: [
+        two('the', 1),
+        two('river', 1),
+        { word: 'qzxvbrt', matching_lines: [1], dictionary_readings: [] },
+        two('and', 2),
+        two('carried', 2),
+      ],
+    },
+  };
+  assert.deepEqual(blockingOf(v), [
+    'L1: not judged — rhyme with L2 (SCHEME_UNREADABLE, UNREADABLE_END_WORD); no dictionary reading listed: L1 qzxvbrt',
+    'L2: not judged — rhyme with L1 (SCHEME_UNREADABLE); no dictionary reading listed: L1 qzxvbrt',
+  ]);
+  // A pair whose readings DISAGREE is a different cause under the same code:
+  // there the two-reading words are what the writer chooses among.
+  const undecided = structuredClone(v);
+  undecided.findings = [
+    {
+      ...note('SCHEME_UNREADABLE', [1, 2]),
+      message:
+        "L1/L2 are mandated together (group(s) A) and a word's readings disagree on what the " +
+        'declared structure compares, so this rhyme is UNDECIDED rather than absent',
+      subject: [],
+    },
+  ];
+  undecided.pronunciation_options.items = undecided.pronunciation_options.items.filter(
+    (o) => o.dictionary_readings.length
+  );
+  assert.ok(
+    blockingOf(undecided)[0].includes(
+      'words with more than one reading: L1 the, river; L2 and, carried'
+    ),
+    blockingOf(undecided)[0]
+  );
+  // The same row also unjudged on its meter keeps the list: this fix is about
+  // a row refused for the unread end word and nothing else.
+  const mixed = structuredClone(v);
+  mixed.coverage.refused_obligations.push('meter:COUNT_IS_A_LOWER_BOUND:L1');
+  assert.ok(
+    blockingOf(mixed)[0].includes('words with more than one reading'),
+    blockingOf(mixed)[0]
+  );
+});
+
+// Finding 33. A draft too short to grade is refused as `floor:draft`, and the
+// one finding that says why is a note, which the short view only counts. The
+// writer saw "whole draft: not judged — floor:draft" and no reason.
+test('a too-short draft says why its floor was not judged', async () => {
+  const short = {
+    findings: [
+      {
+        ...note('OUT_OF_CALIBRATED_LENGTH', []),
+        message:
+          '3 tokens is outside every calibrated length; the length-sensitive checks did not run',
+      },
+    ],
+    coverage: {
+      refused_obligations: ['floor:draft'],
+      obligations: [{ id: 'floor:draft', layer: 'floor', status: 'refused' }],
+    },
+  };
+  assert.deepEqual(blockingOf(short), [
+    'whole draft: not judged — floor:draft (OUT_OF_CALIBRATED_LENGTH — 3 tokens is outside every calibrated length; the length-sensitive checks did not run)',
+  ]);
+  // No such finding on the record: the id stands alone, as it always did.
+  assert.deepEqual(blockingOf({ ...short, findings: [] }), [
+    'whole draft: not judged — floor:draft',
+  ]);
+  // The codes are the grader's own floor gate (quality/floor.py), held equal.
+  const { FLOOR_GATE_CODES } = await import('./verdict_view.js');
+  const { readFileSync } = await import('node:fs');
+  const source = readFileSync(
+    new URL('../lyric-harness/quality/floor.py', import.meta.url),
+    'utf8'
+  );
+  const tuple = source.match(/^FLOOR_GATE_CODES = \(([^)]*)\)/m)?.[1] ?? '';
+  assert.deepEqual(
+    [...FLOOR_GATE_CODES],
+    [...tuple.matchAll(/"([A-Z_]+)"/g)].map((m) => m[1])
+  );
+});

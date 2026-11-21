@@ -22,7 +22,7 @@
 import { createHash } from 'node:crypto';
 import { isStanding } from './lyric_tools.js';
 import { catalogSelection } from './lyric_workflow.js';
-import { obligationLines, unjudgedWords } from './coverage_advice.js';
+import { findingForRow, obligationLines, unjudgedWords } from './coverage_advice.js';
 
 export const SHORT_VIEW_TOOLS = new Set([
   'lyric_grade',
@@ -112,14 +112,15 @@ const NOT_CHECKED = {
 // grader's sentence itself (function:CONTRAST_NOT_CHECKED:draft, #676). A
 // layer row may carry one too (function:draft when no section declares a
 // function): it is the grader's, and it is said rather than "not requested".
+// Two rows of one code are two questions, each named by its own finding
+// (`findingForRow`); the set still merges two rows that say the same thing.
 function notCheckedOf(verdict) {
-  const findings = Array.isArray(verdict.findings) ? verdict.findings : [];
+  const findingOf = findingForRow(verdict);
   const out = new Set();
   for (const o of verdict.coverage?.obligations || []) {
     if (o.status !== 'not_requested') continue;
     if (o.code) {
-      const f = findings.find((x) => x.code === o.code);
-      const said = f?.message || o.message;
+      const said = findingOf(o)?.message || o.message;
       out.add(`${o.layer}: ${o.code}` + (said ? ` — ${said}` : ''));
     } else if (typeof o.message === 'string' && o.message.trim())
       out.add(`${o.layer}: ${o.message.trim()}`);
@@ -143,8 +144,15 @@ function head(evidence) {
   if (s.length > 110) s = s.slice(0, 107).replace(/\s+\S*$/, '') + '…';
   return s;
 }
+// The two compared words, as the grader wrote them. It writes each with
+// Python's repr, which quotes a word that has an apostrophe in DOUBLE quotes
+// ('stay' ~ "don't"), so either style is read on either side (bug hunt
+// 2026-11-20, finding 31: a single-quote-only pattern dropped the words, and
+// merged findings that differed only in them).
+const QUOTED_WORD = `(?:'[^']+'|"[^"]+")`;
+const COMPARED_PAIR = new RegExp(`${QUOTED_WORD} ~ ${QUOTED_WORD}`);
 const comparedPair = (evidence) =>
-  (typeof evidence === 'string' && evidence.match(/'[^']+' ~ '[^']+'/)?.[0]) || '';
+  (typeof evidence === 'string' && evidence.match(COMPARED_PAIR)?.[0]) || '';
 // The clause(s) of its rule a failed pair fails, as the grader words them
 // (revise.py: "where P is on L.. and Q on L.., it fails: ..."). The head
 // above stops before it, and it is the one part of the evidence a writer can
@@ -154,6 +162,22 @@ const failedClause = (evidence) =>
     evidence.match(/; (where P is on L\d+ and Q on L\d+, it fails: .+?)(?: \(score |$)/)?.[1]) ||
   '';
 const lineList = (lines) => 'L' + [...new Set(lines)].sort((a, b) => a - b).join('/');
+
+// The grader's floor gate (quality/floor.py FLOOR_GATE_CODES): a note with one
+// of these codes is why `floor:draft` is refused. A copy, held equal to the
+// Python tuple by test_verdict_view.mjs.
+export const FLOOR_GATE_CODES = ['OUT_OF_CALIBRATED_LENGTH', 'MATTR_WINDOW_UNCALIBRATED'];
+// Why a refused whole-draft row was refused, where the record says. The short
+// view counts notes and prints none, and the one finding that explains a
+// too-short draft is a note, so the row read "floor:draft" and gave no reason
+// (bug hunt 2026-11-20, finding 33).
+function wholeDraftReason(id, findings) {
+  if (id !== 'floor:draft') return '';
+  const said = findings
+    .filter((f) => FLOOR_GATE_CODES.includes(f.code) && f.message)
+    .map((f) => `${f.code} — ${f.message}`);
+  return said.length ? ` (${[...new Set(said)].join('; ')})` : '';
+}
 
 export function blockingOf(verdict) {
   const findings = Array.isArray(verdict.findings) ? verdict.findings : [];
@@ -244,7 +268,21 @@ export function blockingOf(verdict) {
     // the place.
     const pairLines = [n, ...e.partners];
     const lacking = unanchored.filter((m) => pairLines.includes(m.line));
-    const onlyLacking = lacking.length > 0 && e.kinds.size === 1 && e.kinds.has('rhyme');
+    const onlyRhyme = e.kinds.size === 1 && e.kinds.has('rhyme');
+    const onlyLacking = lacking.length > 0 && onlyRhyme;
+    // The same, for an end word with no dictionary reading at all (bug hunt
+    // 2026-11-20, finding 32): when every unjudged-pair note on this line
+    // says the anchor could not be READ (its `subject` tag, as the grader
+    // sends it), the cause is that word, and the two-reading words on both
+    // lines are not it. A pair whose readings disagree carries the same code
+    // with no such tag, and keeps its list.
+    const pairNotes = findings.filter(
+      (f) => f.code === 'SCHEME_UNREADABLE' && (f.locations || []).includes(n)
+    );
+    const onlyUnread =
+      onlyRhyme &&
+      pairNotes.length > 0 &&
+      pairNotes.every((f) => Array.isArray(f.subject) && f.subject[0] === 'unreadable_anchor');
     out.push(
       `L${n}: not judged — ${[...e.kinds].join(', ')}` +
         (e.partners.size ? ` with ${lineList([...e.partners])}` : '') +
@@ -258,13 +296,16 @@ export function blockingOf(verdict) {
               .join('; ')}`
           : '') +
         (failures.length ? `; unreadable: ${[...new Set(failures)].join(', ')}` : '') +
-        (words.length && !onlyLacking
+        (words.length && !onlyLacking && !onlyUnread
           ? `; words with more than one reading: ${words.join('; ')}`
           : '') +
         (unknown.length ? `; no dictionary reading listed: ${unknown.join('; ')}` : '')
     );
   }
-  if (unplaced.length) out.push(`whole draft: not judged — ${unplaced.join(', ')}`);
+  if (unplaced.length)
+    out.push(
+      `whole draft: not judged — ${unplaced.map((id) => id + wholeDraftReason(id, findings)).join(', ')}`
+    );
   return out;
 }
 
