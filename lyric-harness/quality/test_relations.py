@@ -2320,9 +2320,14 @@ def test_relation_report_renderer_runs():
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 80" in out
           and "REFUSED 27 (capability 27 · EMPTY DECLARED FRAME 0 · OTHER 0)"
-          in out and "RAN AND FOUND NOTHING 31" in out
-          and "RAN AND FIRED 22" in out,
-          "REFUSED 27 · RAN AND FOUND NOTHING 31 · RAN AND FIRED 22, "
+          in out and "RAN AND FOUND NOTHING 30" in out
+          and "RAN AND FIRED 23" in out,
+          "REFUSED 27 · RAN AND FOUND NOTHING 30 · RAN AND FIRED 23, "
+          "REPINNED 2026-11-20 (owner's ruling: a word may rhyme with "
+          "itself) from FOUND NOTHING ~~31~~ and FIRED ~~22~~: rime riche "
+          "no longer requires different words, so it fires on the 15 "
+          "repeated words `repetition` also finds; measured against main, "
+          "it is the only schema that moved. "
           "REPINNED 2026-11-16 (stage 4) from FOUND NOTHING ~~30~~ and FIRED "
           "~~23~~: incremental repetition is the one-word diff now, and the "
           "12 instances it found were lines repeated word for word, which "
@@ -2746,8 +2751,12 @@ def test_vacuous_frame_is_not_a_null():
     # REPINNED 2026-10-31 (M-311 F1) (30, 27, 23) -> (29, 28, 23): mosaic
     # rhyme refuses on this fixture for the `reduced_vowel` quotient it does
     # not declare (FIRED -> REFUSED, a capability refusal).
-    check("the staged item reproduces the measured split (29, 28, 23)",
-          before == (29, 28, 23),
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself)
+    # (29, 28, 23) -> (30, 28, 22): rime riche no longer requires different
+    # words and fires on this fixture's repeated words (FOUND NOTHING ->
+    # FIRED); measured against main, it is the only schema that moved.
+    check("the staged item reproduces the measured split (30, 28, 22)",
+          before == (30, 28, 22),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2795,9 +2804,10 @@ def test_vacuous_frame_is_not_a_null():
           _shown)
     after = _split(st)
     # 2026-10-30 (M-323): ~~30/27/21~~ ~~30/21/27~~, two fired schemas more.
+    # REPINNED 2026-11-20: ~~29/28/23~~ ~~29/22/29~~, rime riche fires.
     check("...so calling both markers moves NOTHING: the split is still "
-          "29/28/23, where it used to become 29/22/29",
-          after == before == (29, 28, 23),
+          "30/28/22, where it used to become 30/22/28",
+          after == before == (30, 28, 22),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2894,13 +2904,14 @@ def test_vacuous_frame_is_not_a_null():
         mut_rep = R.relation_report(st)
         mut_state = st.supply("caesura").state
     check("MUTANT: with `provides` reading the SOURCE again, all six stop "
-          "refusing and return an empty list, the split moves to 29/22/29 "
-          "(~~30/21/27~~ before M-323's two schemas, 2026-10-30; ~~30/21/29~~ "
+          "refusing and return an empty list, the split moves to 30/22/28 "
+          "(~~29/22/29~~ before rime riche fired on this fixture under the "
+          "owner's 2026-11-20 self-rhyme ruling; ~~30/21/27~~ before M-323's two schemas, 2026-10-30; ~~30/21/29~~ "
           "before mosaic rhyme refused on this fixture, 2026-10-31), "
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (29, 22, 29) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (30, 22, 28) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "
