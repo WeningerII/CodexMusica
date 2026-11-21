@@ -43,7 +43,7 @@ Slowest call per tool in the last traced run (2026-11-09, limit 600s per call): 
   - The code graph (graphify) — what it answers, and what it cannot (1.7k)
   - The loop, and the MCP wrap plan (60k)
   - Commands (python3 lyric_harness.py ...) (2k)
-  - Doctrine you hold while writing (5.9k)
+  - Doctrine you hold while writing (6.1k)
   - House rules (<1k)
   - Test discipline (6.1k)
   - Quality layer (quality/) (<1k)
