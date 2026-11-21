@@ -9201,6 +9201,11 @@ def _replay_proposer(path, *, catalog_selection=None):
         for r in rec.get("propose", []):
             ones[_line_key(r)] = r["text"]
         for r in rec.get("propose_group", []):
+            # A LIST, or the record is malformed (bug hunt 2026-11-20,
+            # finding 29): `tuple()` of a recorded string is its letters, one
+            # "line" each. What each entry holds is the loop's to refuse.
+            if not isinstance(r["new"], list):
+                raise TypeError("`new` is not a list of lines")
             groups[_group_key(r["members"], r["texts"], r["words"],
                               r.get("round"), r.get("attempt"),
                               r.get("question_sha256"))] = tuple(r["new"])
@@ -10575,6 +10580,40 @@ def _legacy_ban_definitions(kind, prompt):
     return prompt.replace(_BAN_DEFINITIONS_1121, "")
 
 
+#: The rows a group question prints since 2026-11-21 when it is asked right
+#: after its pivot's own line answer was rejected (bug hunt 2026-11-20,
+#: finding 5), FROZEN as `_BAN_DEFINITIONS_1121` is. Before, the first try at
+#: such a group said no attempt had been rejected, unless last round's
+#: rejection of the same group was quoted there, in which case it said nothing
+#: more.
+_PIVOT_REJECTION_1121 = re.compile(
+    r"(?s)(?P<above>[^\n]*)\n  L\d+'s line question \(attempt \d+, round "
+    r"\d+\) was asked first, and its answer was REJECTED\. The grader's "
+    r"reasons, verbatim:\n.*?\n  This question is asked because of that "
+    r"rejection; do not send back something the same reason would reject "
+    r"again\.(?=\n)")
+_ATTEMPT_ROW_1121 = re.compile(
+    r"  This is ATTEMPT \d+ of this line's retry budget\.")
+_NO_REJECTION_1121 = ("  No previous attempt was rejected on this line in this "
+                      "round.")
+
+
+def _legacy_pivot_rejection(kind, prompt):
+    """-> the group question as worded before it quoted the rejected line."""
+    if kind != "propose_group":
+        return None
+    found = _PIVOT_REJECTION_1121.search(prompt)
+    if found is None:
+        return None
+    above = found.group("above")
+    # Directly under the attempt row the block took the place of one
+    # sentence; under last round's rejection it was added and replaced
+    # nothing.
+    was = (above + "\n" + _NO_REJECTION_1121
+           if _ATTEMPT_ROW_1121.fullmatch(above) else above)
+    return prompt[:found.start()] + was + prompt[found.end():]
+
+
 #: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
 #: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
 #: it asked and replays an answer only to the same question, so a change to a
@@ -10597,6 +10636,9 @@ LEGACY_QUESTION_RENDERINGS = (
     ("2026-11-21 writer: the question says what the two writing bans forbid "
      "(bug hunt finding 3)",
      _legacy_ban_definitions),
+    ("2026-11-21 writer: a group asked for after a rejected line answer says "
+     "so (bug hunt finding 5)",
+     _legacy_pivot_rejection),
 )
 
 

@@ -340,13 +340,18 @@ class AuditRegressions(unittest.TestCase):
         # ~~LEGACY_QUESTION_RENDERINGS[-1]~~. A newer change now sits after
         # this one (the question says what the two writing bans forbid), so
         # the 671 wording is the second undo, not the first.
+        # REPINNED 2026-11-21 (bug hunt finding 5), below:
+        # ~~LEGACY_QUESTION_RENDERINGS[-2]~~. One more change sits after it
+        # (a group asked for after a rejected line answer says so). That one
+        # touches group questions only, so this line question's second undo
+        # is still the 671 wording.
         older = LH.legacy_question_texts('propose', now_line)[1]
         self.assertIn('Reviser.verify rejects an answer', now_line)
         self.assertNotIn('Reviser.verify rejects an answer', older)
         self.assertIn('  1. ONE line back, and it replaces L2. The draft stays 2 '
                       'lines — a different', older)
         self.assertIn('New NOTES do not reject.', older)
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-2][1], LH._legacy_671_prose)
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-3][1], LH._legacy_671_prose)
         # The undo reads a FROZEN copy of the rows it replaced; while the
         # table is unchanged the two agree, and a later change to the table
         # needs its own entry.
@@ -380,7 +385,10 @@ class AuditRegressions(unittest.TestCase):
         group = NS(pivot_line_no=2, pivot_text=lines[1], pivot_word='dog',
                    anchors=(), label='A', members=(1, 2), brief=b,
                    lines=lines, attempt=0, reasons=None, whole=())
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-1][1],
+        # REPINNED 2026-11-21 (bug hunt finding 5):
+        # ~~LEGACY_QUESTION_RENDERINGS[-1]~~. The undo for the rejected line
+        # answer a group question now quotes was added after this one.
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-2][1],
                          LH._legacy_ban_definitions)
         # The undo reads a FROZEN copy of the block; while the block is
         # unchanged the two agree, and a later change needs its own entry.
@@ -665,6 +673,242 @@ class AuditRegressions(unittest.TestCase):
             self.assertIsInstance(again, UnreadReply)
             self.assertEqual(again.unread_reason, 'the reply was two lines')
             self.assertEqual(len(called), 1, 'the replay made no writer request')
+
+    # Four lines in two crossed pairs. L3's own answer changes nothing the
+    # grader asked for, so the loop goes on to ask for L1 and L3 together;
+    # that answer moves L3 and sends L1 back as it was.
+    HILL = ['Your fingers brush my heavy coat',
+            'We climbed together up the hill',
+            'My kettle whistles by the door',
+            'And I am standing in the sun']
+    HILL_SPEC = {'L3': ['My kettle whistles by the door again'],
+                 'L4': ['And I am standing in the sun again'],
+                 'group': ['L3: My kettle whistles by the stove\n'
+                           'L1: Your fingers brush my heavy coat']}
+
+    def _hill_loop(self):
+        from quality.propose import ModelProposer
+        m = mandate('ABAB', n_lines=4, default_relation='class:ASSONANCE')
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=2, attempts_per_line=1,
+                                            backtrack_width=1))
+        call = self._fake_writer(self.HILL_SPEC)
+        writer, groups = ModelProposer(call), []
+
+        def propose_group(group_brief):
+            groups.append(group_brief)
+            return writer.propose_group(group_brief)
+        with contextlib.redirect_stdout(io.StringIO()):
+            result = revise_loop(rv, list(self.HILL), m, propose=writer.propose,
+                                 propose_group=propose_group)
+        return result, call, groups
+
+    def test_the_group_question_after_a_rejected_line_says_it_was_rejected(self):
+        # Finding 5. A line answer is rejected, and the loop then asks for
+        # the line's whole group. That question said "No previous attempt was
+        # rejected on this line in this round", one question after rejecting
+        # one, and never gave the grader's reason, so the same line could come
+        # straight back inside the group answer. The loop already built the
+        # words that cite the line question; nothing printed them.
+        import dataclasses
+        import quality.propose as PRM
+        result, call, groups = self._hill_loop()
+        self.assertEqual([k for k, _p in call.calls][:2], ['L3', 'group'])
+        self.assertIn('last rejection: nothing was fixed',
+                      result.rounds[0].attempts[0].reason)
+        asked = call.calls[1][1]
+        self.assertNotIn('No previous attempt was rejected', asked)
+        self.assertIn("  L3's line question (attempt 1, round 1) was asked "
+                      "first, and its answer was REJECTED. The grader's "
+                      "reasons, verbatim:\n    - nothing was fixed\n", asked)
+        # A run held across this change still replays: the newest undo
+        # restores the question as it was worded before, byte for byte.
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-1][1],
+                         LH._legacy_pivot_rejection)
+        first = groups[0]
+        self.assertEqual(first.path, 'escalation')
+        before = PRM.render_group(dataclasses.replace(first, pivot_line_reasons=()))
+        self.assertIn('  No previous attempt was rejected on this line in this '
+                      'round.\n', before)
+        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[0], before)
+        # With last round's rejection of the same group also on the question,
+        # the old wording had that block and nothing after it.
+        earlier = {'round': 1, 'text': 'x', 'reasons': ['nothing was fixed']}
+        with_prior = dataclasses.replace(first, prior=earlier)
+        now = PRM.render_group(with_prior)
+        self.assertIn('Your rewrite of this group in ROUND 1 was REJECTED', now)
+        self.assertIn("L3's line question (attempt 1, round 1) was asked first", now)
+        self.assertEqual(
+            LH.legacy_question_texts('propose_group', now)[0],
+            PRM.render_group(dataclasses.replace(with_prior, pivot_line_reasons=())))
+        # A second try at the group quotes the group's own rejection, the
+        # latest one, and a group asked before any line question has no line
+        # answer to cite: neither is reworded, so neither needs an undo.
+        for same in (dataclasses.replace(first, attempt=1, reasons=('nothing was fixed',)),
+                     dataclasses.replace(first, path='group_first', pivot_line_question='',
+                                         pivot_line_reasons=())):
+            text = PRM.render_group(same)
+            self.assertNotIn('was asked first', text)
+            self.assertIsNone(LH._legacy_pivot_rejection('propose_group', text))
+        self.assertIsNone(LH._legacy_pivot_rejection('propose', asked))
+
+    def test_a_return_group_asked_for_after_a_rejected_line_says_so_too(self):
+        # Finding 5, on the other question a rejected line answer leads to.
+        # When a member of the group also returns word for word elsewhere,
+        # the loop asks for the group and every copy together, under the
+        # heading REPAIR THE DECLARED REQUIREMENTS. That question carried the
+        # same false sentence (reproduced on the raw engine by the planner
+        # owner, 2026-11-21).
+        import dataclasses
+        import quality.propose as PRM
+        from quality.propose import ModelProposer
+        draft = self.HILL + [self.HILL[2]]
+        m = mandate([[1, 3], [2, 4]], n_lines=5, returns=[[3, 5]],
+                    default_relation='class:ASSONANCE')
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=1,
+                                            backtrack_width=1))
+        call = self._fake_writer({'L3': ['My kettle whistles by the door again']})
+        writer, groups = ModelProposer(call), []
+
+        def propose_group(group_brief):
+            groups.append(group_brief)
+            return writer.propose_group(group_brief)
+        with contextlib.redirect_stdout(io.StringIO()):
+            result = revise_loop(rv, list(draft), m, propose=writer.propose,
+                                 propose_group=propose_group)
+        self.assertEqual([k for k, _p in call.calls][:2], ['L3', 'group'])
+        self.assertIn('last rejection: nothing was fixed',
+                      result.rounds[0].attempts[0].reason)
+        first = groups[0]
+        self.assertTrue(first.whole_repair)
+        self.assertEqual(first.members, (1, 3, 5))
+        asked = call.calls[1][1]
+        self.assertTrue(asked.startswith('REPAIR THE DECLARED REQUIREMENTS'))
+        self.assertNotIn('No previous attempt was rejected', asked)
+        self.assertIn("  L3's line question (attempt 1, round 1) was asked "
+                      "first, and its answer was REJECTED. The grader's "
+                      "reasons, verbatim:\n    - nothing was fixed\n", asked)
+        before = PRM.render_group(dataclasses.replace(first, pivot_line_reasons=()))
+        self.assertIn('  No previous attempt was rejected on this line in this '
+                      'round.\n', before)
+        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[0], before)
+        # L4's own line question got no answer, so its group question still
+        # says, truly, that no attempt was rejected.
+        later = [p for k, p in call.calls if k == 'group'][1]
+        self.assertIn('No previous attempt was rejected', later)
+
+    def test_a_round_reports_only_the_lines_it_changed(self):
+        # Finding 28. An accepted group answer changed L3 and sent L1 back
+        # byte-identical, and the round was reported as "fixed L1, L3": the
+        # attempt recorded every member of the group as changed.
+        result, _call, _groups = self._hill_loop()
+        self.assertEqual(result.lines[0], self.HILL[0], 'L1 came back as it was')
+        self.assertEqual(result.lines[2], self.STOVE)
+        first = result.rounds[0]
+        accepted = [a for a in first.attempts if a.accepted]
+        self.assertEqual(len(accepted), 1)
+        self.assertEqual(accepted[0].tier, 2)
+        self.assertEqual(accepted[0].touched, (3,))
+        self.assertEqual(first.fixed_lines, [3])
+        self.assertIn('  round 1: fixed L3', str(result).splitlines())
+        # The same on the question that asks for a group together with its
+        # word-for-word copies: L3 and its copy L5 change, L1 comes back as
+        # it was, and L1 is not reported as fixed.
+        draft = self.HILL + [self.HILL[2]]
+        m = mandate([[1, 3], [2, 4]], n_lines=5, returns=[[3, 5]],
+                    default_relation='class:ASSONANCE')
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=1,
+                                            backtrack_width=1))
+        with contextlib.redirect_stdout(io.StringIO()):
+            result = revise_loop(
+                rv, list(draft), m,
+                propose=lambda brief, *a, **k: (
+                    'My kettle whistles by the door again'
+                    if brief.line_no == 3 else None),
+                propose_group=lambda group_brief: (
+                    (draft[0], self.STOVE, self.STOVE)
+                    if group_brief.members == (1, 3, 5) else None))
+        self.assertEqual(result.lines, [draft[0], draft[1], self.STOVE, draft[3],
+                                        self.STOVE])
+        accepted = [a for a in result.rounds[0].attempts if a.accepted]
+        self.assertEqual([(a.tier, a.touched) for a in accepted], [(2, (3, 5))])
+        self.assertEqual(result.rounds[0].fixed_lines, [3, 5])
+
+    def test_an_answer_that_is_not_one_line_of_text_never_reaches_the_draft(self):
+        # Finding 29. The loop wrote whatever a proposer handed it into the
+        # draft. A written answer is cut to one line before it gets here; a
+        # recorded one (`--propose=replay:PATH`) is not, so a recorded text
+        # with a line break in it was ACCEPTED as line 2 of a two-line draft
+        # that then sang three, and a recorded number, list or empty text
+        # ended the run on an error instead of costing the attempt.
+        m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
+
+        def run(first):
+            rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=2,
+                                                backtrack_width=0))
+            with tempfile.TemporaryDirectory() as tmp:
+                path = Path(tmp)/'replay.json'
+                path.write_text(json.dumps({'propose': [
+                    {'line': 2, 'attempt': 0, 'text': first},
+                    {'line': 2, 'attempt': 1, 'text': self.STOVE}]}))
+                with contextlib.redirect_stdout(io.StringIO()):
+                    one, _two, _said = LH._replay_proposer(str(path))
+                    seen = []
+
+                    def propose(brief, lines, attempt, reasons=None, whole=()):
+                        seen.append(reasons)
+                        return one(brief, lines, attempt, reasons, whole)
+                    return revise_loop(rv, list(self.DOOR), m, propose=propose), seen
+        for first, why in (('My kettle whistles\nby the stove', 'more than one line'),
+                           ('My kettle whistles by the stove\n', 'more than one line'),
+                           (42, 'not text'),
+                           ([self.STOVE], 'not text'),
+                           ('', 'empty'),
+                           ('   ', 'empty')):
+            with self.subTest(answer=first):
+                result, seen = run(first)
+                self.assertEqual(len(seen), 2, 'it cost one attempt and the next was asked')
+                self.assertEqual(len(seen[1]), 1)
+                self.assertIn(why, seen[1][0])
+                self.assertEqual(result.lines, [self.DOOR[0], self.STOVE])
+                attempt = result.rounds[0].attempts[0]
+                self.assertTrue(attempt.accepted)
+                self.assertEqual(attempt.tried, 2)
+        # The same holds for a group answer: one row with a line break in it
+        # and the whole answer is refused, with the line named.
+        import quality.loop as LP
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=1,
+                                            backtrack_width=1))
+        hill = mandate('ABAB', n_lines=4, default_relation='class:ASSONANCE')
+        for answer, why in (((self.HILL[0], 'My kettle whistles\nby the stove'),
+                             'L3: the answer was more than one line'),
+                            ((self.HILL[0], 7), 'L3: the answer was not text'),
+                            ('L1 and L3', 'the answer was not a list of lines, '
+                                          'one for each line asked for')):
+            with self.subTest(group=answer), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(LP._group_misshapen(answer, (1, 3)), why)
+                result = revise_loop(
+                    rv, list(self.HILL), hill,
+                    propose=lambda *a, **k: 'My kettle whistles by the door again',
+                    propose_group=lambda group_brief: (
+                        answer if 3 in group_brief.members else None))
+                self.assertEqual(result.lines, self.HILL)
+                group = [a for a in result.rounds[0].attempts
+                         if a.line_no == 3 and a.tier == 2]
+                self.assertEqual(len(group), 1)
+                self.assertFalse(group[0].accepted)
+                self.assertEqual(group[0].tried, 1)
+        self.assertIsNone(LP._group_misshapen((self.HILL[0], self.STOVE), (1, 3)))
+        # A recorded group answer that is a text and not a list is a
+        # malformed record: taken apart it is one letter for each line.
+        with tempfile.TemporaryDirectory() as tmp, \
+             contextlib.redirect_stdout(io.StringIO()), \
+             contextlib.redirect_stderr(io.StringIO()):
+            path = Path(tmp)/'replay.json'
+            path.write_text(json.dumps({'propose_group': [
+                {'members': [1, 3], 'texts': [self.HILL[0], self.HILL[2]],
+                 'words': ['', ''], 'new': 'ab'}]}))
+            with self.assertRaises(SystemExit):
+                LH._replay_proposer(str(path))
 
     def test_seedless_cli_renders_and_resumes_exact_accepted_draft(self):
         root = Path(__file__).resolve().parents[1]

@@ -1048,6 +1048,45 @@ def test_group_prompt_states_the_tier2_situation():
     check("the coupling is stated: the two picks must stand in a relation "
           "with each other",
           "must stand in a relation" in p and "COUPLED" in p)
+    # THE GROUP ASKED FOR AFTER A REJECTED LINE ANSWER SAYS SO (bug hunt
+    # 2026-11-20, finding 5). On the escalation path the pivot's own line
+    # answer has just been rejected, and the ATTEMPT block said "No previous
+    # attempt was rejected on this line in this round".
+    check("PREMISE: a first try at a group with no rejection behind it says "
+          "none was rejected",
+          "No previous attempt was rejected on this line in this round." in p)
+    cited = "L3's line question (attempt 1, round 1)"
+    esc = dict(vars(pb), path="escalation", pivot_line_question=cited,
+               pivot_line_reasons=("nothing was fixed",))
+    p_esc = render_group(PB(**esc))
+    check("after a rejected line answer the group question cites that "
+          "question, quotes the grader's reasons, and does not say that no "
+          "attempt was rejected",
+          f"  {cited} was asked first, and its answer was REJECTED. The "
+          "grader's reasons, verbatim:\n    - nothing was fixed\n  This "
+          "question is asked because of that rejection" in p_esc
+          and "No previous attempt was rejected" not in p_esc,
+          p_esc[p_esc.find("ATTEMPT"):][:400])
+    check("...and nothing else in the question moved",
+          p_esc.replace(
+              f"  {cited} was asked first, and its answer was REJECTED. The "
+              "grader's reasons, verbatim:\n    - nothing was fixed\n  This "
+              "question is asked because of that rejection; do not send back "
+              "something the same reason would reject again.",
+              "  No previous attempt was rejected on this line in this "
+              "round.") == p)
+    check("a line question that got no answer has no rejection to quote, so "
+          "the sentence stands (nothing was rejected)",
+          render_group(PB(**dict(esc, pivot_line_reasons=()))) == p)
+    check("a group asked before any line question has none to cite, and "
+          "says so as before",
+          render_group(PB(**dict(esc, path="group_first", pivot_line_question="",
+                                 pivot_line_reasons=()))) == p)
+    p_again = render_group(PB(**dict(esc, attempt=1,
+                                     reasons=["introduced 1 new flagged finding(s)"])))
+    check("a second try quotes the group's own rejection, the latest one",
+          "The PREVIOUS attempt was REJECTED" in p_again
+          and "was asked first" not in p_again)
     check("the whole draft and whole-draft findings remain constraints "
           "a permitted group rewrite may improve",
           all(t in p for t in DRAFT) and "PRESERVE THESE CONSTRAINTS" in p
@@ -1126,14 +1165,20 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
             # `prior` — the last round's rejection of THIS group, read by
             # `render_group` and quoted in its ATTEMPT block (M-253).
             "prior", "whole_repair", "mandate_description",
-            # `path` and the three `pivot_line_*` lists — the escalation
-            # path's own block (LOOP_REDESIGN.md §2.4). `PB` leaves them at
-            # `render_group`'s defaults, so no case here prints that block;
-            # `test_loop_redesign.py` (a) renders it through the REAL verb
-            # and asserts the cited line question and the group-first path's
-            # absence of it.
+            # `path` and the `pivot_line_*` fields — the escalation path's
+            # own block (LOOP_REDESIGN.md §2.4).
+            # REPINNED 2026-11-21 (bug hunt 2026-11-20, finding 5): ~~`PB`
+            # leaves them at `render_group`'s defaults, so no case here
+            # prints that block; `test_loop_redesign.py` (a) renders it
+            # through the REAL verb and asserts the cited line question and
+            # the group-first path's absence of it.~~ No suite asserted the
+            # cited line question, and nothing printed it. The rejected line
+            # answer is now rendered and asserted: in this suite's group
+            # prompt section through `PB`, and through the real loop in
+            # `test_audit_regressions.py`. `pivot_line_reasons` is the field
+            # added for it.
             "path", "pivot_line_offered", "pivot_line_forbidden",
-            "pivot_line_question"}
+            "pivot_line_question", "pivot_line_reasons"}
     check("every field this suite builds a `PB` out of is a real "
           "`GroupBrief` field", used <= declared, sorted(used - declared))
     check("...and `GroupBrief` has grown no field this suite is blind to",

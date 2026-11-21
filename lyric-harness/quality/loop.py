@@ -1086,6 +1086,10 @@ class GroupBrief:
     #: "L<n>'s line question (attempt k, round r)" when that question was
     #: asked on this same draft, else "" (S10).
     pivot_line_question: str = ""
+    #: The grader's reasons for rejecting the answer to that line question,
+    #: verbatim, and () when no answer to it was rejected. The group question
+    #: quotes them (bug hunt 2026-11-20, finding 5).
+    pivot_line_reasons: tuple = ()
 
     def proposal_for(self, line_no):
         """-> (text, proposed word, slot) for one member, or `None`.
@@ -1123,6 +1127,14 @@ class LineAttempt:
     #: this to fall through to tier 1 in the same round, so a line never
     #: reaches NO_PROGRESS without a proposer having been consulted.
     asked: bool = True
+    #: The grader's reasons for the LAST answer this tier rejected, verbatim,
+    #: and () when it rejected none. `reason` is one sentence for the report;
+    #: this is the list a following question quotes (bug hunt 2026-11-20,
+    #: finding 5: the group question asked right after a rejected line answer
+    #: said nothing had been rejected). Read where the attempt is made and
+    #: not saved with a held run's position: a resumed run asks the line
+    #: again from the journal and gets the same reasons.
+    rejected: tuple = ()
 
 
 @dataclass
@@ -1471,6 +1483,43 @@ def _unread(answer):
     return str(why) if why else None
 
 
+def _not_one_line(text):
+    """-> why `text` cannot stand as one line of a draft, or None when it can.
+
+    NOTHING BUT ONE LINE OF TEXT IS WRITTEN INTO A DRAFT (bug hunt
+    2026-11-20, finding 29). The loop wrote whatever a proposer returned. A
+    written answer is cut to one line before it reaches here
+    (`quality.propose.parse_line`); a recorded one (`--propose=replay:PATH`)
+    and anything a caller's own proposer returns are not. A text with a line
+    break in it was accepted as ONE line of a draft that then sang one more
+    than it counted, and a number, a list or an empty text ended the run on
+    an error. Each is now a rejected attempt with its reason, like any other
+    answer the grader turns down.
+    """
+    if not isinstance(text, str):
+        return "the answer was not text"
+    if not text.strip():
+        return "the answer was empty"
+    if text.splitlines() != [text]:
+        return "the answer was more than one line"
+    return None
+
+
+def _group_misshapen(got, members):
+    """-> why a group answer cannot be written into the draft, or None.
+
+    One line of text for each member, in a list (`_not_one_line`). Whether it
+    holds the right NUMBER of lines is the caller's check, as it was.
+    """
+    if not isinstance(got, (list, tuple)):
+        return "the answer was not a list of lines, one for each line asked for"
+    for line_no, text in zip(members, got):
+        why = _not_one_line(text)
+        if why is not None:
+            return f"L{line_no}: {why}"
+    return None
+
+
 def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose, whole=()):
     tried = 0
@@ -1489,6 +1538,10 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         if _why is not None:
             # One attempt used, as the question promises; the next one is
             # asked with the reason, and nothing unread reaches the draft.
+            reasons = [_why]
+            continue
+        _why = _not_one_line(candidate)
+        if _why is not None:
             reasons = [_why]
             continue
         after, targets = apply_candidate(reviser, lines, mandate,
@@ -1556,7 +1609,8 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             # return cannot be fixed by a swap) is the findings' to say.
             detail = "the PROPOSER declined at attempt 0"
     return LineAttempt(b.line_no, 1, False, tried, detail, (),
-                       asked=rdecl.attempts_per_line > 0), lines
+                       asked=rdecl.attempts_per_line > 0,
+                       rejected=tuple(str(r) for r in (reasons or ()))), lines
 
 
 def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
@@ -1673,9 +1727,20 @@ def _slot_for(mandate, group_index, line):
         return None
 
 
+def _changed_members(members, before, after):
+    """-> the members of a group whose text an accepted rewrite changed.
+
+    A group answer carries every member, and a member may come back as it
+    was. `LineAttempt.touched` is the lines "actually changed", and it was
+    every member: the round then reported an unchanged line as fixed, and
+    the walk passed it by as rewritten (bug hunt 2026-11-20, finding 28).
+    """
+    return tuple(m for m in members if before[m - 1] != after[m - 1])
+
+
 def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose_group, whole=(), escalated=False,
-               pivot_question=""):
+               pivot_question="", pivot_reasons=()):
     """THE JOINT BACKTRACK — rewrite a WHOLE mandated group at once.
 
     ~~Bounded to groups of exactly two.~~ **WIDENED 2026-08-24
@@ -1787,7 +1852,14 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                 whole_repair=True, mandate_description=mandate.describe(),
                                 reasons=reasons,
                                 prior=(_prior_g(expanded, _round)
-                                       if _prior_g is not None else None))
+                                       if _prior_g is not None else None),
+                                # The rejected line answer this question
+                                # follows (finding 5). `path` stays unset, as
+                                # it always was on this question.
+                                pivot_line_question=(pivot_question
+                                                     if escalated else ""),
+                                pivot_line_reasons=(tuple(pivot_reasons)
+                                                    if escalated else ()))
                 got = propose_group(gb)
                 attempt += 1
                 if got is None:
@@ -1796,6 +1868,10 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 _why = _unread(got)
                 if _why is not None:
                     # An unread reply used this attempt (finding 25).
+                    reasons = (_why,)
+                    continue
+                _why = _group_misshapen(got, expanded)
+                if _why is not None:
                     reasons = (_why,)
                     continue
                 got = tuple(got)
@@ -1817,7 +1893,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 if res["accepted"]:
                     return LineAttempt(b.line_no, 2, True, tried,
                                        "atomic group/return repair: " + "; ".join(res["reasons"]),
-                                       expanded), after
+                                       _changed_members(expanded, lines, after)), after
                 reasons = tuple(res["reasons"])
             continue
         # (a) A RETURN PINS A LINE. If this group IS a declared verbatim
@@ -1944,14 +2020,18 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                     if escalated else ()),
                 pivot_line_forbidden=(tuple(getattr(b, "forbidden_modal", ()) or ())
                                       if escalated else ()),
-                pivot_line_question=pivot_question if escalated else ""))
+                pivot_line_question=pivot_question if escalated else "",
+                pivot_line_reasons=(tuple(pivot_reasons)
+                                    if escalated else ())))
             attempt += 1
             if got is not None:
                 tried += 1
-                _why = _unread(got)
+                # An unread reply used this attempt (finding 25), and so
+                # does an answer that is not one line of text for each
+                # member (finding 29).
+                _why = _unread(got) or _group_misshapen(got, members)
                 got = () if _why is not None else tuple(got)
                 if _why is not None:
-                    # An unread reply used this attempt (finding 25).
                     reasons = (_why,)
                 elif len(got) != len(members):
                     reasons = (f"proposer returned {len(got)} line(s) for "
@@ -1979,7 +2059,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                             f"joint backtrack over group {label} "
                             f"{list(members)} with NO ranked pivot field "
                             f"({_why}): " + "; ".join(res["reasons"]),
-                            tuple(members)), after
+                            _changed_members(members, lines, after)), after
                     reasons = tuple(res["reasons"])
             continue
         empty_member = collections.Counter()
@@ -2023,7 +2103,9 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                         if escalated else ()),
                     pivot_line_forbidden=(tuple(getattr(b, "forbidden_modal", ()) or ())
                                           if escalated else ()),
-                    pivot_line_question=pivot_question if escalated else ""))
+                    pivot_line_question=pivot_question if escalated else "",
+                    pivot_line_reasons=(tuple(pivot_reasons)
+                                        if escalated else ())))
                 attempt += 1
                 if got is None:
                     continue
@@ -2031,6 +2113,10 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 _why = _unread(got)
                 if _why is not None:
                     # An unread reply used this attempt (finding 25).
+                    reasons = (_why,)
+                    continue
+                _why = _group_misshapen(got, members)
+                if _why is not None:
                     reasons = (_why,)
                     continue
                 got = tuple(got)
@@ -2066,7 +2152,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                         f"{list(members)} ({len(members)} members): {moved} "
                         f"so L{b.line_no} could take {w!r}; "
                         + "; ".join(res["reasons"]),
-                        tuple(members)), after
+                        _changed_members(members, lines, after)), after
                 reasons = tuple(res["reasons"])
         if walked and empty_member:
             where = ", ".join(f"L{ln} x{n}" for ln, n
@@ -2720,6 +2806,10 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                         _reasons = (_unread(_got) or
                                     "writer returned no unambiguous whole-draft answer",)
                         continue
+                    _shape = _group_misshapen(_got, _members)
+                    if _shape is not None:
+                        _reasons = (_shape,)
+                        continue
                     _after = list(_got)
                     _v = reviser.verify(lines, _after, mandate, targeted=set(_members),
                                         profile=profile, blueprint=blueprint,
@@ -3115,7 +3205,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     attempt, lines = _try_tier2(
                         reviser, b, lines, mandate, rdecl, blueprint,
                         subdivision, assume, profile, propose_group, whole,
-                        escalated=True, pivot_question=_pq)
+                        escalated=True, pivot_question=_pq,
+                        pivot_reasons=attempt.rejected)
                     attempt = LineAttempt(
                         attempt.line_no, attempt.tier, attempt.accepted,
                         attempt.tried,

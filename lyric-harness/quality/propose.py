@@ -488,9 +488,53 @@ def _attempt_block(attempt, reasons, indent="  ", prior=None,
         out.append(f"{indent}The draft has been re-read since; do not send "
                    f"back something the same reason would reject again.")
     else:
-        out.append(f"{indent}No previous attempt was rejected on this line "
-                   f"in this round.")
+        out.append(f"{indent}{NO_REJECTION_ROW}")
     return out
+
+
+#: What a first attempt's ATTEMPT block says, and the last row of the block
+#: that takes its place when a group is asked for right after its pivot's own
+#: line answer was rejected. `lyric_harness._legacy_pivot_rejection` finds
+#: that block by its first and last rows and holds its own frozen copies.
+NO_REJECTION_ROW = ("No previous attempt was rejected on this line in this "
+                    "round.")
+PIVOT_REJECTED_ROW = ("was asked first, and its answer was REJECTED. The "
+                      "grader's reasons, verbatim:")
+PIVOT_REJECTED_CLOSE = ("This question is asked because of that rejection; do "
+                        "not send back something the same reason would reject "
+                        "again.")
+
+
+def _pivot_rejection_rows(group_brief, block, indent="  "):
+    """-> the group question's ATTEMPT rows, with the rejected line answer.
+
+    THE ESCALATED GROUP QUESTION FOLLOWS A REJECTION AND SAID THERE WAS NONE
+    (bug hunt 2026-11-20, finding 5). The loop asks for a line, rejects the
+    answer, and asks for that line's whole group in the same round. The group
+    question's ATTEMPT block read "No previous attempt was rejected on this
+    line in this round", and nowhere gave the grader's reason, so the rejected
+    line could come straight back inside the group answer. The loop has built
+    the words that cite the line question since S10
+    (`GroupBrief.pivot_line_question`); nothing printed them.
+
+    Only where the statement was false: when the group follows a line
+    question (the loop fills `pivot_line_question` and `pivot_line_reasons`
+    on that path alone) whose answer was rejected with reasons, and on the
+    group's first try. A later try quotes the group's own rejection, which is
+    the latest one. Last round's rejection of this group (`prior`) stays
+    where it was, with this block after it. Both group questions print it:
+    the coupled-lines one, and the one that asks for a group together with
+    its word-for-word copies.
+    """
+    g = group_brief
+    asked = str(getattr(g, "pivot_line_question", "") or "")
+    why = [str(r) for r in _ordered(getattr(g, "pivot_line_reasons", ()) or ())]
+    if not asked or not why or getattr(g, "reasons", None):
+        return block
+    return ([row for row in block if row != f"{indent}{NO_REJECTION_ROW}"]
+            + [f"{indent}{asked} {PIVOT_REJECTED_ROW}"]
+            + [f"{indent}  - {r}" for r in why]
+            + [f"{indent}{PIVOT_REJECTED_CLOSE}"])
 
 
 def _place_phrase(slot_key):
@@ -884,9 +928,9 @@ def render_group(group_brief):
         out.extend(_finding_lines(g.whole))
         out.extend(["", "DECLARED MANDATE", g.mandate_description, "", "CURRENT DRAFT"])
         out.extend(_draft_block(g.lines))
-        out.extend(_attempt_block(g.attempt, g.reasons,
-                                  prior=getattr(g, "prior", None),
-                                  what="rewrite of this group"))
+        out.extend(_pivot_rejection_rows(g, _attempt_block(
+            g.attempt, g.reasons, prior=getattr(g, "prior", None),
+            what="rewrite of this group")))
         out.extend(["", "Return exactly these lines (include unchanged members): " +
                     ", ".join(f"L{n}" for n in g.members),
                     "One L<number>: <whole line> row each. No commentary or additional lines.",
@@ -921,10 +965,9 @@ def render_group(group_brief):
     # round's, and it is the only way a writer asked the same group question
     # a round later learns why the last answer was thrown out — the tier-1
     # prompt has carried this since M-236 and this one had not.
-    out.extend(_attempt_block(getattr(g, "attempt", 0),
-                              getattr(g, "reasons", None),
-                              prior=getattr(g, "prior", None),
-                              what="rewrite of this group"))
+    out.extend(_pivot_rejection_rows(g, _attempt_block(
+        getattr(g, "attempt", 0), getattr(g, "reasons", None),
+        prior=getattr(g, "prior", None), what="rewrite of this group")))
     out.append("")
 
     out.append(f"THE {k} LINES")
