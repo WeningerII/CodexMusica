@@ -842,6 +842,28 @@ class AuditRegressions(unittest.TestCase):
             {'satisfied_by': ['pararhyme', 'no such schema']}),
             ['pararhyme', 'no such schema'])
 
+    def test_the_partition_verb_puts_each_line_in_its_own_place(self):
+        # Finding 36. Lines 1-2 rhyme and lines 3-4 rhyme, which `chains`
+        # reports. `partition` printed the scheme with the first line's
+        # letter on the last line: RGS (0, 1, 1, 0), letters ABBA, named as
+        # the enclosed scheme.
+        root = Path(__file__).resolve().parents[1]
+        draft = ['i walked the road alone', 'the leaves were all blown',
+                 'a candle on the sill', 'the house was very still']
+        ran = subprocess.run([sys.executable, 'lyric_harness.py', 'partition',
+                              *draft], cwd=root, capture_output=True,
+                             text=True, timeout=180)
+        self.assertEqual(ran.returncode, 0, ran.stderr[-2000:])
+        self.assertIn('  canonical RGS: (0, 0, 1, 1)\n', ran.stdout)
+        self.assertIn('  letters:       AABB\n', ran.stdout)
+        self.assertNotIn('ABBA', ran.stdout)
+        # A draft whose rhymes do enclose still prints as enclosed.
+        ran = subprocess.run([sys.executable, 'lyric_harness.py', 'partition',
+                              draft[0], draft[2], draft[3], draft[1]],
+                             cwd=root, capture_output=True, text=True,
+                             timeout=180)
+        self.assertIn('  letters:       ABBA\n', ran.stdout)
+
     def test_a_round_reports_only_the_lines_it_changed(self):
         # Finding 28. An accepted group answer changed L3 and sent L1 back
         # byte-identical, and the round was reported as "fixed L1, L3": the

@@ -13494,8 +13494,12 @@ def main():
         if lines is None:
             lines = src
         g = rhyme_graph(lex, lines, decl)
+        # The graph numbers lines from 0 and a cover's groups are 1-based
+        # line numbers. Passed straight through, line 0 was written to the
+        # last line's place, so a draft rhymed in pairs printed as the
+        # enclosed scheme (bug hunt 2026-11-20, finding 36).
         cov = SC.Cover(n_lines=len(lines),
-                       groups=[sorted(c) for c in g["cliques"]])
+                       groups=[sorted(v + 1 for v in c) for c in g["cliques"]])
         part = cov.to_partition()
         print(f"lines {len(lines)}   cliques {len(g['cliques'])}   "
               f"(edges: ANY admittable relation at its cut — one "
