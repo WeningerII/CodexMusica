@@ -2379,6 +2379,11 @@ class Reviser:
                         # anchor is not. Say which, so the instruction fits.
                         _by_readings = _ST.undecided_by_readings(
                             struct, ew_i, ew_j, member_phons=member_phons)
+                        # A ROW WHOSE COORDINATE TWO WORDS DO NOT CARRY
+                        # (bug-hunt finding 19): a line placement, a member
+                        # boundary, a historical sound. Named as such, so the
+                        # writer is not sent looking for an unreadable word.
+                        _unjudged = _ST.get(struct).unjudged_axes()
                         refusals.append({
                             "lines": (i, j),
                             "endwords": (ew_i, ew_j),
@@ -2392,8 +2397,21 @@ class Reviser:
                             # is about THIS group's declared structure, not
                             # about every group the pair happens to share.
                             "groups": [m.labels[k]],
-                            "cause": "readings" if _by_readings else "unreadable",
+                            "cause": ("structure" if _unjudged else
+                                      "readings" if _by_readings else
+                                      "unreadable"),
                             "reason": (f"the declared structure {struct!r} "
+                                       f"names "
+                                       + ", ".join(f"{ax} {val!r}" for ax, val
+                                                   in _unjudged)
+                                       + ", which two end words do not "
+                                       f"carry, so the catalog cannot judge "
+                                       f"it here — REFUSED, not failed "
+                                       f"(doctrine 79). Declare a structure "
+                                       f"whose coordinates are in the words, "
+                                       f"or declare none"
+                                       if _unjudged else
+                                       f"the declared structure {struct!r} "
                                        f"cannot be judged on this pair: a word "
                                        f"here has more than one reading and "
                                        f"they disagree on what the structure "
@@ -4673,6 +4691,11 @@ class Reviser:
                      f"this rhyme is UNDECIDED rather than absent — choose a "
                      f"reading (pronunciation_options)"
                      if r.get("cause") == "readings" else
+                     f"L{i}/L{j} are mandated together (group(s) "
+                     f"{', '.join(r['groups']) or '-'}) under a declared "
+                     f"structure the harness cannot judge from two end "
+                     f"words, so this rhyme is UNKNOWN rather than absent"
+                     if r.get("cause") == "structure" else
                      f"L{i}/L{j} are mandated together (group(s) "
                      f"{', '.join(r['groups']) or '-'}) and the harness could "
                      f"not read a declared rhyme anchor, so this rhyme is UNKNOWN rather "

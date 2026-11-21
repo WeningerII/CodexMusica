@@ -408,11 +408,40 @@ def test_planner_samples_calibrated():
           PL.make_plan(2) == p)
 
 
+def test_rows_judge_the_axes_they_name():
+    print("\nbug-hunt finding 19 — a row's stress, placement and spelling "
+          "axes are judged or refused, never dropped")
+    # EYE RHYME is spelled alike and NOT heard alike.
+    for a, b, want in (("love", "move", True), ("come", "home", True),
+                       ("sing", "ring", False), ("love", "glove", False)):
+        got = ST.judge("eye-rhyme", a, b)
+        check(f"eye-rhyme: {a}/{b} -> {want}", got is want, got)
+    # A row whose coordinate two end words do not carry is REFUSED.
+    for row, axis in (("internal-rhyme", "position"),
+                      ("holorhyme", "position"),
+                      ("leonine-rhyme", "position"),
+                      ("mosaic-rhyme", "boundary"),
+                      ("historical-rhyme", "realisation"),
+                      ("wrenched-rhyme", "stress")):
+        un = ST.get(row).unjudged_axes()
+        check(f"{row} is refused on {axis}, not judged as perfect rhyme",
+              ST.judge(row, "sing", "ring") is None
+              and [ax for ax, _ in un] == [axis], un)
+    # The default frame stays unconstrained, so the plain rows still judge.
+    check("masculine-rhyme still judges sing/ring",
+          ST.judge("masculine-rhyme", "sing", "ring") is True
+          and ST.get("masculine-rhyme").unjudged_axes() == ())
+    check("no anchored row is refused for an axis it leaves free",
+          all(ST.get(n).unjudged_axes() == () for n, s in
+              ST.STRUCTURES.items() if s.kind == "cell" and s.cell[3] is None))
+
+
 if __name__ == "__main__":
     for fn in (test_the_catalog, test_the_judges, test_cell_uncertainty, test_refusals,
                test_mandate_coordinate, test_grade_routing,
                test_laziness_scope_and_disclosure,
-               test_planner_samples_calibrated):
+               test_planner_samples_calibrated,
+               test_rows_judge_the_axes_they_name):
         fn()
     print("=" * 62)
     if FAILURES:
