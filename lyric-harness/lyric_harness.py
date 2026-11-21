@@ -10553,6 +10553,28 @@ def _legacy_671_prose(kind, prompt):
     return None if text == prompt else text
 
 
+#: The block `quality/propose.py` prints under the rejection rows since
+#: 2026-11-21 (bug hunt 2026-11-20, finding 3: the question named the two
+#: writing bans and never said what either forbids), FROZEN for the reason
+#: `_REJECTION_ROWS_671` is: an undo restores one change's bytes, so it may
+#: not read a table a later change can move.
+_BAN_DEFINITIONS_1121 = (
+    "\n  Rule 6 names two bans. What each one forbids:\n"
+    "    HOMEOTELEUTON: two different paired words whose endings sound alike "
+    "are also spelled the same from the stressed vowel on (the same word, or "
+    "two words that sound exactly alike, is never caught).\n"
+    "    MODAL_RHYME: two paired words whose endings sound alike, where one "
+    "is among the 6 or fewer differently spelled partners most often paired "
+    "with the other in songs.")
+
+
+def _legacy_ban_definitions(kind, prompt):
+    """-> the question as worded before it said what the two bans forbid."""
+    if _BAN_DEFINITIONS_1121 not in prompt:
+        return None
+    return prompt.replace(_BAN_DEFINITIONS_1121, "")
+
+
 #: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
 #: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
 #: it asked and replays an answer only to the same question, so a change to a
@@ -10572,6 +10594,9 @@ LEGACY_QUESTION_RENDERINGS = (
      _legacy_line_limit),
     ("2026-11-14 writer: #671 pass 2 cuts prose from the question (A9-A13)",
      _legacy_671_prose),
+    ("2026-11-21 writer: the question says what the two writing bans forbid "
+     "(bug hunt finding 3)",
+     _legacy_ban_definitions),
 )
 
 

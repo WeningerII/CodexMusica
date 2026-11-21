@@ -634,6 +634,68 @@ def test_the_enforced_rules_are_verifys_own_reasons():
                                                        before=4, after=3))
 
 
+def test_the_two_writing_bans_are_stated_as_rules():
+    print("\n4d. ENFORCED — the question says what the two bans its "
+          "writing-ban row names forbid, before the first attempt (bug hunt "
+          "2026-11-20, finding 3)")
+    # THE DEFECT: the row said only "HOMEOTELEUTON and MODAL_RHYME cannot be
+    # traded for a repair". A writer who never saw the plan brief (the
+    # website writer, and every pasted-song revise) was told neither what a
+    # same-spelled ending is nor that the most common partners are banned,
+    # so the first, most natural rhyme fix was rejected.
+    from quality import propose as PR
+    from quality import plan as PL
+    from quality import revise as RV
+    same = PL._limit_same_spelled_ending({})
+    common = PL._limit_common_partner({})
+    line_q = render_line(PLAIN_BRIEF, DRAFT)
+    group_q = render_group(PB(pivot_line_no=3, pivot_text=DRAFT[2],
+                              pivot_word="dream", anchors=(), label="A",
+                              members=(1, 3), brief=PIVOT_BRIEF, lines=DRAFT,
+                              attempt=0, reasons=None, whole=()))
+    batch_q = PR.render_batch([B(line_no=1, text=DRAFT[0]),
+                               B(line_no=2, text=DRAFT[1])], DRAFT)
+    for name, q in (("line", line_q), ("group", group_q), ("batch", batch_q)):
+        check(f"the {name} question states the same-spelled-ending ban in "
+              f"the plan brief's own words",
+              f"HOMEOTELEUTON: {same}." in q, same)
+        check(f"the {name} question states the common-partner ban in the "
+              f"plan brief's own words",
+              f"MODAL_RHYME: {common}." in q, common)
+        row = next((r for r in PR._rejection_rows()
+                    if "prohibited writing rhyme pair" in r), "")
+        check(f"...after the rule that names them, inside the enforced block",
+              row and q.find(row) < q.find("HOMEOTELEUTON: ")
+              and (name == "batch"
+                   or q.find("HOMEOTELEUTON: ") < q.find("HOW TO ANSWER")),
+              row)
+    check("the first attempt carries them: nothing has been rejected yet",
+          "No previous attempt was rejected" in line_q
+          and "HOMEOTELEUTON: " in line_q)
+    check("the two sentences are the plan's, word for word, and the codes "
+          "are the grader's writing-ban codes",
+          PR.WRITING_BAN_RULES == {"HOMEOTELEUTON": same,
+                                   "MODAL_RHYME": common}
+          and set(PR.WRITING_BAN_RULES) == set(RV.WRITING_BAN_CODES),
+          sorted(PR.WRITING_BAN_RULES))
+    check("the partner count is the grader's own default",
+          PR.WRITING_BAN_PARTNERS
+          == RV.ReviseDeclaration().modal_exclusion
+          == PL.WRITING_BAN_PARTNERS
+          and f"the {PR.WRITING_BAN_PARTNERS} or fewer" in common, common)
+    ban_row = list(PR.VERIFY_REJECTIONS).index("writing_ban") + 1
+    check("the rule number cited is the writing-ban row's own",
+          PR.WRITING_BAN_ROW == ban_row
+          and f"Rule {ban_row} names" in line_q
+          and f"Rule {ban_row} names" in group_q, f"row {ban_row}")
+    # THE RULE IS STATED AND NO WORD IS NAMED (2026-10-27, D6 on #519): the
+    # block may not carry a word list.
+    block = "\n".join(PR._writing_ban_rows())
+    check("the block names no word to use or avoid",
+          "'" not in block and '"' not in block and "FORBIDDEN" not in block,
+          block)
+
+
 # -- 5. parsing ---------------------------------------------------------
 
 def test_parse_accepts_the_supported_shapes():
@@ -1536,6 +1598,7 @@ if __name__ == "__main__":
                test_whole_draft_findings_are_context_not_a_task,
                test_a_pivot_and_a_joint_conflict_are_stated,
                test_the_enforced_rules_are_verifys_own_reasons,
+               test_the_two_writing_bans_are_stated_as_rules,
                test_parse_accepts_the_supported_shapes,
                test_parse_group_needs_every_marker,
                test_group_prompt_states_the_tier2_situation,

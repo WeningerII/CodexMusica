@@ -2425,7 +2425,11 @@ class LegacyReplay(unittest.TestCase):
         # (`LEGACY_QUESTION_RENDERINGS`, `_legacy_671_prose`) is applied to
         # THIS build's side, so both sides read as the 851 wording; it
         # restores the old bytes exactly or replay would not accept it.
+        # ...AND IT SAYS WHAT THE TWO WRITING BANS FORBID (REPINNED
+        # 2026-11-21, bug hunt finding 3: ~~the 671 undo alone~~), a newer
+        # change whose own undo is applied first.
         def undo_671(text):
+            text = LH._legacy_ban_definitions("propose", text) or text
             return LH._legacy_671_prose("propose", text) or text
 
         def undo_671_state(state):

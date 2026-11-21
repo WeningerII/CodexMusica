@@ -130,6 +130,40 @@ def _rejection_rows(indent="  "):
 #: The row a new FLAG rejects under, by number, for the sentences that cite it.
 NEW_FLAGS_ROW = list(VERIFY_REJECTIONS).index("new_flags") + 1
 
+#: The row the two writing bans reject under, by number.
+WRITING_BAN_ROW = list(VERIFY_REJECTIONS).index("writing_ban") + 1
+
+#: WHAT THE TWO WRITING BANS FORBID (bug hunt 2026-11-20, finding 3). The
+#: writing-ban row names two codes and said nothing of what either forbids.
+#: The planned song's brief defines both, but the website writer never sees
+#: that brief and a pasted-song revise has none, so the most natural rhyme
+#: fix was sent and rejected. These are the plan brief's own two sentences
+#: (`plan._limit_same_spelled_ending`, `plan._limit_common_partner`) and
+#: `revise.ReviseDeclaration.modal_exclusion`'s default. COPIES, because this
+#: module imports nothing from the planner or the grader; `test_propose` §4d
+#: holds each equal to its source. Each states a rule and names no word
+#: (2026-10-27, D6 on #519).
+WRITING_BAN_PARTNERS = 6
+WRITING_BAN_RULES = {
+    "HOMEOTELEUTON": (
+        "two different paired words whose endings sound alike are also "
+        "spelled the same from the stressed vowel on (the same word, or two "
+        "words that sound exactly alike, is never caught)"),
+    "MODAL_RHYME": (
+        f"two paired words whose endings sound alike, where one is among "
+        f"the {WRITING_BAN_PARTNERS} or fewer differently spelled partners "
+        f"most often paired with the other in songs"),
+}
+
+
+def _writing_ban_rows(indent="  "):
+    """-> [str], what each ban the writing-ban row names forbids, printed
+    under the rules in every question."""
+    return [f"{indent}Rule {WRITING_BAN_ROW} names two bans. What each one "
+            f"forbids:",
+            *(f"{indent}  {code}: {text}."
+              for code, text in WRITING_BAN_RULES.items())]
+
 _FENCE_RE = re.compile(r"```[^\n]*\n(.*?)```", re.DOTALL)
 _LINE_MARK_RE = re.compile(r"^[ \t]*LINE[ \t]*:[ \t]*(.*)$",
                            re.IGNORECASE | re.MULTILINE)
@@ -384,7 +418,9 @@ def _mandate_block(brief, indent="  "):
 def _enforced_block(line_no, n_lines, indent="  ", word_name="end word",
                     targets=None):
     """-> [str]. This question's coordinates, then the rejection rules of
-    `Reviser.verify` as `VERIFY_REJECTIONS` holds them, and NOTHING ELSE.
+    `Reviser.verify` as `VERIFY_REJECTIONS` holds them, then what the two
+    bans its writing-ban row names forbid (`_writing_ban_rows`), and NOTHING
+    ELSE.
 
     `allow_net_new` is named rather than quoted as a number — it is a
     `ReviseDeclaration` coordinate and a `Brief` does not carry it, so this
@@ -399,6 +435,7 @@ def _enforced_block(line_no, n_lines, indent="  ", word_name="end word",
         f"{indent}Reviser.verify rejects an answer with the first of these "
         f"reasons that applies:",
         *_rejection_rows(indent),
+        *_writing_ban_rows(indent),
     ]
 
 
@@ -955,6 +992,7 @@ def render_group(group_brief):
     out.append("  Reviser.verify rejects an answer with the first of these "
                "reasons that applies:")
     out.extend(_rejection_rows())
+    out.extend(_writing_ban_rows())
     out.append("")
 
     out.append("HOW TO ANSWER")

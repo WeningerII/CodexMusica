@@ -281,9 +281,13 @@ class AuditRegressions(unittest.TestCase):
         new_tail = LH._UNADMITTED_DEFAULT_TAIL
         # ...AND BEFORE #671 PASS 2 CUT THE QUESTION'S PROSE (2026-11-14), so
         # the held rendering has that rewording undone as well.
+        # ...AND BEFORE THE QUESTION SAID WHAT THE TWO WRITING BANS FORBID
+        # (REPINNED 2026-11-21, bug hunt finding 3: ~~the 671 undo alone~~;
+        # this build's question carries that block, a held one did not).
         def render_at_200(*a, **k):
             with patch.object(PRM, 'MAX_LINE_CHARS', 200):
                 text = real_render(*a, **k)
+            text = LH._legacy_ban_definitions('propose', text) or text
             return LH._legacy_671_prose('propose', text) or text
         held = lambda *a, **k: render_at_200(*a, **k) + '\nwhy: x — ' + old_tail
         now = lambda *a, **k: real_render(*a, **k) + '\nwhy: x — ' + new_tail
@@ -332,13 +336,17 @@ class AuditRegressions(unittest.TestCase):
         import quality.propose as PRM
         b = Brief(2, 'original dog')
         now_line = PRM.render_line(b, ['original cat', 'original dog'])
-        older = LH.legacy_question_texts('propose', now_line)[0]
+        # REPINNED 2026-11-21 (bug hunt finding 3): ~~[0]~~ and, below,
+        # ~~LEGACY_QUESTION_RENDERINGS[-1]~~. A newer change now sits after
+        # this one (the question says what the two writing bans forbid), so
+        # the 671 wording is the second undo, not the first.
+        older = LH.legacy_question_texts('propose', now_line)[1]
         self.assertIn('Reviser.verify rejects an answer', now_line)
         self.assertNotIn('Reviser.verify rejects an answer', older)
         self.assertIn('  1. ONE line back, and it replaces L2. The draft stays 2 '
                       'lines — a different', older)
         self.assertIn('New NOTES do not reject.', older)
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-1][1], LH._legacy_671_prose)
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-2][1], LH._legacy_671_prose)
         # The undo reads a FROZEN copy of the rows it replaced; while the
         # table is unchanged the two agree, and a later change to the table
         # needs its own entry.
@@ -353,10 +361,47 @@ class AuditRegressions(unittest.TestCase):
         quoted = PRM.render_line(b, ['original cat', 'original dog'],
                                  attempt=1, reasons=[named])
         self.assertIn(f"  - {named}", quoted)
-        undone = LH.legacy_question_texts('propose', quoted)[0]
+        undone = LH.legacy_question_texts('propose', quoted)[1]
         self.assertIn(f"  - {fixed}", undone)
         self.assertNotIn("prayer", undone)
         self.assertNotIn("<pairs>", undone)
+
+    def test_the_ban_definitions_undo_to_the_old_question(self):
+        # 2026-11-21 (bug hunt 2026-11-20, finding 3): every question now
+        # says what the two bans its writing-ban row names forbid. That moves
+        # the bytes of every line, batch and group question, so a run held
+        # across the change replays only because the newest undo restores the
+        # earlier wording exactly (`LEGACY_QUESTION_RENDERINGS`,
+        # `_legacy_ban_definitions`).
+        import quality.propose as PRM
+        from types import SimpleNamespace as NS
+        lines = ['original cat', 'original dog']
+        b = Brief(2, lines[1])
+        group = NS(pivot_line_no=2, pivot_text=lines[1], pivot_word='dog',
+                   anchors=(), label='A', members=(1, 2), brief=b,
+                   lines=lines, attempt=0, reasons=None, whole=())
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-1][1],
+                         LH._legacy_ban_definitions)
+        # The undo reads a FROZEN copy of the block; while the block is
+        # unchanged the two agree, and a later change needs its own entry.
+        self.assertEqual('\n' + '\n'.join(PRM._writing_ban_rows()),
+                         LH._BAN_DEFINITIONS_1121)
+        for kind, render in (
+                ('propose', lambda: PRM.render_line(b, lines)),
+                ('propose', lambda: PRM.render_line(
+                    b, lines, attempt=1, reasons=['nothing was fixed'])),
+                ('propose', lambda: PRM.render_batch(
+                    [Brief(1, lines[0]), b], lines)),
+                ('propose_group', lambda: PRM.render_group(group))):
+            now = render()
+            with patch.object(PRM, '_writing_ban_rows',
+                              lambda indent='  ': []):
+                before = render()
+            self.assertIn('HOMEOTELEUTON: two different paired words', now)
+            self.assertNotIn('What each one forbids', before)
+            self.assertEqual(LH.legacy_question_texts(kind, now)[0], before)
+        # A question with no rules block (a whole-draft repair) is untouched.
+        self.assertIsNone(LH._legacy_ban_definitions('propose', 'no rules'))
 
     def test_a_question_held_under_the_200_line_limit_replays(self):
         # 2026-11-12 (#851). The line limit a question states rose from 200
@@ -377,8 +422,13 @@ class AuditRegressions(unittest.TestCase):
         # TOO (2026-11-14, `_legacy_671_prose`), so the held bytes are this
         # build's question at 200 with that later rewording undone.
         real_render = PRM.render_line
-        def worded_then(*args, **kwargs):
+        # ...AND BEFORE THE QUESTION SAID WHAT THE TWO WRITING BANS FORBID
+        # (REPINNED 2026-11-21, bug hunt finding 3: ~~the 671 undo alone~~).
+        def without_bans(*args, **kwargs):
             text = real_render(*args, **kwargs)
+            return LH._legacy_ban_definitions('propose', text) or text
+        def worded_then(*args, **kwargs):
+            text = without_bans(*args, **kwargs)
             return LH._legacy_671_prose('propose', text) or text
         with patch.object(PRM, 'MAX_LINE_CHARS', 200):
             held_line = worded_then(b, initial)
@@ -387,8 +437,11 @@ class AuditRegressions(unittest.TestCase):
         self.assertEqual((now_line.count(then), now_line.count(now)), (0, 1))
         # Undoing the change restores the old bytes exactly, for a line
         # question and for a group question's "Each line is at most ...".
+        # REPINNED 2026-11-21: ~~[worded_then(b, initial), held_line]~~;
+        # the newest undo (the ban definitions) comes first.
         self.assertEqual(LH.legacy_question_texts('propose', now_line),
-                         [worded_then(b, initial), held_line])
+                         [without_bans(b, initial), worded_then(b, initial),
+                          held_line])
         self.assertEqual(
             LH.legacy_question_texts('propose_group', '  Each line ' + now),
             ['  Each line ' + then])
