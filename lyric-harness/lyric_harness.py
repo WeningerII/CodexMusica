@@ -7314,11 +7314,25 @@ def _record_schemas(r):
     # registry schema; read as a bare name, `schema:perfect rhyme` resolved to
     # nothing and a declared perfect rhyme was reported "not heard as end
     # rhyme", and `class:RHYME` was listed as a schema (2026-10-02).
+    #
+    # A GROUP THAT DECLARES A CATALOG STRUCTURE is recorded as satisfied by
+    # the structure's bare name (`masculine-rhyme`), which is no registry
+    # schema either. It was listed as one, and a clean declared rhyme was
+    # reported "not heard as end rhyme" at an UNCALIBRATED relation (bug hunt
+    # 2026-11-20, finding 9). A catalog structure's name is skipped unless
+    # the registry holds a schema of the same name. Any other name the
+    # registry cannot resolve is still listed, and still counts as not
+    # audible (`_split_by_audible_end`).
+    from quality.relations import REGISTRY as _registry    # noqa: PLC0415
+    from quality.structures import names as _structure_names  # noqa: PLC0415
+    _structures = set(_structure_names())
     out = []
     for n in r.get("satisfied_by") or ():
         if n.startswith("schema:"):
             out.append(n[len("schema:"):])
         elif n.startswith(("class:", "type:")):
+            continue
+        elif n in _structures and n not in _registry:
             continue
         elif n not in ADMITTABLE_RELATIONS and n not in ("REPEAT", NO_ANCHOR):
             out.append(n)

@@ -796,6 +796,52 @@ class AuditRegressions(unittest.TestCase):
         later = [p for k, p in call.calls if k == 'group'][1]
         self.assertIn('No previous attempt was rejected', later)
 
+    def test_a_declared_structure_is_not_reported_as_a_registry_schema(self):
+        # Finding 9. A group that declares a catalog structure is recorded as
+        # satisfied by the structure's own name. The report read that name as
+        # a registry schema, so two clean declared rhymes came back as
+        # "2 mandated pair(s) stand in at least one registry schema ...
+        # laziness at these relations is UNCALIBRATED" and "not heard as end
+        # rhyme: L1~L2: masculine-rhyme; L3~L4: perfect-rhyme".
+        from quality.relations import REGISTRY
+        lines = ['we climbed together up the hill',
+                 'the evening air was very still',
+                 'we walked together into town',
+                 'and watched the sun go slowly down']
+        m = mandate([[1, 2], [3, 4]], n_lines=4,
+                    structures={'A': 'masculine-rhyme', 'B': 'perfect-rhyme'})
+        with contextlib.redirect_stdout(io.StringIO()):
+            records = Reviser().grade(lines, m)['pairs_schema_satisfied']
+        self.assertEqual([(tuple(r['lines']), r['satisfied_by'])
+                          for r in records],
+                         [((1, 2), ['masculine-rhyme']),
+                          ((3, 4), ['perfect-rhyme'])])
+        self.assertNotIn('masculine-rhyme', REGISTRY)
+        self.assertNotIn('perfect-rhyme', REGISTRY)
+        self.assertEqual([LH._record_schemas(r) for r in records], [[], []])
+        self.assertIsNone(LH.schema_default_disclosure(records))
+        # What the block is for still prints: a registry schema is listed,
+        # under its bare name or the declared spelling, and the structure
+        # beside it is not.
+        self.assertIn('perfect rhyme', REGISTRY)
+        self.assertEqual(LH._record_schemas(
+            {'satisfied_by': ['RHYME', 'class:RHYME', 'masculine-rhyme',
+                              'perfect rhyme', 'schema:subtractive rhyme']}),
+            ['perfect rhyme', 'subtractive rhyme'])
+        said = LH.schema_default_disclosure(
+            [{'lines': [1, 2], 'label': 'A',
+              'satisfied_by': ['masculine-rhyme', 'perfect rhyme']}])
+        self.assertIn('L1~L2 (group A): perfect rhyme', said)
+        self.assertNotIn('masculine-rhyme', said)
+        # A structure that shares its name with a registry schema is still
+        # listed under that name, and so is a name nothing resolves.
+        from quality.structures import names
+        self.assertIn('pararhyme', names())
+        self.assertIn('pararhyme', REGISTRY)
+        self.assertEqual(LH._record_schemas(
+            {'satisfied_by': ['pararhyme', 'no such schema']}),
+            ['pararhyme', 'no such schema'])
+
     def test_a_round_reports_only_the_lines_it_changed(self):
         # Finding 28. An accepted group answer changed L3 and sent L1 back
         # byte-identical, and the round was reported as "fixed L1, L3": the
