@@ -1952,6 +1952,10 @@ class VariationDeclaration:
 
 _MARKUP = re.compile(r"[_*]+")
 _PUNCT = re.compile(r"[^\w\s'’-]", re.UNICODE)
+#: A hyphen that joins no word: alone, or at a word's edge. ` --` is a dash
+#: typed as hyphens, punctuation like the em dash `_PUNCT` already drops
+#: (bug hunt F22, 2026-11-21); a hyphen between two letters stays.
+_LOOSE_HYPHENS = re.compile(r"(?<![\w'’])-+|-+(?![\w'’])", re.UNICODE)
 _SPACE = re.compile(r"\s+")
 
 
@@ -1969,6 +1973,7 @@ def normalise_line(text):
     t = t.replace("“", '"').replace("”", '"')
     t = _MARKUP.sub(" ", t)
     t = _PUNCT.sub(" ", t)
+    t = _LOOSE_HYPHENS.sub(" ", t)
     t = _SPACE.sub(" ", t).strip().lower()
     return t
 
