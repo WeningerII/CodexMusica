@@ -777,11 +777,13 @@ def parse_line(text, *, line_no=None):
       - two or more `LINE:` markers, or two or more fenced blocks
       - a fenced block holding zero or several non-empty lines
       - a fence and a `LINE:` marker outside it that DISAGREE
-      - a line wrapped in quotation marks or backticks. Stripping them
+      - a line wrapped in quotation marks or backticks: one that both
+        opens and closes on one. Stripping them
         corrupts a line of quoted speech and keeping them corrupts a line
         that was merely quoted for display; both are wrong on some real
         line, so neither is guessed at. The prompt asks for no quotation
-        marks for this reason. An APOSTROPHE at both ends is not a wrapper
+        marks for this reason. A line with quoted speech at ONE end is a
+        line and is accepted. An APOSTROPHE at both ends is not a wrapper
         and is accepted — see `_QUOTE_CHARS`.
     """
     if not isinstance(text, str):
@@ -827,7 +829,10 @@ def _clean_single(blob, *, line_no=None):
     row = _ECHOED_LABEL_RE.sub("", rows[0]).strip()
     if not row:
         return None
-    if row[0] in _QUOTE_CHARS or row[-1] in _QUOTE_CHARS:
+    # BOTH ENDS, as `_QUOTE_CHARS` says. This read `or` until 2026-11-21
+    # (bug hunt finding 26), so a line of dialogue that merely started or
+    # ended on a quotation mark was discarded unread.
+    if row[0] in _QUOTE_CHARS and row[-1] in _QUOTE_CHARS:
         return None
     if not _HAS_LETTER_RE.search(row):
         return None

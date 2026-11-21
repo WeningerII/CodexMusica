@@ -724,6 +724,20 @@ def test_parse_accepts_the_supported_shapes():
          "'Cause I was never goin'", "'Cause I was never goin'"),
         ("the same with U+2019", "’Cause I was never goin’",
          "’Cause I was never goin’"),
+        # QUOTED SPEECH AT ONE END IS A LINE, NOT A WRAPPER (bug hunt
+        # 2026-11-20, finding 26). `_QUOTE_CHARS`' own comment says a line
+        # that both OPENS and CLOSES on a quotation mark is refused; the
+        # test was `or`, so a line of dialogue that merely started or ended
+        # on one was thrown away unread.
+        ("speech that OPENS the line", '"Stay," she whispered by the door',
+         '"Stay," she whispered by the door'),
+        ("speech that CLOSES the line", 'She whispered "stay"',
+         'She whispered "stay"'),
+        ("curly speech that opens the line",
+         "“Stay,” she said and closed the door",
+         "“Stay,” she said and closed the door"),
+        ("speech in the middle of the line", 'She said "stay" softly',
+         'She said "stay" softly'),
     ]
     for name, raw, want in cases:
         got = parse_line(raw)
@@ -745,6 +759,10 @@ def test_parse_accepts_the_supported_shapes():
         ("a quote-wrapped line", f'"{good}"'),
         ("a curly-quote-wrapped line", f"“{good}”"),
         ("a backtick-wrapped line", f"`{good}`"),
+        # Opens AND closes on a quotation mark: still refused, whatever is
+        # between them, because wrapper and speech cannot be told apart.
+        ("a line that opens and closes on speech",
+         '"Stay," she said, "and close the door"'),
         ("a marker with nothing after it", "LINE:"),
         ("not a string at all", None),
     ]
@@ -774,6 +792,11 @@ def test_parse_group_needs_every_marker():
           parse_group(f"L5: {z}\nL1: {x}\nL3: {y}", MEM) == (x, y, z))
     check("a two-member group is just k=2, the case this replaced",
           parse_group(f"L1: {x}\nL3: {y}", (1, 3)) == (x, y))
+    # Finding 26, in the group parser, which cleans each member the same way.
+    check("accepts a member that opens on quoted speech",
+          parse_group('L2: "Stay," she said\nL4: and so I stayed', (2, 4))
+          == ('"Stay," she said', "and so I stayed"),
+          parse_group('L2: "Stay," she said\nL4: and so I stayed', (2, 4)))
     for name, raw, mem in [
             ("bare lines", f"{x}\n{y}\n{z}", MEM),
             ("a MISSING member", f"L1: {x}\nL3: {y}", MEM),
