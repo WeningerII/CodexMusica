@@ -1309,6 +1309,32 @@ test('mutant guards: check order, declared-only lines, the draft at its largest,
   );
 });
 
+test('pasted text breaks into rows at every line break, not only at a line feed', () => {
+  // Bug hunt 2026-11-20, finding 35. Two lines pasted with a carriage return
+  // between them became one row, and the call was refused with "each array
+  // item must be exactly one lyric line; use the newline text field for
+  // multiple rows" although the caller had used that field.
+  const rows = ['the rain falls on the road', 'the river overflowed'];
+  for (const br of ['\n', '\r', '\r\n', '\u2028', '\u2029']) {
+    const text = rows.join(br);
+    assert.deepEqual(draftFromText(text), rows, JSON.stringify(br));
+    for (const [array, field] of [
+      ['lines', 'lines_text'],
+      ['draft', 'draft_text'],
+    ]) {
+      const a = { [field]: text + br };
+      takeLines(a, array, field);
+      assert.deepEqual(a[array], rows, JSON.stringify([field, br]));
+    }
+    assert.doesNotThrow(
+      () => admitLyricCall('lyric_check', { lines_text: text, scheme: 'AA' }),
+      JSON.stringify(br)
+    );
+  }
+  // Blank rows and section rows are still left out, whatever breaks them.
+  assert.deepEqual(draftFromText(`[VERSE]\r${rows[0]}\r\r  ${rows[1]}  \r`), rows);
+});
+
 test('a run this process holds is measured with what it carries in; an export is not measured', async () => {
   const rec = RUNS.put('admission-test', {
     draft: [WITNESS],
