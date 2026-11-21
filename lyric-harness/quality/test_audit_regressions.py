@@ -864,6 +864,23 @@ class AuditRegressions(unittest.TestCase):
                              timeout=180)
         self.assertIn('  letters:       ABBA\n', ran.stdout)
 
+    def test_the_repeated_opening_message_counts_the_lines_it_lists(self):
+        # Finding 34, the count. 15 of 22 lines open with the same word; the
+        # message said "14 of 22" over a list of 15 lines, because the count
+        # was rebuilt from the rate (15/22 x 22 is 14.99..., cut to 14).
+        from quality.floor import SlopFloor
+        ends = ('river mountain window garden hammer candle ladder blanket '
+                'pocket lantern basket meadow thunder feather harbor copper '
+                'silver marble timber velvet pillow button').split()
+        lines = [('I see the %s' if i < 15 else 'we found a %s') % w
+                 for i, w in enumerate(ends)]
+        self.assertEqual(int(15 / 22 * 22), 14)
+        (found,) = [f for f in SlopFloor().check(lines)
+                    if f.code == 'ANAPHORA_OVERLOAD']
+        self.assertEqual(found.locations, list(range(1, 16)))
+        self.assertEqual(found.message,
+                         '15 of 22 lines open with the same word')
+
     def test_a_round_reports_only_the_lines_it_changed(self):
         # Finding 28. An accepted group answer changed L3 and sent L1 back
         # byte-identical, and the round was reported as "fixed L1, L3": the

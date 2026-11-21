@@ -2259,7 +2259,11 @@ class SlopFloor:
             out.append(Finding(
                 "ANAPHORA_DECLARED" if forced_only else "ANAPHORA_OVERLOAD",
                 "note" if forced_only else sev("flag"),
-                f"{int(a * len(lines))} of {len(lines)} lines open with the "
+                # The count is the lines listed. `int(a * len(lines))` cut
+                # a rate back to a count and lost one where the division did
+                # not round-trip: 15 of 22 printed as 14 (bug hunt
+                # 2026-11-20, finding 34).
+                f"{len(hits)} of {len(lines)} lines open with the "
                 f"same word",
                 ("Required return/anaphora identity accounts for this outlier; "
                  "the declaration is preserved, not offered as a prose repair. "
