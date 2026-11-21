@@ -2291,10 +2291,9 @@ class SlopFloor:
                       "so not claimed either way (doctrine 20)"
                       if prof.name == "lyric" else "")
                    if prof.name in ("song", "lyric") else "")
-                + f". Deliberate anaphora is "
-                f"a figure — Whitman, the Psalms and every blues refrain trip "
-                f"this — so the finding is a decision handed back, not a "
-                f"verdict", hits, obligations=tuple((ln,) for ln in hits)))
+                + f". Deliberate anaphora is a figure, so the finding is a "
+                f"decision handed back, not a verdict", hits,
+                obligations=tuple((ln,) for ln in hits)))
 
         # 4. metronomic line length
         thr = d.resolve("line_length_cv_min", prof, n_tok)

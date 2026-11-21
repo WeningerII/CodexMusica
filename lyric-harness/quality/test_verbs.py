@@ -5957,7 +5957,8 @@ def test_the_plan_report_discloses_density_and_audibility():
           "Where a binding sits" not in brief
           # ~~No relation is drawn (N-relation model)~~ — 2026-10-27 (D1,
           # D5): each group draws a type, and the brief states its rule
-          # with no type name.
+          # ~~with no type name~~ (since 2026-11-20 the type's name stands
+          # beside it).
           and "What each named relation asks" not in brief
           and "must stand in at least one relation" not in brief
           and re.search(r"must satisfy rule R\d+", brief) is not None

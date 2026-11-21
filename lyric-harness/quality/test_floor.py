@@ -498,8 +498,8 @@ def test_anaphora_is_a_note_about_a_figure():
     f = find(same, "ANAPHORA_OVERLOAD")
     check("the evidence says deliberate anaphora is a figure",
           f is not None and "figure" in f.evidence,
-          "Whitman, the Psalms and every blues refrain would trip this; the "
-          "gate must hand the judgement back rather than make it")
+          "deliberate repetition of an opening is a figure; the gate must "
+          "hand the judgement back rather than make it")
 
 
 def test_thresholds_are_declared_not_hidden():
