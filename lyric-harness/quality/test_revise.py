@@ -1120,6 +1120,11 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
 
 def test_the_four_rejections_on_the_songs_own_shape():
     print("\n20. doctrine 47/94 — the four rejections, on 41 real lines")
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself).
+    # This section's fault is the L13/L33 REPEAT, which no setting charges as
+    # identity any more. The four rejections are verify()'s control flow, so
+    # the induced subdraft below declares `schema:perfect rhyme`, a named
+    # type whose own rule needs different onsets: the same word fails it.
     lines = song_lines()
     # DECLARES `class:RHYME` SINCE 2026-08-25 (M-116): the NET-NEGATIVE
     # case rewrites L33 to end 'kitchen', and under the whole-vocabulary
@@ -1160,7 +1165,8 @@ def test_the_four_rejections_on_the_songs_own_shape():
     remap = {ln: i + 1 for i, ln in enumerate(source_lines)}
     lines = [lines[ln - 1] for ln in source_lines]
     m = SC.mandate([[remap[ln] for ln in g] for g in groups],
-                   n_lines=len(lines), default_relation="RHYME")
+                   n_lines=len(lines),
+                   default_relation="schema:perfect rhyme")
     target = remap[33]
     b33 = next(x for x in R.brief(lines, m) if x.line_no == target)
     prefix = lines[target - 1].rsplit(" ", 1)[0]
@@ -1302,10 +1308,10 @@ def test_what_the_loop_can_say_on_the_declared_mandate():
           sum(1 for c in ret if "REPEAT" in c["relations"]) >= 4,
           f"{sum(1 for c in ret if 'REPEAT' in c['relations'])} of the "
           f"chorus's returns are an IDENTICAL end word. Doctrine 3 calls "
-          f"REPEAT the REQUIREMENT across chorus instances, and "
-          f"`repeat_licence` defaults to 'unlicensed', so the derived-cover "
-          f"run reports them as SCHEME_VIOLATIONs -- "
-          f"see RESULTS_REVISION_LOOP.md §5")
+          f"REPEAT the REQUIREMENT across chorus instances. (Until "
+          f"2026-11-20 the default 'unlicensed' made the derived-cover run "
+          f"report them as SCHEME_VIOLATIONs -- see RESULTS_REVISION_LOOP.md "
+          f"§5; that setting is gone with the owner's self-rhyme ruling.)")
 
 
 def test_the_collision_set_is_partitioned_not_silenced():
@@ -1836,6 +1842,22 @@ def test_grade_asks_the_mandate_before_the_switch():
     check("mandated/judged agree — nothing was silently dropped, only "
           "reclassified",
           (rep["pairs_mandated"], rep["pairs_judged"]) == (93, 93))
+    # QR5'S WITNESS SINCE 2026-11-20 (owner's ruling: a word may rhyme with
+    # itself). No setting charges the identity now, so the mandate's
+    # per-pair answer decides only where a declared return FAILS its
+    # group's relation. A named type with its own onset rule makes it fail:
+    # under `schema:perfect rhyme` every refrain pair is the same word, and
+    # only the mandate's declared returns license them. Asking no one
+    # charges all 12.
+    _pm = SC.mandate(m, default_relation="schema:perfect rhyme")
+    _ret = {tuple(sorted(p[:2])) for p in _pm.return_pairs()}
+    _prep = R.grade(VILLANELLE, _pm)
+    check("...and under `schema:perfect rhyme`, which the same word fails, "
+          "not one declared return pair is charged: the mandate licenses "
+          "what it required",
+          not any(tuple(v["lines"]) in _ret for v in _prep["violations"]),
+          f"{sum(1 for v in _prep['violations'] if tuple(v['lines']) in _ret)}"
+          f" of {len(_ret)} return pair(s) charged")
     # WHERE THE MANDATE'S ANSWER IS STILL THE DECIDING ONE (2026-10-28,
     # #519: mutation QR5 escaped its declared suites and timed out shard
     # 11/16). Since #626 an identical pair that satisfies a type
@@ -2266,8 +2288,12 @@ def test_excused_by_overlap_is_a_per_line_condition():
              "the rat wore a hat",             # 5  B
              "the bat also wore a hat",        # 6  B — REPEAT of 'hat'
              "the loon sang a tune"]           # 7  D
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+    # ~~class:RHYME~~ -- hat/hat passes that as identical rhyme, so the
+    # groups declare `schema:perfect rhyme`, whose own onset rule the same
+    # word fails, and B keeps a real internal fault.
     m_inner = SC.mandate(SC.mandate([[1, 2], [2, 5, 6], [1, 7]], n_lines=7),
-                         default_relation="class:RHYME")
+                         default_relation="schema:perfect rhyme")
     rep_i = dis.grade(inner, m_inner)
     ex_i = [(v["lines"], v["label"]) for v in rep_i["excused"]]
     check("L2 answers every member of B in full, so its failure in A is "
@@ -3186,14 +3212,19 @@ def test_a_blank_line_is_refused_not_renumbered():
     rep = [f for f in blank_found if f.code == "REPEAT_IN_VERSE"]
     _mc, clean_found = _floor_as_inspect_would(BLANK_DRAFT_CLEAN, "AABB")
     rep_clean = [f for f in clean_found if f.code == "REPEAT_IN_VERSE"]
-    check("COUNTERFACTUAL — blank-free, the DECLARED pair earns a FLAG",
-          len(rep_clean) == 1 and rep_clean[0].severity == "flag"
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+    # ~~the DECLARED pair earns a FLAG~~ -- a self-rhyme is a note at every
+    # length now. What the blank costs is unchanged: the finding moves off
+    # the declared pair and onto one the mandate never declared.
+    check("COUNTERFACTUAL — blank-free, the DECLARED pair carries the "
+          "self-rhyme finding",
+          len(rep_clean) == 1 and rep_clean[0].severity == "note"
           and rep_clean[0].locations == [3],
           f"{[(f.severity, f.locations) for f in rep_clean]} — L3/L4 of the "
           f"clean draft are L4/L5 of the raw one, and they close on the same "
-          f"word. A flag is something `verify()` can reject on")
-    check("with the blank, that flag is GONE and a note about an UNDECLARED "
-          "pair stands in its place",
+          f"word")
+    check("with the blank, that finding LEAVES the declared pair and a note "
+          "about an UNDECLARED pair stands in its place",
           len(rep) == 1 and rep[0].severity == "note"
           and rep[0].locations == [1],
           f"{[(f.severity, f.locations) for f in rep]} — 'only one rhyme "
@@ -5287,9 +5318,13 @@ def test_a_declared_return_is_not_a_collision():
     rl = list(lines)
     rl[3] = "we held the wheel and drove into the night"
     rr = R.grade(rl, m)
-    check("a same word on a mandated pair is a violation of that pair "
-          "(L1/L4) and is not reported again on its verbatim copy L4~L13",
-          any(tuple(v["lines"]) == (1, 4) for v in rr["violations"])
+    # REPINNED 2026-11-20 (owner's ruling): ~~a violation of that pair~~ --
+    # night/night on a mandated pair is identical rhyme and passes; it is
+    # still judged there, and still not reported again on its copy.
+    check("a same word on a mandated pair is identical rhyme on that pair "
+          "(L1/L4), not a violation, and is not reported again on its "
+          "verbatim copy L4~L13",
+          not any(tuple(v["lines"]) == (1, 4) for v in rr["violations"])
           and (4, 13) not in {tuple(c["lines"]) for c in rr["collisions"]},
           (sorted(tuple(v["lines"]) for v in rr["violations"]),
            sorted(tuple(c["lines"]) for c in rr["collisions"])))

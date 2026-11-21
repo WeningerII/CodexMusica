@@ -3582,7 +3582,14 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
     # (L7 = L15): a mandate that declares its returns charges an undeclared
     # identical pair (doctrine 3), so L6~L14 is charged again and its mosaic
     # span is disclosed exactly as before. `--cliques` cannot take `--returns=`.
-    cover = ("--groups=2,4;6,14;7,15;8,9;10,11;3,13;13,16", "--returns=7,15")
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+    # ~~a mandate that declares its returns charges an undeclared identical
+    # pair~~ -- it no longer does, so counting/counting would pass as
+    # identical rhyme and leave nothing to disclose. The cover now declares
+    # `schema:perfect rhyme`, a named type whose own rule needs different
+    # onsets, so an identical pair fails it and L6~L14 is charged again.
+    cover = ("--groups=2,4;6,14;7,15;8,9;10,11;3,13;13,16", "--returns=7,15",
+             "--relation=schema:perfect rhyme")
     rc, out, _ = run("song", os.path.join(fix, "song.blueprint.json"),
                      os.path.join(fix, "song.txt"), *cover, expect_rc=3)
     lines = out.splitlines()

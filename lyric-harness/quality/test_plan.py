@@ -519,8 +519,12 @@ def _round_trip_fixture_checks(R):
         errors = _round_trip_grade_errors(grade, mandate)
         check(f"M-146: {place} receives an actual grade", not errors, repr(errors))
         if place in ("head", "headrime", "T1"):
-            check(f"M-146: repeated {place} is judged and violates, not refused",
-                  bool(grade["violations"])
+            # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with
+            # itself): ~~and violates~~ -- the repeat is still judged, as
+            # REPEAT, and now passes as identical rhyme.
+            check(f"M-146: repeated {place} is judged as REPEAT and passes, "
+                  f"not refused",
+                  not grade["violations"] and not grade.get("refusals")
                   and "REPEAT" in grade["verdicts"][0]["relations"])
 
     # The adversary: a slot that names a word no phonology can anchor must
@@ -4281,10 +4285,14 @@ def test_the_overhang_group():
                    if (m.strip().split(".", 1)[1] if "." in m else "end")
                    in ("end", "endword")) >= 2:
                 ends += 1
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+    # ~~which `floor.REPEAT_IN_VERSE` flags~~ -- it is a note now, so this is
+    # no longer a contradiction between layers. The draw's own placement
+    # refusals still keep it out of a drawn plan; lifting them moves seeds
+    # and is a separate decision.
     check("no plan SHIPS a declared same-token schema at two line ENDS — "
-          "satisfying one means both lines end on the same word, which "
-          "`floor.REPEAT_IN_VERSE` flags on a layer that never reads the "
-          "mandate", ends == 0, f"{ends} such group(s) over seeds 1-8")
+          "the draw's placement refusals still keep it out",
+          ends == 0, f"{ends} such group(s) over seeds 1-8")
     gs2 = [g for g in str(pl["groups"]).split(";") if g.strip()]
     idx2 = next(i for i, g in enumerate(gs2)
                 if sum(1 for m in g.split(",")
@@ -4295,12 +4303,14 @@ def test_the_overhang_group():
     mut2["relations"][SC.label((idx2,))] = "schema:anaphora"
     fired2 = [f for f in PLN.joint_findings(mut2)
               if f[0] == "IDENTITY_AT_TWO_LINE_ENDS"]
-    check("...and the MUTATION fires that gate too, naming the line-final "
-          "slots and pointing at `epistrophe / radif`, which is this "
-          "registry's own name for the same word ending two lines",
-          len(fired2) == 1 and "epistrophe" in fired2[0][2]
-          and "IDENTITY_AT_TWO_LINE_ENDS" in PLN.JOINT_CODES,
-          fired2[0][2][:80] if fired2 else "did not fire")
+    # REPINNED 2026-11-20: ~~the MUTATION fires that gate too~~ -- the gate
+    # is gone with the owner's ruling, so a hand-written plan that asks for
+    # the same word at two line ends is no longer refused for it.
+    check("...and a hand-written plan with a same-token schema at two line "
+          "ends is NOT refused for it: the IDENTITY_AT_TWO_LINE_ENDS gate is "
+          "gone, because a word may rhyme with itself",
+          not fired2 and "IDENTITY_AT_TWO_LINE_ENDS" not in PLN.JOINT_CODES,
+          fired2[0][2][:80] if fired2 else "not refused")
 
 
 def test_the_placement_route(FAILURES=None):
@@ -4859,9 +4869,16 @@ def test_the_legend_states_the_whole_schema():
           and "neither word runs on past the rhyme" in asks["perfect rhyme"]
           and "agree on nucleus, coda, onset;" not in asks["perfect rhyme"],
           asks["perfect rhyme"])
-    check("rime riche says 'different words' — the identity rule is what "
-          "separates it from repetition",
-          "different words" in asks["rime riche"], asks["rime riche"])
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself,
+    # folded into rime riche): ~~rime riche says 'different words'~~ -- it
+    # has no identity rule now, so the same word and a homophone both
+    # satisfy it. Repetition still REQUIRES the same word, so rime riche is
+    # the wider of the two, not a different one.
+    check("rime riche no longer says 'different words': a word may rhyme "
+          "with itself, folded into rime riche",
+          "different words" not in asks["rime riche"]
+          and "agree on onset, nucleus, coda" in asks["rime riche"],
+          asks["rime riche"])
     check("anaphora says 'the same word'",
           "the same word" in asks["anaphora"], asks["anaphora"])
     check("light rhyme still says 'differ on prominence' — the Agree/Differ "
@@ -8998,10 +9015,10 @@ def test_the_stop_rules():
         # the planned grade gives no such flag, so the row is a never row.
         if p.get("hook_slot") and p.get("title"):
             want.add("TITLE_NOT_IN_HOOK")
-        # A floor-pair flag needs a second pair (floor.py, "only one rhyme
-        # pair here" is a note), so the row asks for two.
-        if len(fpairs) >= 2:
-            want.add("REPEAT_IN_VERSE")
+        # ~~A floor-pair flag needs a second pair, so the row asks for two~~
+        # REMOVED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+        # REPEAT_IN_VERSE is a note at every pair count, so no plan carries
+        # a stop row for it.
         seen.update(want)
         if set(rows) != want or len(rows) != len(block) - 1 - len(
                 set(unit_lines.values())):
@@ -9055,9 +9072,6 @@ def test_the_stop_rules():
                 hook_bad.append(tag)
         if "TITLE_NOT_IN_HOOK" in want:
             exp["TITLE_NOT_IN_HOOK"] = [f"inside line {p['hook_slot']}"]
-        if "REPEAT_IN_VERSE" in want:
-            exp["REPEAT_IN_VERSE"] = [
-                f"at least {100 * decl.radif_min_pair_fraction:g}% of the pairs"]
         exp["MODAL_RHYME"] = [
             f"among the {_RV.ReviseDeclaration().modal_exclusion} or fewer"]
         for code, frags in exp.items():
@@ -9078,17 +9092,20 @@ def test_the_stop_rules():
           "states its own grader's word unit, on every drawn plan",
           not units_scoped, units_scoped[:3])
     check("...and every row the spread is meant to reach is reached: the "
-          "stacked-draft floor, returns, a titled hook and the floor-pair "
-          "row; and a plan with a hook and no title is drawn",
+          "stacked-draft floor, returns and a titled hook (no floor-pair "
+          "row since 2026-11-20); and a plan with a hook and no title is "
+          "drawn",
           all(seen[c] for c in ("STACKED_DRAFT", "RETURN_NOT_VERBATIM",
-                                "TITLE_NOT_IN_HOOK", "REPEAT_IN_VERSE"))
+                                "TITLE_NOT_IN_HOOK"))
+          and not seen.get("REPEAT_IN_VERSE")
           and any(p.get("hook_slot") and not p.get("title")
                   for _k, _s, p in plans)
           and any(p["total_lines"] < _SH.ADOPTED["MIN_LINES"]
                   for _k, _s, p in plans)
           and any(not p["returns"] for _k, _s, p in plans), dict(seen))
     check("...and the spread draws plans with no floor pair, exactly one "
-          "(a note, so no REPEAT_IN_VERSE row) and two or more",
+          "and two or more (none of them carries a REPEAT_IN_VERSE row: a "
+          "self-rhyme is a note since 2026-11-20)",
           all(pair_counts[k] for k in (0, 1, 2)), dict(pair_counts))
     check("...and each exception clause shows exactly when the grader's "
           "own floor for the plan has it: openings that match, copies to "

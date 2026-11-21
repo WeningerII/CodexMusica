@@ -79,15 +79,19 @@ def test_too_short_is_silent():
 
 
 def test_repeat_in_verse():
-    print("\n3. a non-recurring self-rhyme is a violation")
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+    # ~~a non-recurring self-rhyme is a violation~~ -- it is disclosed as a
+    # note and never charged.
+    print("\n3. a non-recurring self-rhyme is disclosed, not charged")
     lines = ["I walked into the room and saw the light",
              "I turned away and could not bear the light",
              "She left the door ajar and crossed the floor",
              "He counted out the coins and asked for more"]
     f = find(lines, "REPEAT_IN_VERSE", "AABB")
     check("REPEAT_IN_VERSE fires", f is not None)
-    check("it is a flag when another pair rules a radif out",
-          f is not None and f.severity == "flag", f.evidence if f else "")
+    check("it is a NOTE, not a flag, even when another pair rules a radif "
+          "out -- a word may rhyme with itself",
+          f is not None and f.severity == "note", f.evidence if f else "")
     check("it names the repeated word and the line",
           f is not None and "light" in f.evidence and f.locations == [1],
           f.locations if f else "")
@@ -623,7 +627,8 @@ def test_length_is_a_coordinate():
     # for a different reason (see test 6b): it borrows no percentile, but
     # the false-positive rate that lets it reject was only ever measured
     # in the band rows. Self-rhyme, radif and shared suffix keep their
-    # severity — a word rhymed with itself is a fact about two lines.
+    # severity. (REPINNED 2026-11-20: a self-rhyme is now a note at every
+    # length, so SHARED_SUFFIX is what is left to carry a flag here.)
     sized = {"LEXICAL_MONOTONY", "FUNCTION_WORD_HEAVY",
              "ANAPHORA_OVERLOAD", "UNIFORM_LINE_LENGTH",
              "PREDICTABLE_RHYME", "CLICHE_PAIR"}
@@ -637,10 +642,12 @@ def test_length_is_a_coordinate():
           "length-calibrated finding IS present, as a note",
           any(f.code in sized and f.severity == "note" for f in fs),
           f"{sorted((f.code, f.severity) for f in fs)}")
-    check("length-independent findings keep their severity",
-          any(f.severity == "flag" for f in fs
-              if f.code not in sized),
-          "a self-rhyme is a self-rhyme at any length")
+    check("length-independent findings keep their severity: a self-rhyme "
+          "is a note at any length, never a flag",
+          all(f.severity == "note" for f in fs
+              if f.code == "REPEAT_IN_VERSE")
+          and any(f.code == "REPEAT_IN_VERSE" for f in fs),
+          f"{sorted((f.code, f.severity) for f in fs)}")
     check("the extrapolation is announced",
           "EXTRAPOLATED_LENGTH" in {f.code for f in fs})
 
@@ -1551,12 +1558,13 @@ def test_the_radif_licence_says_which_layer_it_speaks_for():
     check("...and the MANDATE layer charges none of those pairs: the "
           "repeated radif satisfies a type, so it is not charged as REPEAT",
           viol == 0, f"{viol} SCHEME_VIOLATION(s) at the default "
-                     f"repeat_licence='unlicensed'")
+                     f"repeat_licence='allowed'")
     check("the note now says WHICH check it suppressed, and its evidence "
           "names the coordinate that governs the other one",
           "THIS FLOOR's self-rhyme check" in rad.message
           and "repeat_licence" in rad.evidence
-          and "SCHEME_VIOLATION" in rad.evidence,
+          and "MANDATE layer" in rad.evidence
+          and "'allowed'" in rad.evidence,
           rad.message)
 
     lic_codes, lic_viol, lic_rad = _run(_R(rdecl=_RD(repeat_licence="refrain")))

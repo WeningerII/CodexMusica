@@ -1074,9 +1074,14 @@ MUTATIONS = [
     ),
     Mutation(
         name="QR5", layer="structure", file=REVISE,
-        old="                if not (is_violation if declared else "
-            "not default_licensed):",
-        new="                if not (not default_licensed):",
+        # RE-ANCHORED 2026-11-20: with the owner's self-rhyme ruling the
+        # per-pair question moved into grade()'s REPEAT gate as one test; the
+        # witness is test_revise §26 under `schema:perfect rhyme`, where
+        # the refrain REPEATs fail their relation and only the mandate's
+        # per-pair answer licenses them (0 return pairs charged clean, 12
+        # under this mutant, measured 2026-11-20).
+        old="                if (req is not None and req is not SC.REQUIRE_RHYME",
+        new="                if (False and req is not SC.REQUIRE_RHYME",
         subset=T_LOOP,
         rationale=(
             "`grade()` stops asking the MANDATE's own per-pair "

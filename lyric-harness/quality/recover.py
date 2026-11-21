@@ -414,9 +414,15 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
                        normalise_line(lines[int(e["b"]) - 1])]
     bare_repeats = [e for e in bare_repeats if e not in word_repeats]
     if word_repeats:
-        r.put("repeated_end_words", word_repeats, "REFUSED",
-              "equal end words on different lines are word identities, not "
-              "whole-line returns; no whole-line identity is imposed")
+        # ~~"REFUSED"~~ -- 2026-11-20, the owner's ruling: a word may rhyme
+        # with itself, so an equal end word on two different lines is READ as
+        # identical rhyme and joins `groups`, which no longer charges it.
+        rhymes = rhymes + word_repeats
+        r.put("repeated_end_words", word_repeats, "derived",
+              "equal end words on different lines are read as identical "
+              "rhyme (a word may rhyme with itself) and join `groups`; they "
+              "are word identities, not whole-line returns, so no whole-line "
+              "identity is imposed")
     r.put("mandate_spelling",
           {"--groups=": ";".join(f"{e['a']},{e['b']}" for e in rhymes),
            "--returns=": ";".join(f"{e['a']},{e['b']}"
@@ -426,10 +432,9 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
           f"lyric_revise, split on whether each "
           f"edge's relation set holds REPEAT: {len(rhymes)} edge(s) to `groups` and "
           f"{len(bare_repeats)} line-level REPEAT class(es) to `returns`, "
-          f"which is the ONLY declaration under which identity is the "
-          f"REQUIREMENT rather than the violation. Handing the WHOLE web to "
-          f"`groups` charges one SCHEME_VIOLATION per REPEAT edge; this "
-          f"split is what makes the doctrine-14 claim below true")
+          f"which is the ONLY declaration under which whole-line identity "
+          f"is the REQUIREMENT. An equal END WORD on two different lines is "
+          f"identical rhyme and is spelled into `groups`, which allows it")
     if placed_repeats:
         # WHY THESE ARE NOT SPELLED INTO `--returns=`, although a placed
         # return is spellable there since M-142 (`1.head,3.head`, the placed

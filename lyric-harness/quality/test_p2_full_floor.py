@@ -53,7 +53,9 @@ class FullFloorReturnCharacterization(unittest.TestCase):
         selected_codes = {'LEXICAL_MONOTONY', 'LEXICAL_REPETITION_DECLARED',
                           'REPEAT_IN_VERSE', 'REFRAIN_REPEAT',
                           'SCHEME_VIOLATION', 'RETURN_NOT_VERBATIM'}
-        for licence in ('unlicensed', 'refrain'):
+        # REPINNED 2026-11-20: ~~'unlicensed'~~ was removed by the owner's
+        # ruling; 'allowed' is the default that replaced it.
+        for licence in ('allowed', 'refrain'):
             for declared in (False, True):
                 for edited in (False, True):
                     with self.subTest(licence=licence, returns=declared, edited=edited):
@@ -80,14 +82,20 @@ class FullFloorReturnCharacterization(unittest.TestCase):
                         expected = [('LEXICAL_MONOTONY', 'flag', ())]
                         if declared:
                             expected += [('REPEAT_IN_VERSE', 'note', (2,)),
-                                         ('SCHEME_VIOLATION', 'flag', (2, 4)),
                                          ('REFRAIN_REPEAT', 'note', (1, 3))]
+                            # REPINNED 2026-11-20: ~~SCHEME_VIOLATION at
+                            # (2, 4)~~ -- night/night is identical rhyme.
                             if edited:
                                 expected += [('RETURN_NOT_VERBATIM', 'flag', (1, 3))]
                             else:
                                 expected[0] = ('LEXICAL_REPETITION_DECLARED', 'note', ())
                         else:
-                            expected += [('REPEAT_IN_VERSE', 'flag', (1, 2))]
+                            # REPINNED 2026-11-20 (owner's ruling: a word
+                            # may rhyme with itself): ~~'flag'~~ -- the floor
+                            # discloses a self-rhyme as a note at every
+                            # licence; the MANDATE layer is what charges it.
+                            expected += [('REPEAT_IN_VERSE', 'note', (1, 2))]
+
                             if licence == 'refrain':
                                 expected += [('REFRAIN_REPEAT', 'note', (1, 3)),
                                              ('REFRAIN_REPEAT', 'note', (2, 4))]
@@ -105,8 +113,14 @@ class FullFloorReturnCharacterization(unittest.TestCase):
                         self.assertEqual(tuple(coverage[k] for k in
                             ('pairs_mandated', 'pairs_judged', 'pairs_refused')), (2, 2, 0))
                         self.assertIs(coverage['certified'], True)
-                        # Certified coverage coexists with quality flags in ALL arms.
-                        self.assertTrue(any(f.severity == 'flag' for f in findings))
+                        # Certified coverage coexists with quality flags in
+                        # every arm but the two correct ones (REPINNED
+                        # 2026-11-20): a declared, verbatim draft is correct
+                        # at either licence, and since a word may rhyme with
+                        # itself nothing flags it.
+                        clean = declared and not edited
+                        self.assertEqual(any(f.severity == 'flag'
+                                             for f in findings), not clean)
                         self.assertEqual(lines, before, 'inspection must not synchronize text')
 
 

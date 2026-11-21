@@ -563,6 +563,14 @@ DISPOSITIONS = {
                    "ruled it report-only (2026-10-04): on a 104-line song the "
                    "loop kept reopening the same rhyme pairs and never "
                    "finished. Still graded and reported as a note",
+    # ADDED 2026-11-20: the owner ruled that a word may rhyme with itself.
+    # A finding that reports something the owner ruled ALLOWED is ruled,
+    # not unruled, and gating it would fail a draft for doing what is
+    # permitted.
+    "ALLOWED":     "the owner ruled the thing it reports is allowed "
+                   "(2026-11-20: a word may rhyme with itself). It is still "
+                   "disclosed so the writer can see it; there is nothing for "
+                   "a gate to demand",
 }
 
 #: One ruling per disclosed-only code. `--check` FAILS on an unruled one, so a
@@ -684,6 +692,9 @@ DISPOSITION = {
     "HOMEOTELEUTON": "DEMOTED",
     "MODAL_RHYME": "DEMOTED",
     "PREDICTABLE_RHYME": "DEMOTED",
+    # --- quality/floor.py: a self-rhyme, a note since the owner's 2026-11-20
+    # ruling (it was a flag at every length before).
+    "REPEAT_IN_VERSE": "ALLOWED",
 
     # --- quality/revise.py: almost none of these is about the DRAFT.
     "SCHEME_UNREADABLE": "REFUSAL",
@@ -840,7 +851,10 @@ def by_disposition(c=None):
 # was disclosed only; no gate moves: 80/19/61 -> 79/19/60.
 # 2026-11-18: CATALOG_FORM_MISMATCH is a flag when an observable requirement
 # of the selected form fails. Missing evidence affects coverage separately.
-PINNED = {'codes': 80, 'gated': 20, 'disclosed_only': 60, 'undecidable': 0,
+# REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+# REPEAT_IN_VERSE is a note at every length, so it stops gating and carries
+# an ALLOWED ruling: 80/20/60 -> 80/19/61.
+PINNED = {'codes': 80, 'gated': 19, 'disclosed_only': 61, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

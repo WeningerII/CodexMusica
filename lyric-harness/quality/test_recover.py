@@ -232,13 +232,15 @@ def test_the_doctrine_14_claim_is_GRADED_not_grepped():
     from quality import schemes as SC
     from quality.revise import Reviser
 
-    def _violations(spec, decl=None):
+    def _violations(spec, decl=None, relation=None):
         """The SAME judge `brief FILE --groups=SPEC` runs, reached the same
         way the CLI reaches it: one `Mandate` off the spec, one `inspect`."""
         if not spec:
             return 0
         m = SC.mandate([g.split(",") for g in spec.split(";")],
                        n_lines=len(lines))
+        if relation:
+            m = SC.mandate(m, default_relation=relation)
         rv = Reviser(LH.Lexicon(), decl or LH.Declaration())
         found = rv.inspect(list(lines), mandate=m)["per_line"]
         return sum(1 for fs in found.values() for f in fs
@@ -257,12 +259,15 @@ def test_the_doctrine_14_claim_is_GRADED_not_grepped():
     # refused; `admit_is_default` is then false). There the whole web charges
     # exactly its REPEAT edges more than the cover's `--groups=` does, so
     # restoring `rhymes = list(edges)` in `recover` takes it red.
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself in
+    # ANY group): ~~a narrowed admit set~~ no longer makes REPEAT a
+    # violation, so the control declares `schema:perfect rhyme`, a named
+    # type whose own onset rule the same word fails.
     whole = ";".join(f"{e['a']},{e['b']}" for e in r["web"])
-    narrowed = LH.Declaration(admit=frozenset(LH.ADMITTABLE_RELATIONS
-                                              - {"RIME_RICHE"}))
-    _w, _g = _violations(whole, narrowed), _violations(ms["--groups="], narrowed)
-    check("the WHOLE web DOES charge violations where REPEAT is one (a "
-          "narrowed admit set): exactly its REPEAT edges more than the "
+    _w = _violations(whole, relation="schema:perfect rhyme")
+    _g = _violations(ms["--groups="], relation="schema:perfect rhyme")
+    check("the WHOLE web DOES charge violations where REPEAT is one (under "
+          "schema:perfect rhyme): exactly its REPEAT edges more than the "
           "cover's `--groups=` — this is the defect, measured, and it is the "
           "control that makes the next checks non-vacuous",
           _w - _g == len(reps) > 0, f"whole {_w}, cover {_g}, {len(reps)} REPEAT")

@@ -832,7 +832,11 @@ def _axis_satisfies(axis, mine, reg, reg_key):
     if axis == "agreement":
         return _agreement_satisfies(mine, reg)
     if axis == "identity":
-        return reg == "distinct" or mine == reg
+        # A name registered `rich` (rime riche: identical sound) is also met
+        # by the SAME word since 2026-11-20 -- the owner's ruling: a word may
+        # rhyme with itself, and rime riche covers it rather than a new type.
+        return (reg == "distinct" or mine == reg
+                or (reg == "rich" and mine == "same_word"))
     return mine == reg
 
 

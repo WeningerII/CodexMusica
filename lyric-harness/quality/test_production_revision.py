@@ -902,7 +902,10 @@ class ProductionRevisionTests(unittest.TestCase):
         lines = ['You shut the little kitchen door', 'I leave my shoes beside your door']
         r = recover(lines, raw_lines=['[VERSE]'] + lines, placements=['end'])
         self.assertEqual(r['mandate_spelling']['--returns='], '')
-        self.assertEqual(r.how['repeated_end_words'][0], 'REFUSED')
+        # A word may rhyme with itself (owner's ruling, 2026-11-20): the
+        # equal end words are read as identical rhyme and join `groups`.
+        self.assertEqual(r.how['repeated_end_words'][0], 'derived')
+        self.assertEqual(r['mandate_spelling']['--groups='], '1,2')
         r = recover([CLEAN[0]] * 2, raw_lines=['[CHORUS]'] + [CLEAN[0]] * 2, placements=['end'])
         self.assertEqual(r['mandate_spelling']['--returns='], '1,2')
         m = mandate([[1, 2]], n_lines=2, returns=[[1, 2]])

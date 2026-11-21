@@ -236,12 +236,15 @@ def test_three_statements():
     print("\n    doctrine 3 inverts BY PAIR, which no song-wide switch can do")
     ok("REPEAT is the REQUIREMENT at a return pair",
        m.repeat_is_violation(13, 33) is False)
-    ok("REPEAT is a VIOLATION at a rhyme pair in the same section",
-       m.repeat_is_violation(13, 17) is True,
-       "-- `repeat_licence='refrain'` would license this one too")
-    ok("and it is a violation ACROSS the return as well",
-       m.repeat_is_violation(13, 37) is True
-       and m.repeat_is_violation(17, 33) is True,
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+    # ~~REPEAT is a VIOLATION at a rhyme pair~~ -- REQUIRE_RHYME now allows
+    # the identity, and the pair is judged under its relation.
+    ok("REPEAT is ALLOWED at a rhyme pair in the same section",
+       m.repeat_is_violation(13, 17) is False,
+       "-- a word may rhyme with itself (identical rhyme)")
+    ok("and it is allowed ACROSS the return as well",
+       m.repeat_is_violation(13, 37) is False
+       and m.repeat_is_violation(17, 33) is False,
        "-- L37 IS L17, so slow/go must still be a rhyme")
     ok("REPEAT at a free pair is UNKNOWN, not False",
        m.repeat_is_violation(1, 5) is S.UNKNOWN)
@@ -324,15 +327,17 @@ def test_licence_does_not_leak():
     lines_free = [(1, 5), (2, 10), (21, 25)]
     m2 = S.mandate([[13, 17], [14, 16], [15, 19], [18, 20], [1, 5]],
                    n_lines=41, returns=SONG_RETURN)
-    ok("a verse pair mandated to rhyme keeps REPEAT as a VIOLATION while the "
-       "chorus return is declared",
-       m2.repeat_is_violation(1, 5) is True
+    # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
+    # a mandated rhyme pair allows the identity, so the licence question is
+    # now only whether a pair is MANDATED at all.
+    ok("a verse pair mandated to rhyme allows REPEAT while the chorus return "
+       "is declared",
+       m2.repeat_is_violation(1, 5) is False
        and m2.repeat_is_violation(13, 33) is False,
-       "-- `repeat_licence='refrain'` licenses BOTH; this licenses one")
-    ok("no pair outside a return class is ever licensed",
-       not any(m.repeat_is_violation(i, j) is False
-               for i, j in m.expanded_pairs()
-               if (i, j) not in [p[:2] for p in m.return_pairs()]))
+       "-- a word may rhyme with itself (identical rhyme)")
+    ok("every mandated pair allows REPEAT, in or out of a return class",
+       all(m.repeat_is_violation(i, j) is False
+           for i, j in m.expanded_pairs()))
     ok("free verse pairs stay UNKNOWN rather than licensed",
        all(m.repeat_is_violation(i, j) is S.UNKNOWN for i, j in lines_free))
 
@@ -480,11 +485,11 @@ def test_a1_reaches_the_loop():
     ok("the 12 pairs are the villanelle's own refrains",
        sorted(tuple(r.lines) for r in v.returns) ==
        [(1, 6, 12, 18), (3, 9, 15, 19)])
-    ok("REPEAT is the REQUIREMENT at all 12 and a VIOLATION elsewhere in "
-       "class a",
+    ok("REPEAT is the REQUIREMENT at all 12 and ALLOWED elsewhere in "
+       "class a (REPINNED 2026-11-20: a word may rhyme with itself)",
        all(v.repeat_is_violation(i, j) is False
            for i, j, _ in v.return_pairs())
-       and v.repeat_is_violation(1, 4) is True)
+       and v.repeat_is_violation(1, 4) is False)
     ok("the notation round-trips through the mandate",
        v.to_notation() == "A1bA2abA1abA2abA1abA2abA1A2")
     ok("the rhyme projection is unchanged from what parse() always gave",
@@ -524,9 +529,10 @@ def test_the_song():
        "has REPEAT licensed",
        sum(1 for i, j, _ in m.return_pairs()
            if m.repeat_is_violation(i, j) is False) == 8)
-    ok("the other 8 are transported, and REPEAT stays a VIOLATION at each",
-       sum(1 for i, j in gained if m.repeat_is_violation(i, j) is True) == 8,
-       "-- L13/L37 is slow/go and must still be a rhyme, not a repeat")
+    ok("the other 8 are transported, and REPEAT is ALLOWED at each "
+       "(REPINNED 2026-11-20: a word may rhyme with itself)",
+       sum(1 for i, j in gained if m.repeat_is_violation(i, j) is False) == 16,
+       "-- L13/L37 is slow/go and must still be a rhyme")
 
     print("\n    the couplet fixture: the refrain costs it its letter scheme")
     cm = S.mandate([[i, i + 1] for i in range(1, 28, 2)], n_lines=28,
@@ -623,9 +629,9 @@ def test_read_path():
                == (True, False) for i, j, _ in v.return_pairs()),
        "-- grade() skips these, which is why a correct villanelle scores 0 "
        "violations")
-    ok("REQUIRE_RHYME -> (True, True): an ordinary repeat in the same rhyme "
-       "class is still charged",
-       v.requirement(1, 4).decided("repeat_is_violation") == (True, True),
+    ok("REQUIRE_RHYME -> (True, False): an ordinary repeat in the same rhyme "
+       "class is identical rhyme and is not charged (REPINNED 2026-11-20)",
+       v.requirement(1, 4).decided("repeat_is_violation") == (True, False),
        "-- L1 and L4 are both class 'a' and are NOT the same line")
     ok("FREE and UNDECLARED -> (False, None): these two, and only these two, "
        "fall through to the song-wide repeat_licence switch",
@@ -641,17 +647,17 @@ def test_read_path():
        plain.returns == ()
        and plain.requirement(1, 2) is S.REQUIRE_RHYME
        and plain.requirement(1, 2).decided("repeat_is_violation")
-       == (True, True),
+       == (True, False),
        "-- `quality/revise.py` grade() L480-483 claims otherwise. Because "
        "`declared` is True there, `is_violation if declared else not "
        "default_licensed` never reads the switch, so repeat_licence="
        "'refrain' is INERT on every letter scheme and Cover-without-returns. "
        "Only the DEFAULT 'unlicensed' reproduces the pre-fix behaviour")
     ok("a letter scheme cannot state the question at all, which is why "
-       "REQUIRE_RHYME's True is this module's DEFAULT and not the writer's "
-       "declaration",
-       S.REQUIRE_RHYME.repeat_is_violation is True
-       and "doctrine 3" in S.REQUIRE_RHYME.gloss,
+       "REQUIRE_RHYME's value is this module's DEFAULT and not the writer's "
+       "declaration -- False since 2026-11-20 (a word may rhyme with itself)",
+       S.REQUIRE_RHYME.repeat_is_violation is False
+       and "identical rhyme" in S.REQUIRE_RHYME.gloss,
        "-- doctrine 3 inverts BY CONTEXT and a letter has two states for a "
        "question with five answers; the fix belongs at the call site, not "
        "in this value")
@@ -696,10 +702,11 @@ def test_rep_is_the_first_member():
     print("\n    THE ANSWER THAT MOVES, on the chorus whose rhyme is declared "
           "ONCE and TRANSPORTED (doctrine 3: REPEAT inverts by context)")
     ok("L17/L33 is REQUIRE_RHYME — L33 IS L13, L13/L17 must rhyme, so an "
-       "identical end word at L17/L33 is a VIOLATION",
+       "identical end word at L17/L33 is identical rhyme (REPINNED "
+       "2026-11-20: ~~a VIOLATION~~)",
        m.requirement(17, 33) is S.REQUIRE_RHYME
        and m.requirement(17, 33).decided("repeat_is_violation")
-       == (True, True),
+       == (True, False),
        "-- the exact tuple grade() consumes")
     ok("and read from the LAST member the SAME pair answers something ELSE, "
        "so this input DISCRIMINATES",
@@ -728,7 +735,7 @@ def test_rep_is_the_first_member():
     ok("L1/L6 — the first-member reading DECIDES it and the last-member "
        "reading loses the decision",
        w.requirement(1, 6) is S.REQUIRE_RHYME
-       and w.requirement(1, 6).decided("repeat_is_violation") == (True, True)
+       and w.requirement(1, 6).decided("repeat_is_violation") == (True, False)
        and _reading_from_last_member(lambda: w.requirement(1, 6))
        is S.LICENSE_REPEAT,
        "-- L6 IS L2 and L1/L2 is a declared group, so a repeat is charged")

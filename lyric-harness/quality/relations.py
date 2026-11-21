@@ -5167,9 +5167,14 @@ declare(RelationSchema(
               ChannelRule("coda", AGREE, "each")),
     unmatched="forbid",
     placement=(Placement("both_line_final"), Placement("different_lines")),
-    identity=(IdentityRule("token", DIFFER),),
-    note="ONE point: every phonological channel AGREE, the lexical channel "
-         "DIFFER. rhyme_types.py gives it both identity='rich' AND the (1,1,1) "
+    # ~~identity=(IdentityRule("token", DIFFER),)~~ -- 2026-11-20, the
+    # owner's ruling: a word may rhyme with itself, and rime riche covers
+    # the same word as well as a homophone, so the lexical channel is no
+    # longer constrained.
+    identity=(),
+    note="ONE point: every phonological channel AGREE; the word may be the "
+         "same or a different one (owner's ruling, 2026-11-20). "
+         "rhyme_types.py gives it both identity='rich' AND the (1,1,1) "
          "cell, double-counting one fact."))
 
 declare(RelationSchema(
