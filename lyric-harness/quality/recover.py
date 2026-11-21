@@ -420,7 +420,8 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
         rhymes = rhymes + word_repeats
         r.put("repeated_end_words", word_repeats, "derived",
               "equal end words on different lines are read as identical "
-              "rhyme (a word may rhyme with itself) and join `groups`; they "
+              "rhyme (a word may rhyme with itself) and join the rhyme "
+              "groups; they "
               "are word identities, not whole-line returns, so no whole-line "
               "identity is imposed")
     r.put("mandate_spelling",
