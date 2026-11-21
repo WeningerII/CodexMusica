@@ -948,6 +948,35 @@ def test_registry_reachability():
           f"identity, same everything the seven-axis model could see")
 
 
+def test_a_stressed_syllable_is_closed_by_the_next_onset():
+    print("\n17. bug-hunt finding 16 — perfect rhyme hears the consonant "
+          "after the vowel")
+    from quality.phonology import get
+    eng = get("eng")
+    N = "perfect rhyme (last stressed syllable)"
+    # Syllabification gives the medial consonant to the next syllable
+    # (bet.ter), so the one-syllable perfect-rhyme anchor used to compare an
+    # empty coda with an empty coda and pass vowel-only pairs.
+    for a, b in (("better", "never"), ("running", "coming")):
+        t = T.classify_pair(a, b, eng, preset="perfect-rhyme")
+        check(f"{a}/{b} is NOT {N}",
+              N not in t.names() and t.agreement[0][2] is False,
+              f"agreement {t.agreement}: the T/V (N/M) after the stressed "
+              f"vowel now closes it, so the pair is assonance only")
+    for a, b in (("letter", "better"), ("sitting", "fitting")):
+        t = T.classify_pair(a, b, eng, preset="perfect-rhyme")
+        check(f"{a}/{b} still IS {N}", N in t.names(),
+              f"agreement {t.agreement}")
+    # The closing is scoped to a SAME-rule, rule-fixed stressed anchor; a
+    # searched or mixed-rule relation keeps its phonology's own codas.
+    check("the closing is off for a mixed-rule relation",
+          not T._closes_by_next_onset(T.PROMINENT_SEARCH, T.WELSH_PENULT)
+          and not T._closes_by_next_onset(T.WORD_INITIAL, T.WORD_INITIAL)
+          and T._closes_by_next_onset(T.PERFECT_ANCHOR, T.PERFECT_ANCHOR),
+          "Welsh lusg and Kalevala alliteration are pinned elsewhere in "
+          "this file and read their own syllable conventions")
+
+
 if __name__ == "__main__":
     for fn in (test_the_space_is_the_bell_numbers,
                test_canonical_form,
@@ -964,7 +993,8 @@ if __name__ == "__main__":
                test_position_is_computed_or_refused,
                test_four_languages_four_anchors,
                test_the_phonologys_own_relation_is_reported,
-               test_registry_reachability):
+               test_registry_reachability,
+               test_a_stressed_syllable_is_closed_by_the_next_onset):
         fn()
     print("=" * 62)
     if FAILURES:
