@@ -6496,34 +6496,22 @@ def fill_plan(plan, lines):
     }
 
 
-def _pickup_phrase(beats):
-    """-> the pickup clause for an anacrusis of `beats` beats.
+def _entry_phrase(beat):
+    """-> the bracket clause for lines that start on `beat` of their first
+    bar: "" on beat 1, else `, each line starts on beat 2` (`beat 1½`).
 
-    DERIVED FROM THE FRACTION, not looked up. It was a dict literal
-    `{0.0: "", 0.5: ", half-beat pickup", 1.0: ", one-beat pickup"}`, which
-    is the sub=2 grid written out — and the moment the anacrusis became a
-    function of the section's OWN subdivision (2026-08-23) a legitimate
-    quarter-beat pickup raised `KeyError: 0.75` from inside the report
-    builder. A table standing in for arithmetic, found by widening the space
-    it was silently bounding.
-
-    Renders exact fractions rather than decimals because a pickup is a
-    position on a grid: `three-quarter-beat`, not `0.75-beat`.
+    ~~`_pickup_phrase`, ", one-beat pickup"~~ REPLACED 2026-11-21 (bug hunt
+    F4): the planner's late start is not a pickup. A line drawn with an
+    anacrusis of `a` beats starts on beat 1 + a and runs to its last
+    barline (`duration = bars * beats - a`), so nothing is sung before it,
+    and fit's own LATE_ENTRY note on that line says "An entry, not a
+    pickup". A writer who read "one-beat pickup" put a syllable on the empty
+    beat and drew SLOTS_EXCEEDED. The clause now names the beat the grader
+    names, in the brief's own fraction style (`_beats_text`).
     """
-    if not beats:
+    if beat == 1:
         return ""
-    frac = Fraction(beats).limit_denominator(64)
-    if frac.denominator == 1:
-        names = {1: "one", 2: "two", 3: "three", 4: "four"}
-        n = names.get(frac.numerator, str(frac.numerator))
-        return f", {n}-beat pickup"
-    parts = {2: "half", 3: "third", 4: "quarter", 6: "sixth", 8: "eighth"}
-    unit = parts.get(frac.denominator, f"1/{frac.denominator}")
-    if frac.numerator == 1:
-        return f", {unit}-beat pickup"
-    words = {2: "two", 3: "three", 5: "five", 7: "seven"}
-    n = words.get(frac.numerator, str(frac.numerator))
-    return f", {n}-{unit}-beat pickup"
+    return f", each line starts on beat {_beats_text(Fraction(beat).limit_denominator(64))}"
 
 
 def _end_bound_group(members):
@@ -6619,11 +6607,12 @@ def section_header(sec, slots):
     label = section_label(sec)
     if not slots:
         return f"[{label} — instrumental — {size}, no words]"
-    pickup = (_pickup_phrase(slots[0]["beat"] - 1)
-              if len({s["beat"] for s in slots}) == 1 else ", mixed line pickups")
+    entry = (_entry_phrase(slots[0]["beat"])
+             if len({s["beat"] for s in slots}) == 1
+             else ", lines start on different beats")
     n = len(slots)
     return (f"[{label} — {n} "
-            f"line{'s' if n != 1 else ''} — {size}{pickup}]")
+            f"line{'s' if n != 1 else ''} — {size}{entry}]")
 
 
 def render_blueprint_song(blueprint, lines):
@@ -7591,13 +7580,16 @@ def writer_brief(plan):
             rows = _pulse_rows(sec, slots[0])
             # THE NUMBER SLOTS_EXCEEDED GRADES AGAINST, where the writer reads
             # (`MISSING.md` M-192): the METER row says 8, the line holds 5 after
-            # its pickup, and the flag is hard. Printed UNDER the bracket, never
+            # a late start, and the flag is hard. ~~"a line after the
+            # pickup"~~ REPLACED 2026-11-21 (bug hunt F4): the count is every
+            # syllable of the line, and it was printed under sections with no
+            # late start too. Printed UNDER the bracket, never
             # inside it — the bracket is the measurement carrier every gate
             # reads byte for byte (M-97, check_render_form) — or under the
             # earlier bracket a section with the same rows names.
             _cap = int(line_syllable_ceiling(
                 slots[0]["duration"] * plan["subdivision"]))
-            ceiling = [f"      up to {_cap} syllables a line after the pickup"]
+            ceiling = [f"      up to {_cap} syllables in the whole line"]
         whole = tuple(body + rows + ceiling)
         first = body_first.setdefault(whole, here)
         if whole and first != here:

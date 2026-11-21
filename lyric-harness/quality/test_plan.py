@@ -2064,10 +2064,13 @@ def test_the_disclosure():
                 # same day the first one did: anacrusis became a function of
                 # the section's own subdivision, a quarter-beat pickup
                 # appeared, and BOTH copies raised `KeyError: 0.75`.
-                pickup = PLN._pickup_phrase(slots[0]["beat"] - 1)
+                # REPINNED 2026-11-21 from ~~`_pickup_phrase(beat - 1)`~~:
+                # the late start is named by the beat it starts on, as the
+                # grader names it (bug hunt F4).
+                entry = PLN._entry_phrase(slots[0]["beat"])
                 k = len(slots)
                 want = (f"[{s['function'].upper()} — {k} "
-                        f"line{'s' if k != 1 else ''} — {size}{pickup}]")
+                        f"line{'s' if k != 1 else ''} — {size}{entry}]")
             if want not in p["writer_brief"]:
                 misses.append((seed, want))
     check("EVERY section is briefed with its own duration, meter and "
@@ -4646,7 +4649,9 @@ def test_the_delegated_rulings(FAILURES=None):
                 continue
             capn = int(_PL.line_syllable_ceiling(
                 slots[0]["duration"] * p["subdivision"]))
-            exp = f"      up to {capn} syllables a line after the pickup"
+            # REPINNED 2026-11-21 from ~~"a line after the pickup"~~: the
+            # ceiling counts every syllable of the line (bug hunt F4).
+            exp = f"      up to {capn} syllables in the whole line"
             # REPINNED #902 (John: "say repeated lines once"): a section
             # whose rows an earlier section printed names it in one row, and
             # the ceiling the writer finds there is this section's own.
@@ -4674,7 +4679,7 @@ def test_the_delegated_rulings(FAILURES=None):
     check("...and the number SLOTS_EXCEEDED grades against is printed UNDER "
           "every sung section's bracket, or under the earlier bracket a "
           "section with the same rows names (#902) — the ceiling of "
-          "syllables a line after the pickup beside the band's floor — and "
+          "syllables in the whole line beside the band's floor — and "
           "never INSIDE it: the bracket is the measurement carrier every "
           "gate reads byte for byte (M-97)",
           cap_ok and headers_ok)
@@ -4740,7 +4745,9 @@ def test_the_delegated_rulings(FAILURES=None):
               "102nd", "111th"]
           and _pp["writer_brief"].count("each line: 7½ beats (pulses)") == 1
           and _pp["writer_brief"].count("each line: 8 beats (pulses)") == 1
-          and _pp["writer_brief"].count("syllables a line after the pickup")
+          # REPINNED 2026-11-21 from ~~"syllables a line after the
+          # pickup"~~ (bug hunt F4).
+          and _pp["writer_brief"].count("syllables in the whole line")
           == 2,
           _pp["writer_brief"][:900])
     check("...and UNDER the bracket, BEFORE the ceiling, the beats (pulses) "
@@ -9132,7 +9139,96 @@ def test_the_stop_rules():
           hook_bad[:3])
 
 
+def test_a_late_start_is_named_as_the_grader_names_it():
+    """Bug hunt F4 (2026-11-20): the brief called the planner's late start a
+    "one-beat pickup" and capped syllables "after the pickup", but the line
+    starts on beat 2 and runs to its last barline, nothing is sung before
+    it, and fit's own LATE_ENTRY note says "An entry, not a pickup". A
+    writer who sang the pickup drew SLOTS_EXCEEDED, a hard flag. The brief
+    now names the beat the grader names, and the ceiling is every syllable
+    of the line.
+
+    Every witness is drawn: the plans by seed, and the placeholder words by
+    seed from the whole dictionary (each has one reading of one syllable, so
+    a line of k of them is k syllables under every reading). The numbers are
+    fit's own, read off the placements it grades."""
+    import quality.fit as _FT
+    from fractions import Fraction as _Fr
+    ents = _round_trip_reviser().lex.entries
+    mono = sorted(w for w, rs in ents.items()
+                  if w.isalpha() and w.islower() and len(w) > 1
+                  and len(rs) == 1
+                  and sum(ph[-1:].isdigit() for ph in rs[0]) == 1)
+    words = random.Random(20261121).sample(mono, 128)
+    pickup_said, bracket_bad, cap_bad, grade_bad = [], [], [], []
+    n_late = n_secs = 0
+    for seed in range(40):
+        p = _plan_unless_no_free_word(seed)
+        if p is None or not p["line_slots"]:
+            continue
+        brief = p["writer_brief"]
+        if "pickup" in brief:
+            pickup_said.append(seed)
+        sub = _FT.Subdivision(p["subdivision"], source="test_plan F4")
+        places = _FT.from_blueprint(PLN.fill_plan(p, dummy_draft(p)))[1]
+        brackets = [ln.strip() for ln in brief.splitlines()
+                    if re.match(r"^  \[[A-Z]", ln) and ln.rstrip().endswith("]")]
+        ceilings = set(int(n) for n in re.findall(
+            r"^      up to (\d+) syllables in the whole line$", brief, re.M))
+        for sec in p["sections"]:
+            idx = [i for i, s in enumerate(p["line_slots"])
+                   if s["section"] == sec["name"]]
+            if not idx:
+                continue
+            n_secs += 1
+            pl = places[idx[0]]
+            beats = {places[i].beat for i in idx}
+            k = len(idx)
+            want = (f"[{PLN.section_label(sec)} — {k} "
+                    f"line{'s' if k != 1 else ''} — {sec['bars']} "
+                    f"bar{'s' if sec['bars'] != 1 else ''} of "
+                    f"{sec['meter']['beats']}/{sec['meter']['unit']}")
+            if len(beats) == 1 and pl.beat != 1:
+                n_late += 1
+                want += (", each line starts on beat "
+                         f"{PLN._beats_text(_Fr(pl.beat))}")
+            elif len(beats) != 1:
+                want += ", lines start on different beats"
+            if want + "]" not in brackets:
+                bracket_bad.append((seed, want + "]"))
+            cap = len(_FT._slot_positions(pl, sub))
+            if cap not in ceilings:
+                cap_bad.append((seed, sec["name"], cap, sorted(ceilings)))
+            for n_syl, flagged in ((cap, False), (cap + 1, True)):
+                line = " ".join(words[(seed + j) % len(words)]
+                                for j in range(n_syl))
+                got = {f.code for f in _FT.fit_line(
+                    line, pl, subdivision=sub, line_index=idx[0]).findings}
+                if ("SLOTS_EXCEEDED" in got) != flagged:
+                    grade_bad.append((seed, sec["name"], n_syl, cap,
+                                      sorted(got)))
+            # fit reads the same start as off the barline: LATE_ENTRY when
+            # the line ends inside its first bar, ANACRUSIS when it runs past
+            # the next barline. Either way the line begins at `pl.beat`.
+            placed = {f.code for f in _FT.fit_line(
+                " ".join(words[:cap]), pl, subdivision=sub,
+                line_index=idx[0]).findings} & {"LATE_ENTRY", "ANACRUSIS"}
+            if bool(placed) != (pl.beat != 1):
+                grade_bad.append((seed, sec["name"], pl.beat, sorted(placed)))
+    check("a late start is named as the grader names it (bug hunt F4): no "
+          "brief says 'pickup'; each bracket names the beat its lines start "
+          "on, read off fit's own placement; the ceiling under it is fit's "
+          "slot count for the WHOLE line, and a line of that many syllables "
+          "passes while one more draws SLOTS_EXCEEDED",
+          n_late > 0 and not (pickup_said or bracket_bad or cap_bad
+                              or grade_bad),
+          f"{n_late} late-start section(s) of {n_secs}; 'pickup' in seeds "
+          f"{pickup_said[:5]}; brackets {bracket_bad[:3]}; ceilings "
+          f"{cap_bad[:3]}; grades {grade_bad[:3]}")
+
+
 _SECTIONS = (
+    test_a_late_start_is_named_as_the_grader_names_it,
     test_satisfied_wants_remain_in_the_request,
     test_a_request_refusal_is_the_requests,
     test_the_seed_sweep_is_a_verb,
