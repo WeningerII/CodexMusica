@@ -10872,6 +10872,13 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
                     "checkpoint replay question differs; no new writer request was made")
             cursor += 1
             replayed_completed += 1
+            # A reply that came back unreadable was journalled with why
+            # (below), so a resumed run makes of it what the first run did:
+            # one attempt used and the next one asked. A record without the
+            # mark is a writer that sent nothing back, as it always replayed.
+            if event.get("answer") is None and isinstance(event.get("unread"), str):
+                from quality.propose import UnreadReply
+                return UnreadReply(event["unread"])
             return event.get("answer")
         count = 1 if kind == "propose" else len(record["members"])
         # Count actual record text/return-closure metadata, both answer copies,
@@ -10888,6 +10895,13 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
             if getattr(error, "code", None) == "PROVIDER_PROPOSAL_TOO_LARGE":
                 raise _JournalCapacity(state, current, path, error.code) from error
             raise
+        # AN UNREAD REPLY IS NOT A DECLINE (bug hunt 2026-11-20, finding 25;
+        # `quality.propose.UnreadReply`). It has no text to journal, so the
+        # record keeps `answer: null` and says why beside it.
+        unread = getattr(answer, "unread_reason", None)
+        returned = answer
+        if unread is not None:
+            answer = None
         if isinstance(answer, tuple):
             answer = list(answer)
         texts = [answer] if kind == "propose" else answer
@@ -10897,7 +10911,9 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
             raise _JournalCapacity(state, current, path,
                                    "PROVIDER_PROPOSAL_TOO_LARGE")
         state["proposals"].append({"kind": kind,
-                                   "question_sha256": identity, "answer": answer})
+                                   "question_sha256": identity, "answer": answer,
+                                   **({} if unread is None else
+                                      {"unread": str(unread)})})
         cursor += 1
         if answer is not None:
             record["text" if kind == "propose" else "new"] = answer
@@ -10906,7 +10922,7 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
         # forgotten merely because its verification was interrupted.
         state["status"] = "proposal_completed"
         emit()
-        return answer
+        return returned if unread is not None else answer
 
     def draft_sha(current):
         # Same canonical line-array bytes as the connector's final draft hash.

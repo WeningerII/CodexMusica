@@ -571,6 +571,101 @@ class AuditRegressions(unittest.TestCase):
             self.assertIsNone(one(b, initial, 0))
             self.assertEqual(len(called), 1)
 
+    # -- bug hunt 2026-11-20: the revise loop and its replies -------------
+    # Findings 5, 25, 28 and 29 are driven by one deterministic writer
+    # (`quality/fixtures/fake_writer.py`): no model, every reply read from a
+    # spec, so what the loop makes of a reply is the only thing that varies.
+    DOOR = ['Your fingers brush my heavy coat',
+            'My kettle whistles by the door']
+    STOVE = 'My kettle whistles by the stove'
+
+    @staticmethod
+    def _fake_writer(spec):
+        fixtures = str(Path(__file__).resolve().parent / 'fixtures')
+        if fixtures not in sys.path:
+            sys.path.insert(0, fixtures)
+        import fake_writer
+        return fake_writer.make(spec)
+
+    def _door_loop(self, spec, attempts):
+        from quality.propose import ModelProposer
+        m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=3, attempts_per_line=attempts,
+                                            backtrack_width=0))
+        call = self._fake_writer(spec)
+        with contextlib.redirect_stdout(io.StringIO()):
+            result = revise_loop(rv, list(self.DOOR), m,
+                                 propose=ModelProposer(call).propose)
+        return result, call
+
+    def test_an_unreadable_reply_costs_one_attempt_not_the_line(self):
+        # Finding 25. The question says an ambiguous answer "is discarded
+        # unread and costs you this attempt". It cost the line's whole
+        # budget: `ModelProposer` returned None for a reply it could not
+        # read, tier 1 read None as "this writer has nothing further to
+        # offer" and stopped asking, and the line was reported as declined.
+        # With attempts above 1 that one round then ended the run.
+        result, call = self._door_loop(
+            {'L2': ['Here is my line:\n' + self.STOVE, self.STOVE]}, attempts=3)
+        self.assertEqual([k for k, _p in call.calls], ['L2', 'L2'],
+                         'the second attempt is asked')
+        self.assertEqual(result.lines[1], self.STOVE)
+        self.assertEqual(result.stop_reason, 'success')
+        first = result.rounds[0].attempts[0]
+        self.assertTrue(first.accepted)
+        self.assertEqual(first.tried, 2, 'the unread reply used one attempt')
+        second = call.calls[1][1]
+        self.assertIn('This is ATTEMPT 2 of this line', second)
+        self.assertIn('The PREVIOUS attempt was REJECTED', second)
+        self.assertIn('discarded unread', second)
+        self.assertNotIn('No previous attempt was rejected', second)
+
+    def test_unreadable_replies_are_reported_as_unread_and_a_decline_as_a_decline(self):
+        # Every reply unreadable: each uses one attempt, and the report says
+        # the replies could not be read. A writer that sends nothing back is
+        # still a decline, asked once.
+        result, call = self._door_loop(
+            {'L2': ['one line\nand another', '"' + self.STOVE + '"']}, attempts=2)
+        self.assertEqual(len(call.calls), 2)
+        attempt = result.rounds[0].attempts[0]
+        self.assertFalse(attempt.accepted)
+        self.assertEqual(attempt.tried, 2)
+        self.assertIn('discarded unread', attempt.reason)
+        self.assertNotIn('declined', attempt.reason)
+        self.assertEqual(result.lines, self.DOOR, 'nothing unread reaches the draft')
+        declined, quiet = self._door_loop({'L2': []}, attempts=3)
+        self.assertEqual(len(quiet.calls), 1)
+        self.assertIn('the PROPOSER declined at attempt 0',
+                      declined.rounds[0].attempts[0].reason)
+
+    def test_an_unread_reply_is_journalled_and_replays_as_unread(self):
+        # The checkpoint journal stored an unread reply as a bare None, the
+        # same as a decline. A resumed run must make of it what the first
+        # run did, so the journal now says which it was. A record without
+        # the mark is a decline, as it always replayed.
+        from quality.propose import UnreadReply
+        initial = ['one cat', 'two dog']
+        b = Brief(2, initial[1])
+        b.round_no = 1
+        with tempfile.TemporaryDirectory() as tmp, \
+             patch.dict(os.environ, {'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp.json')}), \
+             contextlib.redirect_stdout(io.StringIO()):
+            called = []
+            def writer(*args, **kwargs):
+                called.append(True)
+                return UnreadReply('the reply was two lines')
+            one, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+            first = one(b, initial, 0)
+            self.assertIsInstance(first, UnreadReply)
+            cp = json.loads((Path(tmp)/'cp.json').read_text())
+            self.assertEqual(cp['proposals'][-1]['answer'], None)
+            self.assertEqual(cp['proposals'][-1]['unread'], 'the reply was two lines')
+            one, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
+            again = one(b, initial, 0)
+            self.assertIsInstance(again, UnreadReply)
+            self.assertEqual(again.unread_reason, 'the reply was two lines')
+            self.assertEqual(len(called), 1, 'the replay made no writer request')
+
     def test_seedless_cli_renders_and_resumes_exact_accepted_draft(self):
         root = Path(__file__).resolve().parents[1]
         # A real mandated-assonance violation (door/coat share no nucleus)

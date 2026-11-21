@@ -540,14 +540,20 @@ class KitchenVerificationReceipts(unittest.TestCase):
 
 class DeferredAuditRegressions(unittest.TestCase):
     def test_model_line_labels_are_bound_to_the_requested_target(self):
-        from quality.propose import ModelProposer, parse_line
+        from quality.propose import ModelProposer, UnreadReply, parse_line
         text = 'I left the basket underneath the oak'
         b = Brief(1, 'Copper cat')
         for wrap in (lambda s: s, lambda s: '```text\n' + s + '\n```',
                      lambda s: 'LINE: ' + s):
             for line in (2, 31):
                 raw = wrap(f'L{line}: {text}')
-                self.assertIsNone(ModelProposer(lambda p: raw).propose(b, ['Copper cat'], 0))
+                # REPINNED 2026-11-21 (bug hunt finding 25): ~~assertIsNone~~.
+                # A reply labelled for another line is still refused, never
+                # read as this line's; it now comes back as an unread reply,
+                # which uses one attempt, where None was read as a decline.
+                self.assertIsInstance(
+                    ModelProposer(lambda p: raw).propose(b, ['Copper cat'], 0),
+                    UnreadReply)
             self.assertEqual(parse_line(wrap('L1: ' + text), line_no=1), text)
             self.assertEqual(parse_line(wrap(text), line_no=1), text)
 

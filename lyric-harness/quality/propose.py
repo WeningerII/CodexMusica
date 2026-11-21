@@ -69,7 +69,7 @@ reports, and a corrupted line is not.
 import re
 
 __all__ = ["render_line", "parse_line", "render_group", "parse_group",
-           "ModelProposer"]
+           "ModelProposer", "UnreadReply"]
 
 #: THE ONE LINE LIMIT: the longest line a writer's answer may carry, and the
 #: longest sung line the connector admits (`mcp/lyric_tools.js`
@@ -1173,6 +1173,44 @@ class ProposerUnavailable(RuntimeError):
     """
 
 
+class UnreadReply:
+    """A reply that ARRIVED and could not be read as the answer.
+
+    NOT A DECLINE, AND IT USED TO LOOK LIKE ONE (bug hunt 2026-11-20, finding
+    25). `ModelProposer` returned `None` for a reply it could not parse, and
+    the loop reads `None` as "this writer has nothing further to offer for
+    this line": tier 1 stopped asking, the line was reported as declined at
+    attempt 0, and where the attempt budget was above one that barren round
+    ended the run. The question promises less: an ambiguous answer "is
+    discarded unread and costs you this attempt". One formatting slip (a
+    preamble with no `LINE:` marker) cost the line its whole budget.
+
+    So an unread reply is its own value. The loop counts it as one attempt
+    used, carries `unread_reason` into the next question's ATTEMPT block the
+    way it carries a rejection, and asks again while the budget lasts
+    (`quality/loop.py:_unread`, which reads the attribute and imports nothing
+    from here). `None` keeps its one meaning: nothing came back.
+    """
+    __slots__ = ("unread_reason",)
+
+    def __init__(self, reason):
+        self.unread_reason = str(reason)
+
+    def __repr__(self):
+        return f"UnreadReply({self.unread_reason!r})"
+
+
+#: Why a reply was not read, as the next question quotes it.
+UNREAD_LINE = ("your reply was discarded unread: it was not one line and "
+               "nothing else. Send the line alone, or put it last, on its "
+               "own line, after LINE:")
+UNREAD_GROUP = ("your reply was discarded unread: it was not one row for "
+                "each line asked for, each starting with that line's own "
+                "marker, and nothing else")
+UNREAD_TOO_LONG = (f"your reply was discarded unread: a line in it is longer "
+                   f"than {MAX_LINE_CHARS} characters")
+
+
 class ModelProposer:
     """A `propose`/`propose_group` pair backed by one
     `callable(prompt) -> str`.
@@ -1190,9 +1228,11 @@ class ModelProposer:
     a group response would return the first of them as if it were the whole
     answer.
 
-    A `call` that returns anything other than a `str`, or a response nothing
-    can be parsed out of, yields `None`, which the loop reads as "this
-    proposer has nothing further to offer for this line" and moves on.
+    A `call` that returns anything other than a `str` yields `None`, which
+    the loop reads as "this proposer has nothing further to offer for this
+    line" and moves on. A `str` nothing can be parsed out of, or whose line
+    is past the limit, yields an `UnreadReply`: it uses one attempt and the
+    loop asks again (~~`None` for both~~ until 2026-11-21; see `UnreadReply`).
     Exceptions from `call` are NOT swallowed: a transport failure is not the
     same as a model declining, and a loop that cannot tell them apart
     reports a dead end for an outage.
@@ -1207,17 +1247,25 @@ class ModelProposer:
     MAX_LINE_CHARS = MAX_LINE_CHARS
 
     def propose(self, brief, lines, attempt, reasons=None, whole=()):
-        """-> a replacement line for `brief.line_no`, or `None`."""
+        """-> a replacement line for `brief.line_no`; `None` when nothing
+        came back; an `UnreadReply` when a reply came back unreadable."""
         prompt = render_line(brief, lines, whole=whole, attempt=attempt,
                              reasons=reasons)
         with_capacity = getattr(self.call, "with_capacity", None)
         raw = with_capacity(prompt, max_lines=1) if with_capacity else self.call(prompt)
+        if not isinstance(raw, str):
+            return None
         parsed = (parse_line(raw, line_no=brief.line_no) if self.parse is parse_line
                   else self.parse(raw))
-        return parsed if parsed is None or len(parsed) <= self.MAX_LINE_CHARS else None
+        if parsed is None:
+            return UnreadReply(UNREAD_LINE)
+        if len(parsed) > self.MAX_LINE_CHARS:
+            return UnreadReply(UNREAD_TOO_LONG)
+        return parsed
 
     def propose_group(self, group_brief):
-        """-> one new line per member in `members` order, or `None`.
+        """-> one new line per member in `members` order; `None` when
+        nothing came back; an `UnreadReply` when the reply was unreadable.
 
         `members` is handed to the parser rather than re-derived from the
         response, so a reply that answers a DIFFERENT set of lines is refused
@@ -1228,5 +1276,11 @@ class ModelProposer:
         with_capacity = getattr(self.call, "with_capacity", None)
         raw = (with_capacity(prompt, max_lines=len(members)) if with_capacity
                else self.call(prompt))
+        if not isinstance(raw, str):
+            return None
         parsed = parse_group(raw, members)
-        return parsed if parsed is None or all(len(line) <= self.MAX_LINE_CHARS for line in parsed) else None
+        if parsed is None:
+            return UnreadReply(UNREAD_GROUP)
+        if any(len(line) > self.MAX_LINE_CHARS for line in parsed):
+            return UnreadReply(UNREAD_TOO_LONG)
+        return parsed

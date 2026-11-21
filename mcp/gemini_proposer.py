@@ -25,9 +25,10 @@ words are Gemini's.
 THE CONTRACT (from `lyric_harness.py --propose=call:`): `make()` takes no
 arguments and returns `callable(prompt) -> str`. `quality/propose.py`'s
 `ModelProposer` renders the brief, calls this, and PARSES the reply with its
-own strict parser — an ambiguous reply parses to None and the loop reads
-that as "nothing further for this line", which is where a bad answer is
-judged, not here. This file does not parse, does not grade and does not
+own strict parser — an ambiguous reply is an unread reply, which uses one of
+the line's attempts (`quality.propose.UnreadReply`; until 2026-11-21 it
+parsed to None and the loop read that as "nothing further for this line"),
+which is where a bad answer is judged, not here. This file does not parse, does not grade and does not
 retry a MALFORMED answer (the loop's `--attempts` decides that); it retries
 TRANSPORT only.
 

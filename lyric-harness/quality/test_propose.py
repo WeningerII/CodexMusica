@@ -1072,16 +1072,22 @@ def test_group_prompt_states_the_tier2_situation():
                   "The whole thing felt like mankind"), out)
     check("...off the prompt render_group produced", got["prompt"] == p)
 
+    # REPINNED 2026-11-21 (bug hunt finding 25): ~~`is None`~~ on both. An
+    # unparseable reply is still never guessed at and never written into a
+    # slot; it comes back as an `UnreadReply`, which uses one attempt, where
+    # None is a writer that sent nothing.
+    from quality.propose import UnreadReply
+
     def declines(prompt):
         return "I would rather rewrite the whole verse, honestly."
-    check("an unparseable group response is None, not a guess",
-          ModelProposer(declines).propose_group(pb) is None)
+    check("an unparseable group response is an unread reply, not a guess",
+          isinstance(ModelProposer(declines).propose_group(pb), UnreadReply))
 
     def one_line(prompt):
         return "LINE: The whole thing felt like mankind"
     check("a single-line response to a GROUP request is refused rather "
           "than written into one of the k slots",
-          ModelProposer(one_line).propose_group(pb) is None)
+          isinstance(ModelProposer(one_line).propose_group(pb), UnreadReply))
 
 
 #: The same three lines `quality/test_loop.py` carries under this name, and
@@ -1494,12 +1500,36 @@ def test_model_proposer_surface():
     check("the full 5-argument form is accepted positionally, and both "
           "extras reach the prompt",
           "nothing was fixed" in calls[1] and "LEXICAL_MONOTONY" in calls[1])
-    check("a response nothing can be parsed out of is None, so the loop "
-          "reads it as 'no further proposal' and moves on",
-          ModelProposer(lambda p: "Sorry, two options:\nA line\nB line"
-                        ).propose(PLAIN_BRIEF, DRAFT, 0) is None)
-    check("a non-string response is None rather than a crash",
-          ModelProposer(lambda p: None).propose(PLAIN_BRIEF, DRAFT, 0) is None)
+    # REPINNED 2026-11-21 (bug hunt finding 25): ~~"a response nothing can
+    # be parsed out of is None, so the loop reads it as 'no further
+    # proposal' and moves on"~~. That is what cost a line its whole retry
+    # budget for one formatting slip. A reply that came back unreadable is an
+    # `UnreadReply`, which uses one attempt; None is a writer that sent
+    # nothing.
+    from quality.propose import UnreadReply
+    unread = ModelProposer(lambda p: "Sorry, two options:\nA line\nB line"
+                           ).propose(PLAIN_BRIEF, DRAFT, 0)
+    check("a response nothing can be parsed out of is an UnreadReply that "
+          "says why, not None",
+          isinstance(unread, UnreadReply)
+          and "discarded unread" in unread.unread_reason
+          and "LINE:" in unread.unread_reason, repr(unread))
+    long_line = ModelProposer(lambda p: "x" * (propose.MAX_LINE_CHARS + 1)
+                              ).propose(PLAIN_BRIEF, DRAFT, 0)
+    check("a line past the limit is an UnreadReply that names the limit",
+          isinstance(long_line, UnreadReply)
+          and str(propose.MAX_LINE_CHARS) in long_line.unread_reason,
+          repr(long_line))
+    group = PB(pivot_line_no=3, pivot_text=DRAFT[2], pivot_word="dream",
+               anchors=(), label="A", members=(1, 3), brief=PIVOT_BRIEF,
+               lines=DRAFT, attempt=0, reasons=None, whole=())
+    check("a group response nothing can be parsed out of is an UnreadReply",
+          isinstance(ModelProposer(lambda p: "L1: only one row"
+                                   ).propose_group(group), UnreadReply))
+    check("a non-string response is None rather than a crash: nothing came "
+          "back, which is the one thing None means",
+          ModelProposer(lambda p: None).propose(PLAIN_BRIEF, DRAFT, 0) is None
+          and ModelProposer(lambda p: None).propose_group(group) is None)
 
     def custom(text):
         return text.upper()

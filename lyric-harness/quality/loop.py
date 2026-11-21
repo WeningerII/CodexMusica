@@ -1458,6 +1458,19 @@ def apply_candidate(reviser, lines, mandate, line_no, candidate):
     return after, targets
 
 
+def _unread(answer):
+    """-> why a writer's reply could not be read, or None for an answer.
+
+    A reply that arrived and could not be parsed is NOT `None` (bug hunt
+    2026-11-20, finding 25; `quality.propose.UnreadReply`): `None` says the
+    writer sent nothing back, and the loop stops asking it; an unread reply
+    used one attempt and the next attempt is asked, with this reason in its
+    question. Read off the attribute, so this module imports no proposer.
+    """
+    why = getattr(answer, "unread_reason", None)
+    return str(why) if why else None
+
+
 def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose, whole=()):
     tried = 0
@@ -1472,6 +1485,12 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         if candidate is None:
             break
         tried += 1
+        _why = _unread(candidate)
+        if _why is not None:
+            # One attempt used, as the question promises; the next one is
+            # asked with the reason, and nothing unread reaches the draft.
+            reasons = [_why]
+            continue
         after, targets = apply_candidate(reviser, lines, mandate,
                                          b.line_no, candidate)
         res = reviser.verify(lines, after, mandate, targeted=set(targets),
@@ -1774,6 +1793,11 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 if got is None:
                     continue
                 tried += 1
+                _why = _unread(got)
+                if _why is not None:
+                    # An unread reply used this attempt (finding 25).
+                    reasons = (_why,)
+                    continue
                 got = tuple(got)
                 if len(got) != len(expanded):
                     reasons = (f"proposer returned {len(got)} line(s) for "
@@ -1924,8 +1948,12 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             attempt += 1
             if got is not None:
                 tried += 1
-                got = tuple(got)
-                if len(got) != len(members):
+                _why = _unread(got)
+                got = () if _why is not None else tuple(got)
+                if _why is not None:
+                    # An unread reply used this attempt (finding 25).
+                    reasons = (_why,)
+                elif len(got) != len(members):
                     reasons = (f"proposer returned {len(got)} line(s) for "
                                f"group {label}, which has {len(members)} "
                                f"member(s) — the return is ordered by "
@@ -2000,6 +2028,11 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 if got is None:
                     continue
                 tried += 1
+                _why = _unread(got)
+                if _why is not None:
+                    # An unread reply used this attempt (finding 25).
+                    reasons = (_why,)
+                    continue
                 got = tuple(got)
                 if len(got) != len(members):
                     # A CONTRACT BREACH IS A REJECTION WITH A REASON, not a
@@ -2683,8 +2716,9 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                                          if f.code in REPAIRABLE_UNJUDGED), whole_repair=True,
                                      mandate_description=_found["mandate"].describe())
                     _got = propose_group(_gb)
-                    if _got is None:
-                        _reasons = ("writer returned no unambiguous whole-draft answer",)
+                    if _got is None or _unread(_got) is not None:
+                        _reasons = (_unread(_got) or
+                                    "writer returned no unambiguous whole-draft answer",)
                         continue
                     _after = list(_got)
                     _v = reviser.verify(lines, _after, mandate, targeted=set(_members),
