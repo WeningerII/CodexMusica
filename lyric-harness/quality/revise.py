@@ -118,11 +118,22 @@ __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
            "COLLISION_FINDINGS", "RHYME_FINDINGS", "SATISFACTION_FINDINGS",
            "THETA_COLLISION", "draft_fingerprint"]
 
+
+def _end_key(word):
+    """-> an end word as the rhyme judge reads it: typographic apostrophes
+    folded, lower case, edge punctuation and quote marks stripped (the fold
+    `lyric_harness.line_anchors` applies). The pair bans look their words up
+    by this key, so they ask about the same word the judge heard."""
+    from lyric_harness import fold_apostrophes
+    return fold_apostrophes(str(word or "")).lower().strip("'\".,;:!?()[]")
+
+
 #: Findings that mean "this line's RHYME needs replacing". Each earns a
 #: candidate field with the modal region excluded.
 #:
 #: NO COLLISION CODE IS IN HERE, AND THAT IS A DECISION RATHER THAN AN
 #: OVERSIGHT — see `Reviser.brief`'s "WHY A COLLISION EARNS NO FIELD".
+
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME",
                   "HOMEOTELEUTON"}
@@ -4151,7 +4162,11 @@ class Reviser:
             if _vs != _STm.DEFAULT and not self.writing:
                 return None
         i, j = v["lines"]
-        wi, wj = (w.lower() for w in v["endwords"])
+        # THE WORDS THE RHYME JUDGE READ, folded and stripped as
+        # `line_anchors` folds them. ~~`w.lower()`~~ REPLACED 2026-11-21 (bug
+        # hunt F18): the raw token kept a closing quote mark, so `desire’`
+        # was in no head and the ban was off while the rhyme still passed.
+        wi, wj = (_end_key(w) for w in v["endwords"])
         # TIER 1 FIRST — HOMEOTELEUTON (owner's rule, 2026-08-18): the
         # pair's own SPELLINGS decide, no field consulted, so a
         # same-rime partner outside the finite field cannot slip
@@ -4478,7 +4493,7 @@ class Reviser:
                     # Pair words AND their actual bound slots are identity:
                     # swapping one prohibited pair for another is no repair.
                     subject = (self.writing_policy,
-                               *(w.lower() for w in v["endwords"]),
+                               *(_end_key(w) for w in v["endwords"]),
                                _SL.spell_slot(m.slot_of(v["group"], i)),
                                _SL.spell_slot(m.slot_of(v["group"], j)))
                     add(j, replace(finding, severity="flag", subject=subject))
