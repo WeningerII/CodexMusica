@@ -1148,8 +1148,60 @@ def test_the_fit_judges_one_whole_reading_at_a_time():
           "the one the fit reports", not worse, f"{worse[:3]}")
 
 
+def test_the_density_notes_count_the_line_not_the_bar():
+    """Bug hunt F7 (2026-11-20): CROWDED and SPARSE printed the BAR's pulses
+    while their arithmetic used the LINE's span, so an 8-pulse line in 4/4
+    read "14 syllables over 4 pulses" and "6 over 4 leaves 2 unaccounted".
+    The note now names the span it counts.
+
+    Every witness is drawn by seed: the bar size, the line's span, the
+    syllable count, and the words, from the whole dictionary (each has one
+    reading of one syllable, so k of them are k syllables)."""
+    print("\nF7. the density notes count the line's own pulses")
+    import random
+    from lyric_harness import Lexicon
+    ents = Lexicon().entries
+    mono = sorted(w for w, rs in ents.items()
+                  if w.isalpha() and w.islower() and len(w) > 1
+                  and len(rs) == 1
+                  and sum(ph[-1:].isdigit() for ph in rs[0]) == 1)
+    rng = random.Random(20261121)
+    words = rng.sample(mono, 64)
+    bad, n_crowded, n_sparse, n_off_bar = [], 0, 0, 0
+    for _ in range(40):
+        pulses = rng.randint(2, 9)
+        cyc = Cycle(pulses=pulses, unit=rng.choice((4, 8)), groups=(pulses,))
+        bars = rng.randint(1, 4)
+        span = rng.randint(1, pulses * bars)
+        n_off_bar += span != pulses
+        place = Placement(cycle=cyc, bar=1, beat=F(1), duration=F(span),
+                          section="demo", section_start_bar=1,
+                          section_bars=bars)
+        counts = [("CROWDED", span + rng.randint(1, span))]
+        if span > 1:
+            counts.append(("SPARSE", rng.randint(1, span - 1)))
+        for code, k in counts:
+            line = " ".join(rng.choice(words) for _ in range(k))
+            got = [f for f in fit_line(line, place).findings if f.code == code]
+            want = f"{k} syllables over {FIT._num(span)} pulses"
+            if code == "SPARSE":
+                want += f" leaves {FIT._num(span - k)} pulses"
+                n_sparse += bool(got)
+            else:
+                n_crowded += bool(got)
+            if not got or not got[0].evidence.startswith(want):
+                bad.append((code, pulses, span, k,
+                            got[0].evidence[:60] if got else None))
+    check("CROWDED and SPARSE name the line's own span, the number their "
+          "arithmetic uses, not the bar's pulses (bug hunt F7)",
+          not bad and n_crowded and n_sparse and n_off_bar,
+          f"{n_crowded} CROWDED, {n_sparse} SPARSE, {n_off_bar} spans off "
+          f"the bar's size; wrong: {bad[:3]}")
+
+
 def main():
-    for t in (test_the_count_is_in_the_phonologys_own_grid_unit,
+    for t in (test_the_density_notes_count_the_line_not_the_bar,
+              test_the_count_is_in_the_phonologys_own_grid_unit,
               test_a_refused_token_makes_the_count_a_lower_bound,
               test_beat_and_duration_are_read_or_they_raise,
               test_the_declared_start_has_a_note_value_and_never_a_duration,
