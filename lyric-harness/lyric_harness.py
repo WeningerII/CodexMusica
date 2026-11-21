@@ -9323,6 +9323,16 @@ def _line_fits_journal(text):
             <= ANSWER_LINE_JSON_BYTES)
 
 
+def _line_too_wide(line_no, text):
+    """Why `_line_fits_journal` refused this line, in the writer's words."""
+    if len(text) > LINE_CHARS:
+        return (f"L{line_no}: the line is {len(text)} characters, and a line "
+                f"is at most {LINE_CHARS}")
+    return (f"L{line_no}: the line is too long for this run to record. A line "
+            f"of at most {JOURNAL_LINE_CHARS} characters always fits; a longer "
+            f"one fits unless most of its characters take several bytes each")
+
+
 _ANSWER_LIMITS = (
     f"INVALID_INTERVIEW_ANSWER: pending.answer must be a string within the "
     f"line limits (each line at most {LINE_CHARS} characters and "
@@ -10947,6 +10957,24 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
         if isinstance(answer, tuple):
             answer = list(answer)
         texts = [answer] if kind == "propose" else answer
+        # A LINE TOO WIDE TO RECORD COSTS ONE ATTEMPT, NOT THE RUN (bug hunt
+        # 2026-11-20, finding 27). The question allows `LINE_CHARS` characters;
+        # the journal's room is in bytes, so a line inside the limit whose
+        # characters take several bytes each did not fit, and that ended the
+        # run for good. A well-formed answer with such a line is an unread
+        # reply: nothing of it is journalled but why, the writer is told, and
+        # the next attempt is asked. An answer of the wrong shape keeps the
+        # stop below.
+        if (answer is not None and isinstance(texts, list) and len(texts) == count
+                and all(isinstance(text, str) for text in texts)):
+            numbers = ([record["line"]] if kind == "propose"
+                       else list(record["members"]))
+            wide = [_line_too_wide(n, text) for n, text in zip(numbers, texts)
+                    if not _line_fits_journal(text)]
+            if wide:
+                from quality.propose import UnreadReply
+                returned = UnreadReply("; ".join(wide))
+                unread, answer = returned.unread_reason, None
         if answer is not None and (not isinstance(texts, list)
                 or len(texts) != count
                 or any(not _line_fits_journal(text) for text in texts)):

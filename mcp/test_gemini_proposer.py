@@ -369,9 +369,16 @@ def main():
     print("\n7. provider capacity is declared before spending and bounded before journaling")
     # No line ceiling (D7 on #519): 135 lines is a planner-sized group, and
     # past 64 lines the allowance is the provider's 65536-token ceiling.
+    # REPINNED 2026-11-21 (bug hunt 2026-11-20, finding 27): ~~a reply one
+    # byte over `width * GP.MAX_PROPOSAL_BYTES_PER_LINE` (816 a line) is
+    # refused as PROVIDER_PROPOSAL_TOO_LARGE~~. That cap counted the whole
+    # reply, any explanation included, and a refusal here ends the run. The
+    # reply now comes back whole; the LINE in it is what is bounded, by the
+    # parser that reads it (the second half of this section).
+    old_raw_cap = 200 * 4 + 16
     for width in (1, 31, 135):
         sc = Script([(200, {}, ok_body("L1: a line")),
-                     (200, {}, ok_body("x" * (width * GP.MAX_PROPOSAL_BYTES_PER_LINE + 1)))])
+                     (200, {}, ok_body("x" * (width * old_raw_cap + 1)))])
         srv = serve(sc)
         env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
             LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
@@ -381,16 +388,59 @@ def main():
         with redirect_stdout(io.StringIO()):
             writer.with_capacity("declared width", max_lines=width)
             try:
-                writer.with_capacity("oversized text", max_lines=width)
+                long_reply = writer.with_capacity("long text", max_lines=width)
                 failure = None
             except GP.ProposerUnavailable as error:
-                failure = error
-        check(f"{width}-line capacity is reserved and oversized known response never replayed",
+                long_reply, failure = None, error
+        check(f"{width}-line capacity is reserved, and a reply longer than the old cap comes back whole",
               len(sc.seen) == 2 and sc.seen[0]["generationConfig"]["maxOutputTokens"] == min(width * GP.OUTPUT_TOKENS_PER_LINE, GP.MAX_OUTPUT_TOKENS)
               and settlements[0][1]["maxOutputTokens"] == min(width * GP.OUTPUT_TOKENS_PER_LINE, GP.MAX_OUTPUT_TOKENS)
               and settlements[-1][0] == "settle" and settlements[-1][1]["status"] == "success"
-              and getattr(failure, "code", None) == "PROVIDER_PROPOSAL_TOO_LARGE" and not writer.unknown_attempts)
+              and failure is None and long_reply == "x" * (width * old_raw_cap + 1)
+              and not writer.unknown_attempts,
+              repr(failure))
         srv.shutdown()
+    # THE LINE IS BOUNDED, NOT THE REPLY AROUND IT (finding 27). The question
+    # says a line may be 512 characters and that an explanation may come
+    # first, with the line last. Either one could pass 816 bytes, and the
+    # run ended on the first such reply with a good line thrown away.
+    from quality.propose import ModelProposer, UnreadReply
+    from quality.revise import Brief
+    draft = ["I left the kettle on the stove", "and walked out to the yard"]
+    line = "We buried what we could not say, and sewn"
+    explained = ("I kept the past tense so the line sits with the one before it. " * 13
+                 + "\nLINE: " + line)
+    wide = "\u9759" * 300
+    for name, reply, want in (
+            ("an explanation and then the line", explained, line),
+            ("a 300-character line at three bytes a character", wide, wide)):
+        sc = Script([(200, {}, ok_body(reply))])
+        srv = serve(sc)
+        env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+            LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+        with redirect_stdout(io.StringIO()):
+            try:
+                got = ModelProposer(GP.make()).propose(Brief(2, draft[1]), draft, 0)
+            except GP.ProposerUnavailable as error:
+                got = error
+        check(f"{name}, {len(reply.encode('utf-8'))} bytes in all: the line is read "
+              "and the run goes on",
+              len(reply.encode("utf-8")) > old_raw_cap and got == want, repr(got)[:160])
+        srv.shutdown()
+    sc = Script([(200, {}, ok_body("x" * 513))])
+    srv = serve(sc)
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+    with redirect_stdout(io.StringIO()):
+        try:
+            got = ModelProposer(GP.make()).propose(Brief(2, draft[1]), draft, 0)
+        except GP.ProposerUnavailable as error:
+            got = error
+    check("a line past the 512-character limit is still not accepted: it uses one "
+          "attempt and does not stop the run",
+          isinstance(got, UnreadReply) and "longer than 512 characters" in got.unread_reason,
+          repr(got)[:160])
+    srv.shutdown()
     env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m", LYRIC_PROPOSER_MAX_TOKENS="256")
     writer = GP.make()
     with patch.object(GP.urllib.request, "urlopen", side_effect=AssertionError("must refuse before network")):
