@@ -25,7 +25,7 @@ somebody thought would be nice to have.
 §5-8 are the relations layer, added when `relations_null.py` grew a census
 and a whole-registry sweep. THREE of the schemas in `relations.REGISTRY` (of 77
 then) had a hand-written arm; 74 shipped a printed instance count with no matched
-control (the registry is ~~77~~ ~~78~~ 80 since M-40, a61fe4e69, so ~~74~~ ~~75~~ 77 now), and the census exists to say WHICH OF FIVE REASONS applies to each,
+control (the registry is ~~77~~ ~~78~~ ~~80~~ 79 since M-40, a61fe4e69, so ~~74~~ ~~75~~ 77 now), and the census exists to say WHICH OF FIVE REASONS applies to each,
 because they have five different remedies (doctrine 44).
 
   5. THE GUARDS MUST NOT DISQUALIFY THE ARMS THE FILE ALREADY REPORTS.
@@ -623,7 +623,8 @@ def relations_sections():
           "declared stream", not still, "now provided: %s" % (still,))
     # ...OR IS A RETIRED ENTRY, which is the third state this check did not
     # have (2026-08-23). `frequency` stopped being asked for when
-    # `trite rhyme` was re-founded on `ClassEqual(resource="trite")`, and it
+    # `trite rhyme` was re-founded on `ClassEqual(resource="trite")` (and the
+    # schema itself came out 2026-11-22, owner's ruling), and it
     # is still never provided, so its row here is CORRECT while the schema
     # that wanted it has moved on. `relations.RETIRED_UNPROVIDABLE` is where
     # that argument now lives, whole; without this arm the check reports a

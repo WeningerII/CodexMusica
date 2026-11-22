@@ -5558,12 +5558,18 @@ def test_the_type_draw():
     ok, refused = PLN.type_eligibility()
     disowned = sorted(n for n, s in _R.REGISTRY.items()
                       if s.normative != "attested")
-    check("the disowned types are exactly the four the owner named, selected "
-          "by the registry's `normative` field, and none is eligible",
-          disowned == sorted(["homoioteleuton", "trite rhyme",
+    # REPINNED 2026-11-22 (owner's ruling): ~~"exactly the four the owner
+    # named"~~ — `trite rhyme` left the registry with the 30 declared trite
+    # pairs it read, so three are left, and the one that went is asserted
+    # gone rather than merely not disowned.
+    check("the disowned types are exactly the three left of the four the "
+          "owner named, selected by the registry's `normative` field, none is "
+          "eligible, and `trite rhyme` is gone from the registry",
+          disowned == sorted(["homoioteleuton",
                               "cynghanedd sain drosgl",
                               "fourth lift must not alliterate"])
-          and not set(disowned) & set(ok), disowned)
+          and not set(disowned) & set(ok)
+          and "trite rhyme" not in _R.REGISTRY, disowned)
     src = "".join(_insp.getsource(f) for f in (
         PLN.type_eligibility, PLN.fit_type, PLN._assign_types, PLN._carve,
         PLN._line_reach, PLN._domain_cap, PLN.type_rule))
@@ -5664,12 +5670,23 @@ def test_the_type_draw():
           "schema:<name> in plan['relations']", not unlabeled, unlabeled)
     check("each member's place is one its type's spans allow", not unplaced,
           unplaced[:5])
+    # REPINNED 2026-11-22: ~~`relation="schema:trite rhyme"`~~, which named
+    # the removed schema. The disowned type asked for is drawn by seed from
+    # the three left, and the refusal must name that type's own `normative`.
+    _asked = random.Random(1).choice(disowned)
     try:
-        make_plan(1, lines=16, relation="schema:trite rhyme")
+        make_plan(1, lines=16, relation=f"schema:{_asked}")
         check("a disowned type is refused when requested, naming why", False)
     except PlanRefused as e:
         check("a disowned type is refused when requested, naming why",
-              "deprecated" in str(e), str(e)[:100])
+              _R.REGISTRY[_asked].normative in str(e),
+              f"{_asked}: {str(e)[:100]}")
+    try:
+        make_plan(1, lines=16, relation="schema:trite rhyme")
+        check("the removed `trite rhyme` is refused when requested", False)
+    except PlanRefused as e:
+        check("the removed `trite rhyme` is refused when requested",
+              "trite rhyme" in str(e), str(e)[:100])
     try:
         make_plan(1, lines=16, relation="schema:alliteration")
         check("a type the grader can never pass is refused, naming why",

@@ -44,7 +44,7 @@ WHAT IT DOES, in the order the errors were actually found:
      where two entries quote incompatible sizes for what they call one corpus.
 
   4. PROVENANCE.  `quality/RHYME_CANON.md` records 117 named structures with
-     `from:` lines, and `quality/relations.py` hangs ~~298~~ 299 Tradition rows off ~~77~~ ~~78~~ 80
+     `from:` lines, and `quality/relations.py` hangs ~~298~~ 299 Tradition rows off ~~77~~ ~~78~~ ~~80~~ 79
      schemas. For each name: is there a witness that is not this project? An
      honest "unsourced" is the deliverable. A plausible fill is the
      `gabay higaad` error — a name reconstructed from this repo's own modules
@@ -2060,14 +2060,17 @@ PINNED = {
     # E44 is survey-scoped; its external witness remains unrecorded.
     # M-323 (2026-10-30): 78/76/299/320/212 -> 80/78/301/322/214, the two
     # interior schemas, each with one English row (R5, R9).
-    "schemas": 80,  # ~~78~~
-    "schemas_with_traditions": 78,  # ~~76~~
+    # REPINNED 2026-11-22 (owner's ruling: the declared trite pairs come out,
+    # and `trite rhyme` with them): its five tradition rows go, two with an
+    # external witness and three that cannot tell; no other schema moves.
+    "schemas": 79,  # ~~80~~ ~~78~~
+    "schemas_with_traditions": 77,  # ~~78~~ ~~76~~
     "schemas_no_tradition": 2,
-    "traditions_distinct": 301,  # ~~299~~
-    "traditions_attachments": 322,  # ~~320~~
-    "traditions_external": 214,  # ~~212~~
+    "traditions_distinct": 296,  # ~~301~~ ~~299~~
+    "traditions_attachments": 317,  # ~~322~~ ~~320~~
+    "traditions_external": 212,  # ~~214~~ ~~212~~
     "traditions_project": 26,
-    "traditions_cannot_tell": 61,
+    "traditions_cannot_tell": 58,  # ~~61~~
     # -- the two phonology censuses, THREE COUNTS EACH, never summed --------
     #    (doctrine 79. `cym_refused: 0` is pinned BECAUSE it is zero: if a
     #    re-ingestion starts refusing Welsh tokens the read rate would slide

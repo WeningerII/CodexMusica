@@ -74,7 +74,9 @@ weakened but because the schema stopped asking: `trite rhyme` gated on a bare
 `ClassEqual(resource="trite")` over the repo's own declared CLICHE_PAIRS.
 That is a narrower question -- "are these two a DECLARED trite pair", no rank
 and no threshold -- answered by a declaration instead of by a table nobody
-can source.
+can source.  REMOVED 2026-11-22 (owner's ruling): the 30 declared pairs come
+out everywhere, so `trite rhyme` and the `trite` quotient it read are gone;
+the frequency route's measurement stays in RETIRED_UNPROVIDABLE.
 
 PHONOLOGY STAYS INJECTABLE.  Nothing here transcribes and nothing here consults
 CMUdict.  `phon` is any object with `.syllabify(word)`.  The channel INVENTORY
@@ -2525,7 +2527,7 @@ class Figure:
     template: object = None        # 平仄: one member against a declared pattern
 
     def __post_init__(self):
-        # Validated HERE, at the declaration, so a typo in one of ~~77~~ ~~78~~ 80
+        # Validated HERE, at the declaration, so a typo in one of ~~77~~ ~~78~~ ~~80~~ 79
         # schemas refuses at import rather than falling through `assemble()`'s
         # if/elif chain to silent no-op (the shape `unmatched` was fixed for
         # in `RelationSchema.__post_init__`, defect P15).
@@ -2543,7 +2545,7 @@ PAIR = Figure()
 #: What `unmatched` may say about the material the alignment left over, and
 #: THE LIST IS MEASURED AGAINST `evaluate()` RATHER THAN RECALLED (defect P15).
 #: The field's own comment used to read `exclude | differ | forbid`: 'differ'
-#: is implemented by nothing and declared by none of the ~~77~~ ~~78~~ 80 schemas, while
+#: is implemented by nothing and declared by none of the ~~77~~ ~~78~~ ~~80~~ 79 schemas, while
 #: 'require_a' and 'require_b' -- the two values `evaluate()` actually branches
 #: on, and the only thing keeping semirhyme and apocopated rhyme from
 #: collapsing into perfect rhyme -- were absent from the vocabulary they
@@ -2601,7 +2603,7 @@ class RelationSchema:
     def __post_init__(self):
         # `unmatched` had FOUR implemented values and its own comment named
         # three, one of which -- 'differ' -- is implemented nowhere and
-        # declared by none of the ~~77~~ ~~78~~ 80 schemas (defect P15).  An undeclared value
+        # declared by none of the ~~77~~ ~~78~~ ~~80~~ 79 schemas (defect P15).  An undeclared value
         # silently took the 'exclude' path, so a typo and a policy read the
         # same.  Refuse at construction, where the declaration is written.
         if self.unmatched not in UNMATCHED:
@@ -6225,35 +6227,12 @@ declare(RelationSchema(
          "differ in exactly one of them. A verbatim repeat does not stand "
          "in it, and neither does an added or dropped word."))
 
-declare(RelationSchema(
-    name="trite rhyme",
-    spans=(END_ANCHOR, END_ANCHOR), align="anchor",
-    channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", AGREE, "each"),
-              ChannelRule("token",
-                          ClassEqual(label="declared trite-pair set",
-                                     resource="trite"),
-                          "anchor", surface="phonemic")),
-    placement=(Placement("both_line_final"),), identity=(DISTINCT,),
-    normative="deprecated",
-    note="NOT A PHONOLOGICAL TYPE, and included to mark the BOUNDARY of the "
-         "space: it is a coordinate on a VALUE axis orthogonal to all the "
-         "structural ones. Kept out of the cell grid deliberately (doctrine "
-         "9/48, modal_exclusion in quality/revise.py). "
-         "~~requires=('frequency',)~~ REPLACED 2026-08-22 BY A PREDICATE, and "
-         "`UNPROVIDABLE`'s entry for `frequency` is why: it recorded, "
-         "correctly, that stamping the capability would report 'every "
-         "perfect rhyme in the text, labelled trite', because the two "
-         "channels above are nucleus AGREE and coda AGREE and NOTHING IN THE "
-         "SCHEMA READ A RANK. A bare `requires=` gate cannot make a schema "
-         "selective; only a channel can. The third channel reads the "
-         "DECLARED trite-pair partition (`quality/quotients.trite`, built "
-         "from `lyric_harness.CLICHE_PAIRS`), so the schema now flags the 30 "
-         "pairs this repo declares trite and not one rhyme more. No rank, no "
-         "threshold, no uncalibrated cut (doctrine 16/22) — and the corpus-"
-         "frequency route stays refused for the reason `UNPROVIDABLE` "
-         "measured: a pre-1931 table cannot say what is over-familiar to a "
-         "living listener."))
+# ~~`trite rhyme`~~ — REMOVED 2026-11-22 (owner's ruling: the 30 declared
+# trite pairs, `lyric_harness.CLICHE_PAIRS`, come out everywhere). It read
+# them through `ClassEqual(resource="trite")` over `quotients.trite`, which
+# came out with it, and it was `normative="deprecated"`, so no plan drew it
+# and no report printed it. Its retired frequency route keeps its
+# measurement in `RETIRED_UNPROVIDABLE` below.
 
 # THE INTERIOR SOUND SCHEMAS (2026-10-30, `MISSING.md` M-323; the "Interior
 # schema contract" of docs/design/connection-views/spec.md). Each takes its
@@ -6379,6 +6358,7 @@ def capability_report(stream):
 #                because the argument weakened -- it is unchanged and still
 #                measured -- but because `trite rhyme` stopped requiring it.
 #                See that table for what it costs to reopen the route.
+#                (`trite rhyme` itself came out 2026-11-22, owner's ruling.)
 #   `stub_       the one live entry, below.
 #    resolution`
 #
@@ -6453,6 +6433,10 @@ UNPROVIDABLE = ()
 #: detector would flag `me`/`thee` hardest and miss `baby`/`crazy` entirely.
 #: That is doctrine 92's disjunction, measured, and it is why the narrow
 #: declared-list question was the one worth answering.
+#:
+#: 2026-11-22: the declared list came out by the owner's ruling, and
+#: `trite rhyme` with it. `schemas` below still names it, as the record of
+#: which schema asked; no schema in the registry asks for `frequency`.
 RETIRED_UNPROVIDABLE = (
     Unprovidable(
         capability="frequency",
@@ -7008,7 +6992,8 @@ LANG_CELL = {
 # "rima consoante (Pt)", and its prose names Welsh, Old Norse, German, Italian,
 # English, Chinese, Thai, Vietnamese, Malay, Finnish -- the code is as sourced
 # as the name.  Where it does not, the code is an inference and is written ""
-# instead (see `trite rhyme`).
+# instead (the removed `trite rhyme` entry did so for R59's Romance aliases,
+# which the canon prints with no gloss).
 #
 # The blast radius of a wrong code is bounded and worth stating: a code only
 # changes an answer for a language some phonology DECLARES, and this repo
@@ -7423,17 +7408,8 @@ _SOURCED = {
         ("Old Norse galdralag", "non"),
         ("Finnish kerto / parallelism", "fin"),
         ("Galician-Portuguese paralelismo perfeito / leixa-pren", "glg"))),
-    "trite rhyme": (("R59",), (
-        ("English trite rhyme", "eng"),
-        # R59's alias line prints `rim car · rimas caras · rima rara /
-        # preciosa · rima pobre / rica` WITHOUT a language gloss, unlike R1
-        # which writes "(Sp)" and "(Pt)". The names are the canon's; the
-        # language is not, so the code is left blank rather than inferred.
-        ("rim car / rimas caras (Romance; the canon gives no gloss)", ""),
-        ("rima rara / preciosa (Romance; the canon gives no gloss)", ""),
-        ("rima pobre / rica (Romance; the canon gives no gloss)", ""),
-        ("Turkish kapanık ayak (quantified: at most four partners in the "
-         "whole language)", "tur"))),
+    # ~~"trite rhyme": (("R59",), ...)~~ — the schema came out 2026-11-22
+    # (owner's ruling); R59 stays in CANON as the canon's own entry.
 }
 
 #: Schemas left HONESTLY EMPTY, with the reason.  An unsourced schema is not a
@@ -8896,8 +8872,8 @@ DRAWABLE_EXHIBITS = {
 #: `monorhyme / leash` is `forall` over a STANZA, so a two-token mandate
 #: cannot preserve its scope (`pair_scope_representable` says False and
 #: the census would never ask); the interlocking chain rhyme needs two
-#: stanzas; `trite rhyme` is deprecated. Each row is `(lines, slots,
-#: sections)`; sections are the edition's own [VERSE] breaks, never
+#: stanzas; ~~`trite rhyme` is deprecated~~ (removed 2026-11-22). Each row
+#: is `(lines, slots, sections)`; sections are the edition's own [VERSE] breaks, never
 #: invented (the M-39(b) rule `Reviser.grade` states), or None.
 CENSUS_EXHIBITS = {
     "chain rhyme (interlocking scheme)": (
@@ -8923,14 +8899,8 @@ CENSUS_EXHIBITS = {
           "He watches from his mountain walls,",
           "And like a thunderbolt he drops."),
          ("1", "2", "3"), ("a", "a", "a"))),
-    "trite rhyme": (
-        # Poe, "Annabel Lee" — eng_american_edgar_allan_poe.txt:201,204:
-        # love ~ above, on the declared cliché list. The contrast is the
-        # same stanza's we ~ sea (:202,205): a perfect rhyme NOT on it.
-        (("But our love it was stronger by far than the love",
-          "And neither the angels in heaven above,"), ("1", "2"), None),
-        (("Of those who were older than we--",
-          "Nor the demons down under the sea,"), ("1", "2"), None)),
+    # ~~"trite rhyme"~~ — its exhibit (a declared cliché pair against a
+    # perfect rhyme not on the list) came out with the schema, 2026-11-22.
 }
 
 
@@ -9971,7 +9941,7 @@ _PAIR_MEMO = collections.OrderedDict()
 #: oldest rows go and the pair is re-scored.  The CAP IS NOT CHANGED HERE —
 #: changing it is a behaviour change with its own record — and the scaling
 #: question is filed under M-240 (OPEN), the grader's own pair guard, which
-#: is where the cost of long drafts is being priced.  Slots: the ~~77~~ ~~78~~ 80
+#: is where the cost of long drafts is being priced.  Slots: the ~~77~~ ~~78~~ ~~80~~ 79
 #: registered schemas plus the declared ones a mandate can name, under one
 #: declaration, with room for a second declaration in the same process.
 PAIR_MEMO_CAP = 4_096         # (line pair, signature) rows per (schema, stream) slot

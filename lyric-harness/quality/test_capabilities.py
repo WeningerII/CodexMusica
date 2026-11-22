@@ -2,7 +2,7 @@
 """Regressions for the DECLARED-COORDINATE CONSTRUCTORS — the seven
 capabilities that stood between `quality/relations.REGISTRY`'s schemas and a
 judge (77 on 2026-08-22), closed 2026-08-22 on the owner's ruling "all 77, no exceptions". The
-registry now holds ~~77~~ ~~78~~ 80 (M-40, a61fe4e69); §8 counts it as
+registry now holds ~~77~~ ~~78~~ ~~80~~ 79 (M-40, a61fe4e69); §8 counts it as
 `len(R.REGISTRY)`.
 
 WHAT EVERY SECTION HERE ASSERTS, and it is the same shape each time because
@@ -14,7 +14,8 @@ the shape is the point:
      20 forbids spelling them the same.
   2. DECLARED, THE SCHEMA ANSWERS — and the answer is SELECTIVE, i.e. the
      constructor supplied evidence rather than a rubber stamp. Two schemas in
-     this registry (`trite rhyme`, `offbeat internal rhyme`) carried a bare
+     this registry (`trite rhyme`, which came out 2026-11-22 by the owner's
+     ruling, and `offbeat internal rhyme`) carried a bare
      `requires=` gate and NOTHING that read the resource, so stamping the
      capability would have fired them on every rhyme in the draft —
      `relations.UNPROVIDABLE` predicted that in as many words. Each now has a
@@ -382,19 +383,27 @@ def test_beat_and_selectivity():
     # `UNPROVIDABLE`'s `would_manufacture` said exactly that.
     st3 = _stream(["we walked out in the sun", "and everything was fun",
                    "i wore a bright red cap", "he heard the thunder clap"])
-    got = _pairs(st3, "trite rhyme")
-    check("`trite rhyme` is SELECTIVE: it flags the declared pair sun/fun and "
-          "NOT cap/clap, which is an ordinary perfect rhyme — a capability "
-          "with no predicate behind it would have flagged both",
-          got == frozenset({(1, 2)}), str(got))
-    check("...and it reads the DECLARED pair list, so its vocabulary is "
-          "`lyric_harness.CLICHE_PAIRS` and not a corpus rank the pre-1931 "
-          "sources cannot supply",
-          "quotient:trite" in R.REGISTRY["trite rhyme"].capabilities())
+    # REPINNED 2026-11-22 (owner's ruling: the 30 declared trite pairs come
+    # out everywhere, and `trite rhyme` with them). ~~"`trite rhyme` is
+    # SELECTIVE: it flags the declared pair sun/fun and NOT cap/clap"~~ and
+    # ~~"...and it reads the DECLARED pair list"~~. The same two pairs now
+    # show the new truth: sun/fun is an ordinary perfect rhyme, exactly as
+    # cap/clap is, and no schema reads the declared list.
+    got = _pairs(st3, "perfect rhyme")
+    check("sun/fun is an ordinary perfect rhyme now, exactly as cap/clap is — "
+          "no schema singles out a declared trite pair",
+          "trite rhyme" not in R.REGISTRY
+          and not isinstance(got, R.Refusal) and {(1, 2), (3, 4)} <= got,
+          str(got))
+    check("...and nothing reads the declared pair list: no schema names "
+          "`quotient:trite`",
+          not [n for n, sch in R.REGISTRY.items()
+               if "quotient:trite" in sch.capabilities()])
 
     # THE SIBLING QUOTIENT, WHICH NOTHING WAS EXERCISING (2026-08-23).
     # `eng.English` began declaring BOTH `trite` and `manner` on 2026-08-22.
-    # `trite` got the check above; `manner` got none, and the gap was found
+    # `trite` got the check above (until it came out, 2026-11-22); `manner`
+    # got none, and the gap was found
     # by stubbing each function in `quality/quotients.py` one at a time and
     # asking which checks noticed — `manner` was answered by nothing in the
     # tree, because `test_relations.py` exercises `family rhyme` through an

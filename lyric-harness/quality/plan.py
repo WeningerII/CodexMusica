@@ -1303,7 +1303,7 @@ def _place_group(group, rng, max_token, used):
 
     A PLACEMENT PER MEMBER, uniform over what the grading path can resolve.
     Per member and not per group, because the mixed case is real and is the
-    one no letter scheme can express: ~~8~~ 7 of the registry's ~~77~~ ~~78~~ 80 schemas
+    one no letter scheme can express: ~~8~~ 7 of the registry's ~~77~~ ~~78~~ ~~80~~ 79 schemas
     anchor their two members differently (`spans[0].anchor !=
     spans[-1].anchor`; `choices.placements.measure` prints the live count),
     and linked rhyme binds a line-final to
@@ -1347,12 +1347,13 @@ def _PLACE_POOL(max_token):
 # A type's `name`, `aka` and `note` are never read to decide whether it is
 # drawn or how often, and of its `traditions` only each one's language code
 # is read (rule (e), the owner's ruling that a type not specifically for
-# English does not count for English). The four types the system disowns
-# (homoioteleuton, trite rhyme, cynghanedd sain drosgl, fourth lift must not
+# English does not count for English). The ~~four~~ three types the system
+# disowns (homoioteleuton, cynghanedd sain drosgl, fourth lift must not
 # alliterate) are exactly the registry rows whose `normative` field is not
 # `attested`; they leave the eligible set through that field, never through
-# their names, and test_plan pins that the field selects those four and only
-# those.
+# their names, and test_plan pins that the field selects those three and only
+# those. (2026-11-22: `trite rhyme`, the fourth, left the registry by the
+# owner's ruling.)
 
 #: The `normative` values that disown a type: never drawn, and refused when
 #: requested. Eligibility asks the stricter `normative == "attested"` (rule
@@ -1372,7 +1373,9 @@ DISOWNED_NORMATIVE = _RL.DISOWNED_NORMATIVE
 GRADE_STREAM_CAPABILITIES = {
     "eng": frozenset({"lexicon", "morphology", "prominence",
                       "quotient:manner", "quotient:reduced_vowel",
-                      "quotient:trite", "stanza"}),
+                      "stanza"}),
+    # ~~"quotient:trite"~~ — English declares no `trite` quotient since
+    # 2026-11-22 (owner's ruling: the declared trite pairs come out).
 }
 
 _LANGUAGE_NAMES = {"eng": "English"}
@@ -1587,10 +1590,10 @@ def type_eligibility(language="eng"):
     `scripts/lyric_type_menu.py`, is to import it rather than restate it).
     A registry type is eligible for a song in `language` when ALL hold:
 
-      (a) its `normative` is `attested` — which leaves out the four disowned
-          types (homoioteleuton, trite rhyme, cynghanedd sain drosgl, fourth
-          lift must not alliterate), the registry's only rows marked
-          `forbidden` or `deprecated`;
+      (a) its `normative` is `attested` — which leaves out the ~~four~~ three
+          disowned types (homoioteleuton, cynghanedd sain drosgl, fourth lift
+          must not alliterate), the registry's only rows marked `forbidden`
+          or `deprecated` (`trite rhyme` left the registry 2026-11-22);
       (b) every `requires` input is one this language's grade stream
           provides, and
       (c) every channel in `channels` is computable for it — (b) and (c) are

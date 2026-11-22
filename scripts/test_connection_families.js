@@ -2,7 +2,7 @@
 // The display family of each connection method is read by stable id
 // (src/connection-families.js, #637 item 7). These guards pin that the table
 // names only real methods and agreed families, that it reproduces the
-// classification the views showed before it existed (84/84 on today's
+// classification the views showed before it existed (~~84/84~~ 83/83 on today's
 // registry), and that a rename cannot move a method's family. The adapter's
 // reading of the table, and its keeping of a method with no family as native
 // bindings, belong to the integration and are checked there.
@@ -35,7 +35,8 @@ test('every entry names a registered visual method and an agreed family', () => 
 });
 
 test('the table reproduces the classification the views showed before it', () => {
-  assert.equal(visual.length, 84, 'the registry baseline this parity pins');
+  // REPINNED 2026-11-22: ~~84~~ 83, `trite rhyme` left the registry.
+  assert.equal(visual.length, 83, 'the registry baseline this parity pins');
   const moved = visual
     .filter((m) => CONNECTION_FAMILIES[m.id] !== byName(m.name))
     .map((m) => `${m.name}: ${byName(m.name)} -> ${CONNECTION_FAMILIES[m.id]}`);

@@ -373,6 +373,12 @@ EXEMPT_VOWEL_CHANGED = {
 #: here, so the schema does not hold -- the ruling's target, not a loss.
 RULED_OUT = {"mosaic rhyme"}
 
+#: REMOVED, named: `trite rhyme` (2026-11-22, the owner's ruling that the 30
+#: declared trite pairs come out everywhere). Main listed it on night/light
+#: because that pair was on the list; the schema is gone from the registry,
+#: so no listing can hold it -- the ruling's target, not a loss.
+REMOVED = {"trite rhyme"}
+
 #: 2026-10-30: the G1 carve-out (`G1_MASKED`) is gone. `relations._bucket_key`
 #: (M-322 item 4) keyed mosaic rhyme's free run on its FIRST syllable while
 #: flush_right compares the LAST, so main found mosaic rhyme only where a
@@ -393,10 +399,12 @@ def test_listings_report_every_schema_some_reading_holds():
 
     for (a, b), main in MAIN_LISTS.items():
         held, open_, w = listed(a, b)
-        lost = set(main) - held - RULED_OUT
+        # REPINNED 2026-11-22: ~~"(but the ruled-out mosaic)"~~ — and but
+        # the removed `trite rhyme`, which no listing may hold now.
+        lost = set(main) - held - RULED_OUT - REMOVED
         check(f"{a.split()[-1]}/{b.split()[-1]} lists every schema main lists "
-              f"(but the ruled-out mosaic)",
-              not lost and not (held & RULED_OUT),
+              f"(but the ruled-out mosaic and the removed trite rhyme)",
+              not lost and not (held & (RULED_OUT | REMOVED)),
               f"lost {sorted(lost)}; held {sorted(held)}")
     for (a, b), gone in EXEMPT_VOWEL_CHANGED.items():
         held, _, _ = listed(a, b)
@@ -434,8 +442,11 @@ def test_listings_report_every_schema_some_reading_holds():
     cs = L.check_scheme(LEX, lines, "AA", DECL)
     rels = set(cs["pair_scores"][0]["relations"])
     sat = cs["pairs_schema_satisfied"][0]
+    # REPINNED 2026-11-22: ~~`{"perfect rhyme", "assonance", "trite rhyme"}
+    # <= rels`~~ — the removed schema is asserted absent instead.
     check("check_scheme's pair relations list perfect rhyme for night/light",
-          {"perfect rhyme", "assonance", "trite rhyme"} <= rels, str(sorted(rels)))
+          {"perfect rhyme", "assonance"} <= rels and not rels & REMOVED,
+          str(sorted(rels)))
     check("...and its satisfied record names the readings",
           "perfect rhyme" in sat["satisfied_by"]
           and "perfect rhyme" in (sat.get("readings") or {}))
@@ -443,7 +454,9 @@ def test_listings_report_every_schema_some_reading_holds():
     web = recover(lines, lex=LEX)["web"]
     end = [e for e in web if (e["a"], e["b"]) == ("1", "2")]
     check("recover's end edge lists perfect rhyme for night/light",
-          bool(end) and {"perfect rhyme", "trite rhyme"} <= set(end[0]["relations"]),
+          # REPINNED 2026-11-22: ~~`{"perfect rhyme", "trite rhyme"} <=`~~
+          bool(end) and "perfect rhyme" in end[0]["relations"]
+          and not set(end[0]["relations"]) & REMOVED,
           str(end[0]["relations"] if end else web))
     from quality.revise import Reviser
     from quality import schemes as SC

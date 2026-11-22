@@ -234,7 +234,9 @@ def test_inventory():
           "different numbers")
     # REPINNED 2026-10-30 (`MISSING.md` M-323): ~~78~~ 80, after `internal
     # assonance` and `internal consonance` were declared.
-    check("80 schemas are declared", len(R.REGISTRY) == 80,
+    # REPINNED 2026-11-22 (owner's ruling: the declared trite pairs come out, and `trite rhyme` with them):
+    # ~~80~~ 79.
+    check("79 schemas are declared", len(R.REGISTRY) == 79,
           f"{len(R.REGISTRY)} in REGISTRY; all_schemas() is the accessor. "
           f"There is no SCHEMAS attribute and never was.")
     # THE PROSE THAT STATES THE REGISTRY'S SIZE IS HELD TO IT (2026-09-25,
@@ -340,8 +342,11 @@ def test_inventory():
     # mosaic rhyme compares under the phonology's `reduced_vowel` quotient,
     # which this fixture phonology does not declare, so it refuses by name
     # with the four P14 schemas below.
-    check("50 of 80 run; the rest refuse for capabilities and spans",
-          ran == 50 and refused == 30,
+    # REPINNED 2026-11-22 (owner's ruling: the declared trite pairs come out, and `trite rhyme` with them):
+    # ~~50 of 80~~, refused ~~30~~ 29. It refused here for the `trite`
+    # quotient this fixture never declared; nothing that ran moved.
+    check("50 of 79 run; the rest refuse for capabilities and spans",
+          ran == 50 and refused == 29,
           f"ran={ran} refused={refused}; capability_report says "
           f"{len(rep['reachable'])} reachable "
           f"(2 of those refuse at the SPAN, which is correct: 'penult' and "
@@ -1055,7 +1060,9 @@ def test_refusal_names_every_missing_capability():
                         declaration={"language": "som"})
 
     got = {}
-    for n in ("family rhyme", "proest", "dialect rhyme", "trite rhyme"):
+    # REPINNED 2026-11-22: ~~`"trite rhyme"`~~ left this list when the
+    # schema came out (owner's ruling); the other three still refuse here.
+    for n in ("family rhyme", "proest", "dialect rhyme"):
         res = R.realise(R.REGISTRY[n], st)
         got[n] = (res.capability, res.missing)
 
@@ -1211,8 +1218,14 @@ def _retired_readmitted():
     time was that nothing re-measured it. The registry is restored before
     this returns; nothing on disk is touched."""
     import dataclasses
+    import random
     cap = R.RETIRED_UNPROVIDABLE[0].capability
-    name = R.RETIRED_UNPROVIDABLE[0].schemas[0]
+    # REPINNED 2026-11-22: ~~`name = R.RETIRED_UNPROVIDABLE[0].schemas[0]`~~,
+    # which was `trite rhyme`. That pattern left the registry (owner's
+    # ruling: the declared trite pairs come out), and the entry still names
+    # it as history. Any schema that asks for a retired capability is the
+    # finding, so the one given the capability is drawn by seed.
+    name = random.Random(1).choice(sorted(R.REGISTRY))
     real = R.REGISTRY[name]
     R.REGISTRY[name] = dataclasses.replace(
         real, requires=tuple(real.requires) + (cap,))
@@ -1339,28 +1352,45 @@ def test_unprovidable_is_declared_and_measured():
     # gated. The consequence is the one the section was arguing for: forcing
     # `frequency` now buys NOTHING. A flag nothing reads cannot manufacture a
     # result, and this is the check that says so.
-    trite = forced("frequency", "trite rhyme")
+    #
+    # THE SCHEMA ITSELF CAME OUT (2026-11-22, owner's ruling): the 30
+    # declared trite pairs go everywhere, and `trite rhyme` read them
+    # through `quotient:trite`. REPINNED 2026-11-22, the two checks below:
+    # ~~"forcing `frequency` no longer makes `trite rhyme` fire — it
+    # REFUSES for want of `quotient:trite`"~~ and ~~"...and the capability
+    # it DOES name is one of its own channels'"~~. What stays true, and is
+    # asked of the whole registry instead of one schema: forcing
+    # `frequency` changes no schema's answer, because none reads it; and
+    # no schema reads the declared trite-pair list at all.
     perfect = R.realise(R.REGISTRY["perfect rhyme"], st)
 
     def pairs(x):
         return sorted((i.a.idx, i.b.idx, i.verdict) for i in x)
 
-    check("forcing `frequency` no longer makes `trite rhyme` fire — it "
-          "REFUSES for want of `quotient:trite`, because the capability is "
-          "now read on a channel instead of gated on a bare `requires=`",
-          isinstance(trite, R.Refusal)
-          and trite.capability == "quotient:trite",
-          f"{trite if isinstance(trite, R.Refusal) else pairs(trite)}; "
-          f"`perfect rhyme` on the same stream still returns "
+    def answer(x):
+        return (("refused", x.capability) if isinstance(x, R.Refusal)
+                else ("ran", pairs(x)))
+
+    from quality import quotients as _QT
+    moved = [n for n in sorted(R.REGISTRY)
+             if answer(forced("frequency", n))
+             != answer(R.realise(R.REGISTRY[n], st))]
+    check("forcing `frequency` changes no schema's answer on this stream — "
+          "no schema reads it, so a forced flag cannot manufacture a result",
+          not moved,
+          f"moved: {moved}; `perfect rhyme` on the same stream returns "
           f"{len(perfect)} instances, which is what the old wiring copied")
-    check("...and the capability it DOES name is one of its own channels' — "
-          "the difference between a schema that consults the thing it is "
-          "named for and one that wears the label",
-          "quotient:trite" in R.REGISTRY["trite rhyme"].capabilities()
-          and any(getattr(c.predicate, "resource", None) == "trite"
-                  for c in R.REGISTRY["trite rhyme"].channels),
-          f"capabilities {R.REGISTRY['trite rhyme'].capabilities()}; "
-          f"channels {[(c.channel, getattr(c.predicate, 'resource', None)) for c in R.REGISTRY['trite rhyme'].channels]}")
+    _trite_readers = [n for n, s in R.REGISTRY.items()
+                      if "quotient:trite" in s.capabilities()
+                      or any(getattr(c.predicate, "resource", None) == "trite"
+                             for c in s.channels)]
+    check("no schema reads the declared trite-pair list: `trite rhyme` is "
+          "gone from the registry (owner's ruling, 2026-11-22), no schema "
+          "names `quotient:trite`, and English declares no `trite` quotient",
+          "trite rhyme" not in R.REGISTRY and not _trite_readers
+          and "trite" not in _QT.ENG_QUOTIENTS,
+          f"readers {_trite_readers}; English quotients "
+          f"{sorted(_QT.ENG_QUOTIENTS)}")
 
     # A PLAIN REFRAIN and A REAL STUB, side by side under the forced flag.
     # The stub line is what the schema is FOR and it is the one that finds
@@ -1472,8 +1502,9 @@ def test_traditions():
     sourced = [n for n, s in R.REGISTRY.items() if s.traditions]
     check(f"every one of the {len(R.REGISTRY)} schemas is either SOURCED "
           "or listed in UNSOURCED with a reason",
-          # 2026-10-30 (M-323): ~~78~~ 80.
-          len(sourced) + len(R.UNSOURCED) == 80
+          # 2026-10-30 (M-323): ~~78~~ 80. 2026-11-22: ~~80~~ 79,
+          # `trite rhyme` left the registry (owner's ruling).
+          len(sourced) + len(R.UNSOURCED) == 79
           and not (set(sourced) & set(R.UNSOURCED))
           and all(R.UNSOURCED.values()),
           f"{len(sourced)} sourced, {len(R.UNSOURCED)} honestly empty "
@@ -1839,7 +1870,9 @@ def test_known_open_defects():
           "in the registry lost a distinction",
           "terminator" not in R.SpanRule.__dataclass_fields__
           # 2026-10-30 (M-323): ~~156~~ 160, two interior schemas.
-          and len(_rules) == 160
+          # 2026-11-22: ~~160~~ 158, `trite rhyme`'s two members left with
+          # it (owner's ruling).
+          and len(_rules) == 158
           and all(len(v) == 1 for v in _mags.values())
           and "terminator" not in R.__dict__["_spans_at"].__code__.co_names,
           f"{len(_rules)} member rules over {len(R.REGISTRY)} schemas. Before "
@@ -2318,11 +2351,16 @@ def test_relation_report_renderer_runs():
     rc, out = _capture(R.main, [METIDJA])
     check("`python3 quality/relations.py metidja.txt` RUNS end to end and "
           "exits 0",
-          rc == 0 and "phonology eng   schemas declared 80" in out
+          rc == 0 and "phonology eng   schemas declared 79" in out
           and "REFUSED 27 (capability 27 · EMPTY DECLARED FRAME 0 · OTHER 0)"
-          in out and "RAN AND FOUND NOTHING 30" in out
+          in out and "RAN AND FOUND NOTHING 29" in out
           and "RAN AND FIRED 23" in out,
-          "REFUSED 27 · RAN AND FOUND NOTHING 30 · RAN AND FIRED 23, "
+          "REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 23, "
+          "REPINNED 2026-11-22 (owner's ruling: the declared trite pairs "
+          "come out, and `trite rhyme` with them) from declared ~~80~~ and "
+          "FOUND NOTHING ~~30~~: it ran on Browning's lines and found "
+          "nothing, so it leaves that count and no other; measured against "
+          "main, decided-false falls by its 91 pairs and nothing else moves. "
           "REPINNED 2026-11-20 (owner's ruling: a word may rhyme with "
           "itself) from FOUND NOTHING ~~31~~ and FIRED ~~22~~: rime riche "
           "no longer requires different words, so it fires on the 15 "
@@ -2358,7 +2396,7 @@ def test_relation_report_renderer_runs():
           "`eng.English.quotients` in memory and re-running this same verb "
           "gives REFUSED 27 · RAN AND FIRED 22, so the shipped manner and "
           "trite partitions account for 3 refusals and 2 of the extra "
-          "firings. The other four are the stub, sense, lift, beat and "
+          "firings (the trite partition came out 2026-11-22). The other four are the stub, sense, lift, beat and "
           "delivery seams that landed in the same window. M-39's own note "
           "still holds and is why the number is not simply back at 26: "
           "`metidja.txt` prints NO blank line, so it supplies no stanza "
@@ -2755,8 +2793,12 @@ def test_vacuous_frame_is_not_a_null():
     # (29, 28, 23) -> (30, 28, 22): rime riche no longer requires different
     # words and fires on this fixture's repeated words (FOUND NOTHING ->
     # FIRED); measured against main, it is the only schema that moved.
-    check("the staged item reproduces the measured split (30, 28, 22)",
-          before == (30, 28, 22),
+    # REPINNED 2026-11-22 (owner's ruling: the declared trite pairs come out, and `trite rhyme` with them)
+    # (30, 28, 22) -> (30, 27, 22): it refused on this fixture for the
+    # `trite` quotient (REFUSED, a capability refusal), and nothing else
+    # moved.
+    check("the staged item reproduces the measured split (30, 27, 22)",
+          before == (30, 27, 22),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2805,9 +2847,10 @@ def test_vacuous_frame_is_not_a_null():
     after = _split(st)
     # 2026-10-30 (M-323): ~~30/27/21~~ ~~30/21/27~~, two fired schemas more.
     # REPINNED 2026-11-20: ~~29/28/23~~ ~~29/22/29~~, rime riche fires.
+    # REPINNED 2026-11-22: ~~30/28/22~~ ~~30/22/28~~, `trite rhyme` left.
     check("...so calling both markers moves NOTHING: the split is still "
-          "30/28/22, where it used to become 30/22/28",
-          after == before == (30, 28, 22),
+          "30/27/22, where it used to become 30/21/28",
+          after == before == (30, 27, 22),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2818,12 +2861,14 @@ def test_vacuous_frame_is_not_a_null():
           "still closes",
           # 2026-10-31 (M-311 F1): capability ~~21~~ 22, refused ~~27~~ 28 --
           # mosaic rhyme's `quotient:reduced_vowel`, not declared here.
-          rep["refused_vacuous"] == 6 and rep["refused_capability"] == 22
+          # 2026-11-22: capability ~~22~~ 21, refused ~~28~~ 27 -- `trite
+          # rhyme`'s `quotient:trite` refusal left with it (owner's ruling).
+          rep["refused_vacuous"] == 6 and rep["refused_capability"] == 21
           and rep["refused_other"] == 0
-          and rep["refused"] == 28
+          and rep["refused"] == 27
           and (rep["refused"] + rep["ran_found_nothing"]
-               # 2026-10-30 (M-323): ~~78~~ 80.
-               + rep["ran_and_fired"]) == rep["declared"] == 80
+               # 2026-10-30 (M-323): ~~78~~ 80. 2026-11-22: ~~80~~ 79.
+               + rep["ran_and_fired"]) == rep["declared"] == 79
           and {r[0] for r in rep["vacuous_refusals"]} == set(VACUOUS_SIX)
           and all(len(r) == 4 for r in rep["refusals"]),
           f"refused {rep['refused']} = capability "
@@ -2904,14 +2949,15 @@ def test_vacuous_frame_is_not_a_null():
         mut_rep = R.relation_report(st)
         mut_state = st.supply("caesura").state
     check("MUTANT: with `provides` reading the SOURCE again, all six stop "
-          "refusing and return an empty list, the split moves to 30/22/28 "
-          "(~~29/22/29~~ before rime riche fired on this fixture under the "
+          "refusing and return an empty list, the split moves to 30/21/28 "
+          "(~~30/22/28~~ before `trite rhyme` left the registry, 2026-11-22; "
+          "~~29/22/29~~ before rime riche fired on this fixture under the "
           "owner's 2026-11-20 self-rhyme ruling; ~~30/21/27~~ before M-323's two schemas, 2026-10-30; ~~30/21/29~~ "
           "before mosaic rhyme refused on this fixture, 2026-10-31), "
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (30, 22, 28) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (30, 21, 28) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "
@@ -3108,12 +3154,18 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
           entry.blocker == "disjoint"
           and st.supply("frequency").state == "absent"
           and entry.schemas == ("trite rhyme",)
-          and "trite rhyme" in R.REGISTRY
-          and "frequency" not in R.REGISTRY["trite rhyme"].capabilities()
+          # REPINNED 2026-11-22: ~~`"trite rhyme" in R.REGISTRY and
+          # "frequency" not in its capabilities`~~ — the schema the entry
+          # names came out (owner's ruling), so the record keeps its name as
+          # history and the claim is asked of the whole registry: no schema
+          # asks for `frequency`.
+          and "trite rhyme" not in R.REGISTRY
+          and not [n for n, sch in R.REGISTRY.items()
+                   if "frequency" in sch.capabilities()]
           and entry.capability not in {e.capability
                                        for e in R.UNPROVIDABLE},
-          f"{st.supply('frequency')}; `trite rhyme` capabilities "
-          f"{R.REGISTRY['trite rhyme'].capabilities()}")
+          f"{st.supply('frequency')}; schemas asking for `frequency`: "
+          f"{[n for n, sch in R.REGISTRY.items() if 'frequency' in sch.capabilities()]}")
 
     tot = collections.Counter()
     authors = collections.defaultdict(set)
