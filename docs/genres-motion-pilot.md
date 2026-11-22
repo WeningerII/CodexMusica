@@ -105,7 +105,15 @@ blobs. Test results and the exact reviewed head belong in the PR description.
 
 `visual-lifecycle.cjs` runs in the real shell with visible status at 320×568,
 390×844 and 1280×900. It compares the opening keyframe to the actual surviving
-card after two frames, including first announcement and later wrap changes.
+card after two frames, including the first announcement. Four ordinary catalog
+selections retain the unmodified status layout. A separate later-selection wrap
+fixture temporarily limits the visible status to 20ch and calibrates a pair of
+real catalog announcements whose rendered heights differ on the installed font.
+It replays that actual selection, verifies changed status text, status height and
+card position, then checks cue geometry after two frames. The original inline
+style is restored before return/scroll checks. No announcement text, card geometry
+or selection behavior is mocked. This avoids assuming that four fixed messages
+will occupy different line counts on every host.
 After native scrolling and Close it checks two-frame return-cue survival and
 progress, then verifies that genuine scrolling cancels. A second control races
 genuine movement against the reveal's queued event before the first frame.

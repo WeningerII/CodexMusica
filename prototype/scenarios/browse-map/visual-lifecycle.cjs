@@ -22,7 +22,6 @@ const { start } = require('../../../scripts/_pages_server.js');
       await page.locator('.discovery-card').first().waitFor();
       // Real status stays visible. Compare the start keyframe to the live card
       // after two animation frames, not in the click's task.
-      let wrapChanges = 0;
       for (const index of [0, 1, 2, 3]) {
         const geometry = await page.evaluate(async (i) => {
           const card = document.querySelectorAll('.discovery-card')[i];
@@ -48,7 +47,6 @@ const { start } = require('../../../scripts/_pages_server.js');
             visibleStatus: getComputedStyle(document.querySelector('[role="status"]')).visibility,
           };
         }, index);
-        if (index > 0 && geometry.before !== geometry.top) wrapChanges++;
         try {
           assert.equal(geometry.visibleStatus, 'visible');
           for (const key of ['top', 'left', 'width', 'height'])
@@ -66,9 +64,65 @@ const { start } = require('../../../scripts/_pages_server.js');
           checks++;
         }
       }
-      if (width === 320) {
-        assert.ok(wrapChanges > 0, 'selection must exercise status-wrap changes');
-        checks++;
+      // The first four normal selections above need not wrap differently on
+      // every installed font. This separate test-only constraint makes wrapping
+      // available, then calibrates a real pair from actual catalog announcements.
+      // Never synthesize status text or a card box: selection still owns both.
+      const wrapped = await page.evaluate(async () => {
+        const status = document.querySelector('[role="status"]');
+        const originalStyle = status.getAttribute('style');
+        status.style.maxWidth = '20ch';
+        const cards = [...document.querySelectorAll('.discovery-card')];
+        cards[0].click();
+        const initialHeight = status.getBoundingClientRect().height;
+        const other = cards.slice(1).find((card) => {
+          card.click();
+          return Math.abs(status.getBoundingClientRect().height - initialHeight) > 1;
+        });
+        if (!other) throw Error('No catalog announcement pair exercises wrapping');
+        cards[0].click();
+        other.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+        const before = {
+          height: status.getBoundingClientRect().height,
+          top: other.getBoundingClientRect().top,
+          text: status.textContent,
+        };
+        other.click();
+        const cue = document.querySelector('.discovery-container-motion');
+        cue?.getAnimations()[0]?.updatePlaybackRate(0.1);
+        const start = cue?.getAnimations()[0].effect.getKeyframes()[0];
+        await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+        const result = {
+          before,
+          height: status.getBoundingClientRect().height,
+          top: other.getBoundingClientRect().top,
+          text: status.textContent,
+          startTop: parseFloat(start?.top),
+          alive: !!cue?.isConnected,
+          visible: getComputedStyle(status).visibility,
+          pressed: other.getAttribute('aria-pressed'),
+        };
+        if (originalStyle === null) status.removeAttribute('style');
+        else status.setAttribute('style', originalStyle);
+        await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+        return result;
+      });
+      try {
+        assert.equal(wrapped.visible, 'visible');
+        assert.notEqual(wrapped.before.text, wrapped.text);
+        assert.ok(
+          Math.abs(wrapped.before.height - wrapped.height) > 1,
+          'real announcement height changed'
+        );
+        assert.ok(Math.abs(wrapped.before.top - wrapped.top) > 1, 'real shelf reflow occurred');
+        assert.ok(Math.abs(wrapped.startTop - wrapped.top) < 1, 'cue starts at the reflowed card');
+        assert.equal(wrapped.alive, true);
+        assert.equal(wrapped.pressed, 'true');
+        checks += 7;
+      } catch (error) {
+        failures.push(`wrap ${width}: ${error.message}`);
       }
       for (const position of ['offscreen', 'partial', 'visible']) {
         const result = await page.evaluate(async (where) => {
