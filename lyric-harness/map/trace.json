@@ -1,17 +1,17 @@
 {
- "generated": "2026-11-09T00:57:31.385Z",
+ "generated": "2026-11-22T20:18:45.320Z",
  "profiled": false,
  "worker": "warm",
  "tool_budget_ms": 600000,
  "song_lines": 16,
  "seed": 0,
- "total_ms": 157882,
+ "total_ms": 109014,
  "calls": [
   {
    "n": 1,
    "flow": "create",
    "tool": "lyric_sweep",
-   "ms": 3106,
+   "ms": 3089,
    "exit_code": 0,
    "status": null,
    "meaning": "answered — 4 of the 4 planned seed(s) in this window hold every predicate (0 refused by the planner); accepted_shown lists them",
@@ -23,21 +23,8 @@
   {
    "n": 2,
    "flow": "create",
-   "tool": "lyric_screen",
-   "ms": 16106,
-   "exit_code": 0,
-   "status": null,
-   "meaning": "answered — screened response; whole-draft findings were not measured",
-   "refusal": null,
-   "asked": null,
-   "stop": null,
-   "error": null
-  },
-  {
-   "n": 3,
-   "flow": "create",
    "tool": "lyric_plan",
-   "ms": 1190,
+   "ms": 664,
    "exit_code": 0,
    "status": null,
    "meaning": "answered — planned response; whole-draft findings were not measured",
@@ -47,13 +34,26 @@
    "error": null
   },
   {
+   "n": 3,
+   "flow": "create",
+   "tool": "lyric_screen",
+   "ms": 16294,
+   "exit_code": 0,
+   "status": null,
+   "meaning": "answered — screened response; whole-draft findings were not measured",
+   "refusal": null,
+   "asked": null,
+   "stop": null,
+   "error": null
+  },
+  {
    "n": 4,
    "flow": "create",
    "tool": "lyric_grade",
-   "ms": 13035,
-   "exit_code": 3,
+   "ms": 6690,
+   "exit_code": 2,
    "status": null,
-   "meaning": "answered — at least one FLAG stands; the report names the lines",
+   "meaning": "measured — coverage incomplete; this is an uncertified draft, not a successful song",
    "refusal": null,
    "asked": null,
    "stop": null,
@@ -63,7 +63,7 @@
    "n": 5,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 5747,
+   "ms": 3814,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -71,11 +71,10 @@
    "asked": {
     "kind": "propose_batch",
     "lines": [
-     3,
-     7,
+     2,
+     5,
      11,
-     12,
-     16
+     15
     ],
     "attempt": 0,
     "round": 1
@@ -87,7 +86,7 @@
    "n": 6,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 5398,
+   "ms": 2400,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -95,12 +94,11 @@
    "asked": {
     "kind": "propose_group",
     "members": [
-     2,
-     3,
-     4
+     1,
+     2
     ],
     "attempt": 0,
-    "question_sha256": "4d2ee0cfa095757ece1c450633acbbd180363ce38d12c1baced0f1b2aff3c6bb",
+    "question_sha256": "47b4e0dc584af81251cf0e4cda84b00ee446620e91c6da6b17a64d9a8bc8ef77",
     "round": 1
    },
    "stop": null,
@@ -110,15 +108,19 @@
    "n": 7,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 5875,
+   "ms": 3283,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
    "refusal": null,
    "asked": {
-    "kind": "propose",
-    "line": 4,
+    "kind": "propose_group",
+    "members": [
+     4,
+     5
+    ],
     "attempt": 0,
+    "question_sha256": "98943413e5eaa49183875f56543a1b30bfcdef11c45a02212d8e1f28d121cd68",
     "round": 1
    },
    "stop": null,
@@ -128,7 +130,7 @@
    "n": 8,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 6045,
+   "ms": 3107,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -136,12 +138,11 @@
    "asked": {
     "kind": "propose_group",
     "members": [
-     2,
-     3,
-     4
+     10,
+     11
     ],
     "attempt": 0,
-    "question_sha256": "621ea3ab2ca2c6654d95908cb9d621161baec19e5f1adf9b7b1b57ee537d9310",
+    "question_sha256": "55d91dd8b34e45c52106615b220923f287956f03553070abe2469fa0df913c64",
     "round": 1
    },
    "stop": null,
@@ -151,7 +152,7 @@
    "n": 9,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 5923,
+   "ms": 3139,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -159,12 +160,11 @@
    "asked": {
     "kind": "propose_group",
     "members": [
-     6,
-     7,
-     8
+     12,
+     15
     ],
     "attempt": 0,
-    "question_sha256": "5305f1eaced283edc253a18309219ba8d5dab2045d96d4ff5fe4e138e955860f",
+    "question_sha256": "18a0042d123f868966db66ac5e2958f88580b49ff856ca97274d980de0a007cd",
     "round": 1
    },
    "stop": null,
@@ -174,16 +174,21 @@
    "n": 10,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 5092,
+   "ms": 2801,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
    "refusal": null,
    "asked": {
-    "kind": "propose",
-    "line": 8,
+    "kind": "propose_batch",
+    "lines": [
+     2,
+     5,
+     11,
+     15
+    ],
     "attempt": 0,
-    "round": 1
+    "round": 2
    },
    "stop": null,
    "error": null
@@ -192,7 +197,7 @@
    "n": 11,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 5957,
+   "ms": 2369,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -200,13 +205,12 @@
    "asked": {
     "kind": "propose_group",
     "members": [
-     6,
-     7,
-     8
+     1,
+     2
     ],
     "attempt": 0,
-    "question_sha256": "bef9c287d9f6b29e6add4ac5664ebad557e440793593f3e2465dbebb33933a5e",
-    "round": 1
+    "question_sha256": "ba1dbae57af337a0b4e1cf98c6cb8378fce75a5f4798f697a901d6cec9c38b46",
+    "round": 2
    },
    "stop": null,
    "error": null
@@ -215,7 +219,7 @@
    "n": 12,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 6568,
+   "ms": 2415,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -223,13 +227,12 @@
    "asked": {
     "kind": "propose_group",
     "members": [
-     10,
-     11,
-     14
+     4,
+     5
     ],
     "attempt": 0,
-    "question_sha256": "c53d921dafc24c9290983f4ff8fd4ec6cc46da7da10763029fb0fde49651c024",
-    "round": 1
+    "question_sha256": "b5f6c3dce25236e632f4e76c0f4fb6e2651a8f34c9f27c5d8749d97f9e3f0966",
+    "round": 2
    },
    "stop": null,
    "error": null
@@ -238,7 +241,7 @@
    "n": 13,
    "flow": "create",
    "tool": "lyric_revise",
-   "ms": 5378,
+   "ms": 2355,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -246,13 +249,12 @@
    "asked": {
     "kind": "propose_group",
     "members": [
-     9,
-     12,
-     13
+     10,
+     11
     ],
     "attempt": 0,
-    "question_sha256": "5e65f20bf9bb43631e8982a6de576f517360b1b8569e76623d3931d40ce3ce5f",
-    "round": 1
+    "question_sha256": "4a42d669948d93890ea59c03d0f98a569c3bbc629be96ef4b8692e25054caab6",
+    "round": 2
    },
    "stop": null,
    "error": null
@@ -261,7 +263,7 @@
    "n": 14,
    "flow": "pasted",
    "tool": "lyric_recover",
-   "ms": 3401,
+   "ms": 2735,
    "exit_code": 3,
    "status": null,
    "meaning": "recovered with REFUSALS — each coordinate under `refusals` carries its reason and must be DECLARED by the caller before the graders can ask about it (the meter always: counting gives syllables, not a grid). Hand `lines` with `mandate` to lyric_check and lyric_revise.",
@@ -274,8 +276,8 @@
    "n": 15,
    "flow": "pasted",
    "tool": "lyric_check",
-   "ms": 9923,
-   "exit_code": 0,
+   "ms": 5611,
+   "exit_code": 3,
    "status": null,
    "meaning": "answered — 7 per-line and 0 whole-draft flag(s) stand",
    "refusal": null,
@@ -287,7 +289,7 @@
    "n": 16,
    "flow": "pasted",
    "tool": "lyric_revise",
-   "ms": 4680,
+   "ms": 4332,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -295,11 +297,11 @@
    "asked": {
     "kind": "propose_batch",
     "lines": [
+     2,
      4,
      6,
      8,
      10,
-     12,
      14,
      16
     ],
@@ -313,7 +315,29 @@
    "n": 17,
    "flow": "pasted",
    "tool": "lyric_revise",
-   "ms": 4678,
+   "ms": 4433,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "meaning": null,
+   "refusal": null,
+   "asked": {
+    "kind": "propose_group",
+    "members": [
+     1,
+     2
+    ],
+    "attempt": 0,
+    "question_sha256": "7f7c903244617a3c7fe4acbcb179bb2ea907683f63e3c2df6bc230ebb98364bf",
+    "round": 1
+   },
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 18,
+   "flow": "pasted",
+   "tool": "lyric_revise",
+   "ms": 4372,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -325,17 +349,17 @@
      4
     ],
     "attempt": 0,
-    "question_sha256": "b69a6adb4dde6cd1aa2ddf75527ccd2e85d1d8057d5f526044e05effc4a8ab45",
+    "question_sha256": "145069c5fd24b26e57b2c92ad9ddaa48fe313719a3a693171a6a68bfe8e930cf",
     "round": 1
    },
    "stop": null,
    "error": null
   },
   {
-   "n": 18,
+   "n": 19,
    "flow": "pasted",
    "tool": "lyric_revise",
-   "ms": 4821,
+   "ms": 4557,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -347,17 +371,17 @@
      6
     ],
     "attempt": 0,
-    "question_sha256": "ad1dee82121c2a80d73d0f8860f3f394ed46565ae1029d6feda0f8ada64f26af",
+    "question_sha256": "47954773d36e00adab3083b11637ab0d402c2d14d1d7a283bf5e95f8e9a3415a",
     "round": 1
    },
    "stop": null,
    "error": null
   },
   {
-   "n": 19,
+   "n": 20,
    "flow": "pasted",
    "tool": "lyric_revise",
-   "ms": 5033,
+   "ms": 4404,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -369,17 +393,17 @@
      8
     ],
     "attempt": 0,
-    "question_sha256": "ad4b941f6c37055f2d74cfcb3e4ef6ffca702c358e5a4009d192cafca5da631a",
+    "question_sha256": "474951ad00a7d79ffd21910c50985fdc808e018040609d4b504842c11fb84e0e",
     "round": 1
    },
    "stop": null,
    "error": null
   },
   {
-   "n": 20,
+   "n": 21,
    "flow": "pasted",
    "tool": "lyric_revise",
-   "ms": 5033,
+   "ms": 4586,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -391,29 +415,7 @@
      10
     ],
     "attempt": 0,
-    "question_sha256": "f1dcfb6c8b50de309d46a237886f857f5ba162736a3ae064fb792bbb9e29839f",
-    "round": 1
-   },
-   "stop": null,
-   "error": null
-  },
-  {
-   "n": 21,
-   "flow": "pasted",
-   "tool": "lyric_revise",
-   "ms": 5054,
-   "exit_code": 4,
-   "status": "awaiting_proposal",
-   "meaning": null,
-   "refusal": null,
-   "asked": {
-    "kind": "propose_group",
-    "members": [
-     11,
-     12
-    ],
-    "attempt": 0,
-    "question_sha256": "17aee44066243128ba8467e8757e9a949542ecf680d29f7e4b77d64ef1f1bf44",
+    "question_sha256": "682be21607a69e17b80042247c5421fa6a1d6dca4267009a32406493fed81a61",
     "round": 1
    },
    "stop": null,
@@ -423,7 +425,7 @@
    "n": 22,
    "flow": "pasted",
    "tool": "lyric_revise",
-   "ms": 5613,
+   "ms": 4636,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -435,7 +437,7 @@
      14
     ],
     "attempt": 0,
-    "question_sha256": "098406fe39a17156f5276631d2bccfc7bc0d921325a63d6fefd6ff55a6f7fa9f",
+    "question_sha256": "7fa5274dc295dae48ebac01d3b62c97861b090cc0145a5911858eeeab7ace777",
     "round": 1
    },
    "stop": null,
@@ -445,7 +447,7 @@
    "n": 23,
    "flow": "pasted",
    "tool": "lyric_revise",
-   "ms": 6025,
+   "ms": 4604,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -457,7 +459,7 @@
      16
     ],
     "attempt": 0,
-    "question_sha256": "520d7970f3245d38e85fbfeb3eb4568d95ea1e54010c3a3ab6d64194d2216322",
+    "question_sha256": "aaf9b3ece0cb28582a5bc820806ec63175e62445ebc82156e58e0debef411deb",
     "round": 1
    },
    "stop": null,
@@ -467,7 +469,7 @@
    "n": 24,
    "flow": "pasted",
    "tool": "lyric_revise",
-   "ms": 6309,
+   "ms": 4151,
    "exit_code": 4,
    "status": "awaiting_proposal",
    "meaning": null,
@@ -475,11 +477,11 @@
    "asked": {
     "kind": "propose_batch",
     "lines": [
+     2,
      4,
      6,
      8,
      10,
-     12,
      14,
      16
     ],
@@ -493,7 +495,7 @@
    "n": 25,
    "flow": "pasted",
    "tool": "lyric_verify",
-   "ms": 6836,
+   "ms": 4553,
    "exit_code": 0,
    "status": null,
    "meaning": "REJECTED — read accepted and reasons; exit zero means the comparison answered.",
@@ -506,7 +508,7 @@
    "n": 26,
    "flow": "lookup",
    "tool": "lyric_types",
-   "ms": 5054,
+   "ms": 3616,
    "exit_code": 0,
    "status": null,
    "meaning": "answered — a classification of the pair under the reported lexicon; nothing was graded",

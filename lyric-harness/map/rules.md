@@ -6,7 +6,6 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 
 | code | severity | stops a song | emitted in |
 |---|---|---|---|
-| ANAPHORA_OVERLOAD | flag | severity flag | floor.py |
 | BEAT_OUTSIDE_CYCLE | flag | severity flag | fit.py |
 | CATALOG_FORM_MISMATCH | flag | severity flag | revise.py |
 | CLICHE_PAIR | flag | severity flag | floor.py |
@@ -14,8 +13,6 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | HOMEOTELEUTON | note/flag when writing | WRITING_BAN_CODES | revise.py |
 | HOOK_ABSENT | flag | severity flag | grid.py |
 | HOOK_DOES_NOT_RECUR | flag | severity flag | grid.py |
-| LEXICAL_MONOTONY | flag | severity flag | floor.py |
-| MATTR_WINDOW_UNCALIBRATED | note | LENGTH_GATE_CODES | floor.py |
 | MODAL_RHYME | note/flag when writing | WRITING_BAN_CODES | revise.py |
 | OUT_OF_CALIBRATED_LENGTH | note | LENGTH_GATE_CODES | floor.py |
 | OVERRUNS_SECTION | flag | severity flag | fit.py |
@@ -28,7 +25,6 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | TITLE_NOT_IN_HOOK | flag | severity flag | grid.py |
 | ZERO_DURATION | flag | severity flag | fit.py |
 | ANACRUSIS | note | — | fit.py |
-| ANAPHORA_DECLARED | note | — | floor.py |
 | BRIDGE_IS_A_VERSE | note | — | grid.py |
 | CODA_REPEATS_EARLIER_LINES | note | — | grid.py |
 | COLLISION_CUT_IS_SCALAR_ONLY | note | — | revise.py |
@@ -44,7 +40,6 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | HEADS_EXCEED_UNITS | note | — | fit.py |
 | HOOK_CONFINED | note | — | grid.py |
 | LATE_ENTRY | note | — | fit.py |
-| LEXICAL_REPETITION_DECLARED | note | — | floor.py |
 | MANDATE_EXCUSED_BY_OVERLAP | note | — | revise.py |
 | MANDATE_GROUPS_INDISTINGUISHABLE | note | — | revise.py |
 | MANDATE_NOT_INDEPENDENT | note | — | revise.py |
