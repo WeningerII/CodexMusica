@@ -3354,3 +3354,80 @@ test(
     );
   }
 );
+
+test('an automatic catalog sweep that every setting refuses names the planner reason', async () => {
+  // With no form named, the sweep tries each catalog setting in turn. When
+  // all of them refuse, the planner's own reason reaches the caller, grouped
+  // once over the settings that share it, instead of one generic sentence.
+  const { buildServer } = await import('./tools.js');
+  const server = buildServer({ task: { domain: 'lyrics' } });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'sweep-reasons', version: '1' }, { capabilities: {} });
+  await server.connect(a);
+  await client.connect(b);
+  try {
+    const result = await client.callTool({
+      name: 'lyric_sweep',
+      arguments: { seed_from: 1, count: 2, functions: 'nosuchfn' },
+    });
+    const v = verdictOf(result);
+    assert.equal(v.exit_code, 2, JSON.stringify(result.content));
+    assert.match(v.refusal, /refused for one reason: .*no such section function/);
+    // The detail lines sit under the headline, four spaces in.
+    const lines = v.report
+      .split('\n')
+      .filter((l) => l.startsWith('    ') && /no such section function/.test(l));
+    assert.equal(lines.length, 1, v.report);
+    assert.match(lines[0], /^ {4}request — /);
+    // The connector reads the same reason as a field: one entry, naming
+    // settings by form and variant, with no setting planned.
+    assert.equal(v.planner_refusals.length, 1, JSON.stringify(v.planner_refusals));
+    assert.equal(v.planner_refusals[0].scope, 'request');
+    assert.match(v.planner_refusals[0].reason, /no such section function/);
+    assert.ok(v.planner_refusals[0].names.every((s) => /^[a-z0-9-]+:\d+$/.test(s)));
+    assert.equal(v.catalog_sweep.planned_settings, 0);
+    // Every setting tried gave this one reason, counted per setting.
+    assert.equal(v.planner_refusals[0].setting_count, v.catalog_sweep.settings);
+    assert.match(v.meaning, /turned down before any seed was planned/);
+  } finally {
+    await client.close();
+    await server.close();
+  }
+});
+
+test('an automatic catalog sweep whose settings plan but meet no want says so', async () => {
+  // Some settings plan two-line songs that fail the want; the rest are
+  // refused. The headline and meaning name the planned settings, and the
+  // reasons come widest first with counts that reconcile.
+  const { buildServer } = await import('./tools.js');
+  const server = buildServer({ task: { domain: 'lyrics' } });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'sweep-unmet', version: '1' }, { capabilities: {} });
+  await server.connect(a);
+  await client.connect(b);
+  try {
+    const result = await client.callTool({
+      name: 'lyric_sweep',
+      arguments: { seed_from: 1, count: 3, lines: 2, want: ['lines>=140'] },
+    });
+    const v = verdictOf(result);
+    assert.equal(v.exit_code, 2, JSON.stringify(result.content));
+    const { settings, planned_settings: planned } = v.catalog_sweep;
+    assert.ok(planned > 0 && planned <= settings, JSON.stringify(v.catalog_sweep));
+    const said = `${planned} of the ${settings} settings tried planned seeds`;
+    assert.ok(v.refusal.includes(said), v.refusal);
+    assert.ok(v.meaning.includes(said), v.meaning);
+    assert.match(v.meaning, /lists only what the planner turned down/);
+    assert.match(v.report, new RegExp(`planned, but no seed met every want — ${planned} setting`));
+    const reasons = v.planner_refusals;
+    assert.ok(reasons.length > 1, JSON.stringify(reasons));
+    for (const [i, g] of reasons.entries()) {
+      assert.ok(g.setting_count >= 1 && g.setting_count <= settings);
+      assert.ok(g.names.length + g.more_names <= g.setting_count);
+      if (i) assert.ok(reasons[i - 1].setting_count >= g.setting_count, 'widest reason first');
+    }
+  } finally {
+    await client.close();
+    await server.close();
+  }
+});

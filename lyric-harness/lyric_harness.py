@@ -13139,22 +13139,105 @@ def main():
                             candidates = json.load(source)
                     except (OSError, ValueError):
                         _refuse("The automatic catalog settings could not be loaded.")
+                    # WHY EACH CANDIDATE FAILED IS KEPT. A candidate the planner
+                    # turned down, or one that planned but met no want, used to
+                    # vanish into one generic sentence, so a caller could not
+                    # tell a request fault from a narrow window.
+                    tried = []
                     for candidate in candidates:
                         candidate_kw = {**plan_kw, "form": None, "song_form": candidate}
                         res = PLN.sweep((lo,), wants=wants, **candidate_kw)
-                        if not res["planned"] and all(
-                                item["scope"] == "request" for item in res["refusals"]):
-                            continue
-                        if hi > lo + 1:
+                        # A setting the planner refuses as a REQUEST on the first
+                        # seed refuses on every seed, so the window is not swept.
+                        request_only = not res["planned"] and all(
+                            item["scope"] == "request" for item in res["refusals"])
+                        if not request_only and hi > lo + 1:
                             res = PLN.sweep(range(lo, hi), wants=wants, **candidate_kw)
                         if res["accepted"]:
                             catalog_form = candidate
                             form_label = candidate["id"]
                             break
+                        # Named by form and variant. That NAME is shared by
+                        # several settings (a form's settings can differ only
+                        # in their counts), so the record counts settings and
+                        # lists names separately.
+                        tried.append((f"{candidate.get('id', '?')}:{candidate.get('variant', 0)}",
+                                      res))
                     else:
-                        _refuse("No executable catalog setting matched the declared constraints "
-                                "in this seed window.",
-                                machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
+                        # ONE ENTRY PER DISTINCT REASON. The catalog holds about
+                        # a thousand settings and they mostly fail for the same
+                        # reason, so a record per setting would repeat one
+                        # reason a thousand times. Each entry counts the
+                        # settings that gave it (`setting_count`) and lists
+                        # their names, sorted (`names`, `more_names`). The entries keep the shape of a
+                        # named sweep's `planner_refusals`, which the connector
+                        # already reads.
+                        grouped, planned_names, planned_count = {}, set(), 0
+                        for cid, cres in tried:
+                            if cres["planned"]:
+                                planned_count += 1
+                                planned_names.add(cid)
+                            for key in dict.fromkeys((g["scope"], g["reason"])
+                                                     for g in cres["refusals"]):
+                                g = next(g for g in cres["refusals"]
+                                         if (g["scope"], g["reason"]) == key)
+                                entry = grouped.setdefault(key, {
+                                    "scope": g["scope"], "reason": g["reason"],
+                                    **({"text": g["text"]} if g.get("text")
+                                       and g["text"] != g["reason"] else {}),
+                                    "setting_count": 0, "names": set()})
+                                entry["setting_count"] += 1
+                                entry["names"].add(cid)
+                        # The candidate list is shuffled on every call. Sorting
+                        # the widest reason first (request scope first on a
+                        # tie) keeps the output the same for the same request,
+                        # and keeps a reason most settings share from being cut.
+                        ordered = sorted(grouped.values(), key=lambda g: (
+                            -g["setting_count"], g["scope"] != "request", g["reason"]))
+                        planned_sorted = sorted(planned_names)
+
+                        def _named(ids, count):
+                            shown = ", ".join(ids[:6]) + (
+                                f" and {len(ids) - 6} more name(s)" if len(ids) > 6 else "")
+                            return f"{count} setting(s): {shown}"
+                        lines_out = []
+                        if planned_count:
+                            lines_out.append("planned, but no seed met every want — "
+                                             + _named(planned_sorted, planned_count))
+                        for g in ordered[:8]:
+                            lines_out.append(f"{g['scope']} — {g['reason']} "
+                                             f"({_named(sorted(g['names']), g['setting_count'])})")
+                        if len(ordered) > 8:
+                            lines_out.append(f"… and {len(ordered) - 8} more reason(s)")
+                        headline = ("No executable catalog setting matched the declared "
+                                    "constraints in this seed window.")
+                        if planned_count:
+                            headline += (f" {planned_count} of the {len(tried)} settings tried "
+                                         f"planned seeds, and none of those seeds met every want.")
+                        elif len(ordered) == 1:
+                            headline += (f" Every setting was refused for one reason: "
+                                         f"{ordered[0]['reason']}")
+                        reasons = []
+                        for g in ordered[:24]:
+                            names = sorted(g["names"])
+                            reasons.append({**{k: v for k, v in g.items() if k != "names"},
+                                            "names": names[:12],
+                                            "more_names": max(0, len(names) - 12)})
+                        _refuse(headline,
+                                detail=lines_out,
+                                machine={"sweep": {
+                                    "version": 1, "outcome": "arguments refused",
+                                    # The 24 widest distinct reasons; a seed-scope
+                                    # reason is often distinct per seed.
+                                    "planner_refusals": reasons,
+                                    "more_reasons": max(0, len(ordered) - 24),
+                                    # `settings` and `planned_settings` count
+                                    # settings; `planned_names` names them.
+                                    "catalog": {"settings": len(tried),
+                                                "planned_settings": planned_count,
+                                                "planned_names": planned_sorted[:12],
+                                                "more_planned_names": max(
+                                                    0, len(planned_sorted) - 12)}}})
             except PLN.PlanRefused as e:
                 _refuse(str(e), machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
