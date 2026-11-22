@@ -1,0 +1,4 @@
+CACHE  ../repin/cache_10.tsv
+       fingerprint a71c44af617d | new (no file yet) | hits 0, misses 0
+POPULATION  84 files, 84 distinct authors, 916 items, 27173 sung lines
+COMPUTE  shard 10/16: 84 files, 916 rows -> ../repin/rows_10.tsv; cache hits 0 misses 916; 2131 CPU-s, 2149 wall-s
