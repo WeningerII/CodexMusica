@@ -1398,6 +1398,69 @@ def _span_indices(n, origin, span):
     return list(range(origin, max(-1, origin + k), -1))
 
 
+def _join_channel(x, y):
+    """Concatenate two consonant channels, keeping a `Readings` set a set.
+
+    None on either side stays None (undecided, `_cmp`); a frozenset of
+    readings on either side yields the frozenset of every concatenation, so
+    a word with several readings is still judged on all of them."""
+    if x is None or y is None:
+        return None
+    xs = x if isinstance(x, frozenset) else (x,)
+    ys = y if isinstance(y, frozenset) else (y,)
+    out = {tuple(p) + tuple(q) for p in xs for q in ys}
+    if len(out) == 1 and not isinstance(x, frozenset) \
+            and not isinstance(y, frozenset):
+        return next(iter(out))
+    return frozenset(out)
+
+
+#: The anchor rules whose syllable is a STRESSED syllable compared on its
+#: rime: the English perfect / apocopated pair. Only these, and only when
+#: both members carry the SAME rule-fixed anchor, are closed by the next
+#: onset (`_closing_codas`). A searched or mixed-rule relation -- Welsh
+#: cynghanedd lusg, the Old Norse hendingar -- is read through its own
+#: phonology's syllable conventions and its corpus rates are pinned
+#: (test_taxonomy: lusg 85/85 on the Alun corpus); a word-initial or fixed-
+#: index anchor compares onsets and syllable shape (Kalevala's closed first
+#: syllable), where borrowing the next onset would close every syllable.
+_CLOSED_BY_NEXT_ONSET = frozenset({"last-prominent", "penultimate-prominent"})
+
+
+def _closes_by_next_onset(anchor_a, anchor_b):
+    return (anchor_a == anchor_b and anchor_a.determinacy == "rule-fixed"
+            and anchor_a.rule in _CLOSED_BY_NEXT_ONSET)
+
+
+def _closing_codas(sylls, owner, compared, close=True):
+    """-> {syllable index: the consonants that CLOSE it} for `compared`.
+
+    A COMPARED SYLLABLE THAT STOPS SHORT OF ITS WORD'S END IS CLOSED BY THE
+    NEXT SYLLABLE'S ONSET (bug-hunt finding 16, 2026-11-21). Syllabification
+    gives a medial consonant to the FOLLOWING syllable (bet-ter is BEH.TER),
+    so a one-syllable span anchored on a non-final stressed syllable compared
+    an empty coda with an empty coda, and better/never, running/coming passed
+    `perfect rhyme (last stressed syllable)` on the vowel alone -- assonance
+    under a perfect-rhyme name. The consonant after the vowel is what a rhyme
+    is heard on, wherever the syllable line falls, so when the syllable after
+    a compared one is NOT itself compared and belongs to the same token, its
+    onset joins the coda for the comparison. A span that runs to the word's
+    end, or a syllable whose successor is compared in its own right, is
+    unchanged; so is every word-final syllable. `close` is False for every
+    relation outside `_CLOSED_BY_NEXT_ONSET`, which then compares the
+    phonology's own codas exactly as before."""
+    have = set(compared)
+    out = {}
+    for i in compared:
+        c = sylls[i].coda
+        k = i + 1
+        if close and k < len(sylls) and k not in have and (
+                owner is None or owner[k] == owner[i]):
+            c = _join_channel(c, sylls[k].onset)
+        out[i] = c
+    return out
+
+
 def _anchor(sylls):
     """Index of the last STRESSED syllable — the English anchor rule.
 
@@ -1630,10 +1693,13 @@ def classify_pair(a, b, phon, span=None, position=None, boundary="simple",
         m = min(len(xa), len(xb))
         if m == 0:
             continue
+        close = _closes_by_next_onset(anchor_a, anchor_b)
+        ca = _closing_codas(sa, oa, xa[:m], close)
+        cb = _closing_codas(sb, ob, xb[:m], close)
         agr = tuple(
             (_cmp(sa[i].onset, sb[j].onset),
              _cmp(sa[i].nucleus, sb[j].nucleus),
-             _cmp(sa[i].coda, sb[j].coda))
+             _cmp(ca[i], cb[j]))
             for i, j in zip(xa[:m], xb[:m]))
         sc = _score(agr, select)
         every.append(agr)
