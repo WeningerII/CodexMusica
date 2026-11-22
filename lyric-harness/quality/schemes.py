@@ -2504,11 +2504,20 @@ class Mandate:
         for r in self.returns:
             rows.append(f"  RETURN {r.describe()}")
         if self.returns:
+            # REWORDED 2026-11-21 (the self-rhyme ruling's leftover, found by
+            # Boris): ~~"doctrine 3, per PAIR: REPEAT is the REQUIREMENT at
+            # the N pair(s) above and a VIOLATION at the M rhyme pair(s); the
+            # mandate no longer needs one song-wide licence to mean both."~~
+            # Since 2026-11-20 a repeated word is not a violation at a rhyme
+            # pair, and the writer reads this row in the revise loop's group
+            # question, so it is in the writer's words, not ours. The old
+            # bytes are restored for replay by `_legacy_return_row` in
+            # `lyric_harness.LEGACY_QUESTION_RENDERINGS`.
             rows.append(
-                f"  doctrine 3, per PAIR: REPEAT is the REQUIREMENT at the "
-                f"{len(self.return_pairs())} pair(s) above and a VIOLATION at "
-                f"the {len(self.pairs())} rhyme pair(s); the mandate no longer "
-                f"needs one song-wide licence to mean both.")
+                f"  the {len(self.return_pairs())} pair(s) above are declared "
+                f"returns of the same line; at the {len(self.pairs())} rhyme "
+                f"pair(s) a repeated word is allowed and is judged under its "
+                f"group's rhyme like any other word.")
             exp = self.expanded_groups()
             rows.append(
                 f"  rhyme groups after the returns are transported "
