@@ -9343,7 +9343,61 @@ def test_a_return_copy_is_bound_as_its_first_line():
           f"{ctl_bad[:2]}; moves {move_bad[:2]}")
 
 
+def test_the_writing_bans_stop_only_groups_that_can_differ():
+    """Bug hunt F6 (2026-11-22): the brief listed the two writing bans
+    (same spelled ending; the most predictable partner) as rules that can
+    stop the song on every plan with groups, also where every group's rule
+    makes its two lines the same word. The grader never asks either ban of
+    a pair that repeats its word (`Reviser.earned_pair_ban` passes it), so
+    on such a plan neither row can stop anything, and the brief read as if
+    the repeat it demands were banned.
+
+    Every plan is drawn by seed: each type whose rule makes its pair the
+    same word, at drawn seeds (the ones the planner cannot plan in English
+    are skipped and counted), and the default draw at the same seeds for
+    the control.
+    """
+    print("\nF6. the writing bans are stop rows only where a group's rule "
+          "lets its two words differ")
+    rng = random.Random(2026112201)
+    bans = {"HOMEOTELEUTON", "MODAL_RHYME"}
+    same = sorted(n for n, sc in RL.REGISTRY.items() if RL.identity_forced(sc))
+    rows = lambda pl: {c for c, _k, _t in PLN.stop_rules_for(pl)}
+    shown, missing, mixed_missing, refused, planned = [], [], [], [], 0
+    for _ in range(10):
+        seed = rng.randint(1, 100000)
+        name = rng.choice(same)
+        try:
+            p = PLN.make_plan(seed, relation="schema:" + name)
+        except PLN.PlanRefused:
+            refused.append(name)
+            continue
+        planned += 1
+        if rows(p) & bans:
+            shown.append((seed, name, sorted(rows(p) & bans)))
+        d = PLN.make_plan(seed)
+        other = sorted({v for v in (d.get("relations") or {}).values()
+                        if not RL.identity_forced(PLN._schema_of(v)[1])})
+        if str(d.get("groups") or "").strip() and other \
+                and not bans <= rows(d):
+            missing.append((seed, sorted(rows(d) & bans)))
+        n = len([g for g in str(p["groups"]).split(";") if g.strip()])
+        rel = dict(p.get("relations") or {})
+        rel[SC.label((rng.randrange(n),))] = rng.choice(other)
+        if not bans <= rows(dict(p, relations=rel)):
+            mixed_missing.append((seed, name))
+    check("a plan whose every group repeats its word lists neither writing "
+          "ban as a stop rule; the default plan at the same seed lists "
+          "both, and so does the same-word plan once one drawn group takes "
+          "a type that lets its words differ",
+          planned >= 6 and not shown and not missing and not mixed_missing,
+          f"{planned} planned, refused {sorted(set(refused))}; listed "
+          f"{shown[:2]}; default without {missing[:2]}; mixed without "
+          f"{mixed_missing[:2]}")
+
+
 _SECTIONS = (
+    test_the_writing_bans_stop_only_groups_that_can_differ,
     test_a_late_start_is_named_as_the_grader_names_it,
     test_a_return_copy_is_bound_as_its_first_line,
     test_satisfied_wants_remain_in_the_request,

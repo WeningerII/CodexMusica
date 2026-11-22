@@ -6915,9 +6915,12 @@ STOP_RULES = {
                             "the hook line"},
     "TITLE_NOT_IN_HOOK": {"applies": "hook_slot_and_title", "stop": "grid",
                           "limit": "title_in_hook"},
-    "HOMEOTELEUTON": {"applies": "groups", "stop": "flag",
+    # ~~"applies": "groups"~~ (bug hunt F6, 2026-11-22): the grader asks
+    # neither writing ban of a pair that repeats its word, so a plan whose
+    # every group must repeat its word cannot be stopped by either.
+    "HOMEOTELEUTON": {"applies": "ban_groups", "stop": "flag",
                       "limit": "same_spelled_ending"},
-    "MODAL_RHYME": {"applies": "groups", "stop": "flag",
+    "MODAL_RHYME": {"applies": "ban_groups", "stop": "flag",
                     "limit": "common_partner"},
     # NOT A FLAG AND NOT IN THE CENSUS'S GATED SET: the note the grader
     # files on each line of a pair it could not judge (`Reviser.inspect`,
@@ -7023,6 +7026,21 @@ def _floor_pairs(plan):
     return sorted(out)
 
 
+def _ban_groups(plan):
+    """-> True when some group's rule lets its two lines end on different
+    words. The writing bans judge only those pairs: `Reviser.earned_pair_ban`
+    passes a pair that repeats its word, and a group whose rule makes its
+    pair the same word (`relations.identity_forced`) repeats it whenever it
+    is met (bug hunt F6)."""
+    groups = [g for g in str(plan.get("groups") or "").split(";") if g.strip()]
+    rels = plan.get("relations") or {}
+    for gi in range(len(groups)):
+        _nm, sch = _schema_of(rels.get(SC.label((gi,)), plan.get("relation")))
+        if sch is None or not _RL.identity_forced(sch):
+            return True
+    return False
+
+
 def _verbatim_classes(plan):
     """-> True when the plan has verbatim returns: the lines the floor
     drops as copies before it judges vocabulary (`revise._floor_for`)."""
@@ -7044,6 +7062,7 @@ _STOP_APPLIES = {
     "always": lambda plan: True,
     "never": lambda plan: False,
     "groups": lambda plan: bool(str(plan.get("groups") or "").strip()),
+    "ban_groups": _ban_groups,
     "returns": lambda plan: bool(plan.get("returns")),
     "hook_slot_and_title": lambda plan: bool(plan.get("hook_slot")
                                              and plan.get("title")),
