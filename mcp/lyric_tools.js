@@ -2046,9 +2046,17 @@ function sweepVerdict(v, r, { from, n, declared = {} }) {
   // arguments too, but some of its settings may have planned seeds that met
   // no want. Its meaning says so rather than claim nothing planned.
   const catalog = sweep?.catalog;
-  if (catalog && Number.isInteger(catalog.settings)) v.catalog_sweep = catalog;
+  if (catalog && Number.isInteger(catalog.settings)) {
+    v.catalog_sweep = catalog;
+    // The reasons are cut to 12 here and to 24 in the record; say how many
+    // more there were, so a caller can tell the list is not whole.
+    const all = Array.isArray(sweep.planner_refusals) ? sweep.planner_refusals.length : 0;
+    const more =
+      Math.max(0, all - 12) + (Number.isInteger(sweep.more_reasons) ? sweep.more_reasons : 0);
+    if (more) v.more_planner_refusals = more;
+  }
   if (sweep?.outcome === 'arguments refused' && catalog?.planned_settings > 0)
-    v.meaning = `REFUSED — no setting in the automatic catalog draw was kept in this window: ${catalog.planned_settings} of the ${catalog.settings} settings tried planned seeds, and none of those seeds met every want; \`refusal\` and \`planner_refusals\` say why`;
+    v.meaning = `REFUSED — no setting in the automatic catalog draw was kept in this window: ${catalog.planned_settings} of the ${catalog.settings} settings tried planned seeds, and none of those seeds met every want. \`planner_refusals\` lists only what the planner turned down, the widest reason first`;
   else if (sweep?.outcome === 'arguments refused')
     v.meaning =
       'REFUSED — the arguments were turned down before any seed was planned; `refusal` names why';

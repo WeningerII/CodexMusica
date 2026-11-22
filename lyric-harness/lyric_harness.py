@@ -12995,63 +12995,86 @@ def main():
                             catalog_form = candidate
                             form_label = candidate["id"]
                             break
-                        # A form's settings are told apart by its variant.
+                        # Named by form and variant. That NAME is shared by
+                        # several settings (a form's settings can differ only
+                        # in their counts), so the record counts settings and
+                        # lists names separately.
                         tried.append((f"{candidate.get('id', '?')}:{candidate.get('variant', 0)}",
                                       res))
                     else:
-                        # ONE ENTRY PER DISTINCT REASON, naming the settings that
-                        # share it. The catalog holds about a thousand settings
-                        # and they mostly fail for the same reason, so a record
-                        # per setting would repeat one reason a thousand times.
-                        # The entries keep the shape of a named sweep's
-                        # `planner_refusals`, which the connector already reads.
-                        grouped, unmet = {}, []
+                        # ONE ENTRY PER DISTINCT REASON. The catalog holds about
+                        # a thousand settings and they mostly fail for the same
+                        # reason, so a record per setting would repeat one
+                        # reason a thousand times. Each entry counts the
+                        # settings that gave it (`setting_count`) and lists
+                        # their names, sorted. The entries keep the shape of a
+                        # named sweep's `planner_refusals`, which the connector
+                        # already reads.
+                        grouped, planned_names, planned_count = {}, set(), 0
                         for cid, cres in tried:
-                            if cres["planned"] and cid not in unmet:
-                                unmet.append(cid)
-                            for g in cres["refusals"]:
-                                entry = grouped.setdefault((g["scope"], g["reason"]), {
+                            if cres["planned"]:
+                                planned_count += 1
+                                planned_names.add(cid)
+                            for key in dict.fromkeys((g["scope"], g["reason"])
+                                                     for g in cres["refusals"]):
+                                g = next(g for g in cres["refusals"]
+                                         if (g["scope"], g["reason"]) == key)
+                                entry = grouped.setdefault(key, {
                                     "scope": g["scope"], "reason": g["reason"],
                                     **({"text": g["text"]} if g.get("text")
                                        and g["text"] != g["reason"] else {}),
-                                    "settings": []})
-                                if cid not in entry["settings"]:
-                                    entry["settings"].append(cid)
+                                    "setting_count": 0, "names": set()})
+                                entry["setting_count"] += 1
+                                entry["names"].add(cid)
+                        # The candidate list is shuffled on every call. Sorting
+                        # the widest reason first (request scope first on a
+                        # tie) keeps the output the same for the same request,
+                        # and keeps a reason most settings share from being cut.
+                        ordered = sorted(grouped.values(), key=lambda g: (
+                            -g["setting_count"], g["scope"] != "request", g["reason"]))
+                        planned_sorted = sorted(planned_names)
 
-                        def _named(ids):
-                            return ", ".join(ids[:6]) + (
-                                f" and {len(ids) - 6} more" if len(ids) > 6 else "")
+                        def _named(ids, count):
+                            shown = ", ".join(ids[:6]) + (
+                                f" and {len(ids) - 6} more name(s)" if len(ids) > 6 else "")
+                            return f"{count} setting(s): {shown}"
                         lines_out = []
-                        if unmet:
-                            lines_out.append(f"planned, but no seed met every want: {_named(unmet)}")
-                        for g in list(grouped.values())[:8]:
-                            lines_out.append(f"{g['scope']} — {g['reason']} ({_named(g['settings'])})")
-                        if len(grouped) > 8:
-                            lines_out.append(f"… and {len(grouped) - 8} more reason(s)")
+                        if planned_count:
+                            lines_out.append("planned, but no seed met every want — "
+                                             + _named(planned_sorted, planned_count))
+                        for g in ordered[:8]:
+                            lines_out.append(f"{g['scope']} — {g['reason']} "
+                                             f"({_named(sorted(g['names']), g['setting_count'])})")
+                        if len(ordered) > 8:
+                            lines_out.append(f"… and {len(ordered) - 8} more reason(s)")
                         headline = ("No executable catalog setting matched the declared "
                                     "constraints in this seed window.")
-                        if len(grouped) == 1 and not unmet:
-                            only, = grouped.values()
-                            headline += f" Every setting was refused for one reason: {only['reason']}"
-                        reasons = [{**{k: v for k, v in g.items() if k != "settings"},
-                                    "settings": g["settings"][:12],
-                                    "more_settings": max(0, len(g["settings"]) - 12)}
-                                   for g in list(grouped.values())[:24]]
+                        if planned_count:
+                            headline += (f" {planned_count} of the {len(tried)} settings tried "
+                                         f"planned seeds, and none of those seeds met every want.")
+                        elif len(ordered) == 1:
+                            headline += (f" Every setting was refused for one reason: "
+                                         f"{ordered[0]['reason']}")
+                        reasons = []
+                        for g in ordered[:24]:
+                            names = sorted(g["names"])
+                            reasons.append({**{k: v for k, v in g.items() if k != "names"},
+                                            "settings": names[:12],
+                                            "more_settings": max(0, len(names) - 12)})
                         _refuse(headline,
                                 detail=lines_out,
                                 machine={"sweep": {
                                     "version": 1, "outcome": "arguments refused",
-                                    # The first 24 distinct reasons; a seed-scope
+                                    # The 24 widest distinct reasons; a seed-scope
                                     # reason is often distinct per seed.
                                     "planner_refusals": reasons,
-                                    "more_reasons": max(0, len(grouped) - 24),
-                                    # Counted per setting tried; `planned`
-                                    # names them by form and variant.
+                                    "more_reasons": max(0, len(ordered) - 24),
+                                    # `settings` and `planned_settings` count
+                                    # settings; `planned` lists their names.
                                     "catalog": {"settings": len(tried),
-                                                "planned_settings": sum(
-                                                    1 for _, r in tried if r["planned"]),
-                                                "planned": unmet[:12],
-                                                "more_planned": max(0, len(unmet) - 12)}}})
+                                                "planned_settings": planned_count,
+                                                "planned": planned_sorted[:12],
+                                                "more_planned": max(0, len(planned_sorted) - 12)}}})
             except PLN.PlanRefused as e:
                 _refuse(str(e), machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
