@@ -179,7 +179,7 @@ export function lyricContextText(context) {
     for (const n of context.notes || []) parts.push(`Section note — ${n.section}: ${n.note}`);
   }
   parts.push(
-    'THE COMMITTED DOCUMENT — exactly as the page holds it: section headers carry declared size, bars, meter and pickup; [SETUP — …] rows are page declarations, not sung lines; a draft sent to a lyric tool drops every bracket-only row.',
+    'THE COMMITTED DOCUMENT — exactly as the page holds it: section headers carry declared size, bars, meter and start beat; [SETUP — …] rows are page declarations, not sung lines; a draft sent to a lyric tool drops every bracket-only row.',
     '<<<DOCUMENT',
     context.document,
     'DOCUMENT>>>'

@@ -123,7 +123,7 @@
         "systemInstruction"
       ],
       "contexts": [
-        "lines/bars/meter/pickup). The second block is the verdict. Its `next` names the next call: lyric_grade on the",
+        "lines/bars/meter/start beat). The second block is the verdict. Its `next` names the next call: lyric_grade on the",
         "not defects. At exit 0 or 3 the verdict's `next` names the next call, lyric_revise on this",
         "has started. `next_call` is not the whole call: `next` says what to send with it, which is this",
         "revise would be refused (BRIEF_REQUIRED): `next` names the lines to put back instead, and",

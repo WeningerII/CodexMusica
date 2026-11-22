@@ -59,7 +59,9 @@ class SessionRepairs(unittest.TestCase):
     def test_mixed_pickups_are_not_mislabelled_as_uniform(self):
         from quality.plan import section_header
         header = section_header(self.blueprint()["sections"][0], [{"beat": 1}, {"beat": 2}])
-        self.assertIn("mixed line pickups", header)
+        # REPINNED 2026-11-21 from ~~"mixed line pickups"~~: a late start is
+        # named by its beat, not called a pickup (bug hunt F4).
+        self.assertIn("lines start on different beats", header)
 
     def test_meter_uses_declared_fallback_without_claiming_unknown_as_known(self):
         lines = ["Moonshot lights the house", "Blundin builds the next machine"]

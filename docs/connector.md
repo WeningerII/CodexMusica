@@ -77,7 +77,7 @@ Beside the recipes — and never touching them — the `lyric_*` family plans an
 | Tool | What it does |
 |---|---|
 | `lyric_screen` | Screen 2–12 words you mean to pair: every pair judged by the song grader itself — each relation it stands in, none, or the grader's own refusal. Use BEFORE writing. |
-| `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/pickup, each group's relation and placement, verbatim returns, hook slot, and a writer brief. Writes no words. |
+| `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/start beat, each group's relation and placement, verbatim returns, hook slot, and a writer brief. Writes no words. |
 | `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed, fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
 | `lyric_revise` | The finishing step: drives the revise loop over a graded draft (same seed and declarations, or a pasted song's mandate) and asks you one question per call — you write every answer — until a stop condition; only its `[FINISHED …]` song is finished. |
 | `lyric_recover` | The first step for pasted lyrics: counts sung lines and syllables, reads sections, and recovers the rhyme groups and returns the text actually carries, as the `mandate` to pass to `lyric_check` and `lyric_revise`; names the coordinates you must declare (always the meter). |

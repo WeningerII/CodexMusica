@@ -1535,6 +1535,62 @@ def _returns_with_same_words_is_not_charged_to_a_cut_verse():
           f"{[r.kind for _, _, r in rets2]}")
 
 
+def test_a_dash_typed_as_hyphens_does_not_change_a_return():
+    """Bug hunt F22 (2026-11-20): a declared verbatim return failed
+    (RETURN_NOT_VERBATIM, "change either one") when one copy ended with an
+    ASCII " --" and the other did not. The em dash and the ellipsis were
+    already dropped by the normalisation, but a hyphen survived even where it
+    joins no word, so " --" became a token of its own.
+
+    Every line is drawn by seed from the whole dictionary, and each dash is
+    placed by seed: trailing, leading, glued to a word's edge, or between two
+    words. A hyphen INSIDE a word (two drawn words joined) still counts, and
+    a changed word still breaks the return."""
+    print("\nF22. a dash typed as hyphens is punctuation, not a word")
+    import random
+    from quality.grid import compare_returns, normalise_line
+    import lyric_harness as LH
+    ents = LH.Lexicon().entries
+    words = sorted(w for w in ents if w.isalpha() and w.islower() and len(w) > 2)
+    rng = random.Random(20261121)
+    bad = []
+    for _ in range(60):
+        line = [rng.choice(words) for _ in range(rng.randint(3, 7))]
+        dash = rng.choice(("-", "--", "---"))
+        where = rng.choice(("end", "start", "glued_end", "glued_start",
+                            "between"))
+        copy = list(line)
+        if where == "end":
+            copy[-1] = copy[-1] + " " + dash
+        elif where == "start":
+            copy[0] = dash + " " + copy[0]
+        elif where == "glued_end":
+            copy[-1] = copy[-1] + dash
+        elif where == "glued_start":
+            copy[0] = dash + copy[0]
+        else:
+            k = rng.randint(1, len(copy) - 1)
+            copy[k] = dash + " " + copy[k]
+        a, b = " ".join(line).capitalize(), " ".join(copy).capitalize()
+        if (normalise_line(a) != normalise_line(b)
+                or compare_returns([a], [b]).kind != "VERBATIM"):
+            bad.append((where, a, b, compare_returns([a], [b]).kind))
+        # The controls: a word joined by a hyphen, and a changed word.
+        k = rng.randint(0, len(line) - 2)
+        joined = line[:k] + [line[k] + "-" + line[k + 1]] + line[k + 2:]
+        if compare_returns([a], [" ".join(joined)]).kind == "VERBATIM":
+            bad.append(("joined", a, " ".join(joined)))
+        other = list(line)
+        other[-1] = rng.choice([w for w in words if w != line[-1]])
+        if compare_returns([a], [" ".join(other) + " " + dash]).kind == \
+                "VERBATIM":
+            bad.append(("changed", a, " ".join(other)))
+    check("a dash typed as hyphens, at a line's edge, at a word's edge or "
+          "between words, leaves a verbatim return VERBATIM; a hyphen inside "
+          "a word and a changed word still count (bug hunt F22)",
+          not bad, f"wrong: {bad[:3]}")
+
+
 def test_every_variation_kind_is_reportable():
     """A kind that can never be REPORTED is a check that cannot fail.
 
@@ -4140,6 +4196,7 @@ if __name__ == "__main__":
                test_a_row_gets_the_return_notes_its_value_names,
                test_a_draft_that_follows_the_plan_gets_no_same_words_note,
                test_a_return_that_loses_or_gains_a_line_is_not_verbatim,
+               test_a_dash_typed_as_hyphens_does_not_change_a_return,
                test_every_variation_kind_is_reportable,
                test_read_marked_songs_drops_apparatus_by_the_one_rule,
                test_a_reprise_is_a_relation_between_two_DIFFERENT_functions,

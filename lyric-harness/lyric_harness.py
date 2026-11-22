@@ -15671,7 +15671,16 @@ def main():
                 else:
                     for ln in ls:
                         decisions.append(f"{code} — L{ln}")
+            from quality.fit import TIMING_ONLY as _timing_only
             for f in whole_flags:
+                if getattr(f, "code", None) in _timing_only:
+                    # Bug hunt F8: its lines are named, and it is the
+                    # TIMING that must change there, not their words.
+                    decisions.append(
+                        f"{f.code} — THE TIMING of "
+                        f"{line_range(sorted(f.locations))} (no change "
+                        f"to the words clears it; see below)")
+                    continue
                 decisions.append(f"{getattr(f, 'code', '?')} — WHOLE DRAFT "
                                  f"(names no line; see below)")
             print(f"\n  WHAT TO CHANGE — {len(decisions)} decision(s). "

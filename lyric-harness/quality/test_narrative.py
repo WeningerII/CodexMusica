@@ -459,7 +459,18 @@ def test_measured_seeds():
     # 34:466228598538240, 89:66060288, 41:276480, 56:2396160,
     # 73:195969024, 4:199437189120, 12:3833856, 62:768, 67:2722332672,
     # 85:231824424960000, 94:363134976~~.
-    ZEROS = (20, 28, 38, 48, 64, 79, 81, 82, 97, 100)
+    # REPINNED 2026-11-21 (bug hunt F23, John approved; measured): the
+    # joint gate now reads each verbatim copy as the line it copies, so a
+    # plan whose copy is bound by two groups on one word is refused and the
+    # seed redraws (disclosed in `choices.seed_redraw`). Measured over
+    # seeds 1-100 against the tree before it: ten seeds moved, every one by
+    # that check. 3, 12, 18, 32, 64, 70, 84, 96 and 100 each drew a copy
+    # like that and redraw now; 61, a redraw already, finds its old
+    # candidate refused for the same reason and takes the next one.
+    # ~~ZEROS = (20, 28, 38, 48, 64, 79, 81, 82, 97, 100)~~: 64 and 100 are
+    # positive now and stay pinned with their new counts, and 96, never
+    # pinned, is a zero, so ten zeros become nine. ~~12:3568640~~.
+    ZEROS = (20, 28, 38, 48, 79, 81, 82, 96, 97)
     pins = {1:9635328, 6:32747520, 7:513802240,
             9:5865799680,
             15:15257600, 23:3533517619200, 25:21307392000, 27:221184,
@@ -467,13 +478,15 @@ def test_measured_seeds():
             31:384, 34:1847350886400, 89:29952,
             41:37995520,
             56:59904, 73:29696,
-            4:1159004160, 12:3568640, 62:26726400, 67:245760,
+            4:1159004160, 12:30283776, 62:26726400, 67:245760,
             85:4313088, 94:6311936,
             # the stage-4 zeros that are positive under the cap
             11:10416036145161830400, 13:483065856, 19:76288, 24:100352,
             29:100352, 36:1010974720, 39:239616, 50:62400610959360000,
             59:17599692800, 65:8759624991768576000, 77:228864,
             83:63311576039424000, 90:3070080,
+            # the two cap zeros the copy check (F23) redraws
+            64:3561323038801920, 100:11197440,
             **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
@@ -481,7 +494,8 @@ def test_measured_seeds():
         got[seed] = N.count_lineups(fns)
     check("all eighteen historical seeds, the three former bridge-first "
           "zeros, the six zeros before stage 4, the thirteen stage-4 zeros "
-          "that are positive now and all ten current zero exemplars "
+          "that are positive now, the two cap zeros the copy check "
+          "redraws and all nine current zero exemplars "
           "re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
@@ -509,7 +523,10 @@ def test_measured_seeds():
     # again; any refusal fails this check.
     # REPINNED 2026-11-19 (the 150-line writing cap): ~~exactly fifteen
     # zero shapes, nine of them among the first forty (31 positive)~~.
-    check("the complete current 100-seed denominator has exactly ten "
+    # REPINNED 2026-11-21 (bug hunt F23): ~~exactly ten zero shapes~~;
+    # 64 and 100 redraw to positive counts, 96 redraws to a zero, and the
+    # first forty keep their three.
+    check("the complete current 100-seed denominator has exactly nine "
           "zero shapes, three of them among the first forty, over all 100 "
           "plans with no seed refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
@@ -576,10 +593,14 @@ def test_measured_seeds():
     # 77: 1, 83: 1, 90: 6}~~. The ten zeros collapse at the first, second,
     # third, sixth and eighth sections; no seed in 1-100 collapses at the
     # fourth or fifth now, and the declared shapes below cover those depths.
+    # REPINNED 2026-11-21 (bug hunt F23): ~~64: 6, 100: 2~~; both redraw
+    # and are positive now, and 96 redraws to a zero at the third section.
+    # 38 still collapses at the sixth section and 97 at the second, so
+    # every depth the check names keeps a seed.
     check("actual current zeros distinguish opening refusals from refusals "
           "at the second, third, sixth and eighth sections",
-          at == {20: 1, 28: 3, 38: 6, 48: 3, 64: 6, 79: 1, 81: 1, 82: 8,
-                 97: 2, 100: 2},
+          at == {20: 1, 28: 3, 38: 6, 48: 3, 79: 1, 81: 1, 82: 8, 96: 3,
+                 97: 2},
           at)
     # THE THREE SHAPES THE BRIDGE RULE DISPLACED, KEPT AS AUTHORED INPUT
     # (2026-11-15). Each opened on a bridge and the story layer already

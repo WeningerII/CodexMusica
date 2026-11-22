@@ -118,11 +118,22 @@ __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
            "COLLISION_FINDINGS", "RHYME_FINDINGS", "SATISFACTION_FINDINGS",
            "THETA_COLLISION", "draft_fingerprint"]
 
+
+def _end_key(word):
+    """-> an end word as the rhyme judge reads it: typographic apostrophes
+    folded, lower case, edge punctuation and quote marks stripped (the fold
+    `lyric_harness.line_anchors` applies). The pair bans look their words up
+    by this key, so they ask about the same word the judge heard."""
+    from lyric_harness import fold_apostrophes
+    return fold_apostrophes(str(word or "")).lower().strip("'\".,;:!?()[]")
+
+
 #: Findings that mean "this line's RHYME needs replacing". Each earns a
 #: candidate field with the modal region excluded.
 #:
 #: NO COLLISION CODE IS IN HERE, AND THAT IS A DECISION RATHER THAN AN
 #: OVERSIGHT — see `Reviser.brief`'s "WHY A COLLISION EARNS NO FIELD".
+
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME",
                   "HOMEOTELEUTON"}
@@ -249,6 +260,13 @@ SATISFACTION_FINDINGS = {"REFRAIN_REPEAT", "RETURN_LOCKED", "RADIF_LICENSED"}
 #: because the other three name a defect-or-not on a question that was asked.
 COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
                       "REPEAT_ACROSS_GROUPS", "COLLISION_UNDECLARED"}
+
+#: What a timing-only flag (`fit.TIMING_ONLY`) tells the writer (bug hunt F8,
+#: the owner's ruling 2026-11-21). It is filed on the whole song, so no line
+#: is asked to change for it.
+TIMING_ONLY_ADVICE = ("The timing declared for this must change: where the "
+                      "line starts, or how long it runs. No change to the "
+                      "words clears it.")
 
 #: `quality/grid.py` function refusals whose question has NO SUBJECT in what
 #: the writer declared: a function declared once cannot return, an undeclared
@@ -3478,7 +3496,7 @@ class Reviser:
                 f"POSITION and a mismatched count would silently misalign "
                 f"every line after the first difference. They must be the "
                 f"same draft.")
-        per, refusals = {}, {}
+        per, refusals, timing = {}, {}, {}
         from quality.phonology.eng import English
         fallback = getattr(self.lex.g2p_fallback, "min_confidence", None)
         phon = English(fallback=fallback, lexicon=self.lex)
@@ -3509,6 +3527,11 @@ class Reviser:
                     # THE ANY-READING RULE: which whole reading this line
                     # was judged on (`fit.fit_line`).
                     ev += f" READ AS: {lf.units.describe_reading()}"
+                if f.code in FT.TIMING_ONLY:
+                    # ~~filed on the line~~ (bug hunt F8): no wording of the
+                    # line clears it, so it is the song's, below.
+                    timing.setdefault(f.code, []).append((ln, f, ev))
+                    continue
                 per.setdefault(ln, []).append(Finding(
                     f.code, f.severity,
                     f.message, ev, [ln]))
@@ -3561,6 +3584,20 @@ class Reviser:
             whole.append(Finding(
                 f.code, f.severity,
                 f.message, f.evidence, []))
+        # THE TIMING-ONLY FLAGS ARE THE SONG'S (bug hunt F8; the owner's
+        # ruling 2026-11-21: not meter, still blocking). One per code, naming
+        # its lines and saying what must change, so no question asks a
+        # writer to reword a line for them.
+        for code, hits in sorted(timing.items()):
+            lns = sorted(ln for ln, _f, _ev in hits)
+            _, first, _ = hits[0]
+            whole.append(Finding(
+                code, first.severity,
+                f"meter: {first.message}, on line"
+                f"{'s' if len(lns) > 1 else ''} {', '.join(map(str, lns))}. "
+                f"{TIMING_ONLY_ADVICE}",
+                " ".join(f"L{ln}: {ev}" for ln, _f, ev in hits),
+                lns))
         return per, whole
 
     # -- the calibrated bands ----------------------------------------------
@@ -4212,7 +4249,11 @@ class Reviser:
             if _vs != _STm.DEFAULT and not self.writing:
                 return None
         i, j = v["lines"]
-        wi, wj = (w.lower() for w in v["endwords"])
+        # THE WORDS THE RHYME JUDGE READ, folded and stripped as
+        # `line_anchors` folds them. ~~`w.lower()`~~ REPLACED 2026-11-21 (bug
+        # hunt F18): the raw token kept a closing quote mark, so `desire’`
+        # was in no head and the ban was off while the rhyme still passed.
+        wi, wj = (_end_key(w) for w in v["endwords"])
         # TIER 1 FIRST — HOMEOTELEUTON (owner's rule, 2026-08-18): the
         # pair's own SPELLINGS decide, no field consulted, so a
         # same-rime partner outside the finite field cannot slip
@@ -4539,7 +4580,7 @@ class Reviser:
                     # Pair words AND their actual bound slots are identity:
                     # swapping one prohibited pair for another is no repair.
                     subject = (self.writing_policy,
-                               *(w.lower() for w in v["endwords"]),
+                               *(_end_key(w) for w in v["endwords"]),
                                _SL.spell_slot(m.slot_of(v["group"], i)),
                                _SL.spell_slot(m.slot_of(v["group"], j)))
                     add(j, replace(finding, severity="flag", subject=subject))
