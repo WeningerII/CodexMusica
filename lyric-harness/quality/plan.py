@@ -190,7 +190,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "SeedRefused", "JointRefused", "REDRAW_BOUND",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
-           "render_song", "section_header",
+           "render_song", "section_header", "timing_head",
            "meter_dims", "meter_space_size", "bell",
            "meter_factorisations", "beats_values", "beats_weights",
            "SWEEP_MEASURES", "SWEEP_SETS", "SWEEP_ORDERS",
@@ -6313,6 +6313,25 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         _type_records.append({"group": label, "lines": list(block), "drawn_block": list(block),
                               "type": name, "chosen_from": "declared", "proposed": [name], "rejected": []})
 
+    # A COPY HAS ITS FIRST LINE'S ROOM (bug hunt F24; the owner's ruling
+    # 2026-11-21, "give the copy equal room"). The start beat is drawn per
+    # section kind, so a line that comes back word for word in a section of
+    # another kind (a reprise of a chorus line) sat on that kind's start and
+    # had fewer slots than the line it repeats: a line inside its own
+    # section's limit drew SLOTS_EXCEEDED on its copy, which the writer must
+    # copy exactly. Every copy now starts on its first line's beat and runs
+    # as long; its bar is its own. Bars per line and the meter are one per
+    # plan, so the length fits the copy's bars as it fits the first line's.
+    # A section may then start its lines on different beats, and the brief
+    # says so line by line (`timing_head`).
+    _slot_of = {s["line"]: s for s in line_slots}
+    _copies = return_roots(
+        {"returns": ";".join(",".join(map(str, g)) for g in returns)})
+    for _copy, _root in _copies.items():
+        if _copy in _slot_of and _root in _slot_of:
+            _slot_of[_copy]["beat"] = _slot_of[_root]["beat"]
+            _slot_of[_copy]["duration"] = _slot_of[_root]["duration"]
+
     plan = {
         "plan_version": 3,
         "request": {"form": form, "lines": lines, "seed": seed,
@@ -6752,6 +6771,27 @@ def _entry_phrase(beat):
     if beat == 1:
         return ""
     return f", each line starts on beat {_beats_text(Fraction(beat).limit_denominator(64))}"
+
+
+def timing_head(lines, beat):
+    """-> the row that heads one start's rows in a section whose lines start
+    on different beats (bug hunt F24): `lines 3, 7: each starts on beat 2`,
+    `line 5: starts on beat 1`. The bracket says only that the lines start
+    on different beats; this row names which lines start where, and the rows
+    under it give those lines' beats and room. A line that comes back word
+    for word keeps its first line's start and length, wherever it lands."""
+    at = _beats_text(Fraction(beat).limit_denominator(64))
+    ns = sorted(set(lines))
+    if len(ns) == 1:
+        return f"line {ns[0]}: starts on beat {at}"
+    # Consecutive lines as one run (`Lines 3–9`, as the rhyme rows write
+    # them), every line named, never cut short.
+    runs, start = [], ns[0]
+    for a, b in zip(ns, ns[1:] + [None]):
+        if b != a + 1:
+            runs.append(str(start) if start == a else f"{start}–{a}")
+            start = b
+    return f"lines {', '.join(runs)}: each starts on beat {at}"
 
 
 def _end_bound_group(members):
@@ -7836,7 +7876,6 @@ def writer_brief(plan):
             # ceiling follows, so the writer meets the beat before the room
             # (Jony's review of #587). Computed as fit's Placement computes
             # them, and held equal to it by test_plan.
-            rows = _pulse_rows(sec, slots[0])
             # THE NUMBER SLOTS_EXCEEDED GRADES AGAINST, where the writer reads
             # (`MISSING.md` M-192): the METER row says 8, the line holds 5 after
             # a late start, and the flag is hard. ~~"a line after the
@@ -7846,9 +7885,29 @@ def writer_brief(plan):
             # inside it — the bracket is the measurement carrier every gate
             # reads byte for byte (M-97, check_render_form) — or under the
             # earlier bracket a section with the same rows names.
-            _cap = int(line_syllable_ceiling(
-                slots[0]["duration"] * plan["subdivision"]))
-            ceiling = [f"      up to {_cap} syllables in the whole line"]
+            def _room(slot):
+                return int(line_syllable_ceiling(
+                    slot["duration"] * plan["subdivision"]))
+            # ~~the first line's rows stood for the section~~ (bug hunt F24):
+            # a line that comes back word for word keeps its first line's
+            # start and length, so a section may start its lines on
+            # different beats. Each start then gets its own head row, beats
+            # and room, in the order the section first reaches it.
+            timings = list(dict.fromkeys((s["beat"], s["duration"])
+                                         for s in slots))
+            if len(timings) == 1:
+                rows = _pulse_rows(sec, slots[0])
+                ceiling = [f"      up to {_room(slots[0])} syllables in the "
+                           f"whole line"]
+            else:
+                for beat, dur in timings:
+                    these = [s for s in slots
+                             if (s["beat"], s["duration"]) == (beat, dur)]
+                    rows += (["      " + timing_head(
+                                 [s["line"] for s in these], beat)]
+                             + _pulse_rows(sec, these[0])
+                             + [f"      up to {_room(these[0])} syllables "
+                                f"in the whole line"])
         whole = tuple(body + rows + ceiling)
         first = body_first.setdefault(whole, here)
         if whole and first != here:

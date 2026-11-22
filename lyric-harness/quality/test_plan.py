@@ -2071,7 +2071,15 @@ def test_the_disclosure():
                 # REPINNED 2026-11-21 from ~~`_pickup_phrase(beat - 1)`~~:
                 # the late start is named by the beat it starts on, as the
                 # grader names it (bug hunt F4).
-                entry = PLN._entry_phrase(slots[0]["beat"])
+                # REPINNED 2026-11-22 (bug hunt F24) from
+                # ~~`PLN._entry_phrase(slots[0]["beat"])` for every
+                # section~~: a line that comes back word for word keeps its
+                # first line's start, so a section may start its lines on
+                # different beats, and its bracket says so, as
+                # `section_header` does.
+                entry = (PLN._entry_phrase(slots[0]["beat"])
+                         if len({ls["beat"] for ls in slots}) == 1
+                         else ", lines start on different beats")
                 k = len(slots)
                 want = (f"[{s['function'].upper()} — {k} "
                         f"line{'s' if k != 1 else ''} — {size}{entry}]")
@@ -4652,6 +4660,30 @@ def test_the_delegated_rulings(FAILURES=None):
             slots = [s for s in p["line_slots"] if s["section"] == sec["name"]]
             headers_ok = headers_ok and "syllable" not in lines_b[i]
             if not slots:
+                continue
+            # REPINNED 2026-11-22 (bug hunt F24): ~~one ceiling, the first
+            # line's, under every section~~. A copy keeps its first line's
+            # start and length, so a section whose lines start on different
+            # beats prints, for each start in the order it first comes, a
+            # head row naming those lines, their beat rows and their
+            # ceiling. Each ceiling is that start's own.
+            timings = list(dict.fromkeys((s["beat"], s["duration"])
+                                         for s in slots))
+            if len(timings) > 1:
+                j = i + 1
+                for beat, dur in timings:
+                    these = [s for s in slots
+                             if (s["beat"], s["duration"]) == (beat, dur)]
+                    rows = _PL._pulse_rows(sec, these[0])
+                    capn = int(_PL.line_syllable_ceiling(
+                        dur * p["subdivision"]))
+                    cap_ok = (cap_ok and lines_b[j] == "      " +
+                              _PL.timing_head([s["line"] for s in these],
+                                              beat)
+                              and lines_b[j + 1 + len(rows)]
+                              == f"      up to {capn} syllables in the "
+                                 f"whole line")
+                    j += 2 + len(rows)
                 continue
             capn = int(_PL.line_syllable_ceiling(
                 slots[0]["duration"] * p["subdivision"]))
@@ -9630,8 +9662,76 @@ def test_the_writing_bans_stop_only_groups_that_can_differ():
           f"{mixed_missing[:2]}")
 
 
+#: how many plans F24's test draws (seeds, forms): enough that copies across
+#: kinds with different starts turn up (about one return pair in a hundred)
+F24_DRAWS = 120
+
+
+def test_a_return_copy_has_its_first_lines_room():
+    """Bug hunt F24 (owner's ruling 2026-11-21: "give the copy equal room").
+    The start beat is drawn per section kind, so a line that comes back word
+    for word in a section of another kind (a reprise of a chorus line) sat
+    on that kind's start and had fewer slots than the line it repeats: a
+    line inside its own section's limit drew SLOTS_EXCEEDED on its copy.
+    A copy now takes its first line's start beat and length, and a section
+    whose lines start on different beats prints each line's timing.
+
+    Every witness is drawn by seed: the plan seeds and forms."""
+    print("\nF24. a line that comes back word for word has its first line's "
+          "room")
+    rng = random.Random(2026112203)
+    unequal, rows_bad = [], []
+    n_copies = crossing = n_mixed = 0
+    for _ in range(F24_DRAWS):
+        seed = rng.randrange(1, 100000)
+        form = rng.choice(PLN.PLAN_FORMS)
+        try:
+            p = PLN.make_plan(seed, form=form)
+        except PLN.PlanRefused:
+            continue
+        slot = {s["line"]: s for s in p["line_slots"]}
+        ana = {fn: v["value"]
+               for fn, v in p["choices"]["anacrusis"].items()}
+        for copy, root in sorted(PLN.return_roots(p).items()):
+            n_copies += 1
+            a, b = slot[root], slot[copy]
+            crossing += ana.get(a["function"]) != ana.get(b["function"])
+            if (a["beat"], a["duration"]) != (b["beat"], b["duration"]):
+                unequal.append((form, seed, root, copy, a["beat"],
+                                a["duration"], b["beat"], b["duration"]))
+        rows = p["writer_brief"].splitlines()
+        for sec in p["sections"]:
+            mine = [s for s in p["line_slots"] if s["section"] == sec["name"]]
+            timings = list(dict.fromkeys((s["beat"], s["duration"])
+                                         for s in mine))
+            if len(timings) < 2:
+                continue
+            n_mixed += 1
+            for beat, dur in timings:
+                these = [s["line"] for s in mine
+                         if (s["beat"], s["duration"]) == (beat, dur)]
+                cap = int(PLN.line_syllable_ceiling(dur * p["subdivision"]))
+                head = "      " + PLN.timing_head(these, beat)
+                at = [i for i, r in enumerate(rows) if r == head]
+                if not at or (f"      up to {cap} syllables in the whole "
+                              f"line") not in rows[at[0]:at[0] + 6]:
+                    rows_bad.append((form, seed, sec["name"], these, beat,
+                                     dur, cap))
+    check("every line that comes back word for word has its first line's "
+          "start beat and length (bug hunt F24), over plans where some "
+          "copy's kind draws a different start from its first line's",
+          crossing > 0 and not unequal,
+          f"{n_copies} copies, {crossing} across kinds with different "
+          f"starts; unequal {unequal[:3]}")
+    check("...and a section whose lines start on different beats names "
+          "each line's start and room",
+          n_mixed > 0 and not rows_bad,
+          f"{n_mixed} mixed section(s); missing {rows_bad[:3]}")
+
+
 _SECTIONS = (
     test_a_rule_row_says_what_the_grader_accepts,
+    test_a_return_copy_has_its_first_lines_room,
     test_the_writing_bans_stop_only_groups_that_can_differ,
     test_a_late_start_is_named_as_the_grader_names_it,
     test_a_return_copy_is_bound_as_its_first_line,
