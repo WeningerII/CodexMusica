@@ -1360,8 +1360,11 @@ def test_anaphora_tie_break_reproduces():
                            text=True, env=env,
                            cwd=os.path.join(HERE, ".."))
         seen.add(r.stdout.strip() or r.stderr.strip()[-120:])
-    check("six PYTHONHASHSEEDs give one answer", len(seen) == 1,
-          f"{sorted(seen)}")
+    # REPINNED 2026-11-22: "one answer" alone passed when all six runs raised
+    # the same error (an unbound call through `self.opening_word`), so the
+    # answer must also be the tie-break's.
+    check("six PYTHONHASHSEEDs give one answer, and it is the tie-break's",
+          seen == {"(0.5, 'alpha')"}, f"{sorted(seen)}")
 
 
 

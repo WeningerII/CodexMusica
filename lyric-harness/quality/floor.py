@@ -1894,7 +1894,9 @@ class SlopFloor:
         reproduce (doctrine 66) -- and here it was the evidence and the line
         numbers, i.e. exactly the part a writer acts on.
         """
-        firsts = [self.opening_word(l) for l in lines]
+        # `SlopFloor.`, not `self.`: test_floor §18 calls this unbound
+        # (`SlopFloor._anaphora(None, lines)`) across hash seeds.
+        firsts = [SlopFloor.opening_word(l) for l in lines]
         if not firsts:
             return 0.0, ""
         counts = Counter(firsts)
