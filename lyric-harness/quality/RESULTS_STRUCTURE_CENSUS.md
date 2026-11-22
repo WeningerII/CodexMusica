@@ -248,6 +248,14 @@ not evidence of improved accuracy. The prior record remains as
 > over judged is **683/687**. This adds one judged disagreement; it is not an
 > improvement.
 
+> **REPINNED 2026-11-22: the closing consonant.** The 2026-11-11 table above is
+> no longer the live one. #910 (bug-hunt finding 16) closes a compared
+> last-prominent syllable with the next syllable's onset, and only
+> `sentinels/men` moves: true/rejects becomes false/rejects, because "sen" is
+> now heard as "sent". The live D1 is true/rejects **2** and false/rejects
+> **679**, with the other four cells unchanged, and agreement over judged is
+> **684/687**. One judged disagreement fewer.
+
 Verification: `python3 quality/test_structures.py` covers all 27 ternary
 channel combinations, later-syllable mismatch, unconstrained channels, short
 patterns, these three actual pairs, and decided/undecided controls. Nine new
