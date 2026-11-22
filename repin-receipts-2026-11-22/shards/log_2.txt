@@ -1,0 +1,4 @@
+CACHE  /tmp/claude-0/-home-user-CodexMusica/437a4996-1d93-59e4-89e1-932b527b596c/scratchpad/repin/cache_2.tsv
+       fingerprint a71c44af617d | new (no file yet) | hits 0, misses 0
+POPULATION  84 files, 84 distinct authors, 297 items, 12166 sung lines
+COMPUTE  shard 2/16: 84 files, 297 rows -> /tmp/claude-0/-home-user-CodexMusica/437a4996-1d93-59e4-89e1-932b527b596c/scratchpad/repin/rows_2.tsv; cache hits 0 misses 297; 1524 CPU-s, 1541 wall-s
