@@ -338,7 +338,14 @@ class AuditRegressions(unittest.TestCase):
         self.assertIn('  1. ONE line back, and it replaces L2. The draft stays 2 '
                       'lines — a different', older)
         self.assertIn('New NOTES do not reject.', older)
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-1][1], LH._legacy_671_prose)
+        # REPINNED 2026-11-21 (R2, the return-row rewording appends an entry
+        # after this one): ~~`LEGACY_QUESTION_RENDERINGS[-1][1]` is
+        # `_legacy_671_prose`~~ -- the claim is that the #671 undo is in the
+        # tuple and comes after the line-limit change, not that it is last.
+        undos = [e[1] for e in LH.LEGACY_QUESTION_RENDERINGS]
+        self.assertIn(LH._legacy_671_prose, undos)
+        self.assertLess(undos.index(LH._legacy_line_limit),
+                        undos.index(LH._legacy_671_prose))
         # The undo reads a FROZEN copy of the rows it replaced; while the
         # table is unchanged the two agree, and a later change to the table
         # needs its own entry.
