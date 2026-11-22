@@ -3354,3 +3354,33 @@ test(
     );
   }
 );
+
+test('an automatic catalog sweep that every setting refuses names the planner reason', async () => {
+  // With no form named, the sweep tries each catalog setting in turn. When
+  // all of them refuse, the planner's own reason reaches the caller, grouped
+  // once over the settings that share it, instead of one generic sentence.
+  const { buildServer } = await import('./tools.js');
+  const server = buildServer({ task: { domain: 'lyrics' } });
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'sweep-reasons', version: '1' }, { capabilities: {} });
+  await server.connect(a);
+  await client.connect(b);
+  try {
+    const result = await client.callTool({
+      name: 'lyric_sweep',
+      arguments: { seed_from: 1, count: 2, functions: 'nosuchfn' },
+    });
+    const v = verdictOf(result);
+    assert.equal(v.exit_code, 2, JSON.stringify(result.content));
+    assert.match(v.refusal, /refused for one reason: .*no such section function/);
+    // The detail lines sit under the headline, four spaces in.
+    const lines = v.report
+      .split('\n')
+      .filter((l) => l.startsWith('    ') && /no such section function/.test(l));
+    assert.equal(lines.length, 1, v.report);
+    assert.match(lines[0], /^ {4}request — /);
+  } finally {
+    await client.close();
+    await server.close();
+  }
+});

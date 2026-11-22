@@ -12977,22 +12977,65 @@ def main():
                             candidates = json.load(source)
                     except (OSError, ValueError):
                         _refuse("The automatic catalog settings could not be loaded.")
+                    # WHY EACH CANDIDATE FAILED IS KEPT. A candidate the planner
+                    # turned down, or one that planned but met no want, used to
+                    # vanish into one generic sentence, so a caller could not
+                    # tell a request fault from a narrow window.
+                    tried = []
                     for candidate in candidates:
                         candidate_kw = {**plan_kw, "form": None, "song_form": candidate}
                         res = PLN.sweep((lo,), wants=wants, **candidate_kw)
-                        if not res["planned"] and all(
-                                item["scope"] == "request" for item in res["refusals"]):
-                            continue
-                        if hi > lo + 1:
+                        # A setting the planner refuses as a REQUEST on the first
+                        # seed refuses on every seed, so the window is not swept.
+                        request_only = not res["planned"] and all(
+                            item["scope"] == "request" for item in res["refusals"])
+                        if not request_only and hi > lo + 1:
                             res = PLN.sweep(range(lo, hi), wants=wants, **candidate_kw)
                         if res["accepted"]:
                             catalog_form = candidate
                             form_label = candidate["id"]
                             break
+                        tried.append((candidate.get("id", "?"), res))
                     else:
-                        _refuse("No executable catalog setting matched the declared constraints "
-                                "in this seed window.",
-                                machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
+                        # One line per distinct reason, naming the candidates
+                        # that share it: the catalog holds many settings of
+                        # one form, and they mostly fail for the same reason.
+                        grouped, unmet, record = {}, [], []
+                        for cid, cres in tried:
+                            reasons = [{"scope": g["scope"], "reason": g["reason"],
+                                        "seeds": g["seeds"][:12],
+                                        "more_seeds": max(0, len(g["seeds"]) - 12)}
+                                       for g in cres["refusals"]]
+                            if cres["planned"] and cid not in unmet:
+                                unmet.append(cid)
+                            for g in reasons:
+                                ids = grouped.setdefault((g["scope"], g["reason"]), [])
+                                if cid not in ids:
+                                    ids.append(cid)
+                            record.append({"candidate": cid, "swept": cres["seeds"],
+                                           "planned": cres["planned"],
+                                           "planner_refused": cres["refused"],
+                                           "planner_refusals": reasons})
+
+                        def _named(ids):
+                            return ", ".join(ids[:6]) + (
+                                f" and {len(ids) - 6} more" if len(ids) > 6 else "")
+                        lines_out = []
+                        if unmet:
+                            lines_out.append(f"planned, but no seed met every want: {_named(unmet)}")
+                        for (scope, reason), ids in list(grouped.items())[:8]:
+                            lines_out.append(f"{scope} — {reason} ({_named(ids)})")
+                        if len(grouped) > 8:
+                            lines_out.append(f"… and {len(grouped) - 8} more reason(s)")
+                        headline = ("No executable catalog setting matched the declared "
+                                    "constraints in this seed window.")
+                        if len(grouped) == 1 and not unmet:
+                            (scope, reason), = grouped
+                            headline += f" Every setting was refused for one reason: {reason}"
+                        _refuse(headline,
+                                detail=lines_out,
+                                machine={"sweep": {"version": 1, "outcome": "arguments refused",
+                                                   "candidates": record}})
             except PLN.PlanRefused as e:
                 _refuse(str(e), machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
