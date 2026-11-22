@@ -40,9 +40,18 @@ cell's pattern DEMANDS (the 1s, per syllable position) agrees, and (3) the
 cell's identity axis holds ('distinct' refuses rime riche and repeats,
 'rich' demands full identity with distinct words). Channels the pattern
 leaves at 0 are UNCONSTRAINED — a masculine rhyme does not care what the
-onsets do; 'distinct' is what refuses the identical word. Axes the cell
+onsets do; 'distinct' is what refuses the identical word. ~~Axes the cell
 inherits from the default frame (stress alignment, boundary, length) are
-not re-checked: the classifier already applied them in reading the pair.
+not re-checked: the classifier already applied them in reading the pair.~~
+CORRECTED 2026-11-21 (bug-hunt finding 19): the classifier MEASURES stress
+and length and does not apply a demand, so a row naming wrenched stress or
+additive length judged exactly like perfect rhyme. (4) a non-default stress
+or length must match the classified pair's; (5) an eye-rhyme row holds when
+the spelled endings agree and the sound does NOT; (6) a row naming a line
+placement, a member boundary, a historical sound or an apocopated length is
+REFUSED, because the judge is handed two words and those coordinates are
+not in them (`Structure.unjudged_axes`). The defaults ('aligned', 'equal',
+'end', 'simple', 'phonetic') stay unconstrained.
 
 Every row carries the world's own ALIASES for its coordinate (masculine
 rhyme IS qafiya IS antya-prāsa), so a mandate can be declared in any
@@ -98,13 +107,20 @@ class Structure:
     #: truthy, so `if s.calibrated` still means "some regime exists".
     calibrated: tuple = ()
 
-    def judge(self, a, b, phon=None, member_phons=None):
+    def judge(self, a, b, phon=None, member_phons=None, supplies=()):
         """-> True / False / None (None = REFUSED: the phonology declined
         a member; a refusal is not a failure and not a pass). `member_phons`
         is one phonology per member carrying its declared reading
         (--pronunciations), exactly as the relation path passes it to
         `classify_pair`; without it a declared reading never reached the
-        structure, which stayed UNDECIDED however it was declared."""
+        structure, which stayed UNDECIDED however it was declared.
+
+        `supplies` names the axes the CALLER has already placed for this
+        pair (see `unjudged_axes`): the census's word-within-line population
+        and a group bound at a slot of the row's own position pass
+        {"position"}, because they chose the two words by that placement.
+        Nothing else is lifted, and a caller that passes nothing gets the
+        refusal."""
         from quality import rhyme_types as RT
         from quality import phonology as PH
         phon = phon or PH.get("eng")
@@ -135,7 +151,10 @@ class Structure:
             return _any_reading(x.realises(*select) for x in _readings(t))
         # kind == "cell": classify at the cell's own anchors, then apply
         # the compilation rule to every alignment the classifier tried.
+        if self.unjudged_axes(supplies):
+            return None
         pattern, identity = self.cell[0], self.cell[1]
+        stress, length, realisation = self.cell[2], self.cell[5], self.cell[6]
         anchor_a, anchor_b = self.cell[7], self.cell[8]
         try:
             t = RT.classify_pair(a, b, phon, anchor_a=anchor_a,
@@ -152,11 +171,101 @@ class Structure:
         open_identity = getattr(t, "identity_undecided", False)
         if identity == "rich" and t.identity != "rich":
             return None if open_identity else False
-        held = _any_reading(_cell_holds(pattern, x.agreement)
-                            for x in _readings(t))
+        # THE AXES THE CELL NAMES BEYOND ITS CHANNELS (bug-hunt finding 19,
+        # 2026-11-21). A non-default stress or length is the cell's own
+        # demand -- wrenched rhyme IS a rhyme whose stresses disagree,
+        # additive rhyme one member's extra syllable -- and the classifier
+        # measures both on every alignment, so they are read here, not
+        # assumed. The defaults ('aligned', 'equal') stay unconstrained:
+        # a masculine rhyme does not care whether one word is longer.
+        if stress != "aligned":
+            want_stress = stress
+        else:
+            want_stress = None
+        want_length = length if length != "equal" else None
+
+        def _holds(x):
+            if want_stress is not None and x.stress != want_stress:
+                return False
+            if want_length is not None and x.length != want_length:
+                return False
+            return _cell_holds(pattern, x.agreement)
+        held = _any_reading(_holds(x) for x in _readings(t))
+        if realisation == "eye":
+            # EYE RHYME: the endings are SPELLED alike and do not SOUND
+            # alike. love/move is one; sing/ring is a true rhyme and not
+            # an eye rhyme, so the sound test inverts.
+            spelled = _same_spelled_ending(a, b)
+            if spelled is None:
+                return None
+            if not spelled:
+                return False
+            if held is None:
+                return None
+            return not held
         if identity == "distinct" and open_identity and held:
             return None
         return held
+
+    def unjudged_axes(self, supplies=()):
+        """-> ((axis, value), ...) this row names and the judge cannot see.
+
+        `judge` is handed two WORDS. Where a row's definition is about the
+        LINE -- an internal, leonine, cross, head or whole-line placement --
+        or about how the members are BUILT (a mosaic, broken or phrasal
+        boundary), or about a past pronunciation (historical rhyme) or a
+        dropped syllable nothing measures (apocopated length), two words do
+        not carry the coordinate. Until bug-hunt finding 19 those axes were
+        silently dropped and such rows judged exactly like perfect rhyme;
+        now the row is REFUSED (None) with the axis named, never passed or
+        failed on a question it did not ask.
+
+        An axis in `supplies` is one the caller placed itself (Boris's review
+        of #911, 2026-11-22): the census measures position rows over its
+        word-within-line population, where the population IS the placement,
+        and refusing there threw away the measurement the census exists to
+        make."""
+        if self.kind != "cell":
+            return ()
+        out = []
+        free = _free_axes(self.cell) | set(supplies)
+        position, boundary = self.cell[3], self.cell[4]
+        length, realisation = self.cell[5], self.cell[6]
+        stress = self.cell[2]
+        anchors = (self.cell[7], self.cell[8])
+        # A stress demand at two LAST-PROMINENT anchors is unmeasurable:
+        # both anchors land on a stressed syllable by their own rule, so the
+        # classified stress is 'aligned' on every pair and a wrenched or
+        # unstressed demand could only ever fail.
+        if stress != "aligned" and "stress" not in free and all(
+                getattr(x, "rule", None) == "last-prominent" for x in anchors):
+            out.append(("stress", stress))
+        if position not in (None, "end") and "position" not in free:
+            out.append(("position", position))
+        if boundary != "simple" and "boundary" not in free:
+            out.append(("boundary", boundary))
+        if length == "apocopated" and "length" not in free:
+            out.append(("length", length))
+        if realisation not in ("phonetic", "eye") \
+                and "realisation" not in free:
+            out.append(("realisation", realisation))
+        return tuple(out)
+
+
+def _free_axes(cell):
+    from quality import rhyme_types as RT
+    return set(RT.FREE.get(tuple(cell), ()))
+
+
+def _same_spelled_ending(a, b):
+    """True / False on the two words' spelled endings from the last vowel
+    letters (the harness's own `spelled_rime`), None when either has no
+    letters to compare."""
+    import lyric_harness as LH
+    ra, rb = LH.spelled_rime(a), LH.spelled_rime(b)
+    if not ra or not rb:
+        return None
+    return ra == rb
 
 
 def _readings(t):
@@ -276,7 +385,7 @@ def get(name):
     return STRUCTURES[resolve(name)]
 
 
-def judge(name, a, b, phon=None, member_phons=None):
+def judge(name, a, b, phon=None, member_phons=None, supplies=()):
     """Judge one pair under one declared structure, by name or alias.
 
     THE ANY-READING RULE (owner ruling 2026-10-01; CLAUDE.md standing rule
@@ -286,7 +395,8 @@ def judge(name, a, b, phon=None, member_phons=None):
     when one pair holds it, False when every pair fails, None otherwise.
     """
     s = get(name)
-    v = s.judge(a, b, phon=phon, member_phons=member_phons)
+    v = s.judge(a, b, phon=phon, member_phons=member_phons,
+                supplies=supplies)
     if v is not None or not undecided_by_readings(name, a, b, phon=phon,
                                                   member_phons=member_phons):
         return v
@@ -296,7 +406,8 @@ def judge(name, a, b, phon=None, member_phons=None):
     combos, complete = RT._member_reading_combos(a, b, *base)
     saw_none = not complete
     for pinned in combos:
-        w = s.judge(a, b, phon=phon, member_phons=pinned)
+        w = s.judge(a, b, phon=phon, member_phons=pinned,
+                    supplies=supplies)
         if w is True:
             return True
         if w is None:
