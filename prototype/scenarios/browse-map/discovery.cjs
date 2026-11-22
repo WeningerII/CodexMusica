@@ -200,7 +200,21 @@ const server = http.createServer((req, res) => {
           )
         );
         checks++;
-        await page.locator('[data-close]').click();
+        // A map selection has no opener: retain roving focus, never animate to
+        // the different selected card. Check synchronously before a cue could finish.
+        assert(
+          await page.evaluate(() => {
+            mapPick('fixture-2');
+            document.querySelector('[data-close]').click();
+            return (
+              document.activeElement === document.querySelector('.discovery-card[tabindex="0"]') &&
+              document.activeElement !==
+                document.querySelector('.discovery-card[aria-pressed="true"]') &&
+              !document.querySelector('.discovery-container-motion')
+            );
+          })
+        );
+        checks++;
         assert(
           await page.evaluate(
             () => document.activeElement === document.querySelector('.discovery-card[tabindex="0"]')

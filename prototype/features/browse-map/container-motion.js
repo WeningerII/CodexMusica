@@ -2,7 +2,7 @@
 // then connect after committing state. No state, focus or navigation waits on it.
 export const CONTAINER_MOTION = Object.freeze({
   duration: 280,
-  easing: 'cubic-bezier(0.2, 0, 0, 1)',
+  easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
 });
 
 export function createContainerMotion(root, signal) {
@@ -44,21 +44,26 @@ export function createContainerMotion(root, signal) {
       height: `${to.rect.height}px`,
       border: `2px solid ${to.color}`,
       borderRadius: to.radius,
-      transformOrigin: 'top left',
       zIndex: '1',
     });
     root.append(node);
     const run = { node, animation: null, frame: 0 };
     active = run;
     try {
+      // Size the empty, fixed-position cue instead of scaling its border.
+      // This costs paint for one small decoration, but keeps a uniform 2px edge.
+      const geometry = (rect, radius) => ({
+        left: `${rect.left}px`,
+        top: `${rect.top}px`,
+        width: `${rect.width}px`,
+        height: `${rect.height}px`,
+        borderRadius: radius,
+      });
       run.animation = node.animate(
         [
-          {
-            transform: `translate(${from.rect.left - to.rect.left}px, ${from.rect.top - to.rect.top}px) scale(${from.rect.width / to.rect.width}, ${from.rect.height / to.rect.height})`,
-            opacity: 0.7,
-            borderRadius: from.radius,
-          },
-          { transform: 'none', opacity: 0, borderRadius: to.radius },
+          { ...geometry(from.rect, from.radius), opacity: 0.85, offset: 0 },
+          { opacity: 0.85, offset: 0.75 },
+          { ...geometry(to.rect, to.radius), opacity: 0, offset: 1 },
         ],
         CONTAINER_MOTION
       );

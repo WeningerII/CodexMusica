@@ -55,6 +55,7 @@ const { start } = require('../../../scripts/_pages_server.js');
           shelf.scrollLeft = 120;
           shelf.dispatchEvent(new Event('scroll'));
           buttons[1].click();
+          buttons[1].scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
           const beforeClose = shelf.scrollLeft;
           document.querySelector('[data-close]').click();
           return {
@@ -93,6 +94,42 @@ const { start } = require('../../../scripts/_pages_server.js');
       await page.setViewportSize({ width: width + 10, height: 850 });
       await page.waitForFunction(() => !document.querySelector('.discovery-container-motion'));
       checks += 3;
+      await page.setViewportSize({ width, height: 900 });
+      // Close must reveal an offscreen opener, but preserve an already-visible one.
+      for (const offscreen of [false, true]) {
+        const result = await page.evaluate((hideOpener) => {
+          const shelf = document.querySelector('.discovery-shelf');
+          const card = document.querySelector('.discovery-card');
+          card.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
+          card.click();
+          if (hideOpener) shelf.scrollLeft = shelf.scrollWidth;
+          const before = shelf.scrollLeft;
+          const oldRect = card.getBoundingClientRect();
+          const shelfRect = shelf.getBoundingClientRect();
+          const wasOffscreen = oldRect.right <= shelfRect.left;
+          document.querySelector('[data-close]').click();
+          const rect = card.getBoundingClientRect();
+          const cue = document.querySelector('.discovery-container-motion');
+          return {
+            before,
+            after: shelf.scrollLeft,
+            wasOffscreen,
+            visible: rect.left >= shelfRect.left - 1 && rect.right <= shelfRect.right + 1,
+            focus: document.activeElement === card,
+            pressed: card.getAttribute('aria-pressed'),
+            target: cue ? Number.parseFloat(cue.style.left) : null,
+            left: rect.left,
+          };
+        }, offscreen);
+        assert.equal(result.wasOffscreen, offscreen);
+        assert.equal(result.visible, true);
+        assert.equal(result.focus, true);
+        assert.equal(result.pressed, 'true');
+        assert.equal(result.target, result.left, 'return geometry measured after reveal');
+        if (offscreen) assert.ok(result.after < result.before);
+        else assert.equal(result.after, result.before);
+        checks += 6;
+      }
       // Absent and throwing animation APIs must leave the same instant UI.
       for (const mode of ['absent', 'throw']) {
         await page.evaluate((value) => {

@@ -224,9 +224,12 @@ export function mount(host, ctx) {
     // Closing a disclosure does not clear the shared selected tradition.
     const from = motion.capture(detail);
     detail.hidden = true;
-    if (opener?.isConnected) opener.focus({ preventScroll: true });
-    else focusShelf();
-    motion.connect(from, opener?.isConnected ? opener : buttons.get(selected));
+    motion.cancel();
+    if (opener?.isConnected) {
+      opener.focus({ preventScroll: true });
+      opener.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
+      motion.connect(from, opener);
+    } else focusShelf();
   });
   const mapHost = root.querySelector('.discovery-map');
   let observer;
