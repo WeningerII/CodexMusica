@@ -3384,7 +3384,7 @@ test('an automatic catalog sweep that every setting refuses names the planner re
     assert.equal(v.planner_refusals.length, 1, JSON.stringify(v.planner_refusals));
     assert.equal(v.planner_refusals[0].scope, 'request');
     assert.match(v.planner_refusals[0].reason, /no such section function/);
-    assert.ok(v.planner_refusals[0].settings.every((s) => /^[a-z0-9-]+:\d+$/.test(s)));
+    assert.ok(v.planner_refusals[0].names.every((s) => /^[a-z0-9-]+:\d+$/.test(s)));
     assert.equal(v.catalog_sweep.planned_settings, 0);
     // Every setting tried gave this one reason, counted per setting.
     assert.equal(v.planner_refusals[0].setting_count, v.catalog_sweep.settings);
@@ -3423,7 +3423,7 @@ test('an automatic catalog sweep whose settings plan but meet no want says so', 
     assert.ok(reasons.length > 1, JSON.stringify(reasons));
     for (const [i, g] of reasons.entries()) {
       assert.ok(g.setting_count >= 1 && g.setting_count <= settings);
-      assert.ok(g.settings.length + g.more_settings <= g.setting_count);
+      assert.ok(g.names.length + g.more_names <= g.setting_count);
       if (i) assert.ok(reasons[i - 1].setting_count >= g.setting_count, 'widest reason first');
     }
   } finally {

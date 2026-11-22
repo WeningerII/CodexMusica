@@ -13007,7 +13007,7 @@ def main():
                         # reason, so a record per setting would repeat one
                         # reason a thousand times. Each entry counts the
                         # settings that gave it (`setting_count`) and lists
-                        # their names, sorted. The entries keep the shape of a
+                        # their names, sorted (`names`, `more_names`). The entries keep the shape of a
                         # named sweep's `planner_refusals`, which the connector
                         # already reads.
                         grouped, planned_names, planned_count = {}, set(), 0
@@ -13059,8 +13059,8 @@ def main():
                         for g in ordered[:24]:
                             names = sorted(g["names"])
                             reasons.append({**{k: v for k, v in g.items() if k != "names"},
-                                            "settings": names[:12],
-                                            "more_settings": max(0, len(names) - 12)})
+                                            "names": names[:12],
+                                            "more_names": max(0, len(names) - 12)})
                         _refuse(headline,
                                 detail=lines_out,
                                 machine={"sweep": {
@@ -13070,11 +13070,12 @@ def main():
                                     "planner_refusals": reasons,
                                     "more_reasons": max(0, len(ordered) - 24),
                                     # `settings` and `planned_settings` count
-                                    # settings; `planned` lists their names.
+                                    # settings; `planned_names` names them.
                                     "catalog": {"settings": len(tried),
                                                 "planned_settings": planned_count,
-                                                "planned": planned_sorted[:12],
-                                                "more_planned": max(0, len(planned_sorted) - 12)}}})
+                                                "planned_names": planned_sorted[:12],
+                                                "more_planned_names": max(
+                                                    0, len(planned_sorted) - 12)}}})
             except PLN.PlanRefused as e:
                 _refuse(str(e), machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
