@@ -199,7 +199,8 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "BEATS_PER_SYLLABLE_MAX",
            "JOINT_CODES", "LAST_WORD", "placement_word",
            "bound_placements", "bound_token_share", "end_rhyme_groups",
-           "line_syllable_ceiling", "line_pulses_and_heads", "joint_findings"]
+           "line_syllable_ceiling", "line_pulses_and_heads", "joint_findings",
+           "class_rule", "PROMOTED_FINAL_WORDS"]
 
 
 class PlanRefused(ValueError):
@@ -1955,11 +1956,51 @@ _CHANNEL_WORDS = {
     "grapheme": "spelling",
 }
 
-#: The capabilities a type `requires`, in a writer's words.
+#: The capabilities a type `requires`, in a writer's words. ~~Two entries,
+#: and every other capability printed as "it is judged with <code>"~~ (bug
+#: hunt finding 2's follow-up, 2026-11-22): each capability a registry type
+#: requires has its sentence, and `test_plan.py` §F2b fails on a code.
 _REQUIRES_WORDS = {
     "refrain_tail": ("the repeated run of end words is read off the group's "
                      "own lines"),
     "stanza": "sections count as stanzas",
+    "caesura": "it can be judged only where each line's pause is marked",
+    "lifts": ("it can be judged only where each line's strong beats are "
+              "marked"),
+    "beat": "it can be judged only where each line's beats are marked",
+    "stub_resolution": ("it can be judged only where each short repeated "
+                        "line is tied to the passage it stands for"),
+    "tonal_template": ("it can be judged only where each line's pattern of "
+                       "level and changing tones is given"),
+    "tone": ("it can be judged only with a pronunciation that marks level "
+             "and changing tones"),
+    "orthography": "it is judged on the spelling",
+    "delivered": ("it can be judged only from a record of how the words are "
+                  "delivered"),
+    "sung": "it can be judged only from a record of how the words are sung",
+    "earlier": ("it can be judged only with an older pronunciation of the "
+                "words"),
+    "poet": "it can be judged only with the writer's own pronunciation",
+    "slang": "it can be judged only with the words the slang stands for",
+}
+
+
+def _requires_clause(r):
+    """-> one required capability in a writer's words. A `quotient:<name>`
+    capability is a declared table of which sounds count as one."""
+    if str(r).startswith("quotient:"):
+        return "it is judged by a declared table of which sounds count as one"
+    return _REQUIRES_WORDS.get(r, f"it is judged with {r}")
+
+
+#: The surface a channel is read on, when it is not the pronunciation.
+_SURFACE_WORDS = {
+    "orthography": "in the spelling",
+    "delivered": "as delivered",
+    "sung": "as sung",
+    "earlier": "in the older pronunciation",
+    "poet": "in the writer's own pronunciation",
+    "slang": "in the words the slang stands for",
 }
 
 _SCOPE_WORDS = {
@@ -1981,6 +2022,30 @@ _CLASS_WORDS = {
 }
 
 
+#: THE PROMOTED FINAL, AS A ROW STATES IT (bug hunt finding 2's follow-up,
+#: 2026-11-22). A declared pair is judged under
+#: `relations.declared_pair_schema`, whose end anchor (`PromotedFinalRule`,
+#: `MISSING.md` M-319) also takes the line's last syllable alone, read as
+#: stressed, when it is unstressed after a stressed one
+#: (`relations._promotable_final`). A row that said only "from its last
+#: stressed syllable" ruled out pairs the grader passes.
+PROMOTED_FINAL_WORDS = ("or at its last syllable alone, counted as "
+                        "stressed, when that syllable is unstressed and "
+                        "follows a stressed one")
+
+#: Where a member is, for the loci that are not a line's first or last word.
+_LOCUS_WORDS = {
+    "line_final_token": "the last word of its line",
+    "line_initial_token": "the first word of its line",
+    "any_token": "the word at its stated position",
+    "half_line_a": "the part of its line before the line's pause",
+    "half_line_b": "the part of its line after the line's pause",
+    "lift": "a word that starts on a strong beat of its line",
+    "token_first_half": "the first part of a doubled word",
+    "token_second_half": "the second part of the same doubled word",
+}
+
+
 def _span_words(rule, var):
     locus, anchor, mag = rule.locus, rule.anchor, rule.magnitude
     if locus == "free_run":
@@ -1996,10 +2061,11 @@ def _span_words(rule, var):
     if locus == "line_final_before_refrain":
         return (f"{var} is the last word before the run of words that ends "
                 f"every line of the group")
-    where = {"line_final_token": "the last word of its line",
-             "line_initial_token": "the first word of its line",
-             "any_token": "the word at its stated position"}.get(locus, locus)
-    return f"{var} is {where}, read {span_read_words(rule)}"
+    where = _LOCUS_WORDS.get(locus, locus)
+    read = f"{var} is {where}, read {span_read_words(rule)}"
+    if getattr(rule, "promote_final", False):
+        read += ", " + PROMOTED_FINAL_WORDS
+    return read
 
 
 #: Where in its word a member is read, by (anchor, magnitude). ONE table: the
@@ -2017,6 +2083,7 @@ _SPAN_READ = {
     ("penult", 1): "at its second-to-last syllable",
     ("word_start", "to_frame_edge"):
         "from its first syllable to the end of the line",
+    ("last_stressed", 1): "at its last stressed syllable",
 }
 
 
@@ -2031,7 +2098,14 @@ def _channel_clause(c):
     where = _SCOPE_WORDS.get(c.scope, c.scope)
     pred = c.predicate
     kind = type(pred).__name__
-    if kind == "SequenceEqual" and getattr(pred, "reverse_b", False):
+    if c.channel == "token" and kind in ("Agree", "SequenceEqual", "Differ"):
+        # A WORD IS NOT READ AT A SYLLABLE (bug hunt finding 2's follow-up,
+        # 2026-11-22): ~~"P and Q have the same word at the first
+        # syllable"~~. The token channel compares the words themselves, so
+        # the scope names nothing a writer can act on.
+        s = ("P and Q are different words" if kind == "Differ"
+             else "P and Q are the same word")
+    elif kind == "SequenceEqual" and getattr(pred, "reverse_b", False):
         # The check reads Q's sequence in reverse (relations.SequenceEqual), so
         # the sentence has to say so: without it the writer is told "the same
         # sounds in order", writes a homophone pair, and the grader refuses it
@@ -2067,7 +2141,7 @@ def _channel_clause(c):
         s = (f"the {what} of P and Q {where} are judged by "
              f"{getattr(pred, 'name', kind)}")
     if c.surface != "phonemic":
-        s += f" (as {c.surface})"
+        s += f" ({_SURFACE_WORDS.get(c.surface, 'as ' + c.surface)})"
     if not c.required:
         s += " (reported, not required)"
     return s
@@ -2099,7 +2173,42 @@ _PLACE_WORDS = {
                               "counting back from the line ends, where both "
                               "syllables are stressed, and after it at least "
                               "one of P and Q has no stressed syllable"),
+    # Every other placement a registry type declares (bug hunt finding 2's
+    # follow-up, 2026-11-22): ~~printed as its code~~.
+    ("same_line", True): "P and Q are in the same line",
+    ("adjacent_stanzas", True): "Q's section comes directly after P's",
+    ("at_caesura", True): "the line's pause falls between P and Q",
+    ("at_lift", True): "P and Q each start on a strong beat of their line",
+    ("off_beat", True): "P and Q each start off the beat",
+    ("same_token", True): "P and Q are parts of one word",
+    ("adjacent_tokens", True): "Q is the word right after P, in the same line",
+    ("spans_overlap", True): "P and Q share at least one syllable",
+    ("spans_disjoint", True): "P and Q share no syllable",
+    ("a_is_split_token", True): ("P is the part of a word, split by the line "
+                                 "break, that comes before the break"),
+    ("b_starts_mid_word", True): "Q starts inside a word",
+    ("text_order", True): "Q comes after P",
+    ("different_sections", True): "N and M are in different sections",
+    ("same_section", True): "N and M are in the same section",
 }
+
+
+def _place_clause(p):
+    """-> one placement in a writer's words. Placements that carry a number
+    say it; a negated placement with no sentence of its own negates the
+    positive one."""
+    if p.kind == "line_gap_at_most":
+        return f"line M comes at most {p.args[0]} line(s) after line N"
+    if p.kind == "lift_index":
+        return (f"{'Q starts' if p.polarity else 'Q does not start'} on "
+                f"strong beat number {p.args[0] + 1} of its line")
+    if p.kind == "syllable_index_from_head":
+        return (f"P {'starts' if p.polarity else 'does not start'} at "
+                f"syllable {p.args[0]} of its line")
+    got = _PLACE_WORDS.get((p.kind, bool(p.polarity)))
+    if got is None and not p.polarity and (p.kind, True) in _PLACE_WORDS:
+        got = f"it is not so that {_PLACE_WORDS[(p.kind, True)]}"
+    return got or f"{'not ' if not p.polarity else ''}{p.kind}"
 
 _IDENTITY_WORDS = {
     ("token", "Differ"): "P and Q are different words",
@@ -2159,12 +2268,7 @@ def type_rule(sch):
            _ALIGN_WORDS.get(sch.align, f"P and Q are aligned by {sch.align}")]
     out += [_channel_clause(c) for c in sch.channels or ()]
     out += [_UNMATCHED_WORDS[sch.unmatched]] if sch.unmatched != "exclude" else []
-    for p in sch.placement or ():
-        if p.kind == "line_gap_at_most":
-            out.append(f"line M comes at most {p.args[0]} line(s) after line N")
-            continue
-        out.append(_PLACE_WORDS.get((p.kind, bool(p.polarity)),
-                                    f"{'not ' if not p.polarity else ''}{p.kind}"))
+    out += [_place_clause(p) for p in sch.placement or ()]
     for i in sch.identity or ():
         out.append(_identity_clause(i))
     fig = sch.figure
@@ -2172,9 +2276,80 @@ def type_rule(sch):
         out.append("this holds for every two lines of the group"
                    + (", and the group is a whole section"
                       if fig.frame == "stanza" else ""))
-    for r in sch.requires or ():
-        out.append(_REQUIRES_WORDS.get(r, f"it is judged with {r}"))
-    return out
+    out += [_requires_clause(r) for r in sch.requires or ()]
+    # One clause once: a token channel and a token identity rule can now say
+    # the same sentence ("P and Q are the same word").
+    return list(dict.fromkeys(out))
+
+
+# The coarse classes' clauses (`class_rule`). Each is what
+# `lyric_harness.score` adds the class for, read over every reading
+# `lyric_harness.line_anchors` takes (`best_score` keeps a class any reading
+# pair earns), under the default `Declaration`; `test_plan.py` §F2b holds
+# every clause against the grader over word pairs drawn by seed, and holds
+# the vowel licences named here to the declaration's own.
+_CLASS_READ = ("P and Q are each read from a syllable with any stress to the "
+               "end: at a line's end, to the end of the line, starting in its "
+               "last word or an earlier one; at a word inside the line, to "
+               "the end of that word; both readings have the same number of "
+               "syllables")
+_CLASS_NOT_PROMOTED = ("a last syllable that counts as stressed only because "
+                       "it ends the line does not start a reading")
+_CLASS_VOWELS = ("P and Q have the same vowel sound at every syllable read, "
+                 "an unstressed `uh` and an unstressed `ih` counting as one "
+                 "vowel, and so do `ih` and `ee` before an `r`")
+_CLASS_AFTER = ("P and Q have the same sounds after the first vowel, to the "
+                "end: each consonant sound after a vowel, and each consonant "
+                "sound that opens a later syllable")
+
+#: THE FIVE COARSE CLASSES, each with a plain name and its whole rule (bug
+#: hunt finding 2's follow-up, 2026-11-22). ~~"P and Q stand in the declared
+#: relation class:RHYME"~~: a sentence that stated no rule and printed an
+#: internal name, so a writer could send a pair the grader refuses
+#: (light/lightly, a promoted final) with nothing in the row against it.
+#: The names are not the registry's type names: `assonance` and
+#: `consonance` are registry types with rules of their own.
+_CLASS_RULES = {
+    "RHYME": ("rhyme", [
+        _CLASS_READ, _CLASS_NOT_PROMOTED, _CLASS_VOWELS, _CLASS_AFTER,
+        "the same word twice also counts"]),
+    "RIME_RICHE": ("same-sound rhyme", [
+        "P and Q are different words", _CLASS_READ, _CLASS_NOT_PROMOTED,
+        "P and Q have exactly the same sounds at every syllable read, the "
+        "consonant sound(s) before each vowel included, and no vowel counts "
+        "as another"]),
+    "PROMOTED_RHYME": ("rhyme on a line's last syllable", [
+        "at least one of P and Q is the last syllable of its line alone: an "
+        "unstressed syllable that counts as stressed because it ends the "
+        "line and follows a stressed one",
+        "the other is the last syllable of its own line, which is stressed "
+        "or counts as stressed the same way",
+        "the two syllables have the same vowel sound, an unstressed `uh` and "
+        "an unstressed `ih` counting as one vowel, and so do `ih` and `ee` "
+        "before an `r`, and the same consonant sound(s) after it"]),
+    "ASSONANCE": ("vowel match", [
+        _CLASS_READ, _CLASS_NOT_PROMOTED, _CLASS_VOWELS,
+        "the consonant sounds may differ"]),
+    "CONSONANCE": ("consonant match", [
+        _CLASS_READ, _CLASS_NOT_PROMOTED,
+        "P and Q have the same consonant sound(s) after each vowel, and the "
+        "same consonant sound(s) opening each later syllable",
+        "at least one consonant sound is there to compare",
+        "the vowels may differ"]),
+}
+
+
+def class_rule(name):
+    """-> (plain name, [clauses]) of one coarse class relation, named
+    'class:RHYME' or 'RHYME'. An unknown class is refused (ValueError),
+    never given a default rule."""
+    bare = str(name or "")
+    bare = bare.split(":", 1)[1] if bare.startswith("class:") else bare
+    if bare not in _CLASS_RULES:
+        raise ValueError(f"no rule for class relation {name!r}: the classes "
+                         f"are {', '.join(_CLASS_RULES)}")
+    shown, clauses = _CLASS_RULES[bare]
+    return shown, list(clauses)
 
 
 def _member_words(member, token=True):
@@ -7899,7 +8074,16 @@ def group_rules(plan):
         name = rels.get(SC.label((gi,))) or plan.get("relation") or ""
         bare, sch = _schema_of(name)
         members = [m.strip() for m in g.split(",") if m.strip()]
-        if sch is None:
+        if sch is None and str(name).startswith("class:"):
+            # A CLASS STATES ITS OWN RULE (bug hunt finding 2's follow-up,
+            # 2026-11-22): ~~"P and Q stand in the declared relation
+            # class:RHYME"~~.
+            key = name
+            shown, clauses = class_rule(name)
+            if key not in rule_no:
+                rule_no[key] = len(rule_no) + 1
+                rules.append((rule_no[key], shown, clauses))
+        elif sch is None:
             key = name or "any"
             shown = name or "any relation"
             if key not in rule_no:
@@ -7912,7 +8096,13 @@ def group_rules(plan):
             key = shown = bare
             if key not in rule_no:
                 rule_no[key] = len(rule_no) + 1
-                rules.append((rule_no[key], shown, type_rule(sch)))
+                # THE ROW THE GRADER JUDGES (bug hunt finding 2's follow-up,
+                # 2026-11-22): ~~`type_rule(sch)`~~, the registry row, which
+                # omits the promoted final a declared pair is also judged by
+                # (`relations.declared_pair_schema`, the default
+                # declaration's promotion).
+                rules.append((rule_no[key], shown,
+                              type_rule(_RL.declared_pair_schema(sch))))
         token = sch is None or all(r.locus in _TOKEN_LOCI
                                    for r in (sch.spans[0], sch.spans[-1]))
         lines.append(f"  group {SC.label((gi,))}: "
