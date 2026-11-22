@@ -1454,10 +1454,18 @@ def _domain_cap(sch):
             why = (f"its rule asks every two members to differ on "
                    f"{_CHANNEL_WORDS.get(c.channel, c.channel)}, which has "
                    f"{dom} values")
-    if _RL.overhang_member(sch) is not None and (cap is None or cap > 2):
-        cap = 2
-        why = ("its rule asks the later member of every pair to run on past "
-               "the earlier one, which three members cannot all do")
+    # ~~cap = 2, "which three members cannot all do"~~ REPLACED 2026-11-21
+    # (bug hunt F21): three can, by running on further line by line (know /
+    # knowing / knowingly). The cap is the owner's fixed number,
+    # `relations.OVERHANG_CHAIN_CAP`.
+    if _RL.overhang_member(sch) is not None:
+        chain = _RL.OVERHANG_CHAIN_CAP
+        if cap is None or cap > chain:
+            cap = chain
+            why = (f"its rule asks each later member to run on past the "
+                   f"rhyme further than every earlier one, and a word runs "
+                   f"on at most {chain - 1} syllables past its last stressed "
+                   f"syllable")
     # A RULE THAT READS ONE MEMBER IN REVERSE BINDS TWO LINES (owner's ruling,
     # 2026-11-15). A group is judged pair by pair, so three members would
     # each have to be the other two read backwards: all three one sound that
@@ -2429,38 +2437,52 @@ def line_syllable_ceiling(slots):
     return slots
 
 
-def _overhang_binding(schema, members):
-    """The (line, word) that a pair requires to carry an extra syllable.
+def _overhang_bindings(schema, members):
+    """-> [(line, word, extra syllables)] each member of a group under this
+    schema must carry past the rhyme, at the least.
 
     Member order is TEXT order, as in schemes.mandate, not declaration
-    order. Larger groups are refused separately by group_satisfiable.
-    The schema supplies the direction; placement_word supplies the token.
+    order. The schema supplies the direction; placement_word supplies the
+    token. ~~A pair only: "Larger groups are refused separately by
+    group_satisfiable"~~ (bug hunt F21, 2026-11-21): a group of any size is
+    met by a chain whose words run on strictly further line by line, so the
+    member at place i of k (from 0) runs on at least i syllables past the
+    rhyme (`require_b`), or k - 1 - i (`require_a`). A member that needs
+    none is left out. In a pair this is the one member, one syllable.
     """
     side = _RL.overhang_member(schema)
-    if side is None or len(members) != 2:
-        return None
+    if side is None or len(members) < 2:
+        return []
     ordered = sorted((_SL.parse_slot(str(m)) for m in members),
                      key=lambda s: s.line)
-    slot = ordered[side - 1]
-    _, _, place = _SL.spell_slot(slot).partition(".")
-    return slot.line, placement_word(place or "end")
+    out = []
+    for i, slot in enumerate(ordered):
+        extra = i if side == 2 else len(ordered) - 1 - i
+        if extra:
+            _, _, place = _SL.spell_slot(slot).partition(".")
+            out.append((slot.line, placement_word(place or "end"), extra))
+    return out
 
 
 def _overhang_budget(places, overhang_words, slots):
     """(minimum syllables, ceiling, fits) for all demands on ONE line.
 
-    Each required token costs at least one syllable; each distinct token
-    required to overhang costs at least one MORE. A T4 needs the three
-    preceding words too, and an end binding needs a separate final word.
-    Aliases of one token never buy or charge a second syllable. This is a
-    necessary lower bound, not a lexical witness or a promise of a writable
-    song: longer anchors and other schemas can require additional material.
-    Both the relation draw and joint_findings ask this same predicate.
+    `overhang_words` maps each token required to overhang to the syllables
+    it must run on (`_overhang_bindings`); a plain list of tokens asks one
+    each. Each required token costs at least one syllable, and each distinct
+    token required to overhang costs at least that many MORE. A T4 needs the
+    three preceding words too, and an end binding needs a separate final
+    word. Aliases of one token never buy or charge a second syllable. This
+    is a necessary lower bound, not a lexical witness or a promise of a
+    writable song: longer anchors and other schemas can require additional
+    material. joint_findings asks it.
     """
+    if not hasattr(overhang_words, "items"):
+        overhang_words = {w: 1 for w in overhang_words}
     words = {placement_word(p) for p in places}
     top = max((w for w in words if w != LAST_WORD), default=0)
     tokens = top + (1 if LAST_WORD in words else 0)
-    need = tokens + len(set(overhang_words))
+    need = tokens + sum(overhang_words.values())
     ceiling = line_syllable_ceiling(slots)
     return need, ceiling, need <= ceiling
 
@@ -2940,8 +2962,13 @@ def joint_findings(plan):
     # A schema demanding an overhang (`unmatched` require_a/require_b —
     # semirhyme is the drawable one) imposes an ORDER on its members: every
     # pair wants its later member to overhang and its earlier member not to.
-    # On three members or more the middle one is asked for both at once, and
-    # it is one word, so C(k-1, 2) of the pairs fail whatever anybody writes.
+    # ~~On three members or more the middle one is asked for both at once,
+    # and it is one word, so C(k-1, 2) of the pairs fail whatever anybody
+    # writes.~~ WRONG, bug hunt F21 (2026-11-21): each overhang is against
+    # one partner, so the words can run on further line by line. What stops
+    # a group is the dictionary: a chain needs as many different run-on
+    # lengths as it has members (`relations.unsatisfiable_pairs`), and
+    # `relations.OVERHANG_CHAIN_CAP` (5) is how many the owner allows.
     # Reported on the group's FIRST line because a group is not a line and
     # the finding has to hang somewhere a reader can find it; the detail
     # names every member, since the impossibility is a fact about the set.
@@ -2959,14 +2986,14 @@ def joint_findings(plan):
         if _s is None:
             continue
         _mem = [m.strip() for m in _g.split(",") if m.strip()]
-        _binding = _overhang_binding(_s, _mem)
-        if _binding is not None:
-            _ln, _word = _binding
+        for _ln, _word, _extra in _overhang_bindings(_s, _mem):
             # A copy's words are its first line's (F23): `span` and `at` are
             # keyed by that first line.
             _ln = roots.get(_ln, _ln)
-            _overhangs.setdefault(_ln, {}).setdefault(_word, []).append(
-                SC.label((_gi,)))
+            _row = _overhangs.setdefault(_ln, {}).setdefault(
+                _word, {"labels": [], "extra": 0})
+            _row["labels"].append(SC.label((_gi,)))
+            _row["extra"] = max(_row["extra"], _extra)
         # ~~IDENTITY_AT_TWO_LINE_ENDS~~ -- RETIRED 2026-11-20. Its premise
         # was that `floor.REPEAT_IN_VERSE` charges identical end words as a
         # FLAG; the owner ruled that a word may rhyme with itself, and that
@@ -3042,32 +3069,38 @@ def joint_findings(plan):
                 f"definition needs in `groups` ({_mem[0]}.T2,...), on "
                 f"lyric_check, or on lyric_revise for a pasted song, and the "
                 f"declared-token route judges it at the slots you named."))
+        _cap = _RL.OVERHANG_CHAIN_CAP
         _n_bad = _RL.unsatisfiable_pairs(_s, len(_mem))
         if not _n_bad:
             continue
         _ln0 = min(int(str(m).split(".", 1)[0]) for m in _mem)
+        # ~~"each middle member must overhang the one before it and not
+        # overhang the one after — one word, two opposite demands"~~
+        # (bug hunt F21): the limit is the dictionary's, not the group's.
         out.append((
             "GROUP_CONTRADICTS_ITSELF", _ln0,
             f"group {SC.label((_gi,))} declares {_name!r} over {len(_mem)} "
-            f"members ({', '.join(_mem)}), and that schema requires member "
-            f"{_RL.overhang_member(_s)} of every pair to overhang the other. "
-            f"Ordered by line, each middle member must overhang the one "
-            f"before it and not overhang the one after — one word, two "
-            f"opposite demands — so {_n_bad} of the "
-            f"{len(_mem) * (len(_mem) - 1) // 2} pairs fail at any line "
-            f"length and no vocabulary closes them. The schema is exactly "
-            f"the figure it is named for on a PAIR; it is the group SIZE "
-            f"that is impossible."))
+            f"members ({', '.join(_mem)}), and that type asks each later "
+            f"member to run on past the rhyme "
+            f"{'further' if _RL.overhang_member(_s) == 2 else 'less far'} "
+            f"than every earlier one. A word runs on at most {_cap - 1} "
+            f"syllables past its last stressed syllable, so at most {_cap} "
+            f"members can each run on a different amount, and {_n_bad} of "
+            f"the {len(_mem) * (len(_mem) - 1) // 2} pairs fail whatever "
+            f"anybody writes. A smaller group meets it."))
     for _ln, _words in sorted(_overhangs.items()):
         _need, _ceiling, _fits = _overhang_budget(
-            at.get(_ln, []), _words, span.get(_ln, 0))
+            at.get(_ln, []), {w: d["extra"] for w, d in _words.items()},
+            span.get(_ln, 0))
         if not _fits:
-            _labels = sorted({label for labels in _words.values()
-                              for label in labels})
+            _labels = sorted({label for d in _words.values()
+                              for label in d["labels"]})
             out.append((
                 "OVERHANG_EXCEEDS_SPAN", _ln,
-                f"group(s) {', '.join(_labels)} require an extra syllable "
-                f"on {len(_words)} distinct bound word(s). Together with "
+                f"group(s) {', '.join(_labels)} require "
+                f"{sum(d['extra'] for d in _words.values())} extra "
+                f"syllable(s) on {len(_words)} distinct bound word(s). "
+                f"Together with "
                 f"this line's other placements they need at least {_need} "
                 f"syllables, but its grid permits at most "
                 f"{_ceiling:g}. The required overhang cannot fit."))
@@ -8096,13 +8129,18 @@ def schema_asks(sch):
             nm = getattr(pred, "name", type(pred).__name__)
             bits.append(f"{c.channel} judged by {nm}")
     um = getattr(sch, "unmatched", "exclude")
+    # ~~"the second word carries an extra syllable or more after the rhyme"~~
+    # (bug hunt F21, 2026-11-21): a group holds up to five members, and
+    # each is measured against every partner, so the words run on further
+    # line by line.
     if um == "require_b":
-        bits.append("the second word carries an extra syllable or more "
-                    "after the rhyme (bend / ending) — an equal pair "
+        bits.append("each later word carries more syllables after the rhyme "
+                    "than every earlier one (bend / ending) — an equal pair "
                     "fails")
     elif um == "require_a":
-        bits.append("the first word carries an extra syllable or more "
-                    "after the rhyme — an equal pair fails")
+        bits.append("each earlier word carries more syllables after the "
+                    "rhyme than every later one (ending / bend) — an equal "
+                    "pair fails")
     elif um == "forbid":
         bits.append("neither word runs on past the rhyme")
     for idr in (getattr(sch, "identity", ()) or ()):
