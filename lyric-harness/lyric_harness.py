@@ -10582,6 +10582,23 @@ def _legacy_671_prose(kind, prompt):
     return None if text == prompt else text
 
 
+_RETURN_ROW_2026_11_21 = re.compile(
+    r"^  the (\d+) pair\(s\) above are declared returns of the same line; at "
+    r"the (\d+) rhyme pair\(s\) a repeated word is allowed and is judged "
+    r"under its group's rhyme like any other word\.$", re.M)
+
+
+def _legacy_return_row(kind, prompt):
+    """Undo the 2026-11-21 rewording of the declared-mandate return row
+    (`Mandate.describe`, the self-rhyme ruling's leftover): the row as the
+    group question printed it before, byte for byte."""
+    text = _RETURN_ROW_2026_11_21.sub(lambda m: (
+        f"  doctrine 3, per PAIR: REPEAT is the REQUIREMENT at the {m[1]} "
+        f"pair(s) above and a VIOLATION at the {m[2]} rhyme pair(s); the "
+        f"mandate no longer needs one song-wide licence to mean both."), prompt)
+    return None if text == prompt else text
+
+
 #: The block `quality/propose.py` prints under the rejection rows since
 #: 2026-11-21 (bug hunt 2026-11-20, finding 3: the question named the two
 #: writing bans and never said what either forbids), FROZEN for the reason
@@ -10691,6 +10708,8 @@ LEGACY_QUESTION_RENDERINGS = (
      _legacy_line_limit),
     ("2026-11-14 writer: #671 pass 2 cuts prose from the question (A9-A13)",
      _legacy_671_prose),
+    ("2026-11-21 writer: the return row after the self-rhyme ruling",
+     _legacy_return_row),
     ("2026-11-21 writer: the question says what the two writing bans forbid "
      "(bug hunt finding 3)",
      _legacy_ban_definitions),
