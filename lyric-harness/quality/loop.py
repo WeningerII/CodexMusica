@@ -319,6 +319,7 @@ from lyric_harness import (APOSTROPHES, load_lyric_lines, line_tokens,
                            raw_final_token, reader_line,
                            resolve_reader_scheme, _scheme_of)
 from quality import slots as _SL  # noqa: E402
+from quality.fit import TIMING_ONLY as _TIMING_ONLY  # noqa: E402
 from quality.revise import (ReviseDeclaration, Reviser,  # noqa: E402
                             draft_fingerprint)
 
@@ -2671,7 +2672,11 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             _found = reviser.inspect(lines, mandate, profile=profile,
                                      blueprint=blueprint, subdivision=subdivision,
                                      assume=assume)
-            _global = tuple(f for f in _found["whole"] if f.severity == "flag")
+            # A timing-only flag (`fit.TIMING_ONLY`, bug hunt F8) is not
+            # offered here: this repair asks for new words, and no words
+            # clear it. It still stands, so the stop below names it.
+            _global = tuple(f for f in _found["whole"] if f.severity == "flag"
+                            and f.code not in _TIMING_ONLY)
             if _global and _group_declared and rdecl.attempts_per_line > 0:
                 _members = tuple(range(1, len(lines) + 1))
                 _reasons, _moved, _attempts = None, False, []
@@ -2729,9 +2734,14 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         # round with nothing flagged pays nothing, and after `brief()`, so
         # the caches are warm for this exact draft — the same measured
         # argument `_close`'s own docstring makes for its extra `inspect()`.
-        whole = tuple(reviser.inspect(
+        # ~~every whole-draft finding~~ (bug hunt F8): a timing-only flag
+        # is left out of what a question lists for the writer to keep, as
+        # it is left out of the whole-draft repair. No words move it, so a
+        # rewrite cannot keep or break it, and no question names it.
+        whole = tuple(f for f in reviser.inspect(
             lines, mandate, profile=profile, blueprint=blueprint,
-            subdivision=subdivision, assume=assume)["whole"])
+            subdivision=subdivision, assume=assume)["whole"]
+            if f.code not in _TIMING_ONLY)
 
         attempts, fixed_this_round, touched = [], [], set()
         # Which accepted unit rewrote a line, and the lines the most recent
@@ -2866,9 +2876,10 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 # than left pointing at the top of the round. Cheap by the
                 # same measured argument the first read makes: `brief()`
                 # above has just warmed the caches for exactly these lines.
-                whole = tuple(reviser.inspect(
+                whole = tuple(f for f in reviser.inspect(
                     lines, mandate, profile=profile, blueprint=blueprint,
-                    subdivision=subdivision, assume=assume)["whole"])
+                    subdivision=subdivision, assume=assume)["whole"]
+                    if f.code not in _TIMING_ONLY)
                 brief_lines = list(lines)
                 still_open = {x.line_no: x
                               for x in _open_lines(fresh, pursue)

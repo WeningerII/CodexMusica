@@ -211,6 +211,13 @@ SATISFACTION_FINDINGS = {"REFRAIN_REPEAT", "RETURN_LOCKED", "RADIF_LICENSED"}
 COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
                       "REPEAT_ACROSS_GROUPS", "COLLISION_UNDECLARED"}
 
+#: What a timing-only flag (`fit.TIMING_ONLY`) tells the writer (bug hunt F8,
+#: the owner's ruling 2026-11-21). It is filed on the whole song, so no line
+#: is asked to change for it.
+TIMING_ONLY_ADVICE = ("The timing declared for this must change: where the "
+                      "line starts, or how long it runs. No change to the "
+                      "words clears it.")
+
 #: `quality/grid.py` function refusals whose question has NO SUBJECT in what
 #: the writer declared: a function declared once cannot return, an undeclared
 #: one has no instance, a bridge with no verse has nothing to contrast with,
@@ -3428,7 +3435,7 @@ class Reviser:
                 f"POSITION and a mismatched count would silently misalign "
                 f"every line after the first difference. They must be the "
                 f"same draft.")
-        per, refusals = {}, {}
+        per, refusals, timing = {}, {}, {}
         from quality.phonology.eng import English
         fallback = getattr(self.lex.g2p_fallback, "min_confidence", None)
         phon = English(fallback=fallback, lexicon=self.lex)
@@ -3459,6 +3466,11 @@ class Reviser:
                     # THE ANY-READING RULE: which whole reading this line
                     # was judged on (`fit.fit_line`).
                     ev += f" READ AS: {lf.units.describe_reading()}"
+                if f.code in FT.TIMING_ONLY:
+                    # ~~filed on the line~~ (bug hunt F8): no wording of the
+                    # line clears it, so it is the song's, below.
+                    timing.setdefault(f.code, []).append((ln, f, ev))
+                    continue
                 per.setdefault(ln, []).append(Finding(
                     f.code, f.severity,
                     f.message, ev, [ln]))
@@ -3511,6 +3523,20 @@ class Reviser:
             whole.append(Finding(
                 f.code, f.severity,
                 f.message, f.evidence, []))
+        # THE TIMING-ONLY FLAGS ARE THE SONG'S (bug hunt F8; the owner's
+        # ruling 2026-11-21: not meter, still blocking). One per code, naming
+        # its lines and saying what must change, so no question asks a
+        # writer to reword a line for them.
+        for code, hits in sorted(timing.items()):
+            lns = sorted(ln for ln, _f, _ev in hits)
+            _, first, _ = hits[0]
+            whole.append(Finding(
+                code, first.severity,
+                f"meter: {first.message}, on line"
+                f"{'s' if len(lns) > 1 else ''} {', '.join(map(str, lns))}. "
+                f"{TIMING_ONLY_ADVICE}",
+                " ".join(f"L{ln}: {ev}" for ln, _f, ev in hits),
+                lns))
         return per, whole
 
     # -- the calibrated bands ----------------------------------------------

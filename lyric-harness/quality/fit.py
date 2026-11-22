@@ -1227,6 +1227,18 @@ class Isochrony(_Sourced):
 KINDS = ("placement", "density", "prominence", "setting")
 
 
+#: The placement flags no wording of the line can clear (bug hunt F8; the
+#: owner's ruling 2026-11-21: not meter, and still a flag). Each says the
+#: TIMING the blueprint declares cannot be met whatever words the line
+#: holds: no length, a beat past the bar, a start before the section, an
+#: end past it, a start off the declared grid. `revise.Reviser` files them
+#: on the whole song, naming their lines, and no repair asks for new words
+#: for them. SLOTS_EXCEEDED is not one: fewer syllables clear it.
+TIMING_ONLY = frozenset({"ZERO_DURATION", "BEAT_OUTSIDE_CYCLE",
+                         "START_BEFORE_SECTION", "OVERRUNS_SECTION",
+                         "START_OFF_GRID"})
+
+
 @dataclass(frozen=True)
 class FitFinding:
     """A named cause, never a score.
