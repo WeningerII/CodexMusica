@@ -1545,7 +1545,11 @@ def test_a_dash_typed_as_hyphens_does_not_change_a_return():
     Every line is drawn by seed from the whole dictionary, and each dash is
     placed by seed: trailing, leading, glued to a word's edge, or between two
     words. A hyphen INSIDE a word (two drawn words joined) still counts, and
-    a changed word still breaks the return."""
+    a changed word still breaks the return.
+
+    The fold is reader scheme v2's, so the test runs under v2. Under v1 (the
+    pre-batch record `quality/test_reader.py` holds frozen) the same dash
+    stays in the text, and the test checks that too (2026-11-22)."""
     print("\nF22. a dash typed as hyphens is punctuation, not a word")
     import random
     from quality.grid import compare_returns, normalise_line
@@ -1572,22 +1576,27 @@ def test_a_dash_typed_as_hyphens_does_not_change_a_return():
             k = rng.randint(1, len(copy) - 1)
             copy[k] = dash + " " + copy[k]
         a, b = " ".join(line).capitalize(), " ".join(copy).capitalize()
-        if (normalise_line(a) != normalise_line(b)
-                or compare_returns([a], [b]).kind != "VERBATIM"):
-            bad.append((where, a, b, compare_returns([a], [b]).kind))
-        # The controls: a word joined by a hyphen, and a changed word.
         k = rng.randint(0, len(line) - 2)
         joined = line[:k] + [line[k] + "-" + line[k + 1]] + line[k + 2:]
-        if compare_returns([a], [" ".join(joined)]).kind == "VERBATIM":
-            bad.append(("joined", a, " ".join(joined)))
         other = list(line)
         other[-1] = rng.choice([w for w in words if w != line[-1]])
-        if compare_returns([a], [" ".join(other) + " " + dash]).kind == \
-                "VERBATIM":
-            bad.append(("changed", a, " ".join(other)))
+        with LH.reader_scheme_scope("v2"):
+            if (normalise_line(a) != normalise_line(b)
+                    or compare_returns([a], [b]).kind != "VERBATIM"):
+                bad.append((where, a, b, compare_returns([a], [b]).kind))
+            # The controls: a word joined by a hyphen, and a changed word.
+            if compare_returns([a], [" ".join(joined)]).kind == "VERBATIM":
+                bad.append(("joined", a, " ".join(joined)))
+            if compare_returns([a], [" ".join(other) + " " + dash]).kind == \
+                    "VERBATIM":
+                bad.append(("changed", a, " ".join(other)))
+        # Scheme v1 keeps the pre-batch text: the dash stays.
+        if normalise_line(a, "v1") == normalise_line(b, "v1"):
+            bad.append(("v1 moved", where, a, b))
     check("a dash typed as hyphens, at a line's edge, at a word's edge or "
-          "between words, leaves a verbatim return VERBATIM; a hyphen inside "
-          "a word and a changed word still count (bug hunt F22)",
+          "between words, leaves a verbatim return VERBATIM under reader "
+          "scheme v2; a hyphen inside a word and a changed word still count; "
+          "under v1 the dash stays, as before (bug hunt F22)",
           not bad, f"wrong: {bad[:3]}")
 
 
