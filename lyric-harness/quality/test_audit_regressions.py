@@ -1084,6 +1084,69 @@ class AuditRegressions(unittest.TestCase):
         self.assertEqual(LH.legacy_question_texts('propose_group', asked)[0],
                          before)
 
+    def test_a_group_question_gives_the_rule_of_a_members_other_groups(self):
+        # A follow-up to finding 2 (2026-11-22, agreed with the planner
+        # owner). A group question tells each other member what it "must
+        # also answer": the words of that member's OTHER groups, which are
+        # not being rewritten and still hold. One of those groups may
+        # declare a type, and the block gave its word and never its rule. A
+        # writer who moved the member to a plain rhyme of the listed word
+        # was rejected for a rule the question had not stated.
+        import dataclasses
+        import quality.propose as PRM
+        from quality.propose import ModelProposer
+        from quality.revise import declared_rule_rows
+        draft = ['we walked along the street',
+                 'a quiet word was all i had',
+                 'the morning brings the stone',
+                 'the evening leaves me in the sun',
+                 'i left my jacket by the tree']
+
+        def first_group_question(relations):
+            m = mandate([[1, 3], [1, 5]], n_lines=5, relations=relations)
+            rv = Reviser(rdecl=ReviseDeclaration(
+                max_rounds=1, attempts_per_line=1, backtrack_width=1))
+            call = self._fake_writer({'L3': [draft[2]]})
+            writer, groups = ModelProposer(call), []
+
+            def propose_group(group_brief):
+                groups.append(group_brief)
+                return writer.propose_group(group_brief)
+            with contextlib.redirect_stdout(io.StringIO()):
+                revise_loop(rv, list(draft), m, propose=writer.propose,
+                            propose_group=propose_group)
+            asked = [p for k, p in call.calls if k == 'group'][0]
+            return m, groups[0], asked
+
+        m, first, asked = first_group_question(
+            {'A': 'class:RHYME', 'B': 'schema:subtractive rhyme'})
+        self.assertEqual((first.label, first.pivot_line_no, first.whole_repair),
+                         ('A', 3, False))
+        (member,) = first.anchors
+        self.assertEqual((member.line_no, member.calls), (1, ('tree',)))
+        (row,) = declared_rule_rows(m)['B']
+        self.assertIn(self.ONLY_THIS_RULE, row)
+        self.assertEqual(member.call_rules, (row,))
+        self.assertIn("  Besides group A [1, 3], L1 must also answer: 'tree'.\n"
+                      f"    {row}\n"
+                      "  Those groups are NOT being rewritten", asked)
+        # A run held before this change replays: the undo finding 2 added
+        # takes every rule row out, these among them, and nothing else in
+        # the block moved.
+        before = PRM.render_group(dataclasses.replace(
+            first, anchors=(dataclasses.replace(member, call_rules=()),)))
+        self.assertIn("must also answer: 'tree'.\n  Those groups are NOT being "
+                      "rewritten", before)
+        self.assertEqual(LH._legacy_group_rules('propose_group', asked),
+                         LH._legacy_group_rules('propose_group', before))
+        # A member whose other group declares nothing gets its word alone.
+        _m, plain_first, plain = first_group_question({'A': 'class:RHYME'})
+        self.assertEqual(plain_first.anchors[0].calls, ('tree',))
+        self.assertEqual(plain_first.anchors[0].call_rules, ())
+        self.assertIn("must also answer: 'tree'.\n  Those groups are NOT being "
+                      "rewritten", plain)
+        self.assertNotIn('RULE of group B', plain)
+
     def test_a_round_reports_only_the_lines_it_changed(self):
         # Finding 28. An accepted group answer changed L3 and sent L1 back
         # byte-identical, and the round was reported as "fixed L1, L3": the

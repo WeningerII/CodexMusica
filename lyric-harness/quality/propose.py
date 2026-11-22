@@ -1055,6 +1055,15 @@ def render_group(group_brief):
                        f"too")
             out.append(f"  Besides group {label} {list(members)}, L{a_no} "
                        f"must also answer: {shown}.")
+            # THE RULE OF EACH OF THOSE GROUPS THAT DECLARES ONE (2026-11-22,
+            # the block finding 2's fix did not reach). "Must also answer"
+            # is the default obligation; a group that declares a type holds
+            # the word to that type's rule, and this block gave the word
+            # alone. Only the rows are added, so the undo that takes finding
+            # 2's rows out (`lyric_harness._legacy_group_rules`) restores
+            # this block as well.
+            out.extend(f"    {row}" for row in
+                       tuple(getattr(a, "call_rules", ()) or ()))
             out.append(f"  Those groups are NOT being rewritten, so they "
                        f"still hold: whatever L{a_no} moves")
             out.append(f"  to has to answer them as well, and a new bound "

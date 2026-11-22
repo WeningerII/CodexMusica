@@ -967,6 +967,14 @@ class AnchorSlot:
     #: the pivot's field was already empty), a tuple (possibly empty) when it
     #: was.
     one_move: object = None
+    #: THE RULE OF EACH GROUP BEHIND `calls` THAT DECLARES ONE, as printable
+    #: rows (`quality.revise.declared_rule_rows`), in the order of `calls`.
+    #: `calls` gives the words this member must still answer and not the
+    #: rule each is graded by, so a group question said "must also answer:
+    #: 'word'" over a group held to its own type's rule: the weakness of bug
+    #: hunt finding 2, on the one block that fix did not reach (2026-11-22).
+    #: Empty when none of those groups declares a rule.
+    call_rules: tuple = ()
 
 
 @dataclass
@@ -1621,8 +1629,12 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
 
 
 def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
-                        rewriting_label=None):
+                        rewriting_label=None, call_labels=None):
     """-> (other call words, return-group labels) for the ANCHOR.
+
+    `call_labels`, when a list is handed in, receives the label of the group
+    behind each call word, in step with the words returned, so a caller can
+    print the rule each of those groups is graded by (`AnchorSlot.call_rules`).
 
     SLOT-AWARE SINCE 2026-09-02 (`MISSING.md` M-184's addendum, residual
     (a), found by the tier-A verification): a backtrack rewrites the word
@@ -1694,6 +1706,8 @@ def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
             w = reviser._incumbent(lines, x, _slot_for(mandate, k, x))
             if w:
                 calls.append(w)
+                if call_labels is not None:
+                    call_labels.append(mandate.labels[k])
     return calls, sorted(rets)
 
 
@@ -1849,6 +1863,9 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     if not hasattr(mandate, "partners"):
         mandate = reviser.mandate(list(lines), mandate)
     labels = list(getattr(mandate, "labels", ()))
+    # Each declared group's rule rows, read once: a member's own block of a
+    # group question prints those of its other groups (`AnchorSlot.call_rules`).
+    _declared_rows = declared_rule_rows(mandate)
     for label, members, calls in groups:
         gi = labels.index(label) if label in labels else None
         # A return expands the atomic edit; it does not pin its members.
@@ -1955,14 +1972,21 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         # single anchor: a member that is itself a pivot was searched as
         # though the shared group were its only obligation).
         others, pin_hit = [], None
+        # THE RULE BEHIND EACH OF THOSE CALLS, for the member's own block of
+        # the question (`AnchorSlot.call_rules`), keyed by the member's line.
+        other_rules = {}
         for m_line, m_current in calls:
+            m_labels = []
             m_other, m_rets = _anchor_obligations(
                 reviser, mandate, lines, m_line, b.line_no,
-                rewriting_label=label)
+                rewriting_label=label, call_labels=m_labels)
             if m_rets:
                 pin_hit = (m_line, m_rets)
                 break
             others.append((m_line, m_current, tuple(m_other)))
+            other_rules[m_line] = tuple(
+                row for lab in dict.fromkeys(m_labels)
+                for row in _declared_rows.get(lab, ()))
         if pin_hit is not None:
             m_line, m_rets = pin_hit
             pinned.append(
@@ -2020,7 +2044,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 _anchors.append(AnchorSlot(
                     line_no=m_line, text=lines[m_line - 1], word="",
                     offered=tuple(_mf), calls=tuple(m_other),
-                    slot=_slot_for(mandate, gi, m_line), one_move=None))
+                    slot=_slot_for(mandate, gi, m_line), one_move=None,
+                    call_rules=other_rules.get(m_line, ())))
             got = propose_group(GroupBrief(
                 pivot_line_no=b.line_no, pivot_text=b.text,
                 pivot_word="", pivot_offered=(),
@@ -2101,7 +2126,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     walk(idx + 1, chosen + [word], assigned + [
                         AnchorSlot(line_no=m_line, text=lines[m_line - 1], word=word,
                                    offered=tuple(field), calls=tuple(m_other),
-                                   slot=_slot_for(mandate, gi, m_line))])
+                                   slot=_slot_for(mandate, gi, m_line),
+                                   call_rules=other_rules.get(m_line, ()))])
             walk(0, [w], [])
             for anchors in assignments:
                 got = propose_group(GroupBrief(

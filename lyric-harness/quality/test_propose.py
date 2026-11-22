@@ -1203,7 +1203,12 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
               # Rendered and asserted in `test_loop_redesign.py` (a); an `AS`
               # without it takes `render_group`'s `None`, which prints no
               # block, as an anchor with no menu should.
-              "one_move"}
+              "one_move",
+              # `call_rules` — the rule of each other group this member must
+              # still answer (2026-11-22, the follow-up to bug hunt finding
+              # 2). Rendered through `AS` in §7e and through the real loop in
+              # `test_audit_regressions.py`.
+              "call_rules"}
     check("every field this suite builds an `AS` out of is a real "
           "`AnchorSlot` field", a_used <= a_declared,
           sorted(a_used - a_declared))
@@ -1685,6 +1690,27 @@ def test_the_offer_carries_no_schema_gap_disclosure():
               "  A: lines [1, 3]\n\n" + DECLARED_RULES_HEADING + "\n  "
               + row + "\n\nCURRENT DRAFT")
           and DECLARED_RULES_HEADING not in plain, with_rows)
+    # A MEMBER'S OTHER GROUPS (2026-11-22, the follow-up to finding 2). The
+    # block that tells another member what it "must also answer" gave the
+    # words of its other groups and never the rule one of them declares.
+    coupled = dict(pivot_line_no=3, pivot_text="third line", pivot_word="",
+                   pivot_offered=(), label="A", members=(1, 3),
+                   brief=B(must_answer=[("A", [1, 3], [(1, "line")])]),
+                   lines=("first line", "second line", "third line"),
+                   attempt=0, reasons=None, whole=())
+    member = dict(line_no=1, text="first line", word="", offered=(),
+                  calls=("sight",))
+    bare = render_group(PB(**coupled, anchors=(AS(**member),)))
+    ruled_member = render_group(PB(**coupled, anchors=(
+        AS(**member, call_rules=(row.replace("group A", "group B"),)),)))
+    said = "  Besides group A [1, 3], L1 must also answer: 'sight'.\n"
+    check("a member's own block prints the rule of each other group it "
+          "must still answer, under the row that lists the words, and "
+          "nothing else in the question moves",
+          said in bare and "RULE of group" not in bare
+          and ruled_member == bare.replace(
+              said, said + "    " + row.replace("group A", "group B") + "\n"),
+          ruled_member)
 
 
 def test_the_protected_lines_are_every_line_outside_the_question():
