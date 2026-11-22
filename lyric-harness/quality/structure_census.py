@@ -658,6 +658,18 @@ def pair_counters(path, language=None, tokens=None):
     return ec, wl
 
 
+#: THE AXES EACH POPULATION PLACES ITSELF (Boris's review of #911,
+#: 2026-11-22). A row that names a line placement is refused by the judge
+#: on two bare words (bug-hunt finding 19); the word-within-line population
+#: chose its two words by placing them in one line, so it supplies the
+#: position and those rows stay measured there. An end-word pair across
+#: lines places nothing beyond the line end, so it supplies nothing.
+POPULATION_SUPPLIES = {
+    "endword-cross": frozenset(),
+    "word-within-line": frozenset({"position"}),
+}
+
+
 class Memo:
     """verdict cache over (row, a, b) — sound because the judge is a
     deterministic pure function of the spellings and the phonology
@@ -667,10 +679,11 @@ class Memo:
         self.phon = phon
         self.d = {}
 
-    def judge(self, row, a, b):
-        key = (row, a, b)
+    def judge(self, row, a, b, supplies=frozenset()):
+        key = (row, a, b, supplies)
         if key not in self.d:
-            self.d[key] = ST.judge(row, a, b, phon=self.phon)
+            self.d[key] = ST.judge(row, a, b, phon=self.phon,
+                                   supplies=supplies)
         return self.d[key]
 
 
@@ -679,18 +692,20 @@ def census_file(path, memo, dedup=True, language=None):
     ec, wl = pair_counters(path, language=language)
     out = {}
     for pop, counter in (("endword-cross", ec), ("word-within-line", wl)):
+        supplies = POPULATION_SUPPLIES[pop]
         for row in ROWS:
             cell = [0, 0, 0, 0]
             if dedup:
                 for (a, b), mult in counter.items():
-                    v = memo.judge(row, a, b)
+                    v = memo.judge(row, a, b, supplies)
                     cell[0] += mult
                     cell[1 if v else (3 if v is None else 2)] += mult
             else:
                 # the pilot's no-dedup arm: every token pair judged live
                 for (a, b), mult in counter.items():
                     for _ in range(mult):
-                        v = ST.judge(row, a, b, phon=memo.phon)
+                        v = ST.judge(row, a, b, phon=memo.phon,
+                                     supplies=supplies)
                         cell[0] += 1
                         cell[1 if v else (3 if v is None else 2)] += 1
             # F1 — the three verdict counts sum to n_pairs, or the
