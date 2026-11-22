@@ -283,8 +283,12 @@ def test_refusals():
     print("\n2. refusals, not defaults (doctrine 20)")
     t_lo, t_hi = ENVELOPE["total_lines"]
     for kwargs, phrase, why in (
-            (dict(seed=None), "requires --seed", "a free choice without a "
-             "declared seed is a hidden coordinate"),
+            # REPINNED 2026-11-22 from ~~"requires --seed"~~: the planner's
+            # messages name the field a connector caller sends, and the tools
+            # that take it, not a command-line flag (#665, 6921620093).
+            (dict(seed=None), "`seed`, given to lyric_plan or lyric_grade",
+             "a free choice without "
+             "a declared seed is a hidden coordinate"),
             (dict(seed=1, form="ghazal"), "BLOCKED", "declared-but-blocked "
              "is a different answer from unknown (doctrine 28)"),
             (dict(seed=1, form="madrigal"), "not a declared form",
@@ -4433,7 +4437,9 @@ def test_the_placement_route(FAILURES=None):
           "rather than refusing the figure",
           ex is not None and "schema:" in ex[2]
           and ("DEFAULT slot" in ex[2] or "declared word" in ex[2])
-          and "--groups=" in ex[2]
+          # REPINNED 2026-11-22 from ~~"--groups=" in ex[2]~~: the remedy
+          # names the field and the tools that take it (#665, 6921620093).
+          and "`groups`" in ex[2] and "on lyric_check" in ex[2]
           and "PLACEMENT_CONTRADICTS_SCHEMA" in PLN.JOINT_CODES,
           (ex[2][:110] if ex else "did not fire"))
 
@@ -5645,11 +5651,13 @@ def test_a_refusal_names_what_was_sent():
             refused.append((kw, msg, of_seed))
         roster, lines = kw.get("functions"), kw.get("lines")
         wants = kw.get("wants", [])
-        # Never a declaration that was not sent.
-        if lines is None and "--lines" in msg:
-            wrong.append((kw, "names --lines, which was not sent"))
-        if roster is None and "--functions" in msg:
-            wrong.append((kw, "names --functions, which was not sent"))
+        # Never a declaration that was not sent. REPINNED 2026-11-22 from
+        # ~~"--lines" / "--functions"~~: what was read is echoed as
+        # field=value, as the wants beside it are (#665, 6921620093).
+        if lines is None and re.search(r"(?:^|[\s;:(])lines=", msg):
+            wrong.append((kw, "names lines, which was not sent"))
+        if roster is None and re.search(r"(?:^|[\s;:(])functions=", msg):
+            wrong.append((kw, "names functions, which was not sent"))
         # "Another seed" only where the refusal is about a seed's own draw.
         if not of_seed and ("another seed" in msg.lower()
                             or "other seeds" in msg.lower()):
@@ -5658,8 +5666,8 @@ def test_a_refusal_names_what_was_sent():
         first = msg.split("\n", 1)[0]
         if first.startswith("500 seeded draws found no plan for "):
             seen["draws"] += 1
-            sent = ([f"--functions={','.join(roster)}"] if roster else []) + (
-                [f"--lines={lines}"] if lines is not None else []) + [
+            sent = ([f"functions={','.join(roster)}"] if roster else []) + (
+                [f"lines={lines}"] if lines is not None else []) + [
                 f"want {w}" for w in wants]
             missing = [d for d in sent if d not in first]
             if not of_seed or missing or "drop --lines" in msg:
@@ -5671,7 +5679,7 @@ def test_a_refusal_names_what_was_sent():
         elif first.startswith("the declared line constraints have no "
                               "feasible total: "):
             seen["lines"] += 1
-            read = ([f"--lines={lines}"] if lines is not None else []) + [
+            read = ([f"lines={lines}"] if lines is not None else []) + [
                 f"want {w}" for w in wants if w.startswith("lines")]
             if of_seed or [d for d in read if d not in first]:
                 wrong.append((kw, "line constraints", first[:160]))

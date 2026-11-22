@@ -3015,8 +3015,9 @@ def joint_findings(plan):
                 f"schema's own placement rule is {_pl!r}, which those places "
                 f"cannot satisfy, and a group of declared words is judged "
                 f"without its placement rule, so the plan must place it where "
-                f"the rule holds (`--groups=` with the places the type "
-                f"allows)."))
+                f"the rule holds: declare `groups` with the places the type "
+                f"allows, on lyric_check, or on lyric_revise for a pasted "
+                f"song."))
         elif not all(_SL.is_default_spelling(_m4) for _m4 in _mem):
             pass
         elif not all(_r.locus in _TOKEN_LOCI
@@ -3038,7 +3039,8 @@ def joint_findings(plan):
                 f"an all-default group is judged by the instances route, "
                 f"which enforces it. No choice of words closes this group. "
                 f"The figure is not refused: declare the placements its own "
-                f"definition needs (`--groups={_mem[0]}.T2,...`) and the "
+                f"definition needs in `groups` ({_mem[0]}.T2,...), on "
+                f"lyric_check, or on lyric_revise for a pasted song, and the "
                 f"declared-token route judges it at the slots you named."))
         _n_bad = _RL.unsatisfiable_pairs(_s, len(_mem))
         if not _n_bad:
@@ -4886,7 +4888,8 @@ def make_plan(seed, form=None, lines=None, relation=None,
     Candidate seeds and every rejection are disclosed; no candidates are ranked.
     """
     if seed is None:
-        raise PlanRefused("plan requires --seed=N — an explicit integer seed")
+        raise PlanRefused("a plan needs an explicit integer `seed`, given to "
+                          "lyric_plan or lyric_grade")
     if isinstance(wants, str):
         wants = [p for p in wants.split(";") if p.strip()]
     parsed = [parse_sweep_want(w) if isinstance(w, str) else
@@ -5138,22 +5141,25 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     """
     if seed is None:
         raise PlanRefused(
-            "plan requires --seed=N — the pattern, the meter and every "
+            "a plan needs a `seed`, given to lyric_plan or lyric_grade — "
+            "the pattern, the meter and every "
             "scheme are free choices, and a free choice without a declared "
             "seed is a hidden coordinate (doctrine 66). Any integer; the "
             "same seed reproduces the same plan byte for byte.")
     if form in BLOCKED_FORMS:
-        raise PlanRefused(f"--form={form} is declared and BLOCKED: "
-                          f"{BLOCKED_FORMS[form]}")
+        raise PlanRefused(f"the `form` given to lyric_plan, lyric_sweep or lyric_grade, {form}, is declared "
+                          f"and BLOCKED: {BLOCKED_FORMS[form]}")
     if form not in PLAN_FORMS:
         raise PlanRefused(
-            f"--form={form!r} is not a declared form. Declared: "
+            f"the `form` given to lyric_plan, lyric_sweep or lyric_grade, {form!r}, is not a declared "
+            f"form. Declared: "
             f"{', '.join(PLAN_FORMS)}; declared-but-blocked: "
             f"{', '.join(sorted(BLOCKED_FORMS))}.")
     t_lo, t_hi = ENVELOPE["total_lines"]
     if lines is not None and not t_lo <= lines <= t_hi:
         raise PlanRefused(
-            f"--lines={lines} is outside the planner's envelope "
+            f"the `lines` given to lyric_plan, lyric_sweep or lyric_grade, {lines}, is outside the "
+            f"planner's envelope "
             f"[{t_lo}, {t_hi}]. The envelope bounds what the planner "
             f"VOLUNTEERS, not what the graders accept — declare a "
             f"blueprint and mandate by hand for a shape outside it.")
@@ -5169,8 +5175,8 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             relation = _SC.mandate("AA", n_lines=2,
                                    default_relation=relation).default_relation
         except _SC.NoMandate as e:
-            raise PlanRefused(f"--relation={relation!r} is not declarable: "
-                              f"{e}")
+            raise PlanRefused(f"the `relation` given to lyric_plan, lyric_sweep or lyric_grade, "
+                              f"{relation!r}, is not declarable: {e}")
         # A TYPE THE GRADER COULD NEVER PASS refuses the request here, saying
         # why (owner-approved plan, item 4): the reason is read off the type's
         # formal fields by `type_eligibility`, the same predicate the draw
@@ -5216,11 +5222,13 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             try:
                 _sp = _GR.specialisation_of(f)
             except _GR.UnknownFunction as e:
-                raise PlanRefused(f"--functions names {f!r}: {e}") from e
+                raise PlanRefused(f"the `functions` given to lyric_plan, lyric_sweep or lyric_grade name {f!r}: "
+                                 f"{e}") from e
             if _sp is not None:
                 rec, genus = _sp
                 raise PlanRefused(
-                    f"--functions names {rec.name!r}, a specialisation of "
+                    f"the `functions` given to lyric_plan, lyric_sweep or lyric_grade name {rec.name!r}, a "
+                    f"specialisation of "
                     f"{genus!r} whose claim is {rec.differentia_field} == "
                     f"{rec.differentia_value}. This planner draws "
                     f"{rec.differentia_field} from the derived envelope and "
@@ -5231,14 +5239,16 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                 want.append(_GR.as_function(f))
             except Exception:
                 raise PlanRefused(
-                    f"--functions names {f!r} and there is no such section "
+                    f"the `functions` given to lyric_plan, lyric_sweep or lyric_grade name {f!r} and there is "
+                    f"no such section "
                     f"function. The vocabulary is "
                     f"`quality.grid.SECTION_FUNCTIONS` — "
                     f"{len(_GR.SECTION_FUNCTIONS)} names.")
         unbuildable = sorted(set(want) - set(GENERATOR_ROSTER))
         if unbuildable:
             raise PlanRefused(
-                f"--functions names {unbuildable}, which the vocabulary "
+                f"the `functions` given to lyric_plan, lyric_sweep or lyric_grade name {unbuildable}, which "
+                f"the vocabulary "
                 f"declares but this planner cannot BUILD. Its roster is "
                 f"{sorted(GENERATOR_ROSTER)} — a declaration the generator "
                 f"cannot honour is refused rather than silently dropped "
@@ -5249,7 +5259,8 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
             missing = [r for r in sp.requires if r not in have]
             if missing:
                 raise PlanRefused(
-                    f"--functions asks for {f!r} and not for {missing} — and "
+                    f"the `functions` given to lyric_plan, lyric_sweep or lyric_grade ask for {f!r} and not for "
+                    f"{missing} — and "
                     f"{f!r} REQUIRES {missing} by definition "
                     f"({sp.placement_evidence!r}). A section that cannot "
                     f"stand in the relation its own name states is not a "
@@ -5269,9 +5280,10 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         need = set(FORM_REQUIRES.get(form, ())) | set(FORM_RECURS.get(form, ()))
         if song_form is None and need - reachable:
             raise PlanRefused(
-                f"--form={form} requires {sorted(need)}, and the declared "
-                f"roster {sorted(roster)} can draw none of "
-                f"{sorted(need - reachable)}. Declare them in --functions, "
+                f"the `form` given to lyric_plan, lyric_sweep or lyric_grade, {form}, requires "
+                f"{sorted(need)}, and the declared roster {sorted(roster)} "
+                f"can draw none of {sorted(need - reachable)}. Declare them in "
+                f"`functions`, "
                 f"or declare a form that does not require them.")
 
     recurrence = _recurrence_policy(
@@ -5293,11 +5305,11 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # NAMES WHAT IT READ (writer plan, stage 2). This said "declared line
         # constraints have no feasible total" and named none of them, so the
         # caller could not tell which declaration to change.
-        _read = ([f"--lines={lines}"] if lines is not None else []) + [
+        _read = ([f"lines={lines}"] if lines is not None else []) + [
             f"want {n}{op}{v}" for n, op, v in _wants if n == "lines"]
         raise PlanRefused(
             "the declared line constraints have no feasible total: "
-            + ("; ".join(_read) if _read else f"--form={form} alone")
+            + ("; ".join(_read) if _read else f"form={form} alone")
             + f" leave(s) no line count the form {form!r} can be planned at")
     _STANZA = stanza_line_floor()
     _min_section = max([1] + [int(v) for n, op, v in _wants
@@ -5720,10 +5732,10 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # the pattern draw's own reason and says when another seed is the
         # answer and when it is not. The class is unchanged: one seed's 500
         # draws cannot tell the two apart, and a sweep counts the seeds.
-        _sent = ([f"--functions={','.join(roster)}"] if roster is not None
+        _sent = ([f"functions={','.join(roster)}"] if roster is not None
                  else []) + (
-            [f"--lines={lines}"] if lines is not None else []) + (
-            [f"--form={form}"] if form != DEFAULT_FORM else []) + [
+            [f"lines={lines}"] if lines is not None else []) + (
+            [f"form={form}"] if form != DEFAULT_FORM else []) + [
             f"want {n}{op}{v}" for n, op, v in _wants]
         # WHAT THE BUILT DRAW DID, AND NOTHING IT DID NOT (fix round): when
         # no pattern carries the counts at this length nothing was drawn,
@@ -8161,5 +8173,5 @@ def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json", input_forma
         _spec = ",".join(f"{k}:{v}"
                          for k, v in sorted(plan["relations"].items()))
         parts.append(shlex.quote(f"--relations={_spec}"))
-    parts.append(f"--subdivision {plan['subdivision']}")
+    parts.append(f"--subdivision={plan['subdivision']}")
     return " ".join(parts)

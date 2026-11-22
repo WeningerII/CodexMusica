@@ -352,11 +352,9 @@ const allLiterals = () =>
       maxBuffer: 64 * 1024 * 1024,
     })
   ));
-// quality/plan.py is Andrej's under the planner-file rule; its messages are
-// held by the planner todo below until his rewording lands, then here.
-const PLANNER_FILE = 'quality/plan.py';
-const literals = () => allLiterals().filter((r) => r.file !== PLANNER_FILE);
-const plannerLiterals = () => allLiterals().filter((r) => r.file === PLANNER_FILE);
+// Every file, quality/plan.py included: its messages were held apart, pinned
+// by text, until the planner rewording landed (#665, 6921620093).
+const literals = () => allLiterals();
 // A usage line, printed for a malformed command line: it starts with `usage:`.
 const isUsage = (text) => /^\s*(REFUSED — )?usage:/i.test(text);
 // Argument-parsing constants (`'--lines='`), not sentences.
@@ -645,15 +643,34 @@ const CASES = [
     { seed: 3, narrative: 'ESTABLISH/BUT' },
     /the FIRST section takes no inbound junction/,
   ],
-];
-// The planner's own refusals (quality/plan.py) still name flags. That file is
-// Andrej's under the planner-file rule, and he rewords these after this PR
-// (#665, 6921620093); until then they are listed here, run, and reported.
-const PLANNER_CASES = [
-  ['lyric_plan', { seed: 3, functions: 'nosuchfn' }, /no such section function/],
-  ['lyric_sweep', { seed_from: 1, count: 2, functions: 'nosuchfn' }, /no such section function/],
-  ['lyric_plan', { seed: 3, form: 'verse-chorus', functions: 'verse' }, /requires/],
-  ['lyric_plan', { seed: 3, relation: 'class:NO_SUCH_RELATION' }, /not declarable/],
+  // The planner's own refusals (quality/plan.py), each naming the field it
+  // refuses and the tools that take it.
+  [
+    'lyric_plan',
+    { seed: 3, functions: 'nosuchfn' },
+    /the `functions` given to lyric_plan, lyric_sweep or lyric_grade name 'nosuchfn'/,
+  ],
+  [
+    'lyric_sweep',
+    { seed_from: 1, count: 2, form: 'open', functions: 'nosuchfn' },
+    /the `functions` given to lyric_plan, lyric_sweep or lyric_grade name 'nosuchfn'/,
+  ],
+  [
+    'lyric_plan',
+    { seed: 3, form: 'verse-chorus', functions: 'verse' },
+    /the `form` given to lyric_plan, lyric_sweep or lyric_grade, verse-chorus, requires/,
+  ],
+  [
+    'lyric_plan',
+    { seed: 3, relation: 'class:NO_SUCH_RELATION' },
+    /the `relation` given to lyric_plan, lyric_sweep or lyric_grade, 'class:NO_SUCH_RELATION', is not declarable/,
+  ],
+  // What the planner read is echoed as field=value, beside the wants.
+  [
+    'lyric_plan',
+    { seed: 3, lines: 20, wants: ['lines>=30'] },
+    /no feasible total: lines=20; want lines>=30 leave/,
+  ],
 ];
 
 async function realClient() {
@@ -691,70 +708,3 @@ test('the real tools, sent wrong input, answer without a flag', { timeout: 600_0
     await close();
   }
 });
-
-test(
-  "the planner's refusals, sent wrong input, answer without a flag",
-  {
-    timeout: 600_000,
-    todo: "quality/plan.py's messages: Andrej rewords them after stage 3 (planner-file rule)",
-  },
-  async () => {
-    const { client, close } = await realClient();
-    try {
-      await refusedWithoutFlag(client, PLANNER_CASES);
-    } finally {
-      await close();
-    }
-  }
-);
-
-// And row by row: every message in quality/plan.py. Until the planner
-// rewording lands (Andrej's, planner-file rule), the messages that still name
-// a flag are pinned here by text, without their line: a NEW one fails now,
-// and one that is reworded must leave this list, so it never goes stale
-// (Andrej's re-check of #871). The todo below holds the whole file to both
-// rules and reports what is left; when the list is empty, fold plan.py back
-// into `literals` and delete both tests.
-const PLANNER_KNOWN = [
-  "[*] --groups: group {} declares {} over {} declared word(s) ({}). That schema's own placement rule is {}",
-  '[*] --groups: group {} declares {} over {} members ({}), every one of them at the DEFAULT slot — the lin',
-  '[*] --seed: plan requires --seed=N — an explicit integer seed',
-  '[*] --seed: plan requires --seed=N — the pattern, the meter and every scheme are free choices, and a f',
-  '[*] --form: --form={} is declared and BLOCKED: {}',
-  '[*] --form: --form={} is not a declared form. Declared: {}; declared-but-blocked: {}.',
-  "[*] --lines: --lines={} is outside the planner's envelope [{}, {}]. The envelope bounds what the planne",
-  '[*] --relation: --relation={} is not declarable: {}',
-  '[*] --functions: --functions names {}: {}',
-  '[*] --functions: --functions names {}, a specialisation of {} whose claim is {} == {}. This planner draws {',
-  '[*] --functions: --functions names {} and there is no such section function. The vocabulary is `quality.gri',
-  '[*] --functions: --functions names {}, which the vocabulary declares but this planner cannot BUILD. Its ros',
-  '[*] --functions: --functions asks for {} and not for {} — and {} REQUIRES {} by definition ({}). A section ',
-  '[*] --form, --functions: --form={} requires {}, and the declared roster {} can draw none of {}. Declare them in --f',
-  '[*] --subdivision: --subdivision {}',
-];
-const plannerKey = (finding) => finding.replace(/^\S+:\d+ /, '');
-
-test("the planner's messages name no flag beyond the known ones", () => {
-  const rows = plannerLiterals();
-  assert.ok(rows.length, 'quality/plan.py is scanned');
-  const found = [...flagFindings(rows), ...fieldFindings(rows)].map(plannerKey);
-  assert.deepEqual(
-    found.filter((f) => !PLANNER_KNOWN.includes(f)),
-    [],
-    'a new planner message names a flag or a field its tool does not take'
-  );
-  assert.deepEqual(
-    PLANNER_KNOWN.filter((k) => !found.includes(k)),
-    [],
-    'reworded: remove it from PLANNER_KNOWN'
-  );
-});
-
-test(
-  "the planner's messages, row by row, name fields, not flags",
-  { todo: "quality/plan.py's messages: Andrej rewords them after #871 (planner-file rule)" },
-  () => {
-    const rows = plannerLiterals();
-    assert.deepEqual([...flagFindings(rows), ...fieldFindings(rows)], []);
-  }
-);
