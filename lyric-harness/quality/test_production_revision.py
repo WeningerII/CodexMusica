@@ -987,22 +987,27 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertEqual(declined.tried, 0)
 
     def test_declared_returns_cannot_require_variation_of_fixed_openings(self):
+        # REPINNED 2026-11-22 (owner's ruling): the same-first-word and
+        # word-variety checks are removed. ~~A declared return turns
+        # ANAPHORA_OVERLOAD and LEXICAL_MONOTONY into their *_DECLARED notes,
+        # and unrequired repetition still flags both~~ — now no draft, with
+        # or without a declared return, is charged for repeating its openings
+        # or its words; none of the five codes is emitted.
+        gone = {'ANAPHORA_OVERLOAD', 'ANAPHORA_DECLARED', 'LEXICAL_MONOTONY',
+                'LEXICAL_REPETITION_DECLARED', 'MATTR_WINDOW_UNCALIBRATED'}
+
+        def emitted(found):
+            return {f.code for f in found['whole']} | {
+                f.code for rows in found['per_line'].values() for f in rows}
         for n in [2, 12]:
             lines = [CLEAN[0]] * n
             m = mandate([list(range(1, n + 1))], n_lines=n, returns=[list(range(1, n + 1))])
-            found = self.reviser.inspect(lines, m)
-            fs = [f for rows in found['per_line'].values() for f in rows]
-            self.assertFalse(any(f.code == 'ANAPHORA_OVERLOAD' for f in fs))
-            self.assertTrue(any(f.code == 'ANAPHORA_DECLARED' for f in fs))
-            self.assertFalse(any(f.code == 'LEXICAL_MONOTONY' for f in found['whole']))
-            self.assertTrue(any(f.code == 'LEXICAL_REPETITION_DECLARED' for f in found['whole']))
-        # Unrequired repetition remains a defect under the existing calibration.
+            self.assertFalse(emitted(self.reviser.inspect(lines, m)) & gone)
         unrequired = self.reviser.inspect([CLEAN[0]] * 12, mandate([[1, 2]], n_lines=12))
-        self.assertTrue(any(f.code == 'ANAPHORA_OVERLOAD' for rows in unrequired['per_line'].values() for f in rows))
-        self.assertTrue(any(f.code == 'LEXICAL_MONOTONY' for f in unrequired['whole']))
+        self.assertFalse(emitted(unrequired) & gone)
         low = ['The kettle kettle kettle kettle kettle stove'] * 2
         poor = self.reviser.inspect(low, mandate([], n_lines=2, returns=[[1, 2]]))
-        self.assertTrue(any(f.code == 'LEXICAL_MONOTONY' for f in poor['whole']))
+        self.assertFalse(emitted(poor) & gone)
 
     def test_whole_only_flag_calls_writer_and_rechecks(self):
         bp = {'sections': [{'name': 'VERSE', 'bars': 2, 'start_bar': 1, 'function': 'verse',

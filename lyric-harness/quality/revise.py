@@ -1288,7 +1288,8 @@ class Reviser:
             the mandate never groups. An UNDECLARED pair, silently judged.
           - Every floor finding's `locations` is `enumerate()`d over the
             STRIPPED list and filed by `inspect()` as RAW line numbers. On a
-            5-line draft with a LEADING blank, `ANAPHORA_OVERLOAD` comes back
+            5-line draft with a LEADING blank, `ANAPHORA_OVERLOAD` (a check
+            removed 2026-11-22, owner's ruling) came back
             at [1, 2, 3, 4] when the true raw lines are [2, 3, 4, 5], so
             `brief()` briefs the EMPTY LINE and never reaches the last real
             one. It is not only an off-by-one into another real line: on the
@@ -4141,20 +4142,9 @@ class Reviser:
         fl = copy.copy(self.floor)
         fl.qf = qf
         fl._pairs = lambda _lines, _s, _p=pairs: list(_p)
-        forced = [tuple(r.lines) for r in m.returns
-                  if getattr(r, "verbatim", False) is True and not getattr(r, "placed", False)]
-        fl.declared_lexical_classes = tuple(forced)
-        # Repeated openings license the opening only. A repeated final word
-        # licenses neither the rest of its line nor an identical opening.
-        for r in m.returns:
-            if (getattr(r, "placed", False) and r.verbatim is True and
-                    all(_SL.parse_slot(f"1.{locus}").rule.locus == "line_initial_token"
-                        for locus in r.loci)):
-                forced.append(tuple(r.lines))
-        for k, group in enumerate(m.groups):
-            if "schema:anaphora" in _relations_of(m, k):
-                forced.append(tuple(group))
-        fl.declared_opening_classes = tuple(forced)
+        # The floor no longer reads the lines a plan requires to repeat: the
+        # word-variety and same-first-word checks that excused them were
+        # removed by the owner's ruling, 22 Nov 2026.
         return fl, "?" * m.n_lines
 
     def earned_pair_ban(self, v, profile=None):

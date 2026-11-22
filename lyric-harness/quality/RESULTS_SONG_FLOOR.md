@@ -268,8 +268,14 @@ nonlyric apparatus annotations)~~, retained for drift checks and superseded by
 | ~~song profile, to 2026-08-26~~ | ~~0.7118~~ | ~~0.4773~~ | 0.3000 | ~~0.1094~~ | ~~0.9286~~ |
 | ~~song profile, to 2026-08-22~~ | ~~0.7128~~ | 0.4773 | 0.3000 | 0.1094 | 0.9286 |
 | ~~song profile, to 2026-08-21~~ | ~~0.7226~~ | ~~0.4716~~ | ~~0.3000~~ | ~~0.1123~~ | ~~0.9286~~ |
-| (sonnet, for contrast) | 0.7615 | 0.4898 | 0.2857 | 0.0939 | 1.0000 |
-| (section, for contrast) | 0.7697 | 0.5282 | 0.5000 | 0.0525 | — |
+| (sonnet, for contrast) | ~~0.7615~~ — | 0.4898 | ~~0.2857~~ — | 0.0939 | 1.0000 |
+| (section, for contrast) | ~~0.7697~~ — | 0.5282 | ~~0.5000~~ — | 0.0525 | — |
+
+REPINNED 2026-11-22 (owner's ruling): the sonnet and section rows' `mattr_min`
+and `anaphora_max` cells are struck and now read "none". The word-variety
+and same-first-word checks were removed from the grader, and those two live
+rows no longer carry either cutoff. The superseded song row keeps its values
+only because its drift check still measures them.
 
 `predictable_pair_fraction_max` calibrated 2026-08-13, once known gap 4 (below)
 closed: `predictability` reads the frequency layer this project swapped

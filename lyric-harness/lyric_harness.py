@@ -7135,10 +7135,10 @@ def dedupe_findings(findings):
 #              a whole rather than about any line in it.
 #   IDENTICAL  every occurrence RENDERS THE SAME CHARACTERS. That is one fact
 #              fanned out, not N measurements that happen to share a code:
-#              `ANAPHORA_OVERLOAD` is a whole-draft rate attached to each of
-#              the lines that carry the opening word, so its message, its
-#              evidence AND its `locations` list are byte-identical on all of
-#              them. A per-PAIR code (`NEAR_COLLISION`, `SCHEME_COLLISION`)
+#              `ANAPHORA_OVERLOAD` (removed 2026-11-22, owner's ruling) was a
+#              whole-draft rate attached to each of the lines that carried the
+#              opening word, so its message, its evidence AND its `locations`
+#              list were byte-identical on all of them. A per-PAIR code (`NEAR_COLLISION`, `SCHEME_COLLISION`)
 #              names different words every time and is never caught by this.
 # Both need ROLLUP_MIN_LINES before they fire at all, so a four-line draft is
 # rendered exactly as it was before this existed.
@@ -15243,7 +15243,9 @@ def main():
             # this run computed was DISCARDED HERE, silently, on `brief`
             # and on `song` both -- including the only FLAG the
             # song-function layer has (`HOOK_ABSENT`), the six
-            # `grid.stanza_lock` shape codes, and `LEXICAL_MONOTONY`.
+            # `grid.stanza_lock` shape codes, and `LEXICAL_MONOTONY`
+            # (removed 2026-11-22; `FUNCTION_WORD_HEAVY` is the floor's
+            # whole-draft flag now).
             # Measured on `quality/fixtures/song.txt` with a blueprint
             # declaring an absent hook: `inspect()` put 10 findings in
             # `whole` and this report printed 0 of them, while the banner
@@ -16881,7 +16883,8 @@ def main():
         # the one a gate would most easily have lost. `brief()` is built
         # from `inspect()`'s `per_line` half, so a finding that names no
         # line is in no `Brief` — `HOOK_ABSENT` (the song-function layer's
-        # ONLY flag), `LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY`. `verify()`
+        # ONLY flag), `FUNCTION_WORD_HEAVY` (and `LEXICAL_MONOTONY` until
+        # its removal, 2026-11-22). `verify()`
         # already reads them and a whole-draft flag can REJECT a revision,
         # so a `song` that exited 0 over one would be certifying a draft the
         # very same run refuses to accept a revision of. THE TWO COUNTS ARE

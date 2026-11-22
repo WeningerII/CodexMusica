@@ -4,6 +4,16 @@
 never a score. Run it with `python3 quality/floor.py FILE`; regressions are
 `python3 quality/test_floor.py`.
 
+> **Two checks removed, 22 Nov 2026 (owner's ruling).** The word-variety
+> check (`LEXICAL_MONOTONY`, with its notes `LEXICAL_REPETITION_DECLARED` and
+> `MATTR_WINDOW_UNCALIBRATED`) and the same-first-word check
+> (`ANAPHORA_OVERLOAD`, with its note `ANAPHORA_DECLARED`) are gone from the
+> floor and from the planner's stop rules. Their only evidence was the one
+> comparison of 152 sonnets with 40 machine-written ones described below; it
+> was never repeated and never made for songs. Everything below that names
+> them is the record of what was measured then, not a description of the
+> floor today.
+
 Two project rules force the shape. **No weighted quality score, ever**
 (doctrine 6) — the exchange rate between surprise and clarity is a genre's
 answer, so it belongs in a declaration. **Rejection, not selection**
@@ -112,8 +122,9 @@ emits.
 
 **ANAPHORA_OVERLOAD was never pre-registered.** It separates at |0.853| on the
 sonnet profile, third-best of the set — which is exactly the situation where a
-post-hoc feature is most tempting to promote. It is labelled post-hoc in its
-own evidence string and owes its own replication.
+post-hoc feature is most tempting to promote. ~~It is labelled post-hoc in its
+own evidence string and owes its own replication.~~ REMOVED 2026-11-22: the
+replication never came, and the owner took the check out.
 
 **PREDICTABLE_RHYME reproduced its own withdrawal.** This project's former
 candidate universal came out at 0.560 — chance — matching the number that

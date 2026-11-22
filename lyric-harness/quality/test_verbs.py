@@ -634,10 +634,23 @@ def test_brief_refuses_instead_of_tracebacking():
         check("the overlap is reported as having no letter scheme "
               "(doctrine 2)",
               rc2 == 0 and "NO LETTER SCHEME EXISTS" in out2, out2[:300])
+        # REPINNED 2026-11-22 (owner's ruling): ~~the pivot was briefed off
+        # `--cliques` alone~~. All three lines open on "I", and the floor's
+        # same-first-word flag (ANAPHORA_OVERLOAD, removed with that check)
+        # was the only flag on L2, so it was what put the pivot in the
+        # brief at all. Without it no line is flagged and nothing is
+        # briefed. The groups are still the derived cliques; the pivot is
+        # now briefed off a declared relation the AY~EY~IH chain does not
+        # satisfy (`class:RHYME`), so L2 carries a real SCHEME_VIOLATION in
+        # each of its two groups.
+        rc3, out3, _ = run("brief", pivot_path, "--cliques",
+                           "--relation=class:RHYME")
         check("a pivot is briefed on EVERY group it is in, which is the "
               "thing a letter scheme cannot say",
-              "is a PIVOT" in out2 and "must answer group" in out2,
-              out2[:300])
+              rc3 == 0 and "is a PIVOT" in out3
+              and "must answer group A" in out3
+              and "must answer group B" in out3,
+              out3[:300])
     finally:
         os.unlink(pivot_path)
 

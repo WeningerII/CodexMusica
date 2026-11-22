@@ -1489,10 +1489,12 @@ def test_the_measure():
     # the dice by a longer road (the owner's move-37 ban).
     ALLOWED_FROM_FLOOR = {"PROFILES", "FloorDeclaration"}
     # `FloorDeclaration` joined with M-125(b): the gate reads the floor's
-    # own `anaphora_max` through the declaration's `resolve`, so the
-    # forced-opener ceiling and ANAPHORA_OVERLOAD cannot hold two
-    # thresholds (doctrine 1). It is the declaration CLASS, not a reader
-    # — constructing one opens no file and reaches no feature table.
+    # own ~~`anaphora_max`~~ limits through the declaration's `resolve`, so
+    # the planner and the grader cannot hold two thresholds (doctrine 1).
+    # REPINNED 2026-11-22: the forced-opener ceiling and ANAPHORA_OVERLOAD
+    # are removed (owner's ruling); the stop rules still read
+    # `function_word_ratio_max` this way. It is the declaration CLASS, not a
+    # reader — constructing one opens no file and reaches no feature table.
     # `capacity` AND `slots` JOINED 2026-08-23, each with its own argument
     # and each RE-TIGHTENED the way `grid` and `floor` were.
     #
@@ -5585,7 +5587,8 @@ def test_the_type_draw():
     leaks, unlabeled, unplaced = [], [], []
     # A FINDING CODE IS A NAME, NOT A WORD OF THE BRIEF (stage 3 box 1): the
     # stop block prints each code that can stop the song, and some codes
-    # hold a banned word (`MODAL_RHYME`, `ANAPHORA_OVERLOAD`). The scan
+    # hold a banned word (`MODAL_RHYME`; ~~`ANAPHORA_OVERLOAD`~~, removed
+    # 2026-11-22). The scan
     # skips exact code tokens the gate census lists, and nothing else.
     from quality import gate_census as _GC
     _codes = set(_GC.census())
@@ -8693,67 +8696,53 @@ def test_the_stop_rules():
     check("...and each row's stated word unit says what its tokenizer "
           "keeps and what splits a word", not unit_bad, unit_bad)
 
-    # THE WORD A LINE OPENS ON, read off the anaphora row's own reader
-    # (`SlopFloor._anaphora`): two lines open on one word when their rate
-    # is 1. A mark is trimmed when it is cut at both ends of a word.
-    import string
-
-    def _same_opening(a, b):
-        return floor_._anaphora([a, b])[0] == 1.0
-    marks = sorted(set(string.punctuation) | set(
-        "\u2018\u2019\u201c\u201d\u2014\u2013\u2026\u00ab\u00bb"))
-    read_open = {
-        "trimmed": {m for m in marks if _same_opening(m + "ab", "ab")
-                    and _same_opening("ab" + m, "ab")},
-        "case_folded": _same_opening("Ab", "ab"),
-        "apostrophes_folded": _same_opening("a\u2019b", "a'b")}
-    split_on_space = (_same_opening("ab cd", "ab ef")
-                      and not _same_opening("ab-cd", "ab"))
-    open_rows = {c for c, r in PLN.STOP_RULES.items() if "opening" in r}
-    opening = PLN.STOP_RULES.get("ANAPHORA_OVERLOAD", {}).get("opening") or {}
-    got_open = dict(opening, trimmed=set(opening.get("trimmed", "")))
-    check("...and the anaphora row carries how its reader takes the word a "
-          "line opens on, probed from `SlopFloor._anaphora`, and no other "
-          "row carries one", open_rows == {"ANAPHORA_OVERLOAD"}
-          and split_on_space and got_open == read_open
-          and len(opening.get("trimmed", "")) == len(read_open["trimmed"]),
-          (open_rows, split_on_space, got_open, read_open))
-    said_open = PLN._limit_opening_word(opening)
-    open_bad = [m for m in read_open["trimmed"]
-                if f" {m} " not in said_open and f" {m} cut" not in said_open]
-    if "everything before its first space" not in said_open:
-        open_bad.append("first space")
-    if ("in any case" in said_open) != read_open["case_folded"]:
-        open_bad.append("case")
-    if ("a curly apostrophe and a straight one make different words"
-            in said_open) == read_open["apostrophes_folded"]:
-        open_bad.append("apostrophes")
-    for mark, chars in (("a quote mark", '"\u201c'), ("a bracket", "([")):
-        if (mark in said_open) != (not set(chars) & read_open["trimmed"]):
-            open_bad.append(mark)
-    check("...and the anaphora row's stated opening word says what that "
-          "reader cuts, keeps and folds", not open_bad, (open_bad, said_open))
+    # THE WORD A LINE OPENS ON. REPINNED 2026-11-22 (owner's ruling): the
+    # same-first-word and word-variety checks are removed, so ~~the anaphora
+    # row carries how its reader takes the word a line opens on, probed from
+    # `SlopFloor._anaphora`, and states it~~. Now: there is no such row, no
+    # such reader, and no wording helper for either.
+    gone_rows = {"ANAPHORA_OVERLOAD", "LEXICAL_MONOTONY",
+                 "MATTR_WINDOW_UNCALIBRATED"}
+    # REPINNED 2026-11-22: ~~the anaphora row carries how its reader takes
+    # the word a line opens on, probed from `SlopFloor._anaphora`, and no
+    # other row carries one~~.
+    check("...and no stop row is left for the removed checks, no row "
+          "carries an opening reader, and the floor's reader is gone",
+          not (gone_rows & set(PLN.STOP_RULES))
+          and not any("opening" in r for r in PLN.STOP_RULES.values())
+          and not hasattr(floor_, "_anaphora"),
+          sorted(gone_rows & set(PLN.STOP_RULES)))
+    # REPINNED 2026-11-22: ~~the anaphora row's stated opening word says what
+    # that reader cuts, keeps and folds~~.
+    left = [f for f in ("_limit_opening_word", "_limit_openings",
+                        "_limit_variety", "_opening_cap", "_matched_openings",
+                        "_verbatim_classes") if hasattr(PLN, f)]
+    check("...and the brief has no wording left for the word a line opens "
+          "on, the opening share or the word-variety limit",
+          not left and not {"openings", "variety"} & set(PLN._STOP_LIMITS),
+          left)
 
     # THE NEVER ROWS: each stated reason, checked against the code.
     never = {c for c, r in PLN.STOP_RULES.items() if r["applies"] == "never"}
     fit_never = {"ZERO_DURATION", "BEAT_OUTSIDE_CYCLE",
                  "START_BEFORE_SECTION", "OVERRUNS_SECTION", "START_OFF_GRID"}
+    # REPINNED 2026-11-22: ~~MATTR_WINDOW_UNCALIBRATED~~ left the never
+    # rows with its check (owner's ruling).
     check("...and the rows marked never are the five placement codes, "
-          "HOOK_ABSENT, HOOK_DOES_NOT_RECUR, CLICHE_PAIR, "
-          "MATTR_WINDOW_UNCALIBRATED and the meter codes the grade cannot "
-          "raise, each with a stated reason",
+          "HOOK_ABSENT, HOOK_DOES_NOT_RECUR, CLICHE_PAIR and the meter codes "
+          "the grade cannot raise, each with a stated reason",
           never == fit_never | {"HOOK_ABSENT", "HOOK_DOES_NOT_RECUR",
-                                "CLICHE_PAIR",
-                                "MATTR_WINDOW_UNCALIBRATED"} | never_meter
+                                "CLICHE_PAIR"} | never_meter
           and all(PLN.STOP_RULES[c].get("never") for c in never),
           sorted(never))
     decl = _F.FloorDeclaration()
     check("...CLICHE_PAIR: the default declaration lists no banned pairs",
           decl.cliche_pairs == frozenset(), f"{decl.cliche_pairs}")
-    check("...MATTR_WINDOW_UNCALIBRATED: the default window is the "
-          "calibrated one",
-          decl.mattr_window == _F.CALIBRATION["mattr_window"]["value"],
-          f"{decl.mattr_window}")
+    check("...and the declaration has no word-variety window left for a "
+          "never row to speak for (REPINNED 2026-11-22 from ~~the default "
+          "window is the calibrated one~~)",
+          not hasattr(decl, "mattr_window")
+          and "mattr_window" not in _F.CALIBRATION)
 
     # THE HOOK ROWS, READ OFF THE PLANNED GRADE (2026-11-18). A drawn plan's
     # own draft, every returned line copied by the plan's rows, is put to
@@ -8872,20 +8861,16 @@ def test_the_stop_rules():
     capped_n = under_lo = 0
     seen = Counter()
     pair_counts = Counter()
-    from quality.features import QualityFeatures as _QF
-    # THE SHORT-SONG CLAUSE'S BRANCH, read off the statistic itself: at the
-    # window's length or under, the variety measure is the plain share of
-    # distinct words (`QualityFeatures._mattr`, `len(words) <= window`).
-    w_ = decl.mattr_window
-    import random as _rnd
-    _r = _rnd.Random(w_)
-    toks = [f"w{_r.randrange(w_ // 2)}" for _ in range(w_ + 1)]
-    check("...the short-song clause's branch is the statistic's own: at "
-          "the window's length the measure is the plain share of distinct "
-          "words, one word past it it is not that share",
-          _QF._mattr(toks[:w_], w_) == len(set(toks[:w_])) / w_
-          and _QF._mattr(toks, w_) != len(set(toks)) / len(toks),
-          f"{_QF._mattr(toks[:w_], w_)} {_QF._mattr(toks, w_)}")
+    # THE SHORT-SONG CLAUSE'S BRANCH. REPINNED 2026-11-22: ~~read off the
+    # statistic itself, at the window's length the variety measure is the
+    # plain share of distinct words~~ — the variety row is removed with its
+    # check (owner's ruling), so no row states a window or a whole-song
+    # clause, and the band sentence below covers the grammar-word row alone.
+    check("...no stop row states a word-variety window or its whole-song "
+          "clause any more",
+          PLN.LENGTH_LIMIT_CODES == ("FUNCTION_WORD_HEAVY",)
+          and "LEXICAL_MONOTONY" not in PLN.STOP_RULES,
+          PLN.LENGTH_LIMIT_CODES)
     for kw, seed, p in plans:
         tag = (str(kw), seed)
         n = p["total_lines"]
@@ -8929,17 +8914,16 @@ def test_the_stop_rules():
         if PLN._floor_pairs(p) != fpairs:
             pair_bad.append((tag, PLN._floor_pairs(p)[:3], fpairs[:3]))
         # THE TWO "A NOTE INSTEAD" CLAUSES, against the floor the grader
-        # builds for this plan (`Reviser._floor_for`): the openings clause
-        # when it declares lines that open alike, the variety clause when it
-        # declares word-for-word copies to drop.
+        # builds for this plan (`Reviser._floor_for`). REPINNED 2026-11-22:
+        # ~~the openings clause when it declares lines that open alike, the
+        # variety clause when it declares word-for-word copies to drop~~ —
+        # both rows are removed (owner's ruling), so no row may carry the
+        # clause, and the grader's floor carries no declared classes.
         fl_ = reviser._floor_for(m_)[0]
-        clause_want = {
-            "ANAPHORA_OVERLOAD": bool(fl_.declared_opening_classes),
-            "LEXICAL_MONOTONY": bool(fl_.declared_lexical_classes)}
-        clause_got = {c: "a note instead" in rows[c][1]
-                      for c in clause_want if c in rows}
-        if any(clause_got[c] != clause_want[c] for c in clause_got):
-            clause_bad.append((tag, clause_got, clause_want))
+        if (any("a note instead" in text for _k, text in rows.values())
+                or hasattr(fl_, "declared_opening_classes")
+                or hasattr(fl_, "declared_lexical_classes")):
+            clause_bad.append((tag, "a note instead"))
         # THE WORD BAND, from fit's own slot count: a word has at least one
         # syllable and fit flags SLOTS_EXCEEDED past one syllable a slot, so
         # the song's slots bound its words. Where they fall below the
@@ -8969,11 +8953,10 @@ def test_the_stop_rules():
         if any(c in rows for c in PLN.LENGTH_LIMIT_CODES) and not any(
                 said_band in ln for ln in block):
             band_bad.append((tag, "range sentence", said_band))
-        if "LEXICAL_MONOTONY" in rows:
-            lo_n = b_lo
-            if (("over the whole song at " in rows["LEXICAL_MONOTONY"][1])
-                    != (lo_n <= decl.mattr_window)):
-                clause_bad.append((tag, "whole-song clause", lo_n))
+        # REPINNED 2026-11-22: ~~the LEXICAL_MONOTONY whole-song clause
+        # under the window~~ — the row is removed; no row may say it.
+        if any("over the whole song at " in text for _k, text in rows.values()):
+            clause_bad.append((tag, "whole-song clause"))
         if "SCHEME_VIOLATION" in rows and "same word" in rows[
                 "SCHEME_VIOLATION"][1]:
             # The grader charges a repeated word only on a pair that already
@@ -8983,7 +8966,8 @@ def test_the_stop_rules():
             clause_bad.append((tag, "SCHEME_VIOLATION same word"))
         band = range(b_lo, b_hi + 1)
         limits = {}
-        for key in ("anaphora_max", "function_word_ratio_max", "mattr_min"):
+        # REPINNED 2026-11-22: ~~anaphora_max, mattr_min~~ removed.
+        for key in ("function_word_ratio_max",):
             vals = set()
             for nt in band:
                 prof, exact = _F.declaration_for(nt, n)
@@ -8996,9 +8980,7 @@ def test_the_stop_rules():
                 "HOMEOTELEUTON", "MODAL_RHYME"} | {
             c for c in live_unjudged
             if PLN.STOP_RULES[c]["layer"] == "rhyme"}
-        for code, key in (("ANAPHORA_OVERLOAD", "anaphora_max"),
-                          ("FUNCTION_WORD_HEAVY", "function_word_ratio_max"),
-                          ("LEXICAL_MONOTONY", "mattr_min")):
+        for code, key in (("FUNCTION_WORD_HEAVY", "function_word_ratio_max"),):
             if limits[key]:
                 want.add(code)
         if n >= _SH.ADOPTED["MIN_LINES"]:
@@ -9027,20 +9009,10 @@ def test_the_stop_rules():
         # EACH NUMBER, the grader's own, computed here independently.
         exp = {"OUT_OF_CALIBRATED_LENGTH":
                [f"fewer than {reach_lo} or more than {reach_hi} words"]}
-        if "ANAPHORA_OVERLOAD" in want:
-            caps = sorted({max(c for c in range(n + 1) if not c / n > t)
-                           for t in limits["anaphora_max"]})
-            exp["ANAPHORA_OVERLOAD"] = [
-                f"more than {_span(caps, str)} of the {n} lines open",
-                f"({said_open})"]
         if "FUNCTION_WORD_HEAVY" in want:
             exp["FUNCTION_WORD_HEAVY"] = [
                 f"more than {_span(limits['function_word_ratio_max'], _pct)}"
                 f" of the song's words"]
-        if "LEXICAL_MONOTONY" in want:
-            exp["LEXICAL_MONOTONY"] = [
-                f"each run of {decl.mattr_window} words",
-                f"fall below {_span(limits['mattr_min'], lambda v: f'{v:.3f}')}"]
         if "STACKED_DRAFT" in want:
             a = _SH.ADOPTED
             k = min(c for c in range(n + 1)
@@ -9107,9 +9079,9 @@ def test_the_stop_rules():
           "and two or more (none of them carries a REPEAT_IN_VERSE row: a "
           "self-rhyme is a note since 2026-11-20)",
           all(pair_counts[k] for k in (0, 1, 2)), dict(pair_counts))
-    check("...and each exception clause shows exactly when the grader's "
-          "own floor for the plan has it: openings that match, copies to "
-          "drop, the whole-song reading under the window; and the group "
+    check("...and no row carries an exception clause for the removed "
+          "checks (openings that match, copies to drop, the whole-song "
+          "reading under the window: REPINNED 2026-11-22), and the group "
           "row does not say a repeated word counts against a pair",
           not clause_bad, clause_bad[:3])
     check("...and the word band the length limits are read at is the "

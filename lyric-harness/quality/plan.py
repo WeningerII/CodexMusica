@@ -1508,7 +1508,7 @@ def _position(place):
 
 
 def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
-             head_cap=None, verbatim_groups=(), reserve_end=False):
+             verbatim_groups=(), reserve_end=False):
     """-> (members, None) when the type can bind this group, else
     (None, reason). `lines` are the group's line numbers in text order,
     `section_lines` every line of the section the group sits in.
@@ -1535,13 +1535,6 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
     cap, why = _domain_cap(sch)
     if cap is not None and k > cap:
         return None, why
-    if (head_cap is not None and _RL.identity_forced(sch)
-            and all(r.locus == "line_initial_token"
-                    for r in (sch.spans[0], sch.spans[-1]))
-            and k > head_cap):
-        return None, (f"its identity rule starts every member line with the "
-                      f"same word, and the floor allows {head_cap} such "
-                      f"line(s) in a song this long")
     loci = (sch.spans[0].locus, sch.spans[-1].locus)
     if not all(lc in _TOKEN_LOCI for lc in loci):
         if verbatim_groups:
@@ -1735,15 +1728,11 @@ def refuse_ineligible(name, language="eng"):
                           f"and no other type is put in its place.")
 
 
-def _line_reach(sch, head_cap=None):
+def _line_reach(sch):
     """-> (most members, widest line gap, consecutive?) the type's own fields
-    allow a group: its Differ/overhang cap and head-repeat cap, its gap
-    placement, and whether its members must be two consecutive lines."""
+    allow a group: its Differ/overhang cap, its gap placement, and whether
+    its members must be two consecutive lines."""
     cap, _ = _domain_cap(sch)
-    if (head_cap is not None and _RL.identity_forced(sch)
-            and all(r.locus == "line_initial_token"
-                    for r in (sch.spans[0], sch.spans[-1]))):
-        cap = head_cap if cap is None else min(cap, head_cap)
     gap, consecutive = None, False
     for p in sch.placement or ():
         if not p.polarity:
@@ -1755,7 +1744,7 @@ def _line_reach(sch, head_cap=None):
     return cap, gap, consecutive
 
 
-def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
+def _carve(sch, block, free, trng, max_token, reserve_end=False):
     """-> (members, lines used) for the largest group of this type the block
     can hold, else a pair of consecutive unbound lines of the section, else
     (None, reason). THE TYPE SHAPES ITS GROUP (D2's skew fix, 2026-10-27):
@@ -1766,10 +1755,10 @@ def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
     if reserve_end and any(span.locus not in _TOKEN_LOCI for span in (sch.spans[0], sch.spans[-1])):
         return None, "a prescribed end word leaves only explicit nonterminal word positions"
     block = sorted(block)
-    members, why = fit_type(sch, block, trng, max_token, head_cap=head_cap, reserve_end=reserve_end)
+    members, why = fit_type(sch, block, trng, max_token, reserve_end=reserve_end)
     if members is not None:
         return members, block
-    cap, gap, consecutive = _line_reach(sch, head_cap)
+    cap, gap, consecutive = _line_reach(sch)
     for source in (block, sorted(set(block) | set(free))):
         starts = list(range(len(source)))
         trng.shuffle(starts)
@@ -1782,7 +1771,7 @@ def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
                 continue
             if len(take) < 2:
                 continue
-            got, w = fit_type(sch, take, trng, max_token, head_cap=head_cap, reserve_end=reserve_end)
+            got, w = fit_type(sch, take, trng, max_token, reserve_end=reserve_end)
             if got is not None:
                 return got, take
             why = w
@@ -1790,7 +1779,7 @@ def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
 
 
 def _assign_types(section_blocks, trng, max_token, declared=None,
-                  language="eng", per_group=None, head_cap=None, reserve_end=False,
+                  language="eng", per_group=None, reserve_end=False,
                   pool=None, whole=False):
     """-> (groups as member lists, {label: 'schema:name'}, records, unplaced).
 
@@ -1845,8 +1834,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                                     "proposed": [], "rejected": []})
                     continue
                 unbound = sorted(set(free).union(*queue))
-                members, took = _carve(sch, block, unbound, trng, max_token,
-                                       head_cap)
+                members, took = _carve(sch, block, unbound, trng, max_token)
                 if members is None:
                     raise JointRefused(
                         f"the declared type {bare!r} cannot bind group "
@@ -1861,7 +1849,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                 unbound = sorted(set(free).union(*queue))
                 def carve(cand):
                     members, took = _carve(_RL.REGISTRY[cand], block, unbound,
-                                           trng, max_token, head_cap, reserve_end)
+                                           trng, max_token, reserve_end)
                     if members is not None and whole and set(took) != set(block):
                         return None, "binds only part of the prescribed group"
                     return members, took
@@ -6009,15 +5997,6 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # from the plan's seed, so the shape above is the same whichever types a
     # writer declares for which groups; drawn after the shape, and before the
     # narrative and the denominator, which keep the main stream.
-    # The floor's cap on lines opening with one word, at this song's length:
-    # the same reading the declared-relation gate made before 2026-10-27.
-    _aprof = next(p for p in _FL.PROFILES
-                  if p.n_lines == 0 and not p.superseded_by)
-    _tlo, _thi = tokens_per_line_band()
-    _atok = min(max(max(1, int(round(total * (_tlo + _thi) / 2))),
-                    _aprof.lo), _aprof.hi)
-    _head_cap = max(1, int(_FL.FloorDeclaration().resolve(
-        "anaphora_max", _aprof, _atok) * total + 1e-9))
     binding_overrides = relations
     additional_bindings = []
     terminal_pool = None
@@ -6047,7 +6026,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
         declared=None if terminal_groups else relation, per_group=binding_overrides,
-        head_cap=_head_cap, reserve_end=bool(song_form and song_form.get("endingWords")),
+        reserve_end=bool(song_form and song_form.get("endingWords")),
         pool=terminal_pool, whole=bool(terminal_groups))
     if terminal_groups and [record["lines"] for record in _type_records] != source_groups:
         raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
@@ -6062,7 +6041,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         for group in copies:
             bound_copy_lines.update(group)
         members, why = fit_type(schema, block, extra_rng, _max_token,
-                                head_cap=_head_cap, verbatim_groups=copies, reserve_end=True)
+                                verbatim_groups=copies, reserve_end=True)
         if members is None:
             raise JointRefused(f"the requested additional relation cannot bind the whole catalog group: {why}",
                                codes=("TYPE_DOES_NOT_FIT",),
@@ -6815,9 +6794,6 @@ WRITING_BAN_PARTNERS = 6
 #: (`features.QualityFeatures._tokens` for the floor's rows,
 #: `sentencehood._tokens` for the stacked-draft row); this module may not
 #: import either, so test_plan probes each tokenizer and holds the copy equal.
-#: The anaphora row also carries `opening`, how `floor.SlopFloor._anaphora`
-#: reads the word a line opens on (its first space-split piece, with the
-#: `trimmed` marks cut from its ends); test_plan probes that reader too.
 STOP_RULES = {
     "CATALOG_FORM_MISMATCH": {"applies": "catalog_form", "stop": "flag",
                               "limit": "catalog_form"},
@@ -6827,27 +6803,12 @@ STOP_RULES = {
                                            "straight_apostrophe": True,
                                            "curly_apostrophe": True,
                                            "hyphen": True}},
-    "ANAPHORA_OVERLOAD": {"applies": "always", "stop": "flag",
-                          "limit": "openings",
-                          "words": {"accented": True,
-                                    "straight_apostrophe": True,
-                                    "curly_apostrophe": True,
-                                    "hyphen": True},
-                          "opening": {"trimmed": ",.;:!?\u2014-",
-                                      "case_folded": True,
-                                      "apostrophes_folded": False}},
     "FUNCTION_WORD_HEAVY": {"applies": "always", "stop": "flag",
                             "limit": "grammar_words",
                             "words": {"accented": True,
                                       "straight_apostrophe": True,
                                       "curly_apostrophe": True,
                                       "hyphen": True}},
-    "LEXICAL_MONOTONY": {"applies": "always", "stop": "flag",
-                         "limit": "variety",
-                         "words": {"accented": True,
-                                   "straight_apostrophe": True,
-                                   "curly_apostrophe": True,
-                                   "hyphen": True}},
     "STACKED_DRAFT": {"applies": "stacked_min_lines", "stop": "flag",
                       "limit": "stacked",
                       "words": {"accented": False,
@@ -6926,9 +6887,6 @@ STOP_RULES = {
                     "there, and a plan with no hook line asks for no hook"},
     "CLICHE_PAIR": {"applies": "never", "stop": "flag", "never":
                     "the default declaration lists no banned pairs"},
-    "MATTR_WINDOW_UNCALIBRATED": {"applies": "never", "stop": "ungraded",
-                                  "never": "the default window is the "
-                                           "calibrated one"},
 }
 
 #: How each kind of stop reads in the brief.
@@ -6981,22 +6939,6 @@ def _floor_pairs(plan):
     return sorted(out)
 
 
-def _verbatim_classes(plan):
-    """-> True when the plan has verbatim returns: the lines the floor
-    drops as copies before it judges vocabulary (`revise._floor_for`)."""
-    return bool(plan.get("returns"))
-
-
-def _matched_openings(plan):
-    """-> True when the plan names lines the floor counts as one opening
-    (`revise._floor_for`): verbatim returns, or a group under the one
-    schema that asks its lines to open alike."""
-    return _verbatim_classes(plan) or any(
-        str(v) == "schema:anaphora"
-        for v in (plan.get("relations") or {}).values()) or (
-        str(plan.get("relation") or "") == "schema:anaphora")
-
-
 _STOP_APPLIES = {
     "catalog_form": lambda plan: bool(plan.get("request", {}).get("song_form")),
     "always": lambda plan: True,
@@ -7028,7 +6970,7 @@ def _syllable_capacity(plan):
 
 def _word_count_band(plan):
     """-> (lo, hi) words in the whole song at the planner's own
-    `tokens_per_line_band()`, the reading `_head_cap` makes, held under
+    `tokens_per_line_band()`, held under
     the plan's own syllable capacity: a word has at least one syllable, so
     a draft with more words than `_syllable_capacity(plan)` is flagged
     SLOTS_EXCEEDED. Where the capacity is below the band's top, the top
@@ -7047,8 +6989,8 @@ def _covering_profile(n_tokens, n_lines):
     """-> the floor profile that grades a draft of `n_tokens` words and
     `n_lines` lines AS A FLAG, or None: `floor.declaration_for`'s choice
     among the profiles that cover the length (exact), read from
-    `floor.PROFILES`. Outside every covering profile the three length
-    limits are notes or do not run, so they stop nothing there."""
+    `floor.PROFILES`. Outside every covering profile the length limit
+    is a note or does not run, so it stops nothing there."""
     covering = [p for p in _FL.PROFILES
                 if not p.superseded_by and p.covers(n_tokens)]
     if not covering:
@@ -7081,12 +7023,6 @@ def _span(vals, fmt):
     """-> "A" or "A to B" for the smallest and largest of `vals`."""
     a, b = fmt(min(vals)), fmt(max(vals))
     return a if a == b else f"{a} to {b}"
-
-
-def _opening_cap(thr, n_lines):
-    """-> the most lines of `n_lines` that may open on one word under the
-    share `thr`, by the grader's own comparison (share > thr flags)."""
-    return max(c for c in range(n_lines + 1) if not c / n_lines > thr)
 
 
 def _stacked_floor(n_lines):
@@ -7137,31 +7073,6 @@ def _limit_word_unit(words):
     return f"a word is a run of {letters}; " + ", and ".join(parts)
 
 
-def _limit_opening_word(opening):
-    """-> how the anaphora row reads the word a line opens on, from its
-    `opening` copy in `STOP_RULES`, in the brief's words."""
-    marks = list(opening["trimmed"])
-    cut = " ".join(marks[:-1]) + " and " + marks[-1] if len(marks) > 1 \
-        else "".join(marks)
-    text = "for this row, the word a line opens on is everything before " \
-           "its first space"
-    if opening["case_folded"]:
-        text += ", in any case"
-    if marks:
-        text += f", with the marks {cut} cut from its ends"
-    kept = []
-    if not ({'"', "\u201c", "\u201d"} & set(marks)):
-        kept.append("a quote mark")
-    if not ({"(", ")", "[", "]"} & set(marks)):
-        kept.append("a bracket")
-    if kept:
-        text += f"; every other mark stays on it, {' and '.join(kept)} among them"
-    if not opening["apostrophes_folded"]:
-        text += ", and a curly apostrophe and a straight one make different " \
-                "words"
-    return text
-
-
 def _limit_length_reach(plan):
     live = [p for p in _FL.PROFILES if not p.superseded_by]
     lo = min(p.band()[0] for p in live)
@@ -7170,43 +7081,12 @@ def _limit_length_reach(plan):
             f"leave the draft ungraded")
 
 
-def _limit_openings(plan):
-    n = plan["total_lines"]
-    vals = _length_limits(plan, "anaphora_max")
-    if not vals:
-        return None
-    caps = sorted({_opening_cap(v, n) for v in vals})
-    opening = _limit_opening_word(STOP_RULES["ANAPHORA_OVERLOAD"]["opening"])
-    text = (f"more than {_span(caps, str)} of the {n} lines open on the "
-            f"same word ({opening})")
-    if _matched_openings(plan):
-        text += ("; a note instead when the lines this plan requires to "
-                 "match account for it")
-    return text
-
-
 def _limit_grammar_words(plan):
     vals = _length_limits(plan, "function_word_ratio_max")
     if not vals:
         return None
     return (f"more than {_span(vals, _pct)} of the song's words are "
             f"{GRAMMAR_WORDS}")
-
-
-def _limit_variety(plan):
-    vals = _length_limits(plan, "mattr_min")
-    if not vals:
-        return None
-    w = _FL.FloorDeclaration().mattr_window
-    whole = (f" (over the whole song at {w} words or fewer)"
-             if _word_count_band(plan)[0] <= w else "")
-    text = (f"the song's distinct words per word, averaged over each run of "
-            f"{w} words{whole}, fall below "
-            f"{_span(vals, lambda v: f'{v:.3f}')}")
-    if _verbatim_classes(plan):
-        text += ("; a note instead when the lines left after dropping "
-                 "word-for-word copies pass")
-    return text
 
 
 def _limit_stacked(plan):
@@ -7332,9 +7212,7 @@ _STOP_LIMITS = {
         f"the draft fails a measured requirement of catalog form {plan['request']['song_form']['id']!r}, "
         f"variant {plan['request']['song_form']['variant']}"),
     "length_reach": _limit_length_reach,
-    "openings": _limit_openings,
     "grammar_words": _limit_grammar_words,
-    "variety": _limit_variety,
     "stacked": _limit_stacked,
     "syllables": _limit_syllables,
     "group_rule": _limit_group_rule,
@@ -7347,9 +7225,10 @@ _STOP_LIMITS = {
     "common_partner": _limit_common_partner,
 }
 
-#: The three limits that move with the finished song's word count.
-LENGTH_LIMIT_CODES = ("ANAPHORA_OVERLOAD", "FUNCTION_WORD_HEAVY",
-                      "LEXICAL_MONOTONY")
+#: The limit that moves with the finished song's word count. The
+#: same-first-word and word-variety limits were removed with their grader
+#: checks (owner's ruling, 22 Nov 2026).
+LENGTH_LIMIT_CODES = ("FUNCTION_WORD_HEAVY",)
 
 
 def stop_rules_for(plan):

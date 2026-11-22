@@ -79,7 +79,14 @@ class FullFloorReturnCharacterization(unittest.TestCase):
                             'identity_unique_findings': triples,
                             'coverage': coverage}, sort_keys=True), flush=True)
 
-                        expected = [('LEXICAL_MONOTONY', 'flag', ())]
+                        # REPINNED 2026-11-22 (owner's ruling): the
+                        # word-variety check is removed, so ~~every arm
+                        # starts from ('LEXICAL_MONOTONY', 'flag', ())~~ and
+                        # the declared, verbatim arm's
+                        # ~~LEXICAL_REPETITION_DECLARED note~~ is gone too.
+                        # Both codes stay in `selected_codes`, so their
+                        # absence is asserted, not assumed.
+                        expected = []
                         if declared:
                             expected += [('REPEAT_IN_VERSE', 'note', (2,)),
                                          ('REFRAIN_REPEAT', 'note', (1, 3))]
@@ -87,8 +94,6 @@ class FullFloorReturnCharacterization(unittest.TestCase):
                             # (2, 4)~~ -- night/night is identical rhyme.
                             if edited:
                                 expected += [('RETURN_NOT_VERBATIM', 'flag', (1, 3))]
-                            else:
-                                expected[0] = ('LEXICAL_REPETITION_DECLARED', 'note', ())
                         else:
                             # REPINNED 2026-11-20 (owner's ruling: a word
                             # may rhyme with itself): ~~'flag'~~ -- the floor
@@ -114,13 +119,15 @@ class FullFloorReturnCharacterization(unittest.TestCase):
                             ('pairs_mandated', 'pairs_judged', 'pairs_refused')), (2, 2, 0))
                         self.assertIs(coverage['certified'], True)
                         # Certified coverage coexists with quality flags in
-                        # every arm but the two correct ones (REPINNED
-                        # 2026-11-20): a declared, verbatim draft is correct
-                        # at either licence, and since a word may rhyme with
-                        # itself nothing flags it.
-                        clean = declared and not edited
+                        # ~~every arm but the two correct ones (REPINNED
+                        # 2026-11-20)~~ only the arms that change a declared
+                        # return (REPINNED 2026-11-22): the undeclared arms'
+                        # one flag was LEXICAL_MONOTONY, removed by the
+                        # owner's ruling, and a word may rhyme with itself
+                        # (2026-11-20), so what flags is RETURN_NOT_VERBATIM.
+                        flagged = declared and edited
                         self.assertEqual(any(f.severity == 'flag'
-                                             for f in findings), not clean)
+                                             for f in findings), flagged)
                         self.assertEqual(lines, before, 'inspection must not synchronize text')
 
 

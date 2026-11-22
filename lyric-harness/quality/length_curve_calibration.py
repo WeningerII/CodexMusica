@@ -4,7 +4,7 @@
     python3 quality/length_curve_calibration.py compute --out rows.tsv \\
         [--without-predictability] [--shard I/K] [--cache-path P]
     python3 quality/length_curve_calibration.py fit rows.tsv [more.tsv ...] \\
-        [--seeds 200] [--checks mattr,fwr,anaphora,cv,predictability] \\
+        [--seeds 200] [--checks fwr,cv,predictability] \\
         [--picks check=MODEL,...]   # a DECLARED pick for the in-sample
                                     # sections, printed as an override; the
                                     # shipped predictability knot table was
@@ -975,10 +975,10 @@ def cmd_fit(a):
 # pick holds and passes every bin, so the models are unchanged and only the
 # coefficients, knots, range and held-out rates were re-adopted as a set.
 # Measurement: quality/results/m25_residue_2026-10-15/curves-measurement.txt.
-SHIPPED_MODEL = {"mattr": "C1", "fwr": "C1", "anaphora": "C2", "cv": "C2",
-                 "predictability": "CK"}
-KEY_OF = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
-          "anaphora": "anaphora_max", "cv": "line_length_cv_min",
+# The word-variety (mattr) and same-first-word (anaphora) curves were removed
+# with their checks by the owner's ruling, 22 Nov 2026.
+SHIPPED_MODEL = {"fwr": "C1", "cv": "C2", "predictability": "CK"}
+KEY_OF = {"fwr": "function_word_ratio_max", "cv": "line_length_cv_min",
           "predictability": "predictable_pair_fraction_max"}
 REL_TOL = 1e-6
 
@@ -1008,29 +1008,42 @@ def cmd_check(a):
             write_rows(rs, tmp, provenance)
             rows = read_rows([tmp], verify=True)
         print("ROWS  computed: %d items (memo hits %d, misses %d)" % (len(rows), cache.hits, cache.misses))
-    if len(rows) != prof.n_human:
+    # A ROW RE-FIT ON THE SEEDED DRAW (`draw_seeds`) takes its two cheap
+    # curves, range and size from the draw, and only its
+    # predictability knots from these rows; `knots_population` records the
+    # count and range the knots were fit on.
+    drawn = bool(getattr(prof, "draw_seeds", 0))
+    knots = getattr(prof, "knots_population", None) or {}
+    if drawn and not knots:
+        print("CANNOT TELL: the row is re-fit on the draw but records no knots_population")
+        sys.exit(2)
+    want_n, want_range = ((knots["items"], (knots["lo"], knots["hi"])) if drawn
+                          else (prof.n_human, (prof.lo, prof.hi)))
+    if len(rows) != want_n:
         print("MOVED: the corpus holds %d items, the row was fit on %d — the "
               "population moved, so every curve is a different population's "
               "(doctrine 58); re-run the cell and re-adopt as a set"
-              % (len(rows), prof.n_human))
+              % (len(rows), want_n))
         sys.exit(1)
     measured_range = (rows[0]["n_tokens"], rows[-1]["n_tokens"])
-    if (prof.lo, prof.hi) != measured_range:
+    if want_range != measured_range:
         print("MOVED: the lyric range was %r, measured %r; do not extrapolate a stale boundary"
-              % ((prof.lo, prof.hi), measured_range))
+              % (want_range, measured_range))
         sys.exit(1)
-    ttr_population = {"window": C.MATTR_WINDOW,
-                      "items": sum(row["n_tokens"] <= C.MATTR_WINDOW for row in rows)}
-    recorded_ttr_population = getattr(prof, "mattr_ttr_population", None)
-    if recorded_ttr_population != ttr_population:
-        print("MOVED: the lyric MATTR/TTR population was %r, measured %r"
-              % (recorded_ttr_population, ttr_population))
-        sys.exit(1)
-    print("MATTR/TTR  %d of %d items degenerate at calibration window %d -> HOLDS"
-          % (ttr_population["items"], len(rows), ttr_population["window"]))
     bins = make_bins(rows)
     moved = []
+    if drawn:
+        from quality import length_class_calibration as LCC
+        workers = max(1, min(4, os.cpu_count() or 1))
+        bad = LCC.check_row(prof.name, workers=workers, held_out=False)
+        print("  the draw's curves (%d seeds) -> %s" % (prof.draw_seeds, "HOLDS" if not bad else "MOVED"))
+        for line in bad:
+            print("    " + line)
+        if bad:
+            moved.append("the draw's curves")
     for f, m in SHIPPED_MODEL.items():
+        if drawn and m != "CK":
+            continue
         key = KEY_OF[f]
         shipped = prof.curves.get(key)
         # TWO STARTS, exactly as the banked run fit the shipped row (§3 of
@@ -1060,7 +1073,8 @@ def cmd_check(a):
         print("RESULT: MOVED — %s. Argue it and repin as a SET; do not tune (doctrine 58)."
               % ", ".join(moved))
         sys.exit(1)
-    print("RESULT: HOLDS — the lyric row's %d curves re-derive from the corpus" % len(SHIPPED_MODEL))
+    print("RESULT: HOLDS — the lyric row's %d curves re-derive from the corpus" % len(SHIPPED_MODEL)
+          + (" and the seeded draw" if drawn else ""))
 
 
 def main():
@@ -1079,7 +1093,7 @@ def main():
                    help="exact independent seed partitions; results retain original seed order")
     f.add_argument("--allow-unverified-rows", action="store_true",
                    help="historical/exploratory fit only; never accepted by the current check gate")
-    f.add_argument("--checks", default="mattr,fwr,anaphora,cv,predictability")
+    f.add_argument("--checks", default="fwr,cv,predictability")
     f.add_argument("--report", help="write full-precision adoption measurements with provenance as JSON")
     f.add_argument("--picks", default=None,
                    help="check=MODEL,... — force the picks for the in-sample sections (disclosed)")

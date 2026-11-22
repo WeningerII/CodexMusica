@@ -712,8 +712,11 @@ class CatalogPlannerTests(unittest.TestCase):
         r = revise.Reviser(lex=lh.Lexicon(), writing=True)
         m = schemes.mandate([[1, 2]], 4, returns=[["1.endword", "3.endword"]])
         floor, _ = r._floor_for(m)
-        self.assertFalse(floor.declared_lexical_classes)
-        self.assertFalse(floor.declared_opening_classes)
+        # REPINNED 2026-11-22: ~~the floor's declared lexical and opening
+        # classes are empty~~ — the checks that read them were removed by the
+        # owner's ruling, so the reviser hands the floor no such classes.
+        self.assertFalse(hasattr(floor, "declared_lexical_classes"))
+        self.assertFalse(hasattr(floor, "declared_opening_classes"))
         self.assertIn((0, 1), floor._pairs(["one"] * 4, "????"))
 
     def test_relative_lengths_reject_impossible_or_malformed_pairs(self):

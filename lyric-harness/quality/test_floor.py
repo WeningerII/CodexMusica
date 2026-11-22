@@ -476,34 +476,52 @@ def test_cliche_pair_may_only_reject_where_it_was_measured():
           "can still fail them")
 
 
+#: The five codes the two removed checks emitted (owner's ruling, 22 Nov 2026).
+REMOVED_CODES = {"LEXICAL_MONOTONY", "LEXICAL_REPETITION_DECLARED",
+                 "MATTR_WINDOW_UNCALIBRATED", "ANAPHORA_OVERLOAD",
+                 "ANAPHORA_DECLARED"}
+
+
 def test_anaphora():
-    print("\n7. repeated line openings")
+    print("\n7. repeated line openings are not a finding")
+    # REPINNED 2026-11-22 (owner's ruling): ~~a 100% shared opening fires
+    # ANAPHORA_OVERLOAD, and it lists every offending line~~. The
+    # same-first-word check is removed: its only evidence was one comparison
+    # of 152 sonnets with 40 machine-written ones, never made for songs. A
+    # writer may open every line on one word and the floor says nothing.
     same = ["And so the morning comes and so it goes",
             "And all the world is turning in the rain",
             "And every heart is beating in the cold",
             "And every soul is reaching through the pain"]
-    f = find(same, "ANAPHORA_OVERLOAD")
-    check("100% shared opening fires", f is not None)
-    check("it lists every offending line",
-          f is not None and f.locations == [1, 2, 3, 4],
-          f.locations if f else "")
+    got = codes(same)
+    check("four lines opening on one word raise no opening finding",
+          not (got & REMOVED_CODES), f"codes: {sorted(got)}")
     varied = ["Morning arrives without ceremony or noise",
               "She counts the coins left over from the fare",
               "Nothing about the platform has been repaired",
               "Later the train will carry someone else"]
-    check("varied openings do not fire",
-          "ANAPHORA_OVERLOAD" not in codes(varied))
+    check("varied openings raise none either",
+          not (codes(varied) & REMOVED_CODES))
 
 
 def test_anaphora_is_a_note_about_a_figure():
-    print("\n8. anaphora is reported as a decision, not a verdict")
+    print("\n8. a repeated opening is the writer's figure, and the floor "
+          "reads none")
+    # REPINNED 2026-11-22: ~~the evidence says deliberate anaphora is a
+    # figure~~. The judgement is handed back entirely: the floor has no
+    # opening reader, and the lines a plan requires to open alike, which the
+    # reviser used to hand it, change nothing.
     same = ["And so the morning comes and so it goes",
             "And all the world is turning in the rain"]
-    f = find(same, "ANAPHORA_OVERLOAD")
-    check("the evidence says deliberate anaphora is a figure",
-          f is not None and "figure" in f.evidence,
-          "deliberate repetition of an opening is a figure; the gate must "
-          "hand the judgement back rather than make it")
+    check("the floor has no reader of line openings left",
+          not hasattr(SlopFloor, "_anaphora"))
+    told = SlopFloor(qf=FLOOR.qf)
+    told.declared_opening_classes = ((0, 1),)
+    told.declared_lexical_classes = ((0, 1),)
+    check("declared repeats are read by nothing: the findings are the same "
+          "with and without them",
+          [vars(f) for f in told.check(same)]
+          == [vars(f) for f in FLOOR.check(same)])
 
 
 def test_thresholds_are_declared_not_hidden():
@@ -518,48 +536,39 @@ def test_thresholds_are_declared_not_hidden():
           f"{sorted(defn)} — every "
           f"other field is None and takes the profile's measurement, so the "
           f"defaults assert nothing")
-    same = ["And so the morning comes and so it goes",
-            "And all the world is turning in the rain",
-            "And every heart is beating in the cold",
-            "And every soul is reaching through the pain"]
+    # REPINNED 2026-11-22: ~~ANAPHORA_OVERLOAD and `anaphora_max`, on four
+    # lines that all open with "And"~~ — the same-first-word check is removed, so the grammar-word
+    # check carries this claim, on four lines that are 60% grammar words
+    # (the lyric row's cut at 40 words is about 51%).
+    heavy = ["and it is the one that we have to be",
+             "and it was the way that you had to see",
+             "and he is the one that they want to be",
+             "and she was the one that I had to see"]
     check("the profile supplies the threshold when the field is unset",
-          "ANAPHORA_OVERLOAD" in codes(same))
-    loose = SlopFloor(decl=FloorDeclaration(anaphora_max=1.0), qf=FLOOR.qf)
+          "FUNCTION_WORD_HEAVY" in codes(heavy))
+    loose = SlopFloor(decl=FloorDeclaration(function_word_ratio_max=1.0),
+                      qf=FLOOR.qf)
     check("an override beats the measurement and suppresses its own finding",
-          "ANAPHORA_OVERLOAD" not in {f.code for f in loose.check(same)},
+          "FUNCTION_WORD_HEAVY" not in {f.code for f in loose.check(heavy)},
           "a disagreement lands in a coordinate of the declaration "
           "(doctrine 1), not in an argument about the gate")
 
     # A DECLARED COORDINATE NOTHING READS IS DECORATION, which is this repo's
-    # own recurring failure mode ("BUILT AND NEVER WIRED", CLAUDE.md). The
-    # MATTR window was a bare default inside `features._mattr` until
-    # 2026-08-14 -- declaring it would buy nothing if `check()` did not
-    # actually thread it, so the test is that MOVING it moves the statistic
-    # the finding reports. `same` is 34 tokens: at the shipped 50 it is
-    # inside the window and `_mattr` degenerates to plain TTR, at 20 it is
-    # not and a real moving average is taken. The nondefault window has no
-    # calibrated cut: declare the same caller-owned cut for both coordinates
-    # to isolate whether the statistic changes. test_floor_window separately
-    # proves that omitting this cut refuses lexical certification.
-    def _mattr_evidence(w):
-        fl = SlopFloor(decl=FloorDeclaration(mattr_window=w, mattr_min=1.0),
-                       qf=FLOOR.qf)
-        for f in fl.check(same, "ABAB"):
-            if f.code == "LEXICAL_MONOTONY":
-                return f.evidence
-        return ""
-
-    at50, at20 = _mattr_evidence(50), _mattr_evidence(20)
-    check("the declared MATTR window reaches the statistic, not just the doc",
-          bool(at50) and bool(at20) and at50 != at20,
-          "34 tokens: window 50 -> plain TTR, window 20 -> a real moving "
-          "average. If these two were equal the field would be a number "
-          "nothing reads")
-    check("...and the finding NAMES which statistic it computed",
-          at50.startswith("TTR ") and at20.startswith("MATTR "),
-          f"window 50 -> {at50[:16]!r}; window 20 -> {at20[:16]!r} — the "
-          f"`section` profile's own figures are plain TTR for exactly this "
-          f"reason (CALIBRATION['mattr_window'])")
+    # own recurring failure mode ("BUILT AND NEVER WIRED", CLAUDE.md).
+    # REPINNED 2026-11-22: ~~the declared MATTR window reaches the statistic,
+    # and the finding names which statistic it computed (TTR at window 50,
+    # MATTR at 20)~~. The word-variety check is removed, and its window and
+    # cut with it, so there is no coordinate left to decorate: the fields are
+    # gone rather than kept unread.
+    import dataclasses
+    names = {f.name for f in dataclasses.fields(FloorDeclaration)}
+    gone = {"mattr_window", "mattr_min", "anaphora_max"}
+    check("the declaration keeps no field for a removed check",
+          not (names & gone), f"still declared: {sorted(names & gone)}")
+    check("...and CALIBRATION keeps no record of the removed window",
+          "mattr_window" not in CALIBRATION
+          and not (gone & set(CALIBRATION["definitional"])),
+          f"definitional: {CALIBRATION['definitional']}")
 
 
 def test_length_is_a_coordinate():
@@ -567,11 +576,16 @@ def test_length_is_a_coordinate():
     from quality.floor import PROFILES, declaration_for
     sec = [p for p in PROFILES if p.name == "section"][0]
     son = [p for p in PROFILES if p.name == "sonnet"][0]
+    # REPINNED 2026-11-22: ~~anaphora_max~~ is removed with its check; the
+    # grammar-word cut makes the same point.
     check("the two profiles disagree about what is normal",
-          sec.percentiles["anaphora_max"] != son.percentiles["anaphora_max"],
-          f"anaphora_max: section {sec.percentiles['anaphora_max']} vs "
-          f"sonnet {son.percentiles['anaphora_max']} — applying the sonnet cut "
-          f"to a 4-line chorus flags any two lines sharing an opening")
+          sec.percentiles["function_word_ratio_max"]
+          != son.percentiles["function_word_ratio_max"],
+          f"function_word_ratio_max: section "
+          f"{sec.percentiles['function_word_ratio_max']} vs sonnet "
+          f"{son.percentiles['function_word_ratio_max']} — applying the "
+          f"sonnet cut to a 4-line chorus would flag a chorus the 4-line row "
+          f"passes")
     p, exact = declaration_for(33)
     check("a 33-token section picks the section profile",
           p is not None and p.name == "section" and exact)
@@ -629,8 +643,9 @@ def test_length_is_a_coordinate():
     # in the band rows. Self-rhyme, radif and shared suffix keep their
     # severity. (REPINNED 2026-11-20: a self-rhyme is now a note at every
     # length, so SHARED_SUFFIX is what is left to carry a flag here.)
-    sized = {"LEXICAL_MONOTONY", "FUNCTION_WORD_HEAVY",
-             "ANAPHORA_OVERLOAD", "UNIFORM_LINE_LENGTH",
+    # REPINNED 2026-11-22: ~~LEXICAL_MONOTONY, ANAPHORA_OVERLOAD~~ are
+    # removed (owner's ruling); three length-calibrated checks remain.
+    sized = {"FUNCTION_WORD_HEAVY", "UNIFORM_LINE_LENGTH",
              "PREDICTABLE_RHYME", "CLICHE_PAIR"}
     bad = [f.code for f in fs
            if f.code in sized and f.severity == "flag"]
@@ -651,12 +666,14 @@ def test_length_is_a_coordinate():
     check("the extrapolation is announced",
           "EXTRAPOLATED_LENGTH" in {f.code for f in fs})
 
-    # and MATTR, the check that silently changes statistic, must not run
-    # outside a profile
+    # and no length-sensitive check may run outside a profile. REPINNED
+    # 2026-11-22: ~~MATTR, the check that silently changes statistic~~ is
+    # removed; the two that remain and would fire on this text are asked.
     huge = ["word " * 40] * 90
     c = {f.code for f in FLOOR.check(huge)}
     check("outside every profile the length-sensitive checks do not run",
-          "LEXICAL_MONOTONY" not in c and "OUT_OF_CALIBRATED_LENGTH" in c,
+          not ({"FUNCTION_WORD_HEAVY", "UNIFORM_LINE_LENGTH"} & c)
+          and "OUT_OF_CALIBRATED_LENGTH" in c,
           f"codes: {sorted(c)}")
 
 
@@ -900,35 +917,37 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # the outcome that a tuned profile could not have produced: the harness's
     # flagship example song FAILS its own gate, on a check whose threshold is
     # the corpus's 95th percentile and nothing else.
+    #
+    # REPINNED 2026-11-22 (owner's ruling): the check that made this control
+    # is removed. ~~The fixture trips ANAPHORA_OVERLOAD (13 of its 26 lines
+    # open with 'I', 50% against the lyric curve's 0.3050 at 221 tokens), and
+    # it is a flag, not a note.~~ The example now passes for the reason the
+    # owner gave: opening many lines on one word was never shown to mark a
+    # machine. What stands is that the fixture is still GRADED (its length
+    # checks run), and the row pin below.
     ls = _sheet("anaphoric.txt")
-    f = find(ls, "ANAPHORA_OVERLOAD")
-    check("the fixture trips ANAPHORA_OVERLOAD", f is not None,
-          "13 of its 26 lines open with 'I' — 50% against the human 95th "
-          "percentile ~~of 30.0% measured on 1,859 corpus songs~~ REPINNED "
-          "2026-09-05 (M-239): the fixture lands in `lyric`, whose "
-          "`anaphora_max` is a curve in ln N, and the number this check is "
-          "graded against is that curve EVALUATED AT 221 TOKENS — 0.3050, "
-          "read from the row rather than typed (§13 pins the profile). The "
-          "30.0% / 1,859-item figure was the `song` band's fixed percentile "
-          "and is kept as the reading this test was written against. If a "
-          "later change makes this pass, the threshold moved for the lyric's "
-          "sake and this test is the thing that says so")
-    check("and it is a flag, not a note", f is not None and
-          f.severity == "flag", "the ~~song~~ lyric profile (M-239, repinned "
-          "2026-09-05) covers 221 tokens exactly, "
-          "so nothing is downgraded for extrapolation")
+    fs14 = FLOOR.check(ls)
+    check("the fixture no longer trips the removed same-first-word check",
+          not ({f.code for f in fs14} & REMOVED_CODES),
+          f"codes: {sorted({f.code for f in fs14})}")
+    check("...and it is still graded at its length, not skipped",
+          "OUT_OF_CALIBRATED_LENGTH" not in {f.code for f in fs14},
+          "the lyric profile covers 221 tokens exactly")
     from quality.floor import PROFILES
     song = [p for p in PROFILES if p.name == "song"][0]
     # `mattr_min` PINS A WINDOW AS WELL AS A PERCENTILE, and until 2026-08-14
     # nothing here said so. 0.7226 is the 5th percentile of MATTR computed at
-    # `FloorDeclaration.mattr_window` = 50 tokens; at another window it is the
+    # `quality.features.MATTR_WINDOW` = 50 tokens (REPINNED 2026-11-22:
+    # ~~`FloorDeclaration.mattr_window`~~, removed with the grader's
+    # word-variety check, owner's ruling); at another window it is the
     # 5th percentile of a different statistic and this equality would fail for
     # a reason that has nothing to do with the corpus. The band is a
     # coordinate of the window too -- at window 20 the band rule returns
     # 100-350 (2,953 items, 132 authors) rather than the 150-400 / 1,859 /
     # 108 quoted below, so the OTHER four thresholds move with it as well.
     # The sweep, the admissible set [1,22] u [40,93] and the reason 50 is
-    # kept rather than retuned are `quality.floor.CALIBRATION["mattr_window"]`.
+    # kept rather than retuned are in `QualityFeatures._mattr`'s docstring
+    # (~~`quality.floor.CALIBRATION["mattr_window"]`~~, removed 2026-11-22).
     # REPINNED 2026-08-22, `mattr_min` ONLY: 0.7128 -> 0.7118, and it is a
     # READER FIX and not a load. `features.py._tokens` matched `[A-Za-z'\-]+`
     # until 2026-08-21, so Barnes's `A-baggèn` was two tokens and `jaÿ` was a
@@ -1087,12 +1106,23 @@ def test_the_song_profile_makes_no_separation_claim():
     # THE MAP MAY NOT GO STALE EITHER. A sixth threshold added to any profile
     # without joining `LENGTH_SENSITIVE` would be a length-sensitive finding
     # nothing here reads — the same defect one layer up.
+    # REPINNED 2026-11-22: the word-variety and same-first-word checks are
+    # removed (owner's ruling). Their two percentiles stay on the superseded
+    # `song` and `short` rows ONLY, because those rows' nightly drift check
+    # (song_profile_calibration --check) still measures them until the #913
+    # batch drops it; nothing grades with them. So the declared-not-mapped
+    # set is exactly those two, and only on superseded rows.
     declared = {k for p in PROFILES for k in p.keys()}
     mapped = {pk for pk, _ in LENGTH_SENSITIVE.values()}
-    check("`LENGTH_SENSITIVE` names every percentile any profile declares",
-          declared == mapped,
+    held = {"anaphora_max", "mattr_min"}
+    check("`LENGTH_SENSITIVE` names every percentile any profile declares, "
+          "but the two removed checks' percentiles on superseded rows",
+          declared - mapped == held and not (mapped - declared),
           f"declared-not-mapped {sorted(declared - mapped)}; "
           f"mapped-not-declared {sorted(mapped - declared)}")
+    check("...and those two are held by superseded rows only",
+          all(p.superseded_by for p in PROFILES if held & set(p.keys())),
+          f"{[p.name for p in PROFILES if held & set(p.keys())]}")
 
     # ~~BOTH LYRIC-SHEET PROFILES ARE UNDER TEST, and the second is not a
     # duplicate: `short` declares FOUR thresholds, not five — M-193's stage B
@@ -1210,16 +1240,22 @@ def test_the_song_profile_makes_no_separation_claim():
           seen_profiles == ["lyric", "lyric"]
           and all(_lp.threshold(k, 78) != _lp.threshold(k, 234)
                   for k in _lp.curves),
-          f"{seen_profiles}; mattr_min at 78 tokens "
-          f"{_lp.threshold('mattr_min', 78):.4f} vs at 234 "
-          f"{_lp.threshold('mattr_min', 234):.4f}")
+          f"{seen_profiles}; function_word_ratio_max at 78 tokens "
+          f"{_lp.threshold('function_word_ratio_max', 78):.4f} vs at 234 "
+          f"{_lp.threshold('function_word_ratio_max', 234):.4f} (REPINNED "
+          f"2026-11-22 from ~~mattr_min~~, removed)")
 
-    # The period half below reads the ANAPHORA_OVERLOAD finding on the
+    # The period half below read the ANAPHORA_OVERLOAD finding on the
     # original fixture, which is where the withdrawal was pinned.
+    # REPINNED 2026-11-22: that finding is removed with its check (owner's
+    # ruling), so the withdrawal is carried by no finding now. What these
+    # checks hold instead: no finding states the struck slope as live, and
+    # the withdrawal stays legible in the floor's own record (doctrine 17).
     ls = _sheet("anaphoric.txt")
     fs = [f for f in FLOOR.check(ls)
           if f.code in ("ANAPHORA_OVERLOAD", "LEXICAL_MONOTONY",
                         "FUNCTION_WORD_HEAVY", "UNIFORM_LINE_LENGTH")]
+    record = FL.__doc__ or ""
     # WHAT THIS PINS CHANGED ON 2026-08-20, AND THE OLD PIN WAS THE DEFECT.
     # Until then these three lines asserted that the finding carries a LIVE
     # period slope -- doctrine 11, author-level Spearman +0.275 against birth
@@ -1235,30 +1271,29 @@ def test_the_song_profile_makes_no_separation_claim():
     # over no findings at all, so a build that stopped emitting the code
     # entirely would have printed PASS. The population is named first now.
     an = [f for f in fs if f.code == "ANAPHORA_OVERLOAD"]
-    check("exactly one ANAPHORA_OVERLOAD is under inspection", len(an) == 1,
-          f"got {len(an)} -- an empty list makes every check below vacuous, "
-          "which is what the old `all(... if ...)` spelling did")
-    ev = an[0].evidence if an else ""
-    check("the period question is carried in the finding, not only the docs",
-          "PERIOD" in ev,
-          "doctrine 48: a withdrawal that lives only in "
-          "quality/RESULTS_SONG_FLOOR.md reaches nobody reading the finding")
-    check("and what it carries is a WITHDRAWAL, not a live slope",
-          "PERIOD CAUTION WITHDRAWN" in ev and "-0.008" in ev
-          and "0.8695" in ev,
+    check("no ANAPHORA_OVERLOAD is under inspection: the check is removed "
+          "(REPINNED 2026-11-22 from ~~exactly one~~)", len(an) == 0,
+          f"got {len(an)}")
+    check("no finding on the fixture states the struck period slope",
+          not any("+0.275" in f.evidence for f in FLOOR.check(ls)),
+          "doctrine 17: a figure whose premise is falsified may never be "
+          "quoted as if it were not, and with its finding gone nothing may "
+          "quote it at all")
+    check("and what the floor records is a WITHDRAWAL, not a live slope",
+          "WITHDRAWN 2026-08-20" in record and "-0.008" in record
+          and "0.8695" in record,
           "re-derived over 407 dated authors against the original 108: "
           "rho -0.008, p_perm 0.8695 -- ABSENT and sign-flipped, not weaker, "
           "so the caution is withdrawn rather than softened")
     check("the struck figure is still legible, and marked as struck",
-          "+0.275" in ev and "used to read" in ev,
-          "doctrine 17: a check may be kept after its premise is falsified "
-          "but never quoted as if it were not -- +0.275 stays visible and "
-          "may not stand unqualified")
+          "~~ANAPHORA carries a" in record and "+0.275" in record,
+          "doctrine 17: +0.275 stays visible in the record and may not "
+          "stand unqualified")
     check("and the withdrawal does not read as a clean bill",
-          "472 undated" in ev and "NOT missing at random" in ev
-          and "moved rather than left" in ev,
-          "doctrine 20: 472 of 879 authors are undated and NOT missing at "
-          "random, and `mattr`/`fwr` now carry the slopes -- a failure to "
+          "472 of the 879" in record and "not missing at random" in record
+          and "RELOCATED rather than left" in record,
+          "doctrine 20: 472 of 879 authors are undated and not missing at "
+          "random, and `mattr`/`fwr` carried the slopes then -- a failure to "
           "reproduce, not an acquittal, and the confound relocated")
 
 
@@ -1278,8 +1313,11 @@ def test_the_song_profile_did_not_swallow_everything():
               "and 3,245 is the corpus's longest item, not a number chosen")
     huge = ["word " * 40] * 90
     c = codes(huge)
+    # REPINNED 2026-11-22: ~~and LEXICAL_MONOTONY does not~~ (removed); the
+    # length-sensitive checks that remain are the ones that must not run.
     check("OUT_OF_CALIBRATED_LENGTH still fires above the calibrated range",
-          "OUT_OF_CALIBRATED_LENGTH" in c and "LEXICAL_MONOTONY" not in c,
+          "OUT_OF_CALIBRATED_LENGTH" in c
+          and not (c & set(FL.LENGTH_SENSITIVE)),
           f"codes: {sorted(c)}")
     p, exact = declaration_for(450)
     check("450 tokens is served by the lyric profile EXACTLY — the 1.25x "
@@ -1331,15 +1369,20 @@ def test_anaphora_tie_break_reproduces():
     # evidence and the locations, which are the part a writer acts on, did not
     # reproduce. Only a cross-process run could have found it, so that is what
     # this test does.
+    #
+    # REPINNED 2026-11-22: the same-first-word reader is removed with its
+    # check (owner's ruling), so ~~the tie goes to the word that appears
+    # first~~ has nothing left to ask. What doctrine 66 asks of the floor
+    # stands: the WHOLE report on this fixture reproduces across processes.
     import subprocess
     tie = ["Alpha one", "Beta two", "Alpha three", "Beta four"]
-    rate, word = FLOOR._anaphora(tie)
-    check("the tie goes to the word that appears first",
-          (rate, word) == (0.5, "alpha"), f"{rate}, {word!r}")
+    check("the opening reader that broke ties is gone",
+          not hasattr(SlopFloor, "_anaphora"))
     prog = (
         "import sys; sys.path.insert(0, %r); sys.path.insert(0, %r)\n"
         "from quality.floor import SlopFloor\n"
-        "print(SlopFloor._anaphora(None, %r))\n"
+        "print([(f.code, f.severity, f.locations, f.evidence)\n"
+        "       for f in SlopFloor().check(%r)])\n"
         % (os.path.join(HERE, ".."), os.path.join(HERE, "..", ".."), tie))
     seen = set()
     for seed in range(6):
@@ -1782,11 +1825,13 @@ def test_a_declared_threshold_is_not_a_corpus_percentile():
     # number, not less; and on the two stanza profiles, which carry no
     # curves, `at_len` suppressed nothing at all and the overridden string
     # was byte-identical to the measured one apart from the digits.
-    SIDE = {"mattr_min": "5th", "function_word_ratio_max": "95th",
-            "anaphora_max": "95th", "line_length_cv_min": "5th",
+    # REPINNED 2026-11-22: ~~mattr_min 0.9111, anaphora_max 0.0333~~ are
+    # removed with their checks (owner's ruling); three keys remain.
+    SIDE = {"function_word_ratio_max": "95th",
+            "line_length_cv_min": "5th",
             "predictable_pair_fraction_max": "95th"}
-    OVR = {"mattr_min": 0.9111, "function_word_ratio_max": 0.1222,
-           "anaphora_max": 0.0333, "line_length_cv_min": 0.4444,
+    OVR = {"function_word_ratio_max": 0.1222,
+           "line_length_cv_min": 0.4444,
            "predictable_pair_fraction_max": 0.0555}
     by_key = {pk: code for code, (pk, _) in FL.LENGTH_SENSITIVE.items()}
     ev_key = {pk: ek for _, (pk, ek) in FL.LENGTH_SENSITIVE.items()}
@@ -1796,14 +1841,14 @@ def test_a_declared_threshold_is_not_a_corpus_percentile():
     n_tok = sum(len(FLOOR.qf._tokens(l)) for l in sheet)
     prof, exact = declaration_for(n_tok, len(sheet))
     check("the fixture lands in the lyric profile, exactly — the profile "
-          "whose five thresholds are CURVES, so the struck helper's own "
+          "whose thresholds are CURVES, so the struck helper's own "
           "branch is the one under test",
           prof is not None and prof.name == "lyric" and exact,
           f"{len(sheet)} lines, {n_tok} tokens -> "
           f"{prof.name if prof else None}, exact={exact}")
 
     base = {f.code: f.evidence for f in FLOOR.check(sheet, "AABB")}
-    check("PREMISE: all five length-sensitive findings FIRE on it under the "
+    check("PREMISE: every length-sensitive finding FIRES on it under the "
           "default declaration, so neither arm below asserts over an empty "
           "list (doctrine 48)",
           set(base) >= set(FL.LENGTH_SENSITIVE),
@@ -1858,24 +1903,30 @@ def test_a_declared_threshold_is_not_a_corpus_percentile():
           and not sp.curves,
           f"{s_tok} tokens -> {sp.name if sp else None}, curves "
           f"{sorted(sp.curves) if sp else None}")
+    # REPINNED 2026-11-22: ~~LEXICAL_MONOTONY under `mattr_min` 0.9111, and
+    # the section profile's AUC 0.776 measured at 0.7568~~ — the word-variety
+    # check is removed (owner's ruling), so the grammar-word check carries
+    # the fixed-percentile half: this stanza is 5 grammar words in 7.
     s_base = [f for f in FLOOR.check(stanza, "AABB")
-              if f.code == "LEXICAL_MONOTONY"]
-    s_ov = [f for f in SlopFloor(FloorDeclaration(mattr_min=0.9111))
-            .check(stanza, "AABB") if f.code == "LEXICAL_MONOTONY"]
-    check("PREMISE: LEXICAL_MONOTONY fires on it under both declarations",
+              if f.code == "FUNCTION_WORD_HEAVY"]
+    s_ov = [f for f in SlopFloor(
+        FloorDeclaration(function_word_ratio_max=0.1222))
+        .check(stanza, "AABB") if f.code == "FUNCTION_WORD_HEAVY"]
+    check("PREMISE: FUNCTION_WORD_HEAVY fires on it under both declarations",
           len(s_base) == 1 and len(s_ov) == 1,
           f"{len(s_base)} / {len(s_ov)}")
     if s_base and s_ov:
         check("CONTROL: the section profile's own cut is still reported as "
-              "its 5th percentile",
-              "(human 5th percentile, section profile" in s_base[0].evidence)
+              "its 95th percentile",
+              "(human 95th percentile, section profile" in s_base[0].evidence)
         check("...and an override under a FIXED-percentile profile is not — "
               "the defect `at_len` could not reach",
-              "(human 5th percentile, section profile"
+              "(human 95th percentile, section profile"
               not in s_ov[0].evidence)
-        check("...and the section profile's AUC is withdrawn with it: 0.776 "
-              "was measured at 0.7568 and prices nothing at 0.9111",
-              sp.evidence_for("mattr") not in s_ov[0].evidence)
+        check("...and the section profile's own evidence sentence is "
+              "withdrawn with it: it was measured at the profile's cut and "
+              "prices nothing at 0.1222",
+              sp.evidence_for("function_word_ratio") not in s_ov[0].evidence)
 
     # THE SHARPEST CASE, AND IT IS THIS SUITE'S OWN §11 FIXTURE. `section`
     # declares NO `predictable_pair_fraction_max`, so the check runs there
