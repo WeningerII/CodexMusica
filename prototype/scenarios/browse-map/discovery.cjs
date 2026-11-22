@@ -26,7 +26,7 @@ const { chromium } = require('playwright');
 const feature = path.resolve(__dirname, '../../features/browse-map');
 const server = http.createServer((req, res) => {
   const name = req.url.split('/').pop();
-  if (['discovery.js', 'discovery.css'].includes(name)) {
+  if (['discovery.js', 'discovery.css', 'container-motion.js'].includes(name)) {
     res.setHeader('Content-Type', name.endsWith('.js') ? 'text/javascript' : 'text/css');
     return res.end(fs.readFileSync(path.join(feature, name)));
   }

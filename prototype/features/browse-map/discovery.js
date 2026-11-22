@@ -1,3 +1,5 @@
+import { createContainerMotion } from './container-motion.js';
+
 // #670 rows 216–217 increment. Harness evidence does not complete manifest rows.
 // P2 #739 ctx.items: frozen [{id, name, family, place}], catalog-owned or null.
 // place: {lat,lng,label,region,provenance:{status,method?,on?}}; verified is human,
@@ -35,6 +37,7 @@ export function mount(host, ctx) {
   const shelf = root.querySelector('.discovery-shelf');
   const list = shelf.querySelector('ul');
   const detail = root.querySelector('.discovery-detail');
+  const motion = createContainerMotion(root, ctx.signal);
   const buttons = new Map();
   const records = new Map(items.map((i) => [i.id, { ...i }]));
   let selected = null,
@@ -87,6 +90,7 @@ export function mount(host, ctx) {
   }
   function select(id, source) {
     if (dead || (id !== null && !records.has(id))) return;
+    motion.cancel();
     if (id === selected) {
       if (id !== null && source === 'card' && detail.hidden) {
         detail.hidden = false;
@@ -177,7 +181,10 @@ export function mount(host, ctx) {
     on(button, 'click', () => {
       rove(indices.get(item.id));
       opener = button;
+      const from = motion.capture(button);
+      const changed = selected !== item.id || detail.hidden;
       select(item.id, 'card');
+      if (changed) motion.connect(from, detail);
     });
   }
   root.querySelector('.discovery-empty').hidden = items.length !== 0;
@@ -215,15 +222,18 @@ export function mount(host, ctx) {
   });
   on(detail.querySelector('[data-close]'), 'click', () => {
     // Closing a disclosure does not clear the shared selected tradition.
+    const from = motion.capture(detail);
     detail.hidden = true;
-    if (opener?.isConnected) opener.focus();
+    if (opener?.isConnected) opener.focus({ preventScroll: true });
     else focusShelf();
+    motion.connect(from, opener?.isConnected ? opener : buttons.get(selected));
   });
   const mapHost = root.querySelector('.discovery-map');
   let observer;
   function unmount() {
     if (dead) return;
     dead = true;
+    motion.dispose();
     for (const remove of listeners) remove();
     ctx.signal.removeEventListener('abort', unmount);
     observer?.disconnect();
