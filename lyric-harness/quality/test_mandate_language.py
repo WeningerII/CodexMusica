@@ -492,6 +492,25 @@ def test_a1_reaches_the_loop():
        and v.repeat_is_violation(1, 4) is False)
     ok("the notation round-trips through the mandate",
        v.to_notation() == "A1bA2abA1abA2abA1abA2abA1A2")
+    # REWORDED 2026-11-21: the return row the writer reads in the group
+    # question no longer calls a rhyme-pair repeat a violation, and its old
+    # bytes come back exactly through the replay undo.
+    import lyric_harness as LH
+    desc = v.describe()
+    new_row = ("  the 12 pair(s) above are declared returns of the same "
+               "line; at the %d rhyme pair(s) a repeated word is allowed and "
+               "is judged under its group's rhyme like any other word."
+               % len(v.pairs()))
+    old_row = ("  doctrine 3, per PAIR: REPEAT is the REQUIREMENT at the 12 "
+               "pair(s) above and a VIOLATION at the %d rhyme pair(s); the "
+               "mandate no longer needs one song-wide licence to mean both."
+               % len(v.pairs()))
+    ok("the return row is in the writer's words, with no doctrine number",
+       new_row in desc.splitlines() and "doctrine 3" not in desc
+       and "VIOLATION" not in desc)
+    ok("and a held run's old question is restored byte for byte",
+       LH.legacy_question_texts("propose_group", desc)[:1]
+       == [desc.replace(new_row, old_row)])
     ok("the rhyme projection is unchanged from what parse() always gave",
        v.to_rhyme_letters() and S.parse(v.to_rhyme_letters()) ==
        S.parse("A1bA2abA1abA2abA1abA2abA1A2"))
