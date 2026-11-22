@@ -8711,25 +8711,34 @@ def test_the_stop_rules():
                       and not _same_opening("ab-cd", "ab"))
     open_rows = {c for c, r in PLN.STOP_RULES.items() if "opening" in r}
     opening = PLN.STOP_RULES.get("ANAPHORA_OVERLOAD", {}).get("opening") or {}
-    got_open = dict(opening, trimmed=set(opening.get("trimmed", "")))
+    # REPINNED 2026-11-21 (bug-hunt finding 34, `SlopFloor.opening_word`):
+    # ~~the copy lists the `trimmed` marks~~ -- the reader takes the first
+    # WORD, so every probed mark is cut and a mark between two words splits
+    # them (`ab,cd` opens on `ab`). The copy says `first_word` instead.
+    first_word = (read_open["trimmed"] == set(marks)
+                  and _same_opening("ab,cd", "ab"))
+    read_open = {"first_word": first_word,
+                 "case_folded": read_open["case_folded"],
+                 "apostrophes_folded": read_open["apostrophes_folded"]}
+    got_open = dict(opening)
     check("...and the anaphora row carries how its reader takes the word a "
           "line opens on, probed from `SlopFloor._anaphora`, and no other "
           "row carries one", open_rows == {"ANAPHORA_OVERLOAD"}
-          and split_on_space and got_open == read_open
-          and len(opening.get("trimmed", "")) == len(read_open["trimmed"]),
+          and split_on_space and got_open == read_open,
           (open_rows, split_on_space, got_open, read_open))
     said_open = PLN._limit_opening_word(opening)
-    open_bad = [m for m in read_open["trimmed"]
-                if f" {m} " not in said_open and f" {m} cut" not in said_open]
-    if "everything before its first space" not in said_open:
-        open_bad.append("first space")
+    open_bad = []
+    if read_open["first_word"] != ("is its first word" in said_open
+                                   and "with any mark before or after it "
+                                   "cut" in said_open):
+        open_bad.append("first word")
     if ("in any case" in said_open) != read_open["case_folded"]:
         open_bad.append("case")
     if ("a curly apostrophe and a straight one make different words"
             in said_open) == read_open["apostrophes_folded"]:
         open_bad.append("apostrophes")
-    for mark, chars in (("a quote mark", '"\u201c'), ("a bracket", "([")):
-        if (mark in said_open) != (not set(chars) & read_open["trimmed"]):
+    for mark in ("a quote mark", "a bracket", "a dash"):
+        if read_open["first_word"] and mark not in said_open:
             open_bad.append(mark)
     check("...and the anaphora row's stated opening word says what that "
           "reader cuts, keeps and folds", not open_bad, (open_bad, said_open))

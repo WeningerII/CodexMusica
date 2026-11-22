@@ -974,9 +974,15 @@ def test_corpus_counts():
     # give most words a second reading, so more confident channel verdicts
     # become refusals. ~~coda (2, 18), consonants (2, 1), phones (2, 1)~~;
     # onset, nucleus and prominence unchanged, and nothing moves the other way.
+    # REPINNED 2026-11-21, a lexicon change (bug-hunt finding 10, smoothing:
+    # fire, hour, desire... gain a one-syllable AY1 R / AW1 R reading):
+    # ~~coda (16, 78), phones (7, 1)~~ -> coda (16, 80), phones (8, 1). Two
+    # more coda verdicts and one more phones verdict become refusals, because
+    # those words now hold readings that disagree; nothing moves the other
+    # way (the direction check above still holds).
     _report("ENGLISH corpus/sonnets.txt", t, e, n,
-            {"onset": (0, 5), "coda": (16, 78), "consonants": (3, 4),
-             "phones": (7, 1), "nucleus": (0, 0), "prominence": (0, 0)})
+            {"onset": (0, 5), "coda": (16, 80), "consonants": (3, 4),
+             "phones": (8, 1), "nucleus": (0, 0), "prominence": (0, 0)})
     t, e, n = _corpus_moves(
         [os.path.join(CORPUS, "song", "ltc_huajianji.txt")], L_UNC)
     _report("MIDDLE CHINESE 花間集", t, e, n,

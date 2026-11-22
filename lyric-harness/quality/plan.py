@@ -6816,8 +6816,12 @@ WRITING_BAN_PARTNERS = 6
 #: `sentencehood._tokens` for the stacked-draft row); this module may not
 #: import either, so test_plan probes each tokenizer and holds the copy equal.
 #: The anaphora row also carries `opening`, how `floor.SlopFloor._anaphora`
-#: reads the word a line opens on (its first space-split piece, with the
-#: `trimmed` marks cut from its ends); test_plan probes that reader too.
+#: reads the word a line opens on; test_plan probes that reader too.
+#: ~~(its first space-split piece, with the `trimmed` marks cut from its
+#: ends)~~ REPINNED 2026-11-21 (bug-hunt finding 34, `SlopFloor.opening_word`):
+#: the reader takes the line's FIRST WORD as the row's own tokenizer reads it,
+#: so every mark before or after it is cut (`first_word`), and the two
+#: apostrophes fold (`apostrophes_folded`).
 STOP_RULES = {
     "CATALOG_FORM_MISMATCH": {"applies": "catalog_form", "stop": "flag",
                               "limit": "catalog_form"},
@@ -6833,9 +6837,9 @@ STOP_RULES = {
                                     "straight_apostrophe": True,
                                     "curly_apostrophe": True,
                                     "hyphen": True},
-                          "opening": {"trimmed": ",.;:!?\u2014-",
+                          "opening": {"first_word": True,
                                       "case_folded": True,
-                                      "apostrophes_folded": False}},
+                                      "apostrophes_folded": True}},
     "FUNCTION_WORD_HEAVY": {"applies": "always", "stop": "flag",
                             "limit": "grammar_words",
                             "words": {"accented": True,
@@ -7140,6 +7144,21 @@ def _limit_word_unit(words):
 def _limit_opening_word(opening):
     """-> how the anaphora row reads the word a line opens on, from its
     `opening` copy in `STOP_RULES`, in the brief's words."""
+    if opening.get("first_word"):
+        # Since 2026-11-21 (finding 34) the reader takes the first WORD, so no
+        # mark can stay on it and there is no list of marks to give.
+        text = "for this row, the word a line opens on is its first word"
+        if opening["case_folded"]:
+            text += ", in any case"
+        text += (", with any mark before or after it cut, a quote mark, a "
+                 "bracket and a dash among them")
+        if not opening["apostrophes_folded"]:
+            text += ", and a curly apostrophe and a straight one make " \
+                    "different words"
+        else:
+            text += ", and a curly apostrophe and a straight one make the " \
+                    "same word"
+        return text
     marks = list(opening["trimmed"])
     cut = " ".join(marks[:-1]) + " and " + marks[-1] if len(marks) > 1 \
         else "".join(marks)

@@ -307,6 +307,20 @@ WEAK_NONFINAL = {
     "but", "if", "i", "this", "that", "my", "his", "her", "them", "your",
     "you", "he", "she", "we", "they", "me", "him", "us",
 }
+# PRONOUN + AUXILIARY CONTRACTIONS (bug-hunt finding 11, 2026-11-21): a
+# contraction is read as weak as its spelled-out form, so a line's stress no
+# longer depends on whether the writer contracts. `it's` joins `its` and
+# `i'm` (its pronoun is weak everywhere); every other one takes the weaker
+# of its two halves' rules, which for a pronoun + auxiliary is mid-phrase.
+WEAK_ALWAYS |= {"it's"}
+WEAK_NONFINAL |= {
+    p + "'" + aux
+    for p in ("i", "you", "he", "she", "we", "they", "it")
+    for aux in ("re", "s", "ll", "d", "ve")
+    if not (p == "i" and aux in ("re", "s"))
+    and not (p in ("he", "she", "it") and aux in ("re", "ve"))
+    and not (p in ("you", "we", "they") and aux == "s")
+} - WEAK_ALWAYS
 
 
 def weak_token(reader, word, phrase_final=False):
@@ -1049,7 +1063,15 @@ SPELLING_ALIASES = {
 # TRAP (EI), the Scottish long GOOSE (UU), the Scottish centralised vowel
 # (EO), /x/ (KH), /ɬ/ (LH), the glottal stop (Q), /ç/ (CX) and the loan
 # vowels. They reach a song through a declared reading.
-ACCENT_RULES = "accent-readings-2026-10-30"
+# SMOOTHING (2026-11-21, bug-hunt finding 10) is the one rule that DROPS a
+# syllable on purpose: a stressed PRICE or MOUTH vowel straight before an
+# unstressed lettER at the end of the word (fire, tire, desire, hour, flower,
+# tired, hours) is sung and scanned as one syllable, AY1 R / AW1 R, the
+# reading CMUdict already lists for fire, hire, wire and sour and leaves out
+# for tire, desire, power and the rest. It is appended after the word's own
+# readings and is not an accent choice: one singer smooths fire and keeps
+# fi-er in the next line, so no pairing is refused on it.
+ACCENT_RULES = "accent-readings-2026-11-21"
 
 _RESPELL_BEFORE_CODA_R = {"IH": "IA", "IY": "IA",              # NEAR
                           "EH": "EA", "AE": "EA", "EY": "EA",  # SQUARE
@@ -1250,7 +1272,29 @@ def derive_accent_readings(word, readings):
             if (alt and alt != phones
                     and sum(1 for p in alt if _is_vowel(p)) == syll):
                 add(alt, name)
+    for phones in bases:
+        sm = _smoothed(phones)
+        if sm:
+            add(sm, "smoothing")
+            # A non-rhotic singer smooths too (fire -> F AY1, as CMUdict's
+            # own fire / hour readings already go): the same two rules the
+            # rhotic route composes for cure-force and force.
+            add(_non_rhotic(sm), "smoothing non-rhotic")
     return out, rules
+
+
+def _smoothed(phones):
+    """-> the one-syllable PRICE/MOUTH + R reading of a word that ends on a
+    stressed AY or AW, an unstressed ER and only consonants after it (tire
+    T AY1 ER0 -> T AY1 R, tired -> T AY1 R D, flower -> F L AW1 R), or None.
+    A vowel after the ER (fiery, towering) leaves it alone: the smoothed
+    syllable has to be the word's last."""
+    for i in range(len(phones) - 1):
+        if (_base(phones[i]) in ("AY", "AW") and phones[i][-1] in "12"
+                and phones[i + 1] == "ER0"
+                and not any(_is_vowel(p) for p in phones[i + 2:])):
+            return list(phones[:i + 1]) + ["R"] + list(phones[i + 2:])
+    return None
 
 
 #: One derivation per process: CMUdict and SPELLING_ALIASES are the same for
@@ -1501,7 +1545,36 @@ class Lexicon:
         if (choice and choice['word'] == word) or (
                 has_numeral(word) and _scheme_of(self) == "v2"):
             return [word]
-        return re.split(r"[-\u2011]", word)
+        pieces = re.split(r"[-\u2011]", word)
+        # A HYPHENATED WORD THE DICTIONARY HAS WHOLE IS READ WHOLE (bug-hunt
+        # finding 12, 2026-11-21): `re-write` and `to-day` read their pieces
+        # in citation form (R EY1, T UW1) where `rewrite` and `today` reduce
+        # the prefix. The joined spelling wins only when every reading of it
+        # has as many syllables as the pieces have together, so `co-op` (two
+        # syllables) is never read as `coop` (one), and a one-letter piece
+        # never joins: the dialect `a-` of `a-rid`, `a-blest` is not `arid`
+        # or `ablest` (measured on corpus/ before this guard: 4,421 tokens
+        # joined, 939 types,
+        # and those two were the wrong joins in the top of the list). Scheme
+        # v1 keeps the pre-batch split.
+        if (len(pieces) > 1 and all(len(x.strip("'")) > 1 for x in pieces)
+                and _scheme_of(self) == "v2"):
+            joined = self.entries.get("".join(pieces).lower().strip("'"))
+            if joined:
+                counts = []
+                for piece in pieces:
+                    prons = self.entries.get(piece.lower().strip("'"))
+                    if not prons:
+                        counts = None
+                        break
+                    counts.append({sum(1 for ph in p if ph[-1] in "012")
+                                   for p in prons})
+                if counts and all(len(c) == 1 for c in counts):
+                    total = sum(next(iter(c)) for c in counts)
+                    if all(sum(1 for ph in p if ph[-1] in "012") == total
+                           for p in joined):
+                        return ["".join(pieces)]
+        return pieces
 
 
     def pronunciation_variants(self, word):
@@ -2861,7 +2934,10 @@ def normalise_word(word):
     and U+2010/U+2011 folds, U+00AD removed. U+2032 (prime) is NOT folded: it
     is a different character with its own uses, and stays a breaker."""
     word = unicodedata.normalize("NFC", str(word))
-    return "".join(_reader_fold(c) for c in word if c != _SHY)
+    # The reader's expansions too (ligature letters, a standalone `&`), so a
+    # token's text is its raw pieces normalised, as `reader_line` promises.
+    kept = [(_reader_fold(c), 0, 0) for c in word if c != _SHY]
+    return "".join(c for c, _, _ in _reader_expand(kept))
 
 
 def _reader_stream(text):
@@ -2908,7 +2984,44 @@ def _reader_stream(text):
             for m in re.finditer(r"\S+|\s+", text):
                 out.extend((ch, m.start(), m.end())
                            for ch in unicodedata.normalize("NFC", m.group()))
-    return [(_reader_fold(c), a, b) for c, a, b in out]
+    return _reader_expand([(_reader_fold(c), a, b) for c, a, b in out])
+
+
+#: THE LATIN LIGATURE LETTERS (bug-hunt finding 14, 2026-11-21): U+FB00-U+FB06
+#: are one codepoint each for two or three letters, set by a typesetter and
+#: carried into pasted text. They are letters, not separators, so `\ufb01re`
+#: reads `fire`. Only these seven expand -- full compatibility folding would
+#: also rewrite superscripts, fractions and full-width forms, which is a
+#: separate decision. Each output letter maps to the ligature's own raw span.
+_LIGATURES = {chr(0xFB00 + k): unicodedata.normalize("NFKC", chr(0xFB00 + k))
+              for k in range(7)}
+
+
+def _word_char(ch):
+    """A letter or a numeral (General_Category L or N): what keeps an `&`
+    inside a run rather than standalone."""
+    return unicodedata.category(ch)[0] in "LN"
+
+
+def _reader_expand(stream):
+    """The reader's expansions on the folded stream: a Latin ligature letter
+    becomes its letters, and a STANDALONE `&` (no letter or numeral touching
+    it on either side) is the sung word `and` (bug-hunt finding 13) -- `rock
+    & roll` reads five syllables, as `rock and roll` does, and `& 'll` joins
+    as `and'll`. An `&` inside a run (`R&B`, `AT&T`) is left as written. `+` is not expanded: it is sung as
+    `and` and as `plus` alike, so it stays a symbol the reader does not
+    voice."""
+    out = []
+    n = len(stream)
+    for k, (c, a, b) in enumerate(stream):
+        if c in _LIGATURES:
+            out.extend((ch, a, b) for ch in _LIGATURES[c])
+        elif (c == "&" and (k == 0 or not _word_char(stream[k - 1][0]))
+              and (k == n - 1 or not _word_char(stream[k + 1][0]))):
+            out.extend((ch, a, b) for ch in "and")
+        else:
+            out.append((c, a, b))
+    return out
 
 
 def printed_endpoint(rl):
@@ -12315,6 +12428,27 @@ def main():
             print(f"  INDETERMINATE: {e}")
             _lyric_result(**_lexicon_kw(), status="indeterminate", exit=0)
             return
+        # READINGS THAT DISAGREE ON SYLLABLE COUNT (bug-hunt finding 10,
+        # 2026-11-21): the merged reading of fire, hour, every or flower is
+        # refused because its readings do not align, where the grade reads
+        # the same words by the any-reading rule. The lookup now does the
+        # same before calling a member unreadable: each whole reading of
+        # each word, paired within one accent, classified on its own.
+        per_reading = []
+        if t is None:
+            combos, _ = RT._member_reading_combos(w1, w2, phon, phon)
+            for pinned in combos:
+                try:
+                    tt = RT.classify_pair(w1, w2, phon, member_phons=pinned, **kw)
+                except RT.Indeterminate:
+                    continue
+                if tt is not None:
+                    per_reading.append(tt)
+            if per_reading:
+                t = per_reading[0]
+                print("  readings differ in syllable count, so no merged "
+                      "reading exists; each whole reading is listed below "
+                      "and the first stands for the pair")
         if t is None:
             print(f"  UNREADABLE in {lang}: the phonology refuses one or both "
                   f"members. That is a refusal, not a non-rhyme.")
@@ -12323,8 +12457,7 @@ def main():
         # THE ANY-READING RULE (owner ruling 2026-10-01): where the merged
         # readings leave a channel undecided, each whole reading of each
         # word, paired within one accent, is classified on its own.
-        per_reading = []
-        if any(v is None for syl in t.agreement for v in syl):
+        if not per_reading and any(v is None for syl in t.agreement for v in syl):
             combos, _ = RT._member_reading_combos(w1, w2, phon, phon)
             for pinned in combos:
                 try:

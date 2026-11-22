@@ -1864,6 +1864,23 @@ class SlopFloor:
 
     # -- individual checks ------------------------------------------------
 
+    @staticmethod
+    def opening_word(line):
+        """-> the word a line opens with, as the repeated-opening check
+        compares it: the first token the rest of the floor reads
+        (`QualityFeatures._tokens`), lower-cased, without an apostrophe or a
+        hyphen at either end.
+
+        ONE DEFINITION FOR THE RATE AND THE LINES IT NAMES (bug hunt
+        2026-11-20, finding 34; patch by Boris). It was the first
+        whitespace-separated piece with seven punctuation marks stripped,
+        written out three times. A line that opened with a quotation mark or
+        an en dash was counted as opening with another word, and a curly
+        apostrophe made a second word of the same one, so marking some lines
+        as speech hid the repeat.
+        """
+        return (QualityFeatures._tokens(line) or [""])[0].lower().strip("'-")
+
     def _anaphora(self, lines):
         """Share of lines opening with the most frequent opening word.
 
@@ -1877,8 +1894,7 @@ class SlopFloor:
         reproduce (doctrine 66) -- and here it was the evidence and the line
         numbers, i.e. exactly the part a writer acts on.
         """
-        firsts = [(l.split() or [""])[0].lower().strip(",.;:!?—-")
-                  for l in lines]
+        firsts = [self.opening_word(l) for l in lines]
         if not firsts:
             return 0.0, ""
         counts = Counter(firsts)
@@ -2237,7 +2253,7 @@ class SlopFloor:
         a, word = self._anaphora(lines)
         if thr is not None and a > thr:
             hits = [i + 1 for i, l in enumerate(lines)
-                    if (l.split() or [""])[0].lower().strip(",.;:!?—-") == word]
+                    if self.opening_word(l) == word]
             # Assess how much opening identity is actually discretionary.
             # Collapsing required identity classes is a diagnostic, not a
             # newly calibrated population; it can only remove an impossible

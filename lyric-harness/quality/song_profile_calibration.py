@@ -676,7 +676,7 @@ def n_all_items():
 def anaphora(lines):
     """floor.SlopFloor._anaphora's rate, with its first-occurrence tie break
     (doctrine 66 -- iterating a set is iterating a randomised hash order)."""
-    firsts = [(l.split() or [""])[0].lower().strip(",.;:!?—-") for l in lines]
+    firsts = [SlopFloor.opening_word(l) for l in lines]
     if not firsts:
         return 0.0
     first_at = {}

@@ -358,9 +358,16 @@ def test_disowned_types_are_not_written_on_the_writers_pair():
         return (r.returncode, text,
                 json.loads(result[-1].split("lyric result:", 1)[1]) if result else {})
 
-    code, text, result = grade("fire", "desire")
-    fails = [ln for ln in text.splitlines() if "FAILS L2-L3 (fire/desire)" in ln]
-    check("fire/desire still FAILS the declared relation (no verdict moves)",
+    # REPINNED 2026-11-21 (bug-hunt finding 10): ~~fire/desire~~ -- desire
+    # now has the smoothed one-syllable reading D IH0 Z AY1 R that fire
+    # already had, so the pair genuinely satisfies the declared cluster
+    # consonance (both close on R). day/way is the same shape the check
+    # needs: a perfect rhyme, a common pair that the disowned trite and
+    # same-ending schemas would both claim, and a FAIL of the declared
+    # relation (an open syllable has no cluster to agree on).
+    code, text, result = grade("day", "way")
+    fails = [ln for ln in text.splitlines() if "FAILS L2-L3 (day/way)" in ln]
+    check("day/way still FAILS the declared relation (no verdict moves)",
           code == 3 and len(fails) == 2, f"exit {code}, {len(fails)} FAILS lines")
     check("...and its relation list names no disowned type",
           fails and not any(n in ln for ln in fails for n in disowned),
@@ -376,9 +383,14 @@ def test_disowned_types_are_not_written_on_the_writers_pair():
           sorted(ev.get("population", {}).get("not_requested_schemas", ()))
           == disowned, str(ev.get("population", {}).get(
               "not_requested_schemas")))
-    code, text, _ = grade("chair", "choir")
-    check("the chair/choir control is unchanged: exit 3, `consonance` only",
-          code == 3 and "FAILS L2-L3 (chair/choir): 0.315  consonance" in text)
+    # REPINNED 2026-11-21 (bug-hunt finding 10): ~~chair/choir, 0.315~~ --
+    # choir now reads K W AY1 R as well as K W AY1 ER0, and on that reading
+    # it closes on R with chair, so the declared relation holds. chair/lower
+    # (lower has no smoothed reading: OW, not AY or AW) keeps the control's
+    # shape: consonance only, failing the declared relation.
+    code, text, _ = grade("chair", "lower")
+    check("the chair/lower control: exit 3, `consonance` only",
+          code == 3 and "FAILS L2-L3 (chair/lower): 0.214  consonance" in text)
 
 
 def test_cliche_pair_may_only_reject_where_it_was_measured():
@@ -1907,6 +1919,52 @@ def test_a_declared_threshold_is_not_a_corpus_percentile():
               f11[0].evidence[:120])
 
 
+def test_a_mark_before_the_opening_word_does_not_hide_a_repeat():
+    print("\nbug-hunt finding 34 (Boris's test, carried in the pronunciation "
+          "batch) — a mark before the opening word does not hide a repeat")
+    # Four lines open with "the" and are flagged. With a quotation mark or an
+    # en dash in front of two of them the flag went away, because '"the' was
+    # counted as another word; a curly apostrophe split one opening word in
+    # two the same way.
+    from quality.song_profile_calibration import anaphora
+    floor = SlopFloor()
+    rest = ['rain came down the road', 'river ran away',
+            'wind blew on the hill', 'weather turned to gray']
+
+    def overload(lines):
+        return [f for f in floor.check(lines) if f.code == 'ANAPHORA_OVERLOAD']
+    plain = overload(['the ' + r for r in rest])
+    check("plain: 4 of 4 lines open with the same word",
+          len(plain) == 1
+          and plain[0].message == '4 of 4 lines open with the same word',
+          [f.message for f in plain])
+    for mark in ('\u201c', '"', '\u2013', '\u2014', "'", '('):
+        lines = ([mark + 'the ' + r for r in rest[:2]]
+                 + ['the ' + r for r in rest[2:]])
+        found = overload(lines)
+        check(f"a leading {mark!r} still finds the repeat on all four lines",
+              len(found) == 1 and plain and found[0].message == plain[0].message
+              and found[0].locations == [1, 2, 3, 4]
+              and anaphora(lines) == 1.0,
+              [(f.message, f.locations) for f in found])
+    got = [SlopFloor.opening_word(x) for x in
+           ('\u201cThe rain', '\u2013 the rain', "I\u2019m here", "I'm here",
+            'Well, then', '', '...')]
+    check("opening_word reads past marks and folds the apostrophe",
+          got == ['the', 'the', "i'm", "i'm", 'well', '', ''], got)
+    ends = ('river mountain window garden hammer candle ladder blanket '
+            'pocket lantern').split()
+    mixed = [("I'm" if i % 2 else "I\u2019m") + ' by the ' + w
+             for i, w in enumerate(ends[:8])]
+    mixed += ['and the ' + ends[8], 'so the ' + ends[9]]
+    found = overload(mixed)
+    check("eight of ten open with the same word under two apostrophes",
+          len(found) == 1
+          and found[0].message == '8 of 10 lines open with the same word'
+          and anaphora(mixed) == 0.8,
+          [f.message for f in found])
+
+
 if __name__ == "__main__":
     for fn in (test_the_length_gate_is_a_gate,
                test_never_returns_a_score, test_too_short_is_silent,
@@ -1917,6 +1975,7 @@ if __name__ == "__main__":
                test_disowned_types_are_not_written_on_the_writers_pair,
                test_cliche_pair_may_only_reject_where_it_was_measured,
                test_anaphora, test_anaphora_is_a_note_about_a_figure,
+               test_a_mark_before_the_opening_word_does_not_hide_a_repeat,
                test_thresholds_are_declared_not_hidden,
                test_length_is_a_coordinate,
                test_calibration_block_is_honest,

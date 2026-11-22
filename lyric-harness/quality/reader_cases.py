@@ -159,6 +159,14 @@ V2_REGRESSIONS = [
     "go\u2000\u0301bed",
     "love\u037e\u0301night",
     "a\u0387\u0327\u0301b",
+    # bug-hunt findings 13 and 14 (2026-11-21): a standalone `&` is sung
+    # `and`; one inside a run is not; a Latin ligature letter is its letters.
+    "rock & roll all night",
+    "& so it goes &",
+    "R&B & soul",
+    "her eyes burn like a \ufb01re",
+    "\ufb02y away, o\ufb00 we go",
+    "an e\ufb03cient ra\ufb04e",
 ]
 
 
