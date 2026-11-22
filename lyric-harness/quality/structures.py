@@ -107,13 +107,20 @@ class Structure:
     #: truthy, so `if s.calibrated` still means "some regime exists".
     calibrated: tuple = ()
 
-    def judge(self, a, b, phon=None, member_phons=None):
+    def judge(self, a, b, phon=None, member_phons=None, supplies=()):
         """-> True / False / None (None = REFUSED: the phonology declined
         a member; a refusal is not a failure and not a pass). `member_phons`
         is one phonology per member carrying its declared reading
         (--pronunciations), exactly as the relation path passes it to
         `classify_pair`; without it a declared reading never reached the
-        structure, which stayed UNDECIDED however it was declared."""
+        structure, which stayed UNDECIDED however it was declared.
+
+        `supplies` names the axes the CALLER has already placed for this
+        pair (see `unjudged_axes`): the census's word-within-line population
+        and a group bound at a slot of the row's own position pass
+        {"position"}, because they chose the two words by that placement.
+        Nothing else is lifted, and a caller that passes nothing gets the
+        refusal."""
         from quality import rhyme_types as RT
         from quality import phonology as PH
         phon = phon or PH.get("eng")
@@ -144,7 +151,7 @@ class Structure:
             return _any_reading(x.realises(*select) for x in _readings(t))
         # kind == "cell": classify at the cell's own anchors, then apply
         # the compilation rule to every alignment the classifier tried.
-        if self.unjudged_axes():
+        if self.unjudged_axes(supplies):
             return None
         pattern, identity = self.cell[0], self.cell[1]
         stress, length, realisation = self.cell[2], self.cell[5], self.cell[6]
@@ -200,7 +207,7 @@ class Structure:
             return None
         return held
 
-    def unjudged_axes(self):
+    def unjudged_axes(self, supplies=()):
         """-> ((axis, value), ...) this row names and the judge cannot see.
 
         `judge` is handed two WORDS. Where a row's definition is about the
@@ -211,11 +218,17 @@ class Structure:
         not carry the coordinate. Until bug-hunt finding 19 those axes were
         silently dropped and such rows judged exactly like perfect rhyme;
         now the row is REFUSED (None) with the axis named, never passed or
-        failed on a question it did not ask."""
+        failed on a question it did not ask.
+
+        An axis in `supplies` is one the caller placed itself (Boris's review
+        of #911, 2026-11-22): the census measures position rows over its
+        word-within-line population, where the population IS the placement,
+        and refusing there threw away the measurement the census exists to
+        make."""
         if self.kind != "cell":
             return ()
         out = []
-        free = _free_axes(self.cell)
+        free = _free_axes(self.cell) | set(supplies)
         position, boundary = self.cell[3], self.cell[4]
         length, realisation = self.cell[5], self.cell[6]
         stress = self.cell[2]
@@ -372,7 +385,7 @@ def get(name):
     return STRUCTURES[resolve(name)]
 
 
-def judge(name, a, b, phon=None, member_phons=None):
+def judge(name, a, b, phon=None, member_phons=None, supplies=()):
     """Judge one pair under one declared structure, by name or alias.
 
     THE ANY-READING RULE (owner ruling 2026-10-01; CLAUDE.md standing rule
@@ -382,7 +395,8 @@ def judge(name, a, b, phon=None, member_phons=None):
     when one pair holds it, False when every pair fails, None otherwise.
     """
     s = get(name)
-    v = s.judge(a, b, phon=phon, member_phons=member_phons)
+    v = s.judge(a, b, phon=phon, member_phons=member_phons,
+                supplies=supplies)
     if v is not None or not undecided_by_readings(name, a, b, phon=phon,
                                                   member_phons=member_phons):
         return v
@@ -392,7 +406,8 @@ def judge(name, a, b, phon=None, member_phons=None):
     combos, complete = RT._member_reading_combos(a, b, *base)
     saw_none = not complete
     for pinned in combos:
-        w = s.judge(a, b, phon=phon, member_phons=pinned)
+        w = s.judge(a, b, phon=phon, member_phons=pinned,
+                    supplies=supplies)
         if w is True:
             return True
         if w is None:

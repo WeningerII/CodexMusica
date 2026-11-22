@@ -2372,7 +2372,26 @@ class Reviser:
                 if _refused_here:
                     continue
                 if why is None and _nondefault_struct:
-                    sv = _ST.judge(struct, ew_i, ew_j, member_phons=member_phons)
+                    # A GROUP BOUND AT THE ROW'S OWN PLACEMENT supplies it
+                    # (Boris's review of #911): an initial-alliteration group
+                    # at two head slots (N.head, or N.T1, which binds the
+                    # line's first word) chose its words by that placement,
+                    # so the judge is told; any other binding still refuses.
+                    _row = _ST.get(struct)
+                    _supplies = ()
+
+                    def _places(slot, pos):
+                        if slot is None:
+                            return False
+                        if _SL.position_of(slot) == pos:
+                            return True
+                        return pos == "head" and _SL.token_of(slot) == 0
+                    if (_row.kind == "cell"
+                            and _places(slot_i, _row.cell[3])
+                            and _places(slot_j, _row.cell[3])):
+                        _supplies = ("position",)
+                    sv = _ST.judge(struct, ew_i, ew_j, member_phons=member_phons,
+                                   supplies=_supplies)
                     if sv is None:
                         # Readings that disagree are settled by declaring the
                         # intended one; an unreadable member or a refused
@@ -2383,7 +2402,7 @@ class Reviser:
                         # (bug-hunt finding 19): a line placement, a member
                         # boundary, a historical sound. Named as such, so the
                         # writer is not sent looking for an unreadable word.
-                        _unjudged = _ST.get(struct).unjudged_axes()
+                        _unjudged = _row.unjudged_axes(_supplies)
                         refusals.append({
                             "lines": (i, j),
                             "endwords": (ew_i, ew_j),

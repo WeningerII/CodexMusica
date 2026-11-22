@@ -436,12 +436,66 @@ def test_rows_judge_the_axes_they_name():
               ST.STRUCTURES.items() if s.kind == "cell" and s.cell[3] is None))
 
 
+def test_a_caller_that_places_the_words_supplies_the_position():
+    print("\nBoris's review of #911 — the census's within-line population and "
+          "a group bound at the row's own slot supply the placement")
+    # The judge lifts ONLY the axes a caller names, and only those.
+    check("internal-rhyme is refused on two bare words",
+          ST.judge("internal-rhyme", "night", "light") is None)
+    check("...and judged when the caller supplies the position",
+          ST.judge("internal-rhyme", "night", "light",
+                   supplies={"position"}) is True)
+    check("a boundary row stays refused when only the position is supplied",
+          ST.judge("mosaic-rhyme", "night", "light",
+                   supplies={"position"}) is None
+          and [ax for ax, _ in ST.get("mosaic-rhyme").unjudged_axes(
+              {"position"})] == ["boundary"])
+    check("initial-alliteration judges both ways once placed",
+          ST.judge("initial-alliteration", "silver", "seven",
+                   supplies={"position"}) is True
+          and ST.judge("initial-alliteration", "silver", "rivers",
+                       supplies={"position"}) is False)
+    # The grader supplies it only when the group's slots are the row's own.
+    from quality import schemes as SC
+    R = _reviser()
+    lines = ["silver rivers run tonight", "seven ravens fly away"]
+    for slots, want in ((["1.head", "2.head"], "judged"),
+                        (["1.T1", "2.T1"], "judged"),
+                        ([1, 2], "refused")):
+        m = SC.mandate([slots], n_lines=2,
+                       structures={"A": "initial-alliteration"})
+        rep = R.grade(lines, m)
+        judged = [v for v in rep["verdicts"] if v["label"] == "A"]
+        refused = [r for r in rep["refusals"] if r.get("cause") == "structure"]
+        got = ("judged" if judged and not refused
+               else "refused" if refused and not judged else "both")
+        check(f"initial-alliteration at {slots}: {want}", got == want,
+              [(v["why"]) for v in judged] + [r["reason"][:60] for r in refused])
+    # The census measures position rows within a line, and refuses them
+    # across line ends, where nothing placed the words but the line end.
+    from quality import structure_census as CEN
+    from quality import phonology as PH
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        path = os.path.join(d, "eng_test_census.txt")
+        with open(path, "w") as f:
+            f.write("--- TITLE: one\nthe night is bright and light\n"
+                    "the day will stay away\n")
+        out = CEN.census_file(path, CEN.Memo(PH.get("eng")), language="eng")
+    ec = out[("internal-rhyme", "endword-cross")]
+    wl = out[("internal-rhyme", "word-within-line")]
+    check("census: internal-rhyme is measured within the line",
+          wl[1] > 0 and wl[3] < wl[0], wl)
+    check("census: ...and refused across line ends", ec[0] == ec[3], ec)
+
+
 if __name__ == "__main__":
     for fn in (test_the_catalog, test_the_judges, test_cell_uncertainty, test_refusals,
                test_mandate_coordinate, test_grade_routing,
                test_laziness_scope_and_disclosure,
                test_planner_samples_calibrated,
-               test_rows_judge_the_axes_they_name):
+               test_rows_judge_the_axes_they_name,
+               test_a_caller_that_places_the_words_supplies_the_position):
         fn()
     print("=" * 62)
     if FAILURES:
