@@ -1749,6 +1749,18 @@ def _slot_for(mandate, group_index, line):
         return None
 
 
+def _promote_of(reviser):
+    """-> whether `reviser` grades a line's last syllable as promoted to
+    stress (`Reviser._promote`), for the rule rows a question prints.
+
+    `_try_tier2` is also driven by a reviser that implements only the calls
+    one search needs (`quality/test_production_revision.py`). One that says
+    nothing about promotion grades by the declaration's default, which
+    promotes, and that is `declared_rule_rows`' own default."""
+    promote = getattr(reviser, "_promote", None)
+    return True if promote is None else promote()
+
+
 def _all_rule_rows(mandate, promote):
     """-> every declared group's rule rows, in the mandate's group order.
     `promote` is the reviser's `_promote()`, so each row is the rule as
@@ -1869,7 +1881,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     # Each declared group's rule rows, read once: a member's own block of a
     # group question prints those of its other groups (`AnchorSlot.call_rules`).
     _declared_rows = declared_rule_rows(mandate,
-                                        promote=reviser._promote())
+                                        promote=_promote_of(reviser))
     for label, members, calls in groups:
         gi = labels.index(label) if label in labels else None
         # A return expands the atomic edit; it does not pin its members.
@@ -1886,7 +1898,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                 b, tuple(lines), attempt, whole=tuple(b.findings) + tuple(whole),
                                 whole_repair=True, mandate_description=mandate.describe(),
                                 rule_rows=_all_rule_rows(
-                                    mandate, reviser._promote()),
+                                    mandate, _promote_of(reviser)),
                                 reasons=reasons,
                                 prior=(_prior_g(expanded, _round)
                                        if _prior_g is not None else None),
@@ -2853,7 +2865,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                                      mandate_description=_found["mandate"].describe(),
                                      rule_rows=_all_rule_rows(
                                          _found["mandate"],
-                                         reviser._promote()))
+                                         _promote_of(reviser)))
                     _got = propose_group(_gb)
                     if _got is None or _unread(_got) is not None:
                         _reasons = (_unread(_got) or
