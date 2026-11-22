@@ -362,12 +362,31 @@ D1_2026_10_26 = {
 # test_structure_census checks it under this instrument's v1 coordinate.
 # All nine artifact figures and the 4,315,945-pair pool hold. This adds one
 # judged disagreement, not an improvement: 683/686 -> 683/687.
-D1_RECORDED = {
+D1_2026_11_11 = {
     **D1_2026_10_26,
     "measured": "2026-11-11",
     "table": {**D1_2026_10_26["table"],
               ("true", "rejects"): 3, ("refused", "rejects"): 309},
     "agree": (683, 687),
+}
+
+
+# REPINNED 2026-11-22 — THE CLOSING CONSONANT, not the population. #910
+# (bug-hunt finding 16, 9fa5195da5) closes a compared last-prominent
+# syllable with the next syllable's onset, so a stressed syllable that stops
+# short of its word's end is no longer judged on its vowel alone. Over the
+# same 1,000 seeded pairs, re-derived under this instrument's v1 coordinate
+# at 1f6017b0bf (before) and 47f010dfa9 (after), ONLY sentinels/men moves:
+# True -> False, "sen" is now heard as "sent", which "men" does not rhyme
+# with, and the coarse engine rejects the pair both times. The pool, all
+# nine artifact figures and every other cell hold. One judged disagreement
+# fewer: 683/687 -> 684/687. Dated old record retained above.
+D1_RECORDED = {
+    **D1_2026_11_11,
+    "measured": "2026-11-22",
+    "table": {**D1_2026_11_11["table"],
+              ("true", "rejects"): 2, ("false", "rejects"): 679},
+    "agree": (684, 687),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.
