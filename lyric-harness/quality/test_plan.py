@@ -3350,6 +3350,33 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
 
     union = set(_PL.gradeable_line_counts())
     song = set(_PL.song_line_counts())
+    # 2026-11-22, owner's ruling: the floor's whole-sheet length profiles
+    # come out, so the song's length reads the owner's 150-line cap
+    # (#902) and nothing else. The set the planner has drawn from since
+    # #902 was already 1..150, because the profile's own reach (1..463) was
+    # wider than the cap, so no seeded draw moves. Shown by emptying the
+    # floor's profile table, since every length profile comes out: the set
+    # is unchanged.
+    _sheets = list(FL.PROFILES)
+    _keep = list(FL.PROFILES)
+    try:
+        FL.PROFILES[:] = []
+        _PL.song_line_counts.cache_clear()
+        _no_sheet = set(_PL.song_line_counts())
+    except _PL.PlanRefused as exc:
+        _no_sheet = f"refused: {str(exc)[:80]}"
+    finally:
+        FL.PROFILES[:] = _keep
+        _PL.song_line_counts.cache_clear()
+    check("the SONG line set is 1 to the owner's line cap and reads no floor "
+          "length profile: with the floor's profile table emptied it is the "
+          "same set, and the table is restored",
+          song == set(range(1, _PL.SONG_LINE_CAP + 1)) == _no_sheet
+          and set(_PL.song_line_counts()) == song
+          and list(FL.PROFILES) == _keep,
+          f"song {min(song)}..{max(song)}, without the "
+          f"{len(_sheets)} profile(s): "
+          f"{_no_sheet if isinstance(_no_sheet, str) else (min(_no_sheet), max(_no_sheet))}")
     # REPINNED 2026-09-04 (`MISSING.md` M-239): the one live lyric-sheet
     # profile spans 4-3,245 tokens, which is 1..447 lines at the measured
     # tokens-per-line band and CONTAINS every stanza profile's reach, so the
@@ -3359,15 +3386,17 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # REPINNED 2026-11-19 (#902, owner ruling): the song set is the union
     # up to the owner's cap, `SONG_LINE_CAP` (150), which is under the
     # union's 463.
-    check("the SONG band is contained in the union of every live profile's "
-          "reach — this never widens what the planner volunteers past what "
-          "the floor can grade; since M-239 the two coincide up to the "
-          "owner's line cap (#902), because the lyric-sheet profile's range "
-          "contains the quatrain's and the sonnet's",
-          song <= union
-          and song == {n for n in union if n <= _PL.SONG_LINE_CAP}
-          and max(union) > _PL.SONG_LINE_CAP == max(song),
-          f"song {len(song)} of union {len(union)}, cap {_PL.SONG_LINE_CAP}")
+    # REPINNED 2026-11-22 (owner's ruling): ~~"the SONG band is contained
+    # in the union of every live profile's reach ... since M-239 the two
+    # coincide up to the owner's line cap"~~. The whole-sheet profiles come
+    # out of the floor, so the union no longer reaches a song's length and
+    # the song set answers to the cap alone (the check above). What stays
+    # true on both sides of that removal: the cap is the song set's top.
+    check("the SONG set's top is the owner's line cap (#902), whatever the "
+          "floor's length profiles reach",
+          max(song) == _PL.SONG_LINE_CAP and min(song) == 1,
+          f"song {min(song)}..{max(song)}, cap {_PL.SONG_LINE_CAP}, "
+          f"union {len(union)}")
     # REPINNED 2026-09-01 (`MISSING.md` M-193): a SECOND lyric-sheet
     # profile, `short` (50-150 tokens), reaches 6..20 lines, so the SONG
     # set is {6..20} | {22..55} with ONE hole at the seam between the two
@@ -3542,21 +3571,17 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # name test would be a second statement of which profile means what
     # (doctrine 1). Proven by ASKING the table rather than by reading the
     # source: exactly the profiles with `n_lines == 0` must reach the band.
-    lyric = [p for p in FL.PROFILES if not p.n_lines and not p.superseded_by]
-    _tlo, _thi = _PL.tokens_per_line_band()
-    check("the band is the reach of exactly the LIVE profile(s) declaring "
-          "`n_lines == 0` — ONE since M-239 (the two band rows are "
-          "superseded and read by nothing), and the set is its reach up to "
-          "the owner's line cap (#902): a lyric sheet has no fixed line "
-          "count, which is the coordinate, not the string 'song'",
-          len(lyric) == 1 and min(song) >= 1
-          and max(song) == min(_PL.SONG_LINE_CAP,
-                               max(int(p.hi // _tlo) for p in lyric))
-          and min(song) == min(math.ceil(p.lo / _thi) for p in lyric)
-          and song == {n for n in set().union(*[
-              set(range(max(1, math.ceil(p.lo / _thi)), int(p.hi // _tlo) + 1))
-              for p in lyric]) if n <= _PL.SONG_LINE_CAP},
-          f"{[p.name for p in lyric]}, {min(song)}..{max(song)}")
+    # REPINNED 2026-11-22 (owner's ruling: the whole-sheet length profiles
+    # come out of the floor). ~~"the band is the reach of exactly the LIVE
+    # profile(s) declaring `n_lines == 0` ... and the set is its reach up to
+    # the owner's line cap (#902)"~~ — the song set reads no profile now
+    # (the check at the top of this section takes every sheet row out and
+    # finds the same set), so what is asked of the table instead is that no
+    # profile's band is read: the set is exactly 1..cap.
+    check("the SONG set is exactly 1 to the owner's line cap (#902), and no "
+          "floor profile's token band is read for it",
+          song == set(range(1, _PL.SONG_LINE_CAP + 1)),
+          f"{min(song)}..{max(song)}, cap {_PL.SONG_LINE_CAP}")
 
     # MUTATION 1 — the band must be a FUNCTION of the ~~song~~ lyric-sheet
     # profile, not a literal wearing a derivation (doctrine 48). REPINNED
@@ -3566,15 +3591,18 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # REPINNED 2026-11-19 (#902): under the owner's line cap a WIDER band
     # cannot widen the song set, so the band is shown READ by narrowing it
     # under the cap, and the cap by raising it.
-    old_hi = lyric[0].hi
+    # REPINNED 2026-11-22 (owner's ruling): ~~narrowing the lyric-sheet
+    # band below the cap narrows the song set~~ — no band is read, so the
+    # cap is the one input, and it is shown read both ways: lowered, the
+    # set narrows to it; raised, the set widens to it.
+    old_cap = _PL.SONG_LINE_CAP
     try:
-        lyric[0].hi = _tlo * (_PL.SONG_LINE_CAP // 2)
+        _PL.SONG_LINE_CAP = old_cap // 2
         _PL.song_line_counts.cache_clear()
         narrowed = set(_PL.song_line_counts())
     finally:
-        lyric[0].hi = old_hi
+        _PL.SONG_LINE_CAP = old_cap
         _PL.song_line_counts.cache_clear()
-    old_cap = _PL.SONG_LINE_CAP
     try:
         _PL.SONG_LINE_CAP = old_cap + 200
         _PL.song_line_counts.cache_clear()
@@ -3582,16 +3610,14 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     finally:
         _PL.SONG_LINE_CAP = old_cap
         _PL.song_line_counts.cache_clear()
-    check("MUTATION — the SONG line band is read from the LIVE lyric-sheet "
-          "profile's measured token band (`lyric` since M-239, not the "
-          "superseded `song` row) under the owner's line cap (#902): "
-          "narrowing the band below the cap narrows the song set, raising "
-          "the cap widens it toward the band's reach, and both "
-          "perturbations are restored",
-          narrowed < song and uncapped > song
+    check("MUTATION — the SONG line set is read from the owner's line cap "
+          "(#902): lowering the cap narrows the set to it, raising it widens "
+          "the set to it, and both perturbations are restored",
+          narrowed == set(range(1, old_cap // 2 + 1)) < song
+          and uncapped == set(range(1, old_cap + 201)) > song
           and set(_PL.song_line_counts()) == song,
-          f"{len(song)} -> {len(narrowed)} narrowed, {len(uncapped)} with "
-          f"the cap raised")
+          f"{len(song)} -> {len(narrowed)} with the cap lowered, "
+          f"{len(uncapped)} with the cap raised")
 
     # MUTATION 2 — the stanza floor must be a FUNCTION of the section
     # profile, since it is what bounds the section COUNT.
@@ -3647,10 +3673,14 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
           "named",
           len(tot) + len(len_refused) == 120,
           f"{len(tot)} plans; refused NO_FREE_WORD: {len_refused or 'none'}")
-    check("every drawn total is INSIDE the lyric-sheet profile's own band "
-          "(`lyric` since M-239, repinned 2026-09-05), so the "
-          "planner volunteers no length that profile cannot hold to "
-          "anything", all(t in song for t in tot),
+    # REPINNED 2026-11-22 (owner's ruling): ~~"every drawn total is INSIDE
+    # the lyric-sheet profile's own band (`lyric` since M-239, repinned
+    # 2026-09-05), so the planner volunteers no length that profile cannot
+    # hold to anything"~~ — the song set reads no profile now, so the claim
+    # is the set itself.
+    check("every drawn total is INSIDE the song set (1 to the owner's line "
+          "cap), so the planner volunteers no length past the cap",
+          all(t in song for t in tot),
           f"[{min(tot)}, {max(tot)}] against [{min(song)}, {max(song)}]")
     # THE BIAS, STATED AS A RATE AND NOT AS AN ADJECTIVE (doctrine 22). The
     # ladder, all three measured on this same instrument: 52% under the

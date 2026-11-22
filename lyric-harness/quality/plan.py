@@ -562,8 +562,10 @@ SONG_LINE_CAP = 150
 
 @lru_cache(maxsize=None)
 def song_line_counts():
-    """-> frozenset of line counts THE LYRIC-SHEET PROFILE CAN GRADE WITH
-    TEETH. (~~THE SONG PROFILE~~ — repinned 2026-09-05, `MISSING.md` M-239:
+    """-> frozenset of line counts a new song may be planned with,
+    1..SONG_LINE_CAP (REPINNED 2026-11-22; the last paragraph says why).
+    ~~-> frozenset of line counts THE LYRIC-SHEET PROFILE CAN GRADE WITH
+    TEETH.~~ (~~THE SONG PROFILE~~ — repinned 2026-09-05, `MISSING.md` M-239:
     the sheet row is `lyric` since 2026-09-04; `song` and `short` are
     superseded and applied nowhere. The function name is unchanged because
     it names the OBJECT this planner emits, a song, not the profile row.)
@@ -664,33 +666,17 @@ def song_line_counts():
     COINCIDES with this function's set rather than answering a different
     question — the union it computes is over `section`, `sonnet` and `lyric`,
     and `lyric` already contains the other two.
+
+    REPINNED 2026-11-22 (owner's ruling: the floor's whole-sheet length
+    profiles and their calibration come out). ~~Read off the `lyric` row's
+    measured token band at the band's tokens-per-line, then held under the
+    owner's cap.~~ The set is now **1..SONG_LINE_CAP** and reads no floor
+    profile. It is the same set as before: since #902 the profile's reach
+    (1..463) was wider than the cap, so the cap alone decided the set, and
+    no seeded draw moves. The fillable floor of 12 is still the form's
+    (`fillable_line_counts()`), never this set's.
     """
-    tlo, thi = tokens_per_line_band()
-    # LIVE sheet profiles only (M-239): a band row a later calibration
-    # superseded keeps its place in `PROFILES` for its own drift check, and
-    # reading its band here would put the seam it was retired for back into
-    # the envelope.
-    lyric = [p for p in _FL.PROFILES if not p.n_lines and not p.superseded_by]
-    if not lyric:
-        raise PlanRefused(
-            "no floor profile declares itself a whole lyric sheet "
-            "(`n_lines == 0`), so a SONG length cannot be derived and this "
-            "planner has no envelope to volunteer inside. A REFUSAL, not a "
-            "fallback to the union: grading a song against a quatrain's "
-            "calibration is the laundering doctrine 13/14 forbids.")
-    out = set()
-    for prof in lyric:
-        out.update(range(max(1, math.ceil(prof.lo / thi)),
-                         int(prof.hi // tlo) + 1))
-    # THE OWNER'S CAP, read last: the floor could grade up to its own
-    # ceiling, and a song is held to SONG_LINE_CAP lines whatever that is.
-    out = {n for n in out if n <= SONG_LINE_CAP}
-    if not out:
-        raise PlanRefused(
-            # M-239 (2026-09-05): the sheet row is `lyric`, not `song`.
-            "no line count lands inside the lyric-sheet profile's measured "
-            "range.")
-    return frozenset(out)
+    return frozenset(range(1, SONG_LINE_CAP + 1))
 
 
 @lru_cache(maxsize=None)
