@@ -1,5 +1,6 @@
-// A decorative shared-container bridge. Call capture before changing layout,
-// then connect after committing state. No state, focus or navigation waits on it.
+// A decorative shared-container bridge. Capture a disappearing source before
+// removal; capture a surviving source after layout/announcements commit. No
+// state, focus or navigation waits on it.
 export const CONTAINER_MOTION = Object.freeze({
   duration: 280,
   easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -25,7 +26,7 @@ export function createContainerMotion(root, signal) {
     const style = view.getComputedStyle(element);
     return { rect, color: style.color, radius: style.borderRadius };
   }
-  function connect(from, target) {
+  function connect(from, target, { settledScroll = null } = {}) {
     cancel();
     if (disposed || signal.aborted || !preference || preference.matches) return;
     const to = capture(target);
@@ -47,7 +48,18 @@ export function createContainerMotion(root, signal) {
       zIndex: '1',
     });
     root.append(node);
-    const run = { node, animation: null, frame: 0 };
+    const run = {
+      node,
+      animation: null,
+      frame: 0,
+      // The caller has already completed an instant reveal. Its queued event
+      // is harmless only while the scroller is still at this measured position.
+      settledScroll: settledScroll && {
+        element: settledScroll,
+        left: settledScroll.scrollLeft,
+        top: settledScroll.scrollTop,
+      },
+    };
     active = run;
     try {
       // Size the empty, fixed-position cue instead of scaling its border.
@@ -98,13 +110,26 @@ export function createContainerMotion(root, signal) {
       cancel(); // Unsupported/failed animation leaves the committed UI intact.
     }
   }
-  // Capturing scroll catches the shelf as well as any lane-owned scroller.
-  root.addEventListener('scroll', cancel, true);
+  // Do not skip the first event or wait to arm cancellation: a genuine scroll
+  // can happen before the first frame too. Compare positions instead, without
+  // suppressing event delivery to the shelf or other listeners.
+  function onScroll(event) {
+    const settled = active?.settledScroll;
+    if (
+      settled &&
+      event.target === settled.element &&
+      settled.element.scrollLeft === settled.left &&
+      settled.element.scrollTop === settled.top
+    )
+      return;
+    cancel();
+  }
+  root.addEventListener('scroll', onScroll, true);
   preference?.addEventListener?.('change', cancel);
   function dispose() {
     disposed = true;
     cancel();
-    root.removeEventListener('scroll', cancel, true);
+    root.removeEventListener('scroll', onScroll, true);
     preference?.removeEventListener?.('change', cancel);
     signal.removeEventListener('abort', dispose);
   }

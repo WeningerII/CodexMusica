@@ -181,10 +181,11 @@ export function mount(host, ctx) {
     on(button, 'click', () => {
       rove(indices.get(item.id));
       opener = button;
-      const from = motion.capture(button);
       const changed = selected !== item.id || detail.hidden;
       select(item.id, 'card');
-      if (changed) motion.connect(from, detail);
+      // Announcing can reflow the visible status above the shelf. The card
+      // survives selection, so measure its committed position, not the old one.
+      if (changed) motion.connect(motion.capture(button), detail);
     });
   }
   root.querySelector('.discovery-empty').hidden = items.length !== 0;
@@ -228,7 +229,7 @@ export function mount(host, ctx) {
     if (opener?.isConnected) {
       opener.focus({ preventScroll: true });
       opener.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
-      motion.connect(from, opener);
+      motion.connect(from, opener, { settledScroll: shelf });
     } else focusShelf();
   });
   const mapHost = root.querySelector('.discovery-map');

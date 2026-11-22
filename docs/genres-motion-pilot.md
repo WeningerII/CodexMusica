@@ -8,25 +8,27 @@ choice, not a measured usability threshold. No route leads into the separate
 Genre lane as part of this change.
 
 `createContainerMotion` lives inside the Browse lane to respect its import
-boundary. Call `capture` before committing layout, then `connect` afterwards.
+boundary. Capture a disappearing source before removal; measure a surviving card after
+selection and announcement commit. Then call `connect`.
 It owns only a pointer-transparent, aria-hidden outline. A new action cancels the
-old outline. Scroll, changing target geometry, viewport resize, reduced-motion
+old outline. Genuine scroll, changing target geometry, viewport resize, reduced-motion
 changes and unmount also cancel it. Completion callbacks cannot affect a newer
 transition. Reduced motion or unavailable animation produces the instant UI;
 shelf navigation still uses instant scrolling. No state or focus waits on motion.
 
 ## Quick visual comparison
 
-[Phone: instant / revised motion](evidence/genres-motion-pilot/phone.gif) ·
-[Desktop: instant / revised motion](evidence/genres-motion-pilot/desktop.gif)
+[Phone: outline off / on](evidence/genres-motion-pilot/phone.gif) ·
+[Desktop: outline off / on](evidence/genres-motion-pilot/desktop.gif)
 
-These looping GIFs show the same real Honky-tonk card opening and closing, instant
-on the left and revised motion on the right, at 390 and 1280 px respectively.
+These looping GIFs show the same real Honky-tonk card opening, the shelf scrolling
+to its far end, and Close revealing the opener, at 390 and 1280 px. The decorative
+outline alone is hidden on the left with a CSS visibility rule; it is visible on
+the right. Both sides run identical source with the same normal-motion setting
+and focus behavior. The actual status line remains visible, including its reflow.
 They sample Chromium animation frames every 40 ms, replayed at 25 fps, with short
 holds between actions. They are visual comparisons, not real-time performance
-recordings. The instant side uses reduced motion on this same source; the status
-region is hidden in both captures to keep changing announcements out of the
-comparison. The desktop capture is scaled to fit. The implementation and these
+recordings. No status content or scroll events are hidden or suppressed. The desktop capture is scaled to fit. The implementation and these
 captures are pinned together by the PR head; use that head for the live comparison
 below. No physical-device or frame-budget claim follows from these GIFs.
 
@@ -98,3 +100,28 @@ post-reveal geometry, paused-animation cancellation on reduced motion
 and resize, missing/throwing animation APIs, and page errors at all three widths.
 Runner receipts are written outside the checkout and reconciled against scenario
 blobs. Test results and the exact reviewed head belong in the PR description.
+
+## Visual lifecycle regressions
+
+`visual-lifecycle.cjs` runs in the real shell with visible status at 320×568,
+390×844 and 1280×900. It compares the opening keyframe to the actual surviving
+card after two frames, including first announcement and later wrap changes.
+After native scrolling and Close it checks two-frame return-cue survival and
+progress, then verifies that genuine scrolling cancels. A second control races
+genuine movement against the reveal's queued event before the first frame.
+The survival probes use 0.1× animation playback so a loaded CI host cannot
+confuse natural completion with cancellation before the second frame; animation
+time still advances. No scroll event is synthesized, blocked or stopped.
+The existing motion scenario and GIF comparison retain normal timing.
+
+The primitive records only the scroller explicitly passed after an instant
+reveal, at its measured position. Its queued scroll event is harmless if those
+coordinates are unchanged. A changed position cancels immediately, even before
+the first frame; other scroll targets cancel normally. There is no timer,
+one-event exemption or period with cancellation disarmed. Existing geometry,
+resize, reduced-motion, rapid-action and teardown safeguards remain in place.
+
+Negative controls reintroduce stale opening capture and unconditional scroll
+cancellation independently using test-only request interception. Both fail the
+new asynchronous checks. Proximity-snap clipping, double-click cancellation and
+fade timing are unchanged and remain outside this corrective pass.
