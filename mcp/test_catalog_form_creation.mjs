@@ -3379,6 +3379,14 @@ test('an automatic catalog sweep that every setting refuses names the planner re
       .filter((l) => l.startsWith('    ') && /no such section function/.test(l));
     assert.equal(lines.length, 1, v.report);
     assert.match(lines[0], /^ {4}request — /);
+    // The connector reads the same reason as a field: one entry, naming
+    // settings by form and variant, with no setting planned.
+    assert.equal(v.planner_refusals.length, 1, JSON.stringify(v.planner_refusals));
+    assert.equal(v.planner_refusals[0].scope, 'request');
+    assert.match(v.planner_refusals[0].reason, /no such section function/);
+    assert.ok(v.planner_refusals[0].settings.every((s) => /^[a-z0-9-]+:\d+$/.test(s)));
+    assert.equal(v.catalog_sweep.planned_settings, 0);
+    assert.match(v.meaning, /turned down before any seed was planned/);
   } finally {
     await client.close();
     await server.close();

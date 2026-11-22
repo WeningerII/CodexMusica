@@ -2042,7 +2042,14 @@ function sweepVerdict(v, r, { from, n, declared = {} }) {
   // The outcome's meaning interpolates only recorded counts; an 'arguments
   // refused' record carries none and its meaning needs none. The meaning is
   // set here and not in verdictOf, so the shared exit meanings do not move.
-  if (sweep?.outcome === 'arguments refused')
+  // An automatic catalog sweep that kept no setting is recorded as refused
+  // arguments too, but some of its settings may have planned seeds that met
+  // no want. Its meaning says so rather than claim nothing planned.
+  const catalog = sweep?.catalog;
+  if (catalog && Number.isInteger(catalog.settings)) v.catalog_sweep = catalog;
+  if (sweep?.outcome === 'arguments refused' && catalog?.planned_settings > 0)
+    v.meaning = `REFUSED — no setting in the automatic catalog draw was kept in this window: ${catalog.planned_settings} of the ${catalog.settings} settings tried planned seeds, and none of those seeds met every want; \`refusal\` and \`planner_refusals\` say why`;
+  else if (sweep?.outcome === 'arguments refused')
     v.meaning =
       'REFUSED — the arguments were turned down before any seed was planned; `refusal` names why';
   else if (recorded) {

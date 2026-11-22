@@ -12995,27 +12995,28 @@ def main():
                             catalog_form = candidate
                             form_label = candidate["id"]
                             break
-                        tried.append((candidate.get("id", "?"), res))
+                        # A form's settings are told apart by its variant.
+                        tried.append((f"{candidate.get('id', '?')}:{candidate.get('variant', 0)}",
+                                      res))
                     else:
-                        # One line per distinct reason, naming the candidates
-                        # that share it: the catalog holds many settings of
-                        # one form, and they mostly fail for the same reason.
-                        grouped, unmet, record = {}, [], []
+                        # ONE ENTRY PER DISTINCT REASON, naming the settings that
+                        # share it. The catalog holds about a thousand settings
+                        # and they mostly fail for the same reason, so a record
+                        # per setting would repeat one reason a thousand times.
+                        # The entries keep the shape of a named sweep's
+                        # `planner_refusals`, which the connector already reads.
+                        grouped, unmet = {}, []
                         for cid, cres in tried:
-                            reasons = [{"scope": g["scope"], "reason": g["reason"],
-                                        "seeds": g["seeds"][:12],
-                                        "more_seeds": max(0, len(g["seeds"]) - 12)}
-                                       for g in cres["refusals"]]
                             if cres["planned"] and cid not in unmet:
                                 unmet.append(cid)
-                            for g in reasons:
-                                ids = grouped.setdefault((g["scope"], g["reason"]), [])
-                                if cid not in ids:
-                                    ids.append(cid)
-                            record.append({"candidate": cid, "swept": cres["seeds"],
-                                           "planned": cres["planned"],
-                                           "planner_refused": cres["refused"],
-                                           "planner_refusals": reasons})
+                            for g in cres["refusals"]:
+                                entry = grouped.setdefault((g["scope"], g["reason"]), {
+                                    "scope": g["scope"], "reason": g["reason"],
+                                    **({"text": g["text"]} if g.get("text")
+                                       and g["text"] != g["reason"] else {}),
+                                    "settings": []})
+                                if cid not in entry["settings"]:
+                                    entry["settings"].append(cid)
 
                         def _named(ids):
                             return ", ".join(ids[:6]) + (
@@ -13023,19 +13024,34 @@ def main():
                         lines_out = []
                         if unmet:
                             lines_out.append(f"planned, but no seed met every want: {_named(unmet)}")
-                        for (scope, reason), ids in list(grouped.items())[:8]:
-                            lines_out.append(f"{scope} — {reason} ({_named(ids)})")
+                        for g in list(grouped.values())[:8]:
+                            lines_out.append(f"{g['scope']} — {g['reason']} ({_named(g['settings'])})")
                         if len(grouped) > 8:
                             lines_out.append(f"… and {len(grouped) - 8} more reason(s)")
                         headline = ("No executable catalog setting matched the declared "
                                     "constraints in this seed window.")
                         if len(grouped) == 1 and not unmet:
-                            (scope, reason), = grouped
-                            headline += f" Every setting was refused for one reason: {reason}"
+                            only, = grouped.values()
+                            headline += f" Every setting was refused for one reason: {only['reason']}"
+                        reasons = [{**{k: v for k, v in g.items() if k != "settings"},
+                                    "settings": g["settings"][:12],
+                                    "more_settings": max(0, len(g["settings"]) - 12)}
+                                   for g in list(grouped.values())[:24]]
                         _refuse(headline,
                                 detail=lines_out,
-                                machine={"sweep": {"version": 1, "outcome": "arguments refused",
-                                                   "candidates": record}})
+                                machine={"sweep": {
+                                    "version": 1, "outcome": "arguments refused",
+                                    # The first 24 distinct reasons; a seed-scope
+                                    # reason is often distinct per seed.
+                                    "planner_refusals": reasons,
+                                    "more_reasons": max(0, len(grouped) - 24),
+                                    # Counted per setting tried; `planned`
+                                    # names them by form and variant.
+                                    "catalog": {"settings": len(tried),
+                                                "planned_settings": sum(
+                                                    1 for _, r in tried if r["planned"]),
+                                                "planned": unmet[:12],
+                                                "more_planned": max(0, len(unmet) - 12)}}})
             except PLN.PlanRefused as e:
                 _refuse(str(e), machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
