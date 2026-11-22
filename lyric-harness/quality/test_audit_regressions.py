@@ -9,6 +9,7 @@ import io
 import json
 import os
 from pathlib import Path
+import re
 import sys
 import subprocess
 import tempfile
@@ -588,19 +589,45 @@ class AuditRegressions(unittest.TestCase):
 
     # -- bug hunt 2026-11-20: the revise loop and its replies -------------
     # Findings 5, 25, 28 and 29 are driven by one deterministic writer
-    # (`quality/fixtures/fake_writer.py`): no model, every reply read from a
-    # spec, so what the loop makes of a reply is the only thing that varies.
+    # (`_fake_writer` below): no model, every reply read from a spec, so what
+    # the loop makes of a reply is the only thing that varies.
     DOOR = ['Your fingers brush my heavy coat',
             'My kettle whistles by the door']
     STOVE = 'My kettle whistles by the stove'
 
     @staticmethod
     def _fake_writer(spec):
-        fixtures = str(Path(__file__).resolve().parent / 'fixtures')
-        if fixtures not in sys.path:
-            sys.path.insert(0, fixtures)
-        import fake_writer
-        return fake_writer.make(spec)
+        """-> `call(prompt) -> reply`, a stand-in for the writer a
+        `ModelProposer` takes.
+
+        `spec` is one object: {"L3": [the reply to the first question about
+        L3, the reply to the second, ...], "group": [the reply to the first
+        group question, ...]}. A line question is recognised by its own
+        heading, `REVISE ONE LINE — L<n>` (`quality/propose.py:render_line`);
+        every other question is a group question. Past the end of a list the
+        writer DECLINES: it returns `None`, which is not a string, so
+        `ModelProposer` reads it as a writer with nothing to offer and not as
+        a reply it could not read. A reply may be any value, so a spec can
+        also send a non-string through the seam. `calls` on the returned
+        callable lists the questions it was asked, each `(kind, prompt)`.
+
+        It is defined here and not in a module of its own: a module only a
+        test imports is one the `wiring` verb reports as stranded
+        (`test_verbs.py`, "`wiring` reports no STRANDED module").
+        """
+        asked = {}
+
+        def call(prompt):
+            head = re.match(r'^REVISE ONE LINE — L(\d+) ', prompt)
+            key = f'L{head.group(1)}' if head else 'group'
+            call.calls.append((key, prompt))
+            k = asked.get(key, 0)
+            asked[key] = k + 1
+            replies = spec.get(key) or []
+            return replies[k] if k < len(replies) else None
+
+        call.calls = []
+        return call
 
     def _door_loop(self, spec, attempts):
         from quality.propose import ModelProposer
