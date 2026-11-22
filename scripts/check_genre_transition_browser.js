@@ -49,6 +49,7 @@ const server = http.createServer((req, res) => {
     {
       '.html': 'text/html',
       '.js': 'text/javascript',
+      '.mjs': 'text/javascript',
       '.json': 'application/json',
       '.svg': 'image/svg+xml',
       '.css': 'text/css',
@@ -351,6 +352,115 @@ const results = [];
             0
           );
         }
+        // The optional module must not delay a cold action or replay it later.
+        if (variant === 'after') {
+          const cold = await context.newPage();
+          let releaseModule;
+          const gate = new Promise((resolve) => {
+            releaseModule = resolve;
+          });
+          let requests = 0;
+          const modulePath = '**/src/pages/genre-motion.mjs';
+          await cold.route(modulePath, async (route) => {
+            requests++;
+            await gate;
+            await route.continue();
+          });
+          await cold.addInitScript(() => {
+            window.motionCalls = 0;
+            const start = document.startViewTransition.bind(document);
+            document.startViewTransition = (fn) => {
+              window.motionCalls++;
+              return start(fn);
+            };
+          });
+          await cold.goto(origin + '/after.html#library');
+          await cold.locator('#surface-library').waitFor({ state: 'visible' });
+          await cold.waitForTimeout(150);
+          assert.equal(requests, 0, 'Library entry does not load Genres motion');
+          await cold.locator('button[data-view="instrument"]').click();
+          await cold.locator('#surface-instrument').waitFor({ state: 'visible' });
+          await cold.waitForTimeout(150);
+          assert.equal(requests, 0, 'other route does not load Genres motion');
+          await cold.locator('button[data-view="genre"]').click();
+          await cold.waitForTimeout(100);
+          assert.equal(requests, 1);
+          await cold.locator('[data-ui="genre-close"]').click();
+          const card = cold.locator('.cm-tile[data-id="delta_blues"]');
+          await card.scrollIntoViewIfNeeded();
+          await cold.waitForFunction(
+            () => document.querySelector('.cm-tile[data-id="delta_blues"] img')?.naturalWidth > 0
+          );
+          await cold.locator('.cm-tile-name[data-id="delta_blues"]').click();
+          assert.equal(
+            await cold.locator('#genre-detail').getAttribute('data-gp-id'),
+            'delta_blues'
+          );
+          assert(
+            await cold.locator('#gp-detail-title').evaluate((n) => n === document.activeElement)
+          );
+          await cold.locator('[data-ui="genre-close"]').click();
+          assert.equal(await cold.evaluate(() => window.motionCalls), 0);
+          await cold.locator('button[data-view="instrument"]').click();
+          const focus = await cold.evaluate(() => document.activeElement.outerHTML);
+          const loaded = cold.waitForResponse(modulePath);
+          releaseModule();
+          await loaded;
+          await cold.waitForTimeout(100);
+          assert.equal(await cold.evaluate(() => document.activeElement.outerHTML), focus);
+          assert.equal(
+            await cold.locator('#genre-detail').count(),
+            0,
+            'late load never replays cold selection'
+          );
+          await cold.goBack();
+          await cold.waitForURL('**#genre');
+          await card.scrollIntoViewIfNeeded();
+          await cold.locator('.cm-tile-name[data-id="delta_blues"]').focus();
+          await cold.keyboard.press('Enter');
+          await cold.waitForTimeout(500);
+          assert(
+            (await cold.evaluate(() => window.motionCalls)) > 0,
+            'return uses loaded native motion'
+          );
+          assert.equal(requests, 1, 'return reuses the module');
+          await cold.locator('[data-ui="genre-close"]').click();
+          await cold.waitForTimeout(400);
+          await cold.goForward();
+          await cold.waitForURL('**#instrument');
+          await cold.goBack();
+          await cold.waitForURL('**#genre');
+          await cold.close();
+
+          const absent = await context.newPage();
+          const errors = [];
+          absent.on('pageerror', (error) => errors.push(error.message));
+          await absent.route(modulePath, (route) =>
+            route.fulfill({ status: 503, body: 'unavailable' })
+          );
+          await absent.goto(origin + '/after.html?trad=detroit_techno');
+          await absent.locator('#genre-detail[data-gp-id="detroit_techno"]').waitFor();
+          assert.equal(new URL(absent.url()).searchParams.has('trad'), false);
+          await absent.locator('[data-ui="genre-close"]').click();
+          await absent.locator('.cm-tile-name[data-id="delta_blues"]').first().click();
+          assert(
+            await absent.locator('#gp-detail-title').evaluate((n) => n === document.activeElement)
+          );
+          await absent.locator('[data-ui="genre-close"]').click();
+          assert.equal(await absent.locator('#genre-detail').count(), 0);
+          assert.deepEqual(errors, [], 'missing module is a handled instant fallback');
+          await absent.unroute(modulePath);
+          const deepLoaded = absent.waitForResponse(modulePath);
+          await absent.goto(origin + '/after.html?trad=detroit_techno');
+          assert((await deepLoaded).ok(), 'normal deep link loads the existing module asset');
+          await absent.waitForTimeout(100);
+          assert.equal(
+            await absent.locator('#genre-detail').getAttribute('data-gp-id'),
+            'detroit_techno'
+          );
+          assert.equal(new URL(absent.url()).searchParams.has('trad'), false);
+          await absent.close();
+        }
         results.push({ width, variant, states, transitions });
         await context.close();
         const videoFile = await page.video().path();
@@ -369,6 +479,10 @@ const results = [];
           browser: browser.version(),
           baseline: crypto.createHash('sha256').update(fs.readFileSync(baseline)).digest('hex'),
           candidate: crypto.createHash('sha256').update(fs.readFileSync(html)).digest('hex'),
+          motionModule: crypto
+            .createHash('sha256')
+            .update(fs.readFileSync(path.join(root, 'src/pages/genre-motion.mjs')))
+            .digest('hex'),
           results,
         },
         null,
@@ -376,7 +490,7 @@ const results = [];
       )
     );
     console.log(
-      'PASS: real catalog/photo open/back in Rows and List, 390/1280; baseline focus/Rows parity; pending rapid actions/Escape; touch; reduced/disabled; native frames and unique names. Evidence: ' +
+      'PASS: real catalog/photo open/back in Rows and List, 390/1280; baseline focus/Rows parity; pending rapid actions/Escape; touch; reduced/disabled; native frames and unique names; cold/missing module, route-only request, return/history and deep link. Evidence: ' +
         output
     );
   } finally {

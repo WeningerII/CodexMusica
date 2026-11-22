@@ -18,7 +18,7 @@ The implementation adapts Google's Chrome for Developers code samples:
   was inspected as the live behavior reference. Its routing helper was not copied.
 
 The official documentation footers identify code samples as Apache License 2.0.
-The adapted portions of `src/pages/genre.js` and `src/pages/genre.css` retain that
+The adapted portions of `src/pages/genre-motion.mjs` and `src/pages/genre.css` retain that
 license; a [copy is included](licenses/chrome-view-transitions-Apache-2.0.txt).
 The rest of the repository retains its existing license. Adaptations use the
 existing page actions and photo elements rather than replacing the document or
@@ -44,6 +44,33 @@ preference interruptions commit the pending action and skip its animation. A
 new pointer press supersedes an uncommitted update so it cannot remove the new
 pointer target before its click. An unrelated render cancels a pending stale
 update. Cleanup is idempotent and cannot erase a newer transition's name.
+
+## Existing optional-module packaging
+
+The page now uses the direct `import('./src/pages/…mjs')` pattern already present
+in the website (`src/pages/lyrics.js`). The existing Pages publication keeps the
+tracked `src/` tree, and `scripts/_pages_server.js` already serves `.mjs` as
+JavaScript. No shared loader, builder, publish workflow, Library code or
+Song Forms code was changed. The Library-specific chunk registry is not used.
+
+`genre.js` requests `genre-motion.mjs` only while the active route is Genres,
+with native View Transitions available and an HTTP(S) origin. It does not wait
+for that request: cold interactions and unavailable modules take the existing
+instant action. Loading never replays an action or moves focus. Returning to
+Genres reuses the loaded module. A failed request is handled without an app
+error. The motion module retains the original visibility and interruption
+checks; its render-time cancellation guard now lives beside its private state.
+
+This shifts the optional helper off the shared page, not out of the website.
+Genres incurs a separate module request. The full payload checker, with the
+Library catalog present, measures page 388,598 / 389,120 B gzip and Library
+shelves path 402,881 / 403,104 B; all 16 caps hold. This is no claim about measured
+startup speed, physical-device performance or production qualification.
+
+An interactive local package must include `codex.html`, `src/` (including this
+module), `api/`, `library/`, `assets/` and `data/` at their existing relative
+paths. A full checkout is the supported simplest package. Serve it over HTTP;
+opening the HTML alone with `file://` intentionally uses instant motion fallback.
 
 ## Local before/after preview
 
@@ -112,12 +139,14 @@ Install Playwright's video support with `npx playwright install ffmpeg` if neede
 `curl` and network access on its first run to cache the catalog's licensed photos.
 
 The comparison records video, resting screenshots, browser version, HTML hashes
-and actual native keyframes in `results.json`. It checks three real genres in
+and actual native keyframes and the motion module hash in `results.json`. It checks three real genres in
 Rows and List at 390/1280, baseline focus and horizontal-scroll parity, tabs,
 shell Back/Forward, delayed rapid selections and Escape, Tab during capture,
 resize/reduced-motion/wheel interruption, emulated touch, cold images, reduced
 motion, feature-disabled fallback and unique snapshot names. It requires native
-image animations to actually render; using baseline as the candidate is a
+image animations to actually render; it also holds the module request across a
+cold open/close and route change, checks return/history and a missing-module deep
+link, and verifies that non-Genres entry makes no module request; using baseline as the candidate is a
 negative control that must fail this assertion.
 
 This is desktop Chromium with phone viewport/touch emulation, not physical-phone,
