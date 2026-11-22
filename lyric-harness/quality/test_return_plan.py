@@ -24,6 +24,8 @@ The sections in `DEALT` run on one shard each (`quality.shard`); the graded
 mechanisms run on every shard and deal their own plans.
 
 Run from lyric-harness: python3 quality/test_return_plan.py
+(`--slow` walks the merge-note search to `MERGE_SEED_CAP` instead of grading
+its recorded witness, `MERGE_WITNESS`.)
 """
 import collections
 import copy
@@ -59,11 +61,25 @@ WALL = 108
 FLOOR = 5
 #: and the walk fails, naming the short mechanism, past this seed per form
 SEED_CAP = 1000
-#: the merge-note search's own bound. Under the 150-line writing cap the
-#: first plan that offers that case is open seed 1586 (97 lines; measured
-#: 2026-11-20, about four minutes on one process); before the cap it was
-#: verse-chorus seed 245
-MERGE_SEED_CAP = 2000
+#: the merge-note search's own bound, walked only under `--slow`. Under the
+#: 150-line writing cap the first plan that offers that case was open seed
+#: 1586 (97 lines; measured 2026-11-20, about four minutes on one process);
+#: before the cap it was verse-chorus seed 245.
+#: REPINNED 2026-11-22 (bug hunt F23, R2's word for this file): ~~2000~~.
+#: The joint check refuses seed 1586's first draw (TWO_GROUPS_ONE_WORD: a
+#: copy's last word was bound by a second group) and the redraw offers no
+#: such copy; the walk's next is verse-chorus seed 4171, about 450 seconds
+#: on one process. The default run grades that seed directly
+#: (`MERGE_WITNESS`); `--slow` walks again, to re-find it when the planner
+#: moves.
+MERGE_SEED_CAP = 4200
+#: (seed, form) of the walk's first merge note that says more than the
+#: copy, and what the walk found there: the copied line, the note's groups
+#: and its lines
+MERGE_WITNESS = (4171, "verse-chorus")
+MERGE_WITNESS_SHAPE = (44, ("I", "N"), (27, 28, 43, 44))
+#: `--slow` walks the merge-note search instead of grading its witness
+SLOW = "--slow" in sys.argv
 
 #: the answers the grader does not give about a shape the plan dealt
 PLAN_DEALT = frozenset({
@@ -1128,14 +1144,33 @@ REVIEW = (
 MECHANISMS = TABLE + REVIEW
 
 
+_ANCHORS = {}
+
+
+def _collides(a, b):
+    """Does the grader's own pair scorer put end words `a` and `b` at or above
+    its collision cut? The score `Reviser._matrix` gives two lines ending on
+    them, read off the same lexicon, declaration and promotion."""
+    from lyric_harness import THETA_COLLISION, best_score, line_anchors
+    r = reviser()
+    for w in (a, b):
+        if w not in _ANCHORS:
+            ancs, last, _ = line_anchors(r.lex, w, promote=r._promote())
+            _ANCHORS[w] = (ancs, last)
+    (aa, la), (ab, lb) = _ANCHORS[a], _ANCHORS[b]
+    return best_score(aa, ab, r.decl, la, lb)["total"] >= THETA_COLLISION
+
+
 class _Spare:
     """Seeded spare words: nouns the draft does not use, and end words from
-    witness families the draft does not use."""
+    witness families the draft does not use that the grader pairs with no
+    end word of the draft."""
 
     def __init__(self, lines, rng):
         from quality.fixtures import seeded_lines as SL
         used = {w for l in lines for w in l.split()}
         self.used = used
+        self.ends = sorted({l.split()[-1] for l in lines if l.split()})
         pool = [w for w in SL._pool("noun") if w not in used and _single(w)
                 and _syl(w) == 1]
         rng.shuffle(pool)
@@ -1148,9 +1183,19 @@ class _Spare:
         return next(self._words)
 
     def end(self):
+        # REPINNED 2026-11-22 (bug hunt F23, R2's word for this file): a
+        # family the draft does not use was ~~taken to rhyme with nothing in
+        # it~~, and "family not used" never meant "rhymes with nothing". Once
+        # the joint check redraws some seeds, verse-chorus seed 77 drew 'bein'
+        # for a copy's end word, and the grader paired it with the draft's
+        # 'jin' at the collision cut: one SCHEME_COLLISION beside the change's
+        # RETURN_NOT_VERBATIM. A candidate the grader's own scorer pairs with
+        # any end word of the draft at or above that cut is skipped; the
+        # candidate order stays seeded.
         while True:
             c = [x for x in next(self._fams) if _single(x)
-                 and x not in self.used and _syl(x) == 1]
+                 and x not in self.used and _syl(x) == 1
+                 and not any(_collides(x, e) for e in self.ends)]
             if c:
                 return c[0]
 
@@ -1421,27 +1466,29 @@ def test_recover_writes_no_plan_key():
           f"{wrote or 'none'}")
 
 
-def _merge_notes_saying_more(k):
+def _merge_notes_saying_more(k, draws=None):
     """-> each (seed, form, plan, changed lines, copied line, note), seed by
-    seed with the forms in turn up to `MERGE_SEED_CAP`: mechanism `k`'s
-    change gives a MANDATE_GROUPS_INDISTINGUISHABLE note, graded without the
-    plan's key, that lists a pair with the copied line and a pair without
-    it."""
-    for seed in range(1, MERGE_SEED_CAP + 1):
-        for form in FORMS:
-            p = draw_plan(seed, form)
-            if p["total_lines"] > WALL:
-                continue
-            L = build_draft(seed, form, p)
-            if L is None:
-                continue
-            for _k, L2, b in subjects(seed, form, p, L, {k}):
-                for _ln, f in grade(p, L2, pasted=True)[4]:
-                    pairs = _merge_pairs(f)
-                    if (f.code == "MANDATE_GROUPS_INDISTINGUISHABLE"
-                            and any(b in e for e in pairs)
-                            and any(b not in e for e in pairs)):
-                        yield seed, form, p, L2, b, f
+    seed with the forms in turn up to `MERGE_SEED_CAP`, or over `draws`
+    ((seed, form) pairs) when given: mechanism `k`'s change gives a
+    MANDATE_GROUPS_INDISTINGUISHABLE note, graded without the plan's key,
+    that lists a pair with the copied line and a pair without it."""
+    if draws is None:
+        draws = ((seed, form) for seed in range(1, MERGE_SEED_CAP + 1)
+                 for form in FORMS)
+    for seed, form in draws:
+        p = draw_plan(seed, form)
+        if p["total_lines"] > WALL:
+            continue
+        L = build_draft(seed, form, p)
+        if L is None:
+            continue
+        for _k, L2, b in subjects(seed, form, p, L, {k}):
+            for _ln, f in grade(p, L2, pasted=True)[4]:
+                pairs = _merge_pairs(f)
+                if (f.code == "MANDATE_GROUPS_INDISTINGUISHABLE"
+                        and any(b in e for e in pairs)
+                        and any(b not in e for e in pairs)):
+                    yield seed, form, p, L2, b, f
 
 
 def test_a_merge_note_that_says_more_stands():
@@ -1449,11 +1496,35 @@ def test_a_merge_note_that_says_more_stands():
           "when everything it says is the copy")
     k = next(i for i, m in enumerate(MECHANISMS)
              if m[2] is _copy_keeps_its_flag)
-    case = next(_merge_notes_saying_more(k), None)
-    check(f"the walk finds a copy ({MECHANISMS[k][0]}) whose merge note also "
-          f"lists a pair without the copied line, by seed {MERGE_SEED_CAP} "
-          f"per form",
-          case is not None)
+    if SLOW:
+        case = next(_merge_notes_saying_more(k), None)
+        check(f"the walk finds a copy ({MECHANISMS[k][0]}) whose merge note "
+              f"also lists a pair without the copied line, by seed "
+              f"{MERGE_SEED_CAP} per form",
+              case is not None,
+              f"first found: {case[1]} seed {case[0]}, L{case[4]} the copy, "
+              f"groups {case[5].groups} on lines {tuple(case[5].locations)} "
+              f"(the default run grades {MERGE_WITNESS} for "
+              f"{MERGE_WITNESS_SHAPE})" if case else "")
+    else:
+        # REPINNED 2026-11-22 (bug hunt F23, R2's word for this file): ~~the
+        # walk to `MERGE_SEED_CAP`, by default~~. The walk found this copy at
+        # verse-chorus seed 4171 once the joint check refused seed 1586's
+        # first draw (TWO_GROUPS_ONE_WORD), about seven more minutes on one
+        # process. The witness is still drawn by seed, not picked: the
+        # default run grades the walk's own find, and `--slow` walks again.
+        case = next(_merge_notes_saying_more(k, [MERGE_WITNESS]), None)
+        b, groups, locs = MERGE_WITNESS_SHAPE
+        check(f"{MERGE_WITNESS[1]} seed {MERGE_WITNESS[0]}, the walk's first "
+              f"copy ({MECHANISMS[k][0]}) whose merge note also lists a pair "
+              f"without the copied line, still offers it: L{b} the copy, "
+              f"groups {', '.join(groups)} on lines {list(locs)}",
+              case is not None and case[4] == b
+              and tuple(case[5].groups) == groups
+              and tuple(case[5].locations) == locs,
+              f"L{case[4]} the copy, groups {case[5].groups} on lines "
+              f"{tuple(case[5].locations)}; re-find with --slow" if case
+              else "no such note on that seed; re-find it with --slow")
     if case is None:
         return
     seed, form, p, L2, b, f = case

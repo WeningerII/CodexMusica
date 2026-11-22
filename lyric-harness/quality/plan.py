@@ -2436,14 +2436,41 @@ def bound_placements(plan):
     which is what a bare line number has always meant.
     """
     at = {}
-    for group in str(plan.get("groups") or "").split(";"):
+    for line, place, _group in _bound_members(plan):
+        at.setdefault(line, []).append(place)
+    return at
+
+
+def _bound_members(plan):
+    """-> [(line, placement, group index)], every member of `plan["groups"]`
+    in order. The one parse `bound_placements` and `joint_findings` share;
+    the group index is what tells two groups on one word from one group
+    reaching the same word twice."""
+    out = []
+    for gi, group in enumerate(str(plan.get("groups") or "").split(";")):
         for member in group.split(","):
             member = member.strip()
             if not member:
                 continue
             num, _, place = member.partition(".")
-            at.setdefault(int(num), []).append(place or "end")
-    return at
+            out.append((int(num), place or "end", gi))
+    return out
+
+
+def return_roots(plan):
+    """-> {line: first line of its return class} for every line a declared
+    verbatim return copies. A copy's words ARE its first line's words, so a
+    binding on the copy is a binding on that first line's words."""
+    roots = {}
+    for row in str(plan.get("returns") or "").split(";"):
+        members = sorted(int(x) for x in row.split(",") if x.strip())
+        for line in members[1:]:
+            roots[line] = members[0]
+    # A copy of a copy reaches the first line.
+    for line in list(roots):
+        while roots[line] in roots:
+            roots[line] = roots[roots[line]]
+    return roots
 
 
 def end_rhyme_groups(plan):
@@ -2611,20 +2638,37 @@ def joint_findings(plan):
     sampler's more conservative band-floor cap. A clear result is necessary,
     not sufficient, for lexical or grammatical writability.
 
-    IT READS `groups` AND NOT `returns`, and that is a fact about the shape
-    rather than an omission. A return class demands the later instance be the
-    EARLIER LINE, so it adds no binding of its own and no placement to collide
-    with: `make_plan` emits groups for a returning function's FIRST instance
-    only, and the later ones carry the identical constraints by being the
-    identical words. The span question is settled the same way — anacrusis and
-    meter are per function KIND, so two instances of one kind have the same
-    slots by construction, and a drift there is `RETURN_SLOT_DRIFT`'s to
-    report rather than this gate's to refuse.
+    IT READS EACH RETURN COPY AS ITS FIRST LINE (bug hunt F23, 2026-11-21).
+    ~~"It reads `groups` and not `returns` ... `make_plan` emits groups for a
+    returning function's FIRST instance only"~~: that did not hold. A copy
+    can carry a group of its own (seed 12 verse-chorus: line 99, the copy of
+    line 80, ends in a group line 80's ending is not in), and then one word
+    the writer writes once answers two groups while this gate saw two lines.
+    A copy's words ARE its first line's words, so every binding on a copy is
+    checked on the first line, against the smallest span any line of the
+    class has, since the same words must fit every copy. Two members of ONE
+    group on the same word are one obligation (a word may rhyme with
+    itself), not two groups.
     """
     sub = plan["subdivision"]
-    span = {s["line"]: float(s["duration"]) * sub
-            for s in plan["line_slots"]}
-    at = bound_placements(plan)
+    roots = return_roots(plan)
+    span = {}
+    for s in plan["line_slots"]:
+        root = roots.get(s["line"], s["line"])
+        slots = float(s["duration"]) * sub
+        span[root] = min(slots, span.get(root, slots))
+    copied = {}
+    for line, root in roots.items():
+        copied.setdefault(root, []).append(line)
+    # What each line binds is `bound_placements`'s answer, the one reading
+    # the passes that add a binding share; which GROUP binds it comes from
+    # the same parse.
+    at, group_of = {}, {}
+    for line, places in bound_placements(plan).items():
+        at.setdefault(roots.get(line, line), []).extend(places)
+    for line, place, gi in _bound_members(plan):
+        group_of.setdefault((roots.get(line, line), placement_word(place)),
+                            set()).add(gi)
 
     out = []
     for ln in sorted(span):
@@ -2637,13 +2681,18 @@ def joint_findings(plan):
             landed.setdefault(word, []).append(place)
         for word in sorted(landed, key=str):
             names = landed[word]
-            if len(names) > 1:
+            if len(group_of.get((ln, word), ())) > 1:
                 where = ("the last word" if word == LAST_WORD
                          else f"word {word}")
                 out.append((
                     "TWO_GROUPS_ONE_WORD", ln,
-                    f"{len(names)} declared groups bind {where} of this "
-                    f"line ({', '.join(sorted(names))}). Whether one word "
+                    f"{len(group_of[(ln, word)])} declared groups bind "
+                    f"{where} of this line"
+                    + ("" if not copied.get(ln) else
+                       f" or of its verbatim cop"
+                       f"{'y' if len(copied[ln]) == 1 else 'ies'} (line "
+                       f"{', '.join(map(str, sorted(copied[ln])))})")
+                    + f" ({', '.join(sorted(names))}). Whether one word "
                     f"answers every family at once is `joint_field`'s "
                     f"question and it needs WORDS; a plan has none, so this "
                     f"is volunteered homework nobody has checked."))
@@ -2672,8 +2721,9 @@ def joint_findings(plan):
             # Positions are individually reachable and distinct words fit;
             # their conjunction can still leave no word for the writer.
             # Count word identities, not placement aliases (M-80). A fraction
-            # of a slot cannot hold another word. Returns add no new word
-            # bindings.
+            # of a slot cannot hold another word. A copy's bindings are
+            # counted on its first line (F23). ~~Returns add no new word
+            # bindings.~~
             bound = len(set(words))
             capacity = math.floor(ceiling)
             if bound + WORDS_LEFT_FREE > capacity:
@@ -2737,6 +2787,9 @@ def joint_findings(plan):
         _binding = _overhang_binding(_s, _mem)
         if _binding is not None:
             _ln, _word = _binding
+            # A copy's words are its first line's (F23): `span` and `at` are
+            # keyed by that first line.
+            _ln = roots.get(_ln, _ln)
             _overhangs.setdefault(_ln, {}).setdefault(_word, []).append(
                 SC.label((_gi,)))
         # ~~IDENTITY_AT_TWO_LINE_ENDS~~ -- RETIRED 2026-11-20. Its premise

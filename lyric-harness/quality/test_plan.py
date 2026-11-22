@@ -9227,8 +9227,125 @@ def test_a_late_start_is_named_as_the_grader_names_it():
           f"{cap_bad[:3]}; grades {grade_bad[:3]}")
 
 
+def test_a_return_copy_is_bound_as_its_first_line():
+    """Bug hunt F23 (2026-11-21): the joint gate read a verbatim return's
+    copy as a line of its own. A copy's words are its first line's words,
+    so a group on the copy's last word and a different group on the first
+    line's last word bind ONE word to two groups, and the gate saw two
+    lines. About one delivered plan in fourteen did this.
+
+    Every witness is drawn by seed: the plan seeds from a wide range, and
+    each mutation's class, member and line from the plan itself.
+
+    Four questions, each read independently of `joint_findings`'s own
+    parse where it can be:
+      1. no delivered plan binds one word, copies read as their first
+         line, to two groups;
+      2. writing a different group onto a copy's copy of a bound word
+         gives TWO_GROUPS_ONE_WORD on the first line, naming the copy;
+      3. writing the SAME group there gives none (a word may rhyme with
+         itself);
+      4. moving a member from one line of a class to another (with no
+         other member of its group between them, so the group's order
+         holds) leaves the gate's answer unchanged, since the words it
+         binds are the same words."""
+    rng = random.Random(2026112123)
+    draws = ([("verse-chorus", s) for s in rng.sample(range(10_000), 50)]
+             + [(None, s) for s in rng.sample(range(10_000), 50)])
+    clash, mut_bad, ctl_bad, move_bad = [], [], [], []
+    n_cls = n_mut = n_move = 0
+    for form, seed in draws:
+        p = PLN.make_plan(seed, **({"form": form} if form else {}))
+        root = {}
+        for row in str(p.get("returns") or "").split(";"):
+            m = sorted(int(x) for x in row.split(",") if x.strip())
+            for c in m[1:]:
+                root[c] = m[0]
+        for c in list(root):
+            while root[c] in root:
+                root[c] = root[root[c]]
+        classes = {}
+        for c, r in root.items():
+            classes.setdefault(r, {r}).add(c)
+        if not classes:
+            continue
+        n_cls += 1
+        groups = [g for g in str(p.get("groups") or "").split(";")
+                  if g.strip()]
+        members = [[m.strip() for m in g.split(",") if m.strip()]
+                   for g in groups]
+        owner = {}
+        for gi, mems in enumerate(members):
+            for mem in mems:
+                ln, _, place = mem.partition(".")
+                key = (root.get(int(ln), int(ln)), real_word(place or "end"))
+                owner.setdefault(key, set()).add(gi)
+        bad = sorted(k for k, v in owner.items() if len(v) > 1)
+        if bad:
+            clash.append((form, seed, bad[:2]))
+        # Every member on a line of a class, with each other line of it.
+        sites = []
+        for gi, mems in enumerate(members):
+            lines = [int(m.partition(".")[0]) for m in mems]
+            for mi, mem in enumerate(mems):
+                ln = lines[mi]
+                r = root.get(ln, ln)
+                for other in sorted(classes.get(r, ())):
+                    if other != ln and other not in lines:
+                        sites.append((gi, mi, ln, other, r))
+        if not sites:
+            continue
+        bound = {int(m.partition(".")[0]) for mems in members for m in mems}
+        free = [s["line"] for s in p["line_slots"]
+                if s["line"] not in bound and s["line"] not in root
+                and s["line"] not in classes]
+        gi, mi, ln, other, r = rng.choice(sites)
+        moved = f"{other}{members[gi][mi][len(str(ln)):]}"
+        if free:
+            n_mut += 1
+            x = rng.choice(free)
+            mut = dict(p, groups=";".join(groups + [f"{moved},{x}"]))
+            got = [d for c, l, d in PLN.joint_findings(mut)
+                   if c == "TWO_GROUPS_ONE_WORD" and l == r]
+            if not (got and "verbatim cop" in got[0]):
+                mut_bad.append((form, seed, r, moved, x,
+                                PLN.joint_findings(mut)[:2]))
+            ctl = list(groups)
+            ctl[gi] = ctl[gi] + "," + moved
+            same = [f for f in PLN.joint_findings(dict(p, groups=";".join(ctl)))
+                    if f[0] == "TWO_GROUPS_ONE_WORD" and f[1] == r]
+            if same:
+                ctl_bad.append((form, seed, r, moved, same[:1]))
+        lo, hi = sorted((ln, other))
+        between = [int(m.partition(".")[0]) for m in members[gi]
+                   if lo < int(m.partition(".")[0]) < hi]
+        if not between:
+            n_move += 1
+            mv = list(members)
+            mv[gi] = list(mv[gi])
+            mv[gi][mi] = moved
+            before = sorted(c for c, _l, _d in PLN.joint_findings(p))
+            after = sorted(c for c, _l, _d in PLN.joint_findings(
+                dict(p, groups=";".join(",".join(g) for g in mv))))
+            if before != after:
+                move_bad.append((form, seed, members[gi][mi], moved,
+                                 before, after))
+    check("a return copy is bound as its first line (bug hunt F23): no "
+          "delivered plan binds one word to two groups across a copy; a "
+          "different group on the copy's copy of a bound word is "
+          "TWO_GROUPS_ONE_WORD on the first line, the same group is not; and "
+          "moving a member within its class leaves the gate's answer as it "
+          "was",
+          n_cls > 0 and n_mut > 0 and n_move > 0
+          and not (clash or mut_bad or ctl_bad or move_bad),
+          f"{n_cls} plan(s) with returns, {n_mut} mutation(s), {n_move} "
+          f"move(s); clashes {clash[:3]}; mutations {mut_bad[:2]}; controls "
+          f"{ctl_bad[:2]}; moves {move_bad[:2]}")
+
+
 _SECTIONS = (
     test_a_late_start_is_named_as_the_grader_names_it,
+    test_a_return_copy_is_bound_as_its_first_line,
     test_satisfied_wants_remain_in_the_request,
     test_a_request_refusal_is_the_requests,
     test_the_seed_sweep_is_a_verb,
