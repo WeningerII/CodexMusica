@@ -1749,9 +1749,11 @@ def _slot_for(mandate, group_index, line):
         return None
 
 
-def _all_rule_rows(mandate):
-    """-> every declared group's rule rows, in the mandate's group order."""
-    rows = declared_rule_rows(mandate)
+def _all_rule_rows(mandate, promote):
+    """-> every declared group's rule rows, in the mandate's group order.
+    `promote` is the reviser's `_promote()`, so each row is the rule as
+    that reviser grades it (`declared_rule_rows`)."""
+    rows = declared_rule_rows(mandate, promote=promote)
     return tuple(row for label in getattr(mandate, "labels", ())
                  for row in rows.get(label, ()))
 
@@ -1866,7 +1868,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     labels = list(getattr(mandate, "labels", ()))
     # Each declared group's rule rows, read once: a member's own block of a
     # group question prints those of its other groups (`AnchorSlot.call_rules`).
-    _declared_rows = declared_rule_rows(mandate)
+    _declared_rows = declared_rule_rows(mandate,
+                                        promote=reviser._promote())
     for label, members, calls in groups:
         gi = labels.index(label) if label in labels else None
         # A return expands the atomic edit; it does not pin its members.
@@ -1882,7 +1885,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 gb = GroupBrief(b.line_no, b.text, "", (), (), label, expanded,
                                 b, tuple(lines), attempt, whole=tuple(b.findings) + tuple(whole),
                                 whole_repair=True, mandate_description=mandate.describe(),
-                                rule_rows=_all_rule_rows(mandate),
+                                rule_rows=_all_rule_rows(
+                                    mandate, reviser._promote()),
                                 reasons=reasons,
                                 prior=(_prior_g(expanded, _round)
                                        if _prior_g is not None else None),
@@ -2847,7 +2851,9 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                                          f for b in flagged for f in b.findings
                                          if f.code in REPAIRABLE_UNJUDGED), whole_repair=True,
                                      mandate_description=_found["mandate"].describe(),
-                                     rule_rows=_all_rule_rows(_found["mandate"]))
+                                     rule_rows=_all_rule_rows(
+                                         _found["mandate"],
+                                         reviser._promote()))
                     _got = propose_group(_gb)
                     if _got is None or _unread(_got) is not None:
                         _reasons = (_unread(_got) or

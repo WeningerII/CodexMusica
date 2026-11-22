@@ -158,7 +158,7 @@ RULE_LEGEND = ("where N and M are any two lines of the group, N first, P is "
                "the part of line N the rule reads and Q the part of line M")
 
 
-def declared_rule_rows(mandate):
+def declared_rule_rows(mandate, promote=True):
     """-> {group label: (row, ...)}: the rule each group with a declared
     relation is graded by, one printable row for each relation it requires.
     A group under the default obligation (at least one relation) is absent.
@@ -172,17 +172,36 @@ def declared_rule_rows(mandate):
 
     The clauses are `quality.plan.type_rule`'s, the ones the plan brief
     prints as "must satisfy rule R<n>", so the planner and the revise
-    question state one rule in one wording. A declared relation that is not
-    a registry type gets the sentence the plan brief gives it. The row is
-    built HERE, whole, and carried on the `Brief` (`group_rules`):
-    `quality/propose.py` imports nothing from this module, and two renderers
-    each wording the row would be two statements of it.
+    question state one rule in one wording. The row is built HERE, whole,
+    and carried on the `Brief` (`group_rules`): `quality/propose.py` imports
+    nothing from this module, and two renderers each wording the row would
+    be two statements of it.
+
+    THE ROW STATES THE RULE AS THE GRADER JUDGES IT (2026-11-22, from the
+    planner owner's read of these rows). Two rows did not:
+
+    - A type that reads a line's end is graded under the row
+      `relations.declared_pair_schema` returns, which also takes a last
+      syllable promoted to stress when `promote` (the reviser's
+      `_promote()`) is true. The row was worded from the registry type
+      itself, said "from its last stressed syllable", and so ruled out a
+      pair the grader accepts.
+    - A declared class (`class:RHYME`) got "P and Q stand in the declared
+      relation class:RHYME": an internal id, and no rule. Its clauses are
+      `quality.plan.class_rule`'s.
+
+    A name in the `type:` namespace still gets the sentence the plan brief
+    gives it. Its judge is not the registry type of the same name
+    (`schemes._resolve_relation`), and nothing words a named type's cell
+    yet, so no rule is printed that the grader does not use.
     """
     relations_of = getattr(mandate, "relations_of", None)
     if relations_of is None:
         return {}
-    from quality.plan import type_rule                   # noqa: PLC0415
-    from quality.relations import REGISTRY               # noqa: PLC0415
+    from quality.plan import class_rule, type_rule       # noqa: PLC0415
+    from quality.relations import (REGISTRY,             # noqa: PLC0415
+                                   declared_pair_schema)
+    from quality.rhyme_types import CLASS_RELATIONS      # noqa: PLC0415
     out = {}
     for k, label in enumerate(mandate.labels):
         rows = []
@@ -190,11 +209,15 @@ def declared_rule_rows(mandate):
             bare = (name.split(":", 1)[1] if name.startswith("schema:")
                     else name)
             sch = REGISTRY.get(bare)
-            if sch is None:
+            if sch is not None:
+                shown, clauses = bare, type_rule(
+                    declared_pair_schema(sch, promote=promote))
+            elif (name.startswith("class:")
+                  and name.split(":", 1)[1] in CLASS_RELATIONS):
+                shown, clauses = class_rule(name)
+            else:
                 shown, clauses = name, [f"P and Q stand in the declared "
                                         f"relation {name}"]
-            else:
-                shown, clauses = bare, type_rule(sch)
             rows.append(f"RULE of group {label} ({shown}), {RULE_LEGEND}: "
                         + "; ".join(clauses) + ".")
         if rows:
@@ -7139,7 +7162,7 @@ class Reviser:
         m = found["mandate"]
         _, endwords, _, _ = self._matrix(lines, profile=profile)
         briefs = []
-        _rule_rows = declared_rule_rows(m)
+        _rule_rows = declared_rule_rows(m, promote=self._promote())
         for ln in sorted(found["per_line"]):
             if targets is not None and ln not in targets:
                 continue

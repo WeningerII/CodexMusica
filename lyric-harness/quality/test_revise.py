@@ -3872,13 +3872,18 @@ def test_the_mandate_block_is_gated_on_the_mandate():
     # that declares nothing, and it is weaker than what this group is
     # graded by. The claim is unchanged: the group is STATED and the
     # default sentence is gone.
+    # REPINNED 2026-11-22 (the follow-up to finding 2): ~~"RULE of group A
+    # (class:RHYME), where N and M are any two lines of the group"~~. The
+    # row showed an internal id; a declared class is named in plain words
+    # now ("rhyme") and its clauses follow (`quality.plan.class_rule`).
     check("the TIER-1 PROMPT -- the surface a writer actually reads -- no "
           "longer claims no group was declared, and states the group instead",
           "(no rhyme group declared for this line)" not in p1
           and "group A [1, 2] at its end word — this line must satisfy the "
           "rule printed under this row with each of: L2 ('stairs')" in p1
-          and "    RULE of group A (class:RHYME), where N and M are any two "
-          "lines of the group" in p1,
+          and "    RULE of group A (rhyme), where N and M are any two "
+          "lines of the group" in p1
+          and "class:RHYME" not in p1,
           [l.strip() for l in p1.splitlines()
            if "group" in l and "rhyme" in l][:2])
 

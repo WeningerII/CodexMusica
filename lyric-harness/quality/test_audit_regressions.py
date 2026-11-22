@@ -964,11 +964,13 @@ class AuditRegressions(unittest.TestCase):
         import dataclasses
         import quality.propose as PRM
         from quality.plan import type_rule
-        from quality.relations import REGISTRY
+        from quality.relations import REGISTRY, declared_pair_schema
         lines = list(self.STREET)
         m, briefs = self._street_briefs({'A': 'schema:subtractive rhyme'})
         self.assertEqual(sorted(briefs), [3, 4])
-        clauses = type_rule(REGISTRY['subtractive rhyme'])
+        # The clauses of the type as a declared pair is judged (2026-11-22:
+        # the row is worded from that, a promoted final included).
+        clauses = type_rule(declared_pair_schema(REGISTRY['subtractive rhyme']))
         self.assertIn(self.ONLY_THIS_RULE, clauses)
         asked = PRM.render_line(briefs[3], lines)
         rows = asked[asked.index('THE RHYME MANDATE ON L3'):
@@ -1040,10 +1042,18 @@ class AuditRegressions(unittest.TestCase):
         two = PRM.render_line(both[3], lines)
         self.assertIn('this line must satisfy every rule printed under this '
                       'row with each of: ', two)
-        self.assertIn('    RULE of group A (class:ASSONANCE), where N and M are '
+        # REPINNED 2026-11-22 (the follow-up to finding 2): ~~"RULE of group
+        # A (class:ASSONANCE), where ... of line M: P and Q stand in the
+        # declared relation class:ASSONANCE."~~ That row showed an internal
+        # id and stated no rule. A declared class now gets its plain name
+        # and its clauses (`quality.plan.class_rule`).
+        self.assertIn('    RULE of group A (vowel match), where N and M are '
                       'any two lines of the group, N first, P is the part of '
                       'line N the rule reads and Q the part of line M: P and Q '
-                      'stand in the declared relation class:ASSONANCE.\n', two)
+                      'are each read from a syllable with any stress to the '
+                      'end: ', two)
+        self.assertIn('; the consonant sounds may differ.\n', two)
+        self.assertNotIn('class:ASSONANCE', two)
         self.assertIn(self.ONLY_THIS_RULE, two)
         self.assertEqual(
             LH.legacy_question_texts('propose', two)[0],
@@ -1082,10 +1092,17 @@ class AuditRegressions(unittest.TestCase):
         first = groups[0]
         self.assertTrue(first.whole_repair)
         asked = [p for k, p in call.calls if k == 'group'][0]
-        row = ('  RULE of group A (class:ASSONANCE), where N and M are any two '
-               'lines of the group, N first, P is the part of line N the rule '
-               'reads and Q the part of line M: P and Q stand in the declared '
-               'relation class:ASSONANCE.')
+        # REPINNED 2026-11-22 (the follow-up to finding 2): ~~"RULE of group
+        # A (class:ASSONANCE), where ... of line M: P and Q stand in the
+        # declared relation class:ASSONANCE."~~ The row for a declared class
+        # is its plain name and its clauses now (`quality.plan.class_rule`).
+        from quality.plan import class_rule
+        from quality.revise import RULE_LEGEND
+        plain, clauses = class_rule('class:ASSONANCE')
+        self.assertEqual(plain, 'vowel match')
+        self.assertEqual(clauses[-1], 'the consonant sounds may differ')
+        row = (f'  RULE of group A (vowel match), {RULE_LEGEND}: '
+               + '; '.join(clauses) + '.')
         self.assertEqual(first.rule_rows, (row.strip(),))
         self.assertIn('\n\nTHE RULE EACH GROUP THAT DECLARES ONE IS GRADED BY\n'
                       + row + '\n\nCURRENT DRAFT\n', asked)
@@ -1158,6 +1175,131 @@ class AuditRegressions(unittest.TestCase):
         self.assertIn("must also answer: 'tree'.\n  Those groups are NOT being "
                       "rewritten", plain)
         self.assertNotIn('RULE of group B', plain)
+
+    HARMONY = ['we sang in quiet harmony',
+               'a quiet word was all i had',
+               'the river runs down to the sea',
+               'the evening leaves me in the sun']
+
+    def test_a_rule_row_does_not_rule_out_what_the_grader_accepts(self):
+        # A follow-up to finding 2 (2026-11-22, from the planner owner's
+        # read of the rows). A type that reads a line's end is graded with a
+        # last syllable promoted to stress taken as well, so harmony/sea
+        # holds under a declared perfect rhyme. The row was worded from the
+        # type as the registry holds it and said each part is read "from its
+        # last stressed syllable", which rules that pair out. The question
+        # stated a narrower rule than the one graded.
+        import dataclasses
+        import quality.propose as PRM
+        from quality.plan import type_rule
+        from quality.relations import REGISTRY, declared_pair_schema
+        from quality.revise import RULE_LEGEND, declared_rule_rows
+        m = mandate([[1, 3], [2, 4]], n_lines=4,
+                    relations={'A': 'schema:perfect rhyme'})
+        graded = Reviser()
+        strict = Reviser(rdecl=ReviseDeclaration(promote=False))
+        # The grade. The pair holds where the final is promoted, and only
+        # there.
+        self.assertNotIn(3, [b.line_no
+                             for b in graded.brief(list(self.HARMONY), m)])
+        self.assertIn(3, [b.line_no
+                          for b in strict.brief(list(self.HARMONY), m)])
+
+        def row_of(promote):
+            clauses = type_rule(declared_pair_schema(
+                REGISTRY['perfect rhyme'], promote=promote))
+            return (f'RULE of group A (perfect rhyme), {RULE_LEGEND}: '
+                    + '; '.join(clauses) + '.')
+        also = ('or at its last syllable alone, counted as stressed, when '
+                'that syllable is unstressed and follows a stressed one')
+        self.assertEqual(row_of(True).count(also), 2, 'once for P, once for Q')
+        self.assertNotIn(also, row_of(False))
+        self.assertEqual(declared_rule_rows(m)['A'], (row_of(True),))
+        self.assertEqual(declared_rule_rows(m, promote=False)['A'],
+                         (row_of(False),))
+        # The question for a line that breaks the rule gives the rule its
+        # own reviser grades by, and a held run still replays.
+        lines = list(self.HARMONY)
+        lines[2] = 'the morning brings the stone'
+        for rv, promote in ((graded, True), (strict, False)):
+            (b3,) = [b for b in rv.brief(list(lines), m) if b.line_no == 3]
+            self.assertEqual(b3.group_rules, {'A': (row_of(promote),)})
+            asked = PRM.render_line(b3, lines)
+            self.assertIn(f'    {row_of(promote)}\n', asked)
+            self.assertEqual(
+                LH.legacy_question_texts('propose', asked)[0],
+                PRM.render_line(dataclasses.replace(b3, group_rules={}),
+                                lines))
+
+    def test_the_group_questions_give_the_rule_their_reviser_grades_by(self):
+        # The same follow-up, on the two questions the loop builds its own
+        # rows for: the whole repair, and a member's other groups.
+        import quality.loop as LP
+        from quality.propose import ModelProposer
+        from quality.revise import declared_rule_rows
+        draft = ['we walked along the street',
+                 'a quiet word was all i had',
+                 'the morning brings the stone',
+                 'the evening leaves me in the sun',
+                 'i left my jacket by the tree']
+        m = mandate([[1, 3], [1, 5]], n_lines=5,
+                    relations={'A': 'class:RHYME',
+                               'B': 'schema:subtractive rhyme'})
+        rows = {p: declared_rule_rows(m, promote=p) for p in (True, False)}
+        self.assertNotEqual(rows[True]['B'], rows[False]['B'])
+        for promote in (True, False):
+            self.assertEqual(
+                LP._all_rule_rows(m, promote),
+                rows[promote]['A'] + rows[promote]['B'])
+            rv = Reviser(rdecl=ReviseDeclaration(
+                max_rounds=1, attempts_per_line=1, backtrack_width=1,
+                promote=promote))
+            call = self._fake_writer({'L3': [draft[2]]})
+            writer, groups = ModelProposer(call), []
+
+            def propose_group(group_brief):
+                groups.append(group_brief)
+                return writer.propose_group(group_brief)
+            with contextlib.redirect_stdout(io.StringIO()):
+                revise_loop(rv, list(draft), m, propose=writer.propose,
+                            propose_group=propose_group)
+            (member,) = groups[0].anchors
+            self.assertEqual((member.line_no, member.calls), (1, ('tree',)))
+            self.assertEqual(member.call_rules, rows[promote]['B'])
+
+    def test_a_declared_class_gets_its_rule_in_plain_words(self):
+        # The same follow-up. A group that declares a class was given "P and
+        # Q stand in the declared relation class:RHYME": an internal id, and
+        # no rule at all. A class is reached wherever a catalog form or a
+        # caller declares one.
+        from quality.plan import class_rule, type_rule
+        from quality.relations import REGISTRY
+        from quality.rhyme_types import CLASS_RELATIONS
+        from quality.revise import RULE_LEGEND, declared_rule_rows
+        self.assertEqual(
+            [class_rule(f'class:{name}')[0] for name in CLASS_RELATIONS],
+            ['rhyme', 'same-sound rhyme', "rhyme on a line's last syllable",
+             'vowel match', 'consonant match'])
+        for name in CLASS_RELATIONS:
+            m = mandate([[1, 3], [2, 4]], n_lines=4,
+                        relations={'A': f'class:{name}'})
+            (row,) = declared_rule_rows(m)['A']
+            plain, clauses = class_rule(f'class:{name}')
+            self.assertTrue(clauses, name)
+            self.assertEqual(row, f'RULE of group A ({plain}), {RULE_LEGEND}: '
+                             + '; '.join(clauses) + '.')
+            self.assertNotIn('class:', row)
+            self.assertNotIn(name, row, 'the id in capitals is not shown')
+            self.assertNotIn('stand in the declared relation', row)
+        # A name in the third namespace has its own judge, which is not the
+        # registry type of the same name, so that type's rule is not
+        # printed for it.
+        m = mandate([[1, 3], [2, 4]], n_lines=4,
+                    relations={'A': 'type:pararhyme'})
+        (row,) = declared_rule_rows(m)['A']
+        self.assertIn('(type:pararhyme)', row)
+        for clause in type_rule(REGISTRY['pararhyme'])[:2]:
+            self.assertNotIn(clause, row)
 
     def test_a_round_reports_only_the_lines_it_changed(self):
         # Finding 28. An accepted group answer changed L3 and sent L1 back
