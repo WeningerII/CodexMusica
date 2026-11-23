@@ -304,6 +304,361 @@
           "group": "remaining"
         }
       ]
+    },
+    {
+      "source": "mcp/test_catalog_form_creation.mjs",
+      "environment": "TEST_CATALOG_FORM_CREATION_GROUP",
+      "groups": ["first", "second", "third", "fourth"],
+      "tests": [
+        {
+          "name": "positioned ending words survive the registered grade, reconnect and revision",
+          "group": "first"
+        },
+        {
+          "name": "caesural-rhyme measures each marked line through grading and reconnected revision",
+          "group": "first"
+        },
+        {
+          "name": "alliterative-long-line measures each marked line through grading and reconnected revision",
+          "group": "first"
+        },
+        {
+          "name": "the public create session persists the chosen form from sweep through native revision and replay",
+          "group": "first"
+        },
+        {
+          "name": "a creation sweep refuses deferred forms and unselected alternatives without recording an accepted seed",
+          "group": "first"
+        },
+        {
+          "name": "catalog repetition counts survive the public sweep-to-plan handoff; ordinary forms retain their own planner",
+          "group": "first"
+        },
+        {
+          "name": "a counted stanza is graded and revised at its measured boundaries on a real seeded session",
+          "group": "first"
+        },
+        {
+          "name": "Lune 0 publishes and enforces the selected syllables counts through real revision",
+          "group": "first"
+        },
+        {
+          "name": "Lune 1 publishes and enforces the selected words counts through real revision",
+          "group": "first"
+        },
+        {
+          "name": "Long Metre grades placed lexical stress independently of syllable and stress counts",
+          "group": "first"
+        },
+        {
+          "name": "the seeded writer enforces the selected bar layout through grading, reconnect, and revision",
+          "group": "first"
+        },
+        {
+          "name": "repeated sections retain their individual bar counts in a real grade",
+          "group": "first"
+        },
+        {
+          "name": "paired stanza boundaries and line counts persist through a connector restart and revision",
+          "group": "first"
+        },
+        {
+          "name": "selected word lengths are remeasured on the submitted draft and on revision",
+          "group": "first"
+        },
+        {
+          "name": "the writer binds the selected terminal rhyme for couplet and regrades after reconnect",
+          "group": "first"
+        },
+        {
+          "name": "the writer binds the selected terminal rhyme for triplet and regrades after reconnect",
+          "group": "first"
+        },
+        {
+          "name": "alternating rhyme classes stay distinct through grading and revision",
+          "group": "first"
+        },
+        {
+          "name": "fixed line returns keep separate identity and rhyme verdicts through revision",
+          "group": "first"
+        },
+        {
+          "name": "a stress-count setting accepts different syllable totals and regrades each line after reconnect",
+          "group": "first"
+        },
+        {
+          "name": "a prescribed terminal pair and an internal rhyme survive session replay",
+          "group": "first"
+        },
+        {
+          "name": "fixed copies keep their own internal rhyme obligations after reconnect",
+          "group": "first"
+        },
+        {
+          "name": "native catalog rhyme grading preserves the selected byr-a-thoddaid variant 0",
+          "group": "second"
+        },
+        {
+          "name": "native catalog rhyme grading preserves the selected rubaiyat-stanza variant 1",
+          "group": "second"
+        },
+        {
+          "name": "native catalog rhyme grading preserves the selected terza-rima variant 0",
+          "group": "second"
+        },
+        {
+          "name": "native catalog rhyme grading preserves the selected terza-rima variant 1",
+          "group": "second"
+        },
+        {
+          "name": "native catalog rhyme grading preserves the selected traditional-ballad variant 0",
+          "group": "second"
+        },
+        {
+          "name": "native catalog rhyme grading preserves the selected pantoum variant 0",
+          "group": "second"
+        },
+        {
+          "name": "Street cry keeps its printed call, and an altered return fails on the exact line",
+          "group": "second"
+        },
+        {
+          "name": "an unrhymed quatern enforces its travelling return through grade and revision",
+          "group": "second"
+        },
+        {
+          "name": "declared bar proof for 16-bar-blues variant 1 survives reconnect and rejects wrong measurements",
+          "group": "second"
+        },
+        {
+          "name": "declared bar proof for hip-hop-verse-hook variant 0 survives reconnect and rejects wrong measurements",
+          "group": "second"
+        },
+        {
+          "name": "declared bar proof for hip-hop-verse-hook variant 1 survives reconnect and rejects wrong measurements",
+          "group": "second"
+        },
+        {
+          "name": "declared bar proof for hip-hop-verse-hook variant 2 survives reconnect and rejects wrong measurements",
+          "group": "second"
+        },
+        {
+          "name": "declared bar proof for hip-hop-verse-hook variant 3 survives reconnect and rejects wrong measurements",
+          "group": "second"
+        },
+        {
+          "name": "declared bar proof for edm-build-drop variant 0 survives reconnect and rejects wrong measurements",
+          "group": "second"
+        },
+        {
+          "name": "declared bar proof for edm-build-drop variant 1 survives reconnect and rejects wrong measurements",
+          "group": "second"
+        },
+        {
+          "name": "declared bar proof for edm-build-drop variant 2 survives reconnect and rejects wrong measurements",
+          "group": "second"
+        },
+        {
+          "name": "declared bar proof for edm-build-drop variant 3 survives reconnect and rejects wrong measurements",
+          "group": "second"
+        },
+        {
+          "name": "Lai retains nested spans, measured lengths and rhyme classes after reconnect",
+          "group": "second"
+        },
+        {
+          "name": "linked sonnet boundaries survive grading and reconnect before revision",
+          "group": "second"
+        },
+        {
+          "name": "nested closing division survives reconnect: madrigal 0",
+          "group": "second"
+        },
+        {
+          "name": "nested closing division survives reconnect: bob-and-wheel 1",
+          "group": "second"
+        },
+        {
+          "name": "nested closing division survives reconnect: bob-and-wheel 2",
+          "group": "second"
+        },
+        {
+          "name": "nested closing division survives reconnect: bob-and-wheel 3",
+          "group": "third"
+        },
+        {
+          "name": "Virelai measures the two relative lengths and the cross-stanza rhyme independently",
+          "group": "third"
+        },
+        {
+          "name": "written vocal assignments for posse-cut",
+          "group": "third"
+        },
+        {
+          "name": "written vocal assignments for part-song-victorian",
+          "group": "third"
+        },
+        {
+          "name": "written vocal assignments for responsorial-psalm",
+          "group": "third"
+        },
+        {
+          "name": "written vocal assignments for verse-anthem",
+          "group": "third"
+        },
+        {
+          "name": "written vocal assignments for consort-song",
+          "group": "third"
+        },
+        {
+          "name": "measured phrase boundaries survive grade and reconnect for cyhydedd-hir 0",
+          "group": "third"
+        },
+        {
+          "name": "measured phrase boundaries survive grade and reconnect for rhupunt 0",
+          "group": "third"
+        },
+        {
+          "name": "measured phrase boundaries survive grade and reconnect for rhupunt 1",
+          "group": "third"
+        },
+        {
+          "name": "regular hymn meter survives registered grading, reconnect and revision",
+          "group": "third"
+        },
+        {
+          "name": "pasted rondo sections keep lyrical variation separate from musical return through revision",
+          "group": "third"
+        },
+        {
+          "name": "seeded triadic writing keeps physical rows through grade and revision",
+          "group": "third"
+        },
+        {
+          "name": "written section melodies for binary variant 0",
+          "group": "third"
+        },
+        {
+          "name": "written section melodies for ternary variant 0",
+          "group": "third"
+        },
+        {
+          "name": "written section melodies for da-capo-aria variant 0",
+          "group": "third"
+        },
+        {
+          "name": "written section melodies for arch variant 0",
+          "group": "third"
+        },
+        {
+          "name": "written section melodies for through-composed variant 0",
+          "group": "third"
+        },
+        {
+          "name": "written section melodies for rondo variant 0",
+          "group": "third"
+        },
+        {
+          "name": "written section melodies for rondo variant 1",
+          "group": "third"
+        },
+        {
+          "name": "written section melodies for extended-aaba variant 0",
+          "group": "fourth"
+        },
+        {
+          "name": "written section melodies for extended-aaba variant 1",
+          "group": "fourth"
+        },
+        {
+          "name": "English triad profiles are measured again on native grade and reconnected revision",
+          "group": "fourth"
+        },
+        {
+          "name": "verbatim exchange survives grade and revision for echo-song",
+          "group": "fourth"
+        },
+        {
+          "name": "verbatim exchange survives grade and revision for lined-out-hymn",
+          "group": "fourth"
+        },
+        {
+          "name": "independent timed voice scores for canon",
+          "group": "fourth"
+        },
+        {
+          "name": "independent timed voice scores for round",
+          "group": "fourth"
+        },
+        {
+          "name": "printed prose paragraphs survive the writing grade, reconnect and revision",
+          "group": "fourth"
+        },
+        {
+          "name": "measured lexical setting retains its obligations across registered workflow: duplex",
+          "group": "fourth"
+        },
+        {
+          "name": "four scored voices hold the final tag line through reconnected revision",
+          "group": "fourth"
+        },
+        {
+          "name": "registered lexical phrase workflow: didactic-cinquain/0",
+          "group": "fourth"
+        },
+        {
+          "name": "registered lexical phrase workflow: diamante/0",
+          "group": "fourth"
+        },
+        {
+          "name": "registered lexical phrase workflow: diamante/1",
+          "group": "fourth"
+        },
+        {
+          "name": "registered lexical phrase workflow: tanka/1",
+          "group": "fourth"
+        },
+        {
+          "name": "registered lexical phrase workflow: gogyohka/0",
+          "group": "fourth"
+        },
+        {
+          "name": "timed spoken close and repeated accompaniment variant 0",
+          "group": "fourth"
+        },
+        {
+          "name": "timed spoken close and repeated accompaniment variant 1",
+          "group": "fourth"
+        },
+        {
+          "name": "editorial function readings bind the submitted text through grade, reconnect and revision",
+          "group": "fourth"
+        },
+        {
+          "name": "changing the Bop refrain fails independently of editorial readings",
+          "group": "fourth"
+        },
+        {
+          "name": "Limerick keeps its audible rhyme and stress tests when a closing-line reading is supplied",
+          "group": "fourth"
+        },
+        {
+          "name": "automatic catalog selection is recorded before a generic song is planned",
+          "group": "fourth"
+        },
+        {
+          "name": "a catalog form drawn for a constrained request is still used at grading",
+          "group": "fourth"
+        },
+        {
+          "name": "an automatic catalog sweep that every setting refuses names the planner reason",
+          "group": "fourth"
+        },
+        {
+          "name": "an automatic catalog sweep whose settings plan but meet no want says so",
+          "group": "fourth"
+        }
+      ]
     }
   ]
 }
