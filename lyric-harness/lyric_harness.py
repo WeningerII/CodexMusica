@@ -1597,6 +1597,18 @@ class Lexicon:
         if _scheme_of(self) == "v2":
             raw = fold_apostrophes(normalise_word(word)).lower().strip('"“”.,;:!?()[]')
         key = raw.strip("'")
+        # A WORD SPELLED WITH AN APOSTROPHE AT ITS EDGE KEEPS ITS OWN ENTRY
+        # (scheme v2, 2026-11-23; `quality/test_reader_quotes.py`,
+        # `AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry`). Only the
+        # letters without the mark were looked up, so `'cause` (K AH0 Z) was
+        # heard only as `cause` and could not rhyme the way it is sung, and a
+        # marked word whose letters are no dictionary word went to the
+        # guesser. Its own entry now comes first; the bare spelling's
+        # readings it lacks follow, so no pair that held stops holding
+        # (owner rule 5). Scheme v1 is frozen and reads the bare spelling.
+        own = []
+        if key != raw and _scheme_of(self) == "v2":
+            own = [list(p) for p in self.entries.get(raw, ())]
         prons = [list(p) for p in self.entries.get(key, ())]
         reduced = []
         if key.endswith("in"):
@@ -1604,11 +1616,11 @@ class Lexicon:
                 if len(phones) >= 2 and phones[-2:] == ["IH0", "NG"]:
                     reduced.append(list(phones[:-1]) + ["N"])
         if reduced and raw.endswith("in'"):
-            return reduced
+            return own + [p for p in reduced if p not in own]
         for phones in reduced:
             if phones not in prons:
                 prons.append(phones)
-        return prons
+        return own + [p for p in prons if p not in own]
 
     def dictionary_readings(self, word):
         """-> the readings a `basis: dictionary` choice may name for `word`:

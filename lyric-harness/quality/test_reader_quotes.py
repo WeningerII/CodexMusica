@@ -10,6 +10,7 @@ leading elision. Every other apostrophe reads as written.
 import functools
 import json
 import os
+import random
 import sys
 import unittest
 from pathlib import Path
@@ -410,6 +411,252 @@ class AQuoteMarkBesideAWordsOwnApostrophe(unittest.TestCase):
             for m in self.OPENING:
                 self.assertEqual(
                     self.tokens(f"they said {m}{w}", "v1")[-1], "'" + w)
+
+
+class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
+    """A word the dictionary spells with an apostrophe at its edge is read by
+    its own entry (2026-11-23; found by the coordinator while checking a
+    search fix for bug hunt finding 18, cause found by the reader's owner).
+
+    `Lexicon.pronunciation_variants` took the mark off the edge and read only
+    the entry of the letters that were left. Wherever those letters are a
+    dictionary word too, the word's own entry was never read: a line ending
+    in such a word was heard as the other word and could not rhyme the way
+    the word itself is sung. Where the letters are not a dictionary word, the
+    word's own entry was not read either, and the word went to the guesser.
+
+    THE RULE (scheme v2 only; scheme v1 is frozen):
+      1. the word's own entry comes first, in the dictionary's order;
+      2. then every reading of the same letters without the mark that the own
+         entry does not already hold, in the order the reader gives them, so
+         no pair that holds today stops holding;
+      3. an `-in'` spelling that answers a reduced `-ing` reading answers its
+         own entry first, then the reduced readings the entry lacks, and
+         nothing else (the bare spelling's readings stay out, as before).
+
+    Nothing here is a chosen example. The words are every dictionary word
+    with an apostrophe at exactly one edge, spelled with letters and
+    apostrophes only; a partner word is drawn from the dictionary by seed.
+    """
+
+    SEED = 20261123
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = LH.Lexicon(strip_parens=True, pronunciations=None,
+                             reader_scheme="v2")
+        cls.old = LH.Lexicon(strip_parens=True, pronunciations=None,
+                             reader_scheme="v1")
+        entries = cls.lex.entries
+        edge = sorted(w for w in entries
+                      if len(w) > 2 and w.replace("'", "").isalpha()
+                      and w.startswith("'") != w.endswith("'"))
+        cls.bare = {w: w.strip("'") for w in edge}
+        # Rule 3's words: an -in' spelling whose -ing word has a reading
+        # that ends in the weak vowel and NG.
+        cls.reduced = {}
+        for w in edge:
+            if w.endswith("in'"):
+                got = [list(p[:-1]) + ["N"]
+                       for p in entries.get(w[:-1] + "g", ())
+                       if len(p) >= 2 and list(p[-2:]) == ["IH0", "NG"]]
+                if got:
+                    cls.reduced[w] = got
+        cls.ruled = [w for w in edge if w not in cls.reduced]
+        # Both spellings in the dictionary, and the two entries differ: the
+        # words the rule changes the hearing of.
+        cls.differ = [w for w in cls.ruled if cls.bare[w] in entries
+                      and entries[w] != entries[cls.bare[w]]]
+        cls.same = [w for w in cls.ruled if cls.bare[w] in entries
+                    and entries[w] == entries[cls.bare[w]]]
+        cls.alone = [w for w in cls.ruled if cls.bare[w] not in entries]
+
+    @staticmethod
+    def own(lex, word):
+        return [list(p) for p in lex.entries[word]]
+
+    def expected(self, word):
+        """-> rule 1 then rule 2, said through the reader itself."""
+        own = self.own(self.lex, word)
+        return own + [p for p in self.lex.pronunciation_variants(self.bare[word])
+                      if p not in own]
+
+    @staticmethod
+    def sounds(anchor):
+        return tuple((s["nucleus"], tuple(s["coda"]), tuple(s["onset"]),
+                      s["stress"]) for s in anchor)
+
+    def heard(self, word, readings=None):
+        """-> the line's end as the rhyme judge hears it, every reading in
+        order. `readings` asks for the end word read by exactly those."""
+        anchors = LH.line_anchors(self.lex, f"they said {word}",
+                                  endpoint_pronunciations=readings)[0]
+        return [self.sounds(a) for a in anchors]
+
+    def test_the_premise_holds(self):
+        # The dictionary has such words on both edges and in each group, so
+        # no check below can pass by having nothing to read.
+        self.assertGreater(len([w for w in self.differ if w.startswith("'")]), 2)
+        self.assertGreater(len([w for w in self.differ if w.endswith("'")]), 100)
+        self.assertGreater(len(self.same), 300)
+        # Few words stand alone (three on the dictionary as shipped), so
+        # that check reads every one of them.
+        self.assertGreater(len(self.alone), 0)
+        self.assertGreater(len(self.reduced), 5)
+
+    def test_the_own_entry_comes_first_and_the_bare_readings_stay(self):
+        wrong = [(w, self.lex.pronunciation_variants(w)) for w in self.ruled
+                 if self.lex.pronunciation_variants(w) != self.expected(w)]
+        self.assertEqual(wrong[:5], [], f"{len(wrong)} of {len(self.ruled)} "
+                         f"word(s) not read as their own entry and then the "
+                         f"bare spelling's other readings")
+
+    def test_the_single_reading_is_the_words_own(self):
+        # `transcribe_word` takes the first reading as the word's one
+        # reading; it is the first reading of the word's own entry, and the
+        # word is not sent to the guesser.
+        wrong = [w for w in self.ruled
+                 if self.lex.transcribe_word(w)
+                 != (self.own(self.lex, w)[0], False)]
+        self.assertEqual(wrong[:5], [], f"{len(wrong)} word(s)")
+
+    def test_a_typographic_mark_is_the_same_word(self):
+        rng = random.Random(self.SEED)
+        for w in rng.sample(self.differ, 40):
+            curly = w.replace("'", "’")
+            with self.subTest(word=curly):
+                self.assertEqual(self.lex.pronunciation_variants(curly),
+                                 self.expected(w))
+
+    def test_the_line_is_heard_by_the_own_entry_and_the_bare_readings(self):
+        # At the line's end, where the rhyme judge reads it. Before the rule
+        # every one of these lines was heard exactly as the bare spelling's.
+        missing_own, missing_bare, not_first = [], [], []
+        for w in self.differ:
+            got = self.heard(w)
+            own = self.heard(w, self.own(self.lex, w))
+            if not set(own) <= set(got):
+                missing_own.append(w)
+            if not set(self.heard(self.bare[w])) <= set(got):
+                missing_bare.append(w)
+            if own and got[:1] != own[:1]:
+                not_first.append(w)
+        self.assertEqual(missing_own[:5], [], f"{len(missing_own)} of "
+                         f"{len(self.differ)} line end(s) never heard by the "
+                         f"word's own entry")
+        self.assertEqual(missing_bare[:5], [], f"{len(missing_bare)} line "
+                         f"end(s) lost a reading they had")
+        self.assertEqual(not_first[:5], [], f"{len(not_first)} line end(s) "
+                         f"not heard first by the word's own entry")
+
+    def test_a_word_whose_letters_are_no_word_is_read_and_not_guessed(self):
+        unread = [w for w in self.alone
+                  if self.heard(w) != self.heard(w, self.own(self.lex, w))]
+        self.assertEqual(unread[:5], [], f"{len(unread)} of "
+                         f"{len(self.alone)} word(s)")
+
+    #: The two names the judge has for a rhyme on a line's last syllable:
+    #: both syllables stressed, or one of them weak.
+    END_RHYMES = ("perfect rhyme", "light rhyme")
+
+    def test_the_rhyme_judge_hears_both(self):
+        # A pair at the judge, under its any-reading rule, for every word of
+        # one syllable whose own entry and bare spelling end on different
+        # sounds. A partner that ends as the own entry does rhymes with it:
+        # before the rule no such pair did. A partner that ends as the bare
+        # spelling does rhymes with it exactly as it rhymes with the bare
+        # spelling.
+        from quality import relations as RF
+        from quality.revise import _relation_phonology
+        phon = _relation_phonology()
+        entries = self.lex.entries
+
+        def vowels(phones):
+            return [i for i, ph in enumerate(phones) if ph[-1] in "012"]
+
+        def tail(phones):
+            return tuple(ph.rstrip("012") for ph in phones[vowels(phones)[-1]:])
+
+        def end_rhymes(a, b):
+            got = RF.whole_vocabulary_pairs(
+                [f"they said {a}", f"they said {b}"], phon)
+            names = set(got.get((1, 2), []))
+            names |= set(got.resolve_readings(
+                (1, 2), list(got.undecided.get((1, 2), [])))[0])
+            return names & set(self.END_RHYMES)
+
+        plain = sorted(w for w, prons in entries.items()
+                       if w.isalpha() and len(w) > 2 and len(prons) == 1
+                       and len(vowels(prons[0])) == 1
+                       and prons[0][vowels(prons[0])[0]].endswith("1"))
+        random.Random(self.SEED).shuffle(plain)
+        by_tail = {}
+        for w in plain:
+            by_tail.setdefault(tail(entries[w][0]), []).append(w)
+
+        judged = 0
+        for w in self.differ:
+            bare = self.bare[w]
+            own, other = self.own(self.lex, w), self.own(self.lex, bare)
+            if any(len(vowels(p)) != 1 for p in own + other):
+                continue
+            own_tails = {tail(p) for p in own}
+            bare_tails = {tail(p) for p in other}
+            if own_tails & bare_tails:
+                continue
+            mine = next((p for t in sorted(own_tails)
+                         for p in by_tail.get(t, []) if p != bare), None)
+            theirs = next((p for t in sorted(bare_tails)
+                           for p in by_tail.get(t, []) if p != bare), None)
+            if mine is None or theirs is None:
+                continue
+            judged += 1
+            with self.subTest(word=w, partner=mine, ends_as="its own entry"):
+                # PREMISE: the bare spelling does not rhyme with this
+                # partner, so the rhyme below can only be the own entry's.
+                self.assertEqual(end_rhymes(bare, mine), set())
+                self.assertNotEqual(end_rhymes(w, mine), set())
+            with self.subTest(word=w, partner=theirs, ends_as="the bare spelling"):
+                held = end_rhymes(bare, theirs)
+                self.assertNotEqual(held, set(), "PREMISE")
+                self.assertLessEqual(held, end_rhymes(w, theirs))
+        self.assertGreater(judged, 1, "PREMISE: words were judged")
+
+    def test_an_in_spelling_reads_its_own_entry_then_its_reduced_reading(self):
+        wrong = []
+        for w, reduced in sorted(self.reduced.items()):
+            own = self.own(self.lex, w)
+            want = own + [p for p in reduced if p not in own]
+            if self.lex.pronunciation_variants(w) != want:
+                wrong.append(w)
+        self.assertEqual(wrong[:5], [], f"{len(wrong)} of "
+                         f"{len(self.reduced)} word(s)")
+
+    def test_a_word_with_no_mark_at_its_edge_reads_as_before(self):
+        # CONTROLS. A bare word, and a word whose apostrophe is inside it,
+        # have no other spelling to read: the readings start with the word's
+        # own entry, as they always did.
+        rng = random.Random(self.SEED)
+        words = sorted(w for w in self.lex.entries
+                       if w.replace("'", "").isalpha() and len(w) > 2
+                       and not w.startswith("'") and not w.endswith("'"))
+        for w in rng.sample(words, 400) + [self.bare[x] for x in self.differ[:40]]:
+            own = self.own(self.lex, w)
+            self.assertEqual(self.lex.pronunciation_variants(w)[:len(own)], own, w)
+
+    def test_scheme_v1_is_frozen(self):
+        # Under v1 the mark comes off and the bare spelling is the whole
+        # answer, exactly as before the rule.
+        old_entries = self.old.entries
+        moved = [w for w in self.ruled if self.bare[w] in old_entries
+                 and self.old.pronunciation_variants(w)
+                 != self.old.pronunciation_variants(self.bare[w])]
+        self.assertEqual(moved[:5], [], f"{len(moved)} word(s) read "
+                         f"differently under the frozen scheme")
+        unread = [w for w in self.ruled if self.bare[w] not in old_entries
+                  and not self.bare[w].endswith("in")
+                  and self.old.pronunciation_variants(w) != []]
+        self.assertEqual(unread[:5], [])
 
 
 if __name__ == "__main__":
