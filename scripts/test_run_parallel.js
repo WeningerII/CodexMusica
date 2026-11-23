@@ -316,9 +316,12 @@ try {
   // (mcp/test_catalog_form_creation.mjs, grouped on this date) had no leaf to
   // find. The check now reads every split command: wherever a grouped file
   // runs, it runs once per group, in the declared order, and never whole.
+  // A command owns the file when it names it anywhere, not only last (found
+  // by R2 reading this check): a command that ran the file whole beside
+  // other files would otherwise go unread.
   let groupedOutsideProduction = 0;
   for (const grouped of groupedFiles) {
-    const owned = commands.filter((command) => command.endsWith(` ${grouped.source}`));
+    const owned = commands.filter((command) => command.split(' ').includes(grouped.source));
     assert.ok(owned.length, `${grouped.source} has no leaf`);
     const bodies = [...new Set(owned.map((command) => command.split(' ').slice(1).join(' ')))];
     assert.deepEqual(
