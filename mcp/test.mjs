@@ -5557,6 +5557,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',
       'mcp/test_lyric_workflow.mjs':
         'offline lyrics creation order and task authorization regressions',
+      'mcp/test_short_line.mjs':
+        'short-line flag and revise regressions through the connector, on the real lyric harness, executed by CI',
       'mcp/test_creation_next.mjs':
         'creation-order NEXT derivation regressions, offline and on the real lyric harness, executed by CI',
       'mcp/test_statements.mjs':
