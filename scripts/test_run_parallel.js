@@ -311,15 +311,27 @@ try {
       )
     )
   );
+  // REPINNED 2026-11-23: ~~offline.filter((command) => command.endsWith(grouped.source))~~
+  // read only the production batch, so a grouped file outside that batch
+  // (mcp/test_catalog_form_creation.mjs, grouped on this date) had no leaf to
+  // find. The check now reads every split command: wherever a grouped file
+  // runs, it runs once per group, in the declared order, and never whole.
+  let groupedOutsideProduction = 0;
   for (const grouped of groupedFiles) {
+    const owned = commands.filter((command) => command.endsWith(` ${grouped.source}`));
+    assert.ok(owned.length, `${grouped.source} has no leaf`);
+    const bodies = [...new Set(owned.map((command) => command.split(' ').slice(1).join(' ')))];
     assert.deepEqual(
-      offline
-        .filter((command) => command.endsWith(grouped.source))
-        .map((command) => command.split(' ')[0]),
-      grouped.groups.map((group) => `${grouped.environment}=${group}`)
+      owned,
+      bodies.flatMap((body) =>
+        grouped.groups.map((group) => `${grouped.environment}=${group} ${body}`)
+      )
     );
+    if (!productionFiles.includes(grouped.source)) groupedOutsideProduction++;
     assert.ok(full.inventoryDigests[grouped.source]);
   }
+  // PREMISE: the wider check above is exercised by a file the old one missed.
+  assert.ok(groupedOutsideProduction > 0);
   assert.ok(ordinary.includes(productionCommand), 'default whole-file batch remains unchanged');
   assert.ok(full.inventoryDigests['scripts/ci_node_test_groups.json']);
   assert.ok(full.inventoryDigests['scripts/ci_node_test_groups.js']);

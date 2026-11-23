@@ -39,7 +39,8 @@
     "The evidence orchestration contract leaf now executes both actual workflow coordinates and required report verification, plus8 Python weighted-process and receipt controls. Its changed body is weighted at the actual9.190-second local wall, replacing its prior2.0-second body observation; numerical children are stubbed in these orchestration controls and complete canon equivalence is measured separately.",
     "The brief gate file (node --test mcp/test_brief_gate.mjs) has no hosted observation yet. Its weight is the largest complete local cold-process wall measured on the PR #875 branch: 162, 192 and 207 seconds at 06cbe1fce8 (review runs), 160.5 seconds at e57846a963, 165.9 seconds with its 29 cases, and 219.7 and 225.5 seconds with the 33 cases it has after the second round of review fixes; it replaces an unsourced 116.0.",
     "The song-form creation file (node --test mcp/test_catalog_form_creation.mjs) had no weight, so the scheduler estimated it at 120 seconds and packed other leaves beside it; one shard then ran past its 45-minute limit. Its weight is its complete hosted wall on main at 5b9d690918, 1838.6 seconds (verify shard 4/8 of run 44553023519).",
-    "mcp/test_statements.mjs runs as its own command with a 300-second file limit. Its whole-file wall is 84.3 seconds hosted on main and 86.5 to 98.4 seconds locally; under shard load it reached the old 120-second limit (120.1 seconds, verify shard 6/8 of run 44569237738, and shard 4/8 of run 44555299756). Its weight is that censored 120.1 seconds."
+    "mcp/test_statements.mjs runs as its own command with a 300-second file limit. Its whole-file wall is 84.3 seconds hosted on main and 86.5 to 98.4 seconds locally; under shard load it reached the old 120-second limit (120.1 seconds, verify shard 6/8 of run 44569237738, and shard 4/8 of run 44555299756). Its weight is that censored 120.1 seconds.",
+    "REPINNED 2026-11-23: the song-form creation file's single weight ~~1838.6~~ is retired with its whole-file leaf; the file now runs as four registrar groups (first, second, third, fourth: 21, 22, 20 and 24 of its 87 cases, in declaration order). Hosted verify shards run on two kinds of machine. On the faster kind the whole file took 1723 to 2046 seconds and verify (shard 1/8) ended in 29 to 34 minutes; on the slower kind it took 2490 to 2625 seconds and the job ended at 42.5, 44.2 and 45.1 minutes of its 45-minute limit. Run 45131711592 was cancelled at that limit nine milliseconds after the file's 87 cases had all passed. Each group weight is max(actual local group wall, sum of the largest completed hosted time of each owned case plus 5 seconds for a fresh process). Per-case hosted times are from two complete whole-file runs: 1738.4 seconds (job 137440184771, run 45097106594, main at f9433dd5ca) and 2625.2 seconds (job 137550599952, run 45131711592, at 29b0fd150a)."
   ],
   "seconds": {
     "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 scripts/run_unittest.py --start-directory=lyric-harness/library --pattern=test_*.py --shard=1/24 --expect=aaf2e3f1e4c4108fca113e475c2cdc9ed69bc54103e55fb3bff59fcdd712b008": 21.533,
@@ -70,6 +71,10 @@
     "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=2/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad": 234.967,
     "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=3/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad": 229.6,
     "REGRESSION_SERIAL=1 node scripts/regression_recipes.js --shard=4/4 --expect=fc072ab663cb1c1dd05fffeb0050b672861c151079968949891a667acc0103ad": 249.8,
+    "TEST_CATALOG_FORM_CREATION_GROUP=first node --test mcp/test_catalog_form_creation.mjs": 647.6,
+    "TEST_CATALOG_FORM_CREATION_GROUP=second node --test mcp/test_catalog_form_creation.mjs": 650.9,
+    "TEST_CATALOG_FORM_CREATION_GROUP=third node --test mcp/test_catalog_form_creation.mjs": 674.2,
+    "TEST_CATALOG_FORM_CREATION_GROUP=fourth node --test mcp/test_catalog_form_creation.mjs": 671.2,
     "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=plan-grade node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs": 79.516,
     "TEST_FUNCTION_DISCLOSURE_IDENTITY_GROUP=remaining node --test --test-concurrency=1 --test-timeout=120000 mcp/test_function_disclosure_identity.mjs": 39.369,
     "TEST_PRONUNCIATION_NATIVE_GROUP=edit-session node --test --test-concurrency=1 --test-timeout=120000 mcp/test_pronunciation_native.mjs": 39.393,
@@ -116,7 +121,6 @@
     "node --test --test-concurrency=1 mcp/test_turn_lifecycle.mjs": 2.2,
     "node --test mcp/test_chatgpt_parked.mjs": 111.2,
     "node --test mcp/test_brief_gate.mjs": 225.5,
-    "node --test mcp/test_catalog_form_creation.mjs": 1838.6,
     "node --test mcp/test_continuation_audit.mjs": 234.6,
     "node --test mcp/test_high_report.mjs": 292.1,
     "node --test mcp/test_lexicon_basis.mjs": 120.4,
@@ -874,5 +878,84 @@
     "python_version": "Python 3.12.14",
     "measurement_context": "Local shared container; runner owner ran lightweight Python controls concurrently; all numerical evidence children were stubbed.",
     "scheduled_seconds": 9.19
+  },
+  "catalog_form_creation_group_observation": {
+    "date": "2026-11-23",
+    "source": "mcp/test_catalog_form_creation.mjs",
+    "registered_test_count": 87,
+    "registered_names_exactly_once": true,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "retired_whole_file_weight_seconds": 1838.6,
+    "whole_file_hosted_observations": [
+      {
+        "run": 45097106594,
+        "job": 137440184771,
+        "head": "f9433dd5ca0ddbed540fcf247d1496daba4934d6",
+        "seconds": 1738.4,
+        "complete": true,
+        "job_minutes": 30.5
+      },
+      {
+        "run": 45131711592,
+        "job": 137550599952,
+        "head": "29b0fd150a79c4b15e34beb2e812d91819a696d9",
+        "seconds": 2625.2,
+        "complete": true,
+        "job_cancelled_at_45_minute_limit": true
+      }
+    ],
+    "measurement_context": "Local container, four processors; the four groups ran one after another with no other test process, except five short runner-control runs (11 to 14 seconds each) during the first group.",
+    "groups": [
+      {
+        "group": "first",
+        "command": "TEST_CATALOG_FORM_CREATION_GROUP=first node --test mcp/test_catalog_form_creation.mjs",
+        "registered_test_count": 21,
+        "passed_locally": 21,
+        "hosted_case_seconds_fast_run": 455.5,
+        "hosted_case_seconds_slow_run": 642.1,
+        "sum_per_case_maximum_seconds": 642.6,
+        "process_allowance_seconds": 5,
+        "actual_local_group_seconds": 479.5,
+        "scheduled_seconds": 647.6
+      },
+      {
+        "group": "second",
+        "command": "TEST_CATALOG_FORM_CREATION_GROUP=second node --test mcp/test_catalog_form_creation.mjs",
+        "registered_test_count": 22,
+        "passed_locally": 22,
+        "hosted_case_seconds_fast_run": 419.3,
+        "hosted_case_seconds_slow_run": 645.9,
+        "sum_per_case_maximum_seconds": 645.9,
+        "process_allowance_seconds": 5,
+        "actual_local_group_seconds": 546.0,
+        "scheduled_seconds": 650.9
+      },
+      {
+        "group": "third",
+        "command": "TEST_CATALOG_FORM_CREATION_GROUP=third node --test mcp/test_catalog_form_creation.mjs",
+        "registered_test_count": 20,
+        "passed_locally": 20,
+        "hosted_case_seconds_fast_run": 421.3,
+        "hosted_case_seconds_slow_run": 669.2,
+        "sum_per_case_maximum_seconds": 669.2,
+        "process_allowance_seconds": 5,
+        "actual_local_group_seconds": 538.6,
+        "scheduled_seconds": 674.2
+      },
+      {
+        "group": "fourth",
+        "command": "TEST_CATALOG_FORM_CREATION_GROUP=fourth node --test mcp/test_catalog_form_creation.mjs",
+        "registered_test_count": 24,
+        "passed_locally": 24,
+        "hosted_case_seconds_fast_run": 440.9,
+        "hosted_case_seconds_slow_run": 666.2,
+        "sum_per_case_maximum_seconds": 666.2,
+        "process_allowance_seconds": 5,
+        "actual_local_group_seconds": 584.3,
+        "scheduled_seconds": 671.2
+      }
+    ]
   }
 }
