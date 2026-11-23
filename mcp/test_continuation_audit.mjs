@@ -66,7 +66,13 @@ const single = {
   backtrack: 0,
   max_rounds: 1,
 };
-const accepted = 'I watched the window like a diplomat';
+// REPINNED 2026-11-23: ~~'I watched the window like a diplomat'~~ — the
+// same-spelled-ending ban now cuts a word's spelling at the vowel its rhyme
+// starts on, a lighter last syllable included (bug hunt 2026-11-21, finding
+// 17), so 'cat' / 'diplomat' is one spelled ending and the answer was refused
+// (measured: "L1 'cat' / L2 'diplomat' (HOMEOTELEUTON)"). 'matte' rhymes with
+// 'Cat' and spells the ending its own way (measured: accepted).
+const accepted = 'I watched the window dry from gloss to matte';
 
 test('a verified rewrite retires its old occurrence reading and retains the original declaration', async () => {
   const fixture = JSON.parse(

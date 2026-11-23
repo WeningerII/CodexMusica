@@ -10,8 +10,16 @@ test('cacheless kitchen checkpoint normalizes resends without another provider r
   const { RUNS, _workerInternals } = await import('./lyric_tools.js');
   const { decodeState } = await import('./state_codec.js');
   let calls = 0;
+  // REPINNED 2026-11-23: ~~'I watched the window like a diplomat'~~ — the
+  // same-spelled-ending ban now cuts a word's spelling at the vowel its rhyme
+  // starts on, a lighter last syllable included (bug hunt 2026-11-21, finding
+  // 17), so 'cat' / 'diplomat' is one spelled ending. The first answer was
+  // refused and the second was then accepted (before: the first accepted,
+  // the second refused as fixing nothing), and this file still passed
+  // (measured on both trees). 'matte' rhymes with 'cat' and spells the ending
+  // its own way (measured: accepted, and the second refused as before).
   const proposals = [
-    'I watched the window like a diplomat',
+    'I watched the window dry from gloss to matte',
     'The copper kettle cooled beside the door',
   ];
   const writer = createServer(async (req, res) => {
@@ -79,6 +87,15 @@ test('cacheless kitchen checkpoint normalizes resends without another provider r
   try {
     assert.equal(Object.hasOwn(original.pronunciations[0], 'numbering'), false);
     const first = verdict(await call(original));
+    // The first answer is accepted and the second is not, so the checkpoint
+    // holds a line the loop wrote beside the chosen reading of 'cat'. Without
+    // this the file passed while both answers went the other way (see the
+    // repin note on `proposals`).
+    assert.deepEqual(first.final_draft, [
+      original.draft[0],
+      proposals[0],
+      ...original.draft.slice(2),
+    ]);
     assert.equal(first.pronunciations[0].token, 4);
     assert.equal(first.pronunciations[0].numbering, 'v2');
     assert.equal(calls, 2);

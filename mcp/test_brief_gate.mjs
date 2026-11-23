@@ -49,11 +49,21 @@ import { BRIEF_RETAIN_MS } from './brief_ledger.js';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const INPUT = ['Cat', 'Dog', 'Sun'];
 // The accepted answers are drawn by seed: four filler tokens and an end word
-// from a table of rhymes for INPUT[0] (one-syllable rhymes of it would be
-// refused as a prohibited pair, so the table is of longer words). FIX ends
+// from a table of rhymes for INPUT[0] ~~(one-syllable rhymes of it would be
+// refused as a prohibited pair, so the table is of longer words)~~. FIX ends
 // on another word than FIX3, so the two answers do not repeat an end word.
+// REPINNED 2026-11-23: ~~['diplomat', 'acrobat', 'habitat', 'thermostat',
+// 'aristocrat', 'democrat']~~ — the same-spelled-ending ban now cuts a word's
+// spelling at the vowel its rhyme starts on, a lighter last syllable included
+// (bug hunt 2026-11-21, finding 17). Every word spelled -at is then one
+// spelled ending with 'Cat' and with each other, and the answers were refused
+// (measured: "L1 'cat' / L2 'diplomat' (HOMEOTELEUTON)"). Each word of the
+// table now spells the ending its own way. The draw puts FIX on the first
+// and FIX3 on the second, the two not spelled like INPUT[0]; the third is
+// used where 'Cat' is not in the song, or where a draft is admitted and its
+// rhyme is not what the test reads.
 const FILLER = ['blue', 'stone', 'river', 'paper', 'window', 'silver', 'garden', 'candle'];
-const RHYMES = ['diplomat', 'acrobat', 'habitat', 'thermostat', 'aristocrat', 'democrat'];
+const RHYMES = ['matte', 'batt', 'diplomat'];
 const draw = (seed, k, n) =>
   parseInt(
     createHash('sha256')

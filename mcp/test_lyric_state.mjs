@@ -344,8 +344,14 @@ try {
     // superseded: input ['Cat', 'Dog'], scheme 'AA', relation 'type:rime
     // riche', both answers (ending 'oak' / 'door') accepted for the band.
     const input = ['Cat', 'Dog', 'Sun', 'Tree'];
+    // REPINNED 2026-11-23: ~~'I watched the window like a diplomat'~~ — the
+    // same-spelled-ending ban now cuts a word's spelling at the vowel its
+    // rhyme starts on, a lighter last syllable included (bug hunt 2026-11-21,
+    // finding 17), so 'cat' / 'diplomat' is one spelled ending and L2's
+    // answer was refused. 'matte' rhymes with 'Cat' and spells the ending its
+    // own way (measured: accepted).
     const proposals = [
-      'I watched the window like a diplomat',
+      'I watched the window dry from gloss to matte',
       'The copper kettle cooled beside the door',
     ];
     const accepted = [input[0], proposals[0], input[2], input[3]];
