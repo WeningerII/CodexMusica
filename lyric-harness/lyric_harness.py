@@ -10722,6 +10722,37 @@ def _legacy_pivot_unread(kind, prompt):
             + _PIVOT_REJECTED_CLOSE_1121 + prompt[found.end():])
 
 
+#: What a question says since 2026-11-23 when the previous try never reached
+#: the grader: the reply could not be read, was not one line of text
+#: for each line asked for, or held the wrong number of lines (the review of
+#: the bug hunt's fixes), FROZEN as `_BAN_DEFINITIONS_1121` is. Until then
+#: those reasons stood under the words of a rejected attempt. The row over
+#: them and the row under them go back to those words, each only where the
+#: other is found after it, directly under an attempt row.
+_ATTEMPT_NOT_GRADED_1123 = re.compile(
+    r"(?s)(?P<row>\n  This is ATTEMPT \d+ of this line's retry budget\.\n  )"
+    r"The PREVIOUS attempt never reached the grader\. Why, verbatim:"
+    r"(?P<why>\n.*?\n  )Do not send back a reply the same reason would stop "
+    r"again\.(?=\n)")
+_ATTEMPT_REJECTED_HEAD_1123 = ("The PREVIOUS attempt was REJECTED. The "
+                               "grader's reasons, verbatim:")
+_ATTEMPT_REJECTED_CLOSE_1123 = ("Do not send back something the same reason "
+                                "would reject again.")
+
+
+def _legacy_attempt_not_graded(kind, prompt):
+    """-> the question as worded while a try the grader never read was called
+    a rejected attempt."""
+    if kind not in ("propose", "propose_group"):
+        return None
+    found = _ATTEMPT_NOT_GRADED_1123.search(prompt)
+    if found is None:
+        return None
+    return (prompt[:found.start()] + found.group("row")
+            + _ATTEMPT_REJECTED_HEAD_1123 + found.group("why")
+            + _ATTEMPT_REJECTED_CLOSE_1123 + prompt[found.end():])
+
+
 #: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
 #: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
 #: it asked and replays an answer only to the same question, so a change to a
@@ -10755,6 +10786,9 @@ LEGACY_QUESTION_RENDERINGS = (
     ("2026-11-23 writer: a group asked for after a line reply that was never "
      "read no longer calls it a rejected answer",
      _legacy_pivot_unread),
+    ("2026-11-23 writer: a try that never reached the grader is no longer "
+     "called a rejected attempt",
+     _legacy_attempt_not_graded),
 )
 
 

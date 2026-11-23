@@ -489,8 +489,22 @@ def _attempt_block(attempt, reasons, indent="  ", prior=None,
     # one character per bullet.
     if isinstance(reasons, str):
         reasons = [reasons]
-    reasons = [str(r) for r in _ordered(reasons or ())]
-    if reasons:
+    reasons = _ordered(reasons or ())
+    # WHOSE REASONS THESE ARE (the review of the bug hunt's fixes,
+    # 2026-11-23). The loop writes some itself, for a reply it passed over
+    # before the grader read it, and marks each one where it is made
+    # (`quality/loop.py:_NotGraded`). Read off the attribute before the
+    # reasons are copied to plain text, and never worked out from their
+    # wording. A caller that hands over plain text is quoting a rejection.
+    not_graded = bool(reasons) and all(getattr(r, "not_graded", False)
+                                       for r in reasons)
+    reasons = [str(r) for r in reasons]
+    if not_graded:
+        out.append(f"{indent}{ATTEMPT_NOT_GRADED_ROW}")
+        for r in reasons:
+            out.append(f"{indent}  - {r}")
+        out.append(f"{indent}{ATTEMPT_NOT_GRADED_CLOSE}")
+    elif reasons:
         out.append(f"{indent}The PREVIOUS attempt was REJECTED. The grader's "
                    f"reasons, verbatim:")
         for r in reasons:
@@ -532,6 +546,16 @@ PIVOT_REJECTED_ROW = ("was asked first, and its answer was REJECTED. The "
 PIVOT_REJECTED_CLOSE = ("This question is asked because of that rejection; do "
                         "not send back something the same reason would reject "
                         "again.")
+#: The rows over and under the reasons when the previous try on this line's
+#: budget never reached the grader, in place of "The PREVIOUS attempt was
+#: REJECTED. The grader's reasons, verbatim:" and "Do not send back something
+#: the same reason would reject again." The reasons between them are the
+#: loop's own. `lyric_harness._legacy_attempt_not_graded` holds frozen copies
+#: of all four.
+ATTEMPT_NOT_GRADED_ROW = ("The PREVIOUS attempt never reached the grader. "
+                          "Why, verbatim:")
+ATTEMPT_NOT_GRADED_CLOSE = ("Do not send back a reply the same reason would "
+                            "stop again.")
 #: The same two rows when the reply to the pivot's line question never
 #: reached the grader (it could not be read, or was not one line). The rows
 #: between them are then the reader's own notice, which says how to answer

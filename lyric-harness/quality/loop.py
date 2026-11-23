@@ -1067,7 +1067,8 @@ class GroupBrief:
     brief: object                # the pivot's own `quality.revise.Brief`
     lines: tuple                 # the whole draft, this attempt's snapshot
     attempt: int
-    reasons: tuple = None        # the PREVIOUS attempt's rejection
+    reasons: tuple = None        # the PREVIOUS attempt's rejection, or why
+    #                              it never reached the grader (`_NotGraded`)
     whole: tuple = ()            # `inspect()`'s whole-draft findings
     #: WHERE THE PIVOT BINDS inside the group being rewritten, from
     #: `Mandate.slot_of`. `None` is the default slot — the end of the line —
@@ -1511,6 +1512,35 @@ def _unread(answer):
     return str(why) if why else None
 
 
+class _NotGraded(str):
+    """One reason the LOOP wrote, for a reply the grader never read.
+
+    A RE-ASKED QUESTION CALLED EVERY REASON THE GRADER'S (the review of the
+    bug hunt's fixes, 2026-11-23). A reply that could not be read, was not
+    one line of text for each line asked for, or held the wrong number of
+    lines uses its attempt, and the next question is told why through the
+    same `reasons` a rejection travels in. That question printed "The
+    PREVIOUS attempt was REJECTED. The grader's reasons, verbatim:" over all
+    of them, and the grader had read none: the reply never reached it.
+
+    So such a reason says whose it is. It is made HERE, where the loop passes
+    the reply over, and never worked out from its wording. It is still its
+    text (it prints, compares and saves as the same words), and the mark is
+    on the reason and not beside it, so the two cannot disagree: a reason
+    from `Reviser.verify` takes its place on the next attempt and carries no
+    mark. `quality/propose.py:_attempt_block` reads the attribute, the way
+    `_unread` above reads a reply's, and imports nothing from this module.
+    """
+    __slots__ = ()
+    not_graded = True
+
+
+def _not_graded(reasons):
+    """-> whether `reasons` are the loop's own (`_NotGraded`), every one."""
+    return bool(reasons) and all(getattr(r, "not_graded", False)
+                                 for r in reasons)
+
+
 def _not_one_line(text):
     """-> why `text` cannot stand as one line of a draft, or None when it can.
 
@@ -1521,8 +1551,10 @@ def _not_one_line(text):
     and anything a caller's own proposer returns are not. A text with a line
     break in it was accepted as ONE line of a draft that then sang one more
     than it counted, and a number, a list or an empty text ended the run on
-    an error. Each is now a rejected attempt with its reason, like any other
-    answer the grader turns down.
+    an error. Each now uses its attempt and the next question quotes why
+    (~~"a rejected attempt with its reason, like any other answer the grader
+    turns down"~~, REPLACED 2026-11-23: the grader never reads such an
+    answer, and the question says so, `_NotGraded`).
     """
     if not isinstance(text, str):
         return "the answer was not text"
@@ -1552,9 +1584,6 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose, whole=()):
     tried = 0
     reasons = None
-    # Whether `reasons` is the reader's notice (the last reply never reached
-    # the grader) or the grader's own reasons for rejecting it.
-    unread = False
     for attempt in range(rdecl.attempts_per_line):
         # `whole` LAST AND POSITIONAL, matching the declared contract
         # `propose(brief, lines, attempt, reasons=None, whole=())`. It is
@@ -1569,11 +1598,11 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         if _why is not None:
             # One attempt used, as the question promises; the next one is
             # asked with the reason, and nothing unread reaches the draft.
-            reasons, unread = [_why], True
+            reasons = [_NotGraded(_why)]
             continue
         _why = _not_one_line(candidate)
         if _why is not None:
-            reasons, unread = [_why], True
+            reasons = [_NotGraded(_why)]
             continue
         after, targets = apply_candidate(reviser, lines, mandate,
                                          b.line_no, candidate)
@@ -1598,7 +1627,7 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             return LineAttempt(b.line_no, 1, True, tried,
                                "; ".join(res["reasons"]),
                                tuple(sorted(targets))), after
-        reasons, unread = res["reasons"], False
+        reasons = res["reasons"]
     detail = f"tried {tried} candidate(s), none accepted"
     if reasons:
         detail += f"; last rejection: {'; '.join(reasons)}"
@@ -1642,7 +1671,7 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     return LineAttempt(b.line_no, 1, False, tried, detail, (),
                        asked=rdecl.attempts_per_line > 0,
                        rejected=tuple(str(r) for r in (reasons or ())),
-                       rejected_unread=bool(unread and reasons)), lines
+                       rejected_unread=_not_graded(reasons)), lines
 
 
 def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
@@ -1935,17 +1964,18 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 _why = _unread(got)
                 if _why is not None:
                     # An unread reply used this attempt (finding 25).
-                    reasons = (_why,)
+                    reasons = (_NotGraded(_why),)
                     continue
                 _why = _group_misshapen(got, expanded)
                 if _why is not None:
-                    reasons = (_why,)
+                    reasons = (_NotGraded(_why),)
                     continue
                 got = tuple(got)
                 if len(got) != len(expanded):
-                    reasons = (f"proposer returned {len(got)} line(s) for "
-                               f"atomic group {label}, which has {len(expanded)} "
-                               f"member(s) — one line per GroupBrief.members entry",)
+                    reasons = (_NotGraded(
+                        f"proposer returned {len(got)} line(s) for atomic "
+                        f"group {label}, which has {len(expanded)} member(s) "
+                        f"— one line per GroupBrief.members entry"),)
                     continue
                 after = list(lines)
                 for ln, text in zip(expanded, got):
@@ -2108,12 +2138,13 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 _why = _unread(got) or _group_misshapen(got, members)
                 got = () if _why is not None else tuple(got)
                 if _why is not None:
-                    reasons = (_why,)
+                    reasons = (_NotGraded(_why),)
                 elif len(got) != len(members):
-                    reasons = (f"proposer returned {len(got)} line(s) for "
-                               f"group {label}, which has {len(members)} "
-                               f"member(s) — the return is ordered by "
-                               f"`GroupBrief.members`, one line each",)
+                    reasons = (_NotGraded(
+                        f"proposer returned {len(got)} line(s) for group "
+                        f"{label}, which has {len(members)} member(s) — the "
+                        f"return is ordered by `GroupBrief.members`, one "
+                        f"line each"),)
                 else:
                     after = list(lines)
                     for m_line, text in zip(members, got):
@@ -2191,11 +2222,11 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 _why = _unread(got)
                 if _why is not None:
                     # An unread reply used this attempt (finding 25).
-                    reasons = (_why,)
+                    reasons = (_NotGraded(_why),)
                     continue
                 _why = _group_misshapen(got, members)
                 if _why is not None:
-                    reasons = (_why,)
+                    reasons = (_NotGraded(_why),)
                     continue
                 got = tuple(got)
                 if len(got) != len(members):
@@ -2203,10 +2234,11 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     # crash and not a silent skip: the proposer answered a
                     # different question and the next attempt is told so
                     # through the channel every other rejection uses.
-                    reasons = (f"proposer returned {len(got)} line(s) for "
-                               f"group {label}, which has {len(members)} "
-                               f"member(s) — the return is ordered by "
-                               f"`GroupBrief.members`, one line each",)
+                    reasons = (_NotGraded(
+                        f"proposer returned {len(got)} line(s) for group "
+                        f"{label}, which has {len(members)} member(s) — the "
+                        f"return is ordered by `GroupBrief.members`, one "
+                        f"line each"),)
                     continue
                 after = list(lines)
                 for m_line, text in zip(members, got):
@@ -2888,12 +2920,13 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                                          _promote_of(reviser)))
                     _got = propose_group(_gb)
                     if _got is None or _unread(_got) is not None:
-                        _reasons = (_unread(_got) or
-                                    "writer returned no unambiguous whole-draft answer",)
+                        _reasons = (_NotGraded(
+                            _unread(_got) or "writer returned no "
+                            "unambiguous whole-draft answer"),)
                         continue
                     _shape = _group_misshapen(_got, _members)
                     if _shape is not None:
-                        _reasons = (_shape,)
+                        _reasons = (_NotGraded(_shape),)
                         continue
                     _after = list(_got)
                     _v = reviser.verify(lines, _after, mandate, targeted=set(_members),
