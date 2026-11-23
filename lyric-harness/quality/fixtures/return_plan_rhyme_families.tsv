@@ -1,6 +1,8 @@
 # Rhyme families for quality/test_return_plan.py: one family per row, its key and its words.
-# FROZEN 2026-11-22 (bug hunt finding 17). These are the 82 witness rows of
-# data/rhyme_capacity_eng.tsv as that table stood before the spelling class was corrected.
+# FROZEN 2026-11-22 (bug hunt finding 17). Source: data/rhyme_capacity_eng.tsv as main carried it
+# since commit 9490c21c2 (2026-11-10; sha256 d48ec304d84d12bb...), the last version before the
+# spelling class was corrected. Every row that table certified under relation RHYME is here, all
+# 82, in the table's own order; none was chosen or left out.
 # The test needs many families of words that rhyme under class:RHYME, to build drafts from;
 # it never asked the same-spelled-ending ban of them, and under the corrected ban many of
 # these pairs are stopped, so this file is a word supply and is NOT a capacity witness.
