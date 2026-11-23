@@ -9007,7 +9007,7 @@ WITNESS_FINDINGS = {
         # The textbook oronym (E34), and a real pair that is NOT one: a
         # line and its own tail — Lear, eng_british_edward_lear.txt:37-38.
         # 2026-11-21 (bug hunt F20): the tail half is repaired — the schema
-        # forbids unmatched syllables, so Lear's pair now reads False as it
+        # forbids unmatched syllables, so the tail pair now reads False as it
         # should. The row stays a finding, answering ~~[False, True]~~
         # [False, False]: the oronym still fails on where each word's own
         # reading splits its syllables (F2's word-boundary half).

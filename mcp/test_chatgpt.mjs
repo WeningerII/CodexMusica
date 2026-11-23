@@ -1545,6 +1545,56 @@ test('detail reads the finished result itself: a revise paused on a question has
   assert.ok(sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [3] }));
 });
 
+test('with no song in the verdict, lines are counted on the draft as the tools read it', async (t) => {
+  // The review of the bug hunt's fixes, 2026-11-23 (follow-up to finding 35).
+  // With no final_draft to count, the song's length was the draft text split
+  // on line feeds alone, blank rows and section rows included: a three-line
+  // song pasted with carriage returns "has 1 line(s)", so its line 3 was
+  // refused as past the end, and the same song pasted with line feeds had six.
+  // The count is the reader's own rows now, for the text and for the array.
+  const { store } = storeFor(t);
+  const verdict = {
+    exit_code: 3,
+    findings_measured: true,
+    findings: [{ code: 'METER', line: 3, message: 'm' }],
+    coverage: {},
+  };
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session) => ({
+      session,
+      result: {
+        content: [
+          { type: 'text', text: 'the song' },
+          { type: 'text', text: JSON.stringify(verdict) },
+        ],
+      },
+    }),
+  });
+  const rows = ['[Verse 1]', 'one line', '', 'two line', 'three line'];
+  let at = sessions.open('lyrics').session_id;
+  for (const args of [
+    ...['\n', '\r', '\r\n', '\u2028', '\u2029'].map((br) => ({
+      draft_text: rows.join(br) + br,
+    })),
+    { draft: rows },
+  ]) {
+    const said = JSON.stringify(args);
+    const graded = sessions.submit(at, 'lyrics', 'lyric_grade', { seed: 1, ...args });
+    await sessions.wait(graded.operation_id);
+    at = sessions.status(graded.operation_id, 'lyrics').session_id;
+    assert.ok(
+      sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [3] }),
+      said
+    );
+    assert.throws(
+      () => sessions.status(graded.operation_id, 'lyrics', { detail: 'findings', lines: [4] }),
+      /^Error: LINES_OUT_OF_RANGE: this lyric_grade's song has 3 line\(s\); line\(s\) 4/,
+      said
+    );
+  }
+});
+
 // A check in a session (owner's plan, stage 1): the finished operation is read
 // as the short verdict, its parts with `detail`, and the one large field only
 // in `full` — and there only when the check call asked for it.

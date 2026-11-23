@@ -1600,6 +1600,54 @@ def test_a_dash_typed_as_hyphens_does_not_change_a_return():
           not bad, f"wrong: {bad[:3]}")
 
 
+def test_a_dash_between_two_words_with_no_space_is_a_dash_too():
+    """The review of the bug hunt's fixes, 2026-11-23 (finding 22). The cases
+    above put the dash at a line's edge, at one word's edge, or between two
+    words with a space on one side. None joined two words with it and no
+    space ("then--we"), and the rule's own comment said a hyphen between two
+    letters stays. That is true of ONE hyphen; two or more are a dash wherever
+    they stand. The reading was already right, and nothing held it: a pattern
+    that drops only the hyphens with a space or a line's edge beside them
+    passes every case above and reads "then--we" as one joined word.
+
+    Lines and positions are drawn by seed from the whole dictionary."""
+    print("\nF22b. a dash typed as hyphens between two words, no space")
+    import random
+    from quality.grid import compare_returns, normalise_line
+    import lyric_harness as LH
+    ents = LH.Lexicon().entries
+    words = sorted(w for w in ents if w.isalpha() and w.islower() and len(w) > 2)
+    rng = random.Random(20261123)
+    bad = []
+    for _ in range(60):
+        line = [rng.choice(words) for _ in range(rng.randint(3, 7))]
+        k = rng.randint(0, len(line) - 2)
+        dash = rng.choice(("--", "---"))
+        plain = " ".join(line).capitalize()
+        dashed = " ".join(line[:k] + [line[k] + dash + line[k + 1]]
+                          + line[k + 2:]).capitalize()
+        joined = " ".join(line[:k] + [line[k] + "-" + line[k + 1]]
+                          + line[k + 2:]).capitalize()
+        with LH.reader_scheme_scope("v2"):
+            if (normalise_line(dashed) != normalise_line(plain)
+                    or LH.line_tokens(dashed) != LH.line_tokens(plain)
+                    or compare_returns([plain], [dashed]).kind != "VERBATIM"):
+                bad.append(("dash", plain, dashed,
+                            compare_returns([plain], [dashed]).kind))
+            # The control: ONE hyphen between two letters joins a word.
+            if (normalise_line(joined) == normalise_line(plain)
+                    or compare_returns([plain], [joined]).kind == "VERBATIM"):
+                bad.append(("joined", plain, joined))
+        # Scheme v1 keeps the pre-batch text: the dash stays.
+        if normalise_line(dashed, "v1") == normalise_line(plain, "v1"):
+            bad.append(("v1 moved", plain, dashed))
+    check("two or three hyphens between two words with no space are a dash "
+          "under reader scheme v2 (the line reads, counts and returns as the "
+          "plain line does); one hyphen there still joins a word; under v1 "
+          "the dash stays (bug hunt F22)",
+          not bad, f"wrong: {bad[:3]}")
+
+
 def test_every_variation_kind_is_reportable():
     """A kind that can never be REPORTED is a check that cannot fail.
 
@@ -4206,6 +4254,7 @@ if __name__ == "__main__":
                test_a_draft_that_follows_the_plan_gets_no_same_words_note,
                test_a_return_that_loses_or_gains_a_line_is_not_verbatim,
                test_a_dash_typed_as_hyphens_does_not_change_a_return,
+               test_a_dash_between_two_words_with_no_space_is_a_dash_too,
                test_every_variation_kind_is_reportable,
                test_read_marked_songs_drops_apparatus_by_the_one_rule,
                test_a_reprise_is_a_relation_between_two_DIFFERENT_functions,

@@ -7,7 +7,7 @@ import { buildServer } from './tools.js';
 import { BRIEF_WIRE_SONG, admitLyricCall, vouchResumeWire } from './lyric_tools.js';
 import { connectConnector } from './client.js';
 import { requestDigest } from './job_store.js';
-import { draftFromText, normalizeDraftLines } from './lyric_text.js';
+import { draftFromText, normalizeDraftLines, textRows } from './lyric_text.js';
 import { createOperationBudget } from './paid_budget.js';
 import { childExecutionContext, withExecutionContext } from './execution_context.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
@@ -429,12 +429,16 @@ function checkDetail(record, result, detail, lines) {
       `LINES_NOT_APPLICABLE: lines narrows only ${LINE_PARTS.join(', ')} on a ${orList(LINE_TOOLS)}; detail "${detail}" on a ${tool} has nothing per line. Omit lines.`
     );
   const args = record.intent.action?.arguments || {};
+  // With no song in the verdict, the draft's own lines as the tools read them
+  // (`lyric_text.js`): every row break the reader splits on, and no blank row
+  // or section row. A line-feed split counted a song pasted with carriage
+  // returns as one line, and refused its line 3 as past the end.
   const count =
     shape.lines ??
     (Array.isArray(args.draft)
-      ? args.draft.length
+      ? normalizeDraftLines(args.draft).length
       : typeof args.draft_text === 'string'
-        ? args.draft_text.split('\n').length
+        ? normalizeDraftLines(textRows(args.draft_text)).length
         : null);
   const past = count ? lines.filter((n) => n > count) : [];
   if (past.length)

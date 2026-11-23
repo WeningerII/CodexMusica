@@ -15,9 +15,25 @@ const ROW_BREAK = /\r\n|[\n\r\u2028\u2029]/u;
 // carriage return before a line feed stays in its row (and is trimmed off).
 const ROW_BREAK_CHAR = /\n|\r(?!\n)|[\u2028\u2029]/u;
 
+// ONE SPLIT FOR EVERY PLACE TEXT BECOMES ROWS (the review of the bug hunt's
+// fixes, 2026-11-23). The reader took the breaks above while the row count the
+// first cap is checked on, lyric_recover's paste, the stepped form's reader
+// and an interview answer's lines each split on their own, narrower list. So
+// 1,390 rows broken by a Unicode line separator passed the 1,389-row cap, and
+// the same two pasted lines were two rows to one tool and one row to another.
+// Each of them now calls this.
+export const textRows = (text) => String(text).split(ROW_BREAK);
+
+// The lines an interview answer carries, labels stripped (`L3: …`, `LINE: …`).
+// A row that is blank, or only its label, carries no line.
+export const answeredLines = (answer) =>
+  textRows(answer)
+    .map((row) => row.trim().replace(/^(?:L\s*\d+\s*[:.]|LINE\s*:)\s*/i, ''))
+    .filter(Boolean);
+
 export function draftFromText(text, form) {
   if (form === 'prose-poem') {
-    const rows = String(text).split(ROW_BREAK);
+    const rows = textRows(text);
     let previous = false;
     for (const row of rows) {
       if (!row.trim()) {
@@ -33,10 +49,7 @@ export function draftFromText(text, form) {
     }
     return normalizeDraftLines(rows, form);
   }
-  return normalizeDraftLines(
-    String(text).split(form === 'triadic-line' ? /\r\n|\r|\n/ : ROW_BREAK),
-    form
-  );
+  return normalizeDraftLines(textRows(text), form);
 }
 
 // Non-string items are kept as they are, so the handler's own type check

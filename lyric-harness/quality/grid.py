@@ -1952,11 +1952,16 @@ class VariationDeclaration:
 
 _MARKUP = re.compile(r"[_*]+")
 _PUNCT = re.compile(r"[^\w\s'’-]", re.UNICODE)
-#: A hyphen that joins no word: alone, or at a word's edge. ` --` is a dash
-#: typed as hyphens, punctuation like the em dash `_PUNCT` already drops
-#: (bug hunt F22, 2026-11-21); a hyphen between two letters stays. Reader
-#: scheme v2 only: v1 is the pre-batch record (`quality/test_reader.py`,
-#: `V1Frozen`), and there a loose hyphen stays in the text.
+#: A hyphen that joins no word: any hyphen with something other than a
+#: letter, digit or apostrophe on at least one side. ` --` is a dash typed
+#: as hyphens, punctuation like the em dash `_PUNCT` already drops (bug hunt
+#: F22, 2026-11-21). ONE hyphen between two letters stays (`well-known`);
+#: two or more are a dash wherever they stand, between two words with no
+#: space too (`then--we`), because each of them has a hyphen beside it
+#: (~~"a hyphen between two letters stays"~~, made exact 2026-11-23:
+#: `test_grid.py`, F22b). Reader scheme v2 only: v1 is the pre-batch record
+#: (`quality/test_reader.py`, `V1Frozen`), and there a loose hyphen stays in
+#: the text.
 _LOOSE_HYPHENS = re.compile(r"(?<![\w'’])-+|-+(?![\w'’])", re.UNICODE)
 _SPACE = re.compile(r"\s+")
 
