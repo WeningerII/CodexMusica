@@ -695,6 +695,23 @@ test('lyric_revise: a pasted run refuses plan declarations, a long answer, and f
     assert.ok(tooLong.isError);
     assert.match(tooLong.content[0].text, /ANSWER_TOO_LONG/);
     assert.match(tooLong.content[0].text, /at most 512 characters/);
+    // An answered line ends at every break the reader splits on (the review
+    // of the bug hunt's fixes, 2026-11-23): the long line is measured alone,
+    // not together with the row after a carriage return or a Unicode line
+    // separator, which the count used to add in ("this one has 515").
+    for (const br of ['\n', '\r', '\u2028', '\u2029']) {
+      const twoRows = await raw({
+        run_id: v1.run_id,
+        run_revision: v1.run_revision,
+        answer: `${'x'.repeat(513)}${br}y`,
+      });
+      assert.ok(twoRows.isError, JSON.stringify(br));
+      assert.match(
+        twoRows.content[0].text,
+        /ANSWER_TOO_LONG: an answered line is at most 512 characters and this one has 513\./,
+        JSON.stringify(br)
+      );
+    }
     // Inside the character limit, an answered line must also fit the room the
     // run reserved for it (800 bytes as UTF-8): 300 three-byte characters do
     // not, and the refusal says which limit it was.
