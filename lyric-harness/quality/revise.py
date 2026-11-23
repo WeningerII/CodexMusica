@@ -1314,7 +1314,8 @@ class Reviser:
         end words have several readings (or end on a small word that may be
         sung weak) is asked again with every combination required."""
         from lyric_harness import (end_word_readings, fold_apostrophes,
-                                   line_tokens, weak_token, _scheme_of)
+                                   line_tokens, weak_token, _scheme_of,
+                                   sung_stressed_at_line_end)
         ambiguous = False
         for text in (lines[i], lines[j]):
             words = line_tokens(text, strip_parens=self.lex.strip_parens,
@@ -1323,9 +1324,11 @@ class Reviser:
                 continue
             key = fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
             # Counted as spelled (`end_word_readings`): an edge-marked word's
-            # own entry is a reading too.
+            # own entry is a reading too. A word with no stress in its entry
+            # has two hearings at a line's end (owner ruling 2026-11-23).
             if (len(end_word_readings(self.lex, words[-1])) > 1
-                    or weak_token(self.lex, key, phrase_final=True)):
+                    or weak_token(self.lex, key, phrase_final=True)
+                    or sung_stressed_at_line_end(self.lex, words[-1])):
                 ambiguous = True
         if not ambiguous:
             return True

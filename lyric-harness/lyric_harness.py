@@ -336,6 +336,40 @@ def weak_token(reader, word, phrase_final=False):
     word = word.lower()
     return word in WEAK_ALWAYS or (word in WEAK_NONFINAL and not phrase_final)
 
+def sung_stressed_at_line_end(reader, word):
+    """-> True when `word`, a line's last token, may be HEARD STRESSED though
+    its dictionary entry marks no stress (owner ruling 2026-11-23:
+    `'cause`/`buzz` and `'em`/`hum` are full rhymes).
+
+    THE CLASS: a word whose own entry has exactly one vowel and no stressed
+    syllable in every reading, and every one of whose readings has exactly
+    one vowel, so there is one vowel to stress and nothing is chosen. A word
+    with no vowel (`hm`) or with two unstressed vowels stays out. Asked on
+    the RAW token, because the edge mark is part of the spelling (`em` has a
+    stressed entry of its own). Scheme v2 only; v1 is frozen.
+
+    It ADDS a hearing and never replaces one: every reader that asks keeps
+    the dictionary reading and offers the stressed one beside it, as the
+    small end word does (owner ruling 2026-10-01; standing rule 5)."""
+    if _scheme_of(reader) != "v2" or not hasattr(reader, "pronunciation_variants"):
+        return False
+    own = getattr(reader, "entries", {}).get(fold_apostrophes(word).lower(), ())
+    if not own:
+        return False
+    vowels = lambda r: sum(1 for p in r if p[-1:].isdigit())
+    if not all(vowels(r) == 1 and not any(p[-1] in "12" for p in r)
+               for r in own):
+        return False
+    prons = reader.pronunciation_variants(word)
+    return bool(prons) and all(vowels(r) == 1 for r in prons)
+
+
+def stressed_hearing(phones):
+    """-> `phones` with every vowel's stress written 1: the hearing
+    `sung_stressed_at_line_end` adds (its words have one vowel)."""
+    return [re.sub(r"[0-2]$", "1", ph) for ph in phones]
+
+
 SUFFIXES = [
     "ation", "ition", "ology", "ability", "iness", "fully",
     "tion", "sion", "ment", "ness", "ing", "ity", "ous", "ily",
@@ -1603,6 +1637,12 @@ class Lexicon:
                         return ["".join(pieces)]
         return pieces
 
+
+    def sung_stressed_at_line_end(self, word):
+        """-> `sung_stressed_at_line_end(self, word)`, asked of the reader, so
+        a module that imports nothing from this one (`quality.relations`)
+        can ask the stream's own lexicon."""
+        return sung_stressed_at_line_end(self, word)
 
     def pronunciation_variants(self, word):
         """Keep explicit -in' elision separate from a bare-name homograph.
@@ -3930,14 +3970,25 @@ def line_anchors(lex, text, promote=False, endpoint_pronunciations=None,
     # enumerating ways of singing the line can treat them as separate
     # readings; None (the default) offers both.
     _demote = weak_token(end_reader, lw, phrase_final=True)
+    # A WORD WITH NO STRESS IN ITS ENTRY MAY BE HEARD STRESSED at the line's
+    # end (owner ruling 2026-11-23), the same two hearings the other way
+    # round: its dictionary reading is the weak one and stays first, and its
+    # own vowel heard stressed follows (`sung_stressed_at_line_end`).
+    _lift = not _demote and sung_stressed_at_line_end(end_reader, last)
     if _demote and small_end == "stressed":
         readings = [(var, False) for var in variants]
     elif _demote and small_end == "weak":
         readings = [(var, True) for var in variants]
+    elif _lift and small_end == "stressed":
+        readings = [(stressed_hearing(var), False) for var in variants]
+    elif _lift and small_end == "weak":
+        readings = [(var, False) for var in variants]
     else:
         readings = [(var, _demote) for var in variants]
         if _demote:
             readings += [(var, False) for var in variants]
+        if _lift:
+            readings += [(stressed_hearing(var), False) for var in variants]
     for var, demote in readings:
         v = list(var)
         if not syllabify(v):
@@ -5397,6 +5448,21 @@ def ending_carries_the_rhyme(word_a, word_b, lex=None, decl=None, suffix=None):
 # Candidates — reverse index over the lexicon
 # ---------------------------------------------------------------------------
 
+def _line_end_stressed_anchor(lex, word, phones):
+    """-> the anchor of `phones` with its last vowel heard stressed, when
+    `word` ends them and is in `sung_stressed_at_line_end`'s class (one
+    vowel, so the last vowel is the word's own); None otherwise."""
+    if not phones or not sung_stressed_at_line_end(lex, word):
+        return None
+    last = max((i for i, ph in enumerate(phones) if ph[-1:].isdigit()),
+               default=None)
+    if last is None:
+        return None
+    lifted = list(phones)
+    lifted[last] = stressed_hearing([lifted[last]])[0]
+    return anchor(syllabify(lifted))
+
+
 class CandidateEngine:
     def __init__(self, lex, decl):
         self.lex, self.decl = lex, decl
@@ -5411,6 +5477,13 @@ class CandidateEngine:
             anc = anchor(sylls)
             if anc:
                 self.index.append((word, anc, rank))
+                # A candidate is offered as a line's end word, where a word
+                # in `sung_stressed_at_line_end`'s class is heard stressed
+                # too (owner ruling 2026-11-23): it is indexed both ways and
+                # offered once, at its better score.
+                lifted = _line_end_stressed_anchor(lex, word, prons[0])
+                if lifted and lifted != anc:
+                    self.index.append((word, lifted, rank))
 
     def candidates(self, text, n=20, include_perfect=True):
         """-> ONE dict shape, always, whether or not the query reads.
@@ -5432,15 +5505,24 @@ class CandidateEngine:
             return {"query": text, "anchor_syllables": 0, "oov": oov,
                     "candidates": [], "error": "no anchor"}
         query_word = words[-1].lower() if words else ""
-        scored = []
+        # The query is a line's end word too (owner ruling 2026-11-23).
+        ancs_q = [anc_q]
+        lifted_q = (_line_end_stressed_anchor(self.lex, words[-1], phones)
+                    if words else None)
+        if lifted_q and lifted_q != anc_q:
+            ancs_q.append(lifted_q)
+        best = {}
         for word, anc, rank in self.index:
             if word == query_word:
                 continue
-            s = score(anc_q, anc, self.decl, query_word, word)
-            if "RIME_RICHE" in s["relations"] and not include_perfect:
-                continue
-            if s["total"] >= self.decl.theta_rhyme - 0.15:
-                scored.append((s["total"], rank, word, s))
+            for a_q in ancs_q:
+                s = score(a_q, anc, self.decl, query_word, word)
+                if "RIME_RICHE" in s["relations"] and not include_perfect:
+                    continue
+                if (s["total"] >= self.decl.theta_rhyme - 0.15
+                        and (word not in best or s["total"] > best[word][0])):
+                    best[word] = (s["total"], rank, word, s)
+        scored = list(best.values())
         scored.sort(key=lambda t: (-t[0], t[1]))
         out = []
         for tot, rank, word, s in scored[:n]:
@@ -6497,6 +6579,12 @@ def word_syllable_map(lex, text):
             sung = next((list(alt) for alt in
                          getattr(reader, "entries", {}).get(lw, ())
                          if any(x in (1, 2) for x in stressed(alt))), None)
+        # A line-final word with no stress in its entry may be heard
+        # stressed (owner ruling 2026-11-23): where no reading of its own
+        # carries a stress, its own vowel heard stressed is `sung_alt`.
+        if (sung is None and final and phones
+                and sung_stressed_at_line_end(reader, w)):
+            sung = stressed_hearing(phones)
         # The hyphen halves, read exactly as `_tag_span_words` reads them:
         # a span may name a token that is only partly the string it was built
         # from, and a provenance record that cannot say so is the defect

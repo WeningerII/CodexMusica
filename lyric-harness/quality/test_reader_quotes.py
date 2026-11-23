@@ -1035,7 +1035,13 @@ class ACheckCountsAnEndWordAsSpelled(unittest.TestCase):
                 key = LH.fold_apostrophes(word).lower().strip("'\".,;:!?()[]")
                 return list(reader.entries.get(key) or ())
             return saved(reader, word)
+        # The words that split are also in the line-end hearing's class
+        # (`AWordWithNoStressIsHeardStressedAtALineEnd`), which makes an
+        # ending ambiguous by itself, so that hearing is off while the bare
+        # key is shown.
+        heard = LH.sung_stressed_at_line_end
         LH.end_word_readings = bare_here
+        LH.sung_stressed_at_line_end = lambda _r, _w: False
         try:
             for w, line, partner in self.pairs:
                 graded, revised = self.collisions(line, partner)
@@ -1043,8 +1049,426 @@ class ACheckCountsAnEndWordAsSpelled(unittest.TestCase):
                     split.append(w)
         finally:
             LH.end_word_readings = saved
+            LH.sung_stressed_at_line_end = heard
         self.assertEqual(wrong, [])
         self.assertTrue(split, "PREMISE: the bare key changes no answer")
+
+
+class AWordWithNoStressIsHeardStressedAtALineEnd(unittest.TestCase):
+    """THE OWNER'S RULING (2026-11-23): a word whose own entry gives it one
+    vowel and no stress ('cause K AH0 Z, 'em AH0 M) may be sung stressed when
+    it ends a line, so 'cause/buzz and 'em/hum are full rhymes there.
+
+    THE RULE (scheme v2 only; scheme v1 is frozen): a word whose own
+    dictionary entry has exactly one vowel and no stressed syllable in every
+    reading, and every one of whose readings has exactly one vowel, is ALSO
+    heard with that vowel stressed when it is a line's last token. The
+    dictionary reading stays, and stays first (standing rule 5: a word passes
+    if any way of singing it works). Inside a line nothing changes. The class
+    is computed here from the dictionary by that rule, not listed, and the
+    rule is switched off by replacing `sung_stressed_at_line_end`, so every
+    reader is compared with itself."""
+
+    SEED, CONTROLS = 913, 200
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = LH.Lexicon(strip_parens=True, pronunciations=None,
+                             reader_scheme="v2")
+        cls.v1 = LH.Lexicon(strip_parens=True, pronunciations=None,
+                            reader_scheme="v1")
+        lex = cls.lex
+
+        def vowels(r):
+            return sum(1 for p in r if p[-1].isdigit())
+
+        def in_class(w):
+            own = lex.entries.get(w, ())
+            return (bool(own)
+                    and all(vowels(r) == 1
+                            and not any(p[-1] in "12" for p in r)
+                            for r in own)
+                    and all(vowels(r) == 1
+                            for r in lex.pronunciation_variants(w)))
+        cls.words = sorted(w for w in lex.entries if in_class(w))
+        rest = sorted(w for w in lex.entries
+                      if w.isalpha() and w.islower() and not in_class(w))
+        cls.controls = random.Random(cls.SEED).sample(rest, cls.CONTROLS)
+
+    @staticmethod
+    def line_for(w):
+        # A word the reader joins to the one before it (`it 'm` is one
+        # token) is set alone on its line, where it is the last token too.
+        line = f"we sang it {w}"
+        toks = LH.line_tokens(line, strip_parens=True, scheme="v2")
+        return line if toks and toks[-1] == w else w
+
+    @staticmethod
+    def shape(anchors):
+        return [[(s["word"], s["nucleus"], tuple(s["coda"]), s["stress"])
+                 for s in a] for a in anchors]
+
+    def off(self, fn, *args):
+        saved = LH.sung_stressed_at_line_end
+        LH.sung_stressed_at_line_end = lambda _r, _w: False
+        try:
+            return fn(*args)
+        finally:
+            LH.sung_stressed_at_line_end = saved
+
+    def anchors(self, lex, line):
+        return self.shape(LH.line_anchors(lex, line)[0])
+
+    def sylmap(self, lex, line):
+        return [(s["word"], s["stress"], s.get("sung_alt", {}).get("stress"))
+                for s in LH.word_syllable_map(lex, line)]
+
+    def test_premise_the_class_is_not_empty(self):
+        self.assertTrue(self.words, "PREMISE")
+
+    def test_at_a_line_end_the_word_is_also_heard_stressed(self):
+        wrong = []
+        for w in self.words:
+            line = self.line_for(w)
+            on, off = self.anchors(self.lex, line), self.off(
+                self.anchors, self.lex, line)
+            heard = any(a and a[-1][3] == 1 and a[-1][0] == w for a in on)
+            if not on or on[0] != off[0] or not heard:
+                wrong.append((w, "anchors"))
+            last = LH.word_syllable_map(self.lex, line)[-1]
+            if last["stress"] != 0 or not (
+                    last["stress"] in (1, 2)
+                    or last.get("sung_alt", {}).get("stress") in (1, 2)):
+                wrong.append((w, "syllable map"))
+        self.assertEqual(wrong, [])
+
+    def test_inside_a_line_nothing_changes(self):
+        wrong = []
+        for w in self.words:
+            line = f"{w} we sang it"
+            if (self.anchors(self.lex, line)
+                    != self.off(self.anchors, self.lex, line)
+                    or self.sylmap(self.lex, line)
+                    != self.off(self.sylmap, self.lex, line)):
+                wrong.append(w)
+        self.assertEqual(wrong, [])
+
+    def test_scheme_v1_is_frozen(self):
+        wrong = []
+        for w in self.words:
+            line = self.line_for(w)
+            if (self.anchors(self.v1, line)
+                    != self.off(self.anchors, self.v1, line)
+                    or self.sylmap(self.v1, line)
+                    != self.off(self.sylmap, self.v1, line)):
+                wrong.append(w)
+        self.assertEqual(wrong, [])
+        self.assertFalse(any(LH.sung_stressed_at_line_end(self.v1, w)
+                             for w in self.words))
+
+    def test_controls_other_line_end_words_are_unchanged(self):
+        wrong = []
+        for w in self.controls:
+            line = f"we sang it {w}"
+            if (self.anchors(self.lex, line)
+                    != self.off(self.anchors, self.lex, line)
+                    or self.sylmap(self.lex, line)
+                    != self.off(self.sylmap, self.lex, line)):
+                wrong.append(w)
+        self.assertEqual(wrong[:5], [], f"{len(wrong)} of {len(self.controls)}")
+
+    def test_the_owners_pairs_are_full_rhymes_in_a_real_grade(self):
+        # The owner's own two pairs, through the real `plan` and `song`
+        # verbs on the plan's group 2,3, with no named relation and asked as
+        # a perfect rhyme. Before the rule the second exits 3 on
+        # SCHEME_VIOLATION for both pairs.
+        import subprocess
+        import tempfile
+        harness = Path(LH.__file__).resolve()
+        run = lambda *a: subprocess.run(
+            [sys.executable, str(harness), *a], cwd=str(harness.parent),
+            capture_output=True, text=True, timeout=600)
+        for short, full in (("'cause", "buzz"), ("'em", "hum")):
+            with tempfile.TemporaryDirectory() as tmp:
+                draft = os.path.join(tmp, "draft.txt")
+                bp = os.path.join(tmp, "bp.json")
+                with open(draft, "w", encoding="utf-8") as fh:
+                    fh.write("Down the road past the old mill gate\n"
+                             f"I walk alone and I sing it {short}\n"
+                             f"Night holds still with a slow low {full}\n"
+                             "Dawn comes up and the morning is late\n")
+                made = run("plan", "--seed=7", "--form=open", "--lines=4",
+                           "--input-format=literal", f"--fill={draft}",
+                           f"--out={bp}")
+                self.assertEqual(made.returncode, 0, made.stdout[-2000:])
+                for extra in ((), ("--relations=A:schema:perfect rhyme",)):
+                    with self.subTest(pair=(short, full), relation=extra):
+                        got = run("song", bp, draft, "--input-format=literal",
+                                  "--groups=2,3", "--subdivision", "4",
+                                  *extra)
+                        self.assertNotIn("SCHEME_VIOLATION", got.stdout)
+                        self.assertEqual(got.returncode, 0,
+                                         got.stdout[-2000:])
+
+
+class EachLineEndHearingSiteChangesARealAnswer(unittest.TestCase):
+    """ONE INPUT PER SITE (the coordinator's ruling on #913): a place that
+    reads `sung_stressed_at_line_end` stays only if some input gets a
+    different real answer with that one place switched off. A place is
+    switched off by name, so the rule keeps working everywhere else. The
+    words are the rule's own class; each partner is a seeded draw from the
+    dictionary words whose stressed rime is the class word's rime.
+
+      line_anchors         `screen`: RHYME among the pair's relations
+      _promotable_final    `screen --relation`: the declared relation holds
+      word_syllable_map    `song` with token groups: the slot is judged
+      candidates           `Reviser.inspect`: no collision the grade lacks
+      _collides_however_sung  the same, on a word with one reading
+      _line_end_stressed_anchor  the rhyme search offers the pair as RHYME
+
+    And with every site off at once, a real grade moves only rhyme findings.
+
+    The fit reader had a site too. No input changed its answer, so it was
+    taken out."""
+
+    SEED = 913
+    SHIM = ("import sys\n"
+            "import lyric_harness as LH\n"
+            "off = sys.argv.pop(1)\n"
+            "real = LH.sung_stressed_at_line_end\n"
+            "def caller():\n"
+            "    f = sys._getframe(2)\n"
+            "    if f.f_code.co_name == 'sung_stressed_at_line_end':\n"
+            "        f = f.f_back\n"
+            "    return f.f_code.co_name\n"
+            "LH.sung_stressed_at_line_end = lambda r, w: (\n"
+            "    False if off == '*' or caller() == off else real(r, w))\n"
+            "LH.main()\n")
+
+    @classmethod
+    def setUpClass(cls):
+        lex = cls.lex = LH.Lexicon(strip_parens=True, pronunciations=None,
+                                   reader_scheme="v2")
+        cls.words = sorted(w for w in lex.entries
+                           if LH.sung_stressed_at_line_end(lex, w))
+
+        def rime(ph):
+            i = max(k for k, p in enumerate(ph) if p[-1].isdigit())
+            return (ph[i][:-1],) + tuple(ph[i + 1:])
+        by = {}
+        for w, prs in lex.entries.items():
+            if w.isalpha() and w.islower():
+                for p in prs:
+                    if (sum(x[-1].isdigit() for x in p) == 1
+                            and any(x[-1] == "1" for x in p)):
+                        by.setdefault(rime(p), set()).add(w)
+        rng = random.Random(cls.SEED)
+        cls.partner = {w: rng.choice(sorted(by[rime(lex.entries[w][0])]
+                                            - {w.strip("'")}))
+                       for w in cls.words}
+        cls.harness = Path(LH.__file__).resolve()
+
+    def run_verb(self, site, *args):
+        import subprocess
+        return subprocess.run(
+            [sys.executable, "-c", self.SHIM, site or "-", *args],
+            cwd=str(self.harness.parent), capture_output=True, text=True,
+            timeout=600)
+
+    @staticmethod
+    def caller():
+        # The place that asked, past `Lexicon.sung_stressed_at_line_end`,
+        # through which a module that does not import lyric_harness asks.
+        f = sys._getframe(2)
+        if f.f_code.co_name == "sung_stressed_at_line_end":
+            f = f.f_back
+        return f.f_code.co_name
+
+    def site_off(self, site, fn, *args):
+        saved = LH.sung_stressed_at_line_end
+        LH.sung_stressed_at_line_end = lambda r, w: (
+            False if self.caller() == site else saved(r, w))
+        try:
+            return fn(*args)
+        finally:
+            LH.sung_stressed_at_line_end = saved
+
+    def lines(self, w, partner_line):
+        line = f"I walk alone and I sing it {w}"
+        toks = LH.line_tokens(line, strip_parens=True, scheme="v2")
+        tail = f"Night holds still with a slow low {self.partner[w]}"
+        head = ["Down the road past the old mill gate",
+                line if toks and toks[-1] == w else w]
+        late = "Dawn comes up and the morning is late"
+        return head + ([tail, late] if partner_line == 3 else [late, tail])
+
+    def test_premise_every_class_word_has_a_partner(self):
+        self.assertTrue(self.words, "PREMISE")
+        self.assertEqual(set(self.partner), set(self.words))
+
+    def screen(self, site, short, full):
+        got = self.run_verb(site, "screen", short, full,
+                            "--relation=schema:perfect rhyme")
+        self.assertEqual(got.returncode, 0, got.stdout[-2000:])
+        row = next(l for l in got.stdout.splitlines()
+                   if l.startswith(f"  {short} ~ {full}"))
+        rels = row.split("relation(s):", 1)[1].split("|", 1)[0]
+        named = next(l for l in got.stdout.splitlines()
+                     if l.strip().startswith("NAMED COUNTS:"))
+        return ({r.strip() for r in rels.split(",")},
+                "1 satisfies, 0 violates" in named)
+
+    def test_screen_line_anchors_and_the_promoted_final(self):
+        # The owner's own two pairs. With every site on the screen hears a
+        # RHYME and the declared perfect rhyme holds, as the grade says.
+        for short, full in (("'cause", "buzz"), ("'em", "hum")):
+            with self.subTest(pair=(short, full)):
+                on = self.screen(None, short, full)
+                self.assertIn("RHYME", on[0])
+                self.assertTrue(on[1])
+                anchors_off = self.screen("line_anchors", short, full)
+                self.assertNotIn("RHYME", anchors_off[0])
+                promoted_off = self.screen("_promotable_final", short, full)
+                self.assertFalse(promoted_off[1])
+
+    def test_song_slots_word_syllable_map(self):
+        # Words with no stressed reading at all: bound at their own word on
+        # each line (T8), the slot is judged only through the sung hearing.
+        import tempfile
+        bare = [w for w in self.words
+                if not any(p[-1] in "12"
+                           for r in self.lex.pronunciation_variants(w)
+                           for p in r)
+                and self.lines(w, 3)[1] != w]
+        self.assertTrue(bare, "PREMISE")
+        wrong = []
+        for w in bare:
+            with tempfile.TemporaryDirectory() as tmp:
+                draft = os.path.join(tmp, "draft.txt")
+                bp = os.path.join(tmp, "bp.json")
+                with open(draft, "w", encoding="utf-8") as fh:
+                    fh.write("\n".join(self.lines(w, 3)) + "\n")
+                made = self.run_verb(None, "plan", "--seed=7", "--form=open",
+                                     "--lines=4", "--input-format=literal",
+                                     f"--fill={draft}", f"--out={bp}")
+                self.assertEqual(made.returncode, 0, made.stdout[-2000:])
+                verb = ("song", bp, draft, "--input-format=literal",
+                        "--groups=2.T8,3.T8", "--subdivision", "4")
+                on = self.run_verb(None, *verb).returncode
+                off = self.run_verb("word_syllable_map", *verb).returncode
+                if on == 2 or off != 2:
+                    wrong.append((w, self.partner[w], on, off))
+        self.assertEqual(wrong, [])
+
+    def collisions(self, lines):
+        from quality import revise as RV
+        from quality import schemes as SC
+        if hasattr(RV, "_SCORE_MEMO"):
+            RV._SCORE_MEMO.clear()
+        ins = RV.Reviser().inspect(lines, SC.mandate("ABAC", n_lines=4))
+        return {tuple(f.locations) for fs in ins["per_line"].values()
+                for f in fs if f.code in RV.COLLISION_FINDINGS}
+
+    def test_revise_charges_no_collision_the_grade_does_not(self):
+        # Lines 2 and 4 are unpaired. A collision is a prohibition, charged
+        # only when every way of singing the pair collides; the weak hearing
+        # does not, so neither the grade nor `revise` may charge one.
+        from quality import revise as RV
+        found = {"candidates": [], "_collides_however_sung": []}
+        for w in self.words:
+            lines = self.lines(w, 4)
+            graded = LH.check_scheme(self.lex, lines, "ABAC",
+                                     RV.Reviser().decl)["collisions"]
+            self.assertNotIn((2, 4), {(c[0], c[1]) for c in graded}, w)
+            self.assertNotIn((2, 4), self.collisions(lines), w)
+            for site in found:
+                if (2, 4) in self.site_off(site, self.collisions, lines):
+                    found[site].append(w)
+        self.assertTrue(found["candidates"], found)
+        self.assertTrue(found["_collides_however_sung"], found)
+
+
+    def offered(self, engine, query, want):
+        rows = engine.candidates(query, 5000)["candidates"]
+        return next((set(r["relations"]) for r in rows
+                     if r["word"] == want), set())
+
+    def test_the_rhyme_search_offers_the_pairs(self):
+        # The search's query and every candidate it offers are line-end
+        # words, so the query is heard both ways and so is each indexed
+        # word in the class. Queries outside the class are unchanged.
+        decl = LH.Declaration()
+        on = LH.CandidateEngine(self.lex, decl)
+        off = self.site_off("_line_end_stressed_anchor", LH.CandidateEngine,
+                            self.lex, decl)
+        for short, full in (("'cause", "buzz"), ("'em", "hum")):
+            for q, want in ((short, full), (full, short)):
+                with self.subTest(query=q, offered=want):
+                    self.assertIn("RHYME", self.offered(on, q, want))
+                    self.assertNotIn("RHYME", self.site_off(
+                        "_line_end_stressed_anchor", self.offered, off, q,
+                        want))
+        pool = sorted(w for w in self.lex.freq_rank
+                      if w.isalpha() and w in self.lex.entries
+                      and w not in self.words)
+        moved = []
+        for q in random.Random(self.SEED).sample(pool, 30):
+            a = on.candidates(q, 50)["candidates"]
+            b = self.site_off("_line_end_stressed_anchor", off.candidates,
+                              q, 50)["candidates"]
+            if a != b:
+                moved.append(q)
+        self.assertEqual(moved, [])
+
+    def test_a_real_grade_moves_only_rhyme_findings(self):
+        # The owner's two pairs and a seeded draw of two more class words,
+        # through `plan` and `song` on the plan's group 2,3, with no named
+        # relation and asked as a perfect rhyme, every site on and every
+        # site off. What moves is a rhyme finding (`revise.RHYME_FINDINGS`).
+        import tempfile
+        from quality import revise as RV
+        rest = [w for w in self.words if w not in ("'cause", "'em")]
+        words = [("'cause", "buzz"), ("'em", "hum")] + [
+            (w, self.partner[w])
+            for w in random.Random(self.SEED).sample(rest, 2)]
+        wrong, ever_moved = [], set()
+        for short, full in words:
+            line = f"I walk alone and I sing it {short}"
+            toks = LH.line_tokens(line, strip_parens=True, scheme="v2")
+            with tempfile.TemporaryDirectory() as tmp:
+                draft = os.path.join(tmp, "draft.txt")
+                bp = os.path.join(tmp, "bp.json")
+                with open(draft, "w", encoding="utf-8") as fh:
+                    fh.write("Down the road past the old mill gate\n"
+                             + (line if toks and toks[-1] == short
+                                else short) + "\n"
+                             f"Night holds still with a slow low {full}\n"
+                             "Dawn comes up and the morning is late\n")
+                made = self.run_verb(None, "plan", "--seed=7", "--form=open",
+                                     "--lines=4", "--input-format=literal",
+                                     f"--fill={draft}", f"--out={bp}")
+                self.assertEqual(made.returncode, 0, made.stdout[-2000:])
+                for extra in ((), ("--relations=A:schema:perfect rhyme",)):
+                    found = {}
+                    for site in (None, "*"):
+                        got = self.run_verb(
+                            site, "song", bp, draft, "--input-format=literal",
+                            "--groups=2,3", "--subdivision", "4", *extra)
+                        rec = next((json.loads(l.split("lyric result:", 1)[1])
+                                    for l in got.stdout.splitlines()
+                                    if l.strip().startswith("lyric result:")),
+                                   None)
+                        self.assertIsNotNone(rec, got.stdout[-2000:])
+                        found[site] = {
+                            (f["code"], f["severity"],
+                             tuple(map(str, f.get("locations", ()))))
+                            for f in rec.get("findings", [])}
+                    moved = {f[0] for f in found[None] ^ found["*"]}
+                    ever_moved |= moved
+                    if moved - set(RV.RHYME_FINDINGS):
+                        wrong.append((short, full, extra, sorted(moved)))
+        self.assertTrue(ever_moved, "PREMISE: the rule moved nothing")
+        self.assertEqual(wrong, [])
 
 
 if __name__ == "__main__":
