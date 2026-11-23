@@ -319,6 +319,39 @@ class WritingRhymeBanTests(unittest.TestCase):
                                  self.writer._widen_pool(call))
         self.assertGreaterEqual(alike, 5)
 
+    def test_a_word_is_not_in_its_own_widened_pool_however_it_is_spelled(self):
+        """R2's read of the quote-mark fold, 2026-11-23. The widened pool (the
+        words that share the call's vowel) left the call word out by its
+        spelling as typed. Once the call was read as the rhyme judge reads
+        it, with the marks on its edges gone, a dictionary word spelled with
+        an apostrophe in front no longer equalled itself there, and a line
+        ending in such a word was offered that word back. The two other
+        places that leave the call word out already left out both spellings.
+
+        Every word the search can offer that is spelled with an apostrophe
+        in front is tried, as typed and with a closing mark after it."""
+        from quality.revise import _end_key
+        offerable = {w for w, anc, _rank in self.writer.engine.index if anc}
+        fronted = sorted(w for w in offerable if w.startswith("'"))
+        self.assertGreater(len(fronted), 5, "PREMISE: words the search can "
+                           "offer that are spelled with an apostrophe in front")
+        pooled = 0
+        for call in fronted:
+            for written in (call, call + "’", call.upper()):
+                pool = self.writer._widen_pool(written)
+                pooled += bool(pool)
+                with self.subTest(call=written):
+                    self.assertEqual(
+                        [w for w in pool if _end_key(w) == _end_key(call)], [])
+            # The same word without its apostrophe, where the search can
+            # offer that too: neither spelling is offered for the other.
+            bare = call[1:]
+            if bare in offerable:
+                with self.subTest(call=bare):
+                    self.assertNotIn(call, self.writer._widen_pool(bare))
+        self.assertGreater(pooled, 0, "PREMISE: at least one of them has a "
+                           "widened pool")
+
     def test_shared_spelling_on_consonance_only_is_not_a_rhyme_ban(self):
         # have/save share -ave but their stressed vowels differ. A declared
         # consonance is satisfied without pretending this is an actual rhyme.

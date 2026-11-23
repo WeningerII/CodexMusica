@@ -6641,7 +6641,15 @@ class Reviser:
             call_l = _end_key(call)
             rows = []
             for word, anc, rank in self.engine.index:
-                if not anc or word == call_l:
+                # The call word is left out under either spelling the
+                # dictionary holds it by, as `_field_split` leaves it out
+                # (R2's read of the fold, 2026-11-23). ~~`word == call_l`
+                # alone~~: `call_l` has lost its edge marks, so a word the
+                # dictionary spells with an apostrophe in front (`'round`)
+                # no longer equalled itself here and came back as its own
+                # offer.
+                if not anc or word == call_l or (
+                        "'" in word and _end_key(word) == call_l):
                     continue
                 if anc[0].get("nucleus") == nuc:
                     rows.append((rank, word))
