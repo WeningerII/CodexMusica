@@ -93,6 +93,48 @@ class WritingRhymeBanTests(unittest.TestCase):
         self.assertTrue(counts)
         self.assertTrue(all(n > 0 for n in counts))
 
+    def test_a_quote_mark_on_an_end_word_keeps_the_predictable_rhyme_ban(self):
+        """Bug hunt F18 (2026-11-20): the rhyme judge folds and strips the
+        end word, but the predictable-rhyme ban looked up the raw token, so a
+        closing quote mark (straight or curly) on either end word switched
+        the ban off while the rhyme still passed.
+
+        The pairs are drawn by seed: calls from the whole dictionary, each
+        partner from that call's own evidenced head, every one a pair the
+        plain draft is banned on. Filler words are drawn the same way."""
+        import random
+        rng = random.Random(20261121)
+        mono = sorted(w for w, rs in self.writer.lex.entries.items()
+                      if w.isalpha() and w.islower() and len(w) > 1
+                      and len(rs) == 1
+                      and sum(ph[-1:].isdigit() for ph in rs[0]) == 1)
+        fill = rng.sample(mono, 64)
+
+        def draft(a, b, k):
+            return [f"{fill[k % 64]} {fill[(k + 1) % 64]} {a}",
+                    f"{fill[(k + 2) % 64]} {fill[(k + 3) % 64]} {b}"]
+
+        def modal(lines):
+            return "MODAL_RHYME" in {
+                f.code for f in bans(self.writer.inspect(lines, self.m))}
+
+        pairs = []
+        for k, call in enumerate(rng.sample(mono, 200)):
+            head = [p for p in self.writer.modal_head_evidenced(call)
+                    if p.isalpha() and len(p) > 1
+                    and self.writer._spelled_rime(p)
+                    != self.writer._spelled_rime(call)]
+            if head and modal(draft(call, head[0], k)):
+                pairs.append((k, call, head[0]))
+            if len(pairs) == 4:
+                break
+        self.assertEqual(len(pairs), 4, pairs)
+        for k, call, partner in pairs:
+            for a, b in ((call, partner + "'"), (call, partner + "’"),
+                         (call + "’", partner)):
+                with self.subTest(pair=(a, b)):
+                    self.assertTrue(modal(draft(a, b, k)))
+
     def test_shared_spelling_on_consonance_only_is_not_a_rhyme_ban(self):
         # have/save share -ave but their stressed vowels differ. A declared
         # consonance is satisfied without pretending this is an actual rhyme.

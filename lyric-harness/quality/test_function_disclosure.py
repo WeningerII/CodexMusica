@@ -132,7 +132,9 @@ class WriterDisclosureTests(unittest.TestCase):
         brief = plan['writer_brief']
         self.assertEqual(brief.count(self.block), 1)
         self.assertIn(self.block + 'Feel:', brief)
-        self.assertLess(brief.rindex('syllables a line after the pickup'),
+        # REPINNED 2026-11-21 from ~~'syllables a line after the pickup'~~:
+        # the ceiling counts every syllable of the line (bug hunt F4).
+        self.assertLess(brief.rindex('syllables in the whole line'),
                         brief.index(self.block))
         # Removing blank inputs has no effect on the draw, only raw identity.
         clean = P.make_plan(11, functions=[r for r in raw if r.strip()], lines=24)

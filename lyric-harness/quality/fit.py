@@ -1227,6 +1227,18 @@ class Isochrony(_Sourced):
 KINDS = ("placement", "density", "prominence", "setting")
 
 
+#: The placement flags no wording of the line can clear (bug hunt F8; the
+#: owner's ruling 2026-11-21: not meter, and still a flag). Each says the
+#: TIMING the blueprint declares cannot be met whatever words the line
+#: holds: no length, a beat past the bar, a start before the section, an
+#: end past it, a start off the declared grid. `revise.Reviser` files them
+#: on the whole song, naming their lines, and no repair asks for new words
+#: for them. SLOTS_EXCEEDED is not one: fewer syllables clear it.
+TIMING_ONLY = frozenset({"ZERO_DURATION", "BEAT_OUTSIDE_CYCLE",
+                         "START_BEFORE_SECTION", "OVERRUNS_SECTION",
+                         "START_OFF_GRID"})
+
+
 @dataclass(frozen=True)
 class FitFinding:
     """A named cause, never a score.
@@ -1602,11 +1614,14 @@ def fit_line(text, placement, phon=None, subdivision=None, assume=None,
             ends_with="a G2P fallback for out-of-lexicon words (known gap 1) "
                       "and a numeral expansion on the tokeniser"))
 
+    # BOTH NOTES NAME THE LINE'S OWN SPAN, `p.duration`, the number their
+    # arithmetic uses. ~~`p.pulses`~~, the BAR's pulses, REPLACED 2026-11-21
+    # (bug hunt F7): an 8-pulse line in 4/4 read "over 4 pulses".
     if fit.required_subdivision and fit.required_subdivision > 1:
         F.append(FitFinding(
             "CROWDED",
             f"more {units.unit_name}s than pulses — the pulse must divide",
-            f"{units.count} {units.unit_name}s over {_num(p.pulses)} pulses "
+            f"{units.count} {units.unit_name}s over {_num(p.duration)} pulses "
             f"needs at least {fit.required_subdivision} slots per pulse, i.e. "
             f"a {_frac_value_name(c.note_value(Fraction(1, fit.required_subdivision)))} "
             f"grid at the coarsest. Not impossible — a pulse subdivides — but "
@@ -1617,7 +1632,7 @@ def fit_line(text, placement, phon=None, subdivision=None, assume=None,
             "SPARSE",
             f"fewer {units.unit_name}s than pulses — pulses with nothing "
             f"declared on them",
-            f"{units.count} {units.unit_name}s over {_num(p.pulses)} pulses "
+            f"{units.count} {units.unit_name}s over {_num(p.duration)} pulses "
             f"leaves {_num(p.duration - units.count)} pulses unaccounted for. "
             f"Where they fall is a setting question and is refused below.",
             kind="density"))

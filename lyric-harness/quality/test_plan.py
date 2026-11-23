@@ -283,8 +283,12 @@ def test_refusals():
     print("\n2. refusals, not defaults (doctrine 20)")
     t_lo, t_hi = ENVELOPE["total_lines"]
     for kwargs, phrase, why in (
-            (dict(seed=None), "requires --seed", "a free choice without a "
-             "declared seed is a hidden coordinate"),
+            # REPINNED 2026-11-22 from ~~"requires --seed"~~: the planner's
+            # messages name the field a connector caller sends, and the tools
+            # that take it, not a command-line flag (#665, 6921620093).
+            (dict(seed=None), "`seed`, given to lyric_plan or lyric_grade",
+             "a free choice without "
+             "a declared seed is a hidden coordinate"),
             (dict(seed=1, form="ghazal"), "BLOCKED", "declared-but-blocked "
              "is a different answer from unknown (doctrine 28)"),
             (dict(seed=1, form="madrigal"), "not a declared form",
@@ -2066,10 +2070,13 @@ def test_the_disclosure():
                 # same day the first one did: anacrusis became a function of
                 # the section's own subdivision, a quarter-beat pickup
                 # appeared, and BOTH copies raised `KeyError: 0.75`.
-                pickup = PLN._pickup_phrase(slots[0]["beat"] - 1)
+                # REPINNED 2026-11-21 from ~~`_pickup_phrase(beat - 1)`~~:
+                # the late start is named by the beat it starts on, as the
+                # grader names it (bug hunt F4).
+                entry = PLN._entry_phrase(slots[0]["beat"])
                 k = len(slots)
                 want = (f"[{s['function'].upper()} — {k} "
-                        f"line{'s' if k != 1 else ''} — {size}{pickup}]")
+                        f"line{'s' if k != 1 else ''} — {size}{entry}]")
             if want not in p["writer_brief"]:
                 misses.append((seed, want))
     check("EVERY section is briefed with its own duration, meter and "
@@ -4462,7 +4469,9 @@ def test_the_placement_route(FAILURES=None):
           "rather than refusing the figure",
           ex is not None and "schema:" in ex[2]
           and ("DEFAULT slot" in ex[2] or "declared word" in ex[2])
-          and "--groups=" in ex[2]
+          # REPINNED 2026-11-22 from ~~"--groups=" in ex[2]~~: the remedy
+          # names the field and the tools that take it (#665, 6921620093).
+          and "`groups`" in ex[2] and "on lyric_check" in ex[2]
           and "PLACEMENT_CONTRADICTS_SCHEMA" in PLN.JOINT_CODES,
           (ex[2][:110] if ex else "did not fire"))
 
@@ -4678,7 +4687,9 @@ def test_the_delegated_rulings(FAILURES=None):
                 continue
             capn = int(_PL.line_syllable_ceiling(
                 slots[0]["duration"] * p["subdivision"]))
-            exp = f"      up to {capn} syllables a line after the pickup"
+            # REPINNED 2026-11-21 from ~~"a line after the pickup"~~: the
+            # ceiling counts every syllable of the line (bug hunt F4).
+            exp = f"      up to {capn} syllables in the whole line"
             # REPINNED #902 (John: "say repeated lines once"): a section
             # whose rows an earlier section printed names it in one row, and
             # the ceiling the writer finds there is this section's own.
@@ -4706,7 +4717,7 @@ def test_the_delegated_rulings(FAILURES=None):
     check("...and the number SLOTS_EXCEEDED grades against is printed UNDER "
           "every sung section's bracket, or under the earlier bracket a "
           "section with the same rows names (#902) — the ceiling of "
-          "syllables a line after the pickup beside the band's floor — and "
+          "syllables in the whole line beside the band's floor — and "
           "never INSIDE it: the bracket is the measurement carrier every "
           "gate reads byte for byte (M-97)",
           cap_ok and headers_ok)
@@ -4772,7 +4783,9 @@ def test_the_delegated_rulings(FAILURES=None):
               "102nd", "111th"]
           and _pp["writer_brief"].count("each line: 7½ beats (pulses)") == 1
           and _pp["writer_brief"].count("each line: 8 beats (pulses)") == 1
-          and _pp["writer_brief"].count("syllables a line after the pickup")
+          # REPINNED 2026-11-21 from ~~"syllables a line after the
+          # pickup"~~ (bug hunt F4).
+          and _pp["writer_brief"].count("syllables in the whole line")
           == 2,
           _pp["writer_brief"][:900])
     check("...and UNDER the bracket, BEFORE the ceiling, the beats (pulses) "
@@ -4872,6 +4885,232 @@ def test_the_delegated_rulings(FAILURES=None):
           all(p["total_lines"] in fill for p in plans.values()),
           f"totals {sorted(set(p['total_lines'] for p in plans.values()))}")
 
+
+#: The draw §F2b reads: how many dictionary words, and how many word pairs of
+#: each kind. Declared once so the counts the checks print are the draw's.
+RULE_SEED = 2026112205
+RULE_WORDS = 6000
+RULE_PAIRS = 160
+
+
+def _word_readings(lex, word):
+    """-> (lexical, promoted) readings of a one-word line, over every
+    reading the grader takes of it (`LH.line_anchors`, the final promoted as
+    the grader's own declaration promotes it). A lexical reading runs from a
+    syllable with any stress to the end of the word; a promoted reading is
+    the word's last syllable alone. A syllable is (onset, vowel, coda,
+    stress)."""
+    lexical, promoted = set(), set()
+    for anc in LH.line_anchors(lex, word, promote=True)[0]:
+        syl = tuple((tuple(s.get("onset") or ()), s["nucleus"],
+                     tuple(s["coda"] or ()), s.get("stress", 0))
+                    for s in anc)
+        if any(s.get("promoted") for s in anc):
+            promoted.add(syl)
+            continue
+        lexical.update(syl[k:] for k in range(len(syl)) if syl[k][3] > 0)
+    return lexical, promoted
+
+
+def _class_rule_holds(name, a, b, ra, rb):
+    """Does a pair stand in one coarse class AS `PLN.class_rule` STATES IT?
+    Each branch is the class's clauses read literally, and nothing else."""
+    (la, pa), (lb, pb) = ra, rb
+
+    def vowel(s, t):
+        # "an unstressed uh and an unstressed ih count as one vowel, and so
+        # do ih and ee before an r"
+        if s[1] == t[1]:
+            return True
+        pair = {s[1], t[1]}
+        return ((pair == {"AH", "IH"} and s[3] == 0 and t[3] == 0)
+                or (pair == {"IH", "IY"} and s[2][:1] == ("R",)
+                    and t[2][:1] == ("R",)))
+
+    def after(x, y):
+        # "the same sounds after the first vowel": each coda, and each later
+        # syllable's opening consonants
+        return (all(s[2] == t[2] for s, t in zip(x, y))
+                and all(s[0] == t[0] for s, t in zip(x[1:], y[1:])))
+
+    same_length = [(x, y) for x in la for y in lb if len(x) == len(y)]
+    if name == "RHYME":
+        return any(all(map(vowel, x, y)) and after(x, y)
+                   for x, y in same_length)
+    if name == "ASSONANCE":
+        return any(all(map(vowel, x, y)) for x, y in same_length)
+    if name == "CONSONANCE":
+        return any(after(x, y) and (
+            any(s[2] or t[2] for s, t in zip(x, y))
+            or any(s[0] or t[0] for s, t in zip(x[1:], y[1:])))
+            for x, y in same_length)
+    if name == "RIME_RICHE":
+        return a != b and any(
+            all(s[:3] == t[:3] for s, t in zip(x, y)) for x, y in same_length)
+    if name == "PROMOTED_RHYME":
+        ends_a = {x[-1] for x in la if x[-1][3] > 0} | {x[0] for x in pa}
+        ends_b = {y[-1] for y in lb if y[-1][3] > 0} | {y[0] for y in pb}
+        return any(vowel(s, t) and s[2] == t[2]
+                   for s in {x[0] for x in pa} for t in ends_b) or any(
+            vowel(s, t) and s[2] == t[2]
+            for s in ends_a for t in {y[0] for y in pb})
+    raise AssertionError(f"no reading of class {name!r}")
+
+
+def test_a_rule_row_says_what_the_grader_accepts():
+    """BUG HUNT FINDING 2's FOLLOW-UP (2026-11-22, the planner owner's read
+    of the revise question's rule rows, which print these same clauses):
+    two kinds of rule row were not true to the grade.
+
+    1. A declared pair is judged under `relations.declared_pair_schema`,
+       whose end anchor also takes the line's last syllable alone, counted as
+       stressed, when it is unstressed after a stressed one (`MISSING.md`
+       M-319). The row said only "from its last stressed syllable", so it
+       ruled out pairs the grader passes.
+    2. A class relation's row was "P and Q stand in the declared relation
+       class:RHYME": no rule at all, and an internal name. Each class now has
+       its own clauses (`class_rule`), and every one is held against the
+       grader's own classes (`LH.best_score`, read as `Reviser` reads a pair)
+       over word pairs DRAWN BY SEED from the dictionary, none chosen."""
+    print("\nF2b. a rule row says what the grader accepts: the promoted "
+          "final, a class relation's own rule, and no raw code")
+    from quality.rhyme_types import CLASS_RELATIONS
+    # -- 1. the promoted final
+    anchored = [sch for sch in RL.REGISTRY.values()
+                if RL.END_ANCHOR in sch.spans]
+    judged = {sch.name: "; ".join(PLN.type_rule(RL.declared_pair_schema(sch)))
+              for sch in anchored}
+    raw = {sch.name: "; ".join(PLN.type_rule(sch)) for sch in anchored}
+    said = getattr(PLN, "PROMOTED_FINAL_WORDS", "(the promoted final, unstated)")
+    check(f"every type judged with the promoted final ({len(anchored)}) "
+          f"says so in its rule, and its unpromoted registry row does not",
+          anchored and all(said in judged[n] and said not in raw[n]
+                           for n in judged),
+          [n for n in judged if said not in judged[n]][:5])
+    rng = random.Random(RULE_SEED)
+    shown = None
+    for _ in range(200):
+        seed = rng.randrange(1, 100000)
+        p = PLN.make_plan(seed, form=rng.choice(PLN.PLAN_FORMS))
+        names = {str(v).split(":", 1)[-1]
+                 for v in (p.get("relations") or {}).values()}
+        if names & set(judged):
+            shown = (seed, p, sorted(names & set(judged))[0])
+            break
+    rows = [r for r in PLN.group_rules(shown[1])
+            if r.lstrip().startswith("R")] if shown else []
+    check("the plan brief prints the promoted final in the rule of a dealt "
+          "type that is judged with it (seed drawn by "
+          f"{RULE_SEED})",
+          shown is not None
+          and any(f"({shown[2]})" in r and said in r for r in rows),
+          (shown[0], shown[2]) if shown else "no plan dealt one")
+    # -- 2. no raw code in any registry type's rule
+    code = re.compile(r"\b[a-z]+_[a-z_]+\b|it is judged with|aligned by "
+                      r"|same word at the|from [a-z_]+ over")
+    leaks = {sch.name: code.findall("; ".join(
+                 PLN.type_rule(RL.declared_pair_schema(sch))))
+             for sch in RL.REGISTRY.values()}
+    leaks = {n: f for n, f in leaks.items() if f}
+    check(f"no rule of the {len(RL.REGISTRY)} registry types prints a raw "
+          "code or a clause that names a word as a syllable",
+          not leaks, dict(list(leaks.items())[:6]))
+    # -- 3. a class relation's own rule
+    lex, decl = LH.Lexicon(), LH.Declaration()
+    check("the classes' clauses name the vowel licences the grader holds, "
+          "and no others: unstressed uh~ih, ih~ee before r, consonants "
+          "exact",
+          decl.nucleus_agreement == "licensed"
+          and decl.nucleus_licence == (("AH", "IH"),)
+          and decl.nucleus_licence_unstressed_only
+          and decl.nucleus_licence_before_r == (("IH", "IY"),)
+          and decl.coda_agreement == "identity" and decl.final_promotion,
+          (decl.nucleus_licence, decl.nucleus_licence_before_r,
+           decl.coda_agreement))
+    if not hasattr(PLN, "class_rule"):
+        check("plan.py states each class relation's own rule (`class_rule`)",
+              False, "no class_rule: a class row reads 'stand in the declared "
+                     "relation class:RHYME'")
+        return
+    rules = {}
+    for cls in CLASS_RELATIONS:
+        rules[cls] = PLN.class_rule(cls)
+    texts = [n + " " + " ".join(c) for n, c in rules.values()]
+    check("every class has a rule, the same under 'class:NAME' and 'NAME', "
+          "in plain words: no 'class:', no capitalised id, no code",
+          all(rules[c] == PLN.class_rule(f"class:{c}")
+              and rules[c][1] for c in CLASS_RELATIONS)
+          and not any(re.search(r"class:|[A-Z]{3,}|_", t) for t in texts),
+          [t[:80] for t in texts if re.search(r"class:|[A-Z]{3,}|_", t)])
+    try:
+        PLN.class_rule("class:NO_SUCH_CLASS")
+        unknown = "accepted"
+    except ValueError as e:
+        unknown = str(e)
+    check("an unknown class is refused, not given a default rule",
+          unknown != "accepted", unknown)
+    words = sorted(w for w in lex.entries if w.isalpha() and w.islower()
+                   and len(w) > 1)
+    pool = rng.sample(words, RULE_WORDS)
+    reads = {w: _word_readings(lex, w) for w in pool}
+    reads = {w: r for w, r in reads.items() if r[0]}
+
+    def keyed(key):
+        buckets = {}
+        for w, (lx, pr) in reads.items():
+            for k in key(lx, pr):
+                buckets.setdefault(k, []).append(w)
+        return [b for _, b in sorted(buckets.items(), key=lambda kv: str(kv[0]))
+                if len(b) > 1]
+
+    def last(lx):
+        return min(sorted(lx), key=len)
+    kinds = {
+        "rhyme": keyed(lambda lx, pr: {tuple((s[1], s[2]) for s in last(lx))}),
+        "vowels": keyed(lambda lx, pr: {tuple(s[1] for s in last(lx))}),
+        "consonants": keyed(lambda lx, pr: {tuple(s[2] for s in last(lx))}),
+        "same sound": keyed(lambda lx, pr: {tuple(s[:3] for s in last(lx))}),
+        "last syllable": keyed(lambda lx, pr: {(s[1], s[2]) for x in pr
+                                               for s in x}
+                               | {(x[-1][1], x[-1][2]) for x in lx
+                                  if len(x) == 1}),
+    }
+    pairs = []
+    for kind, buckets in kinds.items():
+        for _ in range(RULE_PAIRS):
+            b = rng.choice(buckets)
+            pairs.append(tuple(rng.sample(b, 2)))
+    names = sorted(reads)
+    pairs += [tuple(rng.sample(names, 2)) for _ in range(RULE_PAIRS)]
+    pairs += [(w, w) for w in rng.sample(names, RULE_PAIRS // 4)]
+    wrong, held = [], Counter()
+    for a, b in pairs:
+        got = LH.best_score(LH.line_anchors(lex, a, promote=True)[0],
+                            LH.line_anchors(lex, b, promote=True)[0],
+                            decl, a, b)["relations"]
+        for cls in CLASS_RELATIONS:
+            said_holds = _class_rule_holds(cls, a, b, reads[a], reads[b])
+            held[cls, said_holds] += 1
+            if said_holds != (cls in got):
+                wrong.append((cls, a, b, sorted(got)))
+    check(f"over {len(pairs)} word pairs drawn by seed {RULE_SEED} from "
+          f"{len(reads)} dictionary words, each class's stated rule holds "
+          f"exactly where the grader's class does",
+          not wrong, f"{len(wrong)} disagree: {wrong[:6]}")
+    check("...and the draw is not vacuous: every class holds on some pairs "
+          "and fails on others",
+          all(held[c, True] >= 5 and held[c, False] >= 5
+              for c in CLASS_RELATIONS),
+          {c: (held[c, True], held[c, False]) for c in CLASS_RELATIONS})
+    p = dict(shown[1]) if shown else {}
+    if p:
+        p["relations"] = {k: "class:RHYME" for k in p.get("relations") or {}}
+    brief = "\n".join(PLN.group_rules(p)) if p else ""
+    check("the plan brief states a class relation's rule by its plain name "
+          "and never prints 'class:'",
+          bool(brief) and "class:" not in brief
+          and rules["RHYME"][0] in brief and rules["RHYME"][1][0] in brief,
+          brief[-400:])
 
 def test_the_legend_states_the_whole_schema():
     print("\n19. M-214 — the legend's 'what each named relation asks' is "
@@ -5444,11 +5683,13 @@ def test_a_refusal_names_what_was_sent():
             refused.append((kw, msg, of_seed))
         roster, lines = kw.get("functions"), kw.get("lines")
         wants = kw.get("wants", [])
-        # Never a declaration that was not sent.
-        if lines is None and "--lines" in msg:
-            wrong.append((kw, "names --lines, which was not sent"))
-        if roster is None and "--functions" in msg:
-            wrong.append((kw, "names --functions, which was not sent"))
+        # Never a declaration that was not sent. REPINNED 2026-11-22 from
+        # ~~"--lines" / "--functions"~~: what was read is echoed as
+        # field=value, as the wants beside it are (#665, 6921620093).
+        if lines is None and re.search(r"(?:^|[\s;:(])lines=", msg):
+            wrong.append((kw, "names lines, which was not sent"))
+        if roster is None and re.search(r"(?:^|[\s;:(])functions=", msg):
+            wrong.append((kw, "names functions, which was not sent"))
         # "Another seed" only where the refusal is about a seed's own draw.
         if not of_seed and ("another seed" in msg.lower()
                             or "other seeds" in msg.lower()):
@@ -5457,8 +5698,8 @@ def test_a_refusal_names_what_was_sent():
         first = msg.split("\n", 1)[0]
         if first.startswith("500 seeded draws found no plan for "):
             seen["draws"] += 1
-            sent = ([f"--functions={','.join(roster)}"] if roster else []) + (
-                [f"--lines={lines}"] if lines is not None else []) + [
+            sent = ([f"functions={','.join(roster)}"] if roster else []) + (
+                [f"lines={lines}"] if lines is not None else []) + [
                 f"want {w}" for w in wants]
             missing = [d for d in sent if d not in first]
             if not of_seed or missing or "drop --lines" in msg:
@@ -5470,7 +5711,7 @@ def test_a_refusal_names_what_was_sent():
         elif first.startswith("the declared line constraints have no "
                               "feasible total: "):
             seen["lines"] += 1
-            read = ([f"--lines={lines}"] if lines is not None else []) + [
+            read = ([f"lines={lines}"] if lines is not None else []) + [
                 f"want {w}" for w in wants if w.startswith("lines")]
             if of_seed or [d for d in read if d not in first]:
                 wrong.append((kw, "line constraints", first[:160]))
@@ -9151,7 +9392,268 @@ def test_the_stop_rules():
           hook_bad[:3])
 
 
+def test_a_late_start_is_named_as_the_grader_names_it():
+    """Bug hunt F4 (2026-11-20): the brief called the planner's late start a
+    "one-beat pickup" and capped syllables "after the pickup", but the line
+    starts on beat 2 and runs to its last barline, nothing is sung before
+    it, and fit's own LATE_ENTRY note says "An entry, not a pickup". A
+    writer who sang the pickup drew SLOTS_EXCEEDED, a hard flag. The brief
+    now names the beat the grader names, and the ceiling is every syllable
+    of the line.
+
+    Every witness is drawn: the plans by seed, and the placeholder words by
+    seed from the whole dictionary (each has one reading of one syllable, so
+    a line of k of them is k syllables under every reading). The numbers are
+    fit's own, read off the placements it grades."""
+    import quality.fit as _FT
+    from fractions import Fraction as _Fr
+    ents = _round_trip_reviser().lex.entries
+    mono = sorted(w for w, rs in ents.items()
+                  if w.isalpha() and w.islower() and len(w) > 1
+                  and len(rs) == 1
+                  and sum(ph[-1:].isdigit() for ph in rs[0]) == 1)
+    words = random.Random(20261121).sample(mono, 128)
+    pickup_said, bracket_bad, cap_bad, grade_bad = [], [], [], []
+    n_late = n_secs = 0
+    for seed in range(40):
+        p = _plan_unless_no_free_word(seed)
+        if p is None or not p["line_slots"]:
+            continue
+        brief = p["writer_brief"]
+        if "pickup" in brief:
+            pickup_said.append(seed)
+        sub = _FT.Subdivision(p["subdivision"], source="test_plan F4")
+        places = _FT.from_blueprint(PLN.fill_plan(p, dummy_draft(p)))[1]
+        brackets = [ln.strip() for ln in brief.splitlines()
+                    if re.match(r"^  \[[A-Z]", ln) and ln.rstrip().endswith("]")]
+        ceilings = set(int(n) for n in re.findall(
+            r"^      up to (\d+) syllables in the whole line$", brief, re.M))
+        for sec in p["sections"]:
+            idx = [i for i, s in enumerate(p["line_slots"])
+                   if s["section"] == sec["name"]]
+            if not idx:
+                continue
+            n_secs += 1
+            pl = places[idx[0]]
+            beats = {places[i].beat for i in idx}
+            k = len(idx)
+            want = (f"[{PLN.section_label(sec)} — {k} "
+                    f"line{'s' if k != 1 else ''} — {sec['bars']} "
+                    f"bar{'s' if sec['bars'] != 1 else ''} of "
+                    f"{sec['meter']['beats']}/{sec['meter']['unit']}")
+            if len(beats) == 1 and pl.beat != 1:
+                n_late += 1
+                want += (", each line starts on beat "
+                         f"{PLN._beats_text(_Fr(pl.beat))}")
+            elif len(beats) != 1:
+                want += ", lines start on different beats"
+            if want + "]" not in brackets:
+                bracket_bad.append((seed, want + "]"))
+            cap = len(_FT._slot_positions(pl, sub))
+            if cap not in ceilings:
+                cap_bad.append((seed, sec["name"], cap, sorted(ceilings)))
+            for n_syl, flagged in ((cap, False), (cap + 1, True)):
+                line = " ".join(words[(seed + j) % len(words)]
+                                for j in range(n_syl))
+                got = {f.code for f in _FT.fit_line(
+                    line, pl, subdivision=sub, line_index=idx[0]).findings}
+                if ("SLOTS_EXCEEDED" in got) != flagged:
+                    grade_bad.append((seed, sec["name"], n_syl, cap,
+                                      sorted(got)))
+            # fit reads the same start as off the barline: LATE_ENTRY when
+            # the line ends inside its first bar, ANACRUSIS when it runs past
+            # the next barline. Either way the line begins at `pl.beat`.
+            placed = {f.code for f in _FT.fit_line(
+                " ".join(words[:cap]), pl, subdivision=sub,
+                line_index=idx[0]).findings} & {"LATE_ENTRY", "ANACRUSIS"}
+            if bool(placed) != (pl.beat != 1):
+                grade_bad.append((seed, sec["name"], pl.beat, sorted(placed)))
+    check("a late start is named as the grader names it (bug hunt F4): no "
+          "brief says 'pickup'; each bracket names the beat its lines start "
+          "on, read off fit's own placement; the ceiling under it is fit's "
+          "slot count for the WHOLE line, and a line of that many syllables "
+          "passes while one more draws SLOTS_EXCEEDED",
+          n_late > 0 and not (pickup_said or bracket_bad or cap_bad
+                              or grade_bad),
+          f"{n_late} late-start section(s) of {n_secs}; 'pickup' in seeds "
+          f"{pickup_said[:5]}; brackets {bracket_bad[:3]}; ceilings "
+          f"{cap_bad[:3]}; grades {grade_bad[:3]}")
+
+
+def test_a_return_copy_is_bound_as_its_first_line():
+    """Bug hunt F23 (2026-11-21): the joint gate read a verbatim return's
+    copy as a line of its own. A copy's words are its first line's words,
+    so a group on the copy's last word and a different group on the first
+    line's last word bind ONE word to two groups, and the gate saw two
+    lines. About one delivered plan in fourteen did this.
+
+    Every witness is drawn by seed: the plan seeds from a wide range, and
+    each mutation's class, member and line from the plan itself.
+
+    Four questions, each read independently of `joint_findings`'s own
+    parse where it can be:
+      1. no delivered plan binds one word, copies read as their first
+         line, to two groups;
+      2. writing a different group onto a copy's copy of a bound word
+         gives TWO_GROUPS_ONE_WORD on the first line, naming the copy;
+      3. writing the SAME group there gives none (a word may rhyme with
+         itself);
+      4. moving a member from one line of a class to another (with no
+         other member of its group between them, so the group's order
+         holds) leaves the gate's answer unchanged, since the words it
+         binds are the same words."""
+    rng = random.Random(2026112123)
+    draws = ([("verse-chorus", s) for s in rng.sample(range(10_000), 50)]
+             + [(None, s) for s in rng.sample(range(10_000), 50)])
+    clash, mut_bad, ctl_bad, move_bad = [], [], [], []
+    n_cls = n_mut = n_move = 0
+    for form, seed in draws:
+        p = PLN.make_plan(seed, **({"form": form} if form else {}))
+        root = {}
+        for row in str(p.get("returns") or "").split(";"):
+            m = sorted(int(x) for x in row.split(",") if x.strip())
+            for c in m[1:]:
+                root[c] = m[0]
+        for c in list(root):
+            while root[c] in root:
+                root[c] = root[root[c]]
+        classes = {}
+        for c, r in root.items():
+            classes.setdefault(r, {r}).add(c)
+        if not classes:
+            continue
+        n_cls += 1
+        groups = [g for g in str(p.get("groups") or "").split(";")
+                  if g.strip()]
+        members = [[m.strip() for m in g.split(",") if m.strip()]
+                   for g in groups]
+        owner = {}
+        for gi, mems in enumerate(members):
+            for mem in mems:
+                ln, _, place = mem.partition(".")
+                key = (root.get(int(ln), int(ln)), real_word(place or "end"))
+                owner.setdefault(key, set()).add(gi)
+        bad = sorted(k for k, v in owner.items() if len(v) > 1)
+        if bad:
+            clash.append((form, seed, bad[:2]))
+        # Every member on a line of a class, with each other line of it.
+        sites = []
+        for gi, mems in enumerate(members):
+            lines = [int(m.partition(".")[0]) for m in mems]
+            for mi, mem in enumerate(mems):
+                ln = lines[mi]
+                r = root.get(ln, ln)
+                for other in sorted(classes.get(r, ())):
+                    if other != ln and other not in lines:
+                        sites.append((gi, mi, ln, other, r))
+        if not sites:
+            continue
+        bound = {int(m.partition(".")[0]) for mems in members for m in mems}
+        free = [s["line"] for s in p["line_slots"]
+                if s["line"] not in bound and s["line"] not in root
+                and s["line"] not in classes]
+        gi, mi, ln, other, r = rng.choice(sites)
+        moved = f"{other}{members[gi][mi][len(str(ln)):]}"
+        if free:
+            n_mut += 1
+            x = rng.choice(free)
+            mut = dict(p, groups=";".join(groups + [f"{moved},{x}"]))
+            got = [d for c, l, d in PLN.joint_findings(mut)
+                   if c == "TWO_GROUPS_ONE_WORD" and l == r]
+            if not (got and "verbatim cop" in got[0]):
+                mut_bad.append((form, seed, r, moved, x,
+                                PLN.joint_findings(mut)[:2]))
+            ctl = list(groups)
+            ctl[gi] = ctl[gi] + "," + moved
+            same = [f for f in PLN.joint_findings(dict(p, groups=";".join(ctl)))
+                    if f[0] == "TWO_GROUPS_ONE_WORD" and f[1] == r]
+            if same:
+                ctl_bad.append((form, seed, r, moved, same[:1]))
+        lo, hi = sorted((ln, other))
+        between = [int(m.partition(".")[0]) for m in members[gi]
+                   if lo < int(m.partition(".")[0]) < hi]
+        if not between:
+            n_move += 1
+            mv = list(members)
+            mv[gi] = list(mv[gi])
+            mv[gi][mi] = moved
+            before = sorted(c for c, _l, _d in PLN.joint_findings(p))
+            after = sorted(c for c, _l, _d in PLN.joint_findings(
+                dict(p, groups=";".join(",".join(g) for g in mv))))
+            if before != after:
+                move_bad.append((form, seed, members[gi][mi], moved,
+                                 before, after))
+    check("a return copy is bound as its first line (bug hunt F23): no "
+          "delivered plan binds one word to two groups across a copy; a "
+          "different group on the copy's copy of a bound word is "
+          "TWO_GROUPS_ONE_WORD on the first line, the same group is not; and "
+          "moving a member within its class leaves the gate's answer as it "
+          "was",
+          n_cls > 0 and n_mut > 0 and n_move > 0
+          and not (clash or mut_bad or ctl_bad or move_bad),
+          f"{n_cls} plan(s) with returns, {n_mut} mutation(s), {n_move} "
+          f"move(s); clashes {clash[:3]}; mutations {mut_bad[:2]}; controls "
+          f"{ctl_bad[:2]}; moves {move_bad[:2]}")
+
+
+def test_the_writing_bans_stop_only_groups_that_can_differ():
+    """Bug hunt F6 (2026-11-22): the brief listed the two writing bans
+    (same spelled ending; the most predictable partner) as rules that can
+    stop the song on every plan with groups, also where every group's rule
+    makes its two lines the same word. The grader never asks either ban of
+    a pair that repeats its word (`Reviser.earned_pair_ban` passes it), so
+    on such a plan neither row can stop anything, and the brief read as if
+    the repeat it demands were banned.
+
+    Every plan is drawn by seed: each type whose rule makes its pair the
+    same word, at drawn seeds (the ones the planner cannot plan in English
+    are skipped and counted), and the default draw at the same seeds for
+    the control.
+    """
+    print("\nF6. the writing bans are stop rows only where a group's rule "
+          "lets its two words differ")
+    rng = random.Random(2026112201)
+    bans = {"HOMEOTELEUTON", "MODAL_RHYME"}
+    same = sorted(n for n, sc in RL.REGISTRY.items() if RL.identity_forced(sc))
+    rows = lambda pl: {c for c, _k, _t in PLN.stop_rules_for(pl)}
+    shown, missing, mixed_missing, refused, planned = [], [], [], [], 0
+    for _ in range(10):
+        seed = rng.randint(1, 100000)
+        name = rng.choice(same)
+        try:
+            p = PLN.make_plan(seed, relation="schema:" + name)
+        except PLN.PlanRefused:
+            refused.append(name)
+            continue
+        planned += 1
+        if rows(p) & bans:
+            shown.append((seed, name, sorted(rows(p) & bans)))
+        d = PLN.make_plan(seed)
+        other = sorted({v for v in (d.get("relations") or {}).values()
+                        if not RL.identity_forced(PLN._schema_of(v)[1])})
+        if str(d.get("groups") or "").strip() and other \
+                and not bans <= rows(d):
+            missing.append((seed, sorted(rows(d) & bans)))
+        n = len([g for g in str(p["groups"]).split(";") if g.strip()])
+        rel = dict(p.get("relations") or {})
+        rel[SC.label((rng.randrange(n),))] = rng.choice(other)
+        if not bans <= rows(dict(p, relations=rel)):
+            mixed_missing.append((seed, name))
+    check("a plan whose every group repeats its word lists neither writing "
+          "ban as a stop rule; the default plan at the same seed lists "
+          "both, and so does the same-word plan once one drawn group takes "
+          "a type that lets its words differ",
+          planned >= 6 and not shown and not missing and not mixed_missing,
+          f"{planned} planned, refused {sorted(set(refused))}; listed "
+          f"{shown[:2]}; default without {missing[:2]}; mixed without "
+          f"{mixed_missing[:2]}")
+
+
 _SECTIONS = (
+    test_a_rule_row_says_what_the_grader_accepts,
+    test_the_writing_bans_stop_only_groups_that_can_differ,
+    test_a_late_start_is_named_as_the_grader_names_it,
+    test_a_return_copy_is_bound_as_its_first_line,
     test_satisfied_wants_remain_in_the_request,
     test_a_request_refusal_is_the_requests,
     test_the_seed_sweep_is_a_verb,

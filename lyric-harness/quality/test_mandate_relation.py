@@ -1504,6 +1504,60 @@ def test_eod_assigned_type_and_identical_words():
                         "they crossed the ash again"])[0]) == 1)
 
 
+def test_holorhyme_reads_every_syllable_of_both_lines():
+    """§17 — bug hunt F20 (2026-11-21): the brief says each line of a
+    holorhyme is the whole line, every syllable in order, matched from the
+    last syllables, and made of different words. The judge left out the
+    longer line's syllables that had no partner, so a line and the same
+    line less its first word passed: a near-repeat certified as holorhyme.
+
+    Every witness is drawn by seed from the whole dictionary: words that
+    share their one reading with a differently spelled word. A line of
+    them and the same sounds spelled the other way is a holorhyme; the
+    line against itself less its first word, or with one more word in
+    front, is not, in either order; the line against itself is not."""
+    print("\n17. holorhyme reads every syllable of both lines (bug hunt F20)")
+    import random
+    by_sound = {}
+    for w, rs in _R.lex.entries.items():
+        if w.isalpha() and w.islower() and len(w) > 1 and len(rs) == 1:
+            by_sound.setdefault(tuple(rs[0]), []).append(w)
+    homs = sorted(sorted(ws) for ws in by_sound.values() if len(ws) > 1)
+    rng = random.Random(2026112120)
+
+    def judged(a, b):
+        g = _R.grade([a, b], mandate([["1", "2"]], n_lines=2,
+                                     default_relation="schema:holorhyme"))
+        return g["refusals"], g["violations"]
+
+    passed_bad, control_bad, same_bad = [], [], []
+    for _ in range(6):
+        picks = rng.sample(homs, rng.randint(3, 5) + 1)
+        line = " ".join(p[0] for p in picks[1:])
+        other = " ".join(p[1] for p in picks[1:])
+        trimmed = line.split(" ", 1)[1]
+        longer = picks[0][0] + " " + line
+        for a, b in ((line, trimmed), (trimmed, line),
+                     (longer, line), (line, longer)):
+            refused, violated = judged(a, b)
+            if refused or not violated:
+                passed_bad.append((a, b, refused))
+        refused, violated = judged(line, other)
+        if refused or violated:
+            control_bad.append((line, other, refused, violated))
+        refused, violated = judged(line, line)
+        if refused or not violated:
+            same_bad.append((line, refused))
+    check("holorhyme reads every syllable of both lines (bug hunt F20): a "
+          "line against itself less its first word, or with one more word "
+          "in front, is not a holorhyme in either order",
+          not passed_bad, str(passed_bad[:2]))
+    check("the same sounds spelled as different words are a holorhyme, and "
+          "a line against itself is not",
+          not control_bad and not same_bad,
+          f"controls {control_bad[:2]}; identical {same_bad[:2]}")
+
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
@@ -1518,7 +1572,8 @@ if __name__ == "__main__":
                test_e2_default_grade_reaches_the_registry,
                test_the_edge_label_carries_two_relations_over_one_pair,
                test_m319_declared_perfect_rhyme_admits_the_promoted_final,
-               test_eod_assigned_type_and_identical_words):
+               test_eod_assigned_type_and_identical_words,
+               test_holorhyme_reads_every_syllable_of_both_lines):
         fn()
     print("=" * 62)
     if FAILURES:

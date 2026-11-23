@@ -5,9 +5,19 @@
 // literally) counted a marker as a line in one spelling and not the other.
 const sungRow = (line) => line && !/^\[[^\]]*\]$/.test(line);
 
+// THE ROW BREAKS OF PASTED TEXT. A lone carriage return and the two Unicode
+// line separators end a row, as a line feed does. The default form split on
+// line feeds only, so text pasted with carriage-return breaks became ONE row
+// and was refused as an array item holding several lines, in the text field
+// the refusal tells the caller to use (bug hunt 2026-11-20, finding 35).
+const ROW_BREAK = /\r\n|[\n\r\u2028\u2029]/u;
+// The same breaks one character at a time, for the projection's offsets: a
+// carriage return before a line feed stays in its row (and is trimmed off).
+const ROW_BREAK_CHAR = /\n|\r(?!\n)|[\u2028\u2029]/u;
+
 export function draftFromText(text, form) {
   if (form === 'prose-poem') {
-    const rows = String(text).split(/\r\n|[\n\r\u2028\u2029]/u);
+    const rows = String(text).split(ROW_BREAK);
     let previous = false;
     for (const row of rows) {
       if (!row.trim()) {
@@ -24,7 +34,7 @@ export function draftFromText(text, form) {
     return normalizeDraftLines(rows, form);
   }
   return normalizeDraftLines(
-    String(text).split(form === 'triadic-line' ? /\r\n|\r|\n/ : /\r?\n/),
+    String(text).split(form === 'triadic-line' ? /\r\n|\r|\n/ : ROW_BREAK),
     form
   );
 }
@@ -46,7 +56,7 @@ export function projectDraftText(text) {
   let start = 0,
     sourceStart = 0;
   const lines = [];
-  const rows = text.split('\n').map((raw, row) => {
+  const rows = text.split(ROW_BREAK_CHAR).map((raw, row) => {
     const trimmed = raw.trim();
     const kind = !trimmed ? 'blank' : sungRow(trimmed) ? 'sung' : 'section';
     const item = { row, kind, start, end: start + raw.length };

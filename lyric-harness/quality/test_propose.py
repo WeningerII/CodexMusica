@@ -128,6 +128,11 @@ class B:
         #: but not the KIND of requirement, so without this the renderers
         #: printed "must rhyme with" over a declared verbatim return.
         self.return_groups = kw.get("return_groups", ())
+        #: The rule each declared group is graded by, as printable rows
+        #: (bug hunt 2026-11-20, finding 2). `_mandate_block` reads it
+        #: through `getattr`; without it every group renders as the default
+        #: obligation, which is the defect the field was added for.
+        self.group_rules = kw.get("group_rules", {})
         self.return_members = kw.get("return_members", ())
         self.joint_conflict = kw.get("joint_conflict", False)
         #: WHAT EACH CALL CAN BE ANSWERED BY WHEN THE CONJUNCTION IS EMPTY
@@ -634,6 +639,68 @@ def test_the_enforced_rules_are_verifys_own_reasons():
                                                        before=4, after=3))
 
 
+def test_the_two_writing_bans_are_stated_as_rules():
+    print("\n4d. ENFORCED — the question says what the two bans its "
+          "writing-ban row names forbid, before the first attempt (bug hunt "
+          "2026-11-20, finding 3)")
+    # THE DEFECT: the row said only "HOMEOTELEUTON and MODAL_RHYME cannot be
+    # traded for a repair". A writer who never saw the plan brief (the
+    # website writer, and every pasted-song revise) was told neither what a
+    # same-spelled ending is nor that the most common partners are banned,
+    # so the first, most natural rhyme fix was rejected.
+    from quality import propose as PR
+    from quality import plan as PL
+    from quality import revise as RV
+    same = PL._limit_same_spelled_ending({})
+    common = PL._limit_common_partner({})
+    line_q = render_line(PLAIN_BRIEF, DRAFT)
+    group_q = render_group(PB(pivot_line_no=3, pivot_text=DRAFT[2],
+                              pivot_word="dream", anchors=(), label="A",
+                              members=(1, 3), brief=PIVOT_BRIEF, lines=DRAFT,
+                              attempt=0, reasons=None, whole=()))
+    batch_q = PR.render_batch([B(line_no=1, text=DRAFT[0]),
+                               B(line_no=2, text=DRAFT[1])], DRAFT)
+    for name, q in (("line", line_q), ("group", group_q), ("batch", batch_q)):
+        check(f"the {name} question states the same-spelled-ending ban in "
+              f"the plan brief's own words",
+              f"HOMEOTELEUTON: {same}." in q, same)
+        check(f"the {name} question states the common-partner ban in the "
+              f"plan brief's own words",
+              f"MODAL_RHYME: {common}." in q, common)
+        row = next((r for r in PR._rejection_rows()
+                    if "prohibited writing rhyme pair" in r), "")
+        check(f"...after the rule that names them, inside the enforced block",
+              row and q.find(row) < q.find("HOMEOTELEUTON: ")
+              and (name == "batch"
+                   or q.find("HOMEOTELEUTON: ") < q.find("HOW TO ANSWER")),
+              row)
+    check("the first attempt carries them: nothing has been rejected yet",
+          "No previous attempt was rejected" in line_q
+          and "HOMEOTELEUTON: " in line_q)
+    check("the two sentences are the plan's, word for word, and the codes "
+          "are the grader's writing-ban codes",
+          PR.WRITING_BAN_RULES == {"HOMEOTELEUTON": same,
+                                   "MODAL_RHYME": common}
+          and set(PR.WRITING_BAN_RULES) == set(RV.WRITING_BAN_CODES),
+          sorted(PR.WRITING_BAN_RULES))
+    check("the partner count is the grader's own default",
+          PR.WRITING_BAN_PARTNERS
+          == RV.ReviseDeclaration().modal_exclusion
+          == PL.WRITING_BAN_PARTNERS
+          and f"the {PR.WRITING_BAN_PARTNERS} or fewer" in common, common)
+    ban_row = list(PR.VERIFY_REJECTIONS).index("writing_ban") + 1
+    check("the rule number cited is the writing-ban row's own",
+          PR.WRITING_BAN_ROW == ban_row
+          and f"Rule {ban_row} names" in line_q
+          and f"Rule {ban_row} names" in group_q, f"row {ban_row}")
+    # THE RULE IS STATED AND NO WORD IS NAMED (2026-10-27, D6 on #519): the
+    # block may not carry a word list.
+    block = "\n".join(PR._writing_ban_rows())
+    check("the block names no word to use or avoid",
+          "'" not in block and '"' not in block and "FORBIDDEN" not in block,
+          block)
+
+
 # -- 5. parsing ---------------------------------------------------------
 
 def test_parse_accepts_the_supported_shapes():
@@ -662,6 +729,20 @@ def test_parse_accepts_the_supported_shapes():
          "'Cause I was never goin'", "'Cause I was never goin'"),
         ("the same with U+2019", "’Cause I was never goin’",
          "’Cause I was never goin’"),
+        # QUOTED SPEECH AT ONE END IS A LINE, NOT A WRAPPER (bug hunt
+        # 2026-11-20, finding 26). `_QUOTE_CHARS`' own comment says a line
+        # that both OPENS and CLOSES on a quotation mark is refused; the
+        # test was `or`, so a line of dialogue that merely started or ended
+        # on one was thrown away unread.
+        ("speech that OPENS the line", '"Stay," she whispered by the door',
+         '"Stay," she whispered by the door'),
+        ("speech that CLOSES the line", 'She whispered "stay"',
+         'She whispered "stay"'),
+        ("curly speech that opens the line",
+         "“Stay,” she said and closed the door",
+         "“Stay,” she said and closed the door"),
+        ("speech in the middle of the line", 'She said "stay" softly',
+         'She said "stay" softly'),
     ]
     for name, raw, want in cases:
         got = parse_line(raw)
@@ -683,6 +764,10 @@ def test_parse_accepts_the_supported_shapes():
         ("a quote-wrapped line", f'"{good}"'),
         ("a curly-quote-wrapped line", f"“{good}”"),
         ("a backtick-wrapped line", f"`{good}`"),
+        # Opens AND closes on a quotation mark: still refused, whatever is
+        # between them, because wrapper and speech cannot be told apart.
+        ("a line that opens and closes on speech",
+         '"Stay," she said, "and close the door"'),
         ("a marker with nothing after it", "LINE:"),
         ("not a string at all", None),
     ]
@@ -712,6 +797,11 @@ def test_parse_group_needs_every_marker():
           parse_group(f"L5: {z}\nL1: {x}\nL3: {y}", MEM) == (x, y, z))
     check("a two-member group is just k=2, the case this replaced",
           parse_group(f"L1: {x}\nL3: {y}", (1, 3)) == (x, y))
+    # Finding 26, in the group parser, which cleans each member the same way.
+    check("accepts a member that opens on quoted speech",
+          parse_group('L2: "Stay," she said\nL4: and so I stayed', (2, 4))
+          == ('"Stay," she said', "and so I stayed"),
+          parse_group('L2: "Stay," she said\nL4: and so I stayed', (2, 4)))
     for name, raw, mem in [
             ("bare lines", f"{x}\n{y}\n{z}", MEM),
             ("a MISSING member", f"L1: {x}\nL3: {y}", MEM),
@@ -970,6 +1060,45 @@ def test_group_prompt_states_the_tier2_situation():
     check("the coupling is stated: the two picks must stand in a relation "
           "with each other",
           "must stand in a relation" in p and "COUPLED" in p)
+    # THE GROUP ASKED FOR AFTER A REJECTED LINE ANSWER SAYS SO (bug hunt
+    # 2026-11-20, finding 5). On the escalation path the pivot's own line
+    # answer has just been rejected, and the ATTEMPT block said "No previous
+    # attempt was rejected on this line in this round".
+    check("PREMISE: a first try at a group with no rejection behind it says "
+          "none was rejected",
+          "No previous attempt was rejected on this line in this round." in p)
+    cited = "L3's line question (attempt 1, round 1)"
+    esc = dict(vars(pb), path="escalation", pivot_line_question=cited,
+               pivot_line_reasons=("nothing was fixed",))
+    p_esc = render_group(PB(**esc))
+    check("after a rejected line answer the group question cites that "
+          "question, quotes the grader's reasons, and does not say that no "
+          "attempt was rejected",
+          f"  {cited} was asked first, and its answer was REJECTED. The "
+          "grader's reasons, verbatim:\n    - nothing was fixed\n  This "
+          "question is asked because of that rejection" in p_esc
+          and "No previous attempt was rejected" not in p_esc,
+          p_esc[p_esc.find("ATTEMPT"):][:400])
+    check("...and nothing else in the question moved",
+          p_esc.replace(
+              f"  {cited} was asked first, and its answer was REJECTED. The "
+              "grader's reasons, verbatim:\n    - nothing was fixed\n  This "
+              "question is asked because of that rejection; do not send back "
+              "something the same reason would reject again.",
+              "  No previous attempt was rejected on this line in this "
+              "round.") == p)
+    check("a line question that got no answer has no rejection to quote, so "
+          "the sentence stands (nothing was rejected)",
+          render_group(PB(**dict(esc, pivot_line_reasons=()))) == p)
+    check("a group asked before any line question has none to cite, and "
+          "says so as before",
+          render_group(PB(**dict(esc, path="group_first", pivot_line_question="",
+                                 pivot_line_reasons=()))) == p)
+    p_again = render_group(PB(**dict(esc, attempt=1,
+                                     reasons=["introduced 1 new flagged finding(s)"])))
+    check("a second try quotes the group's own rejection, the latest one",
+          "The PREVIOUS attempt was REJECTED" in p_again
+          and "was asked first" not in p_again)
     check("the whole draft and whole-draft findings remain constraints "
           "a permitted group rewrite may improve",
           all(t in p for t in DRAFT) and "PRESERVE THESE CONSTRAINTS" in p
@@ -994,16 +1123,22 @@ def test_group_prompt_states_the_tier2_situation():
                   "The whole thing felt like mankind"), out)
     check("...off the prompt render_group produced", got["prompt"] == p)
 
+    # REPINNED 2026-11-21 (bug hunt finding 25): ~~`is None`~~ on both. An
+    # unparseable reply is still never guessed at and never written into a
+    # slot; it comes back as an `UnreadReply`, which uses one attempt, where
+    # None is a writer that sent nothing.
+    from quality.propose import UnreadReply
+
     def declines(prompt):
         return "I would rather rewrite the whole verse, honestly."
-    check("an unparseable group response is None, not a guess",
-          ModelProposer(declines).propose_group(pb) is None)
+    check("an unparseable group response is an unread reply, not a guess",
+          isinstance(ModelProposer(declines).propose_group(pb), UnreadReply))
 
     def one_line(prompt):
         return "LINE: The whole thing felt like mankind"
     check("a single-line response to a GROUP request is refused rather "
           "than written into one of the k slots",
-          ModelProposer(one_line).propose_group(pb) is None)
+          isinstance(ModelProposer(one_line).propose_group(pb), UnreadReply))
 
 
 #: The same three lines `quality/test_loop.py` carries under this name, and
@@ -1042,14 +1177,25 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
             # `prior` — the last round's rejection of THIS group, read by
             # `render_group` and quoted in its ATTEMPT block (M-253).
             "prior", "whole_repair", "mandate_description",
-            # `path` and the three `pivot_line_*` lists — the escalation
-            # path's own block (LOOP_REDESIGN.md §2.4). `PB` leaves them at
-            # `render_group`'s defaults, so no case here prints that block;
-            # `test_loop_redesign.py` (a) renders it through the REAL verb
-            # and asserts the cited line question and the group-first path's
-            # absence of it.
+            # `path` and the `pivot_line_*` fields — the escalation path's
+            # own block (LOOP_REDESIGN.md §2.4).
+            # REPINNED 2026-11-21 (bug hunt 2026-11-20, finding 5): ~~`PB`
+            # leaves them at `render_group`'s defaults, so no case here
+            # prints that block; `test_loop_redesign.py` (a) renders it
+            # through the REAL verb and asserts the cited line question and
+            # the group-first path's absence of it.~~ No suite asserted the
+            # cited line question, and nothing printed it. The rejected line
+            # answer is now rendered and asserted: in this suite's group
+            # prompt section through `PB`, and through the real loop in
+            # `test_audit_regressions.py`. `pivot_line_reasons` is the field
+            # added for it.
             "path", "pivot_line_offered", "pivot_line_forbidden",
-            "pivot_line_question"}
+            "pivot_line_question", "pivot_line_reasons",
+            # `rule_rows` — every declared group's rule, on the question
+            # that repairs the declared requirements (bug hunt 2026-11-20,
+            # finding 2). Rendered through `PB` in §7e and through the real
+            # loop in `test_audit_regressions.py`.
+            "rule_rows"}
     check("every field this suite builds a `PB` out of is a real "
           "`GroupBrief` field", used <= declared, sorted(used - declared))
     check("...and `GroupBrief` has grown no field this suite is blind to",
@@ -1064,7 +1210,12 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
               # Rendered and asserted in `test_loop_redesign.py` (a); an `AS`
               # without it takes `render_group`'s `None`, which prints no
               # block, as an anchor with no menu should.
-              "one_move"}
+              "one_move",
+              # `call_rules` — the rule of each other group this member must
+              # still answer (2026-11-22, the follow-up to bug hunt finding
+              # 2). Rendered through `AS` in §7e and through the real loop in
+              # `test_audit_regressions.py`.
+              "call_rules"}
     check("every field this suite builds an `AS` out of is a real "
           "`AnchorSlot` field", a_used <= a_declared,
           sorted(a_used - a_declared))
@@ -1416,12 +1567,36 @@ def test_model_proposer_surface():
     check("the full 5-argument form is accepted positionally, and both "
           "extras reach the prompt",
           "nothing was fixed" in calls[1] and "LEXICAL_MONOTONY" in calls[1])
-    check("a response nothing can be parsed out of is None, so the loop "
-          "reads it as 'no further proposal' and moves on",
-          ModelProposer(lambda p: "Sorry, two options:\nA line\nB line"
-                        ).propose(PLAIN_BRIEF, DRAFT, 0) is None)
-    check("a non-string response is None rather than a crash",
-          ModelProposer(lambda p: None).propose(PLAIN_BRIEF, DRAFT, 0) is None)
+    # REPINNED 2026-11-21 (bug hunt finding 25): ~~"a response nothing can
+    # be parsed out of is None, so the loop reads it as 'no further
+    # proposal' and moves on"~~. That is what cost a line its whole retry
+    # budget for one formatting slip. A reply that came back unreadable is an
+    # `UnreadReply`, which uses one attempt; None is a writer that sent
+    # nothing.
+    from quality.propose import UnreadReply
+    unread = ModelProposer(lambda p: "Sorry, two options:\nA line\nB line"
+                           ).propose(PLAIN_BRIEF, DRAFT, 0)
+    check("a response nothing can be parsed out of is an UnreadReply that "
+          "says why, not None",
+          isinstance(unread, UnreadReply)
+          and "discarded unread" in unread.unread_reason
+          and "LINE:" in unread.unread_reason, repr(unread))
+    long_line = ModelProposer(lambda p: "x" * (propose.MAX_LINE_CHARS + 1)
+                              ).propose(PLAIN_BRIEF, DRAFT, 0)
+    check("a line past the limit is an UnreadReply that names the limit",
+          isinstance(long_line, UnreadReply)
+          and str(propose.MAX_LINE_CHARS) in long_line.unread_reason,
+          repr(long_line))
+    group = PB(pivot_line_no=3, pivot_text=DRAFT[2], pivot_word="dream",
+               anchors=(), label="A", members=(1, 3), brief=PIVOT_BRIEF,
+               lines=DRAFT, attempt=0, reasons=None, whole=())
+    check("a group response nothing can be parsed out of is an UnreadReply",
+          isinstance(ModelProposer(lambda p: "L1: only one row"
+                                   ).propose_group(group), UnreadReply))
+    check("a non-string response is None rather than a crash: nothing came "
+          "back, which is the one thing None means",
+          ModelProposer(lambda p: None).propose(PLAIN_BRIEF, DRAFT, 0) is None
+          and ModelProposer(lambda p: None).propose_group(group) is None)
 
     def custom(text):
         return text.upper()
@@ -1480,6 +1655,69 @@ def test_the_offer_carries_no_schema_gap_disclosure():
     check("the mandate block says 'must stand in at least one relation with'",
           "must stand in at least one relation with" in out
           and "must rhyme with" not in out, out)
+    # A GROUP THAT DECLARES A RULE IS STATED BY IT (bug hunt 2026-11-20,
+    # finding 2). The sentence above is the default obligation; it was
+    # printed for every group, and a declared group is graded by more.
+    row = ("RULE of group A (a declared type), where N and M are any two "
+           "lines of the group, N first, P is the part of line N the rule "
+           "reads and Q the part of line M: P and Q are the same word.")
+    other = row.replace("the same word", "different words")
+    ruled = "\n".join(_mandate_block(B(
+        must_answer=[("A", [1, 3], [(3, "sight")])], group_rules={"A": (row,)})))
+    check("a group that declares a rule is stated by that rule, printed "
+          "under its row, and not as 'at least one relation'",
+          "  group A [1, 3] — this line must satisfy the rule printed under "
+          "this row with each of: L3 ('sight')\n    " + row == ruled, ruled)
+    both = "\n".join(_mandate_block(B(
+        must_answer=[("A", [1, 3], [(3, "sight")])],
+        group_rules={"A": (row, other)})))
+    check("a group that declares two is stated by both",
+          "  group A [1, 3] — this line must satisfy every rule printed "
+          "under this row with each of: L3 ('sight')\n    " + row
+          + "\n    " + other == both, both)
+    check("a rule declared for another group changes nothing here",
+          "\n".join(_mandate_block(B(
+              must_answer=[("A", [1, 3], [(3, "sight")])],
+              group_rules={"B": (row,)}))) == out)
+    check("a RETURN is stated as a return whatever rule its label carries",
+          "RULE of group" not in "\n".join(_mandate_block(B(
+              must_answer=[("A", [1, 3], [(3, "sight")])],
+              return_groups=("A",), group_rules={"A": (row,)}))))
+    from quality.propose import DECLARED_RULES_HEADING, render_group
+    repair = dict(whole_repair=True, whole=(), mandate_description="  A: lines [1, 3]",
+                  lines=("first line", "second line", "third line"),
+                  attempt=0, reasons=None, members=(1, 3))
+    plain = render_group(PB(**repair))
+    with_rows = render_group(PB(**repair, rule_rows=(row,)))
+    check("the question that repairs the declared requirements prints "
+          "every declared group's rule under the mandate, and nothing "
+          "else in it moves",
+          with_rows == plain.replace(
+              "  A: lines [1, 3]\n\nCURRENT DRAFT",
+              "  A: lines [1, 3]\n\n" + DECLARED_RULES_HEADING + "\n  "
+              + row + "\n\nCURRENT DRAFT")
+          and DECLARED_RULES_HEADING not in plain, with_rows)
+    # A MEMBER'S OTHER GROUPS (2026-11-22, the follow-up to finding 2). The
+    # block that tells another member what it "must also answer" gave the
+    # words of its other groups and never the rule one of them declares.
+    coupled = dict(pivot_line_no=3, pivot_text="third line", pivot_word="",
+                   pivot_offered=(), label="A", members=(1, 3),
+                   brief=B(must_answer=[("A", [1, 3], [(1, "line")])]),
+                   lines=("first line", "second line", "third line"),
+                   attempt=0, reasons=None, whole=())
+    member = dict(line_no=1, text="first line", word="", offered=(),
+                  calls=("sight",))
+    bare = render_group(PB(**coupled, anchors=(AS(**member),)))
+    ruled_member = render_group(PB(**coupled, anchors=(
+        AS(**member, call_rules=(row.replace("group A", "group B"),)),)))
+    said = "  Besides group A [1, 3], L1 must also answer: 'sight'.\n"
+    check("a member's own block prints the rule of each other group it "
+          "must still answer, under the row that lists the words, and "
+          "nothing else in the question moves",
+          said in bare and "RULE of group" not in bare
+          and ruled_member == bare.replace(
+              said, said + "    " + row.replace("group A", "group B") + "\n"),
+          ruled_member)
 
 
 def test_the_protected_lines_are_every_line_outside_the_question():
@@ -1543,6 +1781,7 @@ if __name__ == "__main__":
                test_whole_draft_findings_are_context_not_a_task,
                test_a_pivot_and_a_joint_conflict_are_stated,
                test_the_enforced_rules_are_verifys_own_reasons,
+               test_the_two_writing_bans_are_stated_as_rules,
                test_parse_accepts_the_supported_shapes,
                test_parse_group_needs_every_marker,
                test_group_prompt_states_the_tier2_situation,

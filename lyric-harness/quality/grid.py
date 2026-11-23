@@ -1952,10 +1952,16 @@ class VariationDeclaration:
 
 _MARKUP = re.compile(r"[_*]+")
 _PUNCT = re.compile(r"[^\w\s'’-]", re.UNICODE)
+#: A hyphen that joins no word: alone, or at a word's edge. ` --` is a dash
+#: typed as hyphens, punctuation like the em dash `_PUNCT` already drops
+#: (bug hunt F22, 2026-11-21); a hyphen between two letters stays. Reader
+#: scheme v2 only: v1 is the pre-batch record (`quality/test_reader.py`,
+#: `V1Frozen`), and there a loose hyphen stays in the text.
+_LOOSE_HYPHENS = re.compile(r"(?<![\w'’])-+|-+(?![\w'’])", re.UNICODE)
 _SPACE = re.compile(r"\s+")
 
 
-def normalise_line(text):
+def normalise_line(text, scheme=None):
     """The declared normalisation. Named, because it decides answers.
 
     Durfey prints the same burden as `_Which no body can deny._` and
@@ -1963,18 +1969,24 @@ def normalise_line(text):
     returns by one comma. Under the raw text those are variations and under
     this normalisation they are not, and which of the two a result used is a
     coordinate of the result rather than a detail.
+
+    `scheme` is the reader scheme (None: this process's). A hyphen that joins
+    no word is dropped under v2 only; v1 keeps it, as the pre-batch reader did.
     """
+    from lyric_harness import resolve_reader_scheme
     t = unicodedata.normalize("NFC", text or "")
     t = t.replace("’", "'").replace("‘", "'")
     t = t.replace("“", '"').replace("”", '"')
     t = _MARKUP.sub(" ", t)
     t = _PUNCT.sub(" ", t)
+    if resolve_reader_scheme(scheme) == "v2":
+        t = _LOOSE_HYPHENS.sub(" ", t)
     t = _SPACE.sub(" ", t).strip().lower()
     return t
 
 
-def tokens(text):
-    return normalise_line(text).split()
+def tokens(text, scheme=None):
+    return normalise_line(text, scheme).split()
 
 
 def _lev(a, b):
@@ -2071,7 +2083,7 @@ def rime_cmudict(lex=None):
         reader = lex
         if line is not None and token is not None:
             reader = lex.for_line(line).for_token(token - 1)
-        w = normalise_line(word).strip("'")
+        w = normalise_line(word, LH._scheme_of(lex)).strip("'")
         if not w:
             return None
         if (getattr(reader, "_pronunciation_choice", None) is None
@@ -2138,23 +2150,24 @@ def rime_cmudict(lex=None):
             if (tokens and tokens[-1].pieces == last.pieces
                     and tokens[-1].text == last.text):
                 token = len(tokens)
-                return (normalise_line(last.text), token,
+                return (normalise_line(last.text, "v2"), token,
                         key(last.text, line=line, token=token))
-            word = normalise_line(last.text)
+            word = normalise_line(last.text, "v2")
             if tokens and tokens[-1].pieces[-1][1] > last.pieces[0][0]:
                 return word, None, None
             return word, None, key(word, line=line, token=None)
         # Scheme v1, the pre-batch binding: declaration indexes belong to the
         # original exact line. NFC may join a combining mark and change the
         # declaration tokenizer's count.
-        word = _end_word(line)
+        word = _end_word(line, "v1")
         spans = list(re.finditer(r"(?:[^\W_]|['‘’-])+", raw))
         words = LH.line_tokens(raw, strip_parens=lex.strip_parens, scheme="v1")
         token = None
         if spans and words:
             span = spans[-1]
             without = raw[:span.start()] + " " * len(span.group()) + raw[span.end():]
-            if (normalise_line(span.group()) == word == normalise_line(words[-1])
+            if (normalise_line(span.group(), "v1") == word
+                    == normalise_line(words[-1], "v1")
                     and LH.line_tokens(span.group(), strip_parens=False, scheme="v1") == [words[-1]]
                     and LH.line_tokens(without, strip_parens=lex.strip_parens,
                                        scheme="v1") == words[:-1]):
@@ -2169,8 +2182,8 @@ def rime_cmudict(lex=None):
     return key
 
 
-def _end_word(line):
-    ts = tokens(line)
+def _end_word(line, scheme=None):
+    ts = tokens(line, scheme)
     return ts[-1] if ts else ""
 
 

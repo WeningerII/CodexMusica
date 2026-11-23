@@ -118,11 +118,22 @@ __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
            "COLLISION_FINDINGS", "RHYME_FINDINGS", "SATISFACTION_FINDINGS",
            "THETA_COLLISION", "draft_fingerprint"]
 
+
+def _end_key(word):
+    """-> an end word as the rhyme judge reads it: typographic apostrophes
+    folded, lower case, edge punctuation and quote marks stripped (the fold
+    `lyric_harness.line_anchors` applies). The pair bans look their words up
+    by this key, so they ask about the same word the judge heard."""
+    from lyric_harness import fold_apostrophes
+    return fold_apostrophes(str(word or "")).lower().strip("'\".,;:!?()[]")
+
+
 #: Findings that mean "this line's RHYME needs replacing". Each earns a
 #: candidate field with the modal region excluded.
 #:
 #: NO COLLISION CODE IS IN HERE, AND THAT IS A DECISION RATHER THAN AN
 #: OVERSIGHT — see `Reviser.brief`'s "WHY A COLLISION EARNS NO FIELD".
+
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME",
                   "HOMEOTELEUTON"}
@@ -140,6 +151,79 @@ def held_note_standing(codes):
     its own words.
     """
     return f" — HOLDS as written (NOTE {', '.join(tuple(codes))})"
+
+#: What the letters in a rule row stand for. One sentence, printed in every
+#: row, so a row reads on its own wherever a renderer puts it.
+RULE_LEGEND = ("where N and M are any two lines of the group, N first, P is "
+               "the part of line N the rule reads and Q the part of line M")
+
+
+def declared_rule_rows(mandate, promote=True):
+    """-> {group label: (row, ...)}: the rule each group with a declared
+    relation is graded by, one printable row for each relation it requires.
+    A group under the default obligation (at least one relation) is absent.
+
+    THE REVISE QUESTION GAVE A WEAKER RULE THAN THE GRADER USES (bug hunt
+    2026-11-20, finding 2). A group that declares a type is graded by that
+    type's rule, and the question said only that the line "must stand in at
+    least one relation with" its partners; the rule appeared nowhere in it. A
+    writer told that sent an ordinary rhyme and was rejected again. It is
+    the same shape as a return printed as "must rhyme" (`return_groups`).
+
+    The clauses are `quality.plan.type_rule`'s, the ones the plan brief
+    prints as "must satisfy rule R<n>", so the planner and the revise
+    question state one rule in one wording. The row is built HERE, whole,
+    and carried on the `Brief` (`group_rules`): `quality/propose.py` imports
+    nothing from this module, and two renderers each wording the row would
+    be two statements of it.
+
+    THE ROW STATES THE RULE AS THE GRADER JUDGES IT (2026-11-22, from the
+    planner owner's read of these rows). Two rows did not:
+
+    - A type that reads a line's end is graded under the row
+      `relations.declared_pair_schema` returns, which also takes a last
+      syllable promoted to stress when `promote` (the reviser's
+      `_promote()`) is true. The row was worded from the registry type
+      itself, said "from its last stressed syllable", and so ruled out a
+      pair the grader accepts.
+    - A declared class (`class:RHYME`) got "P and Q stand in the declared
+      relation class:RHYME": an internal id, and no rule. Its clauses are
+      `quality.plan.class_rule`'s.
+
+    A name in the `type:` namespace still gets the sentence the plan brief
+    gives it. Its judge is not the registry type of the same name
+    (`schemes._resolve_relation`), and nothing words a named type's cell
+    yet, so no rule is printed that the grader does not use.
+    """
+    relations_of = getattr(mandate, "relations_of", None)
+    if relations_of is None:
+        return {}
+    from quality.plan import class_rule, type_rule       # noqa: PLC0415
+    from quality.relations import (REGISTRY,             # noqa: PLC0415
+                                   declared_pair_schema)
+    from quality.rhyme_types import CLASS_RELATIONS      # noqa: PLC0415
+    out = {}
+    for k, label in enumerate(mandate.labels):
+        rows = []
+        for name in relations_of(k):
+            bare = (name.split(":", 1)[1] if name.startswith("schema:")
+                    else name)
+            sch = REGISTRY.get(bare)
+            if sch is not None:
+                shown, clauses = bare, type_rule(
+                    declared_pair_schema(sch, promote=promote))
+            elif (name.startswith("class:")
+                  and name.split(":", 1)[1] in CLASS_RELATIONS):
+                shown, clauses = class_rule(name)
+            else:
+                shown, clauses = name, [f"P and Q stand in the declared "
+                                        f"relation {name}"]
+            rows.append(f"RULE of group {label} ({shown}), {RULE_LEGEND}: "
+                        + "; ".join(clauses) + ".")
+        if rows:
+            out[label] = tuple(rows)
+    return out
+
 
 #: Findings whose PRESENCE records that a requirement or a licence HOLDS.
 #: Everything else in the finding set names something WRONG, so its
@@ -199,6 +283,13 @@ SATISFACTION_FINDINGS = {"REFRAIN_REPEAT", "RETURN_LOCKED", "RADIF_LICENSED"}
 #: because the other three name a defect-or-not on a question that was asked.
 COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
                       "REPEAT_ACROSS_GROUPS", "COLLISION_UNDECLARED"}
+
+#: What a timing-only flag (`fit.TIMING_ONLY`) tells the writer (bug hunt F8,
+#: the owner's ruling 2026-11-21). It is filed on the whole song, so no line
+#: is asked to change for it.
+TIMING_ONLY_ADVICE = ("The timing declared for this must change: where the "
+                      "line starts, or how long it runs. No change to the "
+                      "words clears it.")
 
 #: `quality/grid.py` function refusals whose question has NO SUBJECT in what
 #: the writer declared: a function declared once cannot return, an undeclared
@@ -684,6 +775,15 @@ class Brief:
     #: rendering fix a four-site refactor. The label is the key those sites
     #: already carry.
     return_groups: tuple = ()
+    #: THE RULE EACH OF `must_answer`'s GROUPS IS GRADED BY, where the group
+    #: declares a relation: {label: (row, ...)}, the printable rows of
+    #: `declared_rule_rows`. A group under the default obligation is absent,
+    #: and for it "at least one relation" is the true statement. Added
+    #: 2026-11-21 (bug hunt finding 2): `must_answer` carries the group and
+    #: its words and no rule, so both renderers printed the default
+    #: obligation for every group. Keyed by label for the reason
+    #: `return_groups` is.
+    group_rules: dict = field(default_factory=dict)
     # Exact verbatim equivalence class; never a rhyme-group label.
     return_members: tuple = ()
     #: Was the modal head COMPUTED at all for this line? Added 2026-08-16,
@@ -829,6 +929,8 @@ class Brief:
             else:
                 out.append(f"    must answer group {lab} {mem}{place}: "
                            f"{shown}{standing}")
+                out.extend(f"      {row}"
+                           for row in (self.group_rules or {}).get(lab, ()))
         if self.must_answer and len(self.must_answer) > 1:
             _places = {self.group_slots.get(lab) for lab, _m, _c in
                        self.must_answer} if self.group_slots else {None}
@@ -3462,7 +3564,7 @@ class Reviser:
                 f"POSITION and a mismatched count would silently misalign "
                 f"every line after the first difference. They must be the "
                 f"same draft.")
-        per, refusals = {}, {}
+        per, refusals, timing = {}, {}, {}
         from quality.phonology.eng import English
         fallback = getattr(self.lex.g2p_fallback, "min_confidence", None)
         phon = English(fallback=fallback, lexicon=self.lex)
@@ -3493,6 +3595,11 @@ class Reviser:
                     # THE ANY-READING RULE: which whole reading this line
                     # was judged on (`fit.fit_line`).
                     ev += f" READ AS: {lf.units.describe_reading()}"
+                if f.code in FT.TIMING_ONLY:
+                    # ~~filed on the line~~ (bug hunt F8): no wording of the
+                    # line clears it, so it is the song's, below.
+                    timing.setdefault(f.code, []).append((ln, f, ev))
+                    continue
                 per.setdefault(ln, []).append(Finding(
                     f.code, f.severity,
                     f.message, ev, [ln]))
@@ -3545,6 +3652,20 @@ class Reviser:
             whole.append(Finding(
                 f.code, f.severity,
                 f.message, f.evidence, []))
+        # THE TIMING-ONLY FLAGS ARE THE SONG'S (bug hunt F8; the owner's
+        # ruling 2026-11-21: not meter, still blocking). One per code, naming
+        # its lines and saying what must change, so no question asks a
+        # writer to reword a line for them.
+        for code, hits in sorted(timing.items()):
+            lns = sorted(ln for ln, _f, _ev in hits)
+            _, first, _ = hits[0]
+            whole.append(Finding(
+                code, first.severity,
+                f"meter: {first.message}, on line"
+                f"{'s' if len(lns) > 1 else ''} {', '.join(map(str, lns))}. "
+                f"{TIMING_ONLY_ADVICE}",
+                " ".join(f"L{ln}: {ev}" for ln, _f, ev in hits),
+                lns))
         return per, whole
 
     # -- the calibrated bands ----------------------------------------------
@@ -4185,7 +4306,11 @@ class Reviser:
             if _vs != _STm.DEFAULT and not self.writing:
                 return None
         i, j = v["lines"]
-        wi, wj = (w.lower() for w in v["endwords"])
+        # THE WORDS THE RHYME JUDGE READ, folded and stripped as
+        # `line_anchors` folds them. ~~`w.lower()`~~ REPLACED 2026-11-21 (bug
+        # hunt F18): the raw token kept a closing quote mark, so `desire’`
+        # was in no head and the ban was off while the rhyme still passed.
+        wi, wj = (_end_key(w) for w in v["endwords"])
         # TIER 1 FIRST — HOMEOTELEUTON (owner's rule, 2026-08-18): the
         # pair's own SPELLINGS decide, no field consulted, so a
         # same-rime partner outside the finite field cannot slip
@@ -4512,7 +4637,7 @@ class Reviser:
                     # Pair words AND their actual bound slots are identity:
                     # swapping one prohibited pair for another is no repair.
                     subject = (self.writing_policy,
-                               *(w.lower() for w in v["endwords"]),
+                               *(_end_key(w) for w in v["endwords"]),
                                _SL.spell_slot(m.slot_of(v["group"], i)),
                                _SL.spell_slot(m.slot_of(v["group"], j)))
                     add(j, replace(finding, severity="flag", subject=subject))
@@ -7076,6 +7201,7 @@ class Reviser:
         m = found["mandate"]
         _, endwords, _, _ = self._matrix(lines, profile=profile)
         briefs = []
+        _rule_rows = declared_rule_rows(m, promote=self._promote())
         for ln in sorted(found["per_line"]):
             if targets is not None and ln not in targets:
                 continue
@@ -7222,6 +7348,10 @@ class Reviser:
                                  == "REQUIRE_RETURN" for x in mates):
                     _returns.append(m.labels[k])
             b.return_groups = tuple(_returns)
+            b.group_rules = {m.labels[k]: _rule_rows[m.labels[k]]
+                             for k, _ in groups
+                             if m.labels[k] in _rule_rows
+                             and m.labels[k] not in _returns}
             _ret = m.return_of(ln)
             b.return_members = (tuple(_ret.lines)
                                 if _ret is not None and _ret.verbatim is True

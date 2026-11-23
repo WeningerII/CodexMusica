@@ -7314,11 +7314,25 @@ def _record_schemas(r):
     # registry schema; read as a bare name, `schema:perfect rhyme` resolved to
     # nothing and a declared perfect rhyme was reported "not heard as end
     # rhyme", and `class:RHYME` was listed as a schema (2026-10-02).
+    #
+    # A GROUP THAT DECLARES A CATALOG STRUCTURE is recorded as satisfied by
+    # the structure's bare name (`masculine-rhyme`), which is no registry
+    # schema either. It was listed as one, and a clean declared rhyme was
+    # reported "not heard as end rhyme" at an UNCALIBRATED relation (bug hunt
+    # 2026-11-20, finding 9). A catalog structure's name is skipped unless
+    # the registry holds a schema of the same name. Any other name the
+    # registry cannot resolve is still listed, and still counts as not
+    # audible (`_split_by_audible_end`).
+    from quality.relations import REGISTRY as _registry    # noqa: PLC0415
+    from quality.structures import names as _structure_names  # noqa: PLC0415
+    _structures = set(_structure_names())
     out = []
     for n in r.get("satisfied_by") or ():
         if n.startswith("schema:"):
             out.append(n[len("schema:"):])
         elif n.startswith(("class:", "type:")):
+            continue
+        elif n in _structures and n not in _registry:
             continue
         elif n not in ADMITTABLE_RELATIONS and n not in ("REPEAT", NO_ANCHOR):
             out.append(n)
@@ -9201,6 +9215,11 @@ def _replay_proposer(path, *, catalog_selection=None):
         for r in rec.get("propose", []):
             ones[_line_key(r)] = r["text"]
         for r in rec.get("propose_group", []):
+            # A LIST, or the record is malformed (bug hunt 2026-11-20,
+            # finding 29): `tuple()` of a recorded string is its letters, one
+            # "line" each. What each entry holds is the loop's to refuse.
+            if not isinstance(r["new"], list):
+                raise TypeError("`new` is not a list of lines")
             groups[_group_key(r["members"], r["texts"], r["words"],
                               r.get("round"), r.get("attempt"),
                               r.get("question_sha256"))] = tuple(r["new"])
@@ -9316,6 +9335,16 @@ def _line_fits_journal(text):
     return (isinstance(text, str) and len(text) <= LINE_CHARS
             and len(json.dumps(text, ensure_ascii=False).encode("utf-8"))
             <= ANSWER_LINE_JSON_BYTES)
+
+
+def _line_too_wide(line_no, text):
+    """Why `_line_fits_journal` refused this line, in the writer's words."""
+    if len(text) > LINE_CHARS:
+        return (f"L{line_no}: the line is {len(text)} characters, and a line "
+                f"is at most {LINE_CHARS}")
+    return (f"L{line_no}: the line is too long for this run to record. A line "
+            f"of at most {JOURNAL_LINE_CHARS} characters always fits; a longer "
+            f"one fits unless most of its characters take several bytes each")
 
 
 _ANSWER_LIMITS = (
@@ -10570,6 +10599,118 @@ def _legacy_return_row(kind, prompt):
     return None if text == prompt else text
 
 
+#: The block `quality/propose.py` prints under the rejection rows since
+#: 2026-11-21 (bug hunt 2026-11-20, finding 3: the question named the two
+#: writing bans and never said what either forbids), FROZEN for the reason
+#: `_REJECTION_ROWS_671` is: an undo restores one change's bytes, so it may
+#: not read a table a later change can move.
+_BAN_DEFINITIONS_1121 = (
+    "\n  Rule 6 names two bans. What each one forbids:\n"
+    "    HOMEOTELEUTON: two different paired words whose endings sound alike "
+    "are also spelled the same from the stressed vowel on (the same word, or "
+    "two words that sound exactly alike, is never caught).\n"
+    "    MODAL_RHYME: two paired words whose endings sound alike, where one "
+    "is among the 6 or fewer differently spelled partners most often paired "
+    "with the other in songs.")
+
+
+def _legacy_ban_definitions(kind, prompt):
+    """-> the question as worded before it said what the two bans forbid."""
+    if _BAN_DEFINITIONS_1121 not in prompt:
+        return None
+    return prompt.replace(_BAN_DEFINITIONS_1121, "")
+
+
+#: The rows a group question prints since 2026-11-21 when it is asked right
+#: after its pivot's own line answer was rejected (bug hunt 2026-11-20,
+#: finding 5), FROZEN as `_BAN_DEFINITIONS_1121` is. Before, the first try at
+#: such a group said no attempt had been rejected, unless last round's
+#: rejection of the same group was quoted there, in which case it said nothing
+#: more.
+_PIVOT_REJECTION_1121 = re.compile(
+    r"(?s)(?P<above>[^\n]*)\n  L\d+'s line question \(attempt \d+, round "
+    r"\d+\) was asked first, and its answer was REJECTED\. The grader's "
+    r"reasons, verbatim:\n.*?\n  This question is asked because of that "
+    r"rejection; do not send back something the same reason would reject "
+    r"again\.(?=\n)")
+_ATTEMPT_ROW_1121 = re.compile(
+    r"  This is ATTEMPT \d+ of this line's retry budget\.")
+_NO_REJECTION_1121 = ("  No previous attempt was rejected on this line in this "
+                      "round.")
+
+
+def _legacy_pivot_rejection(kind, prompt):
+    """-> the group question as worded before it quoted the rejected line."""
+    if kind != "propose_group":
+        return None
+    found = _PIVOT_REJECTION_1121.search(prompt)
+    if found is None:
+        return None
+    above = found.group("above")
+    # Directly under the attempt row the block took the place of one
+    # sentence; under last round's rejection it was added and replaced
+    # nothing.
+    was = (above + "\n" + _NO_REJECTION_1121
+           if _ATTEMPT_ROW_1121.fullmatch(above) else above)
+    return prompt[:found.start()] + was + prompt[found.end():]
+
+
+#: What a question says since 2026-11-21 of a group that declares a rule (bug
+#: hunt 2026-11-20, finding 2), FROZEN as `_BAN_DEFINITIONS_1121` is. Before,
+#: every group was stated as the default obligation and no rule was printed:
+#: the rule rows are removed, each sentence that points at them goes back to
+#: the sentence it replaced, and the heading over the rows in the question
+#: that repairs the declared requirements goes with its rows.
+_RULE_ROW_1121 = re.compile(
+    r"(?m)^ +RULE of group [^\n]*, where N and M are any two lines of the "
+    r"group, N first, P is the part of line N the rule reads and Q the part "
+    r"of line M: [^\n]*\n")
+_RULE_WORDING_1121 = (
+    ("this line must satisfy the rule printed under this row with each of: ",
+     "this line must stand in at least one relation with: "),
+    ("this line must satisfy every rule printed under this row with each of: ",
+     "this line must stand in at least one relation with: "),
+    ("must satisfy this group's rule, printed under this paragraph, with "
+     "what\n",
+     "must stand in a relation with what\n"),
+    ("must satisfy every rule printed under this paragraph with what\n",
+     "must stand in a relation with what\n"),
+    ("\n\nTHE RULE EACH GROUP THAT DECLARES ONE IS GRADED BY\n\nCURRENT "
+     "DRAFT\n",
+     "\n\nCURRENT DRAFT\n"),
+)
+
+
+def _legacy_group_rules(kind, prompt):
+    """-> the question as worded before it stated a declared group's rule."""
+    text = _RULE_ROW_1121.sub("", prompt)
+    for now, was in _RULE_WORDING_1121:
+        text = text.replace(now, was)
+    return None if text == prompt else text
+
+
+#: The common-partner line of the block `_BAN_DEFINITIONS_1121` holds, as it
+#: read until 2026-11-22 and as it reads since: the owner ruled that day that
+#: the common-partner ban (MODAL_RHYME) bans at most 3 differently spelled
+#: partners, not 6, and `quality/propose.py` prints the new count. Both
+#: FROZEN as `_BAN_DEFINITIONS_1121` is, which keeps saying 6.
+_BAN_PARTNERS_LINE_1121 = (
+    "    MODAL_RHYME: two paired words whose endings sound alike, where one "
+    "is among the 6 or fewer differently spelled partners most often paired "
+    "with the other in songs.")
+_BAN_PARTNERS_LINE_1122 = (
+    "    MODAL_RHYME: two paired words whose endings sound alike, where one "
+    "is among the 3 or fewer differently spelled partners most often paired "
+    "with the other in songs.")
+
+
+def _legacy_ban_partners(kind, prompt):
+    """-> the question as worded before the common-partner ban fell to 3."""
+    if _BAN_PARTNERS_LINE_1122 not in prompt:
+        return None
+    return prompt.replace(_BAN_PARTNERS_LINE_1122, _BAN_PARTNERS_LINE_1121)
+
+
 #: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
 #: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
 #: it asked and replays an answer only to the same question, so a change to a
@@ -10591,6 +10732,18 @@ LEGACY_QUESTION_RENDERINGS = (
      _legacy_671_prose),
     ("2026-11-21 writer: the return row after the self-rhyme ruling",
      _legacy_return_row),
+    ("2026-11-21 writer: the question says what the two writing bans forbid "
+     "(bug hunt finding 3)",
+     _legacy_ban_definitions),
+    ("2026-11-21 writer: a group asked for after a rejected line answer says "
+     "so (bug hunt finding 5)",
+     _legacy_pivot_rejection),
+    ("2026-11-21 writer: a question states the rule a declared group is "
+     "graded by (bug hunt finding 2)",
+     _legacy_group_rules),
+    ("2026-11-22 writer: the common-partner ban bans 3 partners, not 6 "
+     "(owner's ruling)",
+     _legacy_ban_partners),
 )
 
 
@@ -10866,6 +11019,13 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
                     "checkpoint replay question differs; no new writer request was made")
             cursor += 1
             replayed_completed += 1
+            # A reply that came back unreadable was journalled with why
+            # (below), so a resumed run makes of it what the first run did:
+            # one attempt used and the next one asked. A record without the
+            # mark is a writer that sent nothing back, as it always replayed.
+            if event.get("answer") is None and isinstance(event.get("unread"), str):
+                from quality.propose import UnreadReply
+                return UnreadReply(event["unread"])
             return event.get("answer")
         count = 1 if kind == "propose" else len(record["members"])
         # Count actual record text/return-closure metadata, both answer copies,
@@ -10882,16 +11042,43 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
             if getattr(error, "code", None) == "PROVIDER_PROPOSAL_TOO_LARGE":
                 raise _JournalCapacity(state, current, path, error.code) from error
             raise
+        # AN UNREAD REPLY IS NOT A DECLINE (bug hunt 2026-11-20, finding 25;
+        # `quality.propose.UnreadReply`). It has no text to journal, so the
+        # record keeps `answer: null` and says why beside it.
+        unread = getattr(answer, "unread_reason", None)
+        returned = answer
+        if unread is not None:
+            answer = None
         if isinstance(answer, tuple):
             answer = list(answer)
         texts = [answer] if kind == "propose" else answer
+        # A LINE TOO WIDE TO RECORD COSTS ONE ATTEMPT, NOT THE RUN (bug hunt
+        # 2026-11-20, finding 27). The question allows `LINE_CHARS` characters;
+        # the journal's room is in bytes, so a line inside the limit whose
+        # characters take several bytes each did not fit, and that ended the
+        # run for good. A well-formed answer with such a line is an unread
+        # reply: nothing of it is journalled but why, the writer is told, and
+        # the next attempt is asked. An answer of the wrong shape keeps the
+        # stop below.
+        if (answer is not None and isinstance(texts, list) and len(texts) == count
+                and all(isinstance(text, str) for text in texts)):
+            numbers = ([record["line"]] if kind == "propose"
+                       else list(record["members"]))
+            wide = [_line_too_wide(n, text) for n, text in zip(numbers, texts)
+                    if not _line_fits_journal(text)]
+            if wide:
+                from quality.propose import UnreadReply
+                returned = UnreadReply("; ".join(wide))
+                unread, answer = returned.unread_reason, None
         if answer is not None and (not isinstance(texts, list)
                 or len(texts) != count
                 or any(not _line_fits_journal(text) for text in texts)):
             raise _JournalCapacity(state, current, path,
                                    "PROVIDER_PROPOSAL_TOO_LARGE")
         state["proposals"].append({"kind": kind,
-                                   "question_sha256": identity, "answer": answer})
+                                   "question_sha256": identity, "answer": answer,
+                                   **({} if unread is None else
+                                      {"unread": str(unread)})})
         cursor += 1
         if answer is not None:
             record["text" if kind == "propose" else "new"] = answer
@@ -10900,7 +11087,7 @@ def _checkpoint_proposer(one, two, lines, config_key, spec, *, legacy_config_key
         # forgotten merely because its verification was interrupted.
         state["status"] = "proposal_completed"
         emit()
-        return answer
+        return returned if unread is not None else answer
 
     def draft_sha(current):
         # Same canonical line-array bytes as the connector's final draft hash.
@@ -13471,8 +13658,12 @@ def main():
         if lines is None:
             lines = src
         g = rhyme_graph(lex, lines, decl)
+        # The graph numbers lines from 0 and a cover's groups are 1-based
+        # line numbers. Passed straight through, line 0 was written to the
+        # last line's place, so a draft rhymed in pairs printed as the
+        # enclosed scheme (bug hunt 2026-11-20, finding 36).
         cov = SC.Cover(n_lines=len(lines),
-                       groups=[sorted(c) for c in g["cliques"]])
+                       groups=[sorted(v + 1 for v in c) for c in g["cliques"]])
         part = cov.to_partition()
         print(f"lines {len(lines)}   cliques {len(g['cliques'])}   "
               f"(edges: ANY admittable relation at its cut — one "
@@ -15590,7 +15781,16 @@ def main():
                 else:
                     for ln in ls:
                         decisions.append(f"{code} — L{ln}")
+            from quality.fit import TIMING_ONLY as _timing_only
             for f in whole_flags:
+                if getattr(f, "code", None) in _timing_only:
+                    # Bug hunt F8: its lines are named, and it is the
+                    # TIMING that must change there, not their words.
+                    decisions.append(
+                        f"{f.code} — THE TIMING of "
+                        f"{line_range(sorted(f.locations))} (no change "
+                        f"to the words clears it; see below)")
+                    continue
                 decisions.append(f"{getattr(f, 'code', '?')} — WHOLE DRAFT "
                                  f"(names no line; see below)")
             print(f"\n  WHAT TO CHANGE — {len(decisions)} decision(s). "

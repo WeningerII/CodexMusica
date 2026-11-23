@@ -420,11 +420,11 @@ def main(argv=None):
         print("", file=sys.stderr)
         print("`quality/plan.py:section_header` builds the ONLY correct form "
               "and every renderer uses it:", file=sys.stderr)
-        print("    [INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]",
+        print("    [INTRO — 2 lines — 2 bars of 8/8, each line starts on beat 2]",
               file=sys.stderr)
         print("    [INTERLUDE — instrumental — 2 bars of 8/8, no words]",
               file=sys.stderr)
-        print("The line count, the bar count, the METER and the pickup live "
+        print("The line count, the bar count, the METER and the start beat live "
               "INSIDE the bracket.", file=sys.stderr)
         print("DO NOT RETYPE A SONG. Run `plan --seed=N --fill=DRAFT "
               "--out=BP` and present its bytes.", file=sys.stderr)

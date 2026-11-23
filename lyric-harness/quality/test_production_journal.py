@@ -131,6 +131,57 @@ class JournalCapacity(unittest.TestCase):
             self.assertEqual(saved['accepted_lines'], initial)
             self.assertTrue(saved['new_run_required'])
 
+    def test_a_line_too_wide_to_record_costs_one_attempt_not_the_run(self):
+        # Bug hunt 2026-11-20, finding 27. The question allows a line of 512
+        # characters. The journal has room for less when the characters take
+        # several bytes each, and a line inside the limit but outside that
+        # room ended the run for good (journal_capacity, "this run cannot
+        # resume"). It is now an unread reply: one attempt used, the reason
+        # journalled, and the next attempt asked.
+        from quality.propose import UnreadReply
+        initial = ['original line', 'another line']
+        b = Brief(1, initial[0]); b.round_no = 1
+        wide = '\u9759' * 450
+        self.assertLessEqual(len(wide), LH.LINE_CHARS)
+        self.assertFalse(LH._line_fits_journal(wide))
+        with tempfile.TemporaryDirectory() as tmp, \
+             patch.dict(os.environ, {'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp')}), \
+             contextlib.redirect_stdout(io.StringIO()):
+            calls = []
+            one, two = LH._checkpoint_proposer(
+                lambda *a, **k: calls.append('line') or wide,
+                lambda group_brief: calls.append('group') or ('a short line', wide),
+                initial, 'cfg', 'fake')
+            got = one(b, initial, 0)
+            self.assertIsInstance(got, UnreadReply)
+            self.assertIn('too long for this run to record', got.unread_reason)
+            saved = json.loads((Path(tmp)/'cp').read_text())
+            self.assertIsNone(saved['proposals'][-1]['answer'])
+            self.assertEqual(saved['proposals'][-1]['unread'], got.unread_reason)
+            self.assertNotEqual(saved.get('status'), 'journal_capacity')
+            self.assertLessEqual(LH._journal_bytes(saved), LH.JOURNAL_BYTES)
+            group = SimpleNamespace(
+                members=(1, 2), lines=tuple(initial), brief=b, attempt=0,
+                proposal_for=lambda n: (initial[n-1], 'line'))
+            self.assertIsInstance(two(group), UnreadReply)
+            self.assertEqual(calls, ['line', 'group'])
+            saved = json.loads((Path(tmp)/'cp').read_text())
+            # Only the line that did not fit is named.
+            self.assertTrue(saved['proposals'][-1]['unread'].startswith('L2: '))
+            self.assertNotIn('L1: ', saved['proposals'][-1]['unread'])
+            self.assertEqual([e['kind'] for e in saved['proposals']],
+                             ['propose', 'propose_group'])
+            # A line over the character limit says that instead.
+            self.assertIn('is 513 characters, and a line is at most 512',
+                          LH._line_too_wide(4, 'x' * 513))
+            # A resumed run reads both back as unread and asks nobody.
+            one, two = LH._checkpoint_proposer(
+                lambda *a, **k: self.fail('a recorded reply was asked for again'),
+                lambda group_brief: self.fail('a recorded reply was asked for again'),
+                initial, 'cfg', 'fake')
+            self.assertIsInstance(one(b, initial, 0), UnreadReply)
+            self.assertIsInstance(two(group), UnreadReply)
+
     def test_deferred_prompt_reserves_before_question_and_keeps_prior_journal(self):
         # ~~'\x01' * 70000~~ (420 KB escaped) -> 180000 (1.08 MB): still past
         # the working cap, which rose 384 KiB -> 1 MiB on 2026-10-04.
@@ -540,14 +591,20 @@ class KitchenVerificationReceipts(unittest.TestCase):
 
 class DeferredAuditRegressions(unittest.TestCase):
     def test_model_line_labels_are_bound_to_the_requested_target(self):
-        from quality.propose import ModelProposer, parse_line
+        from quality.propose import ModelProposer, UnreadReply, parse_line
         text = 'I left the basket underneath the oak'
         b = Brief(1, 'Copper cat')
         for wrap in (lambda s: s, lambda s: '```text\n' + s + '\n```',
                      lambda s: 'LINE: ' + s):
             for line in (2, 31):
                 raw = wrap(f'L{line}: {text}')
-                self.assertIsNone(ModelProposer(lambda p: raw).propose(b, ['Copper cat'], 0))
+                # REPINNED 2026-11-21 (bug hunt finding 25): ~~assertIsNone~~.
+                # A reply labelled for another line is still refused, never
+                # read as this line's; it now comes back as an unread reply,
+                # which uses one attempt, where None was read as a decline.
+                self.assertIsInstance(
+                    ModelProposer(lambda p: raw).propose(b, ['Copper cat'], 0),
+                    UnreadReply)
             self.assertEqual(parse_line(wrap('L1: ' + text), line_no=1), text)
             self.assertEqual(parse_line(wrap(text), line_no=1), text)
 
