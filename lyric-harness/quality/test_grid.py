@@ -4207,14 +4207,27 @@ def test_the_report_compares_what_asked_comparisons_lists():
                 "contrasts": list(rep["contrasts"])}
 
     reached = {"returns": set(), "reprises": set(), "contrasts": set()}
-    apart = []
+    apart, plan_apart = [], []
 
-    def hold(where, song, hooks=()):
+    def hold(where, song, hooks=(), plan=None):
         listed = asked_comparisons([s.function for s in song.sections])
-        got = compared(song_function_report(song, hooks=hooks))
+        rep = song_function_report(song, hooks=hooks)
+        got = compared(rep)
         if got != listed:
             apart.append((where, [s.function for s in song.sections],
                           got, listed))
+        if plan is not None:
+            # THE PLANNER'S STOP ROWS NAME THESE SECTIONS (2026-11-23,
+            # `plan._compared_sections`): the pairs the report compares.
+            said = _PL._compared_sections(plan)
+            if ([(a["name"], b["name"]) for a, b in said["returns"]]
+                    != [(a.name, b.name) for rets in rep["returns"].values()
+                        for a, b, _r in rets]
+                    or [(a["name"], b["name"]) for a, b in said["reprises"]]
+                    != [(a.name, b.name) for reps in rep["reprises"].values()
+                        for a, b, _r in reps]
+                    or said["contrasts"] != list(rep["contrasts"])):
+                plan_apart.append(where)
         for key in reached:
             reached[key] |= set(listed[key])
 
@@ -4256,7 +4269,7 @@ def test_the_report_compares_what_asked_comparisons_lists():
             except _PL.PlanRefused:
                 continue
             song, hooks = song_from_blueprint(_PL.fill_plan(plan, fill(plan)))
-            hold((form, seed), song, hooks)
+            hold((form, seed), song, hooks, plan)
             plans += 1
             by_form[form] = by_form.get(form, 0) + 1
     script = os.path.join(HERE, "..", "..", "scripts", "song_forms.mjs")
@@ -4296,7 +4309,7 @@ def test_the_report_compares_what_asked_comparisons_lists():
             unbuilt.append((entry["id"], "planner refused 4 drawn seeds"))
             continue
         song, hooks = song_from_blueprint(_PL.fill_plan(plan, fill(plan)))
-        hold((entry["id"], seed), song, hooks)
+        hold((entry["id"], seed), song, hooks, plan)
         built += 1
 
     # What the tables name, so every one is reached by some draw.
@@ -4321,6 +4334,9 @@ def test_the_report_compares_what_asked_comparisons_lists():
           apart[:3])
     check("every function the tables ask about, and every reprise and "
           "contrast pair, is reached by a draw", not unreached, unreached)
+    check(f"on every plan above, the sections the planner's stop rows name "
+          f"are the sections the report compares ({plans + built} plans)",
+          not plan_apart, plan_apart[:4])
 
 
 if __name__ == "__main__":

@@ -3140,7 +3140,11 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     # this collected it and broke six existing assertions — correctly. It is a
     # property of the CALL, not of the draft: the caller passed no phonology,
     # which is ONE fact, and this report already states it once as
-    # CHANNEL_NOT_MEASURED from `bridge_contrast`. Collecting it here turns
+    # CHANNEL_NOT_MEASURED from `bridge_contrast`. ~~CHANNEL_NOT_MEASURED is
+    # that fact about the call~~ (2026-11-23): it is also filed on a call
+    # that passes a phonology, when a contrasted section's last word has no
+    # rhyme sound (`bridge_contrast`), which is a fact about the draft, and
+    # the planner's stop rows name it as one. Collecting it here turns
     # that one fact into one record per returning function, which is the exact
     # inflation `song_function_report`'s own counting docstring records being
     # bitten by ("a three-question report came back asked 3, answered -1,

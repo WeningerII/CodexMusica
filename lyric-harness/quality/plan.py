@@ -7131,6 +7131,36 @@ STOP_RULES = {
                      "limit": "nothing_read", "layer": "meter"},
     "COUNT_IS_A_LOWER_BOUND": {"applies": "sung_lines", "stop": "unjudged",
                                "limit": "unjudged_line", "layer": "meter"},
+    # The same, one layer over again (2026-11-23): the song-function
+    # questions `grid.song_function_report` asks of a planned song's own
+    # sections, each refused on a draft whose words it cannot compare. A
+    # refusal here refuses the `function:draft` obligation (`Reviser.inspect`,
+    # `blocking`), so the draft cannot pass. Each row names the sections the
+    # grader compares in THIS plan (`_compared_sections`), and prints only
+    # where it has some.
+    "END_WORD_UNREADABLE": {"applies": "compared_sections", "stop": "unjudged",
+                            "limit": "end_word_unreadable",
+                            "layer": "function"},
+    "CHANNEL_NOT_MEASURED": {"applies": "contrasted_sections",
+                             "stop": "unjudged",
+                             "limit": "channel_not_measured",
+                             "layer": "function"},
+    "STUB_RETURN": {"applies": "returned_sections", "stop": "unjudged",
+                    "limit": "stub_return", "layer": "function"},
+    "RETURN_SLOTS_UNRESOLVED": {"applies": "returned_sections",
+                                "stop": "unjudged",
+                                "limit": "return_slots_unresolved",
+                                "layer": "function"},
+    "REPRISE_STUB": {"applies": "reprised_sections", "stop": "unjudged",
+                     "limit": "reprise_stub", "layer": "function"},
+    "REPRISE_SIDE_HAS_NO_WORDS": {"applies": "reprised_sections",
+                                  "stop": "unjudged",
+                                  "limit": "reprise_no_words",
+                                  "layer": "function"},
+    "TITLE_LONGER_THAN_HOOK": {"applies": "hook_slot_and_title",
+                               "stop": "unjudged",
+                               "limit": "title_longer_than_hook",
+                               "layer": "function"},
     # The other two meter refusals `Reviser.inspect` names, left out of
     # the brief with the reason each cannot fire on a graded song.
     "PROMINENCE_UNDECIDED": {"applies": "never", "stop": "unjudged",
@@ -7230,6 +7260,78 @@ def _ban_groups(plan):
     return False
 
 
+def _compared_sections(plan):
+    """-> what the grader compares in this plan's song, as
+    `grid.song_function_report` compares it: the three lists
+    `grid.asked_comparisons` gives for the plan's section functions (the one
+    place they are built), each read down to the sections compared.
+
+    - "returns": [(first, later)], for each function asked whether it comes
+      back the same that the plan gives two or more sections: its first
+      section and each later one (`grid.return_findings`). A function the
+      convention expects at most once stands at the song's edge and the
+      planner deals it once (`test_plan.test_the_planner_reads_no_list_of_
+      once_rows`), so it never has a later section here.
+    - "reprises": [(earlier, later)], for each reprise pair asked: the first
+      section of the earlier function and each section of the later one
+      that comes after it (`grid.reprise_findings`), where both carry lines.
+    - "contrasts": [(function, other)], each pair asked whether the two
+      differ (`grid.bridge_contrast`).
+
+    Sections are the plan's own section dicts. test_plan holds the first two
+    equal to the report's own detail on seeded plans of every form, so the
+    rows cannot name a comparison the grader does not make."""
+    from quality import grid as _GR
+    secs = plan["sections"]
+    asked = _GR.asked_comparisons([s["function"] for s in secs])
+    sung = {s["section"] for s in plan.get("line_slots") or ()}
+    of = lambda fn: [i for i, s in enumerate(secs) if s["function"] == fn]
+    returns = []
+    for fn in asked["returns"]:
+        at = of(fn)
+        if len(at) >= 2:
+            returns += [(secs[at[0]], secs[k]) for k in at[1:]]
+    reprises = []
+    for later, earlier in asked["reprises"]:
+        src = of(earlier)[0]
+        reprises += [(secs[src], secs[k]) for k in of(later)
+                     if k > src and secs[src]["name"] in sung
+                     and secs[k]["name"] in sung]
+    return {"returns": returns, "reprises": reprises,
+            "contrasts": list(asked["contrasts"])}
+
+
+def _lines_named(plan, secs):
+    """-> "line 11" or "lines 1 to 7", over the lines of `secs` in order;
+    sections apart are listed apart ("line 11 and line 15")."""
+    parts = []
+    for sec in secs:
+        ln = [s["line"] for s in plan["line_slots"]
+              if s["section"] == sec["name"]]
+        if ln:
+            parts.append(f"line {ln[0]}" if len(ln) == 1
+                         else f"lines {ln[0]} to {ln[-1]}")
+    return (parts[0] if len(parts) == 1
+            else ", ".join(parts[:-1]) + " and " + parts[-1])
+
+
+def _section_named(plan, sec, first=False):
+    """-> "the chorus at line 11", or "the first chorus, at line 11": a
+    section by the name its bracket prints (`section_label`) and its
+    lines."""
+    name = section_label(sec).lower().replace("_", " ")
+    return (f"the first {name}, at {_lines_named(plan, [sec])}" if first
+            else f"the {name} at {_lines_named(plan, [sec])}")
+
+
+def _function_named(plan, fn):
+    """-> "the chorus (line 11 and line 15)": every section of one function
+    and their lines."""
+    secs = [s for s in plan["sections"] if s["function"] == fn]
+    name = section_label(secs[0]).lower().replace("_", " ")
+    return f"the {name} ({_lines_named(plan, secs)})"
+
+
 _STOP_APPLIES = {
     "catalog_form": lambda plan: bool(plan.get("request", {}).get("song_form")),
     "always": lambda plan: True,
@@ -7246,6 +7348,15 @@ _STOP_APPLIES = {
     # tell a repeated ending from a refrain and writes a note
     # (`floor.SlopFloor`, "only one rhyme pair here").
     "floor_pairs": lambda plan: len(_floor_pairs(plan)) >= 2,
+    "compared_sections": lambda plan: bool(
+        _compared_sections(plan)["returns"]
+        or _compared_sections(plan)["reprises"]),
+    "returned_sections": lambda plan: bool(
+        _compared_sections(plan)["returns"]),
+    "reprised_sections": lambda plan: bool(
+        _compared_sections(plan)["reprises"]),
+    "contrasted_sections": lambda plan: bool(
+        _compared_sections(plan)["contrasts"]),
 }
 
 
@@ -7421,9 +7532,11 @@ WORD_RUN = "as one unbroken run, in the same order,"
 
 
 def _limit_title_in_hook(plan):
+    # ~~"; a title of more words than that line leaves this check unjudged,
+    # so the draft cannot pass"~~ (2026-11-23): TITLE_LONGER_THAN_HOOK says
+    # that in its own row, with what clears it.
     return (f"the title's words are not found {WORD_RUN} inside line "
-            f"{plan['hook_slot']}; a title of more words than that line "
-            f"leaves this check unjudged, so the draft cannot pass")
+            f"{plan['hook_slot']}")
 
 
 #: What ends an unjudged row's stop: the reading the grader takes
@@ -7499,6 +7612,150 @@ def _limit_common_partner(plan):
             f"partners most often paired with the other in songs")
 
 
+#: What the song-function rows mean by a word with no sound to compare: the
+#: function layer reads a line's last word through `grid.rime_cmudict`,
+#: which looks a word up whole, then part by part across a hyphen, through
+#: the dictionary and the `fallback` the grade sets; a numeral has no
+#: reading, and a dictionary word read with no vowel ("hmm") has no sound
+#: from a stressed vowel on. The brief never says "rhyme" outside a type's
+#: own name (`test_plan`), so the sentence names the sound itself.
+NO_END_SOUND = ("a word whose sound, from its last stressed vowel on, the "
+                "grader cannot read (one written with a digit, one that "
+                "neither the dictionary nor `fallback` on lyric_grade, where "
+                "set, reads, or one read with no vowel)")
+
+#: The song-function rows' other way out. `fallback` reads only a word the
+#: dictionary does not have, so it cannot give a vowel to a dictionary word
+#: read with none.
+FALLBACK_UNLISTED_UNTIL = ("or, for a word the dictionary does not have and "
+                           "that is written with no digit, until `fallback` "
+                           "on lyric_grade reads it")
+
+#: The pointers the grader reads at the end of a planned song's line: the
+#: English row of `lyric_harness.CHORUS_STUB_FORMS` (a planned song is read
+#: as English, `Reviser._relation_phonology`). A copy this module may not
+#: import; `test_plan.test_the_stop_rules` holds it equal to that row.
+POINTER_SPELLINGS = ("&c.", "etc.")
+POINTERS = " or ".join(f"'{p}'" for p in POINTER_SPELLINGS)
+
+#: Where a pointer stands to be one (`lyric_harness._STUB_EDITORIAL_TAIL`
+#: and the row's own pattern): last in the line, any case, its last full
+#: stop optional, and after it only closing punctuation or a bracketed
+#: note of up to 60 characters.
+POINTER_PLACE = ("at the end of the line (in capitals or not, with or "
+                 "without its last full stop, and with nothing after it but "
+                 "closing punctuation or a short note in brackets)")
+
+#: What ends a pointer row's stop.
+WRITTEN_OUT_UNTIL = "until those lines are written out in full"
+
+
+def _first_if_more(plan, sec):
+    """True when `sec`'s function has more sections than one in the plan, so
+    naming it "the first" says which."""
+    return sum(1 for s in plan["sections"]
+               if s["function"] == sec["function"]) > 1
+
+
+def _reprise_pairs_named(plan):
+    """-> "the outro at line 16 and the first chorus, at line 11; ..." for
+    each reprise comparison, the later side first."""
+    return "; ".join(
+        f"{_section_named(plan, later)} and "
+        f"{_section_named(plan, earlier, _first_if_more(plan, earlier))}"
+        for earlier, later in _compared_sections(plan)["reprises"])
+
+
+def _returned_named(plan):
+    """-> "the chorus (line 11 and line 15)", each function the grader
+    compares with its first time, in song order, joined by "or"."""
+    fns = list(dict.fromkeys(a["function"]
+                             for a, _b in _compared_sections(plan)["returns"]))
+    return " or ".join(_function_named(plan, fn) for fn in fns)
+
+
+def _limit_end_word_unreadable(plan):
+    c = _compared_sections(plan)
+    pairs = ([f"{_section_named(plan, a)} with {_section_named(plan, b)}"
+              for a, b in c["returns"]]
+             + [f"{_section_named(plan, b)} with "
+                f"{_section_named(plan, a, _first_if_more(plan, a))}"
+                for a, b in c["reprises"]])
+    return (f"the last word of a line of a section the grader compares with "
+            f"another ({'; '.join(pairs)}) is {NO_END_SOUND}; whether those "
+            f"sounds match across that comparison is left unjudged, and "
+            f"the draft cannot pass {UNJUDGED_UNTIL}, "
+            f"{FALLBACK_UNLISTED_UNTIL}")
+
+
+def _limit_channel_not_measured(plan):
+    pairs = _compared_sections(plan)["contrasts"]
+    named = "; ".join(f"{_function_named(plan, a)} and "
+                      f"{_function_named(plan, b)}" for a, b in pairs)
+    # The bridge and the verse are put to the default call, whose refusal
+    # stands whatever else differs; every other pair is answered by any
+    # measured channel that separates the two (`song_function_report`).
+    bv = ("bridge", "verse") in pairs
+    rest = any(p != ("bridge", "verse") for p in pairs)
+    when = ("for the bridge and the verse whatever else differs, and for "
+            "the others only where nothing else the grader measures tells "
+            "them apart" if bv and rest else
+            "whatever else differs" if bv else
+            "only where nothing else the grader measures tells them apart")
+    return (f"the last word of a line in one of two sections the grader "
+            f"expects to differ ({named}) is {NO_END_SOUND}, and the last "
+            f"words it does read in the two share no such sound; whether "
+            f"the two differ is left unjudged ({when}), and the draft cannot "
+            f"pass {UNJUDGED_UNTIL}, {FALLBACK_UNLISTED_UNTIL}")
+
+
+def _limit_stub_return(plan):
+    return (f"a line of {_returned_named(plan)}, which the grader compares "
+            f"each time it is sung with its first time, has {POINTERS} "
+            f"{POINTER_PLACE}, a pointer to lines written elsewhere, and the "
+            f"words before the pointer, if any, are not how a copy of that "
+            f"section written out in full begins; the grader cannot tell "
+            f"which lines it points to, so that comparison is left "
+            f"unjudged, and the draft cannot pass {WRITTEN_OUT_UNTIL}")
+
+
+def _limit_return_slots_unresolved(plan):
+    return (f"a line of {_returned_named(plan)}, which the grader compares "
+            f"each time it is sung with its first time, has {POINTERS} "
+            f"{POINTER_PLACE}, a pointer to lines written elsewhere; the "
+            f"grader does not place the lines a pointer stands for on the "
+            f"beat, so whether that section lands in the same place each "
+            f"time it is sung is left unjudged, and the draft cannot pass "
+            f"{WRITTEN_OUT_UNTIL}")
+
+
+def _limit_reprise_stub(plan):
+    return (f"a line of a section the grader compares to see whether the "
+            f"later brings the earlier back ({_reprise_pairs_named(plan)}) "
+            f"has {POINTERS} {POINTER_PLACE}, a pointer to lines written "
+            f"elsewhere, and the words before the pointer, if any, are not "
+            f"how a copy of the earlier section written out in full begins; "
+            f"that comparison is left unjudged, and the draft cannot pass "
+            f"{WRITTEN_OUT_UNTIL}")
+
+
+def _limit_reprise_no_words(plan):
+    return (f"every line of one of two sections the grader compares to see "
+            f"whether the later brings the earlier back "
+            f"({_reprise_pairs_named(plan)}) is punctuation only, with no "
+            f"word; that comparison is left unjudged, and the draft cannot "
+            f"pass until a line of each has a word")
+
+
+def _limit_title_longer_than_hook(plan):
+    n = plan["hook_slot"]
+    return (f"the title has more words than line {n} (here a word in "
+            f"parentheses counts, and two words joined by a hyphen count "
+            f"once); the title check on that line is left unjudged, and the "
+            f"draft cannot pass until line {n} has at least as many words as "
+            f"the title")
+
+
 _STOP_LIMITS = {
     "catalog_form": lambda plan: (
         f"the draft fails a measured requirement of catalog form {plan['request']['song_form']['id']!r}, "
@@ -7515,6 +7772,13 @@ _STOP_LIMITS = {
     "unjudged_line": _limit_unjudged_line,
     "same_spelled_ending": _limit_same_spelled_ending,
     "common_partner": _limit_common_partner,
+    "end_word_unreadable": _limit_end_word_unreadable,
+    "channel_not_measured": _limit_channel_not_measured,
+    "stub_return": _limit_stub_return,
+    "return_slots_unresolved": _limit_return_slots_unresolved,
+    "reprise_stub": _limit_reprise_stub,
+    "reprise_no_words": _limit_reprise_no_words,
+    "title_longer_than_hook": _limit_title_longer_than_hook,
 }
 
 #: The limit that moves with the finished song's word count. The
