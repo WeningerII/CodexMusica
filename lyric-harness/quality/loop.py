@@ -319,8 +319,9 @@ from lyric_harness import (APOSTROPHES, load_lyric_lines, line_tokens,
                            raw_final_token, reader_line,
                            resolve_reader_scheme, _scheme_of)
 from quality import slots as _SL  # noqa: E402
+from quality.fit import TIMING_ONLY as _TIMING_ONLY  # noqa: E402
 from quality.revise import (ReviseDeclaration, Reviser,  # noqa: E402
-                            draft_fingerprint)
+                            declared_rule_rows, draft_fingerprint)
 
 #: The grader's slot resolution, bound ONCE at import (`slots.resolve`
 #: itself, not a copy). A test rig that replaces `slots.resolve` afterwards
@@ -967,6 +968,14 @@ class AnchorSlot:
     #: the pivot's field was already empty), a tuple (possibly empty) when it
     #: was.
     one_move: object = None
+    #: THE RULE OF EACH GROUP BEHIND `calls` THAT DECLARES ONE, as printable
+    #: rows (`quality.revise.declared_rule_rows`), in the order of `calls`.
+    #: `calls` gives the words this member must still answer and not the
+    #: rule each is graded by, so a group question said "must also answer:
+    #: 'word'" over a group held to its own type's rule: the weakness of bug
+    #: hunt finding 2, on the one block that fix did not reach (2026-11-22).
+    #: Empty when none of those groups declares a rule.
+    call_rules: tuple = ()
 
 
 @dataclass
@@ -1086,6 +1095,17 @@ class GroupBrief:
     #: "L<n>'s line question (attempt k, round r)" when that question was
     #: asked on this same draft, else "" (S10).
     pivot_line_question: str = ""
+    #: The grader's reasons for rejecting the answer to that line question,
+    #: verbatim, and () when no answer to it was rejected. The group question
+    #: quotes them (bug hunt 2026-11-20, finding 5).
+    pivot_line_reasons: tuple = ()
+    #: On the question that repairs the declared requirements together
+    #: (`whole_repair`): the rule every group that declares one is graded
+    #: by, as printable rows in group order (`declared_rule_rows`). The
+    #: mandate description lists each group's lines and no rule (bug hunt
+    #: 2026-11-20, finding 2). Every other group question reads its group's
+    #: rule off `brief.group_rules`.
+    rule_rows: tuple = ()
 
     def proposal_for(self, line_no):
         """-> (text, proposed word, slot) for one member, or `None`.
@@ -1123,6 +1143,14 @@ class LineAttempt:
     #: this to fall through to tier 1 in the same round, so a line never
     #: reaches NO_PROGRESS without a proposer having been consulted.
     asked: bool = True
+    #: The grader's reasons for the LAST answer this tier rejected, verbatim,
+    #: and () when it rejected none. `reason` is one sentence for the report;
+    #: this is the list a following question quotes (bug hunt 2026-11-20,
+    #: finding 5: the group question asked right after a rejected line answer
+    #: said nothing had been rejected). Read where the attempt is made and
+    #: not saved with a held run's position: a resumed run asks the line
+    #: again from the journal and gets the same reasons.
+    rejected: tuple = ()
 
 
 @dataclass
@@ -1458,6 +1486,56 @@ def apply_candidate(reviser, lines, mandate, line_no, candidate):
     return after, targets
 
 
+def _unread(answer):
+    """-> why a writer's reply could not be read, or None for an answer.
+
+    A reply that arrived and could not be parsed is NOT `None` (bug hunt
+    2026-11-20, finding 25; `quality.propose.UnreadReply`): `None` says the
+    writer sent nothing back, and the loop stops asking it; an unread reply
+    used one attempt and the next attempt is asked, with this reason in its
+    question. Read off the attribute, so this module imports no proposer.
+    """
+    why = getattr(answer, "unread_reason", None)
+    return str(why) if why else None
+
+
+def _not_one_line(text):
+    """-> why `text` cannot stand as one line of a draft, or None when it can.
+
+    NOTHING BUT ONE LINE OF TEXT IS WRITTEN INTO A DRAFT (bug hunt
+    2026-11-20, finding 29). The loop wrote whatever a proposer returned. A
+    written answer is cut to one line before it reaches here
+    (`quality.propose.parse_line`); a recorded one (`--propose=replay:PATH`)
+    and anything a caller's own proposer returns are not. A text with a line
+    break in it was accepted as ONE line of a draft that then sang one more
+    than it counted, and a number, a list or an empty text ended the run on
+    an error. Each is now a rejected attempt with its reason, like any other
+    answer the grader turns down.
+    """
+    if not isinstance(text, str):
+        return "the answer was not text"
+    if not text.strip():
+        return "the answer was empty"
+    if text.splitlines() != [text]:
+        return "the answer was more than one line"
+    return None
+
+
+def _group_misshapen(got, members):
+    """-> why a group answer cannot be written into the draft, or None.
+
+    One line of text for each member, in a list (`_not_one_line`). Whether it
+    holds the right NUMBER of lines is the caller's check, as it was.
+    """
+    if not isinstance(got, (list, tuple)):
+        return "the answer was not a list of lines, one for each line asked for"
+    for line_no, text in zip(members, got):
+        why = _not_one_line(text)
+        if why is not None:
+            return f"L{line_no}: {why}"
+    return None
+
+
 def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose, whole=()):
     tried = 0
@@ -1472,6 +1550,16 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         if candidate is None:
             break
         tried += 1
+        _why = _unread(candidate)
+        if _why is not None:
+            # One attempt used, as the question promises; the next one is
+            # asked with the reason, and nothing unread reaches the draft.
+            reasons = [_why]
+            continue
+        _why = _not_one_line(candidate)
+        if _why is not None:
+            reasons = [_why]
+            continue
         after, targets = apply_candidate(reviser, lines, mandate,
                                          b.line_no, candidate)
         res = reviser.verify(lines, after, mandate, targeted=set(targets),
@@ -1537,12 +1625,17 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             # return cannot be fixed by a swap) is the findings' to say.
             detail = "the PROPOSER declined at attempt 0"
     return LineAttempt(b.line_no, 1, False, tried, detail, (),
-                       asked=rdecl.attempts_per_line > 0), lines
+                       asked=rdecl.attempts_per_line > 0,
+                       rejected=tuple(str(r) for r in (reasons or ()))), lines
 
 
 def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
-                        rewriting_label=None):
+                        rewriting_label=None, call_labels=None):
     """-> (other call words, return-group labels) for the ANCHOR.
+
+    `call_labels`, when a list is handed in, receives the label of the group
+    behind each call word, in step with the words returned, so a caller can
+    print the rule each of those groups is graded by (`AnchorSlot.call_rules`).
 
     SLOT-AWARE SINCE 2026-09-02 (`MISSING.md` M-184's addendum, residual
     (a), found by the tier-A verification): a backtrack rewrites the word
@@ -1614,6 +1707,8 @@ def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
             w = reviser._incumbent(lines, x, _slot_for(mandate, k, x))
             if w:
                 calls.append(w)
+                if call_labels is not None:
+                    call_labels.append(mandate.labels[k])
     return calls, sorted(rets)
 
 
@@ -1654,9 +1749,41 @@ def _slot_for(mandate, group_index, line):
         return None
 
 
+def _promote_of(reviser):
+    """-> whether `reviser` grades a line's last syllable as promoted to
+    stress (`Reviser._promote`), for the rule rows a question prints.
+
+    `_try_tier2` is also driven by a reviser that implements only the calls
+    one search needs (`quality/test_production_revision.py`). One that says
+    nothing about promotion grades by the declaration's default, which
+    promotes, and that is `declared_rule_rows`' own default."""
+    promote = getattr(reviser, "_promote", None)
+    return True if promote is None else promote()
+
+
+def _all_rule_rows(mandate, promote):
+    """-> every declared group's rule rows, in the mandate's group order.
+    `promote` is the reviser's `_promote()`, so each row is the rule as
+    that reviser grades it (`declared_rule_rows`)."""
+    rows = declared_rule_rows(mandate, promote=promote)
+    return tuple(row for label in getattr(mandate, "labels", ())
+                 for row in rows.get(label, ()))
+
+
+def _changed_members(members, before, after):
+    """-> the members of a group whose text an accepted rewrite changed.
+
+    A group answer carries every member, and a member may come back as it
+    was. `LineAttempt.touched` is the lines "actually changed", and it was
+    every member: the round then reported an unchanged line as fixed, and
+    the walk passed it by as rewritten (bug hunt 2026-11-20, finding 28).
+    """
+    return tuple(m for m in members if before[m - 1] != after[m - 1])
+
+
 def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose_group, whole=(), escalated=False,
-               pivot_question=""):
+               pivot_question="", pivot_reasons=()):
     """THE JOINT BACKTRACK — rewrite a WHOLE mandated group at once.
 
     ~~Bounded to groups of exactly two.~~ **WIDENED 2026-08-24
@@ -1751,6 +1878,10 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     if not hasattr(mandate, "partners"):
         mandate = reviser.mandate(list(lines), mandate)
     labels = list(getattr(mandate, "labels", ()))
+    # Each declared group's rule rows, read once: a member's own block of a
+    # group question prints those of its other groups (`AnchorSlot.call_rules`).
+    _declared_rows = declared_rule_rows(mandate,
+                                        promote=_promote_of(reviser))
     for label, members, calls in groups:
         gi = labels.index(label) if label in labels else None
         # A return expands the atomic edit; it does not pin its members.
@@ -1766,14 +1897,32 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 gb = GroupBrief(b.line_no, b.text, "", (), (), label, expanded,
                                 b, tuple(lines), attempt, whole=tuple(b.findings) + tuple(whole),
                                 whole_repair=True, mandate_description=mandate.describe(),
+                                rule_rows=_all_rule_rows(
+                                    mandate, _promote_of(reviser)),
                                 reasons=reasons,
                                 prior=(_prior_g(expanded, _round)
-                                       if _prior_g is not None else None))
+                                       if _prior_g is not None else None),
+                                # The rejected line answer this question
+                                # follows (finding 5). `path` stays unset, as
+                                # it always was on this question.
+                                pivot_line_question=(pivot_question
+                                                     if escalated else ""),
+                                pivot_line_reasons=(tuple(pivot_reasons)
+                                                    if escalated else ()))
                 got = propose_group(gb)
                 attempt += 1
                 if got is None:
                     continue
                 tried += 1
+                _why = _unread(got)
+                if _why is not None:
+                    # An unread reply used this attempt (finding 25).
+                    reasons = (_why,)
+                    continue
+                _why = _group_misshapen(got, expanded)
+                if _why is not None:
+                    reasons = (_why,)
+                    continue
                 got = tuple(got)
                 if len(got) != len(expanded):
                     reasons = (f"proposer returned {len(got)} line(s) for "
@@ -1793,7 +1942,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 if res["accepted"]:
                     return LineAttempt(b.line_no, 2, True, tried,
                                        "atomic group/return repair: " + "; ".join(res["reasons"]),
-                                       expanded), after
+                                       _changed_members(expanded, lines, after)), after
                 reasons = tuple(res["reasons"])
             continue
         # (a) A RETURN PINS A LINE. If this group IS a declared verbatim
@@ -1840,14 +1989,21 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         # single anchor: a member that is itself a pivot was searched as
         # though the shared group were its only obligation).
         others, pin_hit = [], None
+        # THE RULE BEHIND EACH OF THOSE CALLS, for the member's own block of
+        # the question (`AnchorSlot.call_rules`), keyed by the member's line.
+        other_rules = {}
         for m_line, m_current in calls:
+            m_labels = []
             m_other, m_rets = _anchor_obligations(
                 reviser, mandate, lines, m_line, b.line_no,
-                rewriting_label=label)
+                rewriting_label=label, call_labels=m_labels)
             if m_rets:
                 pin_hit = (m_line, m_rets)
                 break
             others.append((m_line, m_current, tuple(m_other)))
+            other_rules[m_line] = tuple(
+                row for lab in dict.fromkeys(m_labels)
+                for row in _declared_rows.get(lab, ()))
         if pin_hit is not None:
             m_line, m_rets = pin_hit
             pinned.append(
@@ -1905,7 +2061,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 _anchors.append(AnchorSlot(
                     line_no=m_line, text=lines[m_line - 1], word="",
                     offered=tuple(_mf), calls=tuple(m_other),
-                    slot=_slot_for(mandate, gi, m_line), one_move=None))
+                    slot=_slot_for(mandate, gi, m_line), one_move=None,
+                    call_rules=other_rules.get(m_line, ())))
             got = propose_group(GroupBrief(
                 pivot_line_no=b.line_no, pivot_text=b.text,
                 pivot_word="", pivot_offered=(),
@@ -1920,12 +2077,20 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                     if escalated else ()),
                 pivot_line_forbidden=(tuple(getattr(b, "forbidden_modal", ()) or ())
                                       if escalated else ()),
-                pivot_line_question=pivot_question if escalated else ""))
+                pivot_line_question=pivot_question if escalated else "",
+                pivot_line_reasons=(tuple(pivot_reasons)
+                                    if escalated else ())))
             attempt += 1
             if got is not None:
                 tried += 1
-                got = tuple(got)
-                if len(got) != len(members):
+                # An unread reply used this attempt (finding 25), and so
+                # does an answer that is not one line of text for each
+                # member (finding 29).
+                _why = _unread(got) or _group_misshapen(got, members)
+                got = () if _why is not None else tuple(got)
+                if _why is not None:
+                    reasons = (_why,)
+                elif len(got) != len(members):
                     reasons = (f"proposer returned {len(got)} line(s) for "
                                f"group {label}, which has {len(members)} "
                                f"member(s) — the return is ordered by "
@@ -1951,7 +2116,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                             f"joint backtrack over group {label} "
                             f"{list(members)} with NO ranked pivot field "
                             f"({_why}): " + "; ".join(res["reasons"]),
-                            tuple(members)), after
+                            _changed_members(members, lines, after)), after
                     reasons = tuple(res["reasons"])
             continue
         empty_member = collections.Counter()
@@ -1978,7 +2143,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     walk(idx + 1, chosen + [word], assigned + [
                         AnchorSlot(line_no=m_line, text=lines[m_line - 1], word=word,
                                    offered=tuple(field), calls=tuple(m_other),
-                                   slot=_slot_for(mandate, gi, m_line))])
+                                   slot=_slot_for(mandate, gi, m_line),
+                                   call_rules=other_rules.get(m_line, ()))])
             walk(0, [w], [])
             for anchors in assignments:
                 got = propose_group(GroupBrief(
@@ -1995,11 +2161,22 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                         if escalated else ()),
                     pivot_line_forbidden=(tuple(getattr(b, "forbidden_modal", ()) or ())
                                           if escalated else ()),
-                    pivot_line_question=pivot_question if escalated else ""))
+                    pivot_line_question=pivot_question if escalated else "",
+                    pivot_line_reasons=(tuple(pivot_reasons)
+                                        if escalated else ())))
                 attempt += 1
                 if got is None:
                     continue
                 tried += 1
+                _why = _unread(got)
+                if _why is not None:
+                    # An unread reply used this attempt (finding 25).
+                    reasons = (_why,)
+                    continue
+                _why = _group_misshapen(got, members)
+                if _why is not None:
+                    reasons = (_why,)
+                    continue
                 got = tuple(got)
                 if len(got) != len(members):
                     # A CONTRACT BREACH IS A REJECTION WITH A REASON, not a
@@ -2033,7 +2210,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                         f"{list(members)} ({len(members)} members): {moved} "
                         f"so L{b.line_no} could take {w!r}; "
                         + "; ".join(res["reasons"]),
-                        tuple(members)), after
+                        _changed_members(members, lines, after)), after
                 reasons = tuple(res["reasons"])
         if walked and empty_member:
             where = ", ".join(f"L{ln} x{n}" for ln, n
@@ -2671,7 +2848,11 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             _found = reviser.inspect(lines, mandate, profile=profile,
                                      blueprint=blueprint, subdivision=subdivision,
                                      assume=assume)
-            _global = tuple(f for f in _found["whole"] if f.severity == "flag")
+            # A timing-only flag (`fit.TIMING_ONLY`, bug hunt F8) is not
+            # offered here: this repair asks for new words, and no words
+            # clear it. It still stands, so the stop below names it.
+            _global = tuple(f for f in _found["whole"] if f.severity == "flag"
+                            and f.code not in _TIMING_ONLY)
             if _global and _group_declared and rdecl.attempts_per_line > 0:
                 _members = tuple(range(1, len(lines) + 1))
                 _reasons, _moved, _attempts = None, False, []
@@ -2681,10 +2862,18 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                                      reasons=_reasons, whole=_global + tuple(
                                          f for b in flagged for f in b.findings
                                          if f.code in REPAIRABLE_UNJUDGED), whole_repair=True,
-                                     mandate_description=_found["mandate"].describe())
+                                     mandate_description=_found["mandate"].describe(),
+                                     rule_rows=_all_rule_rows(
+                                         _found["mandate"],
+                                         _promote_of(reviser)))
                     _got = propose_group(_gb)
-                    if _got is None:
-                        _reasons = ("writer returned no unambiguous whole-draft answer",)
+                    if _got is None or _unread(_got) is not None:
+                        _reasons = (_unread(_got) or
+                                    "writer returned no unambiguous whole-draft answer",)
+                        continue
+                    _shape = _group_misshapen(_got, _members)
+                    if _shape is not None:
+                        _reasons = (_shape,)
                         continue
                     _after = list(_got)
                     _v = reviser.verify(lines, _after, mandate, targeted=set(_members),
@@ -2729,9 +2918,14 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         # round with nothing flagged pays nothing, and after `brief()`, so
         # the caches are warm for this exact draft — the same measured
         # argument `_close`'s own docstring makes for its extra `inspect()`.
-        whole = tuple(reviser.inspect(
+        # ~~every whole-draft finding~~ (bug hunt F8): a timing-only flag
+        # is left out of what a question lists for the writer to keep, as
+        # it is left out of the whole-draft repair. No words move it, so a
+        # rewrite cannot keep or break it, and no question names it.
+        whole = tuple(f for f in reviser.inspect(
             lines, mandate, profile=profile, blueprint=blueprint,
-            subdivision=subdivision, assume=assume)["whole"])
+            subdivision=subdivision, assume=assume)["whole"]
+            if f.code not in _TIMING_ONLY)
 
         attempts, fixed_this_round, touched = [], [], set()
         # Which accepted unit rewrote a line, and the lines the most recent
@@ -2866,9 +3060,10 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 # than left pointing at the top of the round. Cheap by the
                 # same measured argument the first read makes: `brief()`
                 # above has just warmed the caches for exactly these lines.
-                whole = tuple(reviser.inspect(
+                whole = tuple(f for f in reviser.inspect(
                     lines, mandate, profile=profile, blueprint=blueprint,
-                    subdivision=subdivision, assume=assume)["whole"])
+                    subdivision=subdivision, assume=assume)["whole"]
+                    if f.code not in _TIMING_ONLY)
                 brief_lines = list(lines)
                 still_open = {x.line_no: x
                               for x in _open_lines(fresh, pursue)
@@ -3081,7 +3276,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     attempt, lines = _try_tier2(
                         reviser, b, lines, mandate, rdecl, blueprint,
                         subdivision, assume, profile, propose_group, whole,
-                        escalated=True, pivot_question=_pq)
+                        escalated=True, pivot_question=_pq,
+                        pivot_reasons=attempt.rejected)
                     attempt = LineAttempt(
                         attempt.line_no, attempt.tier, attempt.accepted,
                         attempt.tried,

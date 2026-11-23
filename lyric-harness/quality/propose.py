@@ -69,7 +69,7 @@ reports, and a corrupted line is not.
 import re
 
 __all__ = ["render_line", "parse_line", "render_group", "parse_group",
-           "ModelProposer"]
+           "ModelProposer", "UnreadReply"]
 
 #: THE ONE LINE LIMIT: the longest line a writer's answer may carry, and the
 #: longest sung line the connector admits (`mcp/lyric_tools.js`
@@ -129,6 +129,40 @@ def _rejection_rows(indent="  "):
 
 #: The row a new FLAG rejects under, by number, for the sentences that cite it.
 NEW_FLAGS_ROW = list(VERIFY_REJECTIONS).index("new_flags") + 1
+
+#: The row the two writing bans reject under, by number.
+WRITING_BAN_ROW = list(VERIFY_REJECTIONS).index("writing_ban") + 1
+
+#: WHAT THE TWO WRITING BANS FORBID (bug hunt 2026-11-20, finding 3). The
+#: writing-ban row names two codes and said nothing of what either forbids.
+#: The planned song's brief defines both, but the website writer never sees
+#: that brief and a pasted-song revise has none, so the most natural rhyme
+#: fix was sent and rejected. These are the plan brief's own two sentences
+#: (`plan._limit_same_spelled_ending`, `plan._limit_common_partner`) and
+#: `revise.ReviseDeclaration.modal_exclusion`'s default. COPIES, because this
+#: module imports nothing from the planner or the grader; `test_propose` §4d
+#: holds each equal to its source. Each states a rule and names no word
+#: (2026-10-27, D6 on #519).
+WRITING_BAN_PARTNERS = 6
+WRITING_BAN_RULES = {
+    "HOMEOTELEUTON": (
+        "two different paired words whose endings sound alike are also "
+        "spelled the same from the stressed vowel on (the same word, or two "
+        "words that sound exactly alike, is never caught)"),
+    "MODAL_RHYME": (
+        f"two paired words whose endings sound alike, where one is among "
+        f"the {WRITING_BAN_PARTNERS} or fewer differently spelled partners "
+        f"most often paired with the other in songs"),
+}
+
+
+def _writing_ban_rows(indent="  "):
+    """-> [str], what each ban the writing-ban row names forbids, printed
+    under the rules in every question."""
+    return [f"{indent}Rule {WRITING_BAN_ROW} names two bans. What each one "
+            f"forbids:",
+            *(f"{indent}  {code}: {text}."
+              for code, text in WRITING_BAN_RULES.items())]
 
 _FENCE_RE = re.compile(r"```[^\n]*\n(.*?)```", re.DOTALL)
 _LINE_MARK_RE = re.compile(r"^[ \t]*LINE[ \t]*:[ \t]*(.*)$",
@@ -290,6 +324,25 @@ def _whole_block(whole, indent="  "):
     return out
 
 
+#: What a line owes its group's other members, by how many rules the group
+#: declares: none (the default obligation), one, or several.
+DEFAULT_OBLIGATION = "stand in at least one relation with"
+ONE_RULE_OBLIGATION = "satisfy the rule printed under this row with each of"
+RULES_OBLIGATION = "satisfy every rule printed under this row with each of"
+#: The same for the lines of a group asked for together.
+COUPLED_DEFAULT = "stand in a relation with what"
+COUPLED_RULE = "satisfy this group's rule, printed under this paragraph, with what"
+COUPLED_RULES = "satisfy every rule printed under this paragraph with what"
+#: The heading over every declared group's rule in the question that repairs
+#: the declared requirements together.
+DECLARED_RULES_HEADING = "THE RULE EACH GROUP THAT DECLARES ONE IS GRADED BY"
+
+
+def _obligation(rules):
+    return (DEFAULT_OBLIGATION if not rules else
+            ONE_RULE_OBLIGATION if len(rules) == 1 else RULES_OBLIGATION)
+
+
 def _mandate_block(brief, indent="  "):
     """-> [str]. Every group the line must answer and the words it must
     answer them with — plus the pivot and joint-conflict statements, which
@@ -353,9 +406,19 @@ def _mandate_block(brief, indent="  "):
             out.append(f"{indent}  The tool mirrors your replacement to the "
                        f"exact declared return class; a rhyme alone is not enough.")
         else:
+            # A GROUP THAT DECLARES A RULE IS GRADED BY IT (bug hunt
+            # 2026-11-20, finding 2). "At least one relation" is the default
+            # obligation and is true only of a group that declares nothing;
+            # printed for a declared group it handed the writer a weaker
+            # requirement than the one graded, the mistake the RETURN branch
+            # above was written to stop. The rows are `Brief.group_rules`,
+            # worded once by the grader.
+            rules = tuple((getattr(brief, "group_rules", None) or {})
+                          .get(lab, ()))
             out.append(f"{indent}group {lab} {list(_ordered(mem))}{place} — "
-                       f"this line must stand in at least one relation with: "
+                       f"this line must {_obligation(rules)}: "
                        f"{shown}{standing}")
+            out.extend(f"{indent}  {row}" for row in rules)
     if len(must_answer) > 1:
         places = {gslots.get(lab) for lab, _m, _c in must_answer
                   if lab in gslots}
@@ -384,7 +447,9 @@ def _mandate_block(brief, indent="  "):
 def _enforced_block(line_no, n_lines, indent="  ", word_name="end word",
                     targets=None):
     """-> [str]. This question's coordinates, then the rejection rules of
-    `Reviser.verify` as `VERIFY_REJECTIONS` holds them, and NOTHING ELSE.
+    `Reviser.verify` as `VERIFY_REJECTIONS` holds them, then what the two
+    bans its writing-ban row names forbid (`_writing_ban_rows`), and NOTHING
+    ELSE.
 
     `allow_net_new` is named rather than quoted as a number — it is a
     `ReviseDeclaration` coordinate and a `Brief` does not carry it, so this
@@ -399,6 +464,7 @@ def _enforced_block(line_no, n_lines, indent="  ", word_name="end word",
         f"{indent}Reviser.verify rejects an answer with the first of these "
         f"reasons that applies:",
         *_rejection_rows(indent),
+        *_writing_ban_rows(indent),
     ]
 
 
@@ -451,9 +517,53 @@ def _attempt_block(attempt, reasons, indent="  ", prior=None,
         out.append(f"{indent}The draft has been re-read since; do not send "
                    f"back something the same reason would reject again.")
     else:
-        out.append(f"{indent}No previous attempt was rejected on this line "
-                   f"in this round.")
+        out.append(f"{indent}{NO_REJECTION_ROW}")
     return out
+
+
+#: What a first attempt's ATTEMPT block says, and the last row of the block
+#: that takes its place when a group is asked for right after its pivot's own
+#: line answer was rejected. `lyric_harness._legacy_pivot_rejection` finds
+#: that block by its first and last rows and holds its own frozen copies.
+NO_REJECTION_ROW = ("No previous attempt was rejected on this line in this "
+                    "round.")
+PIVOT_REJECTED_ROW = ("was asked first, and its answer was REJECTED. The "
+                      "grader's reasons, verbatim:")
+PIVOT_REJECTED_CLOSE = ("This question is asked because of that rejection; do "
+                        "not send back something the same reason would reject "
+                        "again.")
+
+
+def _pivot_rejection_rows(group_brief, block, indent="  "):
+    """-> the group question's ATTEMPT rows, with the rejected line answer.
+
+    THE ESCALATED GROUP QUESTION FOLLOWS A REJECTION AND SAID THERE WAS NONE
+    (bug hunt 2026-11-20, finding 5). The loop asks for a line, rejects the
+    answer, and asks for that line's whole group in the same round. The group
+    question's ATTEMPT block read "No previous attempt was rejected on this
+    line in this round", and nowhere gave the grader's reason, so the rejected
+    line could come straight back inside the group answer. The loop has built
+    the words that cite the line question since S10
+    (`GroupBrief.pivot_line_question`); nothing printed them.
+
+    Only where the statement was false: when the group follows a line
+    question (the loop fills `pivot_line_question` and `pivot_line_reasons`
+    on that path alone) whose answer was rejected with reasons, and on the
+    group's first try. A later try quotes the group's own rejection, which is
+    the latest one. Last round's rejection of this group (`prior`) stays
+    where it was, with this block after it. Both group questions print it:
+    the coupled-lines one, and the one that asks for a group together with
+    its word-for-word copies.
+    """
+    g = group_brief
+    asked = str(getattr(g, "pivot_line_question", "") or "")
+    why = [str(r) for r in _ordered(getattr(g, "pivot_line_reasons", ()) or ())]
+    if not asked or not why or getattr(g, "reasons", None):
+        return block
+    return ([row for row in block if row != f"{indent}{NO_REJECTION_ROW}"]
+            + [f"{indent}{asked} {PIVOT_REJECTED_ROW}"]
+            + [f"{indent}  - {r}" for r in why]
+            + [f"{indent}{PIVOT_REJECTED_CLOSE}"])
 
 
 def _place_phrase(slot_key):
@@ -740,11 +850,13 @@ def parse_line(text, *, line_no=None):
       - two or more `LINE:` markers, or two or more fenced blocks
       - a fenced block holding zero or several non-empty lines
       - a fence and a `LINE:` marker outside it that DISAGREE
-      - a line wrapped in quotation marks or backticks. Stripping them
+      - a line wrapped in quotation marks or backticks: one that both
+        opens and closes on one. Stripping them
         corrupts a line of quoted speech and keeping them corrupts a line
         that was merely quoted for display; both are wrong on some real
         line, so neither is guessed at. The prompt asks for no quotation
-        marks for this reason. An APOSTROPHE at both ends is not a wrapper
+        marks for this reason. A line with quoted speech at ONE end is a
+        line and is accepted. An APOSTROPHE at both ends is not a wrapper
         and is accepted — see `_QUOTE_CHARS`.
     """
     if not isinstance(text, str):
@@ -790,7 +902,10 @@ def _clean_single(blob, *, line_no=None):
     row = _ECHOED_LABEL_RE.sub("", rows[0]).strip()
     if not row:
         return None
-    if row[0] in _QUOTE_CHARS or row[-1] in _QUOTE_CHARS:
+    # BOTH ENDS, as `_QUOTE_CHARS` says. This read `or` until 2026-11-21
+    # (bug hunt finding 26), so a line of dialogue that merely started or
+    # ended on a quotation mark was discarded unread.
+    if row[0] in _QUOTE_CHARS and row[-1] in _QUOTE_CHARS:
         return None
     if not _HAS_LETTER_RE.search(row):
         return None
@@ -840,11 +955,19 @@ def render_group(group_brief):
                "Preserve the line count, placement and all declared relations.",
                "Clear the following whole-draft requirements."]
         out.extend(_finding_lines(g.whole))
-        out.extend(["", "DECLARED MANDATE", g.mandate_description, "", "CURRENT DRAFT"])
+        out.extend(["", "DECLARED MANDATE", g.mandate_description])
+        # THE MANDATE ABOVE LISTS EACH GROUP'S LINES AND NOT ITS RULE (finding
+        # 2). This question asks for the declared relations to be kept, so
+        # every group that declares a rule has it stated here.
+        rules = _ordered(getattr(g, "rule_rows", ()) or ())
+        if rules:
+            out.extend(["", DECLARED_RULES_HEADING])
+            out.extend(f"  {row}" for row in rules)
+        out.extend(["", "CURRENT DRAFT"])
         out.extend(_draft_block(g.lines))
-        out.extend(_attempt_block(g.attempt, g.reasons,
-                                  prior=getattr(g, "prior", None),
-                                  what="rewrite of this group"))
+        out.extend(_pivot_rejection_rows(g, _attempt_block(
+            g.attempt, g.reasons, prior=getattr(g, "prior", None),
+            what="rewrite of this group")))
         out.extend(["", "Return exactly these lines (include unchanged members): " +
                     ", ".join(f"L{n}" for n in g.members),
                     "One L<number>: <whole line> row each. No commentary or additional lines.",
@@ -879,10 +1002,9 @@ def render_group(group_brief):
     # round's, and it is the only way a writer asked the same group question
     # a round later learns why the last answer was thrown out — the tier-1
     # prompt has carried this since M-236 and this one had not.
-    out.extend(_attempt_block(getattr(g, "attempt", 0),
-                              getattr(g, "reasons", None),
-                              prior=getattr(g, "prior", None),
-                              what="rewrite of this group"))
+    out.extend(_pivot_rejection_rows(g, _attempt_block(
+        getattr(g, "attempt", 0), getattr(g, "reasons", None),
+        prior=getattr(g, "prior", None), what="rewrite of this group")))
     out.append("")
 
     out.append(f"THE {k} LINES")
@@ -933,6 +1055,15 @@ def render_group(group_brief):
                        f"too")
             out.append(f"  Besides group {label} {list(members)}, L{a_no} "
                        f"must also answer: {shown}.")
+            # THE RULE OF EACH OF THOSE GROUPS THAT DECLARES ONE (2026-11-22,
+            # the block finding 2's fix did not reach). "Must also answer"
+            # is the default obligation; a group that declares a type holds
+            # the word to that type's rule, and this block gave the word
+            # alone. Only the rows are added, so the undo that takes finding
+            # 2's rows out (`lyric_harness._legacy_group_rules`) restores
+            # this block as well.
+            out.extend(f"    {row}" for row in
+                       tuple(getattr(a, "call_rules", ()) or ()))
             out.append(f"  Those groups are NOT being rewritten, so they "
                        f"still hold: whatever L{a_no} moves")
             out.append(f"  to has to answer them as well, and a new bound "
@@ -940,10 +1071,16 @@ def render_group(group_brief):
             out.append(f"  a new FLAG under rule {NEW_FLAGS_ROW} below.")
             out.append("")
 
+    # THE GROUP'S OWN RULE, where it declares one (finding 2, as in
+    # `_mandate_block`): "a relation" is the default obligation only.
+    rules = tuple((getattr(inner, "group_rules", None) or {}).get(label, ()))
+    coupled = (COUPLED_DEFAULT if not rules else
+               COUPLED_RULE if len(rules) == 1 else COUPLED_RULES)
     out.append(f"  The {k} lines are COUPLED: whatever each binds on must "
-               f"stand in a relation with what")
+               f"{coupled}")
     out.append(f"  every OTHER member binds on, because group {label} "
                f"{list(members)} still holds after the rewrite.")
+    out.extend(f"    {row}" for row in rules)
     out.append("")
 
     out.append("WHAT THE GRADER ENFORCES ON YOUR ANSWER")
@@ -955,6 +1092,7 @@ def render_group(group_brief):
     out.append("  Reviser.verify rejects an answer with the first of these "
                "reasons that applies:")
     out.extend(_rejection_rows())
+    out.extend(_writing_ban_rows())
     out.append("")
 
     out.append("HOW TO ANSWER")
@@ -1130,6 +1268,44 @@ class ProposerUnavailable(RuntimeError):
     """
 
 
+class UnreadReply:
+    """A reply that ARRIVED and could not be read as the answer.
+
+    NOT A DECLINE, AND IT USED TO LOOK LIKE ONE (bug hunt 2026-11-20, finding
+    25). `ModelProposer` returned `None` for a reply it could not parse, and
+    the loop reads `None` as "this writer has nothing further to offer for
+    this line": tier 1 stopped asking, the line was reported as declined at
+    attempt 0, and where the attempt budget was above one that barren round
+    ended the run. The question promises less: an ambiguous answer "is
+    discarded unread and costs you this attempt". One formatting slip (a
+    preamble with no `LINE:` marker) cost the line its whole budget.
+
+    So an unread reply is its own value. The loop counts it as one attempt
+    used, carries `unread_reason` into the next question's ATTEMPT block the
+    way it carries a rejection, and asks again while the budget lasts
+    (`quality/loop.py:_unread`, which reads the attribute and imports nothing
+    from here). `None` keeps its one meaning: nothing came back.
+    """
+    __slots__ = ("unread_reason",)
+
+    def __init__(self, reason):
+        self.unread_reason = str(reason)
+
+    def __repr__(self):
+        return f"UnreadReply({self.unread_reason!r})"
+
+
+#: Why a reply was not read, as the next question quotes it.
+UNREAD_LINE = ("your reply was discarded unread: it was not one line and "
+               "nothing else. Send the line alone, or put it last, on its "
+               "own line, after LINE:")
+UNREAD_GROUP = ("your reply was discarded unread: it was not one row for "
+                "each line asked for, each starting with that line's own "
+                "marker, and nothing else")
+UNREAD_TOO_LONG = (f"your reply was discarded unread: a line in it is longer "
+                   f"than {MAX_LINE_CHARS} characters")
+
+
 class ModelProposer:
     """A `propose`/`propose_group` pair backed by one
     `callable(prompt) -> str`.
@@ -1147,9 +1323,11 @@ class ModelProposer:
     a group response would return the first of them as if it were the whole
     answer.
 
-    A `call` that returns anything other than a `str`, or a response nothing
-    can be parsed out of, yields `None`, which the loop reads as "this
-    proposer has nothing further to offer for this line" and moves on.
+    A `call` that returns anything other than a `str` yields `None`, which
+    the loop reads as "this proposer has nothing further to offer for this
+    line" and moves on. A `str` nothing can be parsed out of, or whose line
+    is past the limit, yields an `UnreadReply`: it uses one attempt and the
+    loop asks again (~~`None` for both~~ until 2026-11-21; see `UnreadReply`).
     Exceptions from `call` are NOT swallowed: a transport failure is not the
     same as a model declining, and a loop that cannot tell them apart
     reports a dead end for an outage.
@@ -1164,17 +1342,25 @@ class ModelProposer:
     MAX_LINE_CHARS = MAX_LINE_CHARS
 
     def propose(self, brief, lines, attempt, reasons=None, whole=()):
-        """-> a replacement line for `brief.line_no`, or `None`."""
+        """-> a replacement line for `brief.line_no`; `None` when nothing
+        came back; an `UnreadReply` when a reply came back unreadable."""
         prompt = render_line(brief, lines, whole=whole, attempt=attempt,
                              reasons=reasons)
         with_capacity = getattr(self.call, "with_capacity", None)
         raw = with_capacity(prompt, max_lines=1) if with_capacity else self.call(prompt)
+        if not isinstance(raw, str):
+            return None
         parsed = (parse_line(raw, line_no=brief.line_no) if self.parse is parse_line
                   else self.parse(raw))
-        return parsed if parsed is None or len(parsed) <= self.MAX_LINE_CHARS else None
+        if parsed is None:
+            return UnreadReply(UNREAD_LINE)
+        if len(parsed) > self.MAX_LINE_CHARS:
+            return UnreadReply(UNREAD_TOO_LONG)
+        return parsed
 
     def propose_group(self, group_brief):
-        """-> one new line per member in `members` order, or `None`.
+        """-> one new line per member in `members` order; `None` when
+        nothing came back; an `UnreadReply` when the reply was unreadable.
 
         `members` is handed to the parser rather than re-derived from the
         response, so a reply that answers a DIFFERENT set of lines is refused
@@ -1185,5 +1371,11 @@ class ModelProposer:
         with_capacity = getattr(self.call, "with_capacity", None)
         raw = (with_capacity(prompt, max_lines=len(members)) if with_capacity
                else self.call(prompt))
+        if not isinstance(raw, str):
+            return None
         parsed = parse_group(raw, members)
-        return parsed if parsed is None or all(len(line) <= self.MAX_LINE_CHARS for line in parsed) else None
+        if parsed is None:
+            return UnreadReply(UNREAD_GROUP)
+        if any(len(line) > self.MAX_LINE_CHARS for line in parsed):
+            return UnreadReply(UNREAD_TOO_LONG)
+        return parsed

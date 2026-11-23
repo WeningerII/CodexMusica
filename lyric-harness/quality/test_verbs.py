@@ -5969,7 +5969,9 @@ def test_the_plan_report_discloses_density_and_audibility():
           and "What each named relation asks" not in brief
           and "must stand in at least one relation" not in brief
           and re.search(r"must satisfy rule R\d+", brief) is not None
-          and re.search(r"^\s+up to \d+ syllables a line after the pickup$",
+          # REPINNED 2026-11-21 from ~~"a line after the pickup"~~: the
+          # ceiling counts every syllable of the line (bug hunt F4).
+          and re.search(r"^\s+up to \d+ syllables in the whole line$",
                         brief, re.M) is not None
           # The syllable band is deleted (owner ruling 2026-09-28), so the
           # brief no longer asks for a minimum.

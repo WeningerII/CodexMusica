@@ -21,6 +21,13 @@ IMPORT = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(IMPORT)
 BOOKS = {'69378', '27195', '58414', '51226', '934', '40048',
          '50878', '13646', '1568', '3138'}
+#: Words this batch declares a reading for that the lexicon has since learned
+#: to read itself. The approved asset's bytes stay as approved, so each such
+#: word is named here and must be read exactly as the asset declares it.
+#: REPINNED 2026-11-22 from ~~no declared word is one the lexicon can read~~:
+#: the high fallback now folds a stem in `-le` into `-ly` (bug hunt finding
+#: 15), so it reads `unspeakably` itself, with the phones book 1568 declares.
+SINCE_READ = {'unspeakably'}
 
 
 def read_json(path):
@@ -128,6 +135,7 @@ class BatchEvidenceTests(unittest.TestCase):
                 match = re.search(r'\[item: PG(\d+)-(.*?)\]$', title)
                 imported[(match[1], match[2])] = {row.text for row in rows}
         words = set()
+        since_read = set()
         work_count = declaration_count = 0
         for book in BOOKS:
             payloads = read_json(BATCH / 'pronunciations' / (book + '.json'))
@@ -147,12 +155,20 @@ class BatchEvidenceTests(unittest.TestCase):
                         self.assertIn(choice['line'], lines)
                         self.assertEqual(choice['basis'], 'declared')
                         if choice['word'] not in words:
-                            self.assertTrue(lex.transcribe_word(choice['word'])[1],
-                                            choice['word'])
+                            phones, unread = lex.transcribe_word(choice['word'])
+                            if choice['word'] in SINCE_READ:
+                                self.assertFalse(unread, choice['word'])
+                                self.assertEqual(phones, choice['phones'],
+                                                 choice['word'])
+                                since_read.add(choice['word'])
+                            else:
+                                self.assertTrue(unread, choice['word'])
                             words.add(choice['word'])
                     work_count += 1
                     declaration_count += len(choices)
         self.assertEqual((work_count, declaration_count), (1030, 9638))
+        # A named word the lexicon no longer reads is a stale entry.
+        self.assertEqual(since_read, SINCE_READ)
         # Exactly ten rows change position, all on the six `U--h` lines whose
         # dash run v2 reads as punctuation (`U--h, Lawdy` is three tokens).
         self.assertEqual(len(moved), 10, moved)

@@ -34,6 +34,44 @@ export function obligationLines(id) {
   return null;
 }
 
+// EACH CODED ROW'S OWN FINDING (bug hunt 2026-11-20, finding 30). A coverage
+// row carries a code and no message; the finding with that code says what it
+// means. Two rows can share a code (two undeclared-section questions, one for
+// the chorus and one for the bridge), and reading "the first finding with
+// this code" named both by the chorus's sentence, so the second question was
+// never mentioned. The grader writes the rows and their findings in one order
+// (quality/revise.py: `function:<CODE>:<index>`, index being the refusal's
+// position, and one finding per refusal in that order), so the k-th numbered
+// row of a code is the k-th finding of that code. A row with no number, and a
+// row past the last finding, keeps the reading it had: the first, or the last.
+// -> fn(row) -> that row's finding, or undefined.
+export function findingForRow(verdict) {
+  const findings = Array.isArray(verdict?.findings) ? verdict.findings : [];
+  const rows = Array.isArray(verdict?.coverage?.obligations) ? verdict.coverage.obligations : [];
+  const byCode = new Map();
+  for (const f of findings) {
+    if (!f || typeof f.code !== 'string') continue;
+    if (!byCode.has(f.code)) byCode.set(f.code, []);
+    byCode.get(f.code).push(f);
+  }
+  const numbered = new Map();
+  for (const o of rows) {
+    const index = typeof o?.id === 'string' && o.code ? o.id.match(/:(\d+)$/)?.[1] : undefined;
+    if (index === undefined) continue;
+    if (!numbered.has(o.code)) numbered.set(o.code, []);
+    numbered.get(o.code).push([Number(index), o.id]);
+  }
+  const rank = new Map();
+  for (const list of numbered.values()) {
+    const ids = [...new Set(list.sort((a, b) => a[0] - b[0]).map(([, id]) => id))];
+    ids.forEach((id, k) => rank.set(id, k));
+  }
+  return (o) => {
+    const own = byCode.get(o?.code) || [];
+    return own[rank.get(o?.id) ?? 0] ?? own.at(-1);
+  };
+}
+
 // The pronunciation step, word for word as the note has always printed it.
 export const READING_ADVICE =
   'Resolve the unread words with `pronunciations` (lyric_grade lists the options)';
@@ -44,7 +82,6 @@ const AGAIN = 'grade again, and start a new run with `new_run: true`';
 // display names, each once; `reading` is whether any row is about words.
 export function refusedByRemedy(verdict) {
   const coverage = verdict?.coverage || {};
-  const findings = Array.isArray(verdict?.findings) ? verdict.findings : [];
   const rows = Array.isArray(coverage.obligations)
     ? coverage.obligations.filter((o) => o && o.status === 'refused' && typeof o.id === 'string')
     : [];
@@ -68,6 +105,7 @@ export function refusedByRemedy(verdict) {
   const detailed = new Set(
     rows.filter((o) => !/:draft$/.test(o.id)).map((o) => String(o.id).split(':')[0])
   );
+  const findingOf = findingForRow(verdict);
   for (const o of rows) {
     if (/:draft$/.test(o.id) && detailed.has(String(o.id).split(':')[0])) continue;
     if (aboutWords(o)) {
@@ -75,7 +113,7 @@ export function refusedByRemedy(verdict) {
       continue;
     }
     if (typeof o.code === 'string' && o.code) {
-      const said = findings.find((f) => f && f.code === o.code)?.message;
+      const said = findingOf(o)?.message;
       const name =
         `${o.layer || String(o.id).split(':')[0]}: ${o.code}` + (said ? ` — ${said}` : '');
       if (!declarations.includes(name)) declarations.push(name);

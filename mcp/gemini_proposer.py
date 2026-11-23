@@ -25,9 +25,10 @@ words are Gemini's.
 THE CONTRACT (from `lyric_harness.py --propose=call:`): `make()` takes no
 arguments and returns `callable(prompt) -> str`. `quality/propose.py`'s
 `ModelProposer` renders the brief, calls this, and PARSES the reply with its
-own strict parser — an ambiguous reply parses to None and the loop reads
-that as "nothing further for this line", which is where a bad answer is
-judged, not here. This file does not parse, does not grade and does not
+own strict parser — an ambiguous reply is an unread reply, which uses one of
+the line's attempts (`quality.propose.UnreadReply`; until 2026-11-21 it
+parsed to None and the loop read that as "nothing further for this line"),
+which is where a bad answer is judged, not here. This file does not parse, does not grade and does not
 retry a MALFORMED answer (the loop's `--attempts` decides that); it retries
 TRANSPORT only.
 
@@ -95,10 +96,19 @@ MAX_RESPONSE_BYTES = 1024 * 1024
 #: as any group the planner draws. The provider's output ceiling bounds the
 #: token allowance instead (`required_tokens` in `_post`).
 MAX_OUTPUT_TOKENS = 65536
-# The journal's room for one answered line as UTF-8, marker included
-# (lyric_harness.ANSWER_LINE_RAW_BYTES). It did not move when the line limit
-# rose to 512 characters (#851): 512 ASCII characters are 512 bytes.
-MAX_PROPOSAL_BYTES_PER_LINE = 200 * 4 + 16  # UTF-8 lyric plus L<number> marker
+# NO BYTE CAP ON THE REPLY (bug hunt 2026-11-20, finding 27). Until
+# 2026-11-21 a reply over ~~MAX_PROPOSAL_BYTES_PER_LINE = 200 * 4 + 16~~ (816)
+# bytes for each line asked for was refused as PROVIDER_PROPOSAL_TOO_LARGE,
+# and a refusal from this module ends the run. The cap counted the WHOLE
+# reply. The question allows a line of 512 characters and allows an
+# explanation before the line, so a good line under either allowance could
+# stop a song's revision on the first call. What is bounded now is the LINE,
+# by the parser that reads it out of the reply (`quality.propose.
+# ModelProposer`: the 512-character limit) and by the journal that records
+# it (`lyric_harness._line_fits_journal`); each turns a line that is too long
+# into one used attempt. The reply itself stays bounded by the output tokens
+# asked for (OUTPUT_TOKENS_PER_LINE) and by MAX_RESPONSE_BYTES, and is never
+# written to the journal.
 OUTPUT_TOKENS_PER_LINE = 1024
 MAX_TOKEN_COUNT = 9007199254740991  # same integer domain as the JS ledger
 
@@ -469,10 +479,7 @@ class _Kitchen:
             self._refuse("PROVIDER_PROTOCOL", "Gemini content parts must contain string text")
         if any("text" not in p for p in parts):
             self._refuse("PROVIDER_PROTOCOL", "Gemini returned a non-text proposal part")
-        text = "".join(p["text"] for p in parts if not p.get("thought"))
-        if len(text.encode("utf-8")) > self._max_lines * MAX_PROPOSAL_BYTES_PER_LINE:
-            self._refuse("PROVIDER_PROPOSAL_TOO_LARGE", "Gemini proposal exceeds the declared line capacity")
-        return text
+        return "".join(p["text"] for p in parts if not p.get("thought"))
 
     def __call__(self, prompt):
         return self.with_capacity(prompt, max_lines=1)

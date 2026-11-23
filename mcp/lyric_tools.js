@@ -3158,7 +3158,7 @@ export function registerLyricTools(server, tool) {
     {
       title: 'Plan a song shape (seeded, reproducible)',
       description:
-        'The PLANNING phase: seed in, a complete song shape out — sections with bars/meter/pickup, a rhyme plan, verbatim-return ' +
+        'The PLANNING phase: seed in, a complete song shape out — sections with bars/meter/start beat, a rhyme plan, verbatim-return ' +
         `rules, a hook slot, and a writer brief to write to. Deterministic: the same seed and the same declarations (${PLAN_DECLARATIONS}) ` +
         'always return the same plan, and every free choice is disclosed beside the space it was drawn from (meters come from a ' +
         'derived cycle grammar). It writes NO WORDS: the writer (model or human) writes to the brief, then ' +
@@ -3171,7 +3171,7 @@ export function registerLyricTools(server, tool) {
         "title in the hook?' — and the answer can be NO, which is a FLAG, so write the hook line to contain the title's words as a " +
         'contiguous run. On a plan with no hook slot (the plan can omit one) a title only names the song and that ' +
         "question is not asked. The tool result's first text block is the plan report and writer brief: when showing the shape, " +
-        'keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The second block is the ' +
+        'keep the bracket header rows exactly as written (they carry lines/bars/meter/start beat). The second block is the ' +
         "verdict. Its `next` names the next call: lyric_grade on the complete draft, or in a creation session this plan's " +
         "lyric_screen, which its grade needs first. `next_call` names that call's tool and the arguments the server sets.",
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_plan,
@@ -3244,7 +3244,7 @@ export function registerLyricTools(server, tool) {
         "plan is graded), fills it with the draft, and grades — each group's relation, verbatim returns, meter fit, section " +
         `functions, the slop floor — under the reading declarations (${READING_DECLARATIONS}), which lyric_revise then ` +
         "carries unchanged. The tool result's first text block is the graded draft in performance order under its " +
-        "bracket headers (each section's lines, bars, meter and pickup) and the [GRADED — seed …] stamp. It is not a " +
+        "bracket headers (each section's lines, bars, meter and start beat) and the [GRADED — seed …] stamp. It is not a " +
         'finished song: finished means `certified` true at lyric_revise exit 0, which its [FINISHED …] stamp shows. ' +
         'The second block is the verdict — READ IT, NOT THE EXIT CODE: ' +
         'measurement_status "graded" means the draft was measured; certified and coverage say whether every mandated ' +
@@ -4977,7 +4977,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
     "The sweep's NEXT line, a grade verdict's `next` and each CREATION_* refusal name the next call; a create " +
     'session refuses any other (CREATION_*). The first text block of a lyric_grade result, and of a lyric_revise ' +
     'result at a stop condition, is the deliverable: the song under its bracket headers ([NAME — N lines — B bars ' +
-    'of METER, PICKUP], which are measurements) and its stamp. Finished means `certified` true at lyric_revise ' +
+    'of METER, START BEAT], which are measurements) and its stamp. Finished means `certified` true at lyric_revise ' +
     "exit 0, which the stamp shows. lyric_plan's first block is its plan report and brief, under the same bracket " +
     'header rows. For ' +
     'lyrics a user pastes, the SAME steps as a planned song: lyric_recover FIRST to structure them (blank stanza ' +
