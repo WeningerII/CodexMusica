@@ -13,10 +13,9 @@ Two parts, and five small sections beside them.
 
 2. GRADED MECHANISMS, dealt by `TEST_PLAN_SHARD`. A fixed walk of plans drawn
    with the capacity table's adopted relation, each given a draft built from
-   the rhyme families in `fixtures/return_plan_rhyme_families.tsv` (the
-   capacity table's witness rows as they stood until 2026-11-22; see
-   `FAMILIES_PATH`) and the fixture word pool, with its return
-   lines copied by the plan's own rows. Each mechanism in `MECHANISMS` changes
+   the rhyme families songs use (`witnesses`, read off the song pair census)
+   and the fixture word pool, with its return lines copied by the plan's own
+   rows. Each mechanism in `MECHANISMS` changes
    the draft in one way and says which flags the change adds. The walk goes
    on, seed by seed, until every mechanism has `FLOOR` hits, and fails naming
    the mechanism that is short if a form reaches `SEED_CAP` first. Every
@@ -56,8 +55,12 @@ FAILURES = []
 FORMS = P.PLAN_FORMS
 #: the data guards read every plan of these seeds, per form
 GUARD_SEEDS = range(1, 1001)
-#: the graded walk keeps plans of at most this many lines: the draft builder
-#: below makes no draft for a longer plan (no witness family is that wide)
+#: the graded walk keeps plans of at most this many lines.
+#: REPINNED 2026-11-23 (bug hunt finding 17): the reason given was ~~the
+#: draft builder below makes no draft for a longer plan (no witness family is
+#: that wide)~~. The families read off the song pair census do serve longer
+#: plans (all 69 past this bound in each form's first 120 seeds). The bound
+#: stays so that the walk, and the time it takes, are what they were.
 WALL = 108
 #: every mechanism needs this many hits before the walk stops
 FLOOR = 5
@@ -74,12 +77,19 @@ SEED_CAP = 1000
 #: on one process. The default run grades that seed directly
 #: (`MERGE_WITNESS`); `--slow` walks again, to re-find it when the planner
 #: moves.
+#: REPINNED 2026-11-23 (bug hunt finding 17): the walk's first was
+#: ~~verse-chorus seed 4171~~. Such a note needs two groups whose end words
+#: can be heard as one, and that was a rare accident of the old word lists.
+#: This section's drafts now ask for it (`build_draft(apart=False)`), and
+#: with the families read off the song pair census the walk's first is open
+#: seed 52, about 26 seconds on one process. The cap is left where it was.
 MERGE_SEED_CAP = 4200
 #: (seed, form) of the walk's first merge note that says more than the
 #: copy, and what the walk found there: the copied line, the note's groups
-#: and its lines
-MERGE_WITNESS = (4171, "verse-chorus")
-MERGE_WITNESS_SHAPE = (44, ("I", "N"), (27, 28, 43, 44))
+#: and its lines. REPINNED 2026-11-23 (bug hunt finding 17), as above:
+#: ~~(4171, "verse-chorus")~~ and ~~(44, ("I", "N"), (27, 28, 43, 44))~~.
+MERGE_WITNESS = (52, "open")
+MERGE_WITNESS_SHAPE = (65, ("K", "S"), (40, 41, 65, 67, 69))
 #: `--slow` walks the merge-note search instead of grading its witness
 SLOW = "--slow" in sys.argv
 
@@ -248,27 +258,51 @@ def reviser():
     return _REV
 
 
-#: REPINNED 2026-11-22 (bug hunt finding 17): ~~C.TABLE_PATH, the capacity
-#: table's certified witness rows~~. With the spelling class corrected, six
-#: families hold the 20 classes a witness needs (~~82~~), and six cannot
-#: supply a draft's groups and its spare end words: the walk stopped on its
-#: first form. What this file needs of a family is words that rhyme under the
-#: table's adopted relation; it never asked the same-spelled-ending ban of
-#: them. So the 82 word lists it was written against are kept as its own
-#: fixture, and the walk, its seeds and every count below are unchanged.
-FAMILIES_PATH = os.path.join(HERE, "fixtures",
-                             "return_plan_rhyme_families.tsv")
+#: REPINNED 2026-11-23 (bug hunt finding 17; R2's word for this file):
+#: ~~C.TABLE_PATH, the capacity table's certified witness rows~~. With the
+#: spelling class corrected, six families hold the 20 classes a certified
+#: witness needs (~~82~~), and six cannot supply a draft's groups and its
+#: spare end words: the walk stopped on its first form. This file never
+#: needed a certified chain. It needs many families of a few words that
+#: rhyme, so it reads them off the words songs rhyme, under the key the
+#: same-spelled-ending ban reads today. Nothing is chosen: every family of
+#: the census is here, in one fixed order.
+PAIRS_PATH = os.path.join(ROOT, "data", "song_rhymepair_en.tsv")
 
 
 def witnesses():
-    """-> the fixture's rhyme families for the capacity table's adopted
-    relation, widest first."""
+    """-> the rhyme families the drafts are built from, widest first.
+
+    The words songs rhyme (`PAIRS_PATH`), most often rhymed first, sorted
+    into the capacity table's sound families for its adopted relation. A
+    family keeps one word for each spelled ending (`Reviser._spelled_rime`,
+    what the same-spelled-ending ban reads), so no two of its words are a
+    pair that ban stops. Left out: a word with more than one reading, a word
+    that sounds exactly like one already kept, and a family of one word."""
     global _W
     if _W is None:
-        with open(FAMILIES_PATH, encoding="utf-8") as fh:
-            rows = [r for r in csv.DictReader(
-                (l for l in fh if not l.startswith("#")), delimiter="\t")]
-        _W = sorted((r["words"].split() for r in rows),
+        rv = reviser()
+        key = C.relation_key(C.ADOPTED_RELATION)
+        count = collections.Counter()
+        with open(PAIRS_PATH, encoding="utf-8") as fh:
+            for r in csv.DictReader(
+                    (l for l in fh if not l.startswith("#")), delimiter="\t"):
+                count[r["a"]] += int(r["count"])
+                count[r["b"]] += int(r["count"])
+        fams = collections.defaultdict(dict)
+        sounds = collections.defaultdict(set)
+        for w in sorted(count, key=lambda w: (-count[w], w)):
+            if not (w.isalpha() and len(w) >= 2 and _single(w)):
+                continue
+            phones = tuple(rv.lex.entries[w][0])
+            k = key(phones)
+            if k is None or phones in sounds[k]:
+                continue
+            ending = rv._spelled_rime(w)
+            if ending not in fams[k]:
+                fams[k][ending] = w
+                sounds[k].add(phones)
+        _W = sorted((list(f.values()) for f in fams.values() if len(f) >= 2),
                     key=lambda w: (-len(w), w[0]))
     return _W
 
@@ -295,12 +329,14 @@ def _single(w):
     return len(reviser().lex.entries.get(w, ())) == 1
 
 
-def build_draft(seed, form, p, body_words=3):
-    """-> the draft's lines, or None when no witness family is wide enough.
+def build_draft(seed, form, p, body_words=3, apart=True):
+    """-> the draft's lines, or None when no family left is wide enough.
 
-    Each group's end words come from one certified witness family; the bodies
-    are seeded draws from the fixture noun pool, every word used once; each
-    returned line is a copy of the line its row names."""
+    Each group's end words come from one rhyme family (`witnesses`), and
+    each unrhymed line's end word from a family of its own; no two families
+    of one draft collide (`_families_collide`) unless `apart` is False. The
+    bodies are seeded draws from the fixture noun pool, every word used once;
+    each returned line is a copy of the line its row names."""
     from quality.fixtures import seeded_lines as SL
     n = p["total_lines"]
     rets = returns_map(p)
@@ -333,14 +369,19 @@ def build_draft(seed, form, p, body_words=3):
         clusters[find(gi)].update(root(x) for x in g)
     end = {}
     free = list(witnesses())
+    taken = []
+
+    def joins(w):
+        return not (apart and any(_families_collide(w, t) for t in taken))
     for _ci, roots in sorted(clusters.items(), key=lambda kv: -len(kv[1])):
         cap = min(budget[l] for l in range(1, n + 1) if root(l) in roots)
         k = next((j for j, w in enumerate(free)
-                  if len([x for x in w if _single(x) and _syl(x) <= cap])
-                  >= len(roots)), None)
+                  if len([x for x in w if _syl(x) <= cap]) >= len(roots)
+                  and joins(w)), None)
         if k is None:
             return None
-        fam = [x for x in free.pop(k) if _single(x)]
+        taken.append(free.pop(k))
+        fam = list(taken[-1])
         rng.shuffle(fam)
         fam.sort(key=_syl)
         for r in sorted(roots):
@@ -356,14 +397,13 @@ def build_draft(seed, form, p, body_words=3):
         if i in end:
             e = end[i]
         else:
-            while True:
-                if not free:
-                    return None
-                c = sorted((x for x in free.pop() if _single(x)
-                            and _syl(x) <= budget[i]), key=_syl)
-                if c:
-                    e = c[0]
-                    break
+            k = next((j for j in range(len(free) - 1, -1, -1)
+                      if any(_syl(x) <= budget[i] for x in free[j])
+                      and joins(free[j])), None)
+            if k is None:
+                return None
+            taken.append(free.pop(k))
+            e = min((x for x in taken[-1] if _syl(x) <= budget[i]), key=_syl)
         # a returned line is sung again in its copies' slots too, and a
         # reprise may bring a line back in a shorter slot than its first
         room = min(budget[x] for x in range(i, n + 1)
@@ -732,7 +772,7 @@ def m_two_reprising_copies(p, L, cls, rng, spare):
 
 def _one_family(L, a, mates):
     """Line `a` is one of `mates`, or its end word is one of theirs or
-    shares a certified witness family with one."""
+    shares a rhyme family with one."""
     e = L[a - 1].split()[-1]
     ends = {L[x - 1].split()[-1] for x in mates}
     return (a in mates or e in ends
@@ -1159,23 +1199,50 @@ MECHANISMS = TABLE + REVIEW
 _ANCHORS = {}
 
 
-def _collides(a, b):
-    """Does the grader's own pair scorer put end words `a` and `b` at or above
-    its collision cut? The score `Reviser._matrix` gives two lines ending on
-    them, read off the same lexicon, declaration and promotion."""
-    from lyric_harness import THETA_COLLISION, best_score, line_anchors
+def _scored(a, b):
+    """-> the score `Reviser._matrix` gives two lines ending on `a` and `b`,
+    read off the same lexicon, declaration and promotion."""
+    from lyric_harness import best_score, line_anchors
     r = reviser()
     for w in (a, b):
         if w not in _ANCHORS:
             ancs, last, _ = line_anchors(r.lex, w, promote=r._promote())
             _ANCHORS[w] = (ancs, last)
     (aa, la), (ab, lb) = _ANCHORS[a], _ANCHORS[b]
-    return best_score(aa, ab, r.decl, la, lb)["total"] >= THETA_COLLISION
+    return best_score(aa, ab, r.decl, la, lb)
+
+
+def _collides(a, b):
+    """Does the grader's own pair scorer put end words `a` and `b` at or above
+    its collision cut?"""
+    from lyric_harness import THETA_COLLISION
+    return _scored(a, b)["total"] >= THETA_COLLISION
+
+
+_COLLIDING = {}
+
+
+def _families_collide(a, b):
+    """Does the grader's pair scorer put any word of family `a` with any word
+    of family `b` at or above its collision cut?
+
+    REPINNED 2026-11-23 (bug hunt finding 17): a draft's families were ~~any
+    the supply had left~~. Two families can be heard as one: a word that ends
+    on a weak syllable is promoted to rhyme with a one-syllable word on the
+    same vowel, and the grader notes every such pair. A change that takes one
+    line out of a return class then moves how many of those notes are raised,
+    on lines the change never touched (measured on verse-chorus seed 62 with
+    a wider supply: 15 new SCHEME_COLLISION notes beside the one flag the row
+    names). So a draft takes no two families that collide."""
+    k = (a[0], b[0]) if a[0] < b[0] else (b[0], a[0])
+    if k not in _COLLIDING:
+        _COLLIDING[k] = any(_collides(x, y) for x in a for y in b)
+    return _COLLIDING[k]
 
 
 class _Spare:
     """Seeded spare words: nouns the draft does not use, and end words from
-    witness families the draft does not use that the grader pairs with no
+    rhyme families the draft does not use that the grader pairs with no
     end word of the draft."""
 
     def __init__(self, lines, rng):
@@ -1344,6 +1411,13 @@ def grade_job(job):
 def test_graded_mechanisms():
     print("\n2. GRADED MECHANISMS: each change to a plan-following draft adds "
           "exactly the flags its row names (dealt by TEST_PLAN_SHARD)")
+    fams = witnesses()
+    apart = [(a, b) for w in fams for i, a in enumerate(w) for b in w[i + 1:]
+             if C.ADOPTED_RELATION not in _scored(a, b)["relations"]]
+    check(f"the rhyme supply: {len(fams)} families read off the song pair "
+          f"census, and the grader's own pair scorer puts every two words of "
+          f"a family in the adopted relation ({C.ADOPTED_RELATION})",
+          len(fams) >= 2 and not apart, f"not in it: {apart[:6] or 'none'}")
     jobs, hits, last = walk()
     short = [MECHANISMS[k][0] for k in range(len(MECHANISMS))
              if hits[k] < FLOOR]
@@ -1491,7 +1565,9 @@ def _merge_notes_saying_more(k, draws=None):
         p = draw_plan(seed, form)
         if p["total_lines"] > WALL:
             continue
-        L = build_draft(seed, form, p)
+        # a pair without the copied line is two groups heard as one, so
+        # this draft's families are let collide
+        L = build_draft(seed, form, p, apart=False)
         if L is None:
             continue
         for _k, L2, b in subjects(seed, form, p, L, {k}):
@@ -1525,6 +1601,7 @@ def test_a_merge_note_that_says_more_stands():
         # first draw (TWO_GROUPS_ONE_WORD), about seven more minutes on one
         # process. The witness is still drawn by seed, not picked: the
         # default run grades the walk's own find, and `--slow` walks again.
+        # (2026-11-23: the walk's find is open seed 52 now; `MERGE_WITNESS`.)
         case = next(_merge_notes_saying_more(k, [MERGE_WITNESS]), None)
         b, groups, locs = MERGE_WITNESS_SHAPE
         check(f"{MERGE_WITNESS[1]} seed {MERGE_WITNESS[0]}, the walk's first "
