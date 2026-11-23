@@ -4175,6 +4175,154 @@ def test_tradition_scoped_function_names():
           song.sections[0].function == UNDECLARED)
 
 
+def test_the_report_compares_what_asked_comparisons_lists():
+    """THE ONE PLACE THE COMPARED SECTIONS ARE LISTED (2026-11-23).
+    `asked_comparisons` builds the three lists `song_function_report`
+    compares: the functions asked whether they come back the same, the
+    (later, earlier) reprise pairs, and the contrast pairs. The planner's
+    stop rows ask it too, so the report must ask nothing it does not list
+    and leave out nothing it does. Held on rosters of section functions
+    drawn by seed, and on seeded plans of every form the plan verb draws:
+    `open`, `verse-chorus` and each catalog form the catalog can build. Every
+    pair and every asked function the tables name is reached by some draw,
+    so no list is equal only because it is empty."""
+    print("\n37. the report compares exactly what asked_comparisons lists")
+    import json
+    import random
+    import subprocess
+    from quality import plan as _PL
+    from quality.grid import (MEASURED_CONTRASTS, POPULAR_SONG,
+                              SECTION_FUNCTIONS, asked_comparisons,
+                              song_function_report)
+
+    rng = random.Random("asked-comparisons-one-place")
+    bank = _drawn_words(rng, 3000).split()
+
+    def drawn_line():
+        return " ".join(rng.sample(bank, rng.randint(3, 7)))
+
+    def compared(rep):
+        return {"returns": sorted(rep["returns"]),
+                "reprises": list(rep["reprises"]),
+                "contrasts": list(rep["contrasts"])}
+
+    reached = {"returns": set(), "reprises": set(), "contrasts": set()}
+    apart = []
+
+    def hold(where, song, hooks=()):
+        listed = asked_comparisons([s.function for s in song.sections])
+        got = compared(song_function_report(song, hooks=hooks))
+        if got != listed:
+            apart.append((where, [s.function for s in song.sections],
+                          got, listed))
+        for key in reached:
+            reached[key] |= set(listed[key])
+
+    # Rosters drawn by seed: any function, or none declared, in any order.
+    pool = sorted(SECTION_FUNCTIONS) + [UNDECLARED]
+    rosters = 0
+    for _ in range(400):
+        fns = [rng.choice(pool) for _ in range(rng.randint(1, 9))]
+        texts = [[drawn_line() for _ in range(rng.randint(1, 4))]
+                 for _ in fns]
+        s = Song(sections=[Section(f"s{i}", len(t), function=f)
+                           for i, (f, t) in enumerate(zip(fns, texts))],
+                 title="Drawn").layout()
+        s.lines = [Line(t, bar=sec.start_bar + j, duration=F(4))
+                   for sec, lines in zip(s.sections, texts)
+                   for j, t in enumerate(lines)]
+        hold("roster", s)
+        rosters += 1
+
+    # Plans: each plan form at seeds drawn here, and each catalog form.
+    def fill(plan):
+        # A return class may hold any number of lines: each later one
+        # repeats the class's first.
+        back = {}
+        for cls in str(plan.get("returns") or "").split(";"):
+            members = sorted(int(x) for x in cls.split(",") if x.strip())
+            for later in members[1:]:
+                back[later] = members[0]
+        lines = []
+        for i in range(1, plan["total_lines"] + 1):
+            lines.append(lines[back[i] - 1] if i in back else drawn_line())
+        return lines
+
+    plans, by_form = 0, {}
+    for form in _PL.PLAN_FORMS:
+        for seed in rng.sample(range(1, 10_000), 12):
+            try:
+                plan = _PL.make_plan(seed, form=form)
+            except _PL.PlanRefused:
+                continue
+            song, hooks = song_from_blueprint(_PL.fill_plan(plan, fill(plan)))
+            hold((form, seed), song, hooks)
+            plans += 1
+            by_form[form] = by_form.get(form, 0) + 1
+    script = os.path.join(HERE, "..", "..", "scripts", "song_forms.mjs")
+    forms = json.loads(subprocess.check_output(
+        ["node", script, "list"], stdin=subprocess.DEVNULL, text=True))
+    built, unbuilt = 0, []
+    def create(form_id, counts):
+        # -> the catalog's answer for one form; "unreadable" when the
+        # catalog script printed no answer, which the check below fails.
+        out = subprocess.run(["node", script, "create", form_id],
+                             input=json.dumps({"counts": counts}),
+                             capture_output=True, text=True).stdout
+        try:
+            return json.loads(out)
+        except ValueError:
+            return {"status": "unreadable", "contract": None}
+
+    for entry in forms:
+        # A form that needs repeat counts gets each at its least.
+        made = create(entry["id"], {})
+        if (made.get("status") == "needs-input"
+                and all(n["kind"] == "count" for n in made["needs"])):
+            made = create(entry["id"],
+                          {n["path"]: n["min"] for n in made["needs"]})
+        if made.get("contract") is None:
+            unbuilt.append((entry["id"], made.get("status")))
+            continue
+        # A seed the planner refuses for this form is redrawn, a few times.
+        plan = None
+        for seed in rng.sample(range(1, 10_000), 4):
+            try:
+                plan = _PL.make_plan(seed, song_form=made["contract"])
+                break
+            except _PL.PlanRefused:
+                continue
+        if plan is None:
+            unbuilt.append((entry["id"], "planner refused 4 drawn seeds"))
+            continue
+        song, hooks = song_from_blueprint(_PL.fill_plan(plan, fill(plan)))
+        hold((entry["id"], seed), song, hooks)
+        built += 1
+
+    # What the tables name, so every one is reached by some draw.
+    tabled = {
+        "returns": {"chorus"} | {
+            fn for fn, sp in SECTION_FUNCTIONS.items()
+            if _G.RECURRENCE_READERS[sp.recurrence] == "asked"
+            or fn in POPULAR_SONG.fixed_return} | set(POPULAR_SONG.single_use),
+        "reprises": {(_G.as_function(a), _G.as_function(b))
+                     for a, b in POPULAR_SONG.reprises},
+        "contrasts": set(MEASURED_CONTRASTS)}
+    unreached = {key: sorted(tabled[key] - reached[key]) for key in tabled
+                 if tabled[key] - reached[key]}
+    check(f"the report's returns, reprises and contrasts are the lists "
+          f"asked_comparisons gives, on {rosters} drawn rosters, {plans} "
+          f"plans ({by_form}) and {built} of {len(forms)} catalog forms "
+          f"({len(unbuilt)} the catalog or planner could not build: "
+          f"{unbuilt[:6]})",
+          not apart and all(by_form.get(f) for f in _PL.PLAN_FORMS)
+          and built > 0 and built + len(unbuilt) == len(forms)
+          and not any(st == "unreadable" for _, st in unbuilt),
+          apart[:3])
+    check("every function the tables ask about, and every reprise and "
+          "contrast pair, is reached by a draw", not unreached, unreached)
+
+
 if __name__ == "__main__":
     for fn in (test_tradition_scoped_function_names,
                test_the_model_cannot_express_a_stanza,
@@ -4227,7 +4375,8 @@ if __name__ == "__main__":
                test_the_stanza_ground_is_printed_or_refused,
                test_the_cli_reads_the_marks_it_used_to_delete,
                test_one_short_section_no_longer_silences_the_locks,
-               test_the_voice_is_a_carried_coordinate):
+               test_the_voice_is_a_carried_coordinate,
+               test_the_report_compares_what_asked_comparisons_lists):
         fn()
     print("=" * 62)
     if FAILURES:
