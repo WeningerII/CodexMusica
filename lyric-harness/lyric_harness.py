@@ -1371,6 +1371,30 @@ def accents_agree(readings):
     return True
 
 
+def _last_rime(phones):
+    """-> (stress digit, the last vowel without its mark, the sounds after
+    it) of one reading, or None when it has no vowel."""
+    idx = [i for i, ph in enumerate(phones) if ph[-1] in "012"]
+    if not idx:
+        return None
+    i = idx[-1]
+    return phones[i][-1], phones[i][:-1], tuple(phones[i + 1:])
+
+
+def _join_keeps_end(last_piece, joined):
+    """-> whether reading a hyphenated word whole keeps every line-end sound
+    its last piece had (the coordinator's review of #913, 2026-11-23).
+
+    `sea-men` read piece by piece ends M EH1 N; the dictionary's `seamen`
+    ends M AH0 N, so joining took away the rhyme with `again`. A reading of
+    the last piece whose last syllable is stressed (1 or 2) must keep that
+    vowel and what follows it in some reading of the joined word; the stress
+    mark itself may change (`new-born` B AO1 R N, `newborn` B AO0 R N)."""
+    kept = {r[1:] for r in map(_last_rime, joined) if r}
+    return all(r[1:] in kept for r in map(_last_rime, last_piece)
+               if r and r[0] in "12")
+
+
 class Lexicon:
     # Reached through the lexicon, so `quality/relations.py` checks one
     # speaker's readings without importing this module (P10).
@@ -1571,8 +1595,11 @@ class Lexicon:
                                    for p in prons})
                 if counts and all(len(c) == 1 for c in counts):
                     total = sum(next(iter(c)) for c in counts)
-                    if all(sum(1 for ph in p if ph[-1] in "012") == total
-                           for p in joined):
+                    if (all(sum(1 for ph in p if ph[-1] in "012") == total
+                            for p in joined)
+                            and _join_keeps_end(
+                                self.entries[pieces[-1].lower().strip("'")],
+                                joined)):
                         return ["".join(pieces)]
         return pieces
 
@@ -1606,9 +1633,22 @@ class Lexicon:
         # guesser. Its own entry now comes first; the bare spelling's
         # readings it lacks follow, so no pair that held stops holding
         # (owner rule 5). Scheme v1 is frozen and reads the bare spelling.
+        # NOT A POSSESSIVE `s'` WITH A WORD UNDER IT (the coordinator's review
+        # of #913, 2026-11-23): the dictionary's own entries for those words
+        # are often machine guesses (`sons'` S AA1 N Z), so `sons'` rhymed
+        # with `cons`; a word ending in `s'` whose bare letters are a word
+        # reads the bare word, as before. A word marked at both edges tries
+        # the spelling with its front mark, then the one with its end mark.
         own = []
         if key != raw and _scheme_of(self) == "v2":
-            own = [list(p) for p in self.entries.get(raw, ())]
+            for spelling in dict.fromkeys((raw, raw.rstrip("'"),
+                                           raw.lstrip("'"))):
+                if spelling == key or spelling not in self.entries:
+                    continue
+                if spelling.endswith("s'") and key in self.entries:
+                    continue
+                own = [list(p) for p in self.entries[spelling]]
+                break
         prons = [list(p) for p in self.entries.get(key, ())]
         reduced = []
         if key.endswith("in"):
@@ -3020,7 +3060,7 @@ def _reader_expand(stream):
     becomes its letters, and a STANDALONE `&` (no letter or numeral touching
     it on either side) is the sung word `and` (bug-hunt finding 13) -- `rock
     & roll` reads five syllables, as `rock and roll` does, and `& 'll` joins
-    as `and'll`. An `&` inside a run (`R&B`, `AT&T`) is left as written. `+` is not expanded: it is sung as
+    as `and'll`. An `&` inside a run (`R&B`, `AT&T`, `&&`) is left as written. `+` is not expanded: it is sung as
     `and` and as `plus` alike, so it stays a symbol the reader does not
     voice."""
     out = []
@@ -3028,8 +3068,10 @@ def _reader_expand(stream):
     for k, (c, a, b) in enumerate(stream):
         if c in _LIGATURES:
             out.extend((ch, a, b) for ch in _LIGATURES[c])
-        elif (c == "&" and (k == 0 or not _word_char(stream[k - 1][0]))
-              and (k == n - 1 or not _word_char(stream[k + 1][0]))):
+        elif (c == "&" and (k == 0 or not (_word_char(stream[k - 1][0])
+                                           or stream[k - 1][0] == "&"))
+              and (k == n - 1 or not (_word_char(stream[k + 1][0])
+                                      or stream[k + 1][0] == "&"))):
             out.extend((ch, a, b) for ch in "and")
         else:
             out.append((c, a, b))

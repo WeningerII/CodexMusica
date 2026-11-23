@@ -154,8 +154,8 @@
       if (LIGATURES.has(c)) for (const ch of LIGATURES.get(c)) out.push([ch, a, b]);
       else if (
         c === '&' &&
-        (k === 0 || !wordChar(s[k - 1][0])) &&
-        (k === s.length - 1 || !wordChar(s[k + 1][0]))
+        (k === 0 || !(wordChar(s[k - 1][0]) || s[k - 1][0] === '&')) &&
+        (k === s.length - 1 || !(wordChar(s[k + 1][0]) || s[k + 1][0] === '&'))
       )
         for (const ch of 'and') out.push([ch, a, b]);
       else out.push([c, a, b]);
@@ -228,10 +228,16 @@
       // lyric_harness._reader_line_v2 `make`: a run of apostrophes at either
       // edge of a token is one mark (2026-11-23). At the end the word's own
       // mark is the first of the run, at the start the last.
-      let vis = idx.map((i, n) => [i, n]).filter(([i]) => st[i][0] !== SHY).map(([, n]) => n);
+      let vis = idx
+        .map((i, n) => [i, n])
+        .filter(([i]) => st[i][0] !== SHY)
+        .map(([, n]) => n);
       while (vis.length >= 2 && st[idx[vis[0]]][0] === "'" && st[idx[vis[1]]][0] === "'") {
         idx = idx.slice(vis[1]);
-        vis = idx.map((i, n) => [i, n]).filter(([i]) => st[i][0] !== SHY).map(([, n]) => n);
+        vis = idx
+          .map((i, n) => [i, n])
+          .filter(([i]) => st[i][0] !== SHY)
+          .map(([, n]) => n);
       }
       while (
         vis.length >= 2 &&

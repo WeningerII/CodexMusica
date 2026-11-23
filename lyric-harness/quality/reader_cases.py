@@ -164,6 +164,7 @@ V2_REGRESSIONS = [
     "rock & roll all night",
     "& so it goes &",
     "R&B & soul",
+    "rock && roll",
     "her eyes burn like a \ufb01re",
     "\ufb02y away, o\ufb00 we go",
     "an e\ufb03cient ra\ufb04e",

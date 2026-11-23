@@ -359,8 +359,9 @@ def test_disowned_types_are_not_written_on_the_writers_pair():
                 json.loads(result[-1].split("lyric result:", 1)[1]) if result else {})
 
     # REPINNED 2026-11-21 (bug-hunt finding 10): ~~fire/desire~~ -- desire
-    # now has the smoothed one-syllable reading D IH0 Z AY1 R that fire
-    # already had, so the pair genuinely satisfies the declared cluster
+    # now has the smoothed reading D IH0 Z AY1 R, one syllable shorter than
+    # D IH0 Z AY1 ER0 (~~one-syllable~~, corrected 2026-11-23: it has two),
+    # as fire already had F AY1 R, so the pair genuinely satisfies the declared cluster
     # consonance (both close on R). day/way is the same shape the check
     # needs: a perfect rhyme, a common pair that the disowned trite and
     # same-ending schemas would both claim, and a FAIL of the declared

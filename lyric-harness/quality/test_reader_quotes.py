@@ -432,7 +432,14 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
          no pair that holds today stops holding;
       3. an `-in'` spelling that answers a reduced `-ing` reading answers its
          own entry first, then the reduced readings the entry lacks, and
-         nothing else (the bare spelling's readings stay out, as before).
+         nothing else (the bare spelling's readings stay out, as before);
+      4. a word ending in `s'` whose letters without the mark are a
+         dictionary word is a possessive, and is read exactly as that word
+         is. ~~Rules 1 and 2 covered it~~ (REPINNED 2026-11-23, found in the
+         coordinator's review of the rule): the dictionary's own entries for
+         these spellings include guesses that are not the word's sound
+         (`sons'` is given the vowel of `cons`), and reading them made pairs
+         rhyme that do not rhyme.
 
     Nothing here is a chosen example. The words are every dictionary word
     with an apostrophe at exactly one edge, spelled with letters and
@@ -462,7 +469,13 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
                        if len(p) >= 2 and list(p[-2:]) == ["IH0", "NG"]]
                 if got:
                     cls.reduced[w] = got
-        cls.ruled = [w for w in edge if w not in cls.reduced]
+        # Rule 4's words.
+        cls.possessive = [w for w in edge if w.endswith("s'")
+                          and w not in cls.reduced and cls.bare[w] in entries]
+        cls.possessive_differ = [w for w in cls.possessive
+                                 if entries[w] != entries[cls.bare[w]]]
+        held_back = set(cls.reduced) | set(cls.possessive)
+        cls.ruled = [w for w in edge if w not in held_back]
         # Both spellings in the dictionary, and the two entries differ: the
         # words the rule changes the hearing of.
         cls.differ = [w for w in cls.ruled if cls.bare[w] in entries
@@ -476,7 +489,10 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
         return [list(p) for p in lex.entries[word]]
 
     def expected(self, word):
-        """-> rule 1 then rule 2, said through the reader itself."""
+        """-> rule 1 then rule 2, or rule 4 for its words, said through the
+        reader itself."""
+        if word in self.possessive:
+            return self.lex.pronunciation_variants(self.bare[word])
         own = self.own(self.lex, word)
         return own + [p for p in self.lex.pronunciation_variants(self.bare[word])
                       if p not in own]
@@ -497,8 +513,13 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
         # The dictionary has such words on both edges and in each group, so
         # no check below can pass by having nothing to read.
         self.assertGreater(len([w for w in self.differ if w.startswith("'")]), 2)
-        self.assertGreater(len([w for w in self.differ if w.endswith("'")]), 100)
-        self.assertGreater(len(self.same), 300)
+        # REPINNED 2026-11-23: ~~more than 100 words marked at the end whose
+        # two entries differ, more than 300 whose entries agree~~. Nearly all
+        # of both were possessives, which rule 4 now reads; they are counted
+        # under their own rule.
+        self.assertGreater(len(self.same), 5)
+        self.assertGreater(len(self.possessive), 300)
+        self.assertGreater(len(self.possessive_differ), 100)
         # Few words stand alone (three on the dictionary as shipped), so
         # that check reads every one of them.
         self.assertGreater(len(self.alone), 0)
@@ -511,6 +532,40 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
                          f"word(s) not read as their own entry and then the "
                          f"bare spelling's other readings")
 
+    def test_a_possessive_is_read_as_the_word_without_its_mark(self):
+        # Rule 4, on every one of its words: the readings, their order and
+        # the single reading are the bare word's.
+        wrong = [w for w in self.possessive
+                 if self.lex.pronunciation_variants(w)
+                 != self.lex.pronunciation_variants(self.bare[w])
+                 or self.lex.transcribe_word(w)
+                 != self.lex.transcribe_word(self.bare[w])]
+        self.assertEqual(wrong[:5], [], f"{len(wrong)} of "
+                         f"{len(self.possessive)} possessive(s) not read as "
+                         f"the word without the mark")
+        # At the line's end, where the rhyme judge reads it, for every
+        # possessive whose own entry differs from the bare word's.
+        heard = [w for w in self.possessive_differ
+                 if self.heard(w) != self.heard(self.bare[w])]
+        self.assertEqual(heard[:5], [], f"{len(heard)} of "
+                         f"{len(self.possessive_differ)} line end(s) not "
+                         f"heard as the word without the mark")
+
+    def test_a_mark_at_both_edges_reads_as_one_of_them(self):
+        # A second mark on the other edge (a quotation mark folded to `'`)
+        # leaves the word's reading as it was with one mark: a word marked
+        # in front keeps its own entry, and a possessive stays the bare
+        # word. Every word of both kinds is read.
+        front = [w for w in self.ruled if w.startswith("'")]
+        wrong = [w for w in front
+                 if self.lex.pronunciation_variants(w + "'")
+                 != self.lex.pronunciation_variants(w)]
+        wrong += ["'" + w for w in self.possessive
+                  if self.lex.pronunciation_variants("'" + w)
+                  != self.lex.pronunciation_variants(self.bare[w])]
+        self.assertGreater(len(front), 2, "PREMISE")
+        self.assertEqual(wrong[:5], [], f"{len(wrong)} word(s)")
+
     def test_the_single_reading_is_the_words_own(self):
         # `transcribe_word` takes the first reading as the word's one
         # reading; it is the first reading of the word's own entry, and the
@@ -522,7 +577,7 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
 
     def test_a_typographic_mark_is_the_same_word(self):
         rng = random.Random(self.SEED)
-        for w in rng.sample(self.differ, 40):
+        for w in self.differ + rng.sample(self.possessive_differ, 40):
             curly = w.replace("'", "’")
             with self.subTest(word=curly):
                 self.assertEqual(self.lex.pronunciation_variants(curly),
@@ -622,6 +677,37 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
                 self.assertLessEqual(held, end_rhymes(w, theirs))
         self.assertGreater(judged, 1, "PREMISE: words were judged")
 
+        # RULE 4 AT THE JUDGE. A possessive of one syllable whose own entry
+        # ends on other sounds than the bare word: a partner that ends as the
+        # own entry does is no rhyme (it is none for the bare word), and a
+        # partner that ends as the bare word does rhymes exactly as it does
+        # with the bare word.
+        judged = 0
+        for w in self.possessive_differ:
+            bare = self.bare[w]
+            own, other = self.own(self.lex, w), self.own(self.lex, bare)
+            if any(len(vowels(p)) != 1 for p in own + other):
+                continue
+            own_tails = {tail(p) for p in own}
+            bare_tails = {tail(p) for p in other}
+            if own_tails & bare_tails:
+                continue
+            mine = next((p for t in sorted(own_tails)
+                         for p in by_tail.get(t, []) if p != bare), None)
+            theirs = next((p for t in sorted(bare_tails)
+                           for p in by_tail.get(t, []) if p != bare), None)
+            if mine is None or theirs is None:
+                continue
+            judged += 1
+            with self.subTest(word=w, partner=mine, ends_as="its own entry"):
+                self.assertEqual(end_rhymes(bare, mine), set(), "PREMISE")
+                self.assertEqual(end_rhymes(w, mine), set())
+            with self.subTest(word=w, partner=theirs, ends_as="the bare word"):
+                held = end_rhymes(bare, theirs)
+                self.assertNotEqual(held, set(), "PREMISE")
+                self.assertEqual(end_rhymes(w, theirs), held)
+        self.assertGreater(judged, 0, "PREMISE: a possessive was judged")
+
     def test_an_in_spelling_reads_its_own_entry_then_its_reduced_reading(self):
         wrong = []
         for w, reduced in sorted(self.reduced.items()):
@@ -640,7 +726,8 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
         words = sorted(w for w in self.lex.entries
                        if w.replace("'", "").isalpha() and len(w) > 2
                        and not w.startswith("'") and not w.endswith("'"))
-        for w in rng.sample(words, 400) + [self.bare[x] for x in self.differ[:40]]:
+        for w in rng.sample(words, 400) + [
+                self.bare[x] for x in self.differ + self.possessive_differ[:40]]:
             own = self.own(self.lex, w)
             self.assertEqual(self.lex.pronunciation_variants(w)[:len(own)], own, w)
 
@@ -648,7 +735,8 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
         # Under v1 the mark comes off and the bare spelling is the whole
         # answer, exactly as before the rule.
         old_entries = self.old.entries
-        moved = [w for w in self.ruled if self.bare[w] in old_entries
+        moved = [w for w in self.ruled + self.possessive
+                 if self.bare[w] in old_entries
                  and self.old.pronunciation_variants(w)
                  != self.old.pronunciation_variants(self.bare[w])]
         self.assertEqual(moved[:5], [], f"{len(moved)} word(s) read "
@@ -657,6 +745,144 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
                   and not self.bare[w].endswith("in")
                   and self.old.pronunciation_variants(w) != []]
         self.assertEqual(unread[:5], [])
+
+
+class AJoinedHyphenatedWordKeepsItsLineEnd(unittest.TestCase):
+    """Reading a hyphenated word whole never takes away a sound its last
+    piece had at a line's end (the coordinator's review of #913, 2026-11-23).
+
+    Finding 12 reads a hyphenated word the dictionary has whole as that
+    word, so `to-day` is `today`. But `sea-men` read piece by piece ends
+    M EH1 N and the dictionary's `seamen` ends M AH0 N: joining took the
+    rhyme with `again` away. The join now holds only where every reading of
+    the last piece whose last syllable is stressed keeps that vowel and what
+    follows it in some reading of the joined word; the stress mark itself
+    may change. Scheme v1 is frozen and splits as before.
+
+    The words are every hyphenated spelling in the repo's corpus whose
+    joined letters are a dictionary word; nothing here is a chosen example.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = LH.Lexicon(strip_parens=True, pronunciations=None,
+                             reader_scheme="v2")
+        import re
+        root = Path(LH.__file__).resolve().parent / "corpus"
+        seen = set()
+        for path in sorted(root.rglob("*.txt")):
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            seen.update(w.lower() for w in
+                        re.findall(r"[A-Za-z']+(?:-[A-Za-z']+)+", text))
+        entries = cls.lex.entries
+        cls.words = sorted(
+            w for w in seen
+            if all(len(p.strip("'")) > 1 for p in w.split("-"))
+            and "".join(w.split("-")).strip("'") in entries
+            and all(p.strip("'") in entries for p in w.split("-")))
+
+    @staticmethod
+    def ends(prons):
+        out = set()
+        for p in prons:
+            idx = [i for i, ph in enumerate(p) if ph[-1] in "012"]
+            if idx:
+                out.add((p[idx[-1]][-1], p[idx[-1]][:-1], tuple(p[idx[-1] + 1:])))
+        return out
+
+    def test_the_premise_holds(self):
+        joined = [w for w in self.words if len(self.lex.word_pieces(w)) == 1]
+        split = [w for w in self.words if len(self.lex.word_pieces(w)) > 1]
+        self.assertGreater(len(joined), 500)
+        self.assertGreater(len(split), 50)
+
+    def test_a_joined_word_keeps_every_stressed_line_end_of_its_last_piece(self):
+        lost = []
+        for w in self.words:
+            if len(self.lex.word_pieces(w)) != 1:
+                continue
+            last = self.lex.entries[w.split("-")[-1].strip("'")]
+            whole = self.lex.entries["".join(w.split("-")).strip("'")]
+            kept = {e[1:] for e in self.ends(whole)}
+            if any(e[0] in "12" and e[1:] not in kept for e in self.ends(last)):
+                lost.append(w)
+        self.assertEqual(lost[:5], [], f"{len(lost)} joined word(s)")
+
+    def test_a_split_word_would_have_lost_one(self):
+        # Every word that splits now, among those the syllable rule alone
+        # would join, splits because joining would lose a stressed line end.
+        kept_joinable = []
+        for w in self.words:
+            if len(self.lex.word_pieces(w)) == 1:
+                continue
+            last = self.lex.entries[w.split("-")[-1].strip("'")]
+            whole = self.lex.entries["".join(w.split("-")).strip("'")]
+            kept = {e[1:] for e in self.ends(whole)}
+            if all(e[1:] in kept for e in self.ends(last) if e[0] in "12"):
+                kept_joinable.append(w)
+        # A split word whose ends all survive was split by the older rules
+        # (syllable count), never by this one.
+        for w in kept_joinable[:50]:
+            pieces = w.split("-")
+            counts = [{sum(1 for ph in p if ph[-1] in "012")
+                       for p in self.lex.entries[x.strip("'")]} for x in pieces]
+            total = (sum(next(iter(c)) for c in counts)
+                     if all(len(c) == 1 for c in counts) else None)
+            whole = self.lex.entries["".join(pieces).strip("'")]
+            self.assertFalse(
+                total is not None and all(
+                    sum(1 for ph in p if ph[-1] in "012") == total
+                    for p in whole), w)
+
+    def test_the_line_end_is_heard_as_the_pieces_when_split(self):
+        rng = random.Random(20261123)
+        split = [w for w in self.words if len(self.lex.word_pieces(w)) > 1]
+        for w in rng.sample(split, min(30, len(split))):
+            last = w.split("-")[-1].strip("'")
+            got = LH.line_anchors(self.lex, f"they said {w}")[0]
+            want = LH.line_anchors(self.lex, f"they said {last}")[0]
+            # The last piece's first reading is among the line end's; the
+            # accent variants a bare word gains are not read inside a
+            # hyphenated word on main either, so they are not asked for.
+            with self.subTest(word=w):
+                self.assertIn(want[0][-1]["nucleus"],
+                              {a[-1]["nucleus"] for a in got})
+
+    def test_a_split_word_still_rhymes_in_a_real_grade(self):
+        # The coordinator's case, through the real `plan` and `song` verbs: a
+        # line ending `sea-men` against one ending `again`, the plan's own
+        # group on lines 2 and 3 under its default relation. Joined, the
+        # pair went UNJUDGED (exit 2); split, it is judged, as on main. The
+        # four lines open with four different words so no other check
+        # decides the exit.
+        import subprocess
+        import tempfile
+        harness = Path(LH.__file__).resolve()
+        with tempfile.TemporaryDirectory() as tmp:
+            draft = os.path.join(tmp, "draft.txt")
+            bp = os.path.join(tmp, "bp.json")
+            with open(draft, "w", encoding="utf-8") as fh:
+                fh.write("Down the road past the old mill gate\n"
+                         "I walk alone and I carry the sea-men\n"
+                         "Night holds still with a slow again\n"
+                         "Dawn comes up and the morning is late\n")
+            run = lambda *a: subprocess.run(
+                [sys.executable, str(harness), *a], cwd=str(harness.parent),
+                capture_output=True, text=True, timeout=600)
+            made = run("plan", "--seed=7", "--form=open", "--lines=4",
+                       "--input-format=literal", f"--fill={draft}",
+                       f"--out={bp}")
+            self.assertEqual(made.returncode, 0, made.stdout[-2000:])
+            got = run("song", bp, draft, "--input-format=literal",
+                      "--groups=2,3", "--subdivision", "4")
+        self.assertNotIn("UNJUDGED", got.stdout)
+        self.assertEqual(got.returncode, 0, got.stdout[-2000:])
+
+    def test_scheme_v1_is_frozen(self):
+        old = LH.Lexicon(strip_parens=True, pronunciations=None,
+                         reader_scheme="v1")
+        joined = [w for w in self.words if len(old.word_pieces(w)) == 1]
+        self.assertEqual(joined[:5], [])
 
 
 if __name__ == "__main__":
