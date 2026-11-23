@@ -1099,6 +1099,12 @@ class GroupBrief:
     #: verbatim, and () when no answer to it was rejected. The group question
     #: quotes them (bug hunt 2026-11-20, finding 5).
     pivot_line_reasons: tuple = ()
+    #: True when those reasons are not the grader's: the reply to the line
+    #: question never reached it (it could not be read, or was not one line),
+    #: and the reasons are the reader's own notice. The group question then
+    #: says that, and not that the answer was rejected (the review of the bug
+    #: hunt's fixes, 2026-11-23).
+    pivot_line_unread: bool = False
     #: On the question that repairs the declared requirements together
     #: (`whole_repair`): the rule every group that declares one is graded
     #: by, as printable rows in group order (`declared_rule_rows`). The
@@ -1151,6 +1157,12 @@ class LineAttempt:
     #: not saved with a held run's position: a resumed run asks the line
     #: again from the journal and gets the same reasons.
     rejected: tuple = ()
+    #: True when `rejected` is NOT the grader's: the last reply never reached
+    #: it (`_unread`, `_not_one_line`), and `rejected` holds the reader's own
+    #: notice. The field above was filled with that notice and the question
+    #: that quoted it called it the grader's rejection (the review of the bug
+    #: hunt's fixes, 2026-11-23).
+    rejected_unread: bool = False
 
 
 @dataclass
@@ -1540,6 +1552,9 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose, whole=()):
     tried = 0
     reasons = None
+    # Whether `reasons` is the reader's notice (the last reply never reached
+    # the grader) or the grader's own reasons for rejecting it.
+    unread = False
     for attempt in range(rdecl.attempts_per_line):
         # `whole` LAST AND POSITIONAL, matching the declared contract
         # `propose(brief, lines, attempt, reasons=None, whole=())`. It is
@@ -1554,11 +1569,11 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         if _why is not None:
             # One attempt used, as the question promises; the next one is
             # asked with the reason, and nothing unread reaches the draft.
-            reasons = [_why]
+            reasons, unread = [_why], True
             continue
         _why = _not_one_line(candidate)
         if _why is not None:
-            reasons = [_why]
+            reasons, unread = [_why], True
             continue
         after, targets = apply_candidate(reviser, lines, mandate,
                                          b.line_no, candidate)
@@ -1583,7 +1598,7 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             return LineAttempt(b.line_no, 1, True, tried,
                                "; ".join(res["reasons"]),
                                tuple(sorted(targets))), after
-        reasons = res["reasons"]
+        reasons, unread = res["reasons"], False
     detail = f"tried {tried} candidate(s), none accepted"
     if reasons:
         detail += f"; last rejection: {'; '.join(reasons)}"
@@ -1626,7 +1641,8 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             detail = "the PROPOSER declined at attempt 0"
     return LineAttempt(b.line_no, 1, False, tried, detail, (),
                        asked=rdecl.attempts_per_line > 0,
-                       rejected=tuple(str(r) for r in (reasons or ()))), lines
+                       rejected=tuple(str(r) for r in (reasons or ())),
+                       rejected_unread=bool(unread and reasons)), lines
 
 
 def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
@@ -1783,7 +1799,7 @@ def _changed_members(members, before, after):
 
 def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose_group, whole=(), escalated=False,
-               pivot_question="", pivot_reasons=()):
+               pivot_question="", pivot_reasons=(), pivot_unread=False):
     """THE JOINT BACKTRACK — rewrite a WHOLE mandated group at once.
 
     ~~Bounded to groups of exactly two.~~ **WIDENED 2026-08-24
@@ -1908,7 +1924,9 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                 pivot_line_question=(pivot_question
                                                      if escalated else ""),
                                 pivot_line_reasons=(tuple(pivot_reasons)
-                                                    if escalated else ()))
+                                                    if escalated else ()),
+                                pivot_line_unread=bool(escalated
+                                                       and pivot_unread))
                 got = propose_group(gb)
                 attempt += 1
                 if got is None:
@@ -2079,7 +2097,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                       if escalated else ()),
                 pivot_line_question=pivot_question if escalated else "",
                 pivot_line_reasons=(tuple(pivot_reasons)
-                                    if escalated else ())))
+                                    if escalated else ()),
+                pivot_line_unread=bool(escalated and pivot_unread)))
             attempt += 1
             if got is not None:
                 tried += 1
@@ -2163,7 +2182,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                           if escalated else ()),
                     pivot_line_question=pivot_question if escalated else "",
                     pivot_line_reasons=(tuple(pivot_reasons)
-                                        if escalated else ())))
+                                        if escalated else ()),
+                    pivot_line_unread=bool(escalated and pivot_unread)))
                 attempt += 1
                 if got is None:
                     continue
@@ -3277,7 +3297,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                         reviser, b, lines, mandate, rdecl, blueprint,
                         subdivision, assume, profile, propose_group, whole,
                         escalated=True, pivot_question=_pq,
-                        pivot_reasons=attempt.rejected)
+                        pivot_reasons=attempt.rejected,
+                        pivot_unread=attempt.rejected_unread)
                     attempt = LineAttempt(
                         attempt.line_no, attempt.tier, attempt.accepted,
                         attempt.tried,

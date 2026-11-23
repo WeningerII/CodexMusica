@@ -532,6 +532,17 @@ PIVOT_REJECTED_ROW = ("was asked first, and its answer was REJECTED. The "
 PIVOT_REJECTED_CLOSE = ("This question is asked because of that rejection; do "
                         "not send back something the same reason would reject "
                         "again.")
+#: The same two rows when the reply to the pivot's line question never
+#: reached the grader (it could not be read, or was not one line). The rows
+#: between them are then the reader's own notice, which says how to answer
+#: THAT question, so the close says which question it is about.
+#: `lyric_harness._legacy_pivot_unread` holds frozen copies of all four.
+PIVOT_UNREAD_ROW = ("was asked first, and the reply to it never reached the "
+                    "grader. Why, verbatim:")
+PIVOT_UNREAD_CLOSE = ("This question is asked because that line still has no "
+                      "accepted answer. The reason above is about the reply "
+                      "to that earlier question; how to answer this one is "
+                      "stated below.")
 
 
 def _pivot_rejection_rows(group_brief, block, indent="  "):
@@ -554,16 +565,28 @@ def _pivot_rejection_rows(group_brief, block, indent="  "):
     where it was, with this block after it. Both group questions print it:
     the coupled-lines one, and the one that asks for a group together with
     its word-for-word copies.
+
+    A REPLY THAT WAS NEVER READ IS NOT A REJECTION (the review of the bug
+    hunt's fixes, 2026-11-23). When the line reply could not be read, or was
+    not one line, the grader judged nothing, and this block still said "its
+    answer was REJECTED. The grader's reasons, verbatim:" over the reader's
+    notice, then "do not send back something the same reason would reject
+    again" under a notice that tells the writer to send one line alone, on a
+    question that takes one row for each line. `pivot_line_unread` says which
+    it was; the rows are the same and only the fixed words differ.
     """
     g = group_brief
     asked = str(getattr(g, "pivot_line_question", "") or "")
     why = [str(r) for r in _ordered(getattr(g, "pivot_line_reasons", ()) or ())]
     if not asked or not why or getattr(g, "reasons", None):
         return block
+    head, close = ((PIVOT_UNREAD_ROW, PIVOT_UNREAD_CLOSE)
+                   if getattr(g, "pivot_line_unread", False)
+                   else (PIVOT_REJECTED_ROW, PIVOT_REJECTED_CLOSE))
     return ([row for row in block if row != f"{indent}{NO_REJECTION_ROW}"]
-            + [f"{indent}{asked} {PIVOT_REJECTED_ROW}"]
+            + [f"{indent}{asked} {head}"]
             + [f"{indent}  - {r}" for r in why]
-            + [f"{indent}{PIVOT_REJECTED_CLOSE}"])
+            + [f"{indent}{close}"])
 
 
 def _place_phrase(slot_key):

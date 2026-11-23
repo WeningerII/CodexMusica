@@ -1092,6 +1092,38 @@ def test_group_prompt_states_the_tier2_situation():
     check("a second try quotes the group's own rejection, the latest one",
           "The PREVIOUS attempt was REJECTED" in p_again
           and "was asked first" not in p_again)
+    # A LINE REPLY THAT WAS NEVER READ IS NOT A REJECTED ANSWER (the review of
+    # the bug hunt's fixes, 2026-11-23). The block above was printed over the
+    # reader's own notice too: "its answer was REJECTED. The grader's reasons,
+    # verbatim:" for a reply the grader never saw.
+    from quality.propose import UNREAD_LINE
+    unread = dict(esc, pivot_line_reasons=(UNREAD_LINE,))
+    p_unread = render_group(PB(**dict(unread, pivot_line_unread=True)))
+    unread_rows = (
+        f"  {cited} was asked first, and the reply to it never reached the "
+        f"grader. Why, verbatim:\n    - {UNREAD_LINE}\n  This question is "
+        "asked because that line still has no accepted answer. The reason "
+        "above is about the reply to that earlier question; how to answer "
+        "this one is stated below.")
+    check("after a line reply that was never read, the group question says "
+          "the reply never reached the grader and does not call it a "
+          "rejected answer",
+          unread_rows + "\n" in p_unread
+          and "its answer was REJECTED" not in p_unread
+          and "No previous attempt was rejected" not in p_unread,
+          p_unread[p_unread.find("ATTEMPT"):][:500])
+    check("...the notice it quotes is about the earlier question, and how "
+          "to answer this one is stated below it, as the row says",
+          "\nHOW TO ANSWER\n" in p_unread[p_unread.find(unread_rows):])
+    check("...and nothing else in the question moved: with the words of a "
+          "rejected answer in those two rows it is the question as it was",
+          p_unread.replace(
+              unread_rows,
+              f"  {cited} was asked first, and its answer was REJECTED. The "
+              f"grader's reasons, verbatim:\n    - {UNREAD_LINE}\n  This "
+              "question is asked because of that rejection; do not send back "
+              "something the same reason would reject again.")
+          == render_group(PB(**unread)))
     check("the whole draft and whole-draft findings remain constraints "
           "a permitted group rewrite may improve",
           all(t in p for t in DRAFT) and "PRESERVE THESE CONSTRAINTS" in p
@@ -1184,6 +1216,12 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
             # added for it.
             "path", "pivot_line_offered", "pivot_line_forbidden",
             "pivot_line_question", "pivot_line_reasons",
+            # `pivot_line_unread` — whether those reasons are the reader's
+            # notice for a reply that never reached the grader (the review
+            # of the bug hunt's fixes, 2026-11-23). Rendered through `PB` in
+            # the group prompt section and through the real loop in
+            # `test_audit_regressions.py`.
+            "pivot_line_unread",
             # `rule_rows` — every declared group's rule, on the question
             # that repairs the declared requirements (bug hunt 2026-11-20,
             # finding 2). Rendered through `PB` in §7e and through the real

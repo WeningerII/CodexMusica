@@ -10689,6 +10689,39 @@ def _legacy_group_rules(kind, prompt):
     return None if text == prompt else text
 
 
+#: What a group question says since 2026-11-23 when the reply to its pivot's
+#: own line question never reached the grader (the review of the bug hunt's
+#: fixes), FROZEN as `_BAN_DEFINITIONS_1121` is. From 2026-11-21 until then
+#: it used the words of a rejected answer (`_PIVOT_REJECTION_1121`) over the
+#: same rows; the first and last rows go back to those words, each only
+#: where the other is found after it.
+_PIVOT_UNREAD_1123 = re.compile(
+    r"(?s)(?P<asked>\n  L\d+'s line question \(attempt \d+, round \d+\) was "
+    r"asked first, and )the reply to it never reached the grader\. Why, "
+    r"verbatim:(?P<why>\n.*?\n  )This question is asked because that line "
+    r"still has no accepted answer\. The reason above is about the reply to "
+    r"that earlier question; how to answer this one is stated below\."
+    r"(?=\n)")
+_PIVOT_REJECTED_HEAD_1121 = ("its answer was REJECTED. The grader's reasons, "
+                             "verbatim:")
+_PIVOT_REJECTED_CLOSE_1121 = ("This question is asked because of that "
+                              "rejection; do not send back something the same "
+                              "reason would reject again.")
+
+
+def _legacy_pivot_unread(kind, prompt):
+    """-> the group question as worded while a line reply that was never read
+    was called a rejected answer."""
+    if kind != "propose_group":
+        return None
+    found = _PIVOT_UNREAD_1123.search(prompt)
+    if found is None:
+        return None
+    return (prompt[:found.start()] + found.group("asked")
+            + _PIVOT_REJECTED_HEAD_1121 + found.group("why")
+            + _PIVOT_REJECTED_CLOSE_1121 + prompt[found.end():])
+
+
 #: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
 #: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
 #: it asked and replays an answer only to the same question, so a change to a
@@ -10719,6 +10752,9 @@ LEGACY_QUESTION_RENDERINGS = (
     ("2026-11-21 writer: a question states the rule a declared group is "
      "graded by (bug hunt finding 2)",
      _legacy_group_rules),
+    ("2026-11-23 writer: a group asked for after a line reply that was never "
+     "read no longer calls it a rejected answer",
+     _legacy_pivot_unread),
 )
 
 
