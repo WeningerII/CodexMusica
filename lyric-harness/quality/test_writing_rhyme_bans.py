@@ -10,6 +10,7 @@ actual pair judge, earned ban, inspection, brief, verification and loop run.
 """
 
 from pathlib import Path
+import random
 import re
 import subprocess
 import sys
@@ -377,6 +378,37 @@ class WritingRhymeBanTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertNotIn("SUCCESS", result.stdout)
         self.assertIn("unresolved", result.stdout.lower())
+
+    def test_differently_spelled_head_is_the_top_three(self):
+        """The owner's ruling, 22 Nov 2026: the second tier bans at most the
+        3 most predictable differently-spelled partners (it was 6), and the
+        same-spelled tier stays without limit. The new second tier is the
+        first three words of the old one, in the same order, so the ruling
+        moves no word's rank, only where the head stops; the first tier is
+        the same set as before. The call words are drawn by seed from the
+        song table, from those whose old second tier held more than three
+        words."""
+        self.assertEqual(ReviseDeclaration().modal_exclusion, 3)
+        six = Reviser(lex=self.reader.lex,
+                      rdecl=ReviseDeclaration(modal_exclusion=6))
+        source = FREQ.LAYER.source_for("eng-song")
+        calls = sorted(FREQ.LAYER._song_tables(source)[1])
+        random.Random(1).shuffle(calls)
+        drawn = []
+        for call in calls:
+            old = six.modal_head_evidenced(call)
+            if len(old) > 3:
+                drawn.append((call, old))
+            if len(drawn) == 5:
+                break
+        self.assertEqual(len(drawn), 5)
+        for call, old in drawn:
+            new = self.reader.modal_head_evidenced(call)
+            self.assertEqual(list(new), list(old[:3]), call)
+            # Tier 1 is what the whole head holds beyond tier 2.
+            self.assertEqual(
+                set(self.reader.modal_head(call)) - set(new),
+                set(six.modal_head(call)) - set(old), call)
 
 
 class WritingScreenTests(unittest.TestCase):

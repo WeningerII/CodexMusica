@@ -6765,7 +6765,8 @@ STACKED_DRAFT_ADOPTED = {
 }
 #: `revise.ReviseDeclaration.modal_exclusion`: at most this many partners
 #: per word are banned by the second writing ban.
-WRITING_BAN_PARTNERS = 6
+#: REPINNED 2026-11-22 (owner's ruling): ~~6~~ 3, with the grader's value.
+WRITING_BAN_PARTNERS = 3
 
 #: EVERY RULE THAT CAN STOP A PLANNED SONG, one row per blocking code (the
 #: gate census's GATED codes plus the reviser's writing bans), as data:

@@ -302,7 +302,14 @@ class ReviseDeclaration:
     #: harder away from the obvious; set it to 0 to disable the rule and get a
     #: loop that optimises toward the phonetic maximum, which is the slop
     #: direction and is why 0 is not the default.
-    modal_exclusion: int = 6
+    #: REPINNED 2026-11-22 (owner's ruling): ~~6~~ 3. Tier 2 now bans at most
+    #: the three most predictable differently-spelled partners. The ranking
+    #: and the evidence gate are unchanged, so the new head is the first
+    #: three words of the old one, in the same order; only where it stops
+    #: moved. Tier 1 stays without limit.
+    #: `test_writing_rhyme_bans.test_differently_spelled_head_is_the_top_three`
+    #: holds that on call words drawn by seed from the song table.
+    modal_exclusion: int = 3
     #: candidates offered per flagged rhyme, after the modal ones are removed
     offered: int = 24
 

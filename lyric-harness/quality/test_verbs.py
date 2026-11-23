@@ -5540,10 +5540,14 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     # N-relation model)~~ -> L16 (2026-10-01, the unread copy above: G's
     # (15,16) and (16,17) are REFUSED because L16 has no reading at all).
     _R3 = _machine_result(out3)
-    # Restored writing policy also keeps four/lore and all three
+    # Restored writing policy also keeps ~~four/lore and~~ all three
     # brake/snake/shake obligations open, independent of the unknown prix.
-    expected_bans = {("MODAL_RHYME", (1, 2)),
-                     ("HOMEOTELEUTON", (15, 16)),
+    # REPINNED 2026-11-22 (owner's ruling: the common-partner ban takes the
+    # top 3 partners, ~~6~~ 3): ~~("MODAL_RHYME", (1, 2))~~ and ~~L2~~ in
+    # the unresolved lines. `four` is sixth in `lore`'s partner ranking
+    # (yore, door, war, roar, pour, four), so four/lore is no longer banned
+    # and line 2 has nothing open.
+    expected_bans = {("HOMEOTELEUTON", (15, 16)),
                      ("HOMEOTELEUTON", (15, 17)),
                      ("HOMEOTELEUTON", (16, 17))}
 
@@ -5554,7 +5558,7 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
                 and f.get("code") in {"HOMEOTELEUTON", "MODAL_RHYME"}}
 
     m3 = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
-                   r"(\d+) round\(s\) — UNRESOLVED: L2, L16, L17 — "
+                   r"(\d+) round\(s\) — UNRESOLVED: L16, L17 — "
                    r"WHOLE-DRAFT FLAG: "
                    r"([^\]—]+) — COVERAGE UNCERTIFIED: [^\]]+\]", out3)
     check("under defer: the stamp carries `— WHOLE-DRAFT FLAG: "
@@ -5563,7 +5567,7 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           _swapped == 1
           and rc3 == 3 and m3 is not None and m3.group(1) == "3"
           and m3.group(4).strip() == "TITLE_NOT_IN_HOOK"
-          and _R3.get('unresolved_lines') == [2, 16, 17]
+          and _R3.get('unresolved_lines') == [16, 17]
           and standing_bans(_R3) == expected_bans
           and _R3.get('coverage', {}).get('certified') is False
           and {"rhyme:15:16:6", "rhyme:16:17:6"}
@@ -5582,7 +5586,7 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           rc4 == 3 and m4 is not None and m4.group(1) == "3"
           and "WHOLE-DRAFT FLAG" not in m4.group(0)
           and _R4.get("whole_flags") == []
-          and _R4.get("unresolved_lines") == [2, 16, 17]
+          and _R4.get("unresolved_lines") == [16, 17]
           and standing_bans(_R4) == expected_bans
           and _R4.get("coverage", {}).get("certified") is False
           and _R4.get("coverage", {}).get("refused_obligations")
