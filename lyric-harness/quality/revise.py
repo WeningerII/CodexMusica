@@ -104,6 +104,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
+from quality import letter_sound as _LS  # noqa: E402
 from quality import readability as RD  # noqa: E402
 from quality import sentencehood as SH  # noqa: E402
 from quality import schemes as SC  # noqa: E402
@@ -6064,15 +6065,29 @@ class Reviser:
         return out
 
     def _spelled_rime(self, word):
-        """`lyric_harness.spelled_rime` anchored at the RHYMING syllable —
-        the same anchor rule the comparator declares (last primary stress),
-        read from this Reviser's own lexicon. silver/deliver anchor at
-        SIL/LIV and spell 'ilver'/'iver' — different, NOT homeoteleuton —
-        where the bare last-group form would merge the entire feminine -er
-        space into one banned class, which is exactly the "closing rhyme
-        classes" the owner ruled out. An OOV word falls back to the bare
-        form: for a monosyllabic or last-group-stressed word (all 19 argued
-        cases) the two agree exactly."""
+        """The word's letters from its RHYMING vowel to the end -- the
+        spelling the same-spelled-ending ban compares.
+
+        THE ANCHOR is the rhyme judge's own (`lyric_harness.anchor`): the
+        latest stressed vowel, primary or secondary. ~~the same anchor rule
+        the comparator declares (last primary stress)~~ CORRECTED 2026-11-22
+        (bug hunt finding 17): the judge never preferred the primary, so
+        `sunlight` was cut at `unlight` while its rhyme with `tight` was
+        judged from `light`, and the pair was never asked.
+
+        THE LETTERS come from `quality.letter_sound`, which lines the word's
+        letters up with its sounds. ~~`lyric_harness.spelled_rime` counted
+        from the end~~ REPLACED the same day: that count was of vowel LETTER
+        groups, taken for vowel SOUNDS, so a silent e (`nicely` -> `ely`),
+        two sounds in one group (`create` -> `eate`) and a vowel letter
+        standing for a consonant (`queen` -> `ueen`) each moved the cut.
+
+        silver/deliver anchor at SIL/LIV and spell 'ilver'/'iver' --
+        different, NOT one spelled ending -- where the bare last-group form
+        would merge the whole feminine -er space into one banned class, the
+        "closing rhyme classes" the owner ruled out. An OOV word falls back
+        to the bare form, and a word whose letters do not line up with its
+        sounds (an initialism) to the counted form used before."""
         # A PURE FUNCTION OF (word, lexicon), asked 2.1 M times per warm fold
         # by `_rank_field` over every candidate of every field (M-217's
         # remainder, lever 3): remembered per lexicon identity for the
@@ -6098,16 +6113,17 @@ class Reviser:
         if not vowels:
             return spelled_rime(word)
         anchor = None
-        for want in ("1", "2"):
-            for idx in range(len(vowels) - 1, -1, -1):
-                if vowels[idx].endswith(want):
-                    anchor = idx
-                    break
-            if anchor is not None:
+        for idx in range(len(vowels) - 1, -1, -1):
+            if vowels[idx][-1] in "12":
+                anchor = idx
                 break
         if anchor is None:
             anchor = len(vowels) - 1
-        return spelled_rime(word, stress_from_end=len(vowels) - anchor)
+        from_end = len(vowels) - anchor
+        ending = _LS.spelled_from(word, phones, from_end)
+        if ending is None:
+            return spelled_rime(word, stress_from_end=from_end)
+        return ending
 
     def joint_field(self, calls, exclude=(), profile=None):
         """-> (offered, forbidden). The candidate field that answers EVERY

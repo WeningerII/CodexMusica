@@ -41,7 +41,7 @@ Slowest call per tool in the last traced run (2026-11-09, limit 600s per call): 
 - `HANDBOOK.md` (98k): the previous version of this file — design history, doctrines (numbered 1–96; the table is its last section), test discipline. Sections:
   - FIVE STANDING RULES FROM THE OWNER — read before proposing any architecture (4.9k)
   - The code graph (graphify) — what it answers, and what it cannot (1.7k)
-  - The loop, and the MCP wrap plan (60k)
+  - The loop, and the MCP wrap plan (61k)
   - Commands (python3 lyric_harness.py ...) (2k)
   - Doctrine you hold while writing (6.1k)
   - House rules (<1k)

@@ -134,6 +134,55 @@ class WritingRhymeBanTests(unittest.TestCase):
                 with self.subTest(pair=(a, b)):
                     self.assertTrue(modal(draft(a, b, k)))
 
+    def test_the_spelled_ending_starts_at_the_rhyming_vowel(self):
+        # Bug hunt finding 17 (2026-11-21). The ending was cut by counting
+        # groups of vowel LETTERS where it needed vowel SOUNDS, and it was
+        # anchored on the last primary stress where the rhyme judge anchors
+        # on the latest stress of either kind. The owner's ruling, 2026-11-22:
+        # the rule is the sentence writers are shown, spelled the same from
+        # the stressed vowel on, and a shared ending such as -ly or -ment is
+        # not by itself the same spelled ending.
+        endings = {
+            "nicely": "icely", "precisely": "isely",
+            "placement": "acement", "basement": "asement",
+            "lately": "ately", "greatly": "eatly",
+            "create": "ate", "relate": "ate",
+            "desiring": "iring", "firing": "iring",
+            "desire": "ire", "fire": "ire",
+            "sunlight": "ight", "tight": "ight",
+            "queen": "een", "green": "een",
+            "isles": "isles", "smiles": "iles",
+            # unchanged, and they must stay unchanged
+            "hair": "air", "chair": "air", "silver": "ilver",
+            "deliver": "iver", "singing": "inging", "ringing": "inging",
+        }
+        for word, want in endings.items():
+            with self.subTest(word=word):
+                self.assertEqual(self.writer._spelled_rime(word), want)
+        blocked = (("create", "relate"), ("desiring", "firing"),
+                   ("desire", "fire"), ("sunlight", "tight"),
+                   ("queen", "green"), ("singing", "ringing"))
+        allowed = (("nicely", "precisely"), ("placement", "basement"),
+                   ("lately", "greatly"), ("isles", "smiles"))
+        # No rule is declared for the group, so every kind of rhyme counts
+        # and the only question left is whether the spelling ban stops it.
+        m = mandate([[1, 2]], n_lines=2)
+        for a, b in blocked + allowed:
+            with self.subTest(pair=(a, b)):
+                lines = [f"We walked along and spoke of {a}",
+                         f"And all the while we thought of {b}"]
+                found = self.writer.inspect(lines, m)
+                self.assertFalse(found["grade"]["violations"])
+                caught = any(f.code == "HOMEOTELEUTON" for f in bans(found))
+                self.assertEqual(caught, (a, b) in blocked)
+
+    def test_a_word_that_does_not_line_up_keeps_the_old_ending(self):
+        # An initialism has sounds no letter spells, so the letters cannot be
+        # lined up with them. The ending falls back to the form used before
+        # finding 17, and never to a guess.
+        self.assertEqual(self.writer._spelled_rime("tv"),
+                         LH.spelled_rime("tv", stress_from_end=1))
+
     def test_shared_spelling_on_consonance_only_is_not_a_rhyme_ban(self):
         # have/save share -ave but their stressed vowels differ. A declared
         # consonance is satisfied without pretending this is an actual rhyme.

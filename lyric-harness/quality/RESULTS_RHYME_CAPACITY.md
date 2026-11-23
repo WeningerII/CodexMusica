@@ -51,7 +51,28 @@ answers alone, and `certify()` remains callable on any family).
 
 ## The numbers (`ADOPTED`, re-derived exactly by `--check`)
 
-**Now, re-measured 2026-10-30 (M-322):** 39,969 words in 12,381 first-reading
+**Now, re-measured 2026-11-22 (bug hunt finding 17, the spelling class
+corrected):** 39,969 words in 12,381 first-reading construction families,
+both unchanged. The tier 1 counts are 2,445 pools with at least 2 spelling
+classes, 281 with at least 5, 23 with at least 12, and 6 with at least 20
+(previously 2,813 / 591 / 163 / 82). A spelling class is now the word's
+letters from the vowel its rhyme is heard on, primary or secondary stress.
+The earlier key cut each word at its last PRIMARY stress and counted vowel
+letter groups from the end, so words that rhyme on a secondary stress were
+filed apart: `related`, `celebrated` and `eliminated` were three classes
+and are one. 1,217 families change class count, 1,144 of them down. Every
+one of the 82 published witnesses carried pairs the corrected ban stops, so
+all were set aside, and the six families still at the 20-class floor were
+constructed afresh under explicit class:RHYME and the two-tier ban.
+The deepest verified chain is **40**, held by **ONE** family, `IY`,
+superseding ~~**39**, held by **ONE** family, `EA-R`~~ (that family holds 12
+classes now and sits below the floor). 40 is the construction cap: the
+family has 65 classes, so its figure is bounded by the attempt and not by
+the family. The largest witnessed group is a lower bound, not a proven
+maximum. Measured apart, the anchor alone takes the 20-class tier from 82
+families to 11, and the letter line-up alone from 82 to 80.
+
+**Was:** The 2026-10-30 headline (M-322), retained for its history. 39,969 words in 12,381 first-reading
 construction families (previously 12,387). The tier 1 counts are 2,813 pools
 with at least 2 spelling classes, 591 with at least 5, 163 with at least 12,
 and 82 with at least 20 (previously 2,817 / 593 / 162 / 81). These are
@@ -152,9 +173,12 @@ of 64 (22%). A deeper family has more pairs for the ban to land on. The three
 families this document quotes by name all moved: `AY-ER` (fire's) 28 → **27**,
 `IY` 37 → **34**, `EH-R` 33 → **31**.
 
-**Now, 2026-10-30 (M-322):** `max_chain_lo_family` is `EA-R`;
-the 39-word bound is held by `EA-R` alone. The 2026-09-24 N-relation
-model certified that same depth under the former name `EH-R`. Superseded (doctrine 17):
+**Now, 2026-11-22 (bug hunt finding 17):** `max_chain_lo_family` is `IY`;
+the 40-word bound is held by `IY` alone, constructed under the corrected
+spelling class. Superseded (doctrine 17): ~~2026-10-30 (M-322):
+`max_chain_lo_family` is `EA-R`; the 39-word bound is held by `EA-R`
+alone~~. The 2026-09-24 N-relation
+model certified that 39 under the former name `EH-R`. Superseded (doctrine 17):
 ~~2026-09-16 (E-5): `max_chain_lo_family` is `IY`, superseding IY-Z; the
 22-word bound is held jointly by IY and IY-Z~~. It is the largest
 actual witness from bounded construction, not an upper bound on the language.
@@ -244,12 +268,27 @@ cause this time took re-grading the witnesses under both tables.
    > at hours of grading per relation — is deliberately not built: which
    > relations are worth paying for is the owner's ruling, parked in
    > `BACKLOG.md` RULINGS WANTED.
-2. **Secondary-stress clusters are the deep water.** Under the judge's
+2. **Secondary-stress clusters are no longer deep water (corrected
+   2026-11-22, bug hunt finding 17).** The spelled rime starts at the vowel
+   the rhyme is heard on, so the words that rhyme on a secondary stress
+   share the class their rhyme has (`dictate` and `rotate` are both -ate),
+   and tier 1 binds there as it does everywhere else (EY-T: 7 classes;
+   IY: 65 classes).
+
+**Was:** **Secondary-stress clusters are the deep water.** Under the judge's
    own rules the -ate/-ee/-ine families are tier-1 deep (EY-T: 192
    classes; IY: 228 classes), because the spelled rime anchors at the
    PRIMARY and digs a distinct string per word (dictate -ictate, rotate
    -otate). Tier 1 barely binds there; the modal tier is what pinches.
-3. **Current re-adoption, 2026-09-08:** AY-ER (fire's family): 34 classes,
+3. **Re-measured 2026-11-22 (bug hunt finding 17):** AY-ER (fire's family): 13 classes,
+   below the 20-class floor, so the table carries no witness for it.
+   IY: attempts 40, certified **40**. EA-R (there/care/hair): 12 classes,
+   below the floor as well. EY (they/okay): 30 classes, certified **30**.
+   The gap between a family's classes and its witness is the modal tier,
+   refused readings and the attempt cap; tier 1 is already inside the
+   class count.
+
+**Was:** **Current re-adoption, 2026-09-08:** AY-ER (fire's family): 34 classes,
    certified **16**. IY: attempts 40, certified **35**. EA-R
    (there/care/hair): 48 classes, certified **39**. (Updated 2026-10-30:
    formerly EH-R with 47 classes; the certified depth is unchanged. REPINNED
@@ -267,6 +306,13 @@ cause this time took re-grading the witnesses under both tables.
    2026-08-28 — see the sections above.) The chain_hi/chain_lo gap is
    the ban system working, family by family.
 4. **The witness cliques are usable objects, not just numbers.** Each
+   certified row carries the actually accepted words. `capacity key` prints
+   the **40**-word clique, constructed 2026-11-22. The family `fire` belongs
+   to is below the floor now, so that word's answer names its class and
+   prints no clique. The current-runtime receipt must verify all 6 witnesses
+   before production can claim that acceptance.
+
+**Was:** **The witness cliques are usable objects, not just numbers.** Each
    current row carries the actually accepted words. `capacity fire` prints
    the **16**-word clique, re-adopted 2026-09-08. The current-runtime receipt
    must verify all 82 witnesses before production can claim that acceptance

@@ -6,18 +6,18 @@ Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounde
 |---|---:|---:|
 | saved measurement results | 818 | 13,000k |
 | corpus (raw verse, measured offline) | 2327 | 11,000k |
-| other files | 181 | 11,000k |
+| other files | 182 | 11,000k |
 | data tables (read at run time) | 39 | 7,500k |
-| Python: tests | 174 | 1,800k |
+| Python: tests | 175 | 1,800k |
 | notes and records (.md) | 129 | 1,500k |
 | Python: song program (ran) | 56 | 1,400k |
 | Python: research and record tools (never loaded) | 156 | 900k |
-| Python: loadable by the song program, not loaded | 18 | 110k |
+| Python: loadable by the song program, not loaded | 19 | 110k |
 | Python: imported by the song program, unused | 6 | 29k |
 
 ## Data the song program opened (71 files, 0 under corpus/)
 
-In the repo: `data/CHANNELS.md` 2.7k, `data/LICENSE.cmudict` <1k, `data/LICENSE.perceptron-tagger` <1k, `data/authority.tsv` 790k, `data/calibration_manifest.tsv` 64k, `data/calibration_populations.json` 120k, `data/calibration_work_editions.json` 28k, `data/eng_elision.tsv` <1k, `data/english_apparatus_labels_2026-10-04.json` 280k, `data/english_apparatus_m25_2026-10-04.json` 200k, `data/english_apparatus_residue_2026-10-15.json` 4.1k, `data/english_nonlyric_apparatus.json` 27k, `data/g2p_letter_rules.tsv` 100k, `data/kalevala_alliteration_pairs.tsv` 390k, `data/lexicon_supplement.tsv` 15k, `data/lexicon_supplement_v2.tsv` 15k, `data/lexicon_supplement_versions.json` <1k, `data/library_identity_registry.json.gz` 1,000k, `data/ltc_rhyme_standards.tsv` 3.6k, `data/lyric_label_prefixes.json` 14k, `data/lyricists.tsv` 66k, `data/opensubtitles_en_50k.tsv` 250k, `data/qieyun_mc.tsv` 140k, `data/qieyun_variants.tsv` 100k, `data/qindingcipu_aliases.tsv` 4.3k, `data/qindingcipu_ge.tsv` 200k, `data/rhyme_capacity_eng.tsv` 150k, `data/runtime_assets.json` 4.8k, `data/section_marks.tsv` 2.5k, `data/siku_orthography.tsv` 2.6k, `data/song_endword_en.tsv` 1,300k, `data/song_functions_eng.tsv` <1k, `data/song_regions.tsv` <1k, `data/song_rhymepair_en.tsv` 1,100k, `data/sources.tsv` 460k, `data/structure_canon.tsv` 51k, `data/structure_census_eng.tsv` 540k, `imports/gutenberg-next-ten/pronunciations/13646.json` 5.5k, `imports/gutenberg-next-ten/pronunciations/1568.json` 22k, `imports/gutenberg-next-ten/pronunciations/27195.json` 240k, `imports/gutenberg-next-ten/pronunciations/3138.json` 24k, `imports/gutenberg-next-ten/pronunciations/40048.json` 510k, `imports/gutenberg-next-ten/pronunciations/50878.json` 26k, `imports/gutenberg-next-ten/pronunciations/51226.json` 7.5k, `imports/gutenberg-next-ten/pronunciations/58414.json` 7.5k, `imports/gutenberg-next-ten/pronunciations/69378.json` 110k, `imports/gutenberg-next-ten/pronunciations/934.json` 13k, `imports/gutenberg-next-ten/pronunciations/bindings.json` 85k, `quality/canon_index.tsv` 27k.
+In the repo: `data/CHANNELS.md` 2.7k, `data/LICENSE.cmudict` <1k, `data/LICENSE.perceptron-tagger` <1k, `data/authority.tsv` 790k, `data/calibration_manifest.tsv` 64k, `data/calibration_populations.json` 120k, `data/calibration_work_editions.json` 28k, `data/eng_elision.tsv` <1k, `data/english_apparatus_labels_2026-10-04.json` 280k, `data/english_apparatus_m25_2026-10-04.json` 200k, `data/english_apparatus_residue_2026-10-15.json` 4.1k, `data/english_nonlyric_apparatus.json` 27k, `data/g2p_letter_rules.tsv` 100k, `data/kalevala_alliteration_pairs.tsv` 390k, `data/lexicon_supplement.tsv` 15k, `data/lexicon_supplement_v2.tsv` 15k, `data/lexicon_supplement_versions.json` <1k, `data/library_identity_registry.json.gz` 1,000k, `data/ltc_rhyme_standards.tsv` 3.6k, `data/lyric_label_prefixes.json` 14k, `data/lyricists.tsv` 66k, `data/opensubtitles_en_50k.tsv` 250k, `data/qieyun_mc.tsv` 140k, `data/qieyun_variants.tsv` 100k, `data/qindingcipu_aliases.tsv` 4.3k, `data/qindingcipu_ge.tsv` 200k, `data/rhyme_capacity_eng.tsv` 140k, `data/runtime_assets.json` 4.8k, `data/section_marks.tsv` 2.5k, `data/siku_orthography.tsv` 2.6k, `data/song_endword_en.tsv` 1,300k, `data/song_functions_eng.tsv` <1k, `data/song_regions.tsv` <1k, `data/song_rhymepair_en.tsv` 1,100k, `data/sources.tsv` 460k, `data/structure_canon.tsv` 51k, `data/structure_census_eng.tsv` 540k, `imports/gutenberg-next-ten/pronunciations/13646.json` 5.5k, `imports/gutenberg-next-ten/pronunciations/1568.json` 22k, `imports/gutenberg-next-ten/pronunciations/27195.json` 240k, `imports/gutenberg-next-ten/pronunciations/3138.json` 24k, `imports/gutenberg-next-ten/pronunciations/40048.json` 510k, `imports/gutenberg-next-ten/pronunciations/50878.json` 26k, `imports/gutenberg-next-ten/pronunciations/51226.json` 7.5k, `imports/gutenberg-next-ten/pronunciations/58414.json` 7.5k, `imports/gutenberg-next-ten/pronunciations/69378.json` 110k, `imports/gutenberg-next-ten/pronunciations/934.json` 13k, `imports/gutenberg-next-ten/pronunciations/bindings.json` 85k, `quality/canon_index.tsv` 27k.
 
 Fetched or staged, not in the repo: `cmudict.dict`, `data/nltk/corpora/` (18 files), `data/nltk/taggers/` (3 files).
 
@@ -29,9 +29,9 @@ Fetched or staged, not in the repo: `cmudict.dict`, `data/nltk/corpora/` (18 fil
 
 `quality/length_curve_calibration.py` 14k, `quality/redteam_band.py` 9.5k, `library/registry.py` 2.5k, `quality/melody.py` 2.2k, `quality/battery_pin.py` <1k, `quality/__init__.py` <1k
 
-## Python — loadable, not loaded (18)
+## Python — loadable, not loaded (19)
 
-`quality/declared_inputs.py` 17k, `library/form.py` 15k, `quality/capacity.py` 15k, `quality/catalog_shape.py` 11k, `quality/cross_song.py` 8.9k, `battery.py` 7.3k, `quality/catalog_grading.py` 5.9k, `quality/build_song_frequency.py` 4.8k, `quality/narrative_bands.py` 4k, `quality/relation_index.py` 3.9k, `quality/metric_complexity.py` 3.8k, `quality/senses.py` 3.4k, `quality/check_data_rows.py` 3.1k, `quality/meter_strict.py` 2.9k, `quality/fixtures/phonological_twin.py` 2.5k, `quality/catalog_word_roles.py` 2.4k, `quality/fixtures/seeded_lines.py` 1.1k, `quality/catalog_rondo.py` <1k
+`quality/declared_inputs.py` 17k, `library/form.py` 15k, `quality/capacity.py` 15k, `quality/catalog_shape.py` 11k, `quality/cross_song.py` 8.9k, `battery.py` 7.3k, `quality/catalog_grading.py` 5.9k, `quality/build_song_frequency.py` 4.8k, `quality/narrative_bands.py` 4k, `quality/relation_index.py` 3.9k, `quality/metric_complexity.py` 3.8k, `quality/senses.py` 3.4k, `quality/check_data_rows.py` 3.1k, `quality/meter_strict.py` 2.9k, `quality/fixtures/phonological_twin.py` 2.5k, `quality/letter_sound.py` 2.4k, `quality/catalog_word_roles.py` 2.4k, `quality/fixtures/seeded_lines.py` 1.1k, `quality/catalog_rondo.py` <1k
 
 ## Python — never loaded by a song (156)
 

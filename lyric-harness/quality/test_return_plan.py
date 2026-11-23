@@ -13,7 +13,9 @@ Two parts, and five small sections beside them.
 
 2. GRADED MECHANISMS, dealt by `TEST_PLAN_SHARD`. A fixed walk of plans drawn
    with the capacity table's adopted relation, each given a draft built from
-   the table's certified witnesses and the fixture word pool, with its return
+   the rhyme families in `fixtures/return_plan_rhyme_families.tsv` (the
+   capacity table's witness rows as they stood until 2026-11-22; see
+   `FAMILIES_PATH`) and the fixture word pool, with its return
    lines copied by the plan's own rows. Each mechanism in `MECHANISMS` changes
    the draft in one way and says which flags the change adds. The walk goes
    on, seed by seed, until every mechanism has `FLOOR` hits, and fails naming
@@ -246,17 +248,27 @@ def reviser():
     return _REV
 
 
+#: REPINNED 2026-11-22 (bug hunt finding 17): ~~C.TABLE_PATH, the capacity
+#: table's certified witness rows~~. With the spelling class corrected, six
+#: families hold the 20 classes a witness needs (~~82~~), and six cannot
+#: supply a draft's groups and its spare end words: the walk stopped on its
+#: first form. What this file needs of a family is words that rhyme under the
+#: table's adopted relation; it never asked the same-spelled-ending ban of
+#: them. So the 82 word lists it was written against are kept as its own
+#: fixture, and the walk, its seeds and every count below are unchanged.
+FAMILIES_PATH = os.path.join(HERE, "fixtures",
+                             "return_plan_rhyme_families.tsv")
+
+
 def witnesses():
-    """-> the capacity table's certified witness families for its adopted
+    """-> the fixture's rhyme families for the capacity table's adopted
     relation, widest first."""
     global _W
     if _W is None:
-        with open(C.TABLE_PATH, encoding="utf-8") as fh:
+        with open(FAMILIES_PATH, encoding="utf-8") as fh:
             rows = [r for r in csv.DictReader(
                 (l for l in fh if not l.startswith("#")), delimiter="\t")]
-        _W = sorted((r["witness"].split() for r in rows
-                     if r["certified"] == "1"
-                     and r["relation"] == C.ADOPTED_RELATION),
+        _W = sorted((r["words"].split() for r in rows),
                     key=lambda w: (-len(w), w[0]))
     return _W
 
