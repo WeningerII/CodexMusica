@@ -89,6 +89,8 @@ def _triggered(text):
             # a standalone `&` is sung `and`, and a Latin ligature letter is
             # its letters (2026-11-21, bug-hunt findings 13 and 14)
             or "&" in text or any("\ufb00" <= c <= "\ufb06" for c in text)
+            # a run of apostrophes at a word's edge is one mark (2026-11-23)
+            or "''" in LH.normalise_word(text)
             or not unicodedata.is_normalized("NFC", text))
 
 

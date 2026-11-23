@@ -263,6 +263,155 @@ class DeclaredPronunciations(unittest.TestCase):
         self.assertEqual(lex._numbering_notices, [])
 
 
+class AQuoteMarkBesideAWordsOwnApostrophe(unittest.TestCase):
+    """A word spelled with an apostrophe at its edge, typed with a quotation
+    mark beside that apostrophe, is still that word (2026-11-23; found by the
+    planner owner in the review of bug hunt finding 18's fix, measured by the
+    coordinator, test written by the coordinator).
+
+    The fold makes every apostrophe `'`. So a word that ends in its own
+    apostrophe and is closed by a single quotation mark read as a token with
+    two marks on its end: no dictionary entry, and for some words a different
+    set of readings from the word itself. The same at the front, where an
+    opening mark stands before a word that starts with its own apostrophe.
+    A double quotation mark in either place was already dropped.
+
+    THE RULE: a run of apostrophes at either edge of a token is one mark, and
+    a leading run made only of opening quotation marks leaves the word.
+    Scheme v2 only; scheme v1 is frozen.
+
+    Nothing here is a chosen example. The words are every dictionary word
+    that ends in an apostrophe and every one that starts with one, spelled
+    with letters and apostrophes only.
+    """
+
+    CLOSING = ("’", "'")
+    OPENING = ("‘", "’", "'")
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = LH.Lexicon(strip_parens=True, pronunciations=None)
+        words = sorted(w for w in cls.lex.entries
+                       if "'" in w and len(w) > 2
+                       and w.replace("'", "").isalpha())
+        cls.ends = [w for w in words
+                    if w.endswith("'") and not w.startswith("'")]
+        cls.fronts = [w for w in words
+                      if w.startswith("'") and not w.endswith("'")]
+        cls.inner = [w for w in words
+                     if not w.startswith("'") and not w.endswith("'")]
+        cls.plain = sorted(w for w in cls.lex.entries
+                           if w.isalpha() and len(w) > 2)
+
+    @staticmethod
+    def tokens(line, scheme="v2"):
+        return LH.line_tokens(line, scheme=scheme)
+
+    def reading(self, line):
+        """-> the line's end as the rhyme judge hears it, every reading."""
+        anchors = LH.line_anchors(self.lex, line)[0]
+        return sorted(tuple((s["nucleus"], tuple(s["coda"]), tuple(s["onset"]),
+                             s["stress"]) for s in a) for a in anchors)
+
+    def lines(self):
+        """-> (the line with a mark beside the word's own apostrophe, the
+        line without it), for every word, each mark, at the line's end and
+        at its start."""
+        for w in self.ends:
+            for m in self.CLOSING:
+                yield f"they said {w}{m}", f"they said {w}"
+                yield f"{w}{m} they said", f"{w} they said"
+        for w in self.fronts:
+            for m in self.OPENING:
+                yield f"they said {m}{w}", f"they said {w}"
+                yield f"{m}{w} they said", f"{w} they said"
+
+    def test_the_premise_holds(self):
+        # The dictionary has such words, in number, so no check below can
+        # pass by having nothing to read.
+        self.assertGreater(len(self.ends), 500)
+        self.assertGreater(len(self.fronts), 5)
+        self.assertGreater(len(self.inner), 5000)
+
+    def test_the_mark_beside_the_apostrophe_leaves_the_word(self):
+        wrong = [(marked, self.tokens(marked))
+                 for marked, plain in self.lines()
+                 if self.tokens(marked) != self.tokens(plain)]
+        self.assertEqual(wrong[:5], [], f"{len(wrong)} line(s) read as "
+                         f"different words with the mark there")
+
+    def test_the_end_word_is_the_word(self):
+        wrong = [marked for marked, plain in self.lines()
+                 if LH.raw_final_token(marked, scheme="v2")
+                 != LH.raw_final_token(plain, scheme="v2")]
+        self.assertEqual(wrong[:5], [], f"{len(wrong)} line(s) end on a "
+                         f"different word with the mark there")
+
+    def test_it_is_heard_as_the_word_is_heard(self):
+        # Before the rule, 7 of the 811 words that end in an apostrophe were
+        # heard differently with a closing mark after them (counted on
+        # r2/pronunciation-batch at 07c2949b6).
+        wrong = [marked for marked, plain in self.lines()
+                 if marked.startswith("they said ")
+                 and self.reading(marked) != self.reading(plain)]
+        self.assertEqual(wrong[:5], [], f"{len(wrong)} line end(s) heard "
+                         f"differently with the mark there")
+
+    def test_the_mark_leaves_the_word_and_not_the_line(self):
+        # `SourceSpans` above, on these lines: every token's pieces still
+        # slice the raw line to the token's own text.
+        for marked, _plain in list(self.lines())[::37]:
+            rl = LH.reader_line(marked)
+            self.assertEqual(rl.text, marked)
+            for t in rl.tokens + rl.runs:
+                with self.subTest(line=marked, token=t.text):
+                    raw = "".join(marked[a:b] for a, b in t.pieces)
+                    self.assertEqual(LH.normalise_word(raw), t.text)
+
+    def test_a_run_of_opening_marks_leaves_the_word(self):
+        # Two opening marks open a quotation as one does: every plain word,
+        # each count of U+2018 (one, two), reads as the word. Every 97th word,
+        # so the draw is spread across the dictionary and none is chosen. A
+        # listed leading elision (`LEADING_ELISIONS`) keeps its mark, as it
+        # does after one opening mark, so it is left out here.
+        for w in self.plain[::97]:
+            if ("'" + w).lower() in LH.LEADING_ELISIONS:
+                continue
+            for n in (1, 2):
+                with self.subTest(word=w, marks=n):
+                    self.assertEqual(
+                        self.tokens(f"{chr(0x2018) * n}{w} they said")[0], w)
+
+    def test_what_read_right_before_still_does(self):
+        # CONTROLS. Each of these held before the rule and must hold after.
+        for w in self.ends:
+            # One mark at an edge is the word's own, and stays.
+            self.assertEqual(self.tokens(f"they said {w}")[-1], w)
+            # A double quotation mark after it was already dropped.
+            for m in ('"', "”"):
+                self.assertEqual(self.tokens(f"they said {w}{m}")[-1], w)
+        for w in self.fronts:
+            self.assertEqual(self.tokens(f"they said {w}")[-1], w)
+            for m in ('"', "“"):
+                self.assertEqual(self.tokens(f"they said {m}{w}")[-1], w)
+        for w in self.inner:
+            # An apostrophe inside a word is never at its edge: the word
+            # reads as spelled, and one closing mark after it is kept as
+            # written, as a token-final mark always has been.
+            self.assertEqual(self.tokens(f"they said {w}")[-1], w)
+            self.assertEqual(self.tokens(f"they said {w}’")[-1], w + "'")
+
+    def test_scheme_v1_is_frozen(self):
+        for w in self.ends:
+            for m in self.CLOSING:
+                self.assertEqual(
+                    self.tokens(f"they said {w}{m}", "v1")[-1], w + "'")
+        for w in self.fronts:
+            for m in self.OPENING:
+                self.assertEqual(
+                    self.tokens(f"they said {m}{w}", "v1")[-1], "'" + w)
+
+
 if __name__ == "__main__":
     os.chdir(ROOT)
     unittest.main()

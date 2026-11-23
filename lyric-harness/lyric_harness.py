@@ -3096,10 +3096,19 @@ def _opening_quotes(text, stream, groups):
     out = set()
     for g in groups:
         g = [i for i in g if stream[i][0] != _SHY]
-        if (len(g) >= 2 and stream[g[0]][0] == "'" and stream[g[1]][0] != "'"
-                and text[stream[g[0]][1]] in _OPENING_QUOTES
-                and "".join(stream[i][0] for i in g).lower() not in LEADING_ELISIONS):
-            out.add(g[0])
+        # ~~one mark~~ A RUN OF OPENING MARKS (2026-11-23): `\u2018\u2018This`
+        # opens with two quotation marks by the same printer's rule, so every
+        # mark of a leading run of U+2018/U+201B leaves the word. A run with
+        # any other apostrophe in it keeps that apostrophe (`\u2018'cause`
+        # is the word `'cause`; `make` cuts the run to that one mark).
+        r = 0
+        while r < len(g) and stream[g[r]][0] == "'":
+            r += 1
+        if (1 <= r < len(g)
+                and all(text[stream[i][1]] in _OPENING_QUOTES for i in g[:r])
+                and "".join(stream[i][0] for i in g[r - 1:]).lower()
+                not in LEADING_ELISIONS):
+            out.update(g[:r])
     return out
 
 
@@ -3143,6 +3152,24 @@ def _reader_line_v2(text, strip_parens):
         # material: it leaves the token's text and its pieces.
         while idx and (idx[0] in drop or stream[idx[0]][0] == _SHY):
             idx = idx[1:]
+        # A RUN OF APOSTROPHES AT EITHER EDGE OF A TOKEN IS ONE MARK
+        # (2026-11-23). The fold makes every apostrophe `'`, so a word that
+        # ends in its own apostrophe and is closed by a single quotation mark
+        # (`nothin'\u2019`) read as `nothin''`, a word with no entry, and a
+        # word that starts with its own apostrophe after an opening mark
+        # (`\u2018'cause`) read as `''cause`. At the end the word's own mark is
+        # the first of the run and the close follows it; at the start the
+        # word's own mark is the last. The marks that leave also leave the
+        # token's pieces. Scheme v2 only: v1 is the frozen pre-batch cut.
+        vis = [k for k, i in enumerate(idx) if stream[i][0] != _SHY]
+        while len(vis) >= 2 and stream[idx[vis[0]]][0] == "'" \
+                and stream[idx[vis[1]]][0] == "'":
+            idx = idx[vis[1]:]
+            vis = [k for k, i in enumerate(idx) if stream[i][0] != _SHY]
+        while len(vis) >= 2 and stream[idx[vis[-1]]][0] == "'" \
+                and stream[idx[vis[-2]]][0] == "'":
+            idx = idx[:vis[-2] + 1]
+            vis = vis[:-1]
         if not idx:
             return None
         chars = "".join(stream[i][0] for i in idx if stream[i][0] != _SHY)
