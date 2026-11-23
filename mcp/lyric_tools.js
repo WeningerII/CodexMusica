@@ -39,7 +39,12 @@ import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 import { createPythonBridge } from './python_bridge.js';
 import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
-import { draftFromText, normalizeDraftLines, serializeWritingDraft } from './lyric_text.js';
+import {
+  answeredLines,
+  draftFromText,
+  normalizeDraftLines,
+  serializeWritingDraft,
+} from './lyric_text.js';
 import { admitRecognitionArgs, pastedRowsOf } from './meter_admission.js';
 import {
   declarationAdvice,
@@ -1596,14 +1601,6 @@ const declared = (value) =>
 const PLAN_ONLY_FIELDS = PLAN_FIELDS.filter(
   (f) => !['seed', 'relation', 'group_types', ...CATALOG_FIELDS].includes(f)
 );
-// The lines an interview answer carries, labels stripped (`L3: …`, `LINE: …`).
-function answeredLines(answer) {
-  return String(answer)
-    .split(/\r?\n/)
-    .map((row) => row.trim())
-    .filter(Boolean)
-    .map((row) => row.replace(/^(?:L\s*\d+\s*[:.]|LINE\s*:)\s*/i, ''));
-}
 // A digest of a run's capability, carried in its states: it names the run
 // without being the capability, so a state never grants more than it did.
 const runRef = (runId) => sha256(String(runId));

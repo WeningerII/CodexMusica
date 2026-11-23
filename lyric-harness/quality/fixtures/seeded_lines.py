@@ -16,6 +16,11 @@ Frames:
   phrase(seed)      "the N of the N"          verbless and function-rich
   clause(seed)      "we V the N"              a finite verb (past tense)
   imperative(seed)  "V it, N, do not V it"    imperatives, comma-spliced
+
+Songs:
+  pointed_return_song(lex)   two sections that return word for word, one
+                             written out in full and one that points back,
+                             each with an end word the lexicon cannot read
 """
 import os
 import random
@@ -109,6 +114,58 @@ def draft(seed, n, stacked=()):
         else:
             out.append(clause(s) if i % 2 else phrase(s))
     return out
+
+
+#: The seed `pointed_return_song` draws from when the caller names none.
+POINTED_RETURN_SEED = "a written-out return, then one that points back"
+
+
+def pointed_return_song(lex, seed=POINTED_RETURN_SEED):
+    """-> (lines, blueprint, (the written-out function's unread word, the
+    pointing function's unread word)): a song the function layer refuses the
+    same way twice.
+
+    Two functions that return word for word. One is written out in full both
+    times; the other comes back as its first line and a pointer ("…, &c.").
+    Each has an end word the lexicon cannot read (two pool nouns run
+    together). The layer then raises the same refusal once for each function:
+    the first with every failed word on a draft line, the second with words
+    that have no draft line, because a pointer's expanded lines are not
+    printed.
+
+    Read by `test_pronunciation_choices.py` and by the connector's
+    `mcp/test_verdict_view.mjs`, which pairs the same record's rows with its
+    findings. It lives here and not in a module of its own because a module
+    only tests import is one the `wiring` verb reports as stranded.
+    """
+    from quality import grid as G                      # noqa: PLC0415
+    rng = random.Random(seed)
+    key = G.rime_cmudict(lex)
+    nouns = sorted(_pool("noun"))
+    unread = []
+    while len(unread) < 2:
+        word = rng.choice(nouns) + rng.choice(nouns)
+        if key(word) is None and word not in unread:
+            unread.append(word)
+    # The layer asks each function in name order, so the function written
+    # out in full is the earlier name and its refusal comes first.
+    written, pointed = sorted(rng.sample(sorted(
+        f for f, d in G.SECTION_FUNCTIONS.items()
+        if d.returns_as == "verbatim"), 2))
+    opening = [f"Wait for {unread[0]}", "Sing home"]
+    other = [f"Walk by {unread[1]}", "Come home"]
+    blocks = [(written, opening), (pointed, other), (written, opening),
+              (pointed, [other[0] + ", &c."])]
+    blueprint, bar = {"sections": [], "lines": []}, 1
+    for i, (function, block) in enumerate(blocks):
+        blueprint["sections"].append(dict(
+            name=f"{function}{i}", function=function, bars=len(block),
+            start_bar=bar, meter={"beats": 4, "unit": 4}))
+        for text in block:
+            blueprint["lines"].append(dict(text=text, bar=bar, beat=1,
+                                           duration=4))
+            bar += 1
+    return [l["text"] for l in blueprint["lines"]], blueprint, tuple(unread)
 
 
 if __name__ == "__main__":

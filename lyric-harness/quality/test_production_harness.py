@@ -92,7 +92,10 @@ class HarnessProduction(unittest.TestCase):
         # to pairs, internal rhyme binds a word inside a line, anaphora the
         # first words — where every group was once bound at its line ends
         # and all three refused.
-        wants = {"schema:semirhyme": lambda g: len(g) == 2,
+        # REPINNED 2026-11-21 (bug hunt F21): ~~semirhyme's groups are cut
+        # to pairs (`len(g) == 2`)~~ — each later member can run on further
+        # past the rhyme, so a group holds two to five members.
+        wants = {"schema:semirhyme": lambda g: 2 <= len(g) <= 5,
                  "schema:internal rhyme": lambda g: any("." in m for m in g),
                  "schema:anaphora": lambda g: all(m.endswith(".head") for m in g)}
         for relation, shaped in wants.items():
@@ -104,8 +107,13 @@ class HarnessProduction(unittest.TestCase):
         # A type the grader can never pass is refused, naming why.
         with self.assertRaisesRegex(plan.PlanRefused, "marks it forbidden"):
             plan.make_plan(1, lines=24, relation="schema:homoioteleuton")
+        # REPINNED 2026-11-21 (bug hunt F21): ~~groups="1,2,3" contradicts
+        # itself~~. Three members can run on further line by line; past the
+        # owner's five, two members must share a run-on and their pair fails.
         p = plan.make_plan(0, lines=24)
         p.update(relations={}, relation="schema:semirhyme", groups="1,2,3")
+        self.assertNotIn("GROUP_CONTRADICTS_ITSELF", {r[0] for r in plan.joint_findings(p)})
+        p.update(groups="1,2,3,4,5,6")
         self.assertIn("GROUP_CONTRADICTS_ITSELF", {r[0] for r in plan.joint_findings(p)})
 
     def test_singleton_rosters_terminate(self):

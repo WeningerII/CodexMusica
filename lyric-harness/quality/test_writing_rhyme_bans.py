@@ -183,6 +183,224 @@ class WritingRhymeBanTests(unittest.TestCase):
         self.assertEqual(self.writer._spelled_rime("tv"),
                          LH.spelled_rime("tv", stress_from_end=1))
 
+    def test_a_quote_mark_on_a_partner_word_does_not_empty_the_search_s_ban_list(self):
+        """The review of the bug hunt's fixes, 2026-11-23: finding 18 on the
+        other path. `earned_pair_ban` folds an end word before it looks up
+        the word's most-paired partners. The lookups the loop's own search
+        makes did not, and a brief hands them the end word as written. So
+        with a closing quote mark on a partner line the search stopped
+        leaving out the banned partners (measured on one word: 6 partners
+        bare, none with the mark) while `verify` still banned them.
+
+        Calls are drawn by seed from the whole dictionary: the first six
+        whose evidenced head is not empty."""
+        import random
+        rng = random.Random(20261123)
+        mono = sorted(w for w, rs in self.writer.lex.entries.items()
+                      if w.isalpha() and w.islower() and len(w) > 1
+                      and len(rs) == 1
+                      and sum(ph[-1:].isdigit() for ph in rs[0]) == 1)
+        fill = rng.sample(mono, 8)
+        calls = []
+        for call in rng.sample(mono, 300):
+            if self.writer.modal_head_evidenced(call):
+                calls.append(call)
+            if len(calls) == 6:
+                break
+        self.assertEqual(len(calls), 6, calls)
+        marks = (lambda w: w + "'", lambda w: w + "’", lambda w: "'" + w,
+                 lambda w: "‘" + w + "’", lambda w: w.capitalize() + "'")
+        for call in calls:
+            head = self.writer.modal_head_evidenced(call)
+            ranked = self.writer.modal_head(call)
+            field = self.writer.joint_field([call])
+            pool = self.writer._widen_pool(call)
+            for written in (mark(call) for mark in marks):
+                with self.subTest(call=written):
+                    self.assertEqual(
+                        self.writer.modal_head_evidenced(written), head)
+                    # The marked word does not list itself as a word it bans.
+                    self.assertEqual(self.writer.modal_head(written), ranked)
+                    self.assertEqual(self.writer.joint_field([written]), field)
+                    self.assertEqual(self.writer._widen_pool(written), pool)
+        # A word the dictionary itself spells with an apostrophe in front,
+        # written with a closing mark after it: it does not list its own
+        # dictionary spelling as a word it bans either.
+        fronted = [w for w in sorted(self.writer.lex.entries)
+                   if w.startswith("'") and w[1:].isalpha() and w.islower()
+                   and self.writer.modal_head(w)]
+        self.assertTrue(fronted, "PREMISE: a dictionary word spelled with an "
+                        "apostrophe in front, with a ranked list")
+        for call in rng.sample(fronted, min(4, len(fronted))):
+            ranked = self.writer.modal_head(call)
+            field = self.writer.joint_field([call])
+            for written in (call + "'", call + "’", "‘" + call + "’"):
+                with self.subTest(call=written):
+                    self.assertEqual(self.writer.modal_head(written), ranked)
+                    self.assertEqual(self.writer.joint_field([written]), field)
+        # An offer is dropped when taking it would make the pair one of the
+        # offer's own most-paired answers. That screen looks the call up as
+        # text too. Offers are drawn by seed until one is dropped for a call.
+        reopened = None
+        for call in rng.sample(mono, 300):
+            got = self.writer._field_one(call)
+            hit = [w for w in got[:40]
+                   if self.writer._offer_reopens(w, [call], [got])]
+            if hit:
+                reopened = (hit[0], call, got)
+                break
+        self.assertIsNotNone(reopened, "PREMISE: an offer the screen drops")
+        offer, call, got = reopened
+        for written in (mark(call) for mark in marks):
+            with self.subTest(offer=offer, call=written):
+                self.assertTrue(
+                    self.writer._offer_reopens(offer, [written], [got]))
+        # The same through a real brief, against the ban itself. The word a
+        # brief hands the search is the partner line's end word as written,
+        # mark included; `verify` bans the pair under the folded word. The
+        # search has to leave out exactly the partner the ban refuses.
+        asked = 0
+        for k, call in enumerate(calls):
+            partner = self.writer.modal_head_evidenced(call)[0]
+            lines = [f"{fill[k % 8]} {fill[(k + 1) % 8]} {call}’",
+                     f"{fill[(k + 2) % 8]} {fill[(k + 3) % 8]} {partner}"]
+            found = self.writer.inspect(lines, self.m)
+            banned = [f for f in bans(found) if f.code == "MODAL_RHYME"]
+            for b in self.writer.brief(lines, self.m):
+                for _label, _group, mates in b.must_answer:
+                    for _line, word in mates:
+                        if word.lower().strip("'") != call:
+                            continue
+                        self.assertNotEqual(word, call, "PREMISE: the brief "
+                                            "quotes the end word as written")
+                        asked += 1
+                        with self.subTest(brief=word):
+                            self.assertTrue(banned, "PREMISE: the grader "
+                                            "bans this pair")
+                            offered, left_out = self.writer.joint_field([word])
+                            self.assertIn(partner, left_out)
+                            self.assertNotIn(partner, offered)
+                            self.assertEqual((offered, left_out),
+                                             self.writer.joint_field([call]))
+        self.assertGreater(asked, 0, "PREMISE: a brief handed over a marked word")
+
+    def test_a_word_s_own_apostrophe_with_a_quote_mark_after_it_follows_the_grader(self):
+        """The review of the bug hunt's fixes, 2026-11-23, the planner owner's
+        question: does a word that ends in its own apostrophe get the same
+        pool and offers when a closing quote mark is typed after it?
+
+        The search is handed a line's end word as the reader cuts it, and it
+        hears that word through the reader the grader hears a line's end
+        through (`Reviser._word_anchors`). So the answer is the reader's:
+        - a double quotation mark never gets as far as the search;
+        - a single one stays on the word as a second apostrophe. Where the
+          grader hears the word with it as it hears the plain word, the
+          search has to give the same words;
+        - where the grader hears the two differently (a few words; the fix
+          is the reader's and rides in the pronunciation batch), the search
+          hears what the grader hears. A search that read the mark away on
+          its own would offer words for a sound the grader does not judge.
+        Once the reader reads the second mark away, no word is heard
+        differently and the first case covers every word drawn.
+
+        Words are drawn by seed from every dictionary word that ends in an
+        apostrophe: some the grader hears differently with the second mark,
+        while any exist, and five whose banned-partner list is not empty."""
+        import random
+        from lyric_harness import line_anchors, raw_final_token
+        from quality.loop import _lex_cut
+        rng = random.Random(20261123)
+        ends = sorted(w for w in self.writer.lex.entries
+                      if w.endswith("'") and not w.startswith("'")
+                      and len(w) > 2 and w[:-1].isalpha() and w.islower())
+        self.assertGreater(len(ends), 500, "PREMISE: the dictionary's words "
+                           "that end in an apostrophe")
+
+        def sounds(anchors):
+            return [[(s["nucleus"], tuple(s["coda"]), tuple(s["onset"]),
+                      s["stress"]) for s in a] for a in anchors]
+
+        def heard(word):
+            """-> the word as the grader hears it at a line's end."""
+            return sounds(line_anchors(self.writer.lex, word,
+                                       promote=self.writer._promote())[0])
+
+        def handed(word, mark):
+            """-> the end word a brief hands the search for a line that ends
+            in this word with this mark after it."""
+            return raw_final_token(f"they said {word}{mark}",
+                                   *_lex_cut(self.writer))
+
+        apart = [w for w in ends if heard(w + "'") != heard(w)]
+        banning = []
+        for call in rng.sample(ends, len(ends)):
+            if call not in apart and self.writer.modal_head_evidenced(call):
+                banning.append(call)
+            if len(banning) == 5:
+                break
+        self.assertEqual(len(banning), 5, "PREMISE: five drawn words whose "
+                         "banned-partner list is not empty")
+        alike = 0
+        for call in rng.sample(apart, min(3, len(apart))) + banning:
+            written = call + "'"
+            # What reaches the search: never a double quotation mark, and a
+            # single one as the second apostrophe (or, once the reader reads
+            # it away, the word itself).
+            for mark in ("", '"', "”"):
+                self.assertEqual(handed(call, mark), call)
+            for mark in ("’", "'"):
+                self.assertIn(handed(call, mark), (written, call))
+            with self.subTest(call=written):
+                # The search hears the call word as the grader hears it.
+                self.assertEqual(
+                    sounds(self.writer._word_anchors(written)[0]),
+                    heard(written))
+                if heard(written) != heard(call):
+                    continue
+                alike += 1
+                self.assertEqual(self.writer.modal_head_evidenced(written),
+                                 self.writer.modal_head_evidenced(call))
+                self.assertEqual(self.writer.modal_head(written),
+                                 self.writer.modal_head(call))
+                self.assertEqual(self.writer.joint_field([written]),
+                                 self.writer.joint_field([call]))
+                self.assertEqual(self.writer._widen_pool(written),
+                                 self.writer._widen_pool(call))
+        self.assertGreaterEqual(alike, 5)
+
+    def test_a_word_is_not_in_its_own_widened_pool_however_it_is_spelled(self):
+        """R2's read of the quote-mark fold, 2026-11-23. The widened pool (the
+        words that share the call's vowel) left the call word out by its
+        spelling as typed. Once the call was read as the rhyme judge reads
+        it, with the marks on its edges gone, a dictionary word spelled with
+        an apostrophe in front no longer equalled itself there, and a line
+        ending in such a word was offered that word back. The two other
+        places that leave the call word out already left out both spellings.
+
+        Every word the search can offer that is spelled with an apostrophe
+        in front is tried, as typed and with a closing mark after it."""
+        from quality.revise import _end_key
+        offerable = {w for w, anc, _rank in self.writer.engine.index if anc}
+        fronted = sorted(w for w in offerable if w.startswith("'"))
+        self.assertGreater(len(fronted), 5, "PREMISE: words the search can "
+                           "offer that are spelled with an apostrophe in front")
+        pooled = 0
+        for call in fronted:
+            for written in (call, call + "’", call.upper()):
+                pool = self.writer._widen_pool(written)
+                pooled += bool(pool)
+                with self.subTest(call=written):
+                    self.assertEqual(
+                        [w for w in pool if _end_key(w) == _end_key(call)], [])
+            # The same word without its apostrophe, where the search can
+            # offer that too: neither spelling is offered for the other.
+            bare = call[1:]
+            if bare in offerable:
+                with self.subTest(call=bare):
+                    self.assertNotIn(call, self.writer._widen_pool(bare))
+        self.assertGreater(pooled, 0, "PREMISE: at least one of them has a "
+                           "widened pool")
+
     def test_shared_spelling_on_consonance_only_is_not_a_rhyme_ban(self):
         # have/save share -ave but their stressed vowels differ. A declared
         # consonance is satisfied without pretending this is an actual rhyme.

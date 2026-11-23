@@ -109,7 +109,7 @@
 // counted with the set that holds them. The refusal names every set it summed
 // and every set it left out.
 
-import { draftFromText, normalizeDraftLines } from './lyric_text.js';
+import { answeredLines, draftFromText, normalizeDraftLines, textRows } from './lyric_text.js';
 import { decodeState } from './state_codec.js';
 
 // Mirrors of the connector's line ceilings (`lyric_tools.js` MAX_LINES and
@@ -175,17 +175,17 @@ export const ADMISSION_CAUSES = Object.freeze([
 
 const codePoints = (s) => [...s].length;
 // Physical rows of one string. Every break the tools' readers split on counts
-// (`\r\n`, a lone `\r`, `\n`), so no spelling of a break hides a row. A final
+// (`textRows`, the readers' own split: `\r\n`, a lone `\r`, `\n` and the two
+// Unicode line separators), so no spelling of a break hides a row. A final
 // break ends the last row rather than opening another (the harness reader's
 // `.splitlines()`), so exactly one trailing empty row is dropped before counting.
 const withoutFinalBreak = (rows) =>
   rows.length > 1 && rows[rows.length - 1] === '' ? rows.slice(0, -1) : rows;
-const rowsOf = (s) => withoutFinalBreak(s.split(/\r\n|\r|\n/)).length;
+const rowsOf = (s) => withoutFinalBreak(textRows(s)).length;
 // lyric_recover's paste as rows: the handler's own split (takeLines with
 // preserveStructure) and the admission check both call this, so the row the
 // check counts and names is the row the handler writes to the source reader.
-export const pastedRowsOf = (text) =>
-  withoutFinalBreak(String(text).replace(/\r\n?/g, '\n').split('\n'));
+export const pastedRowsOf = (text) => withoutFinalBreak(textRows(text));
 const fmt = (n) => n.toLocaleString('en-US');
 const lid = (n) => `L${String(n).padStart(3, '0')}`;
 const pid = (n) => `P${String(n).padStart(3, '0')}`;
@@ -341,11 +341,7 @@ export function recognitionInputOf(args = {}, { tool = null } = {}) {
     if (Array.isArray(args.answers))
       for (const row of args.answers)
         if (typeof row?.text === 'string' && row.text.trim()) answered.push(row.text.trim());
-    if (typeof args.answer === 'string')
-      for (const row of args.answer.split(/\r\n|\r|\n/)) {
-        const text = row.trim().replace(/^(?:L\s*\d+\s*[:.]|LINE\s*:)\s*/i, '');
-        if (text) answered.push(text);
-      }
+    if (typeof args.answer === 'string') answered.push(...answeredLines(args.answer));
     if (answered.length)
       sets.push({
         name: Array.isArray(args.answers) ? 'answers' : 'answer',
