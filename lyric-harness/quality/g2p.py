@@ -759,9 +759,12 @@ class Fallback:
                 cands.append(((-len(stem), sfx_i, order, rank), stem, name,
                               tuple(list(ph) + allo(ph))))
         if not cands:
-            return None
+            return self._le_ly(w, None)
         cands.sort(key=lambda c: c[0])
         key, stem, name, phones = cands[0]
+        folded = self._le_ly(w, stem)
+        if folded is not None:
+            return folded
         # Provenance, not just phones: if a less-modified stem gives the SAME
         # pronunciation, name that one. `grow'st` rests on `grow`, and the
         # CMUdict headword `growe` is an accident of the dictionary.
@@ -769,6 +772,43 @@ class Fallback:
             if p2 == phones and k2[2] < key[2]:
                 key, stem, name = k2, s2, n2
         return Reading(phones, "morphology", f"{name} on {stem}", (stem,))
+
+    def _le_ly(self, w, best_stem):
+        """`tingle` + `-ly` is `tingly`: a stem in `-le` folds its last
+        syllable into `-ly`. -> Reading, or None when this is not that word.
+
+        The suffix rule had no way to reach a stem in `-le`: stripping `-ly`
+        from `tingly` leaves `ting`, and the longest stem that parsed was
+        `tinge` with its `e` restored, so the word read T IH1 N JH L IY0 and
+        lost its rhyme with `singly` (bug hunt 2026-11-20, finding 15).
+
+        WHEN IT APPLIES. The stem with `-le` restored must be a CMUdict
+        headword ending in the syllable AH0 L. It then outranks every other
+        restored or doubled stem. Against the UNCHANGED stem (`kind` for
+        `kindly`, where `kindle` is also a word) it wins only when it is the
+        more frequent word in the lexicon's own `freq_rank`, the tie-break
+        `_suffix` already declares.
+
+        MEASURED 2026-11-21 on CMUdict's 1,820 headwords in `-ly` (longer
+        than four letters), each read by `_suffix` as if it were unknown and
+        scored against its own entry: 803 were read right without the fold
+        and 913 with it, and no word read right without it is read wrong
+        with it (`quality/test_g2p.py` 5b holds both). Without the frequency
+        condition three were (`kindly`, `fondly` and a surname).
+        """
+        if not w.endswith("ly") or len(w) < 4:
+            return None
+        residue = w[:-2]
+        stem = residue + "le"
+        ph = self._lookup(stem)
+        if not ph or len(ph) < 3 or ph[-2:] != ["AH0", "L"]:
+            return None
+        if best_stem == residue:
+            rank = getattr(self.lex, "freq_rank", None) or {}
+            if not rank.get(stem, 10 ** 9) < rank.get(residue, 10 ** 9):
+                return None
+        return Reading(tuple(ph[:-2] + ["L", "IY0"]), "morphology",
+                       f"-ly on {stem}", (stem,))
 
     def _spelling_phones(self, w):
         r = self._spelling(w)

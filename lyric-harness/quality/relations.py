@@ -5537,9 +5537,17 @@ declare(RelationSchema(
               ChannelRule("coda", AGREE, "each")),
     placement=(Placement("adjacent_lines"),),
     identity=(IdentityRule("lexeme_sequence", DIFFER),),
+    unmatched="forbid",
     note="a SPAN of a whole line, not a POSITION within one. rhyme_types.py "
          "has 'holorhyme' as a value of the POSITION axis, which is the "
-         "category error this model removes by separating span from placement."))
+         "category error this model removes by separating span from placement. "
+         "2026-11-21 (bug hunt F20, the tail half of M-311 F2): every "
+         "syllable of BOTH lines is compared (`unmatched='forbid'`). Under "
+         "the ~~default 'exclude'~~ the longer line's syllables with no "
+         "partner were left out, so a line and its own tail passed: a "
+         "near-repeat certified as a holorhyme. The word-boundary half of "
+         "F2 (syllables split by each word's own dictionary reading) is "
+         "still open."))
 
 declare(RelationSchema(
     name="broken rhyme",
@@ -8974,6 +8982,11 @@ WITNESS_FINDINGS = {
     "holorhyme": ("M-311 F2", (
         # The textbook oronym (E34), and a real pair that is NOT one: a
         # line and its own tail — Lear, eng_british_edward_lear.txt:37-38.
+        # 2026-11-21 (bug hunt F20): the tail half is repaired — the schema
+        # forbids unmatched syllables, so Lear's pair now reads False as it
+        # should. The row stays a finding, answering ~~[False, True]~~
+        # [False, False]: the oronym still fails on where each word's own
+        # reading splits its syllables (F2's word-boundary half).
         (("I scream", "ice cream"), ("1", "2"), None, True),
         (("With a ring at the end of his nose,", "His nose,"),
          ("1", "2"), None, False))),

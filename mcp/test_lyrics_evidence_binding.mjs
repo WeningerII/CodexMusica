@@ -214,6 +214,27 @@ for (const [label, text] of [
     }
   });
 
+test('the projection breaks rows where the tool does: a lone carriage return and the line separators', () => {
+  // Bug hunt 2026-11-20, finding 35: the tool now reads these as row breaks,
+  // and the projection has to name the same rows or no evidence binds.
+  for (const text of [
+    'cat\rhat',
+    '[VERSE]\r cat cat \r\r[CHORUS]\rhat\r',
+    'cat\u2028  hat\u2029mat',
+    'cat\r\nhat\rmat\nsat',
+  ]) {
+    const projection = projectDraftText(text);
+    assert.equal(projection.source_text, draftFromText(text).join('\n'), JSON.stringify(text));
+    for (const row of projection.rows) {
+      const raw = text.slice(row.start, row.end);
+      assert(!/\n|\r(?!$)|[\u2028\u2029]/u.test(raw), JSON.stringify(raw));
+      if (row.kind === 'sung') assert.equal(text.slice(row.text_start, row.text_end), raw.trim());
+      else assert(row.kind === 'blank' ? !raw.trim() : /^\[[^\]]*\]$/.test(raw.trim()));
+    }
+  }
+  assert.equal(projectDraftText('cat\rhat').rows.length, 2);
+});
+
 test('projection accounts for every row using the existing sung-row convention', () => {
   for (const text of [
     '[VERSE]\n\n cat cat \n[CHORUS]\nhat',

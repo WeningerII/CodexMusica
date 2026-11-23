@@ -232,6 +232,67 @@ def test_known_answers():
           "dictionary already has")
 
 
+def test_a_stem_in_le_folds_into_ly():
+    print("\n5b. `-le` folds into `-ly` (bug hunt 2026-11-20, finding 15)")
+    lex = lh.Lexicon(fallback="high")
+    read = lambda w: " ".join(lex.transcribe_word(w)[0])
+    # Stripping `-ly` from `tingly` leaves `ting`, and the longest stem the
+    # suffix rule could reach was `tinge` with its `e` restored: the word
+    # read T IH1 N JH L IY0, with no G, and did not rhyme with `singly`.
+    check("`tingly` is `tingle` with its last syllable folded into `-ly`",
+          read("tingly") == "T IH1 NG G L IY0", read("tingly"))
+    check("...so it ends as `singly` does in the dictionary",
+          read("singly") == "S IH1 NG G L IY0"
+          and read("tingly").split()[1:] == read("singly").split()[1:],
+          f"{read('tingly')} / {read('singly')}")
+    check("`jingly` likewise, though `jing` is a dictionary headword: "
+          "`jingle` is the more frequent word",
+          read("jingly") == "JH IH1 NG G L IY0", read("jingly"))
+    f = lex.g2p_fallback
+    r = f.read("tingly")
+    check("the reading says what it rests on",
+          r.layer == "morphology" and r.basis == ("tingle",)
+          and r.rule == "-ly on tingle", f"{r.layer} {r.rule!r} {r.basis}")
+    # The other direction. `kind` and `kindle` are both words, and `kindly`
+    # is `kind` + `-ly`. The suffix rule is asked directly because these are
+    # dictionary words and the dictionary answers first.
+    kept = {w: " ".join(f._suffix(w).phones)
+            for w in ("kindly", "fondly", "strongly")}
+    check("an unchanged stem that is the more frequent word keeps the "
+          "reading: `kindly` is not read on `kindle`",
+          kept == {"kindly": "K AY1 N D L IY0", "fondly": "F AA1 N D L IY0",
+                   "strongly": "S T R AO1 NG L IY0"}, str(kept))
+    # THE RULE SCORED ON EVERY WORD IT CAN BE SCORED ON: each dictionary
+    # headword in `-ly`, read by the suffix rule as if it were unknown and
+    # compared with its own entry, with the fold and with it switched off.
+    entries = f.entries
+    words = [w for w in sorted(entries)
+             if w.endswith("ly") and w.isalpha() and len(w) > 4]
+
+    def right():
+        out = set()
+        for w in words:
+            r = f._suffix(w)
+            if r is not None and tuple(r.phones) in [tuple(v)
+                                                    for v in entries[w]]:
+                out.add(w)
+        return out
+    now = right()
+    fold = G.Fallback._le_ly
+    G.Fallback._le_ly = lambda self, w, best_stem: None
+    try:
+        before = right()
+    finally:
+        G.Fallback._le_ly = fold
+    check("the fold loses no `-ly` word the suffix rule read right without "
+          "it", before <= now, str(sorted(before - now)))
+    check("...and reads 110 more of the dictionary's 1,820 as the dictionary "
+          "has them (803 -> 913)",
+          (len(words), len(before), len(now)) == (1820, 803, 913),
+          f"{len(words)} words, {len(before)} right without the fold, "
+          f"{len(now)} with it")
+
+
 def test_elision_rows_all_apply():
     print("\n6. every row of data/eng_elision.tsv still applies")
     rows = G.load_elisions()
@@ -1222,6 +1283,7 @@ _SECTIONS = (
     test_every_reading_carries_its_layer,
     test_refusal_survives,
     test_known_answers,
+    test_a_stem_in_le_folds_into_ly,
     test_elision_rows_all_apply,
     test_dialect_is_refused_on_purpose,
     test_heldout_split_is_declared_and_reproducible,

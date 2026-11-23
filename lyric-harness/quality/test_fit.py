@@ -1148,8 +1148,255 @@ def test_the_fit_judges_one_whole_reading_at_a_time():
           "the one the fit reports", not worse, f"{worse[:3]}")
 
 
+def test_the_density_notes_count_the_line_not_the_bar():
+    """Bug hunt F7 (2026-11-20): CROWDED and SPARSE printed the BAR's pulses
+    while their arithmetic used the LINE's span, so an 8-pulse line in 4/4
+    read "14 syllables over 4 pulses" and "6 over 4 leaves 2 unaccounted".
+    The note now names the span it counts.
+
+    Every witness is drawn by seed: the bar size, the line's span, the
+    syllable count, and the words, from the whole dictionary (each has one
+    reading of one syllable, so k of them are k syllables)."""
+    print("\nF7. the density notes count the line's own pulses")
+    import random
+    from lyric_harness import Lexicon
+    ents = Lexicon().entries
+    mono = sorted(w for w, rs in ents.items()
+                  if w.isalpha() and w.islower() and len(w) > 1
+                  and len(rs) == 1
+                  and sum(ph[-1:].isdigit() for ph in rs[0]) == 1)
+    rng = random.Random(20261121)
+    words = rng.sample(mono, 64)
+    bad, n_crowded, n_sparse, n_off_bar = [], 0, 0, 0
+    for _ in range(40):
+        pulses = rng.randint(2, 9)
+        cyc = Cycle(pulses=pulses, unit=rng.choice((4, 8)), groups=(pulses,))
+        bars = rng.randint(1, 4)
+        span = rng.randint(1, pulses * bars)
+        n_off_bar += span != pulses
+        place = Placement(cycle=cyc, bar=1, beat=F(1), duration=F(span),
+                          section="demo", section_start_bar=1,
+                          section_bars=bars)
+        counts = [("CROWDED", span + rng.randint(1, span))]
+        if span > 1:
+            counts.append(("SPARSE", rng.randint(1, span - 1)))
+        for code, k in counts:
+            line = " ".join(rng.choice(words) for _ in range(k))
+            got = [f for f in fit_line(line, place).findings if f.code == code]
+            want = f"{k} syllables over {FIT._num(span)} pulses"
+            if code == "SPARSE":
+                want += f" leaves {FIT._num(span - k)} pulses"
+                n_sparse += bool(got)
+            else:
+                n_crowded += bool(got)
+            if not got or not got[0].evidence.startswith(want):
+                bad.append((code, pulses, span, k,
+                            got[0].evidence[:60] if got else None))
+    check("CROWDED and SPARSE name the line's own span, the number their "
+          "arithmetic uses, not the bar's pulses (bug hunt F7)",
+          not bad and n_crowded and n_sparse and n_off_bar,
+          f"{n_crowded} CROWDED, {n_sparse} SPARSE, {n_off_bar} spans off "
+          f"the bar's size; wrong: {bad[:3]}")
+
+
+def test_a_flag_only_the_timing_clears_is_filed_on_the_song():
+    """Bug hunt F8 (owner's ruling 2026-11-21: not meter, still blocks).
+    ZERO_DURATION, BEAT_OUTSIDE_CYCLE, START_BEFORE_SECTION, OVERRUNS_SECTION
+    and START_OFF_GRID say the TIMING a blueprint declares cannot be met,
+    whatever words the line holds. They were filed on the line, so the brief
+    asked the writer to reword a line no wording can fix. Each is now one
+    whole-song flag naming its lines and saying the timing must change;
+    SLOTS_EXCEEDED, which fewer syllables do clear, stays on its line. The
+    loop's whole-song repair, which asks for new words, is never offered
+    for them.
+
+    Every witness is drawn by seed: the meter, the section, the lines and
+    their words (from the whole dictionary, one reading of one syllable
+    each), which line is broken and by how much."""
+    print("\nF8. a flag only the timing can clear is filed on the whole song")
+    import random
+    import lyric_harness as _LH
+    import quality.schemes as _SC
+    from quality import loop as LP
+    from quality import revise as RV
+    lex = _LH.Lexicon()
+    mono = sorted(w for w, rs in lex.entries.items()
+                  if w.isalpha() and w.islower() and len(w) > 1
+                  and len(rs) == 1
+                  and sum(ph[-1:].isdigit() for ph in rs[0]) == 1)
+    rng = random.Random(20261122)
+    words = rng.sample(mono, 64)
+    rv = RV.Reviser(lex, _LH.Declaration())
+    s = 2
+    sub = Subdivision(slots_per_pulse=s, source="test_fit F8")
+
+    def drawn():
+        pulses = rng.randint(2, 7)
+        start, bars = rng.randint(2, 6), rng.randint(2, 4)
+        n = rng.randint(2, 5)
+        lines = [{"text": " ".join(rng.choice(words)
+                                   for _ in range(rng.randint(1, pulses * s))),
+                  "bar": start + i % bars, "beat": 1, "duration": pulses,
+                  "section": "V"} for i in range(n)]
+        bp = {"bpm": 120, "lines": lines,
+              "sections": [{"name": "V", "function": "verse",
+                            "start_bar": start, "bars": bars,
+                            "meter": {"beats": pulses, "unit": 4}}]}
+        return bp, pulses, start, bars
+
+    def broken(code, line, pulses, start, bars):
+        if code == "ZERO_DURATION":
+            return dict(line, duration=0)
+        if code == "BEAT_OUTSIDE_CYCLE":
+            return dict(line, beat=pulses + 1 + rng.randint(0, 2),
+                        duration=1)
+        if code == "START_BEFORE_SECTION":
+            return dict(line, bar=start - rng.randint(1, start - 1),
+                        duration=1)
+        if code == "OVERRUNS_SECTION":
+            left = (start + bars - line["bar"]) * pulses
+            return dict(line, duration=left + rng.randint(1, pulses))
+        beat = rng.randint(1, pulses - 1)
+        return dict(line, beat=float(F(2 * beat * s + 1, 2 * s)), duration=1)
+
+    bad, offered = [], []
+
+    def stub_group(gb):
+        offered.append(tuple(f.code for f in gb.whole))
+        return None
+
+    # A zero length never reaches the grader: the blueprint is refused at
+    # the door ("line duration must be positive"), so the codes a blueprint
+    # can carry are the other four. The fifth stays in the set for callers
+    # of `fit_line` that build a placement themselves.
+    bp, pulses, start, bars = drawn()
+    bp["lines"][0] = broken("ZERO_DURATION", bp["lines"][0], pulses, start,
+                            bars)
+    try:
+        from_blueprint(bp)
+        door = None
+    except ValueError as exc:
+        door = str(exc)
+    check("a zero length is refused with the blueprint, before any grade",
+          door == "line duration must be positive", f"{door!r}")
+    reachable = sorted(FIT.TIMING_ONLY - {"ZERO_DURATION"})
+    for code in reachable:
+        for _ in range(3):
+            bp, pulses, start, bars = drawn()
+            t = rng.randrange(len(bp["lines"]))
+            bp["lines"][t] = broken(code, bp["lines"][t], pulses, start, bars)
+            bp["lines"][t]["text"] = rng.choice(words)
+            lines = [l["text"] for l in bp["lines"]]
+            m = _SC.mandate([[1, 2]], n_lines=len(lines))
+            res = rv.inspect(lines, m, blueprint=bp, subdivision=sub)
+            on_line = [ln for ln, fs in res["per_line"].items()
+                       for f in fs if f.code == code]
+            song = [f for f in res["whole"] if f.code == code]
+            if (on_line or len(song) != 1 or song[0].severity != "flag"
+                    or list(song[0].locations) != [t + 1]
+                    or RV.TIMING_ONLY_ADVICE not in song[0].message):
+                bad.append((code, t + 1, on_line,
+                            [(f.severity, f.locations, f.message[:80])
+                             for f in song]))
+    check("each timing-only flag is one whole-song FLAG naming its line and "
+          "saying the timing must change, never a flag on the line "
+          "(bug hunt F8)", not bad, f"{bad[:3]}")
+
+    # Control: too many syllables for the slots is the words' to fix.
+    bp, pulses, start, bars = drawn()
+    t = rng.randrange(len(bp["lines"]))
+    bp["lines"][t]["text"] = " ".join(rng.choice(words)
+                                      for _ in range(pulses * s + 1))
+    lines = [l["text"] for l in bp["lines"]]
+    res = rv.inspect(lines, _SC.mandate([[1, 2]], n_lines=len(lines)),
+                     blueprint=bp, subdivision=sub)
+    check("...while SLOTS_EXCEEDED, which fewer syllables clear, stays a "
+          "flag on its own line",
+          any(f.code == "SLOTS_EXCEEDED" and f.severity == "flag"
+              for f in res["per_line"].get(t + 1, ()))
+          and not any(f.code == "SLOTS_EXCEEDED" for f in res["whole"]),
+          f"line {t + 1}")
+
+    # The loop: the song's only flag is a timing one, so no line is asked
+    # and the whole-song repair is not offered; it still stops unfinished.
+    # The draft is drawn again, by the same seed, until it carries no flag
+    # before the timing is broken.
+    def flags(found):
+        return ([f.code for fs in found["per_line"].values() for f in fs
+                 if f.severity == "flag"]
+                + [f.code for f in found["whole"] if f.severity == "flag"])
+
+    for _ in range(50):
+        bp, pulses, start, bars = drawn()
+        bp["lines"] = bp["lines"][:bars]
+        end = rng.choice(words)
+        for l in bp["lines"]:
+            l["text"] = rng.choice(words)
+        # One group, lines 1 and 2 ending on one word: a word may rhyme
+        # with itself (owner's ruling 2026-11-20).
+        for l in bp["lines"][:2]:
+            l["text"] = f"{rng.choice(words)} {end}"
+        lines = [l["text"] for l in bp["lines"]]
+        m = _SC.mandate([[1, 2]], n_lines=len(lines))
+        if not flags(rv.inspect(lines, m, blueprint=bp, subdivision=sub)):
+            break
+    t = rng.randrange(len(bp["lines"]))
+    code = rng.choice(reachable)
+    bp["lines"][t] = broken(code, bp["lines"][t], pulses, start, bars)
+    got = LP.revise_loop(rv, lines, m, blueprint=bp, subdivision=sub,
+                         propose_group=stub_group)
+    check("...and the loop asks no new words for it, yet does not finish: "
+          "it stops on the song's standing flag",
+          got.stop_reason == "whole_draft_unresolved"
+          and code in [f.code for f in got.whole_flags]
+          and not any(code in o for o in offered),
+          f"{code} on line {t + 1}: stop {got.stop_reason}, offered "
+          f"{offered}")
+
+    # No question names it (R2's point, 2026-11-22): a question's words are
+    # hashed so a held run can resume, and every line's question lists the
+    # whole-draft findings the rewrite must keep. A timing-only flag is
+    # left out of that list, as it is left out of the whole-song repair.
+    # Drawn: a line given one syllable too many for its room, which the
+    # writer is asked about, and another line's timing broken.
+    from quality.propose import render_line
+    asked, kept = [], []
+
+    def stub_line(brief, lines_now, attempt, reasons=None, whole=()):
+        kept.append(tuple(f.code for f in whole))
+        asked.append(render_line(brief, lines_now, whole=whole,
+                                 attempt=attempt, reasons=reasons))
+        return None
+
+    bp, pulses, start, bars = drawn()
+    while len(bp["lines"]) < 2:
+        bp, pulses, start, bars = drawn()
+    t_words, t_time = rng.sample(range(len(bp["lines"])), 2)
+    bp["lines"][t_words]["text"] = " ".join(rng.choice(words)
+                                            for _ in range(pulses * s + 1))
+    code = rng.choice(reachable)
+    bp["lines"][t_time] = broken(code, bp["lines"][t_time], pulses, start,
+                                 bars)
+    lines = [l["text"] for l in bp["lines"]]
+    m = _SC.mandate([[1, 2]], n_lines=len(lines))
+    offered.clear()
+    got = LP.revise_loop(rv, lines, m, blueprint=bp, subdivision=sub,
+                         propose=stub_line, propose_group=stub_group)
+    named = [q for q in asked
+             if code in q or RV.TIMING_ONLY_ADVICE in q]
+    check("...and no question the writer is asked names it: a line's "
+          "question lists the song's other flags to keep, never this one",
+          asked and code in [f.code for f in got.whole_flags]
+          and not any(code in k for k in kept)
+          and not any(code in o for o in offered) and not named,
+          f"{code} on line {t_time + 1}, too many syllables on line "
+          f"{t_words + 1}: {len(asked)} question(s), kept {kept[:2]}, "
+          f"offered {offered}, named in {len(named)}")
+
+
 def main():
-    for t in (test_the_count_is_in_the_phonologys_own_grid_unit,
+    for t in (test_the_density_notes_count_the_line_not_the_bar,
+              test_the_count_is_in_the_phonologys_own_grid_unit,
               test_a_refused_token_makes_the_count_a_lower_bound,
               test_beat_and_duration_are_read_or_they_raise,
               test_the_declared_start_has_a_note_value_and_never_a_duration,
@@ -1175,7 +1422,11 @@ def main():
               test_two_sections_may_share_a_name,
               test_an_ambiguous_name_cannot_outrank_the_bar,
               test_remaining_inert_coordinate_is_measured_not_asserted,
-              test_the_fit_judges_one_whole_reading_at_a_time):
+              test_the_fit_judges_one_whole_reading_at_a_time,
+              # last: it drives the revise loop, which imports
+              # quality/grid.py, and test_the_shipped_song checks
+              # this module resolves a blueprint without it
+              test_a_flag_only_the_timing_clears_is_filed_on_the_song):
         t()
     print("\n" + "=" * 62)
     if FAILURES:

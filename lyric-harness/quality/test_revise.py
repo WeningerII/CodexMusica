@@ -3865,11 +3865,25 @@ def test_the_mandate_block_is_gated_on_the_mandate():
     # the prompt has to say which one each group is about. The claim this
     # check makes -- the group is STATED, the default sentence is gone --
     # is unchanged; only the spelling of the stated group moved.
+    # REPINNED 2026-11-21 (bug hunt finding 2): ~~"this line must stand in
+    # at least one relation with: L2 ('stairs')"~~. Group A declares a
+    # relation (RHYME), so its row is worded by that rule and the rule is
+    # printed under it; "at least one relation" is the wording of a group
+    # that declares nothing, and it is weaker than what this group is
+    # graded by. The claim is unchanged: the group is STATED and the
+    # default sentence is gone.
+    # REPINNED 2026-11-22 (the follow-up to finding 2): ~~"RULE of group A
+    # (class:RHYME), where N and M are any two lines of the group"~~. The
+    # row showed an internal id; a declared class is named in plain words
+    # now ("rhyme") and its clauses follow (`quality.plan.class_rule`).
     check("the TIER-1 PROMPT -- the surface a writer actually reads -- no "
           "longer claims no group was declared, and states the group instead",
           "(no rhyme group declared for this line)" not in p1
-          and "group A [1, 2] at its end word — this line must stand in at least one relation with: "
-          "L2 ('stairs')" in p1,
+          and "group A [1, 2] at its end word — this line must satisfy the "
+          "rule printed under this row with each of: L2 ('stairs')" in p1
+          and "    RULE of group A (rhyme), where N and M are any two "
+          "lines of the group" in p1
+          and "class:RHYME" not in p1,
           [l.strip() for l in p1.splitlines()
            if "group" in l and "rhyme" in l][:2])
 
