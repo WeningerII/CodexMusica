@@ -8540,31 +8540,51 @@ def overhang_member(schema):
     return {"require_a": 1, "require_b": 2}.get(schema.unmatched)
 
 
+#: The most members a group may hold under a type that asks each later
+#: member to run on past the rhyme further (`require_b`) or less far
+#: (`require_a`) than every earlier one: the owner's ruling, 2026-11-21 (bug
+#: hunt F21), a fixed number and not one computed. Why 5: a chain of k
+#: members needs k different run-on lengths, and no dictionary word runs on
+#: more than four syllables past its last stressed syllable (measured
+#: 2026-11-21 over every reading), so lengths 0 to 4 are five.
+OVERHANG_CHAIN_CAP = 5
+
+
 def unsatisfiable_pairs(schema, members):
     """-> how many of a `members`-sized group's pairs NO choice of words can
     satisfy.  0 means the group is answerable and says nothing about how hard.
 
-    **AN OVERHANG DEMAND IS NOT A PROPERTY OF A PAIR, IT IS AN ORDERING ON
+    AN OVERHANG IS MEASURED AGAINST EACH PARTNER, SO A GROUP OF ANY SIZE CAN
+    MEET IT WITH A LENGTH CHAIN (bug hunt F21, 2026-11-21).
+    ~~**AN OVERHANG DEMAND IS NOT A PROPERTY OF A PAIR, IT IS AN ORDERING ON
     THE WHOLE GROUP, AND THAT IS WHY A GROUP CAN BE IMPOSSIBLE AT ANY LINE
-    LENGTH** (`MISSING.md` M-174).  `require_b` asks, of every pair, that the
-    LATER member overhang and the EARLIER member not.  Take members
-    m1 < m2 < ... < mk.  Pair (m1, m2) demands m2 overhang; pair (m2, m3)
-    demands m2 NOT overhang.  Both are the same word, so at k >= 3 the group
-    contradicts itself and no vocabulary anywhere closes it.  Exactly the
-    pairs drawn from the members that must overhang are the impossible ones,
-    and there are C(k-1, 2) of them — the best any writer can do is overhang
-    every member but the first, which satisfies the k-1 pairs containing m1
-    and fails every pair among the rest.
+    LENGTH** (`MISSING.md` M-174). ... Pair (m1, m2) demands m2 overhang;
+    pair (m2, m3) demands m2 NOT overhang. Both are the same word, so at
+    k >= 3 the group contradicts itself and no vocabulary anywhere closes
+    it.~~ That argument read "overhang" as a property of one word, and it is
+    a relation between two. `require_b` asks of each pair that the later
+    member run on past the earlier one and the earlier not run on past the
+    later. In pair (m1, m2) m2 runs on past m1; in pair (m2, m3) m3 runs on
+    past m2, which asks nothing of m2 that the first pair forbids:
+    know / knowing / knowingly meets all three pairs, and the grader passes
+    it. A group is met when its words run on strictly further past the
+    rhyme, line by line in text order (`require_a`: strictly less far).
 
-    MEASURED, not argued, through `brief --relation=schema:semirhyme` on
-    three lines sharing one anchor (`grow`, `growing`, `glowing`): pairs
-    (1,2) and (1,3) pass and (2,3) is a `SCHEME_VIOLATION`, which is
-    C(2,2) = 1 exactly.  The two-sided controls on the same instrument:
-    `grow ~ growing` passes, `grow ~ growth` VIOLATES (a coda consonant is
-    not a syllable of overhang), `glow ~ goad` VIOLATES (no overhang at
-    all), `grow ~ grow` VIOLATES (flush), and `growing ~ grow` VIOLATES —
-    the order matters, which is the whole ordering argument standing up on
-    its own.
+    ~~MEASURED, not argued, through `brief --relation=schema:semirhyme` on
+    three lines sharing one anchor (`grow`, `growing`, `glowing`) ... the
+    order matters, which is the whole ordering argument standing up on its
+    own.~~ The measurement holds and its reading did not: `growing` and
+    `glowing` run on equally far, so pair (2,3) fails, which a chain never
+    asks. The two-sided controls stand: `grow ~ growing` passes, `grow ~
+    growth` VIOLATES (a coda consonant is not a syllable of overhang),
+    `glow ~ goad` and `grow ~ grow` VIOLATE, and `growing ~ grow` VIOLATES.
+
+    SO THE ONLY BOUND IS THE VOCABULARY. A chain of k members needs k
+    different run-on lengths, and `OVERHANG_CHAIN_CAP` (5) is how many the
+    owner allows. Past that some members share a length, and two members
+    that share one fail their pair whatever their words; spreading the
+    members over the lengths as evenly as possible leaves the fewest such
+    pairs.
 
     IT IS A LOWER BOUND AND IS NOT THE ONLY WAY A GROUP CAN BE UNWRITABLE.
     A satisfiable-by-this-count pair still needs a line that can AFFORD the
@@ -8574,9 +8594,13 @@ def unsatisfiable_pairs(schema, members):
     promise that a writer can write it (doctrine 20).
     """
     k = int(members)
-    if k < 3 or overhang_member(schema) is None:
+    if overhang_member(schema) is None:
         return 0
-    return (k - 1) * (k - 2) // 2
+    lengths = OVERHANG_CHAIN_CAP
+    if k <= lengths:
+        return 0
+    q, r = divmod(k, lengths)
+    return r * (q + 1) * q // 2 + (lengths - r) * q * (q - 1) // 2
 
 
 def identity_forced(schema):

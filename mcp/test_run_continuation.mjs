@@ -230,7 +230,13 @@ try {
   // burden are ordinary sections, owner ruling), so seed 1 at 24 lines
   // re-deals its sections and line ends and flags a different thirteen; the
   // door still opens on continuation 0 with all of them (192466 state bytes).
-  const originalIndependent = [1, 2, 4, 5, 6, 8, 11, 12, 14, 16, 18, 19, 23];
+  // ~~[1, 2, 4, 5, 6, 8, 11, 12, 14, 16, 18, 19, 23]~~ REPINNED 2026-11-23
+  // (bug hunt F21, owner's ruling that a run-on rhyme group may hold up to
+  // five lines; measured, CI run 45112853472): seed 1 at 24 lines deals its
+  // apocopated-rhyme group B as lines 1, 7 and 11 where it dealt 1 and 7, so
+  // L11 is a group member and no longer independent; the door still opens on
+  // continuation 0 with the other twelve, all admitted (202030 state bytes).
+  const originalIndependent = [1, 2, 4, 5, 6, 8, 12, 14, 16, 18, 19, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
@@ -335,7 +341,9 @@ try {
   // the merge order puts #627 first, so the pin is the merged reading.
   // ~~[1, 2, 4, 8, 10, 11, 12, 13, 14, 18, 19, 20, 24]~~ -> the thirteen below
   // (2026-11-13, the 22-function roster; measured).
-  assert.deepEqual(firstSubset, [1, 2, 4, 5, 6, 8, 11, 12, 14, 16, 18, 19, 23]);
+  // ~~the thirteen~~ -> the twelve below (2026-11-23, bug hunt F21;
+  // measured): L11 joins group B and leaves the independent briefs.
+  assert.deepEqual(firstSubset, [1, 2, 4, 5, 6, 8, 12, 14, 16, 18, 19, 23]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
   // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)

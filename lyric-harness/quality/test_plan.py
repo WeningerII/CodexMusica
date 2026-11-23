@@ -1559,6 +1559,10 @@ def test_the_measure():
     # file, or reaches the phonology. They are named by BOTH the relation
     # draw and `joint_findings`, which is the point of them being one
     # definition rather than two (doctrine 1).
+    # `OVERHANG_CHAIN_CAP` joined 2026-11-21 (bug hunt F21): the owner's
+    # fixed five, the most members such a group may hold. It is a declared
+    # number, which is what this list admits; ~~one binomial~~ the count
+    # above now divides the members over those five lengths.
     # `identity_forced` joined 2026-08-30 with M-175's gate, on the same
     # argument again — it reads a schema's own `identity` rules and answers
     # a bool. THAT IT NEEDED A SECOND COMMIT IS THE ENTRY: M-174 added three
@@ -1585,6 +1589,7 @@ def test_the_measure():
                               "REGISTRY", "overhang_member",
                               "unsatisfiable_pairs", "group_satisfiable",
                               "identity_forced", "placement_bindable",
+                              "OVERHANG_CHAIN_CAP",
                               "POSITION_PLACEMENT_KINDS",
                               "declared_pair_schema",
                               "pair_scope_representable",
@@ -2071,7 +2076,15 @@ def test_the_disclosure():
                 # REPINNED 2026-11-21 from ~~`_pickup_phrase(beat - 1)`~~:
                 # the late start is named by the beat it starts on, as the
                 # grader names it (bug hunt F4).
-                entry = PLN._entry_phrase(slots[0]["beat"])
+                # REPINNED 2026-11-22 (bug hunt F24) from
+                # ~~`PLN._entry_phrase(slots[0]["beat"])` for every
+                # section~~: a line that comes back word for word keeps its
+                # first line's start, so a section may start its lines on
+                # different beats, and its bracket says so, as
+                # `section_header` does.
+                entry = (PLN._entry_phrase(slots[0]["beat"])
+                         if len({ls["beat"] for ls in slots}) == 1
+                         else ", lines start on different beats")
                 k = len(slots)
                 want = (f"[{s['function'].upper()} — {k} "
                         f"line{'s' if k != 1 else ''} — {size}{entry}]")
@@ -4082,10 +4095,14 @@ def test_the_grade_it_line_runs():
 
 
 def test_the_overhang_group():
-    """17. M-174 — a schema that demands an overhang ORDERS its group, so on
-    three members it contradicts itself at every line length."""
-    print("\n17. M-174 — an overhang schema on 3+ members contradicts "
-          "itself, and the draw may not reach one")
+    """17. M-174 — a schema that demands an overhang ORDERS its group.
+    REPINNED 2026-11-21 (bug hunt F21): ~~so on three members it contradicts
+    itself at every line length~~. Each later member runs on further past
+    the rhyme than the one before, so a group holds up to the owner's fixed
+    five (`relations.OVERHANG_CHAIN_CAP`) and contradicts itself past
+    that."""
+    print("\n17. M-174 — an overhang schema on more than five members "
+          "contradicts itself, and the draw may not reach one")
     SEMI = RL.REGISTRY["semirhyme"]
     # The remaining M-174 question is per-LINE syllable capacity. These
     # plans isolate it from the separate size, identity and placement gates.
@@ -4188,14 +4205,19 @@ def test_the_overhang_group():
           and sorted(n for n in RL.REGISTRY
                      if RL.overhang_member(RL.REGISTRY[n]) is not None)
           == ["apocopated rhyme", "semirhyme"])
-    check("a PAIR is satisfiable and 3+ members are not, by the count the "
-          "gate and the draw both read — C(k-1, 2), so 0 / 1 / 3 / 6 at "
-          "k = 2 / 3 / 4 / 5",
-          [RL.unsatisfiable_pairs(SEMI, k) for k in (2, 3, 4, 5)]
-          == [0, 1, 3, 6]
-          and RL.group_satisfiable(SEMI, 2)
-          and not RL.group_satisfiable(SEMI, 3),
-          [RL.unsatisfiable_pairs(SEMI, k) for k in (2, 3, 4, 5)])
+    # REPINNED 2026-11-21 (bug hunt F21): ~~a PAIR is satisfiable and 3+
+    # members are not ... C(k-1, 2), so 0 / 1 / 3 / 6 at k = 2 / 3 / 4 / 5~~.
+    # A chain of k members needs k run-on lengths and the owner allows five,
+    # so six members leave one pair sharing a length and seven leave two.
+    check("up to five members are satisfiable and six or more are not, by "
+          "the count the gate and the draw both read — 0 / 0 / 0 / 0 / 1 / 2 "
+          "at k = 2 / 3 / 4 / 5 / 6 / 7",
+          [RL.unsatisfiable_pairs(SEMI, k) for k in range(2, 8)]
+          == [0, 0, 0, 0, 1, 2]
+          and RL.OVERHANG_CHAIN_CAP == 5
+          and RL.group_satisfiable(SEMI, 5)
+          and not RL.group_satisfiable(SEMI, 6),
+          [RL.unsatisfiable_pairs(SEMI, k) for k in range(2, 8)])
     check("a schema with NO overhang demand is unbounded — the count is "
           "about `unmatched` and not about group size, so consonance over "
           "nine members is 0 (the control that stops this reading as a "
@@ -4236,18 +4258,20 @@ def test_the_overhang_group():
           _amph)
     #: A declared overhang schema binds every group. ~~The planner must
     #: REFUSE a plan with a 3+ group~~ — since 2026-10-27 (D3) the type
-    #: shapes its own groups (`plan._carve`): a 3+ block is cut to the pairs
-    #: the type can bind, so the plan ships and never carries a 3+ group.
+    #: shapes its own groups (`plan._carve`): ~~a 3+ block is cut to the
+    #: pairs the type can bind, so the plan ships and never carries a 3+
+    #: group~~ (REPINNED 2026-11-21, bug hunt F21) a block larger than five
+    #: is cut to groups the type can bind, so no plan carries one.
     shipped_bad, shipped = [], 0
     for seed in range(1, 9):
         pl = PLN.make_plan(seed, relation="schema:semirhyme")
         shipped += 1
         for g in str(pl.get("groups") or "").split(";"):
-            if len([m for m in g.split(",") if m.strip()]) >= 3:
+            if len([m for m in g.split(",") if m.strip()]) > 5:
                 shipped_bad.append((seed, g))
     check("a DECLARED overhang schema never ships on a group its own "
           "ordering contradicts: over seeds 1-8 every plan cuts its groups "
-          "to pairs, and none ships a 3+ group",
+          "to at most five, and none ships a larger one",
           not shipped_bad and shipped == 8,
           f"shipped {shipped}, impossible {shipped_bad[:3]}")
     #: AND THE GATE IS TWO-SIDED — a PLANTED impossible group must fire it,
@@ -4260,14 +4284,31 @@ def test_the_overhang_group():
     mut = dict(pl)
     mut["relations"] = dict(pl.get("relations") or {})
     mut["relations"][SC.label((idx,))] = "schema:semirhyme"
-    fired = [f for f in PLN.joint_findings(mut)
+    # REPINNED 2026-11-21 (bug hunt F21): ~~the 3+ group fires~~. That
+    # group is the control now: three members can run on further line by
+    # line. The planted group joins the plan's own groups, in order from
+    # that one, until it holds six members.
+    kept = [f for f in PLN.joint_findings(mut)
+            if f[0] == "GROUP_CONTRADICTS_ITSELF"]
+    joined, rest = [], []
+    for i, g in enumerate(gs):
+        if i >= idx and len(joined) < 6:
+            joined.extend(m for m in g.split(",") if m.strip())
+        else:
+            rest.append(g)
+    big = dict(pl, groups=";".join([",".join(joined)] + rest),
+               relations={SC.label((0,)): "schema:semirhyme"})
+    fired = [f for f in PLN.joint_findings(big)
              if f[0] == "GROUP_CONTRADICTS_ITSELF"]
     check("the MUTATION fires the gate, on the group's own first line, "
           "naming the members and how many pairs are impossible — a "
-          "hand-written plan is refused on the same terms as a drawn one",
-          len(fired) == 1 and "semirhyme" in fired[0][2]
-          and "pairs fail at any line length" in fired[0][2],
-          fired[0][2][:90] if fired else "did not fire")
+          "hand-written plan is refused on the same terms as a drawn one — "
+          "and the plan's own three-member group under the same type does "
+          "not",
+          len(joined) >= 6 and not kept
+          and len(fired) == 1 and "semirhyme" in fired[0][2]
+          and "pairs fail whatever anybody writes" in fired[0][2],
+          (fired[0][2][:90] if fired else "did not fire") + f"; kept {kept}")
     check("`GROUP_CONTRADICTS_ITSELF` is a declared JOINT code, so "
           "`make_plan` refuses on it like every other cause",
           "GROUP_CONTRADICTS_ITSELF" in PLN.JOINT_CODES)
@@ -4652,6 +4693,30 @@ def test_the_delegated_rulings(FAILURES=None):
             slots = [s for s in p["line_slots"] if s["section"] == sec["name"]]
             headers_ok = headers_ok and "syllable" not in lines_b[i]
             if not slots:
+                continue
+            # REPINNED 2026-11-22 (bug hunt F24): ~~one ceiling, the first
+            # line's, under every section~~. A copy keeps its first line's
+            # start and length, so a section whose lines start on different
+            # beats prints, for each start in the order it first comes, a
+            # head row naming those lines, their beat rows and their
+            # ceiling. Each ceiling is that start's own.
+            timings = list(dict.fromkeys((s["beat"], s["duration"])
+                                         for s in slots))
+            if len(timings) > 1:
+                j = i + 1
+                for beat, dur in timings:
+                    these = [s for s in slots
+                             if (s["beat"], s["duration"]) == (beat, dur)]
+                    rows = _PL._pulse_rows(sec, these[0])
+                    capn = int(_PL.line_syllable_ceiling(
+                        dur * p["subdivision"]))
+                    cap_ok = (cap_ok and lines_b[j] == "      " +
+                              _PL.timing_head([s["line"] for s in these],
+                                              beat)
+                              and lines_b[j + 1 + len(rows)]
+                              == f"      up to {capn} syllables in the "
+                                 f"whole line")
+                    j += 2 + len(rows)
                 continue
             capn = int(_PL.line_syllable_ceiling(
                 slots[0]["duration"] * p["subdivision"]))
@@ -5093,9 +5158,14 @@ def test_the_legend_states_the_whole_schema():
           "on the other — the old legend said only 'agree on nucleus'",
           "coda present on the first word and absent on the second"
           in asks["subtractive rhyme"], asks["subtractive rhyme"])
-    check("semirhyme says the second word carries an extra syllable after "
-          "the rhyme — the whole relation, and the old legend omitted it",
-          "second word carries an extra syllable" in asks["semirhyme"]
+    # REPINNED 2026-11-21 (bug hunt F21): ~~"second word carries an extra
+    # syllable"~~ — a group holds up to five members, so the legend says
+    # each later word runs on further than every earlier one.
+    check("semirhyme says each later word carries more syllables after "
+          "the rhyme than every earlier one — the whole relation, and the "
+          "old legend omitted it",
+          "each later word carries more syllables after the rhyme"
+          in asks["semirhyme"]
           and "agree on nucleus, coda" in asks["semirhyme"], asks["semirhyme"])
     check("family rhyme says the coda agrees by CLASS, not sound",
           "coda agree by CLASS, not sound" in asks["family rhyme"],
@@ -9630,11 +9700,197 @@ def test_the_writing_bans_stop_only_groups_that_can_differ():
           f"{mixed_missing[:2]}")
 
 
+#: how many plans F24's test draws (seeds, forms): enough that copies across
+#: kinds with different starts turn up (about one return pair in a hundred)
+F24_DRAWS = 120
+
+
+def test_a_return_copy_has_its_first_lines_room():
+    """Bug hunt F24 (owner's ruling 2026-11-21: "give the copy equal room").
+    The start beat is drawn per section kind, so a line that comes back word
+    for word in a section of another kind (a reprise of a chorus line) sat
+    on that kind's start and had fewer slots than the line it repeats: a
+    line inside its own section's limit drew SLOTS_EXCEEDED on its copy.
+    A copy now takes its first line's start beat and length, and a section
+    whose lines start on different beats prints each line's timing.
+
+    Every witness is drawn by seed: the plan seeds and forms."""
+    print("\nF24. a line that comes back word for word has its first line's "
+          "room")
+    rng = random.Random(2026112203)
+    unequal, rows_bad = [], []
+    n_copies = crossing = n_mixed = 0
+    for _ in range(F24_DRAWS):
+        seed = rng.randrange(1, 100000)
+        form = rng.choice(PLN.PLAN_FORMS)
+        try:
+            p = PLN.make_plan(seed, form=form)
+        except PLN.PlanRefused:
+            continue
+        slot = {s["line"]: s for s in p["line_slots"]}
+        ana = {fn: v["value"]
+               for fn, v in p["choices"]["anacrusis"].items()}
+        for copy, root in sorted(PLN.return_roots(p).items()):
+            n_copies += 1
+            a, b = slot[root], slot[copy]
+            crossing += ana.get(a["function"]) != ana.get(b["function"])
+            if (a["beat"], a["duration"]) != (b["beat"], b["duration"]):
+                unequal.append((form, seed, root, copy, a["beat"],
+                                a["duration"], b["beat"], b["duration"]))
+        rows = p["writer_brief"].splitlines()
+        for sec in p["sections"]:
+            mine = [s for s in p["line_slots"] if s["section"] == sec["name"]]
+            timings = list(dict.fromkeys((s["beat"], s["duration"])
+                                         for s in mine))
+            if len(timings) < 2:
+                continue
+            n_mixed += 1
+            for beat, dur in timings:
+                these = [s["line"] for s in mine
+                         if (s["beat"], s["duration"]) == (beat, dur)]
+                cap = int(PLN.line_syllable_ceiling(dur * p["subdivision"]))
+                head = "      " + PLN.timing_head(these, beat)
+                at = [i for i, r in enumerate(rows) if r == head]
+                if not at or (f"      up to {cap} syllables in the whole "
+                              f"line") not in rows[at[0]:at[0] + 6]:
+                    rows_bad.append((form, seed, sec["name"], these, beat,
+                                     dur, cap))
+    check("every line that comes back word for word has its first line's "
+          "start beat and length (bug hunt F24), over plans where some "
+          "copy's kind draws a different start from its first line's",
+          crossing > 0 and not unequal,
+          f"{n_copies} copies, {crossing} across kinds with different "
+          f"starts; unequal {unequal[:3]}")
+    check("...and a section whose lines start on different beats names "
+          "each line's start and room",
+          n_mixed > 0 and not rows_bad,
+          f"{n_mixed} mixed section(s); missing {rows_bad[:3]}")
+
+
+def _run_on_chains():
+    """-> every (a, b, c) of dictionary words with one reading each where b
+    is a's sounds and then one more unstressed syllable, and c is b's sounds
+    and one more: three words that each run on one syllable further past
+    the same last stressed syllable."""
+    entries = _round_trip_reviser().lex.entries
+    by = {}
+    for w, rs in entries.items():
+        if w.isalpha() and w.islower() and len(w) > 1 and len(rs) == 1:
+            by.setdefault(tuple(rs[0]), []).append(w)
+    longer = {}
+    for ph in by:
+        for i in range(1, len(ph)):
+            longer.setdefault(ph[:i], []).append(ph)
+
+    def one_more(a, b):
+        vowels = [p for p in b[len(a):] if p[-1].isdigit()]
+        return len(vowels) == 1 and vowels[0][-1] == "0"
+
+    def ends_stressed(ph):
+        vowels = [p[-1] for p in ph if p[-1].isdigit()]
+        return bool(vowels) and vowels[-1] in "12"
+    out = []
+    for a in sorted(by):
+        if not ends_stressed(a):
+            continue
+        for b in sorted(longer.get(a, ())):
+            if one_more(a, b):
+                out.extend((by[a][0], by[b][0], by[c][0])
+                           for c in sorted(longer.get(b, ())) if one_more(b, c))
+    return out
+
+
+def test_an_overhang_group_runs_on_further_line_by_line():
+    """Bug hunt F21 (2026-11-21): a type whose rule asks the later member of
+    each pair to run on past the rhyme, and the earlier not to, was read as
+    one word asked to do both at once, so the planner refused every such
+    group of three or more and the draw cut them to pairs. Each demand is
+    against one partner: three words that run on further line by line meet
+    every pair, and the grader passes them. What does bound a group is how
+    many different run-on lengths there are, and the owner fixed that at
+    five (`relations.OVERHANG_CHAIN_CAP`).
+
+    Every witness is drawn by seed: the chains from every chain of three in
+    the dictionary, the plans and their member lines from wide seed ranges.
+    """
+    print("\nF21. an overhang group runs on further line by line, up to five "
+          "members")
+    rng = random.Random(2026112121)
+    SEMI = RL.REGISTRY["semirhyme"]
+    APOC = RL.REGISTRY["apocopated rhyme"]
+    chains = _run_on_chains()
+    grade_bad, order_bad = [], []
+    for a, b, c in rng.sample(chains, 6):
+        def judged(lines, rel):
+            g = _round_trip_reviser().grade(list(lines), SC.mandate(
+                [["1", "2", "3"]], n_lines=3, default_relation=rel))
+            return g["refusals"], g["violations"]
+        refused, violated = judged((a, b, c), "schema:semirhyme")
+        if refused or violated:
+            grade_bad.append((a, b, c, refused, violated))
+        refused, violated = judged((c, b, a), "schema:apocopated rhyme")
+        if refused or violated:
+            grade_bad.append((c, b, a, refused, violated))
+        refused, violated = judged((a, c, b), "schema:semirhyme")
+        if refused or not violated:
+            order_bad.append((a, c, b, refused))
+    check("the grader passes three words that run on one syllable further "
+          "line by line as one semirhyme group, and the same words "
+          "shortening line by line as one apocopated group; out of order "
+          "they fail",
+          len(chains) > 100 and not grade_bad and not order_bad,
+          f"{len(chains)} chains; failed {grade_bad[:2]}; out of order "
+          f"passed {order_bad[:2]}")
+    size_bad, budget_bad = [], []
+    for _ in range(6):
+        seed = rng.randint(1, 100000)
+        p = PLN.make_plan(seed, lines=24)
+        n = int(p["total_lines"])
+        for k in range(2, 8):
+            members = sorted(rng.sample(range(1, n + 1), k))
+            for sch, rel in ((SEMI, "schema:semirhyme"),
+                             (APOC, "schema:apocopated rhyme")):
+                q = dict(p, relations={}, relation=rel,
+                         groups=",".join(map(str, members)))
+                said = [d for code, _l, d in PLN.joint_findings(q)
+                        if code == "GROUP_CONTRADICTS_ITSELF"]
+                if (k <= 5) == bool(said) or (said and "at most 5" not in
+                                              said[0]):
+                    size_bad.append((seed, rel, members, said[:1]))
+                bind = getattr(PLN, "_overhang_bindings", None)
+                runs = [x for _l, _w, x in bind(
+                    sch, [str(m) for m in members])] if bind else None
+                want = list(range(1, k)) if sch is SEMI \
+                    else list(range(k - 1, 0, -1))
+                if runs != want:
+                    budget_bad.append((rel, k, runs))
+    check("a declared group of two to five members under either type is "
+          "not refused as contradicting itself, a group of six or seven is, "
+          "naming the five, and each member is charged one more syllable "
+          "of run-on than the member before it (semirhyme) or after it "
+          "(apocopated)",
+          not size_bad and not budget_bad,
+          f"sizes {size_bad[:2]}; charges {budget_bad[:2]}")
+    sizes = Counter()
+    for _ in range(8):
+        seed = rng.randint(1, 100000)
+        for rel in ("schema:semirhyme", "schema:apocopated rhyme"):
+            p = PLN.make_plan(seed, relation=rel)
+            sizes.update(len(g.split(","))
+                         for g in str(p.get("groups") or "").split(";")
+                         if g.strip())
+    check("the draw deals groups of three or more under these types, and "
+          "none larger than five",
+          max(sizes) <= 5 and any(k >= 3 for k in sizes), dict(sizes))
+
+
 _SECTIONS = (
     test_a_rule_row_says_what_the_grader_accepts,
+    test_a_return_copy_has_its_first_lines_room,
     test_the_writing_bans_stop_only_groups_that_can_differ,
     test_a_late_start_is_named_as_the_grader_names_it,
     test_a_return_copy_is_bound_as_its_first_line,
+    test_an_overhang_group_runs_on_further_line_by_line,
     test_satisfied_wants_remain_in_the_request,
     test_a_request_refusal_is_the_requests,
     test_the_seed_sweep_is_a_verb,
