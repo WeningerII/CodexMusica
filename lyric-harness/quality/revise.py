@@ -1131,6 +1131,8 @@ RANK_MEMO_CAP = 2_048
 _RANK_MEMO_TALLY = {"hit": 0, "miss": 0, "evicted": 0}
 _RIME_MEMO = _collections_fm.OrderedDict()
 RIME_MEMO_CAP = 200_000
+#: `Reviser._spelled_rime_readings` under the same key and cap (2026-11-23).
+_RIME_READINGS_MEMO = _collections_fm.OrderedDict()
 #: (call, candidate, lexicon) -> the schemas the two words stand in as two
 #: line ends (`Reviser._end_pair_schemas`). Words, so bounded like the rimes.
 _END_PAIR_MEMO = _collections_fm.OrderedDict()
@@ -1160,6 +1162,7 @@ def score_rank_memo_clear():
         for k in tally:
             tally[k] = 0
     _RIME_MEMO.clear()
+    _RIME_READINGS_MEMO.clear()
 
 
 def memo_disclosure():
@@ -4337,12 +4340,18 @@ class Reviser:
         # candidates until the modal check passed was landing at rank 7
         # of the same predictability list, and same-spelled endings are
         # rank zero: the ones a search finds without even hearing them.
-        ri, rj = self._spelled_rime(wi), self._spelled_rime(wj)
+        # ~~`ri, rj = self._spelled_rime(wi), self._spelled_rime(wj)` and
+        # `ri == rj`~~ REPLACED 2026-11-23: that compared FIRST readings, so
+        # a word stressed two ways was cut at the wrong vowel when the pair
+        # rhymed on its other reading (cat/combat, went/content). The pair
+        # is asked through `_same_spelled_ending`, which keeps that
+        # comparison and adds the readings that rhyme.
+        ri = self._same_spelled_ending(wi, wj)
         # A HOMOPHONE PAIR IS NEVER CAUGHT (owner's ruling, 2026-11-20): the
         # ban stays for different-sounding words on one spelled ending, but a
         # word rhyming with itself (returned above) or with a homophone
         # (knight/night, read as RIME_RICHE) is identical rhyme.
-        if ri and ri == rj and "RIME_RICHE" not in v["relations"]:
+        if ri and "RIME_RICHE" not in v["relations"]:
             return Finding(
                 "HOMEOTELEUTON", "note",
                 f"L{i}/L{j} rhyme on the SAME SPELLED ENDING "
@@ -4371,8 +4380,8 @@ class Reviser:
         def _said(partner, call, p_low, c_low, forbidden):
             n = FREQ.LAYER.conditional("eng-song", c_low,
                                        scoring=FREQ.UNSEEN).get(p_low, 0)
-            rc = self._spelled_rime(c_low)
-            size = sum(1 for x in forbidden if self._spelled_rime(x) != rc)
+            same = self._same_ending_as(c_low)
+            size = sum(1 for x in forbidden if not same(x))
             which = ("the most-predictable answer" if size == 1 else
                      f"one of the {size} most-predictable answers")
             return (f"{partner!r} is {which} to {call!r} — realised as its "
@@ -6151,6 +6160,167 @@ class Reviser:
             return spelled_rime(word, stress_from_end=from_end)
         return ending
 
+    def _spelled_rime_readings(self, word):
+        """-> ((sounds, letters), ...): the ways the word can start a rhyme
+        of its own, one for each reading that has a stressed vowel.
+
+        `sounds` is the reading from its latest stressed vowel to the end,
+        stress marks dropped; `letters` is the word's spelling from that
+        vowel on. The first entry is the first reading, and its letters are
+        `_spelled_rime`'s value. The readings are the rhyme judge's own list
+        for an end word (`pronunciation_variants`).
+
+        ADDED 2026-11-23, following bug hunt finding 17. `_spelled_rime`
+        reads the FIRST reading only. `combat` is COM-bat first, so its
+        ending was `ombat`, and cat/combat, which rhymes on com-BAT, was
+        never asked. A word stressed two ways has an ending per stress.
+
+        ONLY A STRESSED VOWEL SETS A CUT. A reading with no stressed vowel
+        adds nothing here: the bare last syllable would merge every word in
+        -er into one banned class, which the owner ruled out (see
+        `_spelled_rime`). So a hearing a reader adds at a line's end for a
+        word with no stress of its own sets no cut either.
+
+        THE LETTERS ARE ALWAYS CUT ON THE FIRST READING. A further reading
+        only says WHICH vowel of the word it stresses; the letters from that
+        vowel on are read off the first reading's own line-up, the one
+        `_spelled_rime` uses. A further reading is never lined up with the
+        letters afresh: that was measured to go wrong on a reading with an r
+        left unsounded (`square` came out `e` and met `anywhere` there, 'are'
+        against 'ere'). So a reading stressed on the same vowel as the first
+        has the first reading's letters, whatever it sounds like.
+
+        WHICH VOWEL: the vowel of the first reading with the same consonants
+        before it and as many vowels before it; failing that, the vowel in
+        the same place when both readings have as many vowels. The two were
+        compared over every dictionary word and never named different vowels
+        (72,829 readings both could place). A reading neither can place (a
+        word also read as its letters spelled out) adds nothing."""
+        dl = self._decl_lex_key() if _rank_memo_enabled() else None
+        rk = None if dl is None else (word, dl[1])
+        if rk is not None:
+            hit = _RIME_READINGS_MEMO.get(rk)
+            if hit is not None:
+                return hit
+
+        def place(phones):
+            """-> (vowel positions, index of the latest stressed one)."""
+            vidx = [n for n, ph in enumerate(phones) if ph[-1:].isdigit()]
+            return vidx, next((n for n in range(len(vidx) - 1, -1, -1)
+                               if phones[vidx[n]][-1] in "12"), None)
+
+        def before(phones, upto):
+            """The consonants before a vowel, each vowel as one mark."""
+            return tuple("V" if ph[-1:].isdigit() else ph
+                         for ph in phones[:upto])
+
+        out = []
+        lex = self.lex
+        first, oov = lex.transcribe_word(word)
+        vidx_f, anchor_f = place(list(first)) if first and not oov else ([], None)
+        if anchor_f is not None:
+            first = list(first)
+            own = self._spelled_rime(word)
+            where = {before(first, at): n for n, at in enumerate(vidx_f)}
+            cuts = {anchor_f: own}
+            variants = (lex.pronunciation_variants(word)
+                        if hasattr(lex, "pronunciation_variants")
+                        else lex.entries.get(word.lower(), ()))
+            for phones in [first] + [list(v) for v in variants]:
+                vidx, anchor = place(phones)
+                if anchor is None:
+                    continue
+                n = where.get(before(phones, vidx[anchor]))
+                if n is None and len(vidx) == len(vidx_f):
+                    n = anchor
+                if n is None:
+                    continue
+                if n not in cuts:
+                    cuts[n] = _LS.spelled_from(word, first, len(vidx_f) - n)
+                if not cuts[n]:
+                    continue
+                entry = (tuple(ph.rstrip("012") for ph in phones[vidx[anchor]:]),
+                         cuts[n])
+                if entry not in out:
+                    out.append(entry)
+        out = tuple(out)
+        if rk is not None:
+            _RIME_READINGS_MEMO[rk] = out
+            while len(_RIME_READINGS_MEMO) > RIME_MEMO_CAP:
+                _RIME_READINGS_MEMO.popitem(last=False)
+        return out
+
+    def _same_spelled_ending(self, a, b):
+        """-> the spelled ending `a` and `b` share, or None.
+
+        The one statement of "spelled the same from the vowel the rhyme
+        starts on", for the ban and for the search that must not offer what
+        the ban refuses. Two ways to share an ending:
+
+        1. their `_spelled_rime` keys are equal -- the rule as it stood, so
+           every pair caught before 2026-11-23 is caught still;
+        2. some reading of each sounds the same from its stressed vowel on
+           and is spelled the same from there (`_spelled_rime_readings`),
+           AND no two of their readings sound the same there while being
+           spelled differently.
+
+        The second is narrower than "any two readings share letters": the
+        two readings must be ones that rhyme. Its last clause is the owner's
+        standing rule that a word passes if any way of singing it works:
+        `defect` and `effect` rhyme stressed on the last syllable ('ect'
+        twice) and stressed on the first ('efect' against 'effect'), and the
+        second singing is a rhyme the ban has no quarrel with, so the pair
+        is left alone, as it was before. Whether the pair is a rhyme at all
+        is the caller's question, asked before this one. The answer does not
+        depend on which word is given first."""
+        return self._same_ending_as(b)(a)
+
+    def _same_ending_as(self, b):
+        """-> ask(a, key=None): `_same_spelled_ending(a, b)` for one `b`
+        and many `a`.
+
+        The search asks the question of every candidate of a call, and of
+        every outranker of every candidate, always with one fixed word. Its
+        part is worked out here once; `ask` then costs a memo read and a
+        test of `a`'s spelling for almost every word. `key` is `a`'s
+        `_spelled_rime`, for a caller that already holds it."""
+        rb = self._spelled_rime(b)
+        spelled_b = {}
+        for sound, letters in self._spelled_rime_readings(b):
+            spelled_b.setdefault(sound, set()).add(letters)
+        # `a` IS READ READING BY READING ONLY IF ITS SPELLING ALLOWS A SHARED
+        # ENDING. An ending is the word's own letters from some vowel on, or
+        # its `_spelled_rime` value, so `a` can share one of `b`'s only if it
+        # ends in it. Without this test each candidate's readings were lined
+        # up to answer None (measured over 90 calls: 334 seconds of search
+        # against 94).
+        ends = tuple(sorted({letters for theirs in spelled_b.values()
+                             for letters in theirs}))
+        readings, letters_of = self._spelled_rime_readings, _LS.letters_of
+
+        def ask(a, key=None):
+            ra = self._spelled_rime(a) if key is None else key
+            if ra and ra == rb:
+                return ra
+            if not ends:
+                return None
+            own = a if a.isalpha() and a.islower() else letters_of(a)
+            if ra not in ends and not own.endswith(ends):
+                return None
+            shared = []
+            for sound, letters in readings(a):
+                theirs = spelled_b.get(sound)
+                if theirs is None:
+                    continue
+                if theirs != {letters}:
+                    return None
+                shared.append(letters)
+            # Two words can share more than one ending (`coordinates` and
+            # `subordinates`: 'ordinates' and 'ates'). The longest is named,
+            # whichever word is asked first.
+            return max(shared, key=lambda x: (len(x), x)) if shared else None
+        return ask
+
     def joint_field(self, calls, exclude=(), profile=None):
         """-> (offered, forbidden). The candidate field that answers EVERY
         call word, with the most PREDICTABLE members forbidden as modal.
@@ -6271,10 +6441,10 @@ class Reviser:
         against `modal_head` word for word.
         """
         rd = self.rdecl
-        call_rime = self._spelled_rime(call_word)
+        same_as_call = self._same_ending_as(call_word)
         if rd.field_depth is not None:
             return [w for w in self.modal_head(call_word, profile=profile)
-                    if self._spelled_rime(w) != call_rime]
+                    if not same_as_call(w)]
         cache = getattr(self, "_evidenced_head_cache", None)
         if cache is None:
             cache = self._evidenced_head_cache = {}
@@ -6371,7 +6541,7 @@ class Reviser:
         for w in ranked:
             if len(head) >= rd.modal_exclusion:
                 break
-            if self._spelled_rime(w) == call_rime:
+            if same_as_call(w):
                 continue
             if member(w, where[w]):
                 head.append(w)
@@ -6461,12 +6631,19 @@ class Reviser:
         # the verdict cannot disagree~~ — STRUCK 2026-09-01 (M-185): they
         # disagreed in the OTHER direction, the call sitting in the offered
         # word's own head, and `joint_field_screened` closes that side.
+        # ~~`rimes[w] in call_rimes`, first readings only~~ REPLACED
+        # 2026-11-23 with the ban's own question (`_same_spelled_ending`),
+        # so a word stressed two ways is not offered where the ban would
+        # refuse it. The first-reading keys still answer first, in one
+        # batch; only the words they leave are asked reading by reading.
         call_rimes = {self._spelled_rime(c) for c in calls}
         rimes = self._spelled_rimes(ranked)
-        homeo = [w for w in ranked if rimes[w] in call_rimes
-                 and member(w)]
-        rest_ranked = [w for w in ranked
-                       if rimes[w] not in call_rimes]
+        asks = [self._same_ending_as(c) for c in calls]
+        same = {w for w in ranked
+                if rimes[w] in call_rimes
+                or any(ask(w, rimes[w]) for ask in asks)}
+        homeo = [w for w in ranked if w in same and member(w)]
+        rest_ranked = [w for w in ranked if w not in same]
         k = self.rdecl.modal_exclusion
         # The head: the first k MEMBERS of the remainder in rank order.
         # -- AND, SINCE 2026-09-24, ONLY MEMBERS THE CONDITIONAL RANKED
@@ -6839,8 +7016,8 @@ class Reviser:
         k = self.rdecl.modal_exclusion
         if k <= 0:
             return False
-        rime_w = self._spelled_rime(w)
         anc_w, lab_w = self._word_anchors(w)
+        same_as_w = None
         cond_w = FREQ.LAYER.conditional("eng-song", w.lower(),
                                         scoring=FREQ.UNSEEN)
         for c, cfield in zip(calls, fields):
@@ -6865,7 +7042,9 @@ class Reviser:
                     continue
                 if len(x) < 2 and x not in ("a", "i"):
                     continue
-                if self._spelled_rime(x) == rime_w:
+                if same_as_w is None:
+                    same_as_w = self._same_ending_as(w)
+                if same_as_w(x):
                     continue                    # homeo: ranked beneath the head
                 anc_x, lab_x = self._word_anchors(x)
                 if not anc_x:

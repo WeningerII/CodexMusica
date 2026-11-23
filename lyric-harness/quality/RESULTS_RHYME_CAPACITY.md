@@ -278,6 +278,22 @@ cause this time took re-grading the witnesses under both tables.
    and tier 1 binds there as it does everywhere else (EY-T: 7 classes;
    IY: 65 classes).
 
+   **Added 2026-11-23: a word stressed two ways.** A class is the FIRST
+   reading's ending. `combat` is COM-bat first, so its class is -ombat, and
+   cat/combat, which rhymes on com-BAT, was never asked. The ban now also
+   stops two words that share a rhyming reading spelled the same from its
+   vowel (`Reviser._same_spelled_ending`), unless the two also rhyme on a
+   reading spelled differently (defect/effect: a word passes if any way of
+   singing it works). MEASURED: 902 dictionary words gain an ending this
+   way, 113 of them song end words; 50,375 pairs are newly stopped, 1,224
+   of them with both words in the song end-word list; 19 are left alone by
+   the any-way clause. THIS TABLE DOES NOT MOVE. A family here is the words
+   that share the first reading's sound, and two of them filed in different
+   classes rhyme on that reading with different spellings, so the added
+   rule leaves them alone: all 10,203 such pairs that include a word read
+   two ways were asked, and none is stopped. The 6 stored witnesses were
+   asked pair by pair as well (2,662 pairs): none is stopped.
+
 **Was:** **Secondary-stress clusters are the deep water.** Under the judge's
    own rules the -ate/-ee/-ine families are tier-1 deep (EY-T: 192
    classes; IY: 228 classes), because the spelled rime anchors at the

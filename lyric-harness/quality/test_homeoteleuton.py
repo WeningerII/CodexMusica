@@ -376,9 +376,12 @@ def test_tier_two_is_evidence_gated():
     rows, zero, over = [], [], []
     for call in ("thing", "spring", "way", "sane", "varnish"):
         cond = FREQ.LAYER.conditional("eng-song", call, scoring=FREQ.UNSEEN)
-        rc = R._spelled_rime(call)
         head = R.modal_head(call)
-        t2 = [w for w in head if R._spelled_rime(w) != rc]
+        # REPINNED 2026-11-23: ~~`R._spelled_rime(w) != rc`~~ — tier 1 is
+        # now `_same_spelled_ending`, which also reads a word's other stress
+        # readings (way/wednesday rhyme on wednes-DAY and share -ay), so the
+        # split here asks the ban's own question.
+        t2 = [w for w in head if not R._same_spelled_ending(w, call)]
         rows.append(f"{call}: tier2 {[(w, cond.get(w, 0)) for w in t2]}, "
                     f"tier1 {len(head) - len(t2)}")
         zero.extend((call, w) for w in t2 if cond.get(w, 0) <= 0)
@@ -449,8 +452,10 @@ def test_evidenced_head_is_the_same_head():
              "four", "lean", "two", "speed", "fire", "heart", "night")
     diff = []
     for call in calls:
-        rc = R._spelled_rime(call)
-        want = [w for w in R.modal_head(call) if R._spelled_rime(w) != rc]
+        # REPINNED 2026-11-23: ~~`R._spelled_rime(w) != rc`~~ — the same
+        # change as section 6: way/wednesday and fire/crossfire are tier 1.
+        want = [w for w in R.modal_head(call)
+                if not R._same_spelled_ending(w, call)]
         got = R.modal_head_evidenced(call)
         if got != want:
             diff.append((call, got, want))

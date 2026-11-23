@@ -939,8 +939,13 @@ sOWN/grOWN each passed at rank 7-11 of the very predictability ranking
 that computed the old cliff — a reviser iterating candidates until the
 checker passed was descending that ranking and stopping at rank 7 every
 time. Tier 1: HOMEOTELEUTON — a partner on the SAME SPELLED ENDING
-(`lyric_harness.spelled_rime`: silent-e folds, y is a vowel letter, w is
-not) is banned outright, whatever the corpus frequency, and the pair
+(~~`lyric_harness.spelled_rime`: silent-e folds, y is a vowel letter, w is
+not~~ CORRECTED 2026-11-22, bug hunt finding 17: the word's letters from the
+vowel its rhyme is heard on, `Reviser._spelled_rime`, lined up with its
+sounds by `quality/letter_sound.py`. ADDED 2026-11-23: a word stressed two
+ways has an ending for each stress, so cat/combat share -at, and a pair that
+also rhymes on a reading spelled differently, defect/effect, is left alone:
+`Reviser._same_spelled_ending`) is banned outright, whatever the corpus frequency, and the pair
 check reads the spellings directly so no finite field can shelter one.
 Tier 2: ~~the top `modal_exclusion` of the DIFFERENTLY-spelled remainder~~
 **AT MOST `modal_exclusion` of the DIFFERENTLY-spelled remainder, and only
