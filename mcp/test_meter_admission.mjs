@@ -36,6 +36,7 @@ import {
   lineDigitBound,
   admitRecognitionArgs,
   recognitionInputOf,
+  pastedRowsOf,
 } from './meter_admission.js';
 import {
   MAX_LINES,
@@ -48,7 +49,7 @@ import {
 import { buildServer } from './tools.js';
 import { encodeState, continuationSemanticIdentity } from './state_codec.js';
 import { requestContext } from './execution_context.js';
-import { draftFromText } from './lyric_text.js';
+import { answeredLines, draftFromText } from './lyric_text.js';
 
 // ── the values and their derivation ──────────────────────────────────────
 test('the caps are the confirmed values, derived from the connector ceilings', () => {
@@ -1333,6 +1334,57 @@ test('pasted text breaks into rows at every line break, not only at a line feed'
   }
   // Blank rows and section rows are still left out, whatever breaks them.
   assert.deepEqual(draftFromText(`[VERSE]\r${rows[0]}\r\r  ${rows[1]}  \r`), rows);
+});
+
+test('a break the reader splits on is a row wherever rows are counted or pasted', () => {
+  // The #917 review, 2026-11-23 (follow-up to finding 35). The reader took a
+  // lone carriage return and the two Unicode line separators as row breaks,
+  // and four other places still split on their own: the row count the first
+  // cap is checked on, lyric_recover's paste, the stepped form's reader and an
+  // interview answer's lines. So 1,390 rows broken by a Unicode separator
+  // passed the 1,389-row cap, and the same two pasted lines were two rows to
+  // one tool and one row to another.
+  const cause = (tool, args) => {
+    try {
+      admitLyricCall(tool, args);
+      return null;
+    } catch (e) {
+      return e.cause;
+    }
+  };
+  const rows = ['the rain falls on the road', 'the river overflowed'];
+  const atCap = Array(RAW_ROWS_CAP).fill('la');
+  for (const br of ['\n', '\r', '\r\n', '\u2028', '\u2029']) {
+    const said = JSON.stringify(br);
+    for (const [tool, field] of [
+      ['lyric_grade', 'draft_text'],
+      ['lyric_check', 'lines_text'],
+      ['lyric_verify', 'after_text'],
+      ['lyric_recover', 'lines_text'],
+    ]) {
+      const extra = tool === 'lyric_verify' ? { before_text: DRAFT_LINE } : {};
+      assert.equal(cause(tool, { [field]: atCap.join(br), ...extra }), null, `${tool} ${said}`);
+      assert.equal(
+        cause(tool, { [field]: [...atCap, 'la'].join(br), ...extra }),
+        'raw_rows',
+        `${tool} ${said}, one row over`
+      );
+    }
+    // lyric_recover's paste: the rows the check counts and the handler writes.
+    assert.deepEqual(pastedRowsOf(rows.join(br) + br), rows, `paste ${said}`);
+    const pasted = { lines_text: rows.join(br) };
+    takeLines(pasted, 'lines', 'lines_text', { preserveStructure: true });
+    assert.deepEqual(pasted.lines, rows, `recover ${said}`);
+    // The stepped form keeps a row's leading spaces and breaks rows the same.
+    const stepped = ['the rain falls', '    on the road', '        tonight'];
+    assert.deepEqual(draftFromText(stepped.join(br), 'triadic-line'), stepped, `stepped ${said}`);
+    // An interview answer's lines, each measured alone.
+    assert.deepEqual(
+      answeredLines(`L3: ${rows[0]}${br}L4: ${rows[1]}`),
+      rows,
+      `an answer's lines ${said}`
+    );
+  }
 });
 
 test('a run this process holds is measured with what it carries in; an export is not measured', async () => {

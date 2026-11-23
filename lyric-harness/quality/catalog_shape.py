@@ -525,10 +525,10 @@ def line_fit_conflicts(native, requirements, bound_copy_lines=()):
         key = plan.SC.label((index,))
         _, schema = plan._schema_of(native["relations"].get(key, native["relation"]))
         if schema is not None:
-            binding = plan._overhang_binding(schema, members.split(","))
-            if binding:
-                line, word = binding
-                overhang.setdefault(line, set()).add(word)
+            # A chain charges each member its own run-on (bug hunt F21).
+            for line, word, run in plan._overhang_bindings(schema, members.split(",")):
+                row = overhang.setdefault(line, {})
+                row[word] = max(run, row.get(word, 0))
 
     # Only a verbatim whole-line return inherits the same text's word counts.
     # Union transitive returns with the grader's own equivalence rule.
@@ -573,7 +573,11 @@ def line_fit_conflicts(native, requirements, bound_copy_lines=()):
         last_separate = int(plan.LAST_WORD in words)
         highest_index = max((w for w in words if w != plan.LAST_WORD), default=0)
         minimum_words = max(highest_index + last_separate, len(words) + plan.WORDS_LEFT_FREE)
-        extra = len(set().union(*(overhang.get(i, ()) for i in members)))
+        runs = {}
+        for i in members:
+            for word, run in overhang.get(i, {}).items():
+                runs[word] = max(run, runs.get(word, 0))
+        extra = sum(runs.values())
         if counts.get("words", minimum_words) < minimum_words:
             conflicts.append({"line": first, "code": "CATALOG_WORD_BINDINGS",
                               "detail": f"Native placements and the free-word reserve need {minimum_words} words."})

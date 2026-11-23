@@ -39,11 +39,15 @@ export function obligationLines(id) {
 // means. Two rows can share a code (two undeclared-section questions, one for
 // the chorus and one for the bridge), and reading "the first finding with
 // this code" named both by the chorus's sentence, so the second question was
-// never mentioned. The grader writes the rows and their findings in one order
-// (quality/revise.py: `function:<CODE>:<index>`, index being the refusal's
-// position, and one finding per refusal in that order), so the k-th numbered
-// row of a code is the k-th finding of that code. A row with no number, and a
-// row past the last finding, keeps the reading it had: the first, or the last.
+// never mentioned. The grader writes one finding per refusal, in order, and
+// says on each numbered row which finding of its code is the row's own
+// (quality/revise.py: `finding_index`). It has to say, because the numbered
+// rows of a code can be fewer than its findings: a refusal whose failed words
+// all sit on draft lines writes `:L<n>` rows and no numbered one (R2's review,
+// 2026-11-23). A record written before the grader said so is read as it was:
+// the k-th numbered row of a code is the k-th finding of that code. A row with
+// no number, and a row past the last finding, keeps the reading it had: the
+// first, or the last.
 // -> fn(row) -> that row's finding, or undefined.
 export function findingForRow(verdict) {
   const findings = Array.isArray(verdict?.findings) ? verdict.findings : [];
@@ -68,7 +72,9 @@ export function findingForRow(verdict) {
   }
   return (o) => {
     const own = byCode.get(o?.code) || [];
-    return own[rank.get(o?.id) ?? 0] ?? own.at(-1);
+    const said = o?.finding_index;
+    const at = Number.isInteger(said) && said >= 0 ? said : (rank.get(o?.id) ?? 0);
+    return own[at] ?? own.at(-1);
   };
 }
 

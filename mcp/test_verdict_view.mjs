@@ -5,6 +5,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import {
   sessionView,
   pairLine,
@@ -898,6 +900,60 @@ test('not_checked names a coded obligation by its code and finding, once', () =>
     "function: FUNCTION_UNDECLARED — no section declares 'bridge'",
     'setting (which syllable sits on which pulse): no beat grid or isochrony declared',
   ]);
+});
+
+// THE ROW SAYS WHICH FINDING IS ITS OWN (finding 30, from R2's review of the
+// fix). A refusal whose failed words all sit on draft lines writes `:L<n>`
+// rows and no numbered one, so a later refusal of the same code is the code's
+// SECOND finding and its FIRST numbered row, and counting rows named the
+// first. The record here is the grader's own, on a seeded song with one
+// return written out in full and one abbreviated with a pointer
+// (`pointed_return_song` in lyric-harness/quality/fixtures/seeded_lines.py).
+test('a numbered row is paired with the finding the grader names for it', async () => {
+  const { findingForRow } = await import('./coverage_advice.js');
+  const harness = fileURLToPath(new URL('../lyric-harness/', import.meta.url));
+  const record = JSON.parse(
+    execFileSync(
+      'python3',
+      [
+        '-B',
+        '-c',
+        [
+          'import json, sys',
+          "sys.path.insert(0, '.')",
+          'import lyric_harness as lh',
+          'from quality.fixtures import seeded_lines',
+          'from quality.revise import Reviser',
+          'lex = lh.Lexicon()',
+          'lines, blueprint, unread = seeded_lines.pointed_return_song(lex)',
+          'rows = []',
+          'found = Reviser(lex=lex)._function_findings(lines, blueprint, coverage_out=rows)',
+          'print(json.dumps(dict(unread=unread, coverage=dict(obligations=rows), findings=[',
+          '    dict(code=f.code, severity=f.severity, message=f.message,',
+          '         evidence=f.evidence, locations=f.locations) for f in found])))',
+        ].join('\n'),
+      ],
+      { cwd: harness, encoding: 'utf8', maxBuffer: 1 << 24 }
+    )
+  );
+  const [written, pointed] = record.unread;
+  const own = record.findings.filter((f) => f.code === 'END_WORD_UNREADABLE');
+  const numbered = record.coverage.obligations.filter(
+    (o) => o.code === 'END_WORD_UNREADABLE' && o.line === undefined
+  );
+  assert.equal(own.length, 2, 'PREMISE: the same refusal twice, once for each return');
+  assert.equal(numbered.length, 1, 'PREMISE: and one numbered row between them');
+  assert.deepEqual([...new Set(numbered[0].failed_words.map((f) => f.word))], [pointed]);
+  const paired = findingForRow(record)(numbered[0]);
+  assert.ok(
+    paired.evidence.includes(`'${pointed}'`) && !paired.evidence.includes(`'${written}'`),
+    `the row about '${pointed}' is paired with the finding about it, not the one about ` +
+      `'${written}': ${paired.evidence}`
+  );
+  // A record written before the grader said which finding is the row's own
+  // keeps the reading it had: the k-th numbered row is the code's k-th finding.
+  const { finding_index: _dropped, ...older } = numbered[0];
+  assert.equal(findingForRow(record)(older), own[0]);
 });
 
 // A question that was never put has no finding to quote, so its coverage row
