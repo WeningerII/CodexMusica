@@ -4012,10 +4012,14 @@ class Reviser:
             # mandate always holds the class (`test_return_plan` §1), so a
             # planned song grades as it did.
             hook_in_class = _hs is not None and any(_hs in c for c in dealt)
+        # A POINTER IS READ IN THE SONG'S LANGUAGE (2026-11-23): the
+        # language this reviser reads in, through its own lexicon
+        # (`_relation_phonology`). ~~None~~ asked every language's pointer.
         rep = GR.song_function_report(song, hooks=hooks,
                                       rhyme_key=GR.rime_cmudict(self.lex),
                                       classes=classes,
                                       hook_in_class=hook_in_class,
+                                      language=self._relation_phonology().language,
                                       selected_roles=getattr(self.lex, "catalog_placement_roles", ()))
         # The plan's own reason for declaring no hook, or "" (see the note
         # at `unasked` below). Read once: the coverage rows and the refusal

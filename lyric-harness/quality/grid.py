@@ -2995,7 +2995,7 @@ def single_use_off_edge(song, fn):
 
 
 def return_findings(song, function="chorus", convention=POPULAR_SONG,
-                    rhyme_key=None, decl=None, planned=False):
+                    rhyme_key=None, decl=None, planned=False, language=None):
     """Does this function land in the same place, and the same shape, each
     time it returns?  -> (findings, refusals, returns).
 
@@ -3077,7 +3077,12 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     slots = [song.slot_profile(s) for s in inst]
     reference_blocks = [[l.text for l in song.lines_in(s)] for s in inst]
     import lyric_harness as LH
-    has_pointer = any(LH.is_chorus_stub(line)
+    # THE SONG'S OWN POINTERS (2026-11-23). ~~`LH.is_chorus_stub(line)`~~
+    # asked every language's pointer, so an English song whose line ended
+    # in another language's pointer was refused here for a reason no writer
+    # of it could guess. `language` is the song's (None asks them all, as
+    # before, for a caller that has none).
+    has_pointer = any(LH.is_chorus_stub(line, language)
                       for block in reference_blocks for line in block)
     if has_pointer:
         refusals.append(Refusal(
@@ -3106,7 +3111,7 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             [l.text for l in song.lines_in(inst[k])],
             decl=decl, rhyme_key=rhyme_key,
             first_slot=slots[0], again_slot=slots[k],
-            reference_blocks=reference_blocks)
+            reference_blocks=reference_blocks, language=language)
         rets.append((inst[0], inst[k], r))
 
     # THE RETURN'S OWN REFUSALS, COLLECTED 2026-08-14. `compare_returns`
@@ -3406,7 +3411,7 @@ def _came_back(song, src, dst, anywhere=False):
 
 def reprise_findings(song, later="outro", earlier="intro",
                      convention=POPULAR_SONG, rhyme_key=None, decl=None,
-                     classes=None):
+                     classes=None, language=None):
     """Does ONE declared function's section come back to ANOTHER'S?
     -> (findings, refusals, reprises).
 
@@ -3503,7 +3508,8 @@ def reprise_findings(song, later="outro", earlier="intro",
                             first_slot=song.slot_profile(src),
                             again_slot=song.slot_profile(dst),
                             reference_blocks=[[l.text for l in song.lines_in(s)]
-                                              for s in e_inst])
+                                              for s in e_inst],
+                            language=language)
         out.append((src, dst, r))
         if r.kind == "STUB":
             refusals.append(Refusal(
@@ -4019,7 +4025,8 @@ def not_asked(song):
 
 def song_function_report(song, hooks=(), rhyme_key=None,
                          convention=POPULAR_SONG, decl=None, classes=None,
-                         hook_in_class=False, *, selected_roles=()):
+                         hook_in_class=False, *, selected_roles=(),
+                         language=None):
     """Every function-dependent question, asked once. -> dict.
 
     `classes`: the plan's return classes (sets of 1-based line numbers) when
@@ -4125,7 +4132,7 @@ def song_function_report(song, hooks=(), rhyme_key=None,
                           for i in single_use_off_edge(song, fn)}
     for fn in sorted(ask):
         f, r, rets = return_findings(song, fn, convention, rhyme_key, decl,
-                                     planned=planned)
+                                     planned=planned, language=language)
         ask_one(f, r)
         detail[fn] = rets
     # THE CROSS-FUNCTION HALF. Every question above asks whether ONE declared
@@ -4149,7 +4156,8 @@ def song_function_report(song, hooks=(), rhyme_key=None,
         if not song.instances_of(ln) or not song.instances_of(en):
             continue
         f, r, reps = reprise_findings(song, ln, en, convention, rhyme_key,
-                                      decl, classes=classes)
+                                      decl, classes=classes,
+                                      language=language)
         ask_one(f, r)
         reprises[(ln, en)] = reps
     # WHERE THE SECTIONS SIT (2026-08-22, `MISSING.md` M-54). One question,

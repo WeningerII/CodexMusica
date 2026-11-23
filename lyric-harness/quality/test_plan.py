@@ -9641,6 +9641,100 @@ def test_the_stop_rules():
     check("...and HOOK_ABSENT cannot fire: a hook line is in the draft, and "
           "a plan with no hook line asks for no hook", not hook_bad,
           hook_bad[:3])
+    # A POINTER IS READ IN THE SONG'S LANGUAGE (2026-11-23). The grader's
+    # pointer spellings are keyed by language (`LH.CHORUS_STUB_FORMS`), and
+    # the function layer asked every language's: an English planned song
+    # whose line ended in another language's pointer was refused for a
+    # reason no writer of it could guess. Read off the grader, on plans
+    # found by seed and their own drafts: a free line of a section the
+    # grader compares (one that an own-language pointer at its end stops)
+    # and a free reprise line are each ended in every spelling the table
+    # lists; the song's own language's spellings still stop the song, and
+    # no other language's does.
+    lang_own = reviser._relation_phonology().language
+    spellings = {}
+    for _langs, _label, _pat in _LH.CHORUS_STUB_FORMS:
+        for _sp in _label.split(" (")[0].split(" / "):
+            spellings[_sp.strip()] = lang_own in _langs
+    mine = sorted(s for s, ok in spellings.items() if ok)
+    theirs = sorted(s for s, ok in spellings.items() if not ok)
+
+    def _lang_grade(p, lines):
+        gs = [g.split(",") for g in p["groups"].split(";")] if p["groups"] else []
+        rets = ([[int(x) for x in r.split(",")] for r in p["returns"].split(";")]
+                if p["returns"] else None)
+        m = SC.mandate(gs, n_lines=p["total_lines"], returns=rets,
+                       relations=p.get("relations"),
+                       default_relation=p.get("relation"))
+        got = reviser.inspect(list(lines), m, blueprint=fill_plan(p, lines),
+                              subdivision=_FT.Subdivision(
+                                  p["subdivision"], source="test_plan pointer"))
+        return got["coverage"]
+
+    def _bound(p):
+        out = set()
+        for g in (p["groups"] or "").split(";"):
+            out.update(int(x.split(".")[0]) for x in g.split(",") if x.strip())
+        for r in (p["returns"] or "").split(";"):
+            out.update(int(x) for x in r.split(",") if x.strip())
+        return out
+
+    def _free_lines(p, later_of):
+        at = {}
+        for sl in p["line_slots"]:
+            at.setdefault(sl["section"], []).append(sl["line"])
+        seen, out = set(), []
+        for s in p["sections"]:
+            fn = s["function"]
+            if later_of(fn, seen):
+                out += [ln for ln in at.get(s["name"], ())
+                        if ln not in _bound(p)]
+            seen.add(fn)
+        return out
+
+    def _function_refused(cov):
+        return [o for o in cov["refused_obligations"]
+                if str(o).startswith("function:")]
+
+    lang_cases = {}
+    for label, later_of, kinds in (
+            ("a section sung again", lambda fn, seen: fn in seen,
+             [dict(form="verse-chorus", lines=16), dict(form="open", lines=16)]),
+            ("a reprise", lambda fn, seen: fn == "reprise" and "chorus" in seen,
+             [dict(functions=["verse", "chorus", "verse", "chorus", "reprise"],
+                   lines=16)])):
+        for kw in kinds:
+            for _seed in range(1, 200):
+                if label in lang_cases:
+                    break
+                try:
+                    p = make_plan(seed=_seed, **kw)
+                except PLN.PlanRefused:
+                    continue
+                if not p.get("line_slots"):
+                    continue
+                clean = dummy_draft(p)
+                for ln in _free_lines(p, later_of)[:2]:
+                    hit = list(clean)
+                    hit[ln - 1] = clean[ln - 1] + " " + mine[0]
+                    if (_lang_grade(p, clean)["certified"]
+                            and _function_refused(_lang_grade(p, hit))):
+                        lang_cases[label] = (_seed, kw, p, ln, clean)
+                        break
+    lang_bad = []
+    for label, (_seed, kw, p, ln, clean) in lang_cases.items():
+        for sp in mine + theirs:
+            hit = list(clean)
+            hit[ln - 1] = clean[ln - 1] + " " + sp
+            stopped = bool(_function_refused(_lang_grade(p, hit)))
+            if stopped != (sp in mine):
+                lang_bad.append((label, _seed, ln, sp, stopped))
+    check("a line's pointer is read in the song's language: on a section "
+          "sung again and on a reprise, found by seed, a line ending in one "
+          f"of the {lang_own!r} spellings ({mine}) stops the song, and one "
+          f"ending in another language's ({theirs}) does not",
+          len(lang_cases) == 2 and mine and theirs and not lang_bad,
+          (sorted(lang_cases), lang_bad))
 
 
 def test_a_late_start_is_named_as_the_grader_names_it():
