@@ -57,6 +57,9 @@ both unchanged. The tier 1 counts are 2,445 pools with at least 2 spelling
 classes, 281 with at least 5, 23 with at least 12, and 6 with at least 20
 (previously 2,813 / 591 / 163 / 82). A spelling class is now the word's
 letters from the vowel its rhyme is heard on, primary or secondary stress.
+A word whose letters do not line up with its sounds (835 of the 117,493
+all-letter dictionary words, 0.71%, mostly initialisms) keeps the earlier
+counted cut (`quality/test_letter_sound.py` section 4 holds the share under 1%).
 The earlier key cut each word at its last PRIMARY stress and counted vowel
 letter groups from the end, so words that rhyme on a secondary stress were
 filed apart: `related`, `celebrated` and `eliminated` were three classes
