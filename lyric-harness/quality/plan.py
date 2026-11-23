@@ -8310,8 +8310,11 @@ def group_rules(plan):
     # HOW LONG A LINE A WORD PLACE NEEDS (2026-11-23, with the owner's ruling
     # of that day that a tie inside a line may name any word up to the
     # 22nd). A member `L.Tn` is line L's nth sung word to the grader
-    # (`pronunciation.numbered_groups`), which refuses a shorter line whole,
-    # before anything is graded. So the brief says each such line's least
+    # (`pronunciation.numbered_groups`). ~~It refuses a shorter line whole,
+    # before anything is graded~~ (2026-11-23, the owner's ruling "mark the
+    # line"): a shorter line gets a flag saying how long it must be, and the
+    # draft cannot pass until it is that long (`Reviser.grade`). So the
+    # brief says each such line's least
     # length, once, after the group list. The count is the grader's: words
     # in parentheses are left out unless `voices` is set, and a word joined
     # by a hyphen is one word (`lyric_harness.reader_token_spans`).

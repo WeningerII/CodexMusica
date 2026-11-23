@@ -153,8 +153,61 @@ def numbered_token(line, token, lex, numbering=None, word=None):
     return hits[0]
 
 
-def numbered_groups(groups, lines, lex, numbering=None):
-    """Normalize explicit Tn slots only; named placements retain their meaning."""
+def _sung_count(line, mark):
+    # The line's sung words under one numbering, cut as `numbered_token`
+    # cuts them.
+    from lyric_harness import reader_token_spans
+    return len(reader_token_spans(line, '+voices' not in mark, mark.split('+')[0]) or [])
+
+
+def short_place(line, token, lex, numbering=None):
+    """-> None, or (words, left_out) when the word place `token` lies past
+    the end of `line` under every numbering this call reads.
+
+    Those are the numberings `numbered_token` reads: the declared one and
+    the one in force, or, with none declared, the one in force and v1 at the
+    same `voices` setting. A place the line holds under either of them,
+    even as its last word, is not short: it resolves, or refuses, as before.
+    `words` is the line's length under the numbering in force, and
+    `left_out` the words in parentheses that numbering leaves out (0 when
+    `voices` is set)."""
+    if type(token) is not int or numbering is not None and numbering not in NUMBERINGS:
+        return None
+    current = numbering_of(lex)
+    other = numbering if numbering is not None else 'v1' + ('' if lex.strip_parens else '+voices')
+    if any(token <= _sung_count(line, mark) for mark in (current, other)):
+        return None
+    words = _sung_count(line, current)
+    left_out = 0 if '+voices' in current else _sung_count(line, current + '+voices') - words
+    return words, max(left_out, 0)
+
+
+def short_line_sentence(line_no, words, token, who, left_out=0):
+    """The one sentence a line too short for its word place gets: the grade's
+    flag on that line (`Reviser.grade`), and the refusal of a short return
+    place (`numbered_groups`). `who` names what placed the word ("Group E",
+    "A return"); the count is the grader's, and says so when words in
+    parentheses were left out of it."""
+    from quality.plan import UNLESS_VOICES
+    aside = f" (words in parentheses are not counted {UNLESS_VOICES})" if left_out else ""
+    return (f"Line {line_no} has {words} word{'' if words == 1 else 's'}{aside}. "
+            f"{who} names its word {token}. "
+            f"Write line {line_no} with at least {token} words.")
+
+
+def numbered_groups(groups, lines, lex, numbering=None, returns=False):
+    """Normalize explicit Tn slots only; named placements retain their meaning.
+
+    A PLACE PAST THE END OF ITS LINE (2026-11-23, the owner's ruling "mark
+    the line"). A member `L.Tn` whose line is shorter than n words under
+    every numbering this call reads (`short_place`) is kept as written in a
+    group: the grade files a flag on line L for it (`Reviser.grade`) and
+    the rest of the draft is graded. In `returns` it is refused, in the
+    flag's own words: only a caller can place a return (the planner never
+    does), and the return judge files no flag for one. ~~Both refused as
+    "cannot resolve token n in ... the line has k sung tokens"~~, which
+    stopped the whole grade and named neither the line nor what to write.
+    """
     import re
     out = []
     for group in groups:
@@ -165,6 +218,13 @@ def numbered_groups(groups, lines, lex, numbering=None):
                 line, token = map(int, match.groups())
                 if not 1 <= line <= len(lines):
                     raise ValueError(f'{member}: line does not exist')
+                short = short_place(lines[line - 1], token, lex, numbering)
+                if short is not None:
+                    if returns:
+                        raise ValueError(short_line_sentence(
+                            line, short[0], token, 'A return', short[1]))
+                    members.append(member)
+                    continue
                 mapped = numbered_token(lines[line - 1], token, lex, numbering)
                 member = f'{line}.T{mapped}'
             members.append(member)

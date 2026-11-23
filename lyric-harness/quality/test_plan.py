@@ -5280,14 +5280,19 @@ def test_a_rule_row_says_what_the_grader_accepts():
     # A WORD PLACE SAYS HOW LONG ITS LINE MUST BE (2026-11-23, item 1 of the
     # owner's removals: a tie inside a line may name any word up to the
     # 22nd). A group member `L.Tn` is resolved on line L as its nth sung
-    # word (`pronunciation.numbered_groups`), and a line with fewer is
-    # refused whole before anything is graded. The brief says each such
+    # word (`pronunciation.numbered_groups`). ~~A line with fewer is
+    # refused whole before anything is graded~~ REPINNED 2026-11-23 (the
+    # owner's ruling "mark the line"): a line with fewer gets a flag saying
+    # how long it must be (`Reviser.grade`). The brief says each such
     # line's least length once, after the group list. Read off the grader:
     # on a plan found by seed, each named line of the plan's own draft is
-    # cut to every length, and the shortest the grader accepts is the number
-    # the brief prints for it; a word in parentheses is not counted unless
-    # `voices` is set, and two words joined by a hyphen count once.
-    from quality import pronunciation as _PRw
+    # cut to the number the brief prints for it, N, and to N - 1, and the
+    # grade flags the line at N - 1 and not at N (~~the shortest length the
+    # grader accepts is N~~: a shorter line is no longer refused, so a line
+    # cut to no words would be accepted); a word in parentheses is not
+    # counted unless `voices` is set, and two words joined by a hyphen count
+    # once.
+    from quality import revise as _RVw
     lex_w = LH.Lexicon()
     lex_wv = LH.Lexicon(strip_parens=False)
     found = None
@@ -5312,36 +5317,49 @@ def test_a_rule_row_says_what_the_grader_accepts():
                     if re.fullmatch(r"\d+\.T\d+", m)})
     draft_w = dummy_draft(pw) if pw else []
 
-    def _accepts(lines, lex):
-        try:
-            _PRw.numbered_groups(groups_w, lines, lex, None)
-        except ValueError:
-            return False
-        return True
+    rets_w = ([[int(x) for x in r.split(",")] for r in pw["returns"].split(";")]
+              if pw.get("returns") else None)
+    mandate_w = (SC.mandate(groups_w, n_lines=pw["total_lines"], returns=rets_w,
+                            relations=pw.get("relations"),
+                            default_relation=pw.get("relation"))
+                 if pw else None)
 
+    def _short_flag(lines, lex, ln):
+        # -> the grade's short-line flag on line `ln`, or None.
+        got = _RVw.Reviser(lex=lex).inspect(list(lines), mandate_w)
+        return next((f for f in got["per_line"].get(ln, ())
+                     if f.code == "SCHEME_VIOLATION"
+                     and f.message.startswith(f"Line {ln} has ")), None)
+
+    brief_lines = str(pw.get("writer_brief") or "").splitlines()
+    said_at = [t for t in brief_lines
+               if t.startswith("A group that names a word inside a line")]
+    least_printed = {int(a): int(b) for a, b in re.findall(
+        r"line (\d+) (?:needs )?at least (\d+)", said_at[0] if said_at else "")}
     least_read, parens_bad, hyphen_bad = {}, [], []
     for ln in named:
         words = draft_w[ln - 1].split(" ")
-        cut = list(draft_w)
-        for k in range(len(words) + 1):
-            cut[ln - 1] = " ".join(words[:k])
-            if _accepts(cut, lex_w):
-                least_read[ln] = k
-                break
-        k = least_read.get(ln)
-        if not k or k < 2:
+        k = least_printed.get(ln)
+        if not k or k < 2 or k > len(words):
             continue
-        # The shortest accepted line with its last word in parentheses, and
-        # with its first two words joined by a hyphen.
+        at, short = list(draft_w), list(draft_w)
+        at[ln - 1] = " ".join(words[:k])
+        short[ln - 1] = " ".join(words[:k - 1])
+        if _short_flag(short, lex_w, ln) and not _short_flag(at, lex_w, ln):
+            least_read[ln] = k
+        # The line at N words with its last word in parentheses (flagged,
+        # saying why, unless `voices` is set), and with its first two
+        # words joined by a hyphen (N - 1 words, so flagged).
         inner = list(draft_w)
         inner[ln - 1] = " ".join(words[:k - 1] + [f"({words[k - 1]})"])
-        if _accepts(inner, lex_w) or not _accepts(inner, lex_wv):
+        flag = _short_flag(inner, lex_w, ln)
+        if (not flag or "words in parentheses are not counted" not in flag.message
+                or _short_flag(inner, lex_wv, ln)):
             parens_bad.append((ln, inner[ln - 1]))
         joined = list(draft_w)
         joined[ln - 1] = " ".join([f"{words[0]}-{words[1]}"] + words[2:k])
-        if _accepts(joined, lex_w):
+        if not _short_flag(joined, lex_w, ln):
             hyphen_bad.append((ln, joined[ln - 1]))
-    brief_lines = str(pw.get("writer_brief") or "").splitlines()
     said = [i for i, t in enumerate(brief_lines)
             if t.startswith("A group that names a word inside a line")]
     last_group = max((i for i, t in enumerate(brief_lines)
@@ -5351,8 +5369,10 @@ def test_a_rule_row_says_what_the_grader_accepts():
     printed = {int(a): int(b) for a, b in re.findall(
         r"line (\d+) (?:needs )?at least (\d+)", sentence)}
     check("a group that names a word inside a line says, once and right "
-          "after the group list, how many words each such line needs; the "
-          "number is the shortest line the grader accepts there, a word in "
+          "after the group list, how many words each such line needs; "
+          "~~the number is the shortest line the grader accepts there~~ "
+          "REPINNED 2026-11-23: the grade flags the line at one word fewer "
+          "and not at that number, a word in "
           "parentheses is not counted unless `voices` is set, and two words "
           "joined by a hyphen count once (plan found by seed "
           f"{seed_w}, {lines_w} lines)",

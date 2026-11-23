@@ -18,8 +18,10 @@ const hash = (value) => createHash('sha256').update(JSON.stringify(value)).diges
 // sized for the places the planner named before that ruling, none past the
 // old words-per-line band: on main no draw of this test's steps refused (no
 // tool error in 91 draws). With the ruling a plan may tie word 9, and a line
-// shorter than its tie is refused, not graded ("cannot resolve token 9 ...
-// the line has 7 sung tokens"). The line has at least k + 1 words when the
+// shorter than its tie ~~is refused, not graded ("cannot resolve token 9 ...
+// the line has 7 sung tokens")~~ is graded with a flag on that line (since
+// 2026-11-23, the owner's ruling "mark the line"), which this test's steps
+// would read as a finding of their own. The line has at least k + 1 words when the
 // plan ties word k, as `dummy_draft` does in quality/test_plan.py, so that
 // word is an inner word as the plan says; the extra words repeat the line's
 // own words, and it still ends on 'rain'. Every line is the same line, so a

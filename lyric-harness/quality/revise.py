@@ -1924,6 +1924,56 @@ class Reviser:
         # unanchorable token in another, and those are different questions.
         # Resolution is memoised per (group, line) so a group of nine costs
         # nine resolves and not thirty-six.
+        # A WORD PLACE PAST THE END OF ITS LINE IS A FAILED PAIR, NOT A
+        # REFUSAL (2026-11-23, the owner's ruling "mark the line"). A group
+        # that ties word 8 of a 7-word line asks for a word the line does not
+        # have, so the tie is not met: the pair is judged, and fails, and the
+        # short line gets one flag saying how long it must be
+        # (`pronunciation.short_line_sentence`). It was refused whole before
+        # anything was graded (`pronunciation.numbered_groups`), and where a
+        # caller's place reached this block it read as NO ANCHOR below, with
+        # advice to choose a reading for a word that is not there. Counted
+        # under the numbering in force, as the place itself is.
+        _short_pairs = {}
+        if m.slots_declared():
+            from quality import pronunciation as _PRs
+            _short_seen, _in_force = {}, _PRs.numbering_of(self.lex)
+
+            def _short(k, line):
+                key = (k, line)
+                if key not in _short_seen:
+                    slot = m.slot_of(k, line)
+                    n0 = (None if _SL.is_default(slot)
+                          or _SL.as_slot(slot).rule.locus != "any_token"
+                          else _SL.token_of(slot))
+                    _short_seen[key] = (None if n0 is None else
+                                        _PRs.short_place(lines[line - 1],
+                                                         n0 + 1, self.lex,
+                                                         _in_force))
+                    if _short_seen[key] is not None:
+                        _short_seen[key] = (n0 + 1, *_short_seen[key])
+                return _short_seen[key]
+
+            for i, j, k in pairs:
+                short = [(ln, sh) for ln, sh in ((i, _short(k, i)),
+                                                 (j, _short(k, j))) if sh]
+                if short:
+                    _short_pairs[(i, j, k)] = short
+            # Failed wins over refused: an end word the scalar block above
+            # could not read on the OTHER line does not make a missing word
+            # a question nobody can answer.
+            _short_labels = collections.defaultdict(set)
+            for i, j, k in _short_pairs:
+                refused.discard((i, j, k))
+                _short_labels[(i, j)].add(m.labels[k])
+            _kept_refusals = []
+            for r in refusals:
+                r["groups"] = [g for g in r["groups"]
+                               if g not in _short_labels.get(tuple(r["lines"]), ())]
+                if r["groups"]:
+                    _kept_refusals.append(r)
+            refusals = _kept_refusals
+
         if m.slots_declared():
             _seen, _slot_ref = {}, []
 
@@ -1940,6 +1990,8 @@ class Reviser:
                 return _seen[key]
 
             for i, j, k in pairs:
+                if (i, j, k) in _short_pairs:
+                    continue          # failed, not refused: above
                 bad = [(ln, sl) for ln, sl in
                        ((i, _anchorless(k, i)), (j, _anchorless(k, j))) if sl]
                 if not bad:
@@ -2125,6 +2177,24 @@ class Reviser:
         # draft while a slot pair is scored per pair.
         _slotted = m.slots_declared()
         for (i, j, k) in pairs:
+            if (i, j, k) in _short_pairs:
+                # A FAILED PAIR WITH NOTHING TO SCORE (above): a verdict whose
+                # `why` is the short line's sentence, and whose `short` names
+                # each short side, so `inspect` files the flag on that line.
+                _ew = (endwords[i - 1], endwords[j - 1])
+                verdicts.append({
+                    "lines": (i, j), "group": k, "label": m.labels[k],
+                    "members": list(m.groups[k]), "endwords": _ew,
+                    "score": 0.0, "relations": [], "admitted": [],
+                    "satisfied_by": [], "spans": None, "attribution": "",
+                    "structure": None, "flags": [],
+                    "short": [{"line": ln, "token": n, "words": w,
+                               "left_out": lo}
+                              for ln, (n, w, lo) in _short_pairs[(i, j, k)]],
+                    "why": " ".join(_PRs.short_line_sentence(
+                        ln, w, n, f"Group {m.labels[k]}", lo)
+                        for ln, (n, w, lo) in _short_pairs[(i, j, k)])})
+                continue
             if (i, j, k) in refused:
                 unknown.add((i, k))
                 unknown.add((j, k))
@@ -2668,7 +2738,10 @@ class Reviser:
         # set gains every schema its BOUND WORDS stand in; in a group whose
         # route is open (nothing narrowed or declared), a pair is satisfied
         # when ANY relation in that set holds.
-        _open = [v for v in verdicts if self.schema_route_open(m, v["group"])]
+        # A short pair (`_short_pairs`) binds a word its line does not have:
+        # no schema can hold there, and none is asked.
+        _open = [v for v in verdicts if not v.get("short")
+                 and self.schema_route_open(m, v["group"])]
         # `_verdicts_only` (a TRIAL grade, `declared_offer`): the caller reads
         # only violations and refusals, and a pair's schemas can change
         # those only where the group's route is open and the coarse
@@ -2677,7 +2750,8 @@ class Reviser:
         # REPEAT pairs are asked too (2026-10-27, end-of-day plan, #519):
         # identical bound words that satisfy a type are not charged.
         _asked = ([v for v in _open if v["why"]]
-                  if _verdicts_only else verdicts)
+                  if _verdicts_only else
+                  [v for v in verdicts if not v.get("short")])
         # `_moot` (a trial grade only): obligations (i, j, group) whose
         # answer the caller reads the same satisfied or undecided -- it left
         # them undecided on the draft before the change, and the change was
@@ -4609,9 +4683,36 @@ class Reviser:
                 or set(m.groups_of(u)) & set(m.groups_of(v))
                 for u in a for v in b)
 
+        from quality import pronunciation as _PRf
         _sv_lines = set()
+        _short_filed = set()
         for v in rep["violations"]:
             i, j = v["lines"]
+            if v.get("short"):
+                # A LINE TOO SHORT FOR ITS WORD PLACE (`grade()`): one flag
+                # on the short line itself, per group, saying how long it
+                # must be. Never held: the line is short whatever the copy.
+                for side in v["short"]:
+                    ln = side["line"]
+                    if (ln, v["label"]) in _short_filed:
+                        continue
+                    _short_filed.add((ln, v["label"]))
+                    # Not in `_sv_lines`: that names a copied line by its
+                    # rhyme flag, and a short line is another fact.
+                    other = j if ln == i else i
+                    add(ln, Finding(
+                        "SCHEME_VIOLATION", "flag",
+                        _PRf.short_line_sentence(
+                            ln, side["words"], side["token"],
+                            f"Group {v['label']}", side["left_out"]),
+                        f"group {v['label']} {v['members']} ties word "
+                        f"{side['token']} of line {ln} to line {other}, and "
+                        f"the grader counts {side['words']} sung word"
+                        f"{'' if side['words'] == 1 else 's'} on line {ln}, "
+                        f"so the tie is not met until line {ln} has a word "
+                        f"{side['token']}", [ln],
+                        groups=(v["label"],)))
+                continue
             _copied = "".join(f" L{x} copies L{_copy_of[x]}."
                               for x in (i, j) if x in _copy_of)
             _violation = Finding(

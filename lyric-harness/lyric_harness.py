@@ -11763,7 +11763,10 @@ def main():
             groups = [[m.strip() for m in g.split(',') if m.strip()]
                       for g in (values[0] if values else '').split(';') if g.strip()]
             try:
-                groups = numbered_groups(groups, lines, lex, numbering)
+                # A short place is kept in a group and refused in a return,
+                # as the grade does (`numbered_groups`).
+                groups = numbered_groups(groups, lines, lex, numbering,
+                                         returns=field == 'returns')
             except ValueError as e:
                 _refuse(f'{field}: {e}')
             canonical[field] = ';'.join(','.join(g) for g in groups)
@@ -14988,7 +14991,11 @@ def main():
                     from quality.pronunciation import numbered_groups
                     try:
                         start_notices = len(lex._numbering_notices)
-                        groups = numbered_groups(groups, lines, lex, numbering)
+                        # A place past the end of its line is kept in a
+                        # group, for the grade to flag, and refused in a
+                        # return (`numbered_groups`).
+                        groups = numbered_groups(groups, lines, lex, numbering,
+                                                 returns=field == "returns")
                         if (numbering is not None or len(lex._numbering_notices) > start_notices) and any(
                                 re.fullmatch(r'\d+\.T[1-9]\d*', str(m))
                                 for g in groups for m in g):
