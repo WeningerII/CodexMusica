@@ -235,6 +235,90 @@ class WritingRhymeBanTests(unittest.TestCase):
                                              self.writer.joint_field([call]))
         self.assertGreater(asked, 0, "PREMISE: a brief handed over a marked word")
 
+    def test_a_word_s_own_apostrophe_with_a_quote_mark_after_it_follows_the_grader(self):
+        """The review of the bug hunt's fixes, 2026-11-23, the planner owner's
+        question: does a word that ends in its own apostrophe get the same
+        pool and offers when a closing quote mark is typed after it?
+
+        The search is handed a line's end word as the reader cuts it, and it
+        hears that word through the reader the grader hears a line's end
+        through (`Reviser._word_anchors`). So the answer is the reader's:
+        - a double quotation mark never gets as far as the search;
+        - a single one stays on the word as a second apostrophe. Where the
+          grader hears the word with it as it hears the plain word, the
+          search has to give the same words;
+        - where the grader hears the two differently (a few words; the fix
+          is the reader's and rides in the pronunciation batch), the search
+          hears what the grader hears. A search that read the mark away on
+          its own would offer words for a sound the grader does not judge.
+        Once the reader reads the second mark away, no word is heard
+        differently and the first case covers every word drawn.
+
+        Words are drawn by seed from every dictionary word that ends in an
+        apostrophe: some the grader hears differently with the second mark,
+        while any exist, and five whose banned-partner list is not empty."""
+        import random
+        from lyric_harness import line_anchors, raw_final_token
+        from quality.loop import _lex_cut
+        rng = random.Random(20261123)
+        ends = sorted(w for w in self.writer.lex.entries
+                      if w.endswith("'") and not w.startswith("'")
+                      and len(w) > 2 and w[:-1].isalpha() and w.islower())
+        self.assertGreater(len(ends), 500, "PREMISE: the dictionary's words "
+                           "that end in an apostrophe")
+
+        def sounds(anchors):
+            return [[(s["nucleus"], tuple(s["coda"]), tuple(s["onset"]),
+                      s["stress"]) for s in a] for a in anchors]
+
+        def heard(word):
+            """-> the word as the grader hears it at a line's end."""
+            return sounds(line_anchors(self.writer.lex, word,
+                                       promote=self.writer._promote())[0])
+
+        def handed(word, mark):
+            """-> the end word a brief hands the search for a line that ends
+            in this word with this mark after it."""
+            return raw_final_token(f"they said {word}{mark}",
+                                   *_lex_cut(self.writer))
+
+        apart = [w for w in ends if heard(w + "'") != heard(w)]
+        banning = []
+        for call in rng.sample(ends, len(ends)):
+            if call not in apart and self.writer.modal_head_evidenced(call):
+                banning.append(call)
+            if len(banning) == 5:
+                break
+        self.assertEqual(len(banning), 5, "PREMISE: five drawn words whose "
+                         "banned-partner list is not empty")
+        alike = 0
+        for call in rng.sample(apart, min(3, len(apart))) + banning:
+            written = call + "'"
+            # What reaches the search: never a double quotation mark, and a
+            # single one as the second apostrophe (or, once the reader reads
+            # it away, the word itself).
+            for mark in ("", '"', "”"):
+                self.assertEqual(handed(call, mark), call)
+            for mark in ("’", "'"):
+                self.assertIn(handed(call, mark), (written, call))
+            with self.subTest(call=written):
+                # The search hears the call word as the grader hears it.
+                self.assertEqual(
+                    sounds(self.writer._word_anchors(written)[0]),
+                    heard(written))
+                if heard(written) != heard(call):
+                    continue
+                alike += 1
+                self.assertEqual(self.writer.modal_head_evidenced(written),
+                                 self.writer.modal_head_evidenced(call))
+                self.assertEqual(self.writer.modal_head(written),
+                                 self.writer.modal_head(call))
+                self.assertEqual(self.writer.joint_field([written]),
+                                 self.writer.joint_field([call]))
+                self.assertEqual(self.writer._widen_pool(written),
+                                 self.writer._widen_pool(call))
+        self.assertGreaterEqual(alike, 5)
+
     def test_shared_spelling_on_consonance_only_is_not_a_rhyme_ban(self):
         # have/save share -ave but their stressed vowels differ. A declared
         # consonance is satisfied without pretending this is an actual rhyme.
