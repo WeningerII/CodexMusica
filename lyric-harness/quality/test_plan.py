@@ -6274,9 +6274,12 @@ def test_the_type_draw():
             # no line, and the receipt lists its first line instead. Before
             # the 150-line cap no open seed in 1-40 drew one, so the helper
             # never met the case; seed 38 now does.
-            # It is not a source for a later reprise either.
+            # REPINNED 2026-11-23: ~~It is not a source for a later reprise
+            # either.~~ It sings new words, so its first line is a source
+            # for a later reprise, as any sung section's is.
             if fn == "reprise" and not heads and ls[0] in lineless:
                 first_of.setdefault(fn, ls[0])
+                heads.append(ls[0])
                 continue
             if fn == "reprise":
                 src, line = next(value, (None, None))
@@ -6363,6 +6366,39 @@ def test_the_type_draw():
                       "no_line_before", ())) == (not sung)
                   for (line, sung), p in _heads),
           [(h, p["returns"]) for h, p in _heads][:6])
+    # A REPRISE AFTER ONE THAT BROUGHT BACK NO LINE (2026-11-23): the
+    # earlier reprise sings new words, so its first line is a source for the
+    # later one, as `_reprise_heads` above already reads it (a section with
+    # lines is sung). ~~Such a reprise was no source~~, so a second reprise
+    # with only it before was planned with no line to bring back. The
+    # witness is the first seed, by scan, whose plan has a reprise after a
+    # reprise that brought back no line.
+    _after_lineless = None
+    for _seed in range(400):
+        _p = make_plan(_seed, functions=["solo", "reprise", "verse"], lines=24)
+        _lineless = list((_p["choices"].get("reprise") or {}).get(
+            "no_line_before", ()))
+        _later = [h for h, _sung in _reprise_heads(_p)
+                  if _lineless and h > min(_lineless)]
+        if _later:
+            _after_lineless = (_seed, _p, _lineless, _later)
+            break
+    if _after_lineless is None:
+        check("a seed in 0-399 plans a reprise after one that brought back "
+              "no line", False)
+    else:
+        _seed, _p, _lineless, _later = _after_lineless
+        _drawn = _p["choices"].get("reprise") or {}
+        _src_of = {line: srcs for (_s, line), srcs in zip(
+            _drawn.get("value", ()), _drawn.get("sources", ()))}
+        check("a reprise after one that brought back no line brings back a "
+              "line, drawn from sources that hold the earlier reprise's "
+              "first line",
+              all(h in _src_of and all(x in _src_of[h]
+                                       for x in _lineless if x < h)
+                  for h in _later)
+              and _p["returns"] == _expected_returns(_p)[0],
+              (_seed, _lineless, _later, _drawn, _p["returns"]))
     # A BRIDGE NEEDS A SECTION BEFORE IT (owner's ruling, 2026-11-15): both
     # live retests of 2026-11-14 planned one as the song's first section.
     _all = opens + opens_40 + vcs

@@ -6117,10 +6117,15 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # gets no pair. ~~A drawn order with no sung section before the
         # reprise was drawn again~~: that was a second placement rule beside
         # `placement_findings`, which the length proof does not read.
+        # SUCH A REPRISE STILL SINGS NEW WORDS (2026-11-23), so its first
+        # line is a source for a later reprise, as any sung section's is.
+        # ~~It was no source~~, and a second reprise with only it before
+        # was planned with no line to bring back.
         copied = any(first in g[1:] for g in prescribed_returns) or (
             fn in VERBATIM_RETURNERS and fn in first_seen)
         if fn == "reprise" and not copied and not fresh_heads:
             reprise_lineless.append(first)
+            fresh_heads.append(first)
         elif fn == "reprise" and not copied:
             source = reprise_rng.choice(fresh_heads)
             returns.append([source, first])
