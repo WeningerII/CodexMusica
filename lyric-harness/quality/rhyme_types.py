@@ -2749,7 +2749,8 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
             return []
         key = lh.fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
         end_reader = reader.for_token(len(words) - 1) if hasattr(reader, "for_token") else reader
-        prons = end_reader.entries.get(key)
+        # The end word as spelled (`lyric_harness.end_word_readings`).
+        prons = lh.end_word_readings(end_reader, words[-1])
         # A small end word sung weak and sung stressed are two readings too
         # (owner ruling 2026-10-01), so each is its own candidate.
         ends = (("weak", "stressed")

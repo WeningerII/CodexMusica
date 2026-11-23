@@ -6722,6 +6722,26 @@ def fold_apostrophes(text):
     return text
 
 
+def end_word_readings(reader, word):
+    """-> the readings a check counts for `word` where it ends a line.
+
+    Scheme v2 reads a word spelled with an apostrophe at its edge as spelled,
+    its own entry first and then the bare word's readings it lacks
+    (`Lexicon.pronunciation_variants`), so `'cause` is K AH0 Z before it is
+    `cause`. A check that looked up only the bare key never counted the own
+    entry: it judged a different word from the one the reader reads. Every
+    other word, and every word under the frozen scheme v1, keeps the bare
+    key's entry, as before."""
+    # The bare key is the one every check already used, byte for byte.
+    key = fold_apostrophes(word).lower().strip("'\".,;:!?()[]")
+    bare = list((getattr(reader, "entries", None) or {}).get(key) or ())
+    spelled = fold_apostrophes(word).lower().strip('"\u201c\u201d.,;:!?()[]')
+    if (spelled != spelled.strip("'") and _scheme_of(reader) == "v2"
+            and hasattr(reader, "pronunciation_variants")):
+        return [list(p) for p in reader.pronunciation_variants(word)] or bare
+    return bare
+
+
 #: English enclitics that a 19th-century compositor may set with a SPACE before
 #: the apostrophe: `There 's high and low`, `Wha 'll buy caller herrin'`.
 #: Rogers's 1855 Modern Scottish Minstrel does it 189 times in Nairne and 81 in

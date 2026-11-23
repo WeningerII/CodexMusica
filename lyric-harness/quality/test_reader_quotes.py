@@ -890,6 +890,163 @@ class AJoinedHyphenatedWordKeepsItsLineEnd(unittest.TestCase):
         self.assertEqual(joined[:5], [])
 
 
+class ACheckCountsAnEndWordAsSpelled(unittest.TestCase):
+    """THE READER READS AN EDGE-MARKED WORD AS SPELLED (scheme v2,
+    `AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry`), and a check that
+    counts an end word's readings must count the same ones. The collision
+    check (`coarse_relation_consensus`, quantifier "all") and `revise`'s
+    test for whether an unpaired pair is ambiguous looked up only the bare
+    key, so they judged `bein` where the reader reads `bein'`. A collision is a prohibition, charged only when
+    every reading collides (owner ruling 2026-10-01); here each reading is
+    asked on its own and the verdict must agree with all of them.
+
+    The words are every dictionary word with an apostrophe at its edge whose
+    readings as spelled add one its bare spelling lacks, which ends a line as
+    itself, and whose bare spelling has a stressed reading. Each partner is a
+    seeded draw from the words sharing that stressed reading's rime."""
+
+    SEED, CONTROLS = 913, 200
+
+    @classmethod
+    def setUpClass(cls):
+        lex = cls.lex = LH.Lexicon(strip_parens=True, pronunciations=None,
+                                   reader_scheme="v2")
+        cls.v1 = LH.Lexicon(strip_parens=True, pronunciations=None,
+                            reader_scheme="v1")
+        fold = LH.fold_apostrophes
+
+        def raw(w):
+            return fold(w).lower().strip('"“”.,;:!?()[]')
+
+        def stressed(p):
+            return any(x[-1] in "12" for x in p)
+
+        def rime(p):
+            i = max(k for k, x in enumerate(p) if x[-1] in "12")
+            return (p[i][:-1],) + tuple(p[i + 1:])
+        by = {}
+        for w, prs in lex.entries.items():
+            if w.isalpha() and w.islower():
+                for p in prs:
+                    if stressed(p):
+                        by.setdefault(rime(p), set()).add(w)
+        rng = random.Random(cls.SEED)
+        cls.pairs = []
+        for w in sorted(lex.entries):
+            bare = raw(w).strip("'")
+            if raw(w) == bare or bare not in lex.entries:
+                continue
+            own = [p for p in lex.pronunciation_variants(w)
+                   if p not in lex.entries[bare]]
+            line = f"we sang it {w}"
+            toks = LH.line_tokens(line, strip_parens=True, scheme="v2")
+            heads = [p for p in lex.entries[bare] if stressed(p)]
+            if not own or not toks or toks[-1] != w or not heads:
+                continue
+            partners = sorted(by.get(rime(heads[0]), set()) - {bare})
+            if partners:
+                cls.pairs.append((w, line, rng.choice(partners)))
+        rest = sorted(w for w in lex.entries if w.isalpha() and w.islower())
+        cls.controls = random.Random(cls.SEED).sample(rest, cls.CONTROLS)
+
+    def verdict(self, line, partner, phones=None):
+        # With `phones`, the end word is asked with that one reading: its own
+        # entry and its bare spelling's both hold just it, so the answer does
+        # not depend on which of the two a check looks up.
+        from quality.rhyme_types import coarse_relation_consensus
+        w = line.split()[-1]
+        keys = (w, w.strip("'"))
+        saved = {k: self.lex.entries.get(k) for k in keys}
+        if phones is not None:
+            for k in keys:
+                self.lex.entries[k] = [list(phones)]
+        try:
+            return coarse_relation_consensus(
+                self.lex, line, f"the night was {partner}", LH.Declaration(),
+                relation={"RHYME"}, min_score=LH.THETA_COLLISION,
+                quantifier="all")
+        finally:
+            for k, v in saved.items():
+                if v is None:
+                    self.lex.entries.pop(k, None)
+                else:
+                    self.lex.entries[k] = v
+
+    def test_premise_the_class_is_not_empty(self):
+        self.assertTrue(self.pairs, "PREMISE")
+
+    def test_the_readings_counted_are_the_readings_read(self):
+        for w, _, _ in self.pairs:
+            self.assertEqual(LH.end_word_readings(self.lex, w),
+                             [list(p) for p in
+                              self.lex.pronunciation_variants(w)], w)
+            self.assertEqual(LH.end_word_readings(self.v1, w),
+                             [list(p) for p in self.v1.entries.get(
+                                 w.strip("'").lower(), ())], w)
+        for w in self.controls:
+            self.assertEqual(LH.end_word_readings(self.lex, w),
+                             [list(p) for p in self.lex.entries[w]], w)
+
+    def test_a_collision_is_charged_only_when_every_reading_collides(self):
+        wrong, mixed = [], 0
+        for w, line, partner in self.pairs:
+            each = [self.verdict(line, partner, p)
+                    for p in self.lex.pronunciation_variants(w)]
+            if None in each:
+                continue
+            mixed += len(set(each)) > 1
+            if self.verdict(line, partner) is not all(each):
+                wrong.append((w, partner, each))
+        self.assertTrue(mixed, "PREMISE: no word whose readings disagree")
+        self.assertEqual(wrong, [])
+
+
+    def collisions(self, line, partner):
+        from quality import revise as RV
+        from quality import schemes as SC
+        lines = ["Down the road past the old mill gate", line,
+                 "Dawn comes up and the morning is late",
+                 f"the night was {partner}"]
+        if hasattr(RV, "_SCORE_MEMO"):
+            RV._SCORE_MEMO.clear()
+        rev = RV.Reviser()
+        graded = {(c[0], c[1]) for c in LH.check_scheme(
+            rev.lex, lines, "ABAC", rev.decl)["collisions"]}
+        ins = rev.inspect(lines, SC.mandate("ABAC", n_lines=4))
+        revised = {tuple(f.locations) for fs in ins["per_line"].values()
+                   for f in fs if f.code == "SCHEME_COLLISION"}
+        return graded, revised
+
+    def test_revise_charges_the_collisions_the_grade_charges(self):
+        # `Reviser._collides_however_sung` decides whether an unpaired pair
+        # must be asked again under every reading. Read with the bare key
+        # (as before 2026-11-23) it took a word with one bare reading and two
+        # as spelled for unambiguous, and charged a collision the grade did
+        # not; the bare-key reading is put back at that one place to show it.
+        wrong, split = [], []
+        for w, line, partner in self.pairs:
+            graded, revised = self.collisions(line, partner)
+            if graded != revised:
+                wrong.append((w, partner, graded, revised))
+        saved = LH.end_word_readings
+
+        def bare_here(reader, word):
+            if sys._getframe(1).f_code.co_name == "_collides_however_sung":
+                key = LH.fold_apostrophes(word).lower().strip("'\".,;:!?()[]")
+                return list(reader.entries.get(key) or ())
+            return saved(reader, word)
+        LH.end_word_readings = bare_here
+        try:
+            for w, line, partner in self.pairs:
+                graded, revised = self.collisions(line, partner)
+                if graded != revised:
+                    split.append(w)
+        finally:
+            LH.end_word_readings = saved
+        self.assertEqual(wrong, [])
+        self.assertTrue(split, "PREMISE: the bare key changes no answer")
+
+
 if __name__ == "__main__":
     os.chdir(ROOT)
     unittest.main()
