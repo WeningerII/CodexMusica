@@ -3989,6 +3989,9 @@ def asked_comparisons(functions, convention=POPULAR_SONG):
       sides both occur (`reprise_findings`).
     - "contrasts": each pair of the registry's `contrasts_with` whose two
       sides both occur (`bridge_contrast`), the bridge and the verse first.
+    - "single_use_recurred": each single-use function that occurs more than
+      once, which "returns" holds too. Its copies off the song's edge get the
+      SINGLE_USE_RECURRED note, and the report drops their placement note.
 
     THE ONE PLACE THESE LISTS ARE BUILT (2026-11-23). The planner's stop rows
     name the comparisons the grader makes (`plan._compared_sections`), and
@@ -4003,7 +4006,9 @@ def asked_comparisons(functions, convention=POPULAR_SONG):
         if (RECURRENCE_READERS[SECTION_FUNCTIONS[fn].recurrence] == "asked"
             or fn in convention.fixed_return)}
     recurred = Counter(declared)
-    returns |= {fn for fn in convention.single_use if recurred.get(fn, 0) > 1}
+    single_use_recurred = sorted(fn for fn in convention.single_use
+                                 if recurred.get(fn, 0) > 1)
+    returns |= set(single_use_recurred)
     reprises = []
     for later, earlier in convention.reprises:
         ln, en = as_function(later), as_function(earlier)
@@ -4013,7 +4018,8 @@ def asked_comparisons(functions, convention=POPULAR_SONG):
                  if pair[0] in present and pair[1] in present]
     contrasts.sort(key=lambda pair: pair != ("bridge", "verse"))
     return {"returns": sorted(returns), "reprises": reprises,
-            "contrasts": contrasts}
+            "contrasts": contrasts,
+            "single_use_recurred": single_use_recurred}
 
 
 @dataclass(frozen=True)
@@ -4139,7 +4145,9 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # nothing. Gating on count>1 rather than on declaredness is what keeps a
     # well-formed song silent: a single intro is not a question, so asking
     # would only spend a SINGLE_INSTANCE refusal on every song that has one.
-    recurred = Counter(s.function for s in song.sections if s.declared)
+    # ~~`recurred = Counter(s.function for s in song.sections if
+    # s.declared)`~~ (2026-11-23): `asked_comparisons` lists the single-use
+    # functions that recurred, and the note below reads that list.
     # ~~"EXPECTED ONCE" HAS TWO SPELLINGS and the gate used to read only one of
     # them. `convention.single_use` is a tuple a caller may override; the
     # vocabulary's own `FunctionSpec.recurrence == "once"` is the same
@@ -4169,13 +4177,17 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # default.
     # STAGE 4 (2026-11-16): `convention.single_use` is now read from the
     # column by default, so the union above collapsed to the tuple itself.
-    expects_once = set(convention.single_use)
+    # ~~`expects_once = set(convention.single_use)`~~ (2026-11-23): read
+    # only by the two lines below, which `asked_comparisons` now answers.
     # ~~`ask |= {fn for fn in expects_once if recurred.get(fn, 0) > 1}`~~
     # (2026-11-23): `asked_comparisons` adds them.
     # The copies a SINGLE_USE_RECURRED note will name (§2.5 of the stage 4
     # design): their SECTION_NOT_AT_BOUNDARY is the same fact and is dropped
     # below, so a repeated edge row gets one note.
-    _named_by_recurred = {i for fn in expects_once if recurred.get(fn, 0) > 1
+    # ~~Gated here on `expects_once` and `recurred`~~ (2026-11-23): the
+    # functions are the ones `asked_comparisons` lists, so the note and the
+    # question read one count.
+    _named_by_recurred = {i for fn in asked_lists["single_use_recurred"]
                           for i in single_use_off_edge(song, fn)}
     for fn in asked_lists["returns"]:
         f, r, rets = return_findings(song, fn, convention, rhyme_key, decl,

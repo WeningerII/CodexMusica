@@ -4185,11 +4185,21 @@ def test_the_report_compares_what_asked_comparisons_lists():
     drawn by seed, and on seeded plans of every form the plan verb draws:
     `open`, `verse-chorus` and each catalog form the catalog can build. Every
     pair and every asked function the tables name is reached by some draw,
-    so no list is equal only because it is empty."""
+    so no list is equal only because it is empty.
+
+    THE SINGLE-USE NOTE READS THE SAME LIST (2026-11-23). Which single-use
+    functions recurred is listed there too (`single_use_recurred`), and the
+    report drops a copy's placement note, which SINGLE_USE_RECURRED states
+    already, only for the copies of those functions. The report counts
+    recurrence nowhere else: a second count is how the two would drift."""
     print("\n37. the report compares exactly what asked_comparisons lists")
+    import ast
+    import inspect
     import json
     import random
+    import re
     import subprocess
+    from collections import Counter
     from quality import plan as _PL
     from quality.grid import (MEASURED_CONTRASTS, POPULAR_SONG,
                               SECTION_FUNCTIONS, asked_comparisons,
@@ -4208,14 +4218,37 @@ def test_the_report_compares_what_asked_comparisons_lists():
 
     reached = {"returns": set(), "reprises": set(), "contrasts": set()}
     apart, plan_apart = [], []
+    recur_apart, drop_apart, dropped_on = [], [], []
 
     def hold(where, song, hooks=(), plan=None):
         listed = asked_comparisons([s.function for s in song.sections])
         rep = song_function_report(song, hooks=hooks)
         got = compared(rep)
-        if got != listed:
+        if got != {k: listed.get(k) for k in got}:
             apart.append((where, [s.function for s in song.sections],
                           got, listed))
+        # The single-use functions that recurred, counted here on the
+        # sections as declared, and the placement notes the report drops.
+        fns = [s.function for s in song.sections]
+        own = Counter(s.function for s in song.sections if s.declared)
+        recurred = sorted(fn for fn in POPULAR_SONG.single_use if own[fn] > 1)
+        if listed.get("single_use_recurred") != recurred:
+            recur_apart.append((where, fns, listed.get("single_use_recurred"),
+                                recurred))
+        placed = [s.function if s.declared else None for s in song.sections]
+        if any(placed):
+            off = {i for code, i, _e in _G.placement_findings(placed)
+                   if code == "SECTION_NOT_AT_BOUNDARY"}
+            drop = {i for fn in listed.get("single_use_recurred") or ()
+                    for i in _G.single_use_off_edge(song, fn)}
+            kept = {int(m.group(1)) - 1 for f in rep["findings"]
+                    if f.code == "SECTION_NOT_AT_BOUNDARY"
+                    for m in [re.match(r"section (\d+) sits", f.message)] if m}
+            if kept != off - drop:
+                drop_apart.append((where, fns, sorted(kept),
+                                   sorted(off - drop)))
+            if drop:
+                dropped_on.append(where)
         if plan is not None:
             # THE PLANNER'S STOP ROWS NAME THESE SECTIONS (2026-11-23,
             # `plan._compared_sections`): the pairs the report compares.
@@ -4337,6 +4370,17 @@ def test_the_report_compares_what_asked_comparisons_lists():
     check(f"on every plan above, the sections the planner's stop rows name "
           f"are the sections the report compares ({plans + built} plans)",
           not plan_apart, plan_apart[:4])
+    check(f"asked_comparisons lists the single-use functions that recurred, "
+          f"and the report drops a placement note only for their copies off "
+          f"the edge ({len(dropped_on)} draws drop one)",
+          not recur_apart and not drop_apart and dropped_on,
+          (recur_apart[:2], drop_apart[:2]))
+    # ...and the report reads that list rather than counting on its own.
+    src = ast.parse(inspect.getsource(song_function_report).lstrip())
+    counted = [n.lineno for n in ast.walk(src) if isinstance(n, ast.Call)
+               and getattr(n.func, "id", getattr(n.func, "attr", "")) == "Counter"]
+    check("song_function_report counts no recurrence of its own: no Counter "
+          "call", not counted, counted)
 
 
 if __name__ == "__main__":
