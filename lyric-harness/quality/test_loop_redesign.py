@@ -228,6 +228,19 @@ ANAPHORA = ["and the river wanders past the mill",
             "and the kettle rattles on the coal",
             "a sparrow settles on the pole"]
 
+#: `quality/test_loop.py` CHECK 3's draft (`CLOSE`): L1 and L2 are one rhyme
+#: group, L3 is in none, and L2 and L3 end on the same word. L2's flag is the
+#: broken rhyme; L3's finding is the repeated end word, which is a note and is
+#: worked on only when pursued. Rewriting L2 to end on a rhyme for L1 also
+#: ends the repeat, so L3's finding closes without L3 being asked. MEASURED
+#: 2026-11-23 under `class:RHYME`, pursuing REPEAT_ACROSS_GROUPS: L2 is asked
+#: once and its rewrite accepted, and L3 is closed (`resolved_elsewhere`
+#: [3]).
+CLOSED_BY_PARTNER = ["morning light was burning at half past four",
+                     "and nobody came back to climb the stairs",
+                     "wet empty coats are hanging on the stairs"]
+CLOSED_BY_PARTNER_FIX = "and nobody came back to cross the floor"
+
 
 class _Deferred:
     """A deferred `revise` run through the real verb, one process per call."""
@@ -325,19 +338,27 @@ def test_every_batch_answer_has_a_standing():
           str([(o["line"], o["accepted"]) for o in st["outcomes"]]))
 
     # (c) THE COUPLING TEST: the hook changes nothing about the walk.
+    # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026: the same-first-word
+    # check comes out). ~~ANAPHORA under AABBCCDD, the proposer dropping each
+    # asked line's opening "and"~~: that walk passed lines by only because
+    # one opener's rewrite closed the same-first-word flag on the others.
+    # With the check gone it passed nothing by, and the premise below failed
+    # while the coupling check still passed on a walk the hook never saw.
+    # The draft is now CLOSED_BY_PARTNER, where L2's rewrite closes L3.
     def scripted(with_hook):
         asked = []
 
         def propose(brief, lines, attempt, reasons=None, whole=()):
             asked.append((brief.line_no, attempt, brief.round_no))
-            words = lines[brief.line_no - 1].split()
-            return " ".join(words[1:] if words[0] == "and" else words)
+            return (CLOSED_BY_PARTNER_FIX if brief.line_no == 2
+                    else lines[brief.line_no - 1])
         if with_hook:
             propose.skipped = lambda *a, **k: None
         rd = RV.ReviseDeclaration(max_rounds=2, attempts_per_line=1,
-                                  backtrack_width=0)
-        res = LP.revise_loop(Reviser(rdecl=rd), list(ANAPHORA),
-                             _m("AABBCCDD", 8, "class:RHYME"), propose=propose)
+                                  backtrack_width=0,
+                                  pursue=frozenset({"REPEAT_ACROSS_GROUPS"}))
+        res = LP.revise_loop(Reviser(rdecl=rd), list(CLOSED_BY_PARTNER),
+                             _m([[1, 2]], 3, "class:RHYME"), propose=propose)
         return asked, list(res.lines), res.stop_reason, [
             (r.round_no, [(a.line_no, a.accepted) for a in r.attempts],
              r.fixed_lines, r.resolved_elsewhere) for r in res.rounds]
@@ -958,10 +979,21 @@ def test_group_menus_resume_member_by_member():
 #: A line that binds at TWO places (its second word and its end), so its
 #: menu is built place by place. MEASURED 2026-10-03: `brief(target_lines=
 #: {1})` gives L1 the places `1.T2` (0 words offered) and its end (24).
-TWO_PLACES = ["the silver river ran beneath the stove",
-              "and every lantern burned the month",
-              "the winter came and took the yard"]
-TWO_PLACES_GROUPS = [["1.T2", 2], [1, 3]]
+#: REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026: the same-first-word
+#: check comes out). ~~["the silver river ran beneath the stove", "and
+#: every lantern burned the month", "the winter came and took the yard"]
+#: with groups [["1.T2", 2], [1, 3]]~~: L1's only flag was that check (two
+#: of the three lines open on "the"). With it gone L1 had no brief, and the
+#: byte-identical check below compared two empty results. A broken pair is
+#: flagged on its later line, so the line that binds at two places is now
+#: the later member of both groups: L3, at its second word against L1's end
+#: and at its end against L2's. MEASURED 2026-11-23: `brief(target_lines=
+#: {3})` gives L3 two SCHEME_VIOLATION flags, group A [1, 3] at 'month' and
+#: group B [2, 3] at 'yard'.
+TWO_PLACES = ["and every lantern burned the month",
+              "the winter came and took the yard",
+              "the silver river ran beneath the stove"]
+TWO_PLACES_GROUPS = [["3.T2", 1], [2, 3]]
 
 
 def test_menus_resume_place_by_place():
@@ -974,9 +1006,14 @@ def test_menus_resume_place_by_place():
     print("\n9. a brief builds no menu, so no place step is taken or saved "
           "(D6, 2026-10-27; was §2.3b option B)")
     lines, mand = TWO_PLACES, _m(TWO_PLACES_GROUPS, 3, "class:RHYME")
-    want = Reviser().brief(list(lines), mand, target_lines={1})
+    want = Reviser().brief(list(lines), mand, target_lines={3})
+    check("PREMISE: the line that binds at two places has a brief, and it "
+          "answers both of its groups",
+          len(want) == 1 and want[0].line_no == 3
+          and [lab for lab, _mem, _prs in want[0].must_answer] == ["A", "B"],
+          str([(b.line_no, b.must_answer) for b in want]))
     cache = LP._VerdictCache(Reviser(), {}, {}, deadline=_StopAt(None))
-    got = cache.brief(list(lines), mand, target_lines={1})
+    got = cache.brief(list(lines), mand, target_lines={3})
     check("no place step is taken and no place menu is saved",
           "place" not in cache._deadline.steps
           and not any("'place'" in k for k, _ in cache.menus_on(lines)),
