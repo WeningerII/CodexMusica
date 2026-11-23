@@ -3153,6 +3153,7 @@ def test_a_group_try_the_grader_never_read_is_not_called_rejected():
           "rejected attempt")
     from quality import propose as _PR
     import quality.schemes as _SC
+    from lyric_harness import legacy_question_texts
     never = ("  The PREVIOUS attempt never reached the grader. Why, "
              "verbatim:\n    - {0}\n  Do not send back a reply the same "
              "reason would stop again.\n")
@@ -3223,6 +3224,10 @@ def test_a_group_try_the_grader_never_read_is_not_called_rejected():
                   plain == now.replace(never.format(why(two)),
                                        rejected.format(why(two)))
                   and rows(plain) == rejected.format(why(two)))
+            check("...and a run held at that question while it still said "
+                  "REJECTED finds it again: the question's earlier wordings "
+                  "hold it, byte for byte",
+                  plain in legacy_question_texts("propose_group", now))
 
     for kind, first, why in (
             ("nothing came back", lambda b: None,
@@ -3244,6 +3249,54 @@ def test_a_group_try_the_grader_never_read_is_not_called_rejected():
         check(f"the whole draft, answer {kind}: the question says the try "
               "never reached the grader, and why",
               rows(now) == never.format(why), rows(now))
+        plain = _PR.render_group(_dc.replace(
+            two, reasons=tuple(str(r) for r in two.reasons)))
+        check("...and nothing else in it moved: with the reason handed over "
+              "as plain text it is the question as it was",
+              plain == now.replace(never.format(why), rejected.format(why))
+              and rows(plain) == rejected.format(why))
+        check("...and a run held at that question while it still said "
+              "REJECTED finds it again: the question's earlier wordings hold "
+              "it, byte for byte",
+              plain in legacy_question_texts("propose_group", now))
+
+    # BOTH AT ONCE. The line reply is never read, so the group is asked for
+    # with the words about that line reply; then the group reply is never read
+    # either, and the group is asked for again with the words about its own
+    # try. Each of the two questions was worded as a rejection before, and a
+    # run held at either one has to find it again.
+    one, two = asked_again(
+        RV, ANCHOR_IS_A_PIVOT, ranked,
+        lambda b: _PR.UnreadReply(_PR.UNREAD_GROUP),
+        propose=lambda *a, **k: _PR.UnreadReply(_PR.UNREAD_LINE))
+    same = (two is not None and two.members == one.members
+            and two.attempt == one.attempt + 1 and one.pivot_line_unread
+            and bool(one.pivot_line_reasons) and not one.reasons
+            and two.pivot_line_unread and _LP._not_graded(two.reasons))
+    check("PREMISE (a line reply nobody read, then a group reply nobody "
+          "read): the group is asked for twice, the first time with the line "
+          "reply's reason and the second with its own", same)
+    if same:
+        first_q, second_q = _PR.render_group(one), _PR.render_group(two)
+        check("the first group question says the line reply never reached "
+              "the grader, and a run held at it while it said REJECTED finds "
+              "it again",
+              _PR.PIVOT_UNREAD_ROW in first_q
+              and _PR.PIVOT_REJECTED_ROW not in first_q
+              and _PR.render_group(_dc.replace(one, pivot_line_unread=False))
+              in legacy_question_texts("propose_group", first_q))
+        old_second = _PR.render_group(_dc.replace(
+            two, reasons=tuple(str(r) for r in two.reasons),
+            pivot_line_unread=False))
+        check("the second says its own try never reached the grader, and "
+              "nothing about the line reply",
+              rows(second_q) == never.format(_PR.UNREAD_GROUP)
+              and _PR.PIVOT_UNREAD_ROW not in second_q
+              and _PR.PIVOT_REJECTED_ROW not in second_q, rows(second_q))
+        check("...and a run held at it while it said REJECTED finds it again",
+              rows(old_second) == rejected.format(_PR.UNREAD_GROUP)
+              and old_second in legacy_question_texts("propose_group",
+                                                      second_q))
 
     # CONTROL: a group answer the grader read and rejected keeps its words.
     one, two = asked_again(
