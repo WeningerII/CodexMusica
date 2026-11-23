@@ -430,9 +430,14 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
       2. then every reading of the same letters without the mark that the own
          entry does not already hold, in the order the reader gives them, so
          no pair that holds today stops holding;
-      3. an `-in'` spelling that answers a reduced `-ing` reading answers its
-         own entry first, then the reduced readings the entry lacks, and
-         nothing else (the bare spelling's readings stay out, as before);
+      3. an `-in'` spelling that answers a reduced `-ing` reading answers
+         ~~its own entry first, then the reduced readings the entry lacks~~
+         its reduced readings first, in the order they had before, then the
+         readings of its own entry that the reduced list lacks, and nothing
+         else (the bare spelling's readings stay out, as before). REPINNED
+         2026-11-23: test_high_report.py:65 pins the plain elision as the
+         first reading, and five own entries (gettin', goin', hangin',
+         sittin', workin') are not the plain elision;
       4. a word ending in `s'` whose letters without the mark are a
          dictionary word is a possessive, and is read exactly as that word
          is. ~~Rules 1 and 2 covered it~~ (REPINNED 2026-11-23, found in the
@@ -708,11 +713,11 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
                 self.assertEqual(end_rhymes(w, theirs), held)
         self.assertGreater(judged, 0, "PREMISE: a possessive was judged")
 
-    def test_an_in_spelling_reads_its_own_entry_then_its_reduced_reading(self):
+    def test_an_in_spelling_reads_its_reduced_reading_then_its_own_entry(self):
         wrong = []
         for w, reduced in sorted(self.reduced.items()):
             own = self.own(self.lex, w)
-            want = own + [p for p in reduced if p not in own]
+            want = reduced + [p for p in own if p not in reduced]
             if self.lex.pronunciation_variants(w) != want:
                 wrong.append(w)
         self.assertEqual(wrong[:5], [], f"{len(wrong)} of "

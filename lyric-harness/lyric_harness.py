@@ -1639,6 +1639,11 @@ class Lexicon:
         # with `cons`; a word ending in `s'` whose bare letters are a word
         # reads the bare word, as before. A word marked at both edges tries
         # the spelling with its front mark, then the one with its end mark.
+        # AN `-in'` SPELLING with a reduced `-ing` reading answers that
+        # reduced reading first, as it always did, then the readings of its
+        # own entry the reduced list lacks: five own entries (`goin'`
+        # G OW1 AH0 N) are not the plain elision, and the first reading is
+        # the one a line is heard by.
         own = []
         if key != raw and _scheme_of(self) == "v2":
             for spelling in dict.fromkeys((raw, raw.rstrip("'"),
@@ -1656,7 +1661,7 @@ class Lexicon:
                 if len(phones) >= 2 and phones[-2:] == ["IH0", "NG"]:
                     reduced.append(list(phones[:-1]) + ["N"])
         if reduced and raw.endswith("in'"):
-            return own + [p for p in reduced if p not in own]
+            return reduced + [p for p in own if p not in reduced]
         for phones in reduced:
             if phones not in prons:
                 prons.append(phones)

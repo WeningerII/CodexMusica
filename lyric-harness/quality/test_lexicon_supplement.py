@@ -212,8 +212,14 @@ def test_witnesses():
         check(f"{w}: the supplement adds nothing and reorders nothing",
               SUPP.pronunciation_variants(w) == PLAIN.pronunciation_variants(w)
               and SUPP.transcribe_word(w) == PLAIN.transcribe_word(w))
-    check("re-sign is not read as resign (no whole entry; it splits)",
-          SUPP.word_pieces("re-sign") == ["re", "sign"])
+    # ~~re-sign is not read as resign (no whole entry; it splits)~~
+    # REPINNED 2026-11-23: finding 12 reads a hyphenated spelling whole where
+    # the joined letters are a word (the split read the note name R EY1).
+    check("the supplement changes nothing in how re-sign is cut",
+          SUPP.word_pieces("re-sign") == PLAIN.word_pieces("re-sign"))
+    check("re-sign keeps the S reading among its readings",
+          any(["R", "IY0", "S", "AY1", "N"] in SUPP.pronunciation_variants(w)
+              for w in SUPP.word_pieces("re-sign")))
     check("record keeps its first reading first",
           SUPP.pronunciation_variants("record")[0] == ["R", "AH0", "K", "AO1", "R", "D"])
 
