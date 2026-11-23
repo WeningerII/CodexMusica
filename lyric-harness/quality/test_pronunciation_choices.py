@@ -840,6 +840,37 @@ class PronunciationChoices(unittest.TestCase):
         note = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
         self.assertEqual(note.locations, [1, 3])
 
+    def test_a_numbered_function_row_says_which_finding_is_its_own(self):
+        # Bug hunt 2026-11-20, finding 30, from R2's review of the fix. A
+        # refusal whose failed words all have a draft line writes `:L<n>`
+        # rows only, so a later refusal of the same code is the code's second
+        # finding and its first numbered row. The row has to say so itself.
+        from quality.fixtures import seeded_lines
+        from quality.revise import Reviser
+        lines, bp, unread = seeded_lines.pointed_return_song(self.base)
+        coverage = []
+        findings = Reviser(lex=self.base)._function_findings(lines, bp, coverage_out=coverage)
+        own = [f for f in findings if f.code == 'END_WORD_UNREADABLE']
+        rows = [o for o in coverage if o.get('code') == 'END_WORD_UNREADABLE']
+        numbered = [o for o in rows if 'line' not in o]
+        self.assertEqual([f.locations for f in own], [[1, 5], []],
+                         'PREMISE: the written-out return is all on draft lines, '
+                         'the pointing one is not')
+        self.assertEqual(len(numbered), 1, 'PREMISE: one numbered row, two findings')
+        row = numbered[0]
+        self.assertEqual({f['word'] for f in row['failed_words']}, {unread[1]})
+        self.assertEqual(row['finding_index'], 1)
+        mine = own[row['finding_index']]
+        self.assertIn(repr(unread[1]), mine.evidence)
+        self.assertNotIn(repr(unread[0]), mine.evidence)
+        # Each numbered row of every code names a finding of that code.
+        by_code = {}
+        for f in findings:
+            by_code.setdefault(f.code, []).append(f)
+        for o in coverage:
+            if 'finding_index' in o:
+                self.assertLess(o['finding_index'], len(by_code[o['code']]), o['id'])
+
     def test_function_preserves_legacy_endpoints_without_declarations(self):
         # Reader scheme v1 (legacy replay): `1966` and `record2` have no
         # sung-token position, because the v1 cut drops digits. The v2 table

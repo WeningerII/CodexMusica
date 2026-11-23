@@ -4073,7 +4073,18 @@ class Reviser:
                                     {"message": _SECTION_TYPES_NOT_CHECKED})})
             if requested:
                 seen_located = set()
+                # WHICH FINDING IS A NUMBERED ROW'S OWN (bug hunt 2026-11-20,
+                # finding 30; R2's review, 2026-11-23). One finding is written
+                # per refusal, below, in this order. A refusal whose failed
+                # words all have a draft line writes `:L<n>` rows and no
+                # numbered one, so the numbered rows of a code can be fewer
+                # than its findings, and counting rows named the wrong one.
+                # Each numbered row carries its refusal's place among the
+                # refusals of its code.
+                place_in_code = collections.Counter()
                 for index, refusal in enumerate(rep["refusals"]):
+                    finding_index = place_in_code[refusal.code]
+                    place_in_code[refusal.code] += 1
                     located = [f for f in refusal.failed_words if f.line is not None]
                     unlocated = [f for f in refusal.failed_words if f.line is None]
                     for f in located:
@@ -4092,7 +4103,7 @@ class Reviser:
                     record = {"id": f"function:{refusal.code}:{index}",
                               "layer": "function",
                               "status": ("not_requested" if refusal.code in unasked else "refused"),
-                              "code": refusal.code}
+                              "code": refusal.code, "finding_index": finding_index}
                     if unlocated:
                         # Expansion has section-local evidence, not a draft
                         # coordinate. It must not erase the known failures.
