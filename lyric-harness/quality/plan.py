@@ -127,6 +127,13 @@ GENERATOR over a space the enforcement layers already grade:
   grading side: conventions are DISCLOSED (the shape layer's notes), never
   enforced, and never weighted into the dice. A regression pins that this
   module imports no corpus reader.
+  ONE WRITTEN EXCEPTION (owner's ruling, 2026-11-23, made knowing the cost):
+  the word a rhyme tie inside a line is named at is picked as often as real
+  sung lines have a word there (`fit_type`, through `word_place_lines`, which
+  reads `data/word_places_en.tsv` by `quality/word_places.read`). So word 15
+  comes up about 1 time in 9,000 and word 22 about 1 time in a million. The
+  regression allows `word_places` as this module's one corpus reader and
+  holds it to that one function; nothing else here may follow the corpus.
 
 EVERY FREE CHOICE IS SEEDED AND DISCLOSED. Doctrine 66: a tie broken by
 nothing is a tie broken by the hash seed, and it does not reproduce. The
@@ -163,6 +170,7 @@ from quality import schemes as SC
 from quality import relations as _RL
 from quality import floor as _FL
 from quality import slots as _SL
+from quality import word_places as _WP
 #: THE MOST BEATS THE PLANNER GIVES A LINE, as the character count it was
 #: derived from. Until 2026-11-12 this was `propose.MAX_LINE_CHARS`, the one
 #: line limit the harness keeps, imported here. Issue #851 raised that limit
@@ -185,7 +193,8 @@ PLANNED_LINE_CHARS = 200
 from quality import narrative as _NV
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
-           "tokens_per_line_band", "gradeable_line_counts",
+           "tokens_per_line_band", "word_place_lines", "longest_line_words",
+           "gradeable_line_counts",
            "line_count_gaps", "song_line_counts", "stanza_line_floor",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "SeedRefused", "JointRefused", "REDRAW_BOUND",
@@ -1478,6 +1487,39 @@ def _member_options(locus, max_token):
     return ["end", "head"] + [f"T{n}" for n in range(2, max_token + 1)]
 
 
+#: WHERE REAL WORDS SIT (owner's ruling, 2026-11-23). A tied word inside a
+#: line is named by its number, and the number forces the line to be at least
+#: that long. ~~It was drawn evenly up to the floor's 7 words a line~~: the
+#: owner took that ceiling out and ruled that a place is picked as often as
+#: real sung lines have a word there. `data/word_places_en.tsv` counts the
+#: lines of `corpus/song/eng_*` by how many words they have, numbered as a
+#: placement numbers them; `quality/word_places.py --check` recounts it.
+@lru_cache(maxsize=None)
+def word_place_lines():
+    """-> for k = 1 up to the longest line, how many real sung lines have a
+    word at place k: the lines with k or more words."""
+    held = _WP.read()
+    longest = max(n for n, lines in held.items() if lines)
+    return tuple(sum(lines for n, lines in held.items() if n >= k)
+                 for k in range(1, longest + 1))
+
+
+def longest_line_words():
+    """-> the most words a real sung line has, and so the deepest place a
+    tied word may be named at."""
+    return len(word_place_lines())
+
+
+def _place_weight(place):
+    """-> how often `place` is picked: the real lines with a word there.
+    Every line has a first word and a last word, so `head` and `end` weigh
+    what place 1 weighs; `T<k>` weighs the lines with k or more words."""
+    at = word_place_lines()
+    if place in ("end", "head"):
+        return at[0]
+    return at[int(place[1:]) - 1]
+
+
 def _position_of(member):
     """-> 'end', 'head' or 'internal' for a declared-word member
     (`N.end`, `N.endword`, `N.head`, `N.T<k>`), else None (a bare line, or a
@@ -1541,8 +1583,14 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
                     and all(isinstance(c.predicate, _RL.Agree) for c in sch.channels if c.required)
                     and all(isinstance(rule.predicate, _RL.Agree) for rule in sch.identity))
     last = "no in-line places satisfy its placement"
+    weights = [[_place_weight(p) for p in o] for o in opts]
     for _ in range(tries):
-        places = [rng.choice(o) for o in opts]
+        # A place with a choice is picked by where real words sit (owner's
+        # ruling, 2026-11-23); ~~`rng.choice(o)`, evenly~~. A member with one
+        # place keeps `rng.choice`, so its draw is what it was.
+        places = [rng.choice(o) if len(o) == 1
+                  else rng.choices(o, weights=w)[0]
+                  for o, w in zip(opts, weights)]
         if reserve_end and any(placement_word(place) == LAST_WORD for place in places):
             last = "the prescribed ending already binds that word"
             continue
@@ -2511,15 +2559,19 @@ def plan_max_token(plan):
     """-> the highest token index this plan's lines are asked for.
 
     The same derivation `make_plan` makes, read off the plan so a pure
-    function of the emitted dict can ask the same question: the floor's own
-    measured tokens-per-line FLOOR, held under the tightest line's syllable
+    function of the emitted dict can ask the same question: the longest real
+    sung line (`longest_line_words`), held under the tightest line's syllable
     ceiling so a placement never names a word past what the shortest line can
     reach.
+
+    REPINNED 2026-11-23 (owner's ruling: the per-line word cap comes out, and
+    a tied word may be named up to the longest real line). ~~the floor's own
+    measured tokens-per-line FLOOR~~, 7 words, no longer bounds it.
     """
     sub = plan["subdivision"]
     caps = [line_syllable_ceiling(float(s["duration"]) * sub)
             for s in plan["line_slots"]] or [1]
-    return max(1, min(int(tokens_per_line_band()[0]), int(min(caps)) - 1))
+    return max(1, min(longest_line_words(), int(min(caps)) - 1))
 
 
 def bound_token_share(plan):
@@ -5934,8 +5986,10 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                  for fn in dict.fromkeys(funcs) if ks[fn] > 0}
 
     # THE WORD INDEX A PLACEMENT MAY NAME. Two bounds, and the second is this
-    # plan's own (`MISSING.md` M-80): the floor's measured tokens-per-line
-    # floor says what a line of English verse RELIABLY carries, and the
+    # plan's own (`MISSING.md` M-80): ~~the floor's measured tokens-per-line
+    # floor says what a line of English verse RELIABLY carries~~ the longest
+    # real sung line says how deep a tied word may sit at all (REPINNED
+    # 2026-11-23, owner's ruling: the per-line word cap comes out), and the
     # shortest line THIS PLAN drew says what it can carry AT ALL. A plan whose
     # sections run seven slots after their pickup was still asking for the
     # seventh word, because the ceiling was a module-level constant computed
@@ -5949,7 +6003,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     _spans = [(bars * beats - a) * sub for a in anacrusis.values()] \
         or [bars * beats * sub]
     _cap_lo = min(int(line_syllable_ceiling(s)) for s in _spans)
-    _max_token = max(1, min(int(tokens_per_line_band()[0]), _cap_lo - 1))
+    _max_token = max(1, min(longest_line_words(), _cap_lo - 1))
 
     # THE DENSITY COORDINATE (`MISSING.md` M-191, ruled 2026-09-01 under the
     # owner's delegation). Each line's participation was drawn uniform over
@@ -7989,6 +8043,28 @@ def group_rules(plan):
         lines.append(f"  group {SC.label((gi,))}: "
                      + ", ".join(_member_words(m, token) for m in members)
                      + f" must satisfy rule R{rule_no[key]} ({shown})")
+    # HOW LONG A LINE A WORD PLACE NEEDS (2026-11-23, with the owner's ruling
+    # of that day that a tie inside a line may name any word up to the
+    # 22nd). A member `L.Tn` is line L's nth sung word to the grader
+    # (`pronunciation.numbered_groups`), which refuses a shorter line whole,
+    # before anything is graded. So the brief says each such line's least
+    # length, once, after the group list. The count is the grader's: words
+    # in parentheses are left out unless `voices` is set, and a word joined
+    # by a hyphen is one word (`lyric_harness.reader_token_spans`).
+    least = {}
+    for g in groups:
+        for m in g.split(","):
+            ln, _, place = m.strip().partition(".")
+            if re.fullmatch(r"T\d+", place):
+                least[int(ln)] = max(least.get(int(ln), 0), int(place[1:]))
+    if least:
+        each = [f"line {ln} at least {n}" for ln, n in sorted(least.items())]
+        each[0] = each[0].replace(" at least ", " needs at least ", 1)
+        lines.append("A group that names a word inside a line needs the line "
+                     "to have that many words: " + ", ".join(each)
+                     + f". Words in parentheses are not counted "
+                     f"{UNLESS_VOICES}, and a word joined by a hyphen counts "
+                     "once.")
     lines.append("Rules:")
     for n, shown, clauses in rules:
         lines.append(f"  R{n} ({shown}): " + "; ".join(clauses) + ".")

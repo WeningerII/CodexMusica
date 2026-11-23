@@ -1277,7 +1277,17 @@ test(
       D: 'schema:internal rhyme',
     });
     const endings = ['hammer', 'bee', 'summer', '', 'river', 'beauty'];
-    const words = endings.map((end) => [...Array(7).fill('two'), end]);
+    // REPINNED 2026-11-23 (owner's ruling: a rhyme tie inside a line may be
+    // named at any word up to the longest sung line, picked as often as real
+    // sung lines have a word there): ~~seven words before each ending, and
+    // every inner place before the seventh~~. Each line now has seven words
+    // or as many as the deepest place the plan names, whichever is more.
+    const innerPlaces = layers
+      .flat()
+      .filter(([, place]) => place !== 'endword')
+      .map(([, place]) => (place === 'head' ? 0 : Number(place.slice(1)) - 1));
+    const width = Math.max(7, ...innerPlaces.map((pos) => pos + 1));
+    const words = endings.map((end) => [...Array(width).fill('two'), end]);
     const vocabulary = [
       ['sun', 'run', 'done', 'fun', 'bun'],
       ['pen', 'hen', 'den'],
@@ -1287,7 +1297,7 @@ test(
       members.forEach(([line, place], index) => {
         if (place === 'endword') return;
         const pos = place === 'head' ? 0 : Number(place.slice(1)) - 1;
-        assert.ok(Number.isInteger(pos) && pos >= 0 && pos < 7);
+        assert.ok(Number.isInteger(pos) && pos >= 0 && pos < width);
         const row = sources[Number(line) - 1];
         words[row][pos] = vocabulary[group][index];
         if (row === 0) targets.push(pos);

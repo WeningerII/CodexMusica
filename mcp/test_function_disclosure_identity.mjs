@@ -12,6 +12,30 @@ const groupedTests = groupRegistry.createRegistrar(
 const test = groupedTests.test;
 
 const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
+// A FILLER LINE AS LONG AS THE PLAN'S DEEPEST TIE (2026-11-23, with the
+// owner's ruling that a tie inside a line may sit at any word up to the
+// longest sung line, 22 words). ~~Seven words on every line~~ was a filler
+// sized for the places the planner named before that ruling, none past the
+// old words-per-line band: on main no draw of this test's steps refused (no
+// tool error in 91 draws). With the ruling a plan may tie word 9, and a line
+// shorter than its tie is refused, not graded ("cannot resolve token 9 ...
+// the line has 7 sung tokens"). The line has at least k + 1 words when the
+// plan ties word k, as `dummy_draft` does in quality/test_plan.py, so that
+// word is an inner word as the plan says; the extra words repeat the line's
+// own words, and it still ends on 'rain'. Every line is the same line, so a
+// return stays word for word.
+const FILLER = 'I hold your hand beside the rain'.split(' ');
+function fillerDraft(plan) {
+  let deepest = 0;
+  for (const group of String(plan.groups ?? '').split(';'))
+    for (const member of group.split(',')) {
+      const place = /\.T(\d+)$/.exec(member.trim());
+      if (place) deepest = Math.max(deepest, Number(place[1]));
+    }
+  const words = FILLER.slice(0, -1);
+  while (words.length < deepest) words.push(FILLER[words.length % (FILLER.length - 1)]);
+  return Array(plan.total_lines).fill([...words, FILLER.at(-1)].join(' '));
+}
 const functions = [' Pre-Chorus ', 'chorus', ' Pre-Chorus '];
 // The word-check follows the plan, and its receipt is recorded for that plan.
 const screened = (task) =>
@@ -302,7 +326,7 @@ test(
     const { draw: _drawn, ...declared } = args;
     const gradeArgs = {
       ...declared,
-      draft: Array(planned.plan.total_lines).fill('I hold your hand beside the rain'),
+      draft: fillerDraft(planned.plan),
     };
     assert.equal(creationRefusal(task, 'lyric_grade', gradeArgs), null);
     const graded = await call('lyric_grade', gradeArgs);
@@ -353,7 +377,7 @@ test(
         name: 'lyric_grade',
         arguments: {
           ...args,
-          draft: Array(planned.plan.total_lines).fill('I hold your hand beside the rain'),
+          draft: fillerDraft(planned.plan),
         },
       })
     );

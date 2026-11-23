@@ -373,14 +373,59 @@ def dummy_draft(plan, unambiguous=False):
                 if any(len([p for p in ph if p[-1].isdigit()]) >= 2
                        and [p for p in ph if p[-1].isdigit()][-1][-1] == "0"
                        for ph in entries.get(w, ()))]
+    # A LINE AS LONG AS ITS DEEPEST TIE (REPINNED 2026-11-23, owner's ruling:
+    # a tie inside a line may sit up to the longest sung line, 22 words).
+    # ~~Every line is seven words~~, which held while the planner named no
+    # word past the seventh. A line whose group names word k now gets at
+    # least k + 1 words, so that word is an inner word as the plan says;
+    # the extra words cycle the prefix's own readable words, and under
+    # `unambiguous` only those with one reading, because the round trip
+    # declares a reading for every word that has more than one and the
+    # grader takes at most 128 declarations (the seven-word draft already
+    # made 115 to 125 of them over seeds 0-19). A copied line takes the
+    # length its copies need, so the copy stays word for word, and a
+    # line's length follows its end word, so two lines that end on one
+    # word are still one line, as they were.
+    need = {}
+    for g in str(plan.get("groups") or "").split(";"):
+        for m in g.split(","):
+            ln, _, place = m.strip().partition(".")
+            if re.fullmatch(r"T\d+", place):
+                need[int(ln)] = max(need.get(int(ln), 0), int(place[1:]) + 1)
+    for i in list(need):
+        r = i
+        while r in rets:
+            r = rets[r]
+        need[r] = max(need.get(r, 0), need[i])
+    prefix_words = DUMMY_PREFIX.split()
+    filler = prefix_words
+    if unambiguous:
+        entries = _round_trip_reviser().lex.entries
+        filler = [w for w in prefix_words if len(entries.get(w, ())) == 1]
+        if not filler:
+            raise AssertionError("the round-trip fixture has no single-reading "
+                                 "prefix word to lengthen a line with")
+
+    def end_word(i):
+        words = soft if i in weak else bank
+        return words[(i - 1) % len(words)]
+
+    width = {}
+    for i, k in need.items():
+        if i not in rets:
+            width[end_word(i)] = max(width.get(end_word(i), 0), k)
+
+    def prefix(i):
+        extra = max(0, width.get(end_word(i), 0) - len(prefix_words) - 1)
+        more = [filler[k % len(filler)] for k in range(extra)]
+        return " ".join(prefix_words + more) + " "
+
     lines = []
     for i in range(1, plan["total_lines"] + 1):
         if i in rets:
             lines.append(lines[rets[i] - 1])
-        elif i in weak:
-            lines.append(DUMMY_PREFIX + soft[(i - 1) % len(soft)])
         else:
-            lines.append(DUMMY_PREFIX + bank[(i - 1) % len(bank)])
+            lines.append(prefix(i) + end_word(i))
     return lines
 
 
@@ -1712,15 +1757,47 @@ def test_the_measure():
           and catalog_plain == {"re"}
           and catalog_grid == {"placement_findings", "SECTION_FUNCTIONS", "setting_roles"}
           and not any(isinstance(n, ast.Name) and n.id == "open" for n in ast.walk(catalog_tree)))
+    # REPINNED 2026-11-23 (owner's ruling: a tie's word place inside a line
+    # follows where real words sit, the ONE written exception to the
+    # move-37 rule, in plan.py's module docstring). ~~exactly {schemes, ...,
+    # catalog_shape}~~: `word_places` joins as the one corpus count the
+    # planner may read. The exception is held narrow by the check after
+    # this one: plan.py names that module only to call `read`, and only
+    # inside `word_place_lines`, so no other pick can follow the corpus.
     check("plan.py imports exactly {schemes, structures, grid, "
-          "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure, catalog_shape} from quality and "
-          "opens NO file — the corpus cannot reach the dice (the owner's "
-          "move-37 rule)",
+          "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure, catalog_shape, word_places} from quality and "
+          "opens NO file itself — the corpus cannot reach the dice (the owner's "
+          "move-37 rule), but for the one written exception",
           subs == {"schemes", "structures", "grid", "floor",
                    "slots", "relations", "narrative", "melody",
-                   "rhyme_types", "function_disclosure", "catalog_shape"}
+                   "rhyme_types", "function_disclosure", "catalog_shape",
+                   "word_places"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    wp_alias = {a.asname or a.name for n in ast.walk(tree)
+                if isinstance(n, ast.ImportFrom) and n.module == "quality"
+                for a in n.names if a.name == "word_places"}
+    wp_uses = []
+    for fn in [n for n in ast.walk(tree)
+               if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]:
+        for n in ast.walk(fn):
+            if isinstance(n, ast.Name) and n.id in wp_alias:
+                wp_uses.append(fn.name)
+    wp_attrs = {n.attr for n in ast.walk(tree)
+                if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name)
+                and n.value.id in wp_alias}
+    wp_module_level = [n for n in tree.body
+                       if not isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef,
+                                             ast.ClassDef, ast.ImportFrom))
+                       and any(isinstance(m, ast.Name) and m.id in wp_alias
+                               for m in ast.walk(n))]
+    check("...and the exception stays one pick wide: plan.py names "
+          "`word_places` only to call its `read`, only inside "
+          "`word_place_lines` (the word a tie inside a line is named at)",
+          len(wp_alias) == 1 and set(wp_uses) == {"word_place_lines"}
+          and wp_attrs == {"read"} and not wp_module_level,
+          f"alias {sorted(wp_alias)}, used in {sorted(set(wp_uses))}, "
+          f"attributes {sorted(wp_attrs)}, module-level {len(wp_module_level)}")
     prop_names = {a.name for n in ast.walk(tree)
                   if isinstance(n, ast.ImportFrom)
                   and n.module == "quality.propose" for a in n.names}
@@ -2598,6 +2675,92 @@ def test_the_planner_plans_the_whole_line():
           all(len(g) <= 3 for pl in _declared
               for g in [x.split(",") for x in pl["groups"].split(";")]),
           f"largest {max(len(x.split(',')) for pl in _declared for x in pl['groups'].split(';'))}")
+
+
+def test_a_tied_word_sits_where_real_words_sit():
+    """A tied word inside a line is placed where real words sit (owner's
+    ruling, 2026-11-23).
+
+    The ruling has three parts, and each gets its own check, with every
+    number read from `data/word_places_en.tsv` (the count of sung lines in
+    corpus/song/eng_* by how many words they have) and none typed here:
+      * the deepest word a plan may name is the longest real line, held under
+        the plan's shortest line less its end word, and no longer the floor's
+        old words-a-line band;
+      * every place with a choice is picked as often as real lines have a
+        word there: `head` and `end` as every line, word k as the lines with
+        k or more words;
+      * no place with a choice is picked evenly any more.
+    """
+    print("\n[a tied word sits where real words sit]")
+    from quality import word_places as WP
+    held = WP.read()
+    longest = max(n for n, lines in held.items() if lines)
+    at = {k: sum(lines for n, lines in held.items() if n >= k)
+          for k in range(1, longest + 1)}
+
+    def want_weight(place):
+        return at[1] if place in ("end", "head") else at[int(place[1:])]
+
+    check("the planner's deepest place is the table's longest line",
+          PLN.longest_line_words() == longest,
+          f"planner {PLN.longest_line_words()}, table {longest}")
+
+    def _is_places(pop):
+        return (isinstance(pop, (list, tuple)) and len(pop) > 1
+                and all(isinstance(p, str)
+                        and re.fullmatch(r"end|head|T\d+", p) for p in pop))
+
+    weighted, even = [], []
+    real_choices, real_choice = random.Random.choices, random.Random.choice
+
+    def rec_choices(self, population, weights=None, **kw):
+        if _is_places(population):
+            weighted.append((tuple(population),
+                             None if weights is None else tuple(weights)))
+        return real_choices(self, population, weights, **kw)
+
+    def rec_choice(self, seq):
+        if _is_places(seq):
+            even.append(tuple(seq))
+        return real_choice(self, seq)
+
+    # The band the cap read before the ruling, from the floor's own
+    # profiles: the premise below shows the cap check can tell the two apart.
+    old_cap = int(PLN.tokens_per_line_band()[0])
+    cap_wrong, past_old = [], []
+    with patch.object(random.Random, "choices", rec_choices), \
+            patch.object(random.Random, "choice", rec_choice):
+        for seed in range(40):
+            try:
+                pl = make_plan(seed=seed)
+            except PlanRefused:
+                continue
+            sub = pl["subdivision"]
+            caps = [PLN.line_syllable_ceiling(float(s["duration"]) * sub)
+                    for s in pl["line_slots"]] or [1]
+            want = max(1, min(longest, int(min(caps)) - 1))
+            if PLN.plan_max_token(pl) != want:
+                cap_wrong.append((seed, PLN.plan_max_token(pl), want))
+            if want > old_cap:
+                past_old.append(seed)
+    check("PREMISE: some drawn plan may name a word past the old "
+          f"{old_cap}-word band, so the check below can tell the two apart",
+          bool(past_old), past_old[:5])
+    check("the deepest word a plan may name is the longest real line, held "
+          "under the plan's shortest line less its end word",
+          not cap_wrong, cap_wrong[:5])
+    wrong = [(pop, w) for pop, w in weighted
+             if w != tuple(want_weight(p) for p in pop)]
+    deep = [pop for pop, _ in weighted
+            if any(p.startswith("T") and int(p[1:]) > old_cap for p in pop)]
+    check("PREMISE: the drawn plans picked places with a choice, some of them "
+          "past the old band, so the weights below were really read",
+          bool(weighted) and bool(deep),
+          f"{len(weighted)} weighted picks, {len(deep)} past word {old_cap}")
+    check("every place with a choice is picked as often as real sung lines "
+          "have a word there", not wrong, wrong[:2])
+    check("no place with a choice is picked evenly", not even, even[:2])
 
 
 def _place_group_keyed_on_the_name(group, rng, max_token, used):
@@ -5111,6 +5274,94 @@ def test_a_rule_row_says_what_the_grader_accepts():
           bool(brief) and "class:" not in brief
           and rules["RHYME"][0] in brief and rules["RHYME"][1][0] in brief,
           brief[-400:])
+    # A WORD PLACE SAYS HOW LONG ITS LINE MUST BE (2026-11-23, item 1 of the
+    # owner's removals: a tie inside a line may name any word up to the
+    # 22nd). A group member `L.Tn` is resolved on line L as its nth sung
+    # word (`pronunciation.numbered_groups`), and a line with fewer is
+    # refused whole before anything is graded. The brief says each such
+    # line's least length once, after the group list. Read off the grader:
+    # on a plan found by seed, each named line of the plan's own draft is
+    # cut to every length, and the shortest the grader accepts is the number
+    # the brief prints for it; a word in parentheses is not counted unless
+    # `voices` is set, and two words joined by a hyphen count once.
+    from quality import pronunciation as _PRw
+    lex_w = LH.Lexicon()
+    lex_wv = LH.Lexicon(strip_parens=False)
+    found = None
+    for seed in range(1, 200):
+        for n_lines in (12, 16, 24):
+            try:
+                pw = make_plan(seed, lines=n_lines)
+            except PLN.PlanRefused:
+                continue
+            places = [m.strip() for g in str(pw.get("groups") or "").split(";")
+                      for m in g.split(",")
+                      if re.fullmatch(r"\d+\.T\d+", m.strip())]
+            if any(int(m.split(".T")[1]) >= 2 for m in places):
+                found = (seed, n_lines, pw)
+                break
+        if found:
+            break
+    seed_w, lines_w, pw = found if found else (None, None, {})
+    groups_w = [[m.strip() for m in g.split(",") if m.strip()]
+                for g in str(pw.get("groups") or "").split(";") if g.strip()]
+    named = sorted({int(m.split(".")[0]) for g in groups_w for m in g
+                    if re.fullmatch(r"\d+\.T\d+", m)})
+    draft_w = dummy_draft(pw) if pw else []
+
+    def _accepts(lines, lex):
+        try:
+            _PRw.numbered_groups(groups_w, lines, lex, None)
+        except ValueError:
+            return False
+        return True
+
+    least_read, parens_bad, hyphen_bad = {}, [], []
+    for ln in named:
+        words = draft_w[ln - 1].split(" ")
+        cut = list(draft_w)
+        for k in range(len(words) + 1):
+            cut[ln - 1] = " ".join(words[:k])
+            if _accepts(cut, lex_w):
+                least_read[ln] = k
+                break
+        k = least_read.get(ln)
+        if not k or k < 2:
+            continue
+        # The shortest accepted line with its last word in parentheses, and
+        # with its first two words joined by a hyphen.
+        inner = list(draft_w)
+        inner[ln - 1] = " ".join(words[:k - 1] + [f"({words[k - 1]})"])
+        if _accepts(inner, lex_w) or not _accepts(inner, lex_wv):
+            parens_bad.append((ln, inner[ln - 1]))
+        joined = list(draft_w)
+        joined[ln - 1] = " ".join([f"{words[0]}-{words[1]}"] + words[2:k])
+        if _accepts(joined, lex_w):
+            hyphen_bad.append((ln, joined[ln - 1]))
+    brief_lines = str(pw.get("writer_brief") or "").splitlines()
+    said = [i for i, t in enumerate(brief_lines)
+            if t.startswith("A group that names a word inside a line")]
+    last_group = max((i for i, t in enumerate(brief_lines)
+                      if t.startswith("  group ")), default=-1)
+    rules_at = next((i for i, t in enumerate(brief_lines) if t == "Rules:"), -1)
+    sentence = brief_lines[said[0]] if said else ""
+    printed = {int(a): int(b) for a, b in re.findall(
+        r"line (\d+) (?:needs )?at least (\d+)", sentence)}
+    check("a group that names a word inside a line says, once and right "
+          "after the group list, how many words each such line needs; the "
+          "number is the shortest line the grader accepts there, a word in "
+          "parentheses is not counted unless `voices` is set, and two words "
+          "joined by a hyphen count once (plan found by seed "
+          f"{seed_w}, {lines_w} lines)",
+          found is not None and len(said) == 1
+          and said[0] == last_group + 1 == rules_at - 1
+          and printed == least_read and set(printed) == set(named)
+          and not parens_bad and not hyphen_bad
+          and f"Words in parentheses are not counted {PLN.UNLESS_VOICES}"
+          in sentence
+          and "a word joined by a hyphen counts once" in sentence,
+          (seed_w, sentence, least_read, parens_bad, hyphen_bad))
+
 
 def test_the_legend_states_the_whole_schema():
     print("\n19. M-214 — the legend's 'what each named relation asks' is "
@@ -9667,6 +9918,7 @@ _SECTIONS = (
     test_the_delegated_rulings,
     test_the_overhang_group,
     test_the_planner_plans_the_whole_line,
+    test_a_tied_word_sits_where_real_words_sit,
     test_the_end_rhyme_pass_is_additive,
     test_the_relation_draw,
     test_the_grade_it_line_runs,

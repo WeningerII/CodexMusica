@@ -124,7 +124,10 @@ stale.
    planner's own verbatim returns). THE CORPUS SAMPLES NOTHING — measured
    distributions as a sampler would give the unprecedented shape
    probability ~zero (the owner's "move 37" ban), and `test_plan.py` §4
-   pins by AST that `plan.py` imports no corpus reader and opens no file.
+   pins by AST that `plan.py` imports no corpus reader and opens no file
+   (one written exception since 2026-11-23, the owner's ruling: the word a
+   rhyme tie inside a line is named at follows `data/word_places_en.tsv`,
+   and the same section holds that reader to that one pick).
    The same section holds the samplers to their enumerations at small n —
    a pin that caught `bell()` returning B(k−1) on the day it was written,
    with every above-enumeration scheme pool disclosed an order of

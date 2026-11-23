@@ -230,7 +230,13 @@ try {
   // burden are ordinary sections, owner ruling), so seed 1 at 24 lines
   // re-deals its sections and line ends and flags a different thirteen; the
   // door still opens on continuation 0 with all of them (192466 state bytes).
-  const originalIndependent = [1, 2, 4, 5, 6, 8, 11, 12, 14, 16, 18, 19, 23];
+  // ~~[1, 2, 4, 5, 6, 8, 11, 12, 14, 16, 18, 19, 23]~~ REPINNED 2026-11-23
+  // (owner's ruling: a rhyme tie inside a line is placed as often as real
+  // sung lines have a word there; measured): the weighted place pick draws
+  // from the seed differently, so seed 1 at 24 lines re-deals its plan and
+  // flags a different eight; the door still opens on continuation 0 with all
+  // of them (114465 state bytes).
+  const originalIndependent = [3, 7, 9, 10, 13, 20, 22, 24];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
@@ -335,7 +341,10 @@ try {
   // the merge order puts #627 first, so the pin is the merged reading.
   // ~~[1, 2, 4, 8, 10, 11, 12, 13, 14, 18, 19, 20, 24]~~ -> the thirteen below
   // (2026-11-13, the 22-function roster; measured).
-  assert.deepEqual(firstSubset, [1, 2, 4, 5, 6, 8, 11, 12, 14, 16, 18, 19, 23]);
+  // ~~[1, 2, 4, 5, 6, 8, 11, 12, 14, 16, 18, 19, 23]~~ -> the eight below
+  // (2026-11-23, rhyme ties inside a line placed by the measured word places;
+  // measured).
+  assert.deepEqual(firstSubset, [3, 7, 9, 10, 13, 20, 22, 24]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
   // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)
