@@ -3094,6 +3094,15 @@ _LIGATURES = {chr(0xFB00 + k): unicodedata.normalize("NFKC", chr(0xFB00 + k))
               for k in range(7)}
 
 
+def expand_ligatures(word):
+    """-> `word` with each Latin ligature letter written as its letters, as
+    the reader reads it (`_reader_expand`, the same table). A word list that
+    holds a typeset spelling beside the plain one (`find` set with the `fi`
+    ligature letter, and `find`) reads them as one word through this
+    (2026-11-24, `quality/capacity.population`)."""
+    return "".join(_LIGATURES.get(c, c) for c in word)
+
+
 def _word_char(ch):
     """A letter or a numeral (General_Category L or N): what keeps an `&`
     inside a run rather than standalone."""
