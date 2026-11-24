@@ -116,6 +116,128 @@ def verify_reason(key, **fields):
     return VERIFY_REJECTIONS[key].format(**fields)
 
 
+def _in_a_row(items):
+    """-> '3', '1 and 3', '2, 6 and 9'."""
+    items = [str(x) for x in items]
+    return items[0] if len(items) == 1 else (
+        ", ".join(items[:-1]) + " and " + items[-1])
+
+
+def findings_in_words(keys):
+    """-> the findings a reason names, as a writer reads them:
+    ``SCHEME_VIOLATION on lines 1 and 3, group A; HOOK_ABSENT on the whole
+    draft``.
+
+    `keys` are `Reviser.verify`'s finding identities: (line, code, severity,
+    locations, groups, subject). ADDED 2026-11-23: the reasons printed those
+    records as Python wrote them, and the next question quotes a reason, so a
+    writer read ``[(3, 'SCHEME_VIOLATION', 'flag', (1, 3), ('A',), ())]``.
+    A finding is named by its code, the lines it is about (the line it is
+    filed under included, in order), the groups it names, and the requirement
+    its record names when the lines do not say which (`_which_requirement`).
+    The severity and the rest of the record stay in the structured rows
+    (`new_findings`). Two findings these words cannot tell apart are counted,
+    so two never read as one."""
+    rows = {}
+    for line, code, _severity, locations, groups, subject in sorted(keys):
+        lines = sorted(set(locations) | ({line} if line else set()))
+        where = ("the whole draft" if not lines else
+                 f"line{'s' if len(lines) > 1 else ''} {_in_a_row(lines)}")
+        named = [g for g in groups if g]
+        which = _which_requirement(subject)
+        row = (f"{code} on {where}"
+               + (f", group{'s' if len(named) > 1 else ''} {_in_a_row(named)}"
+                  if named else "")
+               + (f", {which}" if which else ""))
+        rows[row] = rows.get(row, 0) + 1
+    return "; ".join(row if n == 1 else f"{row} ({n} findings)"
+                     for row, n in rows.items())
+
+
+def _which_requirement(subject):
+    """-> the requirement a finding's record names, in words, or ''.
+
+    Two shapes say something the finding's lines and groups do not: which
+    declared hook (`quality/grid.py` writes ``("hook", index)``, counted from
+    0), and which check of the chosen form (`Reviser.inspect` writes
+    ``("catalog:<form>:<check>:<place>",)``, and words its own finding
+    "<form>: <check> at <place>"). Every other record repeats the pair's words
+    and slots, or lists lines a brief already names; `findings_in_words`
+    counts those so none is lost."""
+    if (len(subject) == 2 and subject[0] == "hook"
+            and isinstance(subject[1], int)):
+        return f"hook {subject[1] + 1}"
+    if (len(subject) == 1 and isinstance(subject[0], str)
+            and subject[0].startswith("catalog:")):
+        return "form check " + subject[0][len("catalog:"):]
+    return ""
+
+
+def named_findings(keys):
+    """-> `findings_in_words`, set off from the sentence a reason puts it in."""
+    return f"({findings_in_words(keys)})"
+
+
+#: What `Reviser.verify` adds to "nothing was fixed" when the only findings an
+#: answer removed were ones that record a requirement or licence HOLDING.
+NOTHING_FIXED_BUT_ENDED = (
+    " — the only finding(s) removed were {broken}, which record a requirement "
+    "or licence HOLDING, so ending one is a regression and not a repair")
+
+#: THE REASONS THAT PRINTED PYTHON VALUES, as they were worded until
+#: 2026-11-23. FROZEN: these are what a journal written before that day
+#: hashed, so they do not follow `VERIFY_REJECTIONS` if a row there is
+#: reworded later.
+_REASONS_BEFORE_1123 = {
+    "untargeted": "lines {lines} were changed but not targeted; revise "
+                  "flagged lines only",
+    "nothing_fixed": "nothing was fixed — the only finding(s) removed were "
+                     "{broken}, which record a requirement or licence "
+                     "HOLDING, so ending one is a regression and not a repair",
+    "new_flags": "introduced {n} new flagged finding(s) {flags} while fixing "
+                 "{fixed}; a revision may not trade one defect for another",
+}
+
+
+def reason_before_1123(key, **fields):
+    """-> one of the three reasons as it read before 2026-11-23, its values
+    printed the way Python prints them."""
+    return _REASONS_BEFORE_1123[key].format(**fields)
+
+
+#: WHAT A REASON SAID BEFORE, BY WHAT IT SAYS NOW (2026-11-23). The words
+#: leave out part of the grader's record (`findings_in_words`), so the old
+#: text cannot be worked out from the new one. `Reviser.verify` writes both
+#: and keeps the old one here, and `lyric_harness._legacy_reason_lists` reads
+#: it to find a journal written under the old text. A replay walks the journal
+#: from the first question and grades every answer again in this process, so
+#: each reason a replayed question quotes was written here first. `None` marks
+#: a new text two different old texts share: neither is offered, and the held
+#: run parks (QUESTION_CHANGED), as it does for any question that changed.
+#: A plain dict, kept in the order its rows were last written: this module
+#: imports `re` and nothing else (`test_propose.py` pins that).
+LEGACY_REASONS = {}
+#: A question quotes a reason written in its own round or the round before,
+#: and the loop can refuse lines x attempts answers in between. 4096 is above
+#: that for the longest song the journal admits a whole-song question on
+#: (about 135 lines) at 30 tries a line; the default is 3. Past the cap the
+#: oldest row leaves, and a question that quotes it parks as a changed
+#: question does.
+LEGACY_REASONS_CAP = 4096
+
+
+def legacy_reason(new, old):
+    """Keep `old`, what the reason `new` said before 2026-11-23."""
+    if new == old:
+        return
+    if new in LEGACY_REASONS and LEGACY_REASONS[new] != old:
+        old = None
+    LEGACY_REASONS.pop(new, None)
+    LEGACY_REASONS[new] = old
+    while len(LEGACY_REASONS) > LEGACY_REASONS_CAP:
+        del LEGACY_REASONS[next(iter(LEGACY_REASONS))]
+
+
 class _Placeholders(dict):
     def __missing__(self, key):
         return f"<{key}>"

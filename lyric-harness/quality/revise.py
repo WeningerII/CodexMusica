@@ -7646,6 +7646,7 @@ class Reviser:
         genuinely clean.
         """
         from quality.propose import verify_reason           # noqa: PLC0415
+        import quality.propose as _reasons                  # noqa: PLC0415
         if self._pronunciation_origin is None:
             self = self.for_revision(before)
         out = {"accepted": False, "reasons": [],
@@ -7665,8 +7666,13 @@ class Reviser:
                 return out
             stray = changed - targeted
             if stray:
+                # ~~lines=sorted(stray)~~ REPLACED 2026-11-23: that printed
+                # a Python list to the writer ("lines [2] were changed").
                 out["reasons"].append(verify_reason(
-                    "untargeted", lines=sorted(stray)))
+                    "untargeted", lines=", ".join(map(str, sorted(stray)))))
+                _reasons.legacy_reason(
+                    out["reasons"][-1], _reasons.reason_before_1123(
+                        "untargeted", lines=sorted(stray)))
                 return out
         f_before = self.inspect(before, m, profile=profile,
                                 blueprint=blueprint, subdivision=subdivision,
@@ -7782,17 +7788,26 @@ class Reviser:
             return out
 
         if not fixed:
+            # ~~{sorted(broken)}~~ REPLACED 2026-11-23, with ~~flags=
+            # sorted(new_flags)~~ below: both printed the grader's records
+            # as Python wrote them, and the next question quotes the reason.
             out["reasons"].append(
                 verify_reason("nothing_fixed")
-                + (f" — the only finding(s) removed were {sorted(broken)}, "
-                   f"which record a requirement or licence HOLDING, so "
-                   f"ending one is a regression and not a repair"
-                   if broken else ""))
+                + (_reasons.NOTHING_FIXED_BUT_ENDED.format(
+                    broken=_reasons.named_findings(broken)) if broken else ""))
+            if broken:
+                _reasons.legacy_reason(
+                    out["reasons"][-1], _reasons.reason_before_1123(
+                        "nothing_fixed", broken=sorted(broken)))
             return out
         if sum(new[k] for k in new_flags) > self.rdecl.allow_net_new:
             out["reasons"].append(verify_reason(
-                "new_flags", n=len(new_flags), flags=sorted(new_flags),
-                fixed=len(fixed)))
+                "new_flags", n=len(new_flags),
+                flags=_reasons.named_findings(new_flags), fixed=len(fixed)))
+            _reasons.legacy_reason(
+                out["reasons"][-1], _reasons.reason_before_1123(
+                    "new_flags", n=len(new_flags), flags=sorted(new_flags),
+                    fixed=len(fixed)))
             return out
         out["accepted"] = True
         note_disclosure = (f", disclosing {len(out['new_notes'])} new "
