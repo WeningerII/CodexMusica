@@ -980,8 +980,15 @@ def test_corpus_counts():
     # more coda verdicts and one more phones verdict become refusals, because
     # those words now hold readings that disagree; nothing moves the other
     # way (the direction check above still holds).
+    # REPINNED 2026-11-24, the hyphen lift (fd1d20d75a: a hyphenated word whose
+    # parts are dictionary words reads as its parts): ~~coda (16, 80)~~ ->
+    # coda (16, 78). Sonnet 32 L3 ends "once more re-survey"; `re-survey` read
+    # nothing, so the line's last readable word was `more`. It now reads from
+    # its parts and the line ends on `survey`, so the two refusals L2-3
+    # cover/more and L3-4 more/lover go. The pair count is unchanged and
+    # nothing moves the other way.
     _report("ENGLISH corpus/sonnets.txt", t, e, n,
-            {"onset": (0, 5), "coda": (16, 80), "consonants": (3, 4),
+            {"onset": (0, 5), "coda": (16, 78), "consonants": (3, 4),
              "phones": (8, 1), "nucleus": (0, 0), "prominence": (0, 0)})
     t, e, n = _corpus_moves(
         [os.path.join(CORPUS, "song", "ltc_huajianji.txt")], L_UNC)
