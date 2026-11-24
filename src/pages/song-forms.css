@@ -31,3 +31,34 @@
 #surface-lyrics .ly-song-forms li > ol {
   border-inline-start: 2px solid var(--cm-border);
 }
+#surface-lyrics .ly-form-diagram {
+  margin: 0 0 12px;
+  padding: 12px;
+  border: 1px solid var(--cm-border);
+  border-radius: 8px;
+}
+#surface-lyrics .ly-form-diagram figcaption {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+#surface-lyrics .ly-form-diagram ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 100px), 1fr));
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+#surface-lyrics .ly-form-diagram li {
+  min-width: 0;
+  max-width: 100%;
+  padding: 8px;
+  border: 1px solid var(--cm-border);
+  border-radius: 6px;
+}
+#surface-lyrics .ly-form-diagram > ul > li {
+  padding: 0;
+  border: 0;
+}
+#surface-lyrics .ly-form-diagram details > ul {
+  margin-top: 8px;
+}

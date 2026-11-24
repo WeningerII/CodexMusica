@@ -9,7 +9,11 @@ const { chromium } = require('playwright');
 const { start } = require('./_pages_server.js');
 
 async function checkViewport(browser, origin, viewport) {
-  const context = await browser.newContext({ viewport, serviceWorkers: 'block' });
+  const context = await browser.newContext({
+    viewport,
+    serviceWorkers: 'block',
+    reducedMotion: 'reduce',
+  });
   try {
     await context.route('**/*', (route) =>
       new URL(route.request().url()).origin === origin ? route.continue() : route.abort()
@@ -109,6 +113,45 @@ async function checkViewport(browser, origin, viewport) {
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText(/number of unstressed syllables can vary/).waitFor();
     await picker.selectOption('triolet');
+    const diagram = view.locator('.ly-form-diagram');
+    const diagramLines = diagram.locator('li').filter({ hasNot: page.locator('details') });
+    const expectedLines = [
+      'Line · rhyme A · refrain r1',
+      'Line · rhyme B · refrain r2',
+      'Line · rhyme A',
+      'Line · rhyme A · refrain r1',
+      'Line · rhyme A',
+      'Line · rhyme B',
+      'Line · rhyme A · refrain r1',
+      'Line · rhyme B · refrain r2',
+    ];
+    assert.deepEqual(await diagramLines.allTextContents(), expectedLines);
+    const stanza = diagram.getByText('Stanza', { exact: true });
+    await stanza.press('Enter');
+    assert.equal(await diagramLines.first().isVisible(), false);
+    await stanza.press('Enter');
+    assert.equal(await diagramLines.first().isVisible(), true);
+    const nesting = view.locator('details').filter({
+      has: page.locator(':scope > summary', { hasText: /^Nesting$/ }),
+    });
+    assert.equal(await nesting.locator('li').count(), 0, 'Nesting stays lazy until opened');
+    await nesting.locator(':scope > summary').press('Enter');
+    await nesting.locator('li').first().waitFor();
+    assert.deepEqual(
+      await nesting
+        .locator('li')
+        .filter({ hasNot: page.locator('details') })
+        .allTextContents(),
+      expectedLines,
+      'The diagram preserves the catalog order, rhyme and refrain identities'
+    );
+    assert.ok(await diagram.evaluate((node) => node.scrollWidth <= node.clientWidth + 1));
+    if (directory) {
+      await diagram.scrollIntoViewIfNeeded();
+      await page.screenshot({
+        path: path.join(directory, 'lyrics-form-diagram-' + viewport.width + '.png'),
+      });
+    }
     await view.getByRole('button', { name: 'Show expanded structure' }).click();
     await view.getByText('Repeat line 1 verbatim at 4, 7.').waitFor();
     await picker.selectOption('tritina');
@@ -119,6 +162,9 @@ async function checkViewport(browser, origin, viewport) {
     assert.match(await endingNote.textContent(), /same final word within each group/);
     assert.match(await endingNote.textContent(), /closing passage on line 10/);
     await picker.selectOption('quatrain');
+    assert.equal(await diagram.count(), 1, 'Changing forms replaces the diagram');
+    assert.equal(await diagram.getByText(/refrain r1/).count(), 0, 'No stale refrain labels');
+    assert.equal(await nesting.locator('li').count(), 0, 'Changing forms resets lazy nesting');
     const expand = view.getByRole('button', { name: 'Show expanded structure' });
     await expand.focus();
     await page.keyboard.press('Enter');

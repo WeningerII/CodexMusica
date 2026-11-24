@@ -239,7 +239,16 @@ function writerDescription({ arrangement, contract, nestedDivisions }) {
 }
 
 function variantView(description, index, catalog, target, startWriter) {
-  target.replaceChildren(branchList([description.patterns[index]]));
+  const pattern = description.patterns[index];
+  const diagram = el('figure', '', 'ly-form-diagram');
+  diagram.append(el('figcaption', 'Diagram'), branchList([pattern]));
+  const nesting = el('details');
+  nesting.append(el('summary', 'Nesting'));
+  // Keep the alternate view lazy, just like the branches themselves.
+  nesting.addEventListener('toggle', () => {
+    if (nesting.open && nesting.childElementCount === 1) nesting.append(branchList([pattern]));
+  });
+  target.replaceChildren(diagram, nesting);
   const controls = el('form', '', 'ly-form-fields');
   const fields = new Map();
   const output = el('div');
