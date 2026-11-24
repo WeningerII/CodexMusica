@@ -927,9 +927,19 @@ class OneCoordinate(unittest.TestCase):
             # FIXED the same day (M-322 item 5): recovery reports the rule-5
             # listing, so the pair whose two accents each rhyme carries
             # perfect rhyme under one whole reading, all three pairs again.
+            # REPINNED 2026-11-24 (the owner's ruling on hyphenated words,
+            # "lift it"): `sixty-six` ~~is unread by the plain lexicon~~ is
+            # read there from its two dictionary parts
+            # (`English._piece_readings`), so it rhymes with `tricks` under
+            # both lexicons. The closed compounds the plain dictionary lacks,
+            # `streetlight(s)`, are still unread by it, and still witness the
+            # selected lexicon reaching recovery.
             if a in ("streetlight", "streetlights", "sixty-six") and b != "seat":
                 self.assertTrue(schemas(lines, selected))
-                self.assertEqual(schemas(lines, plain), set())
+                if a == "sixty-six":
+                    self.assertIn("perfect rhyme", schemas(lines, plain))
+                else:
+                    self.assertEqual(schemas(lines, plain), set())
                 self.assertIn("perfect rhyme", schemas(lines, selected))
         self.assertNotIn("perfect rhyme", schemas(["streetlights", "seat"], selected))
         self.assertEqual(schemas(["zzqxqzz", "night"], selected), set())
@@ -3658,6 +3668,189 @@ class NamedPlaceLookup(unittest.TestCase):
             old, cur = self.cut(line)
             self.assertEqual([(t, tuple(map(tuple, p))) for t, p in old], cur, line)
             self.assertFalse(self.lookup_differs(line), line)
+
+
+class HyphenatedWordsInANamedType(unittest.TestCase):
+    """A hyphenated word whose every part is a dictionary word is read in the
+    relations stream (the owner's ruling, 2026-11-23: "lift it"). Under v2 a
+    line keeps such a word as one token; the stream looked the token up whole,
+    found no entry and read nothing, so a named type at that line end was
+    left unjudged. Read through `Lexicon.word_pieces`: where the parts stay
+    apart, the word sounds as its parts in order, so it rhymes where its last
+    part does; where they join to one dictionary spelling, it reads as that
+    spelling. A part the dictionary lacks, and a numeral part, stay unread.
+
+    Every witness is drawn by seed from the dictionary, and the stream's own
+    verdict on the plain words decides which pairs rhyme."""
+
+    RELATION = "perfect rhyme"
+
+    @classmethod
+    def setUpClass(cls):
+        import random
+        cls.rng = random.Random("hyphenated words in a named type")
+        cls.lex = LH.Lexicon(reader_scheme="v2")
+        entries = cls.lex.entries
+
+        def stressed(w):
+            return all(any(ph.endswith("1") for ph in r) for r in entries[w])
+
+        # One reading each, so a part's sound is not a choice the test makes.
+        cls.words = sorted(w for w, rs in entries.items()
+                           if w.isalpha() and w.islower() and 3 <= len(w) <= 8
+                           and len(rs) == 1 and stressed(w))
+
+        def rime(w):
+            r = entries[w][0]
+            at = max(i for i, ph in enumerate(r) if ph.endswith("1"))
+            return tuple(ph.rstrip("012") for ph in r[at:])
+
+        cls.by_rime = {}
+        for w in cls.words:
+            cls.by_rime.setdefault(rime(w), []).append(w)
+        cls.rime = staticmethod(rime)
+
+    def verdict(self, lines):
+        import quality.relations as RL
+        import quality.revise as RV
+        with LH.reader_scheme_scope("v2"):
+            judge = RV.relation_phonology_for(self.lex)
+            stream = RL.build_stream(list(lines), judge)
+            return RL.line_pairs_for(RL.REGISTRY[self.RELATION], stream,
+                                     keep_refusal=True,
+                                     requested_pairs={(1, 2)}).verdict((1, 2))
+
+    def partner(self, w):
+        """A word that rhymes with `w` by the stream's own verdict, or None."""
+        same = [c for c in self.by_rime.get(self.rime(w), ()) if c != w]
+        self.rng.shuffle(same)
+        x, y = self.rng.sample(self.words, 2)
+        for c in same[:6]:
+            if self.verdict((f"{x} {w}", f"{y} {c}")) is True:
+                return x, y, c
+        return None
+
+    def test_a_word_whose_parts_stay_apart_rhymes_where_its_last_part_does(self):
+        found = 0
+        for _ in range(200):
+            if found == 8:
+                break
+            a, b = self.rng.sample(self.words, 2)
+            if self.lex.word_pieces(f"{a}-{b}") != [a, b]:
+                continue
+            got = self.partner(b)
+            if got is None:
+                continue
+            x, y, c = got
+            with self.subTest(word=f"{a}-{b}", partner=c):
+                self.assertIs(self.verdict((f"{x} {a}-{b}", f"{y} {c}")), True)
+            found += 1
+        self.assertEqual(found, 8)
+
+    def test_a_word_whose_parts_join_reads_as_the_joined_spelling(self):
+        # The joined spellings are the ones `word_pieces` itself joins.
+        entries = self.lex.entries
+        pool = sorted(w for w in entries if w.isalpha() and w.islower() and len(w) >= 5)
+        self.rng.shuffle(pool)
+        found = 0
+        for w in pool:
+            if found == 4:
+                break
+            cuts = [k for k in range(2, len(w) - 1)
+                    if self.lex.word_pieces(f"{w[:k]}-{w[k:]}") == [w]]
+            if not cuts or not all(any(ph.endswith("1") for ph in r) for r in entries[w]):
+                continue
+            k = self.rng.choice(cuts)
+            same = [c for c in self.words if c != w and any(
+                self.rime(c) == tuple(ph.rstrip("012") for ph in r[max(
+                    i for i, ph in enumerate(r) if ph.endswith("1")):])
+                for r in entries[w])]
+            if not same:
+                continue
+            x, y = self.rng.sample(self.words, 2)
+            c = self.rng.choice(same)
+            whole = self.verdict((f"{x} {w}", f"{y} {c}"))
+            if whole is None:
+                continue
+            with self.subTest(word=f"{w[:k]}-{w[k:]}", partner=c):
+                self.assertIs(self.verdict((f"{x} {w[:k]}-{w[k:]}", f"{y} {c}")), whole)
+            found += 1
+        self.assertEqual(found, 4)
+
+    def test_a_part_the_dictionary_lacks_or_a_numeral_part_stays_unread(self):
+        entries = self.lex.entries
+        found = 0
+        for _ in range(100):
+            if found == 4:
+                break
+            a, b = self.rng.sample(self.words, 2)
+            got = self.partner(b)
+            if got is None:
+                continue
+            x, y, c = got
+            nonword = "".join(self.rng.choice("bcdfghjklmnpqrstvwxz") for _ in range(6))
+            while nonword in entries:
+                nonword += self.rng.choice("bcdfghjklmnpqrstvwxz")
+            for word in (f"{nonword}-{b}", f"{a}-{self.rng.randrange(2, 100)}"):
+                with self.subTest(word=word):
+                    self.assertIsNone(self.verdict((f"{x} {word}", f"{y} {c}")))
+            found += 1
+        self.assertEqual(found, 4)
+
+    def said(self, parts, limit):
+        """How many combinations of one reading per part one speaker could
+        say (`Lexicon.accents_agree`), counted up to `limit`."""
+        import itertools
+        lex = self.lex
+        per = [list(dict.fromkeys(tuple(r) for r in lex.pronunciation_variants(p)))
+               for p in parts]
+        agree = (c for c in itertools.product(*per)
+                 if lex.accents_agree([(lex, p, list(r)) for p, r in zip(parts, c)]))
+        return sum(1 for _ in itertools.islice(agree, limit))
+
+    def compound_of(self, want):
+        """A hyphenated word of dictionary words that `word_pieces` keeps
+        apart, the dictionary lacks whole, and whose spoken combinations
+        `want(count)` accepts; drawn by seed."""
+        import quality.relations as RL
+        lex, cap = self.lex, RL.READING_COMBO_CAP
+        pool = sorted(w for w, rs in lex.entries.items()
+                      if w.isalpha() and w.islower() and 3 <= len(w) <= 8
+                      and len({tuple(r) for r in lex.pronunciation_variants(w)}) >= 2)
+        for _ in range(2000):
+            parts = self.rng.sample(pool, self.rng.randrange(2, 9))
+            word = "-".join(parts)
+            if lex.word_pieces(word) != parts or lex.pronunciation_variants(word):
+                continue
+            count = self.said(parts, cap + 1)
+            if want(count):
+                return word, parts, count
+        self.fail("no compound drawn")
+
+    def test_past_the_combination_cap_a_word_stays_unread_and_says_why(self):
+        # The cap is the any-reading search's own (R2, 2026-11-23): past it
+        # the word is not read under a sample of its combinations. The
+        # combinations are the ones one speaker could say, as that search
+        # combines readings.
+        import quality.relations as RL
+        from quality.phonology import UNREADABLE
+        from quality.revise import relation_phonology_for
+        cap = RL.READING_COMBO_CAP
+        phon = relation_phonology_for(self.lex)
+        with LH.reader_scheme_scope("v2"):
+            word, parts, _ = self.compound_of(lambda n: n > cap)
+            with self.subTest(word=word):
+                self.assertIsNone(phon.read(word))
+                self.assertEqual(phon.parses(word), [[]])
+                status, note = phon.reading_status(word)
+                self.assertEqual(status, UNREADABLE)
+                self.assertIn(f"more than {cap} combinations", note)
+                self.assertIn(", ".join(parts), note)
+            # Under the cap the same kind of word is read, every combination.
+            word, parts, count = self.compound_of(lambda n: 2 <= n <= cap)
+            with self.subTest(word=word):
+                self.assertIsNotNone(phon.read(word))
+                self.assertEqual(len(phon.parses(word)), count)
 
 
 class MirrorFixture(unittest.TestCase):
