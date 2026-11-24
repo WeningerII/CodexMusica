@@ -61,3 +61,16 @@ Sung lines ~~281,399~~ 281,366; identical cut ~~271,092~~ 271,062 (~~262,604~~ 2
 ## Remeasured 2026-10-16 (#577)
 
 #577's reader rule (scheme v2 no longer keeps an opening quotation mark on a word) changes which lines read identically under v1 and v2, so `measure.py --write` was re-run on the same rule and corpus. Identical cut ~~271,062~~ 270,633 (~~262,574~~ 262,167 unique); sung lines unchanged at 281,366. The 24 lines the condition fires on, the 8 END-binding changes and the 3 NFC-only label differences are unchanged item for item. The run was local (CPython 3.13); the exact-head CI verify job on 98945c9dc0 (Python 3.11) measured the same two counts.
+
+## Remeasured 2026-11-24 (reader scheme v2 batch, #913): two counts only
+
+Two of the batch's reader commits change which lines read identically under v1 and v2. Identical cut ~~270,633~~ 270,614 (~~262,167~~ 262,149 unique); sung lines unchanged at 281,366. It moves in two steps, each measured at every commit of the branch:
+
+- ded2284947 (the reader's smoothing, contractions, hyphen-joined words, ligatures and standalone `&`): 270,633 to 270,623.
+- a4285159ac (a run of apostrophes at a word's edge is read as one mark): 270,623 to 270,614.
+
+No other commit of the branch moves it, and the merges of main do not.
+
+**This file was not regenerated.** Those two figures were typed into `result.json` by hand, and nothing else in it was changed. They are `measure.py`'s own printed counts on the final tree: `python3 quality/results/named_place_lookup_2026-10-14/measure.py` printed `"identical_cut": 270614` and `"unique_identical_cut": 262149`. The `lookup_differs` list from that run is the committed list item for item (24 lines). Everything else in the file is as of 2026-10-16.
+
+Why not `--write`: `measure.py`'s end-binding comparison has been stale since M-322 (2026-10-30). It reads each scheme with that scheme's own lexicon, while `test_reader.py` `NamedPlaceLookup` has compared the quiet lines over one lexicon since then, because the v2 lexicon carries accent readings v1 lacks. So `measure.py` now measures the lexicon difference, not the cut. On main 4def4c3f77 it prints `end_changed` 100,017 against the committed 8, and `--write` would produce a file of about 17 million lines. Reading both schemes with the v2 lexicon alone is no fix: `end_changed` falls to 0 and the eight real moves vanish too. The fix has to separate "the cut moved" from "the lexicon moved". It is written down as a defect, not started, so the other fields cannot be regenerated until it is fixed.
