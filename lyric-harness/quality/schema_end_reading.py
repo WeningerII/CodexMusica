@@ -139,8 +139,14 @@ SONNET_SCHEME = "ABABCDCDEFEFGG"
 #: audible schemas again and E2 no longer fires. Nothing judged moved:
 #: 952 + 36 + 25 = 1013 judged against 51 refused, as before. H HOLDS: 2 of
 #: 36 schema-only satisfactions (5.6%) are AUDIBLE and 34 (94.4%) are not.
+#: ~~(952, 2, 34)~~ REPINNED 2026-11-24 -> (953, 1, 34), READER SCHEME v2
+#: (moved at ded2284947: the one-syllable reading of a vowel glide before
+#: ER). 122 L5-7 admire/desire, one of the two AUDIBLE schema-only
+#: satisfactions, now passes the coarse rhyme check outright, so it leaves the
+#: schema-only count and joins the coarse passes. Nothing else moved. H HOLDS:
+#: 1 of 35 schema-only satisfactions is AUDIBLE and 34 are not.
 PINNED = {
-    "sonnets": (952, 2, 34),
+    "sonnets": (953, 1, 34),
 }
 
 

@@ -689,6 +689,12 @@ def test_corpus_song_rate_is_pinned():
     #   countable 280511 -> 280486, token 16745 -> 16742, numeral 558 -> 557,
     #   piece 407 unchanged, total 17710 -> 17706, substitutions 17066 ->
     #   17062 (all flagged); silent substitutions stay at zero.
+    # REPINNED 2026-11-24, READER SCHEME v2 (moved at ded2284947, the
+    # standalone `&` read as "and"): substitutions ~~17062~~ 17063 and no
+    # anchor ~~644~~ 643. One line moves: Durfey's `_Hic & ubiq;` now has a
+    # readable word before its unreadable end, so it is a flagged
+    # substitution. Total refusals 17706 unchanged; silent substitutions stay
+    # at zero.
     check("countable lines 280486 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
@@ -734,9 +740,9 @@ def test_corpus_song_rate_is_pinned():
           f"the reader batch; 17630 / 6.2570% "
           f"before the Otterbein / M-25 batch; 17702 / 6.2611% "
           f"before the bracket-apparatus repin)")
-    check("17062 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 17062,
-          f"{r['substituted_end_word']}  (17066 before the M-25 residue; 16512 before the reader batch; "
+    check("17063 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 17063,
+          f"{r['substituted_end_word']}  (17062 before the standalone `&`, ded2284947; 17066 before the M-25 residue; 16512 before the reader batch; "
           f"16650 before the Otterbein / M-25 "
           f"batch; 16712 before the "
           f"bracket-apparatus repin; 15405 before the LATIN_SCRIPT repin)")
@@ -762,17 +768,17 @@ def test_corpus_song_rate_is_pinned():
     # class DROPS it and the line's end word IS `turf` now — the exact
     # exemplar CLAUDE.md known gap 8 filed as a `word_syllable_map` edge
     # case, closed by reading the page's own apparatus correctly instead.
-    check("17062 flagged substitutions and zero silent substitutions after unanchored readings are refused",
-          r["substituted_flagged"] == 17062 and r["substituted_silent"] == 0,
+    check("17063 flagged substitutions and zero silent substitutions after unanchored readings are refused",
+          r["substituted_flagged"] == 17063 and r["substituted_silent"] == 0,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "
           f"(D'Urfey's `_Sh----_`; Byron's `turf,[mm]` left the class when "
           f"the anchor rule dropped `[mm]`)")
-    check("644 unreadable-final lines are not substitutions: the end-word gap has no earlier readable anchor",
-          r["unreadable_final"] - r["substituted_flagged"] == 644
+    check("643 unreadable-final lines are not substitutions: the end-word gap has no earlier readable anchor",
+          r["unreadable_final"] - r["substituted_flagged"] == 643
           and r["unreadable_final_piece"] == 407,
-          f"{r['unreadable_final'] - r['substituted_flagged']}  (658 before "
+          f"{r['unreadable_final'] - r['substituted_flagged']}  (644 before the standalone `&`, ded2284947; 658 before "
           f"the reader batch; 980 before "
           f"the Otterbein / M-25 batch; 992 before "
           f"the bracket-apparatus repin)")

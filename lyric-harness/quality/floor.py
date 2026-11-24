@@ -978,7 +978,16 @@ PROFILES = [
         #: it here, or repin the constant." This is the repin: the corrected
         #: reader gives the true MATTR of this corpus, so the constant moves
         #: rather than the drift being ruled.
-        percentiles={'anaphora_max': 0.3086080586080586,
+        #:
+        #: ~~'anaphora_max': 0.3086080586080586~~ REPINNED 2026-11-24 -> 0.3125,
+        #: READER SCHEME v2 (moved at ded2284947, `SlopFloor.opening_word`):
+        #: a line's opening word is now read past a leading quote mark, edge
+        #: apostrophe, curly apostrophe, underscore markup, bracket or dash.
+        #: 19,067 of 278,126 lines open on a different word; in the band 191
+        #: of 3,251 items' anaphora rate moved (190 up). Measured by
+        #: `song_profile_calibration.py --check --without-predictability` on
+        #: the final tree; the other four re-derive exactly, as before.
+        percentiles={'anaphora_max': 0.3125,
  'line_length_cv_min': 0.10734042428432794,
  'function_word_ratio_max': 0.4806227538486295,
  'mattr_min': 0.7058043299534118,

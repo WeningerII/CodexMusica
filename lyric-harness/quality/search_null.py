@@ -171,11 +171,24 @@ PER_K_BUCKETS = ((3, 4), (5, 8), (9, 16), (17, None))
 #: against the adopted 0.72. CROSSOVER and theta_rhyme are untouched; the
 #: margin is an open item (M-322's open list). The song rows stay the
 #: 2026-09-18 record, unremeasured.
+#: RE-BANKED 2026-11-24, READER SCHEME v2 (moved at ded2284947: the reader's
+#: smoothing, contractions, hyphen-joined words, ligatures and the standalone
+#: `&`), both sonnet rows whole from ONE run of the same banked estimator
+#: (`per_k.py ROOT`) on the final tree of the reader-v2 branch. The same run
+#: on main 4def4c3f77 reproduces the 2026-10-30 rows to the digit, so the move
+#: is the branch's. Measured at 1f6017b0bf, ded2284947, 5a97298e0f,
+#: 4eb7236e9d and 1ccca97284; the step is at ded2284947.
+#:   k=3-4   pairs 382   crossover 0.8152   buys -0.50   NO, 1 of 10 (unchanged)
+#:   k=5-8   pairs ~~314~~ 309   crossover ~~0.7510~~ 0.7537   buys ~~-0.04~~ -0.15   NO, 4 of 10
+#: The verdicts hold: both buckets sit above `theta_rhyme` 0.75. In the same
+#: run k=9-16 is ~~294~~ 295 pairs, k=17+ ~~105~~ 109, and the all-pairs
+#: crossover ~~0.7505~~ 0.7597 against the adopted 0.72. The total stays 1102.
+#: CROSSOVER and theta_rhyme are untouched.
 PER_K_CROSSOVER = {
     ("sonnets", (3, 4)): {"pairs": 382, "crossover": 0.8152,
                           "buys_pp": -0.50, "clears": "NO, 1 of 10"},
-    ("sonnets", (5, 8)): {"pairs": 314, "crossover": 0.7510,
-                          "buys_pp": -0.04, "clears": "NO, 4 of 10"},
+    ("sonnets", (5, 8)): {"pairs": 309, "crossover": 0.7537,
+                          "buys_pp": -0.15, "clears": "NO, 4 of 10"},
     ("song", (3, 4)): {"pairs": 162711, "crossover": 0.6901,
                        "buys_pp": +0.13, "clears": "yes, 10 of 10"},
     ("song", (5, 8)): {"pairs": 35021, "crossover": 0.7261,

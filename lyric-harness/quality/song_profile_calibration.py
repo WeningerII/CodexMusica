@@ -312,7 +312,12 @@ PROFILE_PRED_MAX = {"song": None, "short": 200}
 # 150-350); short ~~(0.166, 0.0012)~~ -> ~~(0.168, 0.0007)~~ -> (0.169, 0.0007).
 # The final values are in
 # quality/results/otterbein_m25_2026-10-04/final/adopted-profiles.json.
-PROFILE_PERIOD = {'song': (0.008, 0.868), 'short': (0.169, 0.0007)}
+# song ~~(0.008, 0.868)~~ -> (0.018, 0.7289) REPINNED 2026-11-24, READER
+# SCHEME v2 (moved at ded2284947, the opening word read past leading marks;
+# the same move as `floor.py`'s anaphora_max). Measured by `--check
+# --without-predictability` on the final tree: anaphora still has no period
+# signal (p_perm 0.7289 against the Bonferroni cut). short is unremeasured.
+PROFILE_PERIOD = {'song': (0.018, 0.7289), 'short': (0.169, 0.0007)}
 #: The anaphora period rho each profile's note must keep VISIBLE as a struck
 #: figure (doctrine 17), or None where nothing was ever struck: the `song`
 #: row withdrew +0.275 on 2026-08-20; the `short` row was adopted with its
