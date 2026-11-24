@@ -10753,6 +10753,30 @@ def _legacy_attempt_not_graded(kind, prompt):
             + _ATTEMPT_REJECTED_CLOSE_1123 + prompt[found.end():])
 
 
+#: A REASON THAT NAMES ITS FINDINGS IN WORDS (2026-11-23). Three of the
+#: grader's reasons printed Python values to the writer, and a question quotes
+#: a reason on a row of its own. The old text of each such reason is kept
+#: beside the new one as the grader writes it (`quality.propose.
+#: LEGACY_REASONS`), because the words leave out part of the record and the
+#: old text cannot be rebuilt from them.
+_REASON_ROW_1123 = re.compile(r"(?m)^(?P<lead>[ \t]+- )(?P<reason>.+)$")
+
+
+def _legacy_reason_lists(kind, prompt):
+    """-> the question as worded while a quoted reason printed the grader's
+    records the way Python prints them, or None when no row of it is such a
+    reason (or the old text of one is not known for certain)."""
+    if kind not in ("propose", "propose_group"):
+        return None
+    from quality.propose import LEGACY_REASONS
+
+    def older(found):
+        old = LEGACY_REASONS.get(found.group("reason"))
+        return found.group(0) if old is None else found.group("lead") + old
+    text = _REASON_ROW_1123.sub(older, prompt)
+    return None if text == prompt else text
+
+
 #: HOW A HELD RUN'S QUESTIONS WERE WORDED BEFORE, oldest change first
 #: (2026-10-27, #519 finding f). A checkpoint stores the hash of each question
 #: it asked and replays an answer only to the same question, so a change to a
@@ -10789,6 +10813,9 @@ LEGACY_QUESTION_RENDERINGS = (
     ("2026-11-23 writer: a try that never reached the grader is no longer "
      "called a rejected attempt",
      _legacy_attempt_not_graded),
+    ("2026-11-23 writer: a rejection reason names its findings in words, not "
+     "as the grader's records print",
+     _legacy_reason_lists),
 )
 
 

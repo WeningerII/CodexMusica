@@ -37,6 +37,7 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | PATTERN_ATTEMPTS | 200 | `quality/plan.py` |
 | MAX_CHOICES | 128 | `quality/pronunciation.py` |
 | MAX_LINE_CHARS | 512 | `quality/propose.py` |
+| LEGACY_REASONS_CAP | 4,096 | `quality/propose.py` |
 | _PHONE_MIX_CAP | 4,096 | `quality/relations.py` |
 | _WVP_MEMO_CAP | 32 | `quality/relations.py` |
 | _RESOLVE_MEMO_CAP | 20,000 | `quality/relations.py` |
