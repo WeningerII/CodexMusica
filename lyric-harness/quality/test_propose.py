@@ -526,6 +526,46 @@ def test_reasons_reach_the_prompt():
     check("a bare string reason is not rendered one character per bullet",
           "- nothing was fixed" in render_line(PLAIN_BRIEF, DRAFT,
                                                reasons="nothing was fixed"))
+    # A TRY THE GRADER NEVER READ IS NOT A REJECTED ATTEMPT (the review of the
+    # bug hunt's fixes, 2026-11-23). The loop writes some reasons itself: a
+    # reply it could not read, one that is not one line of text for each
+    # line asked for, one with the wrong number of lines. Each was printed
+    # under "The PREVIOUS attempt was REJECTED. The grader's reasons,
+    # verbatim:", and the grader had read none of those replies. The loop
+    # marks its own reasons (`quality.loop._NotGraded`); this block reads the
+    # mark.
+    from quality.loop import _NotGraded
+    from quality.propose import UNREAD_LINE
+    was = ("  The PREVIOUS attempt was REJECTED. The grader's reasons, "
+           f"verbatim:\n    - {UNREAD_LINE}\n  Do not send back something "
+           "the same reason would reject again.\n")
+    now = ("  The PREVIOUS attempt never reached the grader. Why, verbatim:\n"
+           f"    - {UNREAD_LINE}\n  Do not send back a reply the same reason "
+           "would stop again.\n")
+    plain = render_line(PLAIN_BRIEF, DRAFT, whole=WHOLE, attempt=1,
+                        reasons=[UNREAD_LINE])
+    marked = render_line(PLAIN_BRIEF, DRAFT, whole=WHOLE, attempt=1,
+                         reasons=[_NotGraded(UNREAD_LINE)])
+    check("a reason the loop wrote for a reply the grader never read is "
+          "printed as that, and not as the grader's reason for rejecting it",
+          now in marked and "REJECTED" not in _section(marked, "ATTEMPT")
+          and "grader's reasons" not in _section(marked, "ATTEMPT"),
+          _section(marked, "ATTEMPT"))
+    check("...and nothing else in the question moved: the same reason as "
+          "plain text is quoted as a rejection, as it was",
+          was in plain and marked.replace(now, was) == plain)
+    check("...a bare reason of that kind, not in a list, is read the same",
+          render_line(PLAIN_BRIEF, DRAFT, whole=WHOLE, attempt=1,
+                      reasons=_NotGraded(UNREAD_LINE)) == marked)
+    check("...a set of them is read the same",
+          render_line(PLAIN_BRIEF, DRAFT, whole=WHOLE, attempt=1,
+                      reasons={_NotGraded(UNREAD_LINE)}) == marked)
+    mixed = render_line(PLAIN_BRIEF, DRAFT, whole=WHOLE, attempt=1,
+                        reasons=[_NotGraded(UNREAD_LINE), "nothing was fixed"])
+    check("...and where any reason is the grader's, the block keeps the "
+          "words of a rejection",
+          "The PREVIOUS attempt was REJECTED" in _section(mixed, "ATTEMPT")
+          and "never reached the grader" not in _section(mixed, "ATTEMPT"))
 
 
 # -- 4. whole-draft findings --------------------------------------------
@@ -1099,6 +1139,63 @@ def test_group_prompt_states_the_tier2_situation():
     check("a second try quotes the group's own rejection, the latest one",
           "The PREVIOUS attempt was REJECTED" in p_again
           and "was asked first" not in p_again)
+    # ...and when that second try follows a group reply the grader never
+    # read, the block says so (the review of the bug hunt's fixes,
+    # 2026-11-23; `test_reasons_reach_the_prompt` has the line question).
+    from quality.loop import _NotGraded
+    from quality.propose import UNREAD_GROUP
+    p_passed = render_group(PB(**dict(
+        esc, attempt=1, reasons=(_NotGraded(UNREAD_GROUP),))))
+    check("a second try after a group reply that was never read says the "
+          "try never reached the grader, and cites no earlier line question",
+          "  The PREVIOUS attempt never reached the grader. Why, verbatim:\n"
+          f"    - {UNREAD_GROUP}\n  Do not send back a reply the same reason "
+          "would stop again.\n" in p_passed
+          and "The PREVIOUS attempt was REJECTED" not in p_passed
+          and "was asked first" not in p_passed,
+          p_passed[p_passed.find("ATTEMPT"):][:400])
+    check("...with the same reason as plain text it is the question as it "
+          "was",
+          render_group(PB(**dict(esc, attempt=1, reasons=(UNREAD_GROUP,))))
+          == p_passed.replace(
+              "The PREVIOUS attempt never reached the grader. Why, verbatim:",
+              "The PREVIOUS attempt was REJECTED. The grader's reasons, "
+              "verbatim:").replace(
+              "Do not send back a reply the same reason would stop again.",
+              "Do not send back something the same reason would reject "
+              "again."))
+    # A LINE REPLY THAT WAS NEVER READ IS NOT A REJECTED ANSWER (the review of
+    # the bug hunt's fixes, 2026-11-23). The block above was printed over the
+    # reader's own notice too: "its answer was REJECTED. The grader's reasons,
+    # verbatim:" for a reply the grader never saw.
+    from quality.propose import UNREAD_LINE
+    unread = dict(esc, pivot_line_reasons=(UNREAD_LINE,))
+    p_unread = render_group(PB(**dict(unread, pivot_line_unread=True)))
+    unread_rows = (
+        f"  {cited} was asked first, and the reply to it never reached the "
+        f"grader. Why, verbatim:\n    - {UNREAD_LINE}\n  This question is "
+        "asked because that line still has no accepted answer. The reason "
+        "above is about the reply to that earlier question; how to answer "
+        "this one is stated below.")
+    check("after a line reply that was never read, the group question says "
+          "the reply never reached the grader and does not call it a "
+          "rejected answer",
+          unread_rows + "\n" in p_unread
+          and "its answer was REJECTED" not in p_unread
+          and "No previous attempt was rejected" not in p_unread,
+          p_unread[p_unread.find("ATTEMPT"):][:500])
+    check("...the notice it quotes is about the earlier question, and how "
+          "to answer this one is stated below it, as the row says",
+          "\nHOW TO ANSWER\n" in p_unread[p_unread.find(unread_rows):])
+    check("...and nothing else in the question moved: with the words of a "
+          "rejected answer in those two rows it is the question as it was",
+          p_unread.replace(
+              unread_rows,
+              f"  {cited} was asked first, and its answer was REJECTED. The "
+              f"grader's reasons, verbatim:\n    - {UNREAD_LINE}\n  This "
+              "question is asked because of that rejection; do not send back "
+              "something the same reason would reject again.")
+          == render_group(PB(**unread)))
     check("the whole draft and whole-draft findings remain constraints "
           "a permitted group rewrite may improve",
           all(t in p for t in DRAFT) and "PRESERVE THESE CONSTRAINTS" in p
@@ -1191,6 +1288,12 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
             # added for it.
             "path", "pivot_line_offered", "pivot_line_forbidden",
             "pivot_line_question", "pivot_line_reasons",
+            # `pivot_line_unread` — whether those reasons are the reader's
+            # notice for a reply that never reached the grader (the review
+            # of the bug hunt's fixes, 2026-11-23). Rendered through `PB` in
+            # the group prompt section and through the real loop in
+            # `test_audit_regressions.py`.
+            "pivot_line_unread",
             # `rule_rows` — every declared group's rule, on the question
             # that repairs the declared requirements (bug hunt 2026-11-20,
             # finding 2). Rendered through `PB` in §7e and through the real

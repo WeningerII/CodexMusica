@@ -419,11 +419,17 @@ class AuditRegressions(unittest.TestCase):
         # REPINNED 2026-11-21 (bug hunt finding 2):
         # ~~LEGACY_QUESTION_RENDERINGS[-2]~~. The undo for the rule a
         # declared group is graded by was added after that one.
-        # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026):
-        # ~~LEGACY_QUESTION_RENDERINGS[-3]~~. The undo for the common-partner
-        # ban falling from 6 partners to 3 was added after those.
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-4][1],
-                         LH._legacy_ban_definitions)
+        # REPINNED 2026-11-23 (the review of the bug hunt's fixes):
+        # ~~LEGACY_QUESTION_RENDERINGS[-3][1] is `_legacy_ban_definitions`~~.
+        # One more undo was added at the end, and every entry added after
+        # this one has moved this pin. The claim is the order, so it is
+        # stated as the order: this undo comes after the return row's and
+        # before the rejected line answer's.
+        undos = [e[1] for e in LH.LEGACY_QUESTION_RENDERINGS]
+        self.assertLess(undos.index(LH._legacy_return_row),
+                        undos.index(LH._legacy_ban_definitions))
+        self.assertLess(undos.index(LH._legacy_ban_definitions),
+                        undos.index(LH._legacy_pivot_rejection))
         # The undo reads a FROZEN copy of the block; while the block is
         # unchanged the two agree, and a later change needs its own entry.
         # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~the block
@@ -757,7 +763,12 @@ class AuditRegressions(unittest.TestCase):
         self.assertEqual(first.tried, 2, 'the unread reply used one attempt')
         second = call.calls[1][1]
         self.assertIn('This is ATTEMPT 2 of this line', second)
-        self.assertIn('The PREVIOUS attempt was REJECTED', second)
+        # REPINNED 2026-11-23 (the review of the bug hunt's fixes):
+        # ~~assertIn('The PREVIOUS attempt was REJECTED', second)~~. The
+        # first reply was never read, so the grader rejected nothing, and
+        # the question no longer says it did (the whole block is pinned in
+        # `test_a_try_the_grader_never_read_is_not_called_a_rejected_attempt`).
+        self.assertIn('The PREVIOUS attempt never reached the grader', second)
         self.assertIn('discarded unread', second)
         self.assertNotIn('No previous attempt was rejected', second)
 
@@ -819,12 +830,12 @@ class AuditRegressions(unittest.TestCase):
                  'group': ['L3: My kettle whistles by the stove\n'
                            'L1: Your fingers brush my heavy coat']}
 
-    def _hill_loop(self):
+    def _hill_loop(self, spec=None):
         from quality.propose import ModelProposer
         m = mandate('ABAB', n_lines=4, default_relation='class:ASSONANCE')
         rv = Reviser(rdecl=ReviseDeclaration(max_rounds=2, attempts_per_line=1,
                                             backtrack_width=1))
-        call = self._fake_writer(self.HILL_SPEC)
+        call = self._fake_writer(self.HILL_SPEC if spec is None else spec)
         writer, groups = ModelProposer(call), []
 
         def propose_group(group_brief):
@@ -862,14 +873,25 @@ class AuditRegressions(unittest.TestCase):
         # groups declare a relation, so their questions print that rule. The
         # question a held run was asked is the second undo, and `before` is
         # compared with its rule rows taken out the same way.
-        # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026):
-        # ~~LEGACY_QUESTION_RENDERINGS[-2]~~, and below ~~[1]~~. The undo for
-        # the common-partner ban falling from 6 partners to 3 was added after
-        # these, and every question prints that ban's line, so the question a
-        # held run was asked is the third undo, and `before` is compared with
-        # its 6-partner line put back as well.
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-3][1],
-                         LH._legacy_pivot_rejection)
+        # REPINNED 2026-11-23 (the review of the bug hunt's fixes):
+        # ~~LEGACY_QUESTION_RENDERINGS[-2][1] is `_legacy_pivot_rejection`~~.
+        # One more undo was added at the end (a line reply that was never
+        # read is no longer called a rejected answer). The claim is the
+        # order: this undo comes before the declared rule's, and the newer
+        # one comes after both.
+        undos = [e[1] for e in LH.LEGACY_QUESTION_RENDERINGS]
+        self.assertLess(undos.index(LH._legacy_pivot_rejection),
+                        undos.index(LH._legacy_group_rules))
+        self.assertLess(undos.index(LH._legacy_group_rules),
+                        undos.index(LH._legacy_pivot_unread))
+        # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~below
+        # [1]~~. The undo for the common-partner ban falling from 6
+        # partners to 3 comes after these, and every question prints that
+        # ban's line, so the question a held run was asked is the third
+        # earlier wording, and `before` is compared with its 6-partner line
+        # put back as well.
+        self.assertLess(undos.index(LH._legacy_group_rules),
+                        undos.index(LH._legacy_ban_partners))
         def held_wording(text):
             text = LH._legacy_ban_partners('propose_group', text) or text
             return LH._legacy_group_rules('propose_group', text)
@@ -901,6 +923,786 @@ class AuditRegressions(unittest.TestCase):
             self.assertNotIn('was asked first', text)
             self.assertIsNone(LH._legacy_pivot_rejection('propose_group', text))
         self.assertIsNone(LH._legacy_pivot_rejection('propose', asked))
+
+    # A reply with words around the line and no marker: the writer's reader
+    # cannot say which row is the line, so it is discarded unread.
+    UNREAD_REPLY = ('Here is my line:\n'
+                    'My kettle whistles by the door again\n'
+                    'Hope that helps')
+    UNREAD_ROWS = (
+        "  L3's line question (attempt 1, round 1) was asked first, and the "
+        "reply to it never reached the grader. Why, verbatim:\n"
+        "    - {why}\n"
+        "  This question is asked because that line still has no accepted "
+        "answer. The reason above is about the reply to that earlier "
+        "question; how to answer this one is stated below.\n")
+    REJECTED_ROWS = (
+        "  L3's line question (attempt 1, round 1) was asked first, and its "
+        "answer was REJECTED. The grader's reasons, verbatim:\n"
+        "    - {why}\n"
+        "  This question is asked because of that rejection; do not send back "
+        "something the same reason would reject again.\n")
+
+    def test_a_group_asked_for_after_an_unread_line_reply_does_not_call_it_rejected(self):
+        # The review of the bug hunt's fixes, 2026-11-23. A line reply that
+        # could not be read never reaches the grader. The group question asked
+        # next still said "its answer was REJECTED. The grader's reasons,
+        # verbatim:" over the reader's own notice, and closed "do not send
+        # back something the same reason would reject again" under a notice
+        # that says to send one line alone, on a question that takes one row
+        # for each line.
+        import dataclasses
+        import quality.propose as PRM
+        result, call, groups = self._hill_loop(
+            dict(self.HILL_SPEC, L3=[self.UNREAD_REPLY]))
+        self.assertEqual([k for k, _p in call.calls][:2], ['L3', 'group'])
+        self.assertIn('last rejection: ' + PRM.UNREAD_LINE,
+                      result.rounds[0].attempts[0].reason)
+        first, asked = groups[0], call.calls[1][1]
+        self.assertEqual(first.pivot_line_reasons, (PRM.UNREAD_LINE,))
+        self.assertNotIn('its answer was REJECTED', asked)
+        self.assertIn(self.UNREAD_ROWS.format(why=PRM.UNREAD_LINE), asked)
+        self.assertTrue(first.pivot_line_unread)
+        self.assertNotIn('No previous attempt was rejected', asked)
+        # "Stated below" is true: the answer format follows the block.
+        self.assertIn('\nHOW TO ANSWER\n',
+                      asked[asked.find('how to answer this one'):])
+        # A run held across this change still replays: the newest undo
+        # restores the words the question had, byte for byte, and the older
+        # undos go on from there as they did.
+        # The order is what replay needs: this undo is applied before the one
+        # that looks for the words of a rejected answer. No position in the
+        # table is pinned, so a later entry moves nothing here.
+        undos = [e[1] for e in LH.LEGACY_QUESTION_RENDERINGS]
+        self.assertLess(undos.index(LH._legacy_pivot_rejection),
+                        undos.index(LH._legacy_pivot_unread))
+        was = PRM.render_group(dataclasses.replace(first, pivot_line_unread=False))
+        self.assertIn(self.REJECTED_ROWS.format(why=PRM.UNREAD_LINE), was)
+        older = LH.legacy_question_texts('propose_group', asked)
+        # REPINNED 2026-11-24: ~~older[0] == was~~, ~~older[1:] ==
+        # legacy_question_texts('propose_group', was)~~ and ~~older[2]~~ below.
+        # `was` is built by today's code, so it states today's count of banned
+        # partners, which no build asked beside these rows; a held run has the
+        # newest undo of it. No position in the table is pinned.
+        held = LH._legacy_ban_partners('propose_group', was)
+        self.assertIsNotNone(held)
+        self.assertNotEqual(held, was)
+        self.assertIn(held, older)
+        self.assertLess(
+            older.index(LH._legacy_ban_partners('propose_group', asked)),
+            older.index(held))
+        self.assertEqual(older[older.index(held):],
+                         LH.legacy_question_texts('propose_group', was))
+        self.assertIn('  No previous attempt was rejected on this line in this '
+                      'round.\n', older[older.index(held) + 2])
+        # An answer the grader did reject keeps its words and needs no undo,
+        # and a line question has no such block.
+        graded = self._hill_loop()
+        self.assertFalse(graded[2][0].pivot_line_unread)
+        self.assertIn(self.REJECTED_ROWS.format(why='nothing was fixed'),
+                      graded[1].calls[1][1])
+        self.assertIsNone(LH._legacy_pivot_unread('propose_group',
+                                                  graded[1].calls[1][1]))
+        self.assertIsNone(LH._legacy_pivot_unread('propose', asked))
+        # After an unread reply and then a graded one, the latest is the
+        # grader's, and the group question says so.
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=2,
+                                            backtrack_width=1))
+        call2 = self._fake_writer(dict(
+            self.HILL_SPEC, L3=[self.UNREAD_REPLY, self.HILL_SPEC['L3'][0]]))
+        writer, groups2 = PRM.ModelProposer(call2), []
+
+        def propose_group(group_brief):
+            groups2.append(group_brief)
+            return writer.propose_group(group_brief)
+        with contextlib.redirect_stdout(io.StringIO()):
+            revise_loop(rv, list(self.HILL),
+                        mandate('ABAB', n_lines=4, default_relation='class:ASSONANCE'),
+                        propose=writer.propose, propose_group=propose_group)
+        self.assertEqual([k for k, _p in call2.calls][:3], ['L3', 'L3', 'group'])
+        self.assertEqual(groups2[0].pivot_line_reasons, ('nothing was fixed',))
+        self.assertFalse(groups2[0].pivot_line_unread)
+
+    def test_a_reply_that_is_not_one_line_is_not_called_a_rejected_answer_either(self):
+        # The same on the other way a reply never reaches the grader: a
+        # caller's own proposer hands back text with a line break in it, and
+        # on the question that asks for a group together with its copies.
+        import dataclasses
+        import quality.propose as PRM
+        draft = self.HILL + [self.HILL[2]]
+        m = mandate([[1, 3], [2, 4]], n_lines=5, returns=[[3, 5]],
+                    default_relation='class:ASSONANCE')
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=1,
+                                            backtrack_width=1))
+        groups = []
+
+        def propose(brief, lines, attempt, reasons=None, whole=()):
+            return 'My kettle whistles\nby the door again'
+
+        def propose_group(group_brief):
+            groups.append(group_brief)
+            return None
+        with contextlib.redirect_stdout(io.StringIO()):
+            revise_loop(rv, list(draft), m, propose=propose,
+                        propose_group=propose_group)
+        first = groups[0]
+        self.assertTrue(first.whole_repair)
+        self.assertEqual(first.pivot_line_reasons,
+                         ('the answer was more than one line',))
+        asked = PRM.render_group(first)
+        self.assertTrue(asked.startswith('REPAIR THE DECLARED REQUIREMENTS'))
+        self.assertNotIn('its answer was REJECTED', asked)
+        self.assertIn(self.UNREAD_ROWS.format(
+            why='the answer was more than one line'), asked)
+        # "Stated below" is true on this question too, which has no heading
+        # over its answer format.
+        self.assertIn('\nReturn exactly these lines (include unchanged '
+                      'members): L1, L3, L5\n',
+                      asked[asked.find('how to answer this one'):])
+        self.assertTrue(first.pivot_line_unread)
+        self.assertEqual(
+            LH.legacy_question_texts('propose_group', asked)[0],
+            PRM.render_group(dataclasses.replace(
+                first, pivot_line_unread=False)))
+
+    # What a question asked again says over the reasons for the last try:
+    # the words for a try the grader never read, and the words for one it
+    # read and rejected.
+    NEVER_GRADED_ROWS = (
+        "  The PREVIOUS attempt never reached the grader. Why, verbatim:\n"
+        "    - {why}\n"
+        "  Do not send back a reply the same reason would stop again.\n")
+    WAS_REJECTED_ROWS = (
+        "  The PREVIOUS attempt was REJECTED. The grader's reasons, "
+        "verbatim:\n"
+        "    - {why}\n"
+        "  Do not send back something the same reason would reject again.\n")
+
+    @staticmethod
+    def _attempt_rows(question):
+        """-> the rows of `question` under its attempt row, to the next
+        blank row."""
+        at = question.index('\n', question.index('  This is ATTEMPT ')) + 1
+        return question[at:question.index('\n\n', at) + 1]
+
+    def test_a_try_the_grader_never_read_is_not_called_a_rejected_attempt(self):
+        # The review of the bug hunt's fixes, 2026-11-23. The loop passes
+        # some replies over before the grader reads them: one it could not
+        # read, one that is not one line of text for each line asked for, one
+        # with the wrong number of lines. Each uses its attempt and the
+        # question is asked again with the reason. That question said "The
+        # PREVIOUS attempt was REJECTED. The grader's reasons, verbatim:"
+        # over a reason the grader never wrote.
+        import dataclasses
+        import quality.propose as PRM
+        # A line reply the writer's reader could not read.
+        result, call = self._door_loop(
+            {'L2': ['Here is my line:\n' + self.STOVE, self.STOVE]}, attempts=3)
+        unread_line = call.calls[1][1]
+        self.assertEqual(self._attempt_rows(unread_line),
+                         self.NEVER_GRADED_ROWS.format(why=PRM.UNREAD_LINE))
+        self.assertEqual(result.lines[1], self.STOVE)
+        # A line answer from a caller's own proposer that is not one line of
+        # text.
+        m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
+        held = []
+        for first, why in (('My kettle whistles\nby the stove',
+                            'the answer was more than one line'),
+                           (42, 'the answer was not text'),
+                           ('   ', 'the answer was empty')):
+            with self.subTest(answer=first):
+                rv = Reviser(rdecl=ReviseDeclaration(
+                    max_rounds=1, attempts_per_line=2, backtrack_width=0))
+                asked = []
+
+                def propose(brief, lines, attempt, reasons=None, whole=()):
+                    asked.append((brief, list(lines), attempt, reasons, whole))
+                    return (first, self.STOVE)[attempt]
+                with contextlib.redirect_stdout(io.StringIO()):
+                    revise_loop(rv, list(self.DOOR), m, propose=propose)
+                brief, lines, attempt, reasons, whole = asked[1]
+                now = PRM.render_line(brief, lines, whole=whole,
+                                      attempt=attempt, reasons=reasons)
+                self.assertEqual(self._attempt_rows(now),
+                                 self.NEVER_GRADED_ROWS.format(why=why))
+                # The same reasons handed over as plain text are quoted as a
+                # rejection, which is how the question read before.
+                held.append(('propose', now, PRM.render_line(
+                    brief, lines, whole=whole, attempt=attempt,
+                    reasons=[str(r) for r in reasons]), why))
+        # A group answer, on the question that asks for a group together
+        # with its copies: unreadable, not one line of text for each line,
+        # and the wrong number of lines.
+        draft = self.HILL + [self.HILL[2]]
+        m5 = mandate([[1, 3], [2, 4]], n_lines=5, returns=[[3, 5]],
+                     default_relation='class:ASSONANCE')
+        for first, why in (
+                (PRM.UnreadReply(PRM.UNREAD_GROUP), PRM.UNREAD_GROUP),
+                ('L1, L3 and L5', 'the answer was not a list of lines, one '
+                                  'for each line asked for'),
+                ((self.HILL[0], 7, self.HILL[2]), 'L3: the answer was not text'),
+                ((self.HILL[0],), 'proposer returned 1 line(s) for atomic '
+                                  'group {label}, which has {size} member(s) '
+                                  '— one line per GroupBrief.members entry')):
+            with self.subTest(group=str(first)[:30]):
+                rv = Reviser(rdecl=ReviseDeclaration(
+                    max_rounds=1, attempts_per_line=1, backtrack_width=2))
+                groups = []
+
+                def propose_group(group_brief):
+                    groups.append(group_brief)
+                    return first if len(groups) == 1 else None
+                with contextlib.redirect_stdout(io.StringIO()):
+                    revise_loop(rv, list(draft), m5,
+                                propose=lambda *a, **k: None,
+                                propose_group=propose_group)
+                again = groups[1]
+                self.assertEqual((again.members, again.attempt),
+                                 (groups[0].members, 1),
+                                 'PREMISE: the same group is asked again')
+                why = why.format(label=again.label, size=len(again.members))
+                now = PRM.render_group(again)
+                self.assertTrue(now.startswith('REPAIR THE DECLARED REQUIREMENTS'))
+                self.assertEqual(self._attempt_rows(now),
+                                 self.NEVER_GRADED_ROWS.format(why=why))
+                held.append(('propose_group', now, PRM.render_group(
+                    dataclasses.replace(again, reasons=tuple(
+                        str(r) for r in again.reasons))), why))
+        # A try the grader read and turned down keeps the words it had, and
+        # needs no undo.
+        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=2,
+                                            backtrack_width=0))
+        call = self._fake_writer({'L3': self.HILL_SPEC['L3'] * 2})
+        with contextlib.redirect_stdout(io.StringIO()):
+            revise_loop(rv, list(self.HILL),
+                        mandate('ABAB', n_lines=4, default_relation='class:ASSONANCE'),
+                        propose=PRM.ModelProposer(call).propose)
+        self.assertEqual([k for k, _p in call.calls][:2], ['L3', 'L3'])
+        graded = call.calls[1][1]
+        self.assertEqual(self._attempt_rows(graded),
+                         self.WAS_REJECTED_ROWS.format(why='nothing was fixed'))
+        self.assertIsNone(LH._legacy_attempt_not_graded('propose', graded))
+        # A run held across this change still replays: the newest undo
+        # restores the words each question had, byte for byte, and the older
+        # undos go on from there as they did. It is applied before the undos
+        # that were there already; no position in the table is pinned.
+        undos = [e[1] for e in LH.LEGACY_QUESTION_RENDERINGS]
+        self.assertLess(undos.index(LH._legacy_pivot_unread),
+                        undos.index(LH._legacy_attempt_not_graded))
+        self.assertEqual(len(held), 7)
+        for kind, now, was, why in held:
+            with self.subTest(undo=why):
+                self.assertEqual(self._attempt_rows(was),
+                                 self.WAS_REJECTED_ROWS.format(why=why))
+                self.assertEqual(
+                    was, now.replace(self.NEVER_GRADED_ROWS.format(why=why),
+                                     self.WAS_REJECTED_ROWS.format(why=why)),
+                    'nothing else in the question moved')
+                older = LH.legacy_question_texts(kind, now)
+                if kind == 'propose':
+                    # REPINNED 2026-11-24: ~~older[0] == was~~ and ~~older[1:]
+                    # == legacy_question_texts(kind, was)~~. A line question
+                    # states the count of banned partners, and `was` is built
+                    # by today's code, so it states today's count, which no
+                    # build asked beside these rows; a held run has the newest
+                    # undo of it. No position in the table is pinned.
+                    as_held = LH._legacy_ban_partners(kind, was)
+                    self.assertIsNotNone(as_held)
+                    self.assertNotEqual(as_held, was)
+                    self.assertIn(as_held, older)
+                    self.assertLess(
+                        older.index(LH._legacy_ban_partners(kind, now)),
+                        older.index(as_held))
+                    self.assertEqual(older[older.index(as_held):],
+                                     LH.legacy_question_texts(kind, was))
+                else:
+                    # These four are unchanged from main: a group asked for
+                    # together with its copies states no count of banned
+                    # partners, so the newest undo leaves it alone and `was`
+                    # is still the first earlier wording.
+                    self.assertIsNone(LH._legacy_ban_partners(kind, was))
+                    self.assertEqual(older[0], was)
+                    self.assertEqual(older[1:],
+                                     LH.legacy_question_texts(kind, was))
+        # The group question that follows a line reply nobody read has its
+        # own rows and its own undo; this one leaves it alone.
+        after_unread = self._hill_loop(
+            dict(self.HILL_SPEC, L3=[self.UNREAD_REPLY]))[1].calls[1][1]
+        self.assertIn('the reply to it never reached the grader', after_unread)
+        self.assertIsNone(
+            LH._legacy_attempt_not_graded('propose_group', after_unread))
+
+    def test_a_run_held_at_a_question_asked_again_still_finds_its_answers(self):
+        # The same change, across a stop and a start. The journal keeps the
+        # hash of each question and replays an answer only to the same
+        # question, and the loop rebuilds every question as it walks the
+        # journal again. So the mark on a reason has to come back on the
+        # second walk exactly as it was made on the first, and a journal
+        # written while the question still said "REJECTED" has to be found
+        # by undoing the new words.
+        import quality.propose as PRM
+        m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
+        replies = [PRM.UnreadReply(PRM.UNREAD_LINE), self.STOVE]
+        calls, asked = [], []
+
+        def writer(brief, lines, attempt, reasons=None, whole=()):
+            calls.append(attempt)
+            return replies[len(calls) - 1]
+        real_render = PRM.render_line
+
+        def spy(*a, **k):
+            asked.append(real_render(*a, **k))
+            return asked[-1]
+
+        def before_the_change(*a, **k):
+            # The question as the build before this change printed it: the
+            # loop's own reason arrived as plain text.
+            # MERGED 2026-11-24: ~~return spy(*a, **k)~~. That build also
+            # counted the banned partners as it did, and the count has changed
+            # since; today's render with plain-text reasons would be a question
+            # no build ever asked, and no undo reaches it.
+            if k.get('reasons'):
+                k = dict(k, reasons=[str(r) for r in k['reasons']])
+            text = real_render(*a, **k)
+            asked.append(LH._legacy_ban_partners('propose', text) or text)
+            return asked[-1]
+
+        def run(render):
+            rv = Reviser(rdecl=ReviseDeclaration(
+                max_rounds=1, attempts_per_line=2, backtrack_width=0))
+            with patch.object(PRM, 'render_line', render):
+                one, _ = LH._checkpoint_proposer(
+                    writer, None, list(self.DOOR), 'config', 'fake')
+                return revise_loop(rv, list(self.DOOR), m, propose=one)
+        for held_by, render in (('this build', spy),
+                                ('the build before', before_the_change)):
+            with self.subTest(held_by=held_by), \
+                 tempfile.TemporaryDirectory() as tmp, \
+                 patch.dict(os.environ, {
+                     'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp.json')}), \
+                 contextlib.redirect_stdout(io.StringIO()):
+                del calls[:], asked[:]
+                first = run(render)
+                self.assertEqual(calls, [0, 1])
+                self.assertEqual(first.lines, [self.DOOR[0], self.STOVE])
+                journal = json.loads((Path(tmp)/'cp.json').read_text())
+                self.assertEqual(
+                    [(p.get('unread'), p['answer']) for p in journal['proposals']],
+                    [(PRM.UNREAD_LINE, None), (None, self.STOVE)])
+                self.assertEqual(
+                    self._attempt_rows(asked[1]),
+                    (self.NEVER_GRADED_ROWS if render is spy
+                     else self.WAS_REJECTED_ROWS).format(why=PRM.UNREAD_LINE))
+                # Started again by this build: the unread reply is read off
+                # the journal, the second question is rebuilt with the words
+                # of this build, and its answer is found.
+                del asked[:]
+                again = run(spy)
+                self.assertEqual(calls, [0, 1],
+                                 'the second run made no writer request')
+                self.assertEqual(again.lines, first.lines)
+                self.assertEqual(
+                    self._attempt_rows(asked[1]),
+                    self.NEVER_GRADED_ROWS.format(why=PRM.UNREAD_LINE))
+
+    # -- 2026-11-23: a rejection reason names its findings in words --------
+    # A line answer that trades one fault for another is rejected, and the
+    # next question quotes the grader's reason. That reason printed the
+    # grader's own records of the new findings as Python wrote them, so a
+    # writer read "[(3, 'SCHEME_VIOLATION', 'flag', (1, 3), ('A',), ())]".
+    # Three lines in one rhyme group. L3 ends in a word spelled like L1's
+    # ending ('gate'/'plate'), which is flagged while a song is being
+    # written, so the loop asks for L3.
+    # REPINNED 2026-11-24: ~~GATE = ['The lantern swings above the gate',
+    # 'We count the hours and we wait', 'The river carries off the gate']~~,
+    # with ~~'The river carries off the late'~~ as the answer that is
+    # accepted and a grader that applied no writing ban. The loop asked for
+    # L3 there for one reason only: two of the three lines open with "the",
+    # and that check is removed (the owner's ruling of 2026-11-22). No line
+    # here opens on another's first word, and the rejection these tests read
+    # is the same one, byte for byte.
+    GATE = ['A lantern swings above the gate',
+            'We count the hours with the freight',
+            'The river carries off the plate']
+    GATE_SPEC = {'L3': ['The river carries off the kitchen',
+                        'The river carries off the bait']}
+    GATE_OLD_ROW = ("    - introduced 2 new flagged finding(s) [(3, "
+                    "'SCHEME_VIOLATION', 'flag', (1, 3), ('A',), ()), (3, "
+                    "'SCHEME_VIOLATION', 'flag', (2, 3), ('A',), ())] while "
+                    "fixing 1; a revision may not trade one defect for "
+                    "another\n")
+    GATE_NEW_ROW = ("    - introduced 2 new flagged finding(s) "
+                    "(SCHEME_VIOLATION on lines 1 and 3, group A; "
+                    "SCHEME_VIOLATION on lines 2 and 3, group A) while fixing "
+                    "1; a revision may not trade one defect for another\n")
+
+    def _gate_run(self, checkpointed=False):
+        """-> (result, the fake writer). The writer answers L3 twice: first
+        with a word that rhymes with nothing, then with one that does."""
+        from quality.propose import ModelProposer
+        m = mandate([[1, 2, 3]], n_lines=3, default_relation='class:RHYME')
+        rv = Reviser(writing=True, rdecl=ReviseDeclaration(
+            max_rounds=1, attempts_per_line=3, backtrack_width=1))
+        call = self._fake_writer(self.GATE_SPEC)
+        writer = ModelProposer(call)
+        one, two = writer.propose, writer.propose_group
+        if checkpointed:
+            one, two = LH._checkpoint_proposer(one, two, list(self.GATE),
+                                               'config', 'fake')
+        result = revise_loop(rv, list(self.GATE), m, propose=one,
+                             propose_group=two)
+        return result, call
+
+    def test_a_rejection_names_its_findings_in_words(self):
+        with contextlib.redirect_stdout(io.StringIO()):
+            result, call = self._gate_run()
+        self.assertEqual(result.lines[2], self.GATE_SPEC['L3'][1])
+        asked = [p for k, p in call.calls if k == 'L3']
+        self.assertEqual(len(asked), 2)
+        self.assertIn("  The PREVIOUS attempt was REJECTED. The grader's "
+                      "reasons, verbatim:\n" + self.GATE_NEW_ROW, asked[1])
+        for question in (p for _k, p in call.calls):
+            for python_text in ("[(", "'flag'", "('A',)", "())"):
+                self.assertNotIn(python_text, question)
+
+    def test_a_finding_is_put_in_words_whatever_it_is_about(self):
+        import quality.propose as PRM
+        words = PRM.findings_in_words
+        self.assertEqual(words([(3, 'SCHEME_VIOLATION', 'flag', (1, 3), ('A',), ())]),
+                         'SCHEME_VIOLATION on lines 1 and 3, group A')
+        # The whole draft, one line, a line whose record names no other
+        # line, three lines, two groups, a group with no name, and a record
+        # that carries more than its lines and groups.
+        self.assertEqual(
+            words({(0, 'LEXICAL_MONOTONY', 'flag', (), (), ()),
+                   (3, 'RETURN_NOT_VERBATIM', 'flag', (1, 3), ('',), ()),
+                   (5, 'SLOTS_EXCEEDED', 'flag', (5,), (), ()),
+                   (4, 'UNREADABLE_END_WORD', 'flag', (), (), ()),
+                   (2, 'SCHEME_VIOLATION', 'flag', (2, 6, 9), ('A', 'B'), ()),
+                   (0, 'HOOK_ABSENT', 'flag', (), (), ('hook', 0))}),
+            'HOOK_ABSENT on the whole draft, hook 1; '
+            'LEXICAL_MONOTONY on the whole draft; '
+            'SCHEME_VIOLATION on lines 2, 6 and 9, groups A and B; '
+            'RETURN_NOT_VERBATIM on lines 1 and 3; '
+            'UNREADABLE_END_WORD on line 4; '
+            'SLOTS_EXCEEDED on line 5')
+        self.assertEqual(words(()), '')
+
+    def test_a_finding_says_which_requirement_when_its_lines_do_not(self):
+        # Two findings can share a code, their lines and their groups and
+        # still be about two requirements: the record says which. The old
+        # text printed that record raw; the words must not lose it, or a
+        # writer with two declared hooks reads the same row twice.
+        import quality.propose as PRM
+        words = PRM.findings_in_words
+        self.assertEqual(
+            words({(0, 'HOOK_ABSENT', 'flag', (), (), ('hook', 0)),
+                   (0, 'HOOK_ABSENT', 'flag', (), (), ('hook', 1))}),
+            'HOOK_ABSENT on the whole draft, hook 1; '
+            'HOOK_ABSENT on the whole draft, hook 2')
+        # A check of the chosen form names itself the way its own finding
+        # does (`Reviser.inspect` writes "<form>: <check> at <place>").
+        self.assertEqual(
+            words({(3, 'CATALOG_FORM_MISMATCH', 'flag', (3, 4), (),
+                    ('catalog:form-x:part-bars:section[2]',)),
+                   (3, 'CATALOG_FORM_MISMATCH', 'flag', (3, 4), (),
+                    ('catalog:form-x:ending:A1',))}),
+            'CATALOG_FORM_MISMATCH on lines 3 and 4, form check '
+            'form-x:ending:A1; '
+            'CATALOG_FORM_MISMATCH on lines 3 and 4, form check '
+            'form-x:part-bars:section[2]')
+        # A record these words have no name for is still COUNTED: two
+        # findings never read as one, and none is printed as Python wrote it.
+        both = words({(2, 'SOME_CODE', 'flag', (2,), ('A',), ('x', ('y', 3))),
+                      (2, 'SOME_CODE', 'flag', (2,), ('A',), ('x', ('z', 4))),
+                      (5, 'SOME_CODE', 'flag', (5,), ('A',), ('x', ('y', 3)))})
+        self.assertEqual(both, 'SOME_CODE on line 2, group A (2 findings); '
+                               'SOME_CODE on line 5, group A')
+        # The real records, every shape `Reviser.inspect` writes today.
+        for subject in (('hook', 0), ('catalog:form-x:ending:A1',),
+                        ('unanchored_member', 3, 'gate', 'end'),
+                        ('unreadable_anchor', 3, 4),
+                        ('strict', 'gate', 'late', 'A1', 'A2')):
+            text = words({(3, 'SOME_CODE', 'flag', (1, 3), ('A',), subject)})
+            self.assertFalse(set("()'\"") & set(text.replace('section[', '')),
+                             (subject, text))
+        self.assertNotIn('[', words({(0, 'HOOK_ABSENT', 'flag', (), (),
+                                      ('hook', 0))}))
+
+    def test_the_other_two_reasons_print_no_python_list_either(self):
+        import quality.propose as PRM
+        keep = dict(PRM.LEGACY_REASONS)
+        PRM.LEGACY_REASONS.clear()
+        self.addCleanup(PRM.LEGACY_REASONS.update, keep)
+        self.addCleanup(PRM.LEGACY_REASONS.clear)
+        m = mandate([[1, 2, 3]], n_lines=3, default_relation='class:RHYME')
+        stray = self.rv.verify(
+            self.GATE, [self.GATE[0], 'We count the hours and we stay',
+                        'The river carries off the late'], m, targeted=[3])
+        self.assertEqual(stray['reasons'],
+                         ['lines 2 were changed but not targeted; revise '
+                          'flagged lines only'])
+        # What a journal written before 2026-11-23 hashed is kept beside the
+        # new words. These two literals are what main 83c28ec4d printed for
+        # these two calls, copied from a run of that tree.
+        self.assertEqual(
+            PRM.LEGACY_REASONS[stray['reasons'][0]],
+            'lines [2] were changed but not targeted; revise flagged lines '
+            'only')
+
+        # A requirement that HOLDS is a finding too, and ending one is not a
+        # repair. The reason listed those the same way.
+        def found(fs):
+            return {'per_line': {2: fs}, 'whole': [],
+                    'grade': {'pairs_mandated': 1, 'pairs_judged': 1,
+                              'pairs_refused': 0, 'refused_obligations': []}}
+        held = Finding('REFRAIN_REPEAT', 'note', '', '', [1, 2], ('R',))
+        with patch.object(self.rv, 'brief', return_value=[]), \
+             patch.object(self.rv, 'inspect',
+                          side_effect=[found([held]), found([])]):
+            out = self.rv.verify(['one', 'two'], ['one', 'changed'], 'AA', {2})
+        self.assertFalse(out['accepted'])
+        self.assertEqual(
+            out['reasons'],
+            ['nothing was fixed — the only finding(s) removed were '
+             '(REFRAIN_REPEAT on lines 1 and 2, group R), which record a '
+             'requirement or licence HOLDING, so ending one is a regression '
+             'and not a repair'])
+        self.assertEqual(
+            PRM.LEGACY_REASONS[out['reasons'][0]],
+            "nothing was fixed — the only finding(s) removed were [(2, "
+            "'REFRAIN_REPEAT', 'note', (1, 2), ('R',), ())], which record a "
+            "requirement or licence HOLDING, so ending one is a regression "
+            "and not a repair")
+
+    def test_a_run_held_at_a_question_that_quoted_the_list_still_replays(self):
+        # The journal keeps the hash of each question, and the second L3
+        # question quotes the reason. A journal written while the reason
+        # printed the list has to be found by undoing the new words: the old
+        # text is kept beside each new reason as the grader writes it, and
+        # the undo puts it back, byte for byte.
+        import quality.propose as PRM
+        undos = [e[1] for e in LH.LEGACY_QUESTION_RENDERINGS]
+        self.assertLess(undos.index(LH._legacy_attempt_not_graded),
+                        undos.index(LH._legacy_reason_lists))
+        self.assertLess(undos.index(LH._legacy_reason_lists),
+                        undos.index(LH._legacy_ban_partners))
+
+        def as_before(keys):
+            # What the build before this change put in the reason.
+            return str(sorted(keys))
+        real_line = PRM.render_line
+
+        def line_as_before(*a, **k):
+            # MERGED 2026-11-24: the build before this change also counted
+            # the banned partners as that build did, and the count has
+            # changed since. A stand-in that printed today's count with the
+            # old reason would be a question no build ever asked.
+            text = real_line(*a, **k)
+            return LH._legacy_ban_partners('propose', text) or text
+        for held_by, old_build in (('this build', False),
+                                   ('the build before', True)):
+            with self.subTest(held_by=held_by), \
+                 tempfile.TemporaryDirectory() as tmp, \
+                 patch.dict(os.environ, {
+                     'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp.json')}), \
+                 contextlib.redirect_stdout(io.StringIO()):
+                if old_build:
+                    with patch.object(PRM, 'named_findings', as_before), \
+                         patch.object(PRM, 'legacy_reason', lambda new, old: None), \
+                         patch.object(PRM, 'render_line', line_as_before):
+                        first, call = self._gate_run(checkpointed=True)
+                else:
+                    first, call = self._gate_run(checkpointed=True)
+                held = [p for k, p in call.calls if k == 'L3'][1]
+                self.assertIn(self.GATE_OLD_ROW if old_build
+                              else self.GATE_NEW_ROW, held)
+                # The older build's question holds the older count, so the
+                # newest undo finds nothing in it to put back.
+                self.assertEqual(
+                    LH._legacy_ban_partners('propose', held) is None, old_build)
+                journal = json.loads((Path(tmp)/'cp.json').read_text())
+                self.assertEqual(len(journal['proposals']), len(call.calls))
+                PRM.LEGACY_REASONS.clear()
+                again, second = self._gate_run(checkpointed=True)
+                self.assertEqual(second.calls, [],
+                                 'the second run made no writer request')
+                self.assertEqual(again.lines, first.lines)
+        # The undo itself, on the question this build asks: the row goes
+        # back to the old bytes and nothing else moves.
+        with contextlib.redirect_stdout(io.StringIO()):
+            _result, call = self._gate_run()
+        now = [p for k, p in call.calls if k == 'L3'][1]
+        self.assertEqual(LH._legacy_reason_lists('propose', now),
+                         now.replace(self.GATE_NEW_ROW, self.GATE_OLD_ROW))
+        self.assertIsNone(LH._legacy_reason_lists('grade', now))
+        self.assertIsNone(LH._legacy_reason_lists(
+            'propose', [p for k, p in call.calls if k == 'L3'][0]))
+
+    def test_a_group_question_that_quoted_the_list_is_undone_too(self):
+        # One try a line, so the loop goes from L3's refused answer straight
+        # to L3's whole group, and that question quotes the line's reason.
+        import quality.propose as PRM
+        from quality.propose import ModelProposer
+        spec = {'L3': ['The river carries off the kitchen'] * 2,
+                'group': ['L1: A lantern swings above the kitchen\n'
+                          'L2: We count the hours with the freight\n'
+                          'L3: The river carries off the garden'] * 2}
+
+        def run():
+            m = mandate([[1, 2, 3]], n_lines=3, default_relation='class:RHYME')
+            rv = Reviser(writing=True, rdecl=ReviseDeclaration(
+                max_rounds=1, attempts_per_line=1, backtrack_width=1))
+            call = self._fake_writer(spec)
+            writer = ModelProposer(call)
+            with contextlib.redirect_stdout(io.StringIO()):
+                revise_loop(rv, list(self.GATE), m, propose=writer.propose,
+                            propose_group=writer.propose_group)
+            return [p for k, p in call.calls if k == 'group']
+
+        # Every group question prints the grader's eight reasons as a list,
+        # so the one that QUOTES a refusal is found by "while fixing 1".
+        quoting = lambda qs: [q for q in qs if ') while fixing 1;' in q
+                              or '] while fixing 1;' in q]
+        # Its own table of old texts, so no other test's rows are read here.
+        keep = dict(PRM.LEGACY_REASONS)
+        PRM.LEGACY_REASONS.clear()
+        self.addCleanup(PRM.LEGACY_REASONS.update, keep)
+        self.addCleanup(PRM.LEGACY_REASONS.clear)
+        now = quoting(run())
+        with patch.object(PRM, 'named_findings',
+                          lambda keys: str(sorted(keys))), \
+             patch.object(PRM, 'legacy_reason', lambda new, old: None):
+            was = quoting(run())
+        self.assertEqual(len(now), 1)
+        self.assertEqual(len(was), 1)
+        for asked, before in zip(now, was):
+            self.assertIn("L3's line question (attempt 1, round 1) was asked "
+                          "first, and its answer was REJECTED. The grader's "
+                          "reasons, verbatim:\n" + self.GATE_NEW_ROW, asked)
+            self.assertNotIn("[(", asked)
+            self.assertIn(self.GATE_OLD_ROW, before)
+            self.assertEqual(LH._legacy_reason_lists('propose_group', asked),
+                             before)
+            # REPINNED 2026-11-24: ~~legacy_question_texts('propose_group',
+            # asked)[0] == before~~. `before` is built by today's code, so it
+            # states today's count of banned partners beside the old reason,
+            # which no build ever asked. A run held before this change holds
+            # the count that build stated: the later undo puts that back
+            # (a run held between the two changes), and this one then puts
+            # the list back (a run held before both). No position in the
+            # table is pinned, so a later entry moves nothing here.
+            between = LH._legacy_ban_partners('propose_group', asked)
+            held = LH._legacy_ban_partners('propose_group', before)
+            self.assertNotIn(None, (between, held))
+            self.assertNotEqual(held, before)
+            older = LH.legacy_question_texts('propose_group', asked)
+            self.assertLess(older.index(between), older.index(held))
+            self.assertEqual(older[older.index(held):],
+                             LH.legacy_question_texts('propose_group', before))
+
+        # Every block that quotes a reason prints it as the same kind of
+        # row, so one undo serves them all: this try's rejection, last
+        # round's, and the rejected line answer a group question follows.
+        new, old = self.GATE_NEW_ROW.strip()[2:], self.GATE_OLD_ROW.strip()[2:]
+        self.assertEqual(PRM.LEGACY_REASONS.get(new), old)
+        earlier = lambda r: {'round': 1, 'text': 'x', 'reasons': [r]}
+        for block in (lambda r: PRM._attempt_block(1, [r]),
+                      lambda r: PRM._attempt_block(0, [], prior=earlier(r)),
+                      lambda r: PRM._attempt_block(
+                          0, [], prior=earlier(r), what='group rewrite')):
+            text = '\n'.join(block(new)) + '\n'
+            self.assertIn(new, text)
+            self.assertEqual(LH._legacy_reason_lists('propose', text),
+                             '\n'.join(block(old)) + '\n')
+
+    def test_two_old_reasons_under_one_new_text_are_not_undone(self):
+        # The words leave out part of the grader's record, so two different
+        # records can read the same. Then no old text is known to be the one
+        # that was asked, the row is left alone, and a held run parks as it
+        # does for any question that changed. Wrong bytes are never offered.
+        import quality.propose as PRM
+        with patch.dict(PRM.LEGACY_REASONS, clear=True):
+            PRM.legacy_reason('same words', 'old text one')
+            row = "  heading\n    - same words\n  after\n"
+            self.assertEqual(LH._legacy_reason_lists('propose', row),
+                             "  heading\n    - old text one\n  after\n")
+            PRM.legacy_reason('same words', 'old text one')
+            self.assertEqual(LH._legacy_reason_lists('propose_group', row),
+                             "  heading\n    - old text one\n  after\n")
+            PRM.legacy_reason('same words', 'old text two')
+            self.assertIsNone(LH._legacy_reason_lists('propose', row))
+            PRM.legacy_reason('same words', 'old text one')
+            self.assertIsNone(LH._legacy_reason_lists('propose', row))
+            # The table is bounded: the oldest entry leaves first.
+            for n in range(PRM.LEGACY_REASONS_CAP + 5):
+                PRM.legacy_reason(f'new {n}', f'old {n}')
+            self.assertEqual(len(PRM.LEGACY_REASONS), PRM.LEGACY_REASONS_CAP)
+            self.assertNotIn('same words', PRM.LEGACY_REASONS)
+            # A row written again is the newest, so it is not the next out.
+            PRM.LEGACY_REASONS.clear()
+            PRM.legacy_reason('written twice', 'its old text')
+            for n in range(PRM.LEGACY_REASONS_CAP - 1):
+                PRM.legacy_reason(f'new {n}', f'old {n}')
+            PRM.legacy_reason('written twice', 'its old text')
+            PRM.legacy_reason('one more', 'old')
+            self.assertEqual(PRM.LEGACY_REASONS.get('written twice'),
+                             'its old text')
+            self.assertNotIn('new 0', PRM.LEGACY_REASONS)
+            self.assertEqual(len(PRM.LEGACY_REASONS), PRM.LEGACY_REASONS_CAP)
+
+    def test_every_reason_the_loop_writes_itself_is_marked_as_its_own(self):
+        # The reasons a question asked again quotes come from two places: a
+        # verdict (the grader's), or the loop, for a reply it passed over
+        # before the grader read it. The loop marks its own where it makes
+        # them, and the question says whose they are from that mark. This
+        # reads the three functions that hand reasons on and holds every
+        # assignment to one form or the other, so a new one cannot quietly
+        # be printed as the grader's.
+        import ast
+        import inspect
+        import textwrap
+        import quality.loop as LP
+        def assigned(node):
+            # Each (name, value) an assignment makes, a tuple taken apart.
+            for target in node.targets:
+                if isinstance(target, ast.Name):
+                    yield target.id, node.value
+                elif isinstance(target, ast.Tuple) and isinstance(
+                        node.value, ast.Tuple):
+                    for name, value in zip(target.elts, node.value.elts):
+                        if isinstance(name, ast.Name):
+                            yield name.id, value
+        own, graded, other = [], [], []
+        for fn in (LP._try_tier1, LP._try_tier2, LP.revise_loop):
+            src = textwrap.dedent(inspect.getsource(fn))
+            for node in ast.walk(ast.parse(src)):
+                if not isinstance(node, ast.Assign):
+                    continue
+                for name, made in assigned(node):
+                    value = ast.get_source_segment(src, made)
+                    if name not in ('reasons', '_reasons') or value == 'None':
+                        continue
+                    where = f'{fn.__name__}: {" ".join(value.split())[:70]}'
+                    if '_NotGraded(' in value:
+                        own.append(where)
+                    elif re.search(r'\b_?(res|v)\b[^\n]*["\']reasons["\']',
+                                   value):
+                        graded.append(where)
+                    else:
+                        other.append(where)
+        self.assertEqual(other, [], 'reasons that are neither read off a '
+                         'verdict nor marked as the loop\'s own')
+        self.assertTrue(own and graded, (own, graded))
+        # A marked reason is still its text.
+        mark = LP._NotGraded('the answer was empty')
+        self.assertEqual(mark, 'the answer was empty')
+        self.assertEqual(json.dumps([mark]), '["the answer was empty"]')
+        self.assertIs(type(str(mark)), str)
+        self.assertTrue(LP._not_graded([mark]))
+        self.assertFalse(LP._not_graded([mark, 'nothing was fixed']))
+        self.assertFalse(LP._not_graded(['the answer was empty']))
+        self.assertFalse(LP._not_graded(None))
 
     def test_a_return_group_asked_for_after_a_rejected_line_says_so_too(self):
         # Finding 5, on the other question a rejected line answer leads to.
@@ -1115,8 +1917,16 @@ class AuditRegressions(unittest.TestCase):
         # 6-partner line put back.
         self.assertEqual(LH.legacy_question_texts('propose', asked)[1],
                          LH._legacy_ban_partners('propose', before))
-        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-2][1],
-                         LH._legacy_group_rules)
+        # REPINNED 2026-11-23 (the review of the bug hunt's fixes):
+        # ~~LEGACY_QUESTION_RENDERINGS[-1][1] is `_legacy_group_rules`~~. One
+        # more undo was added at the end (a line reply that was never read is
+        # no longer called a rejected answer); it touches group questions
+        # only, so this line question's newest undo is still this one. The
+        # claim is the order: this undo comes after the rejected line
+        # answer's.
+        undos = [e[1] for e in LH.LEGACY_QUESTION_RENDERINGS]
+        self.assertLess(undos.index(LH._legacy_pivot_rejection),
+                        undos.index(LH._legacy_group_rules))
 
     def test_a_group_question_states_the_rule_its_lines_are_coupled_by(self):
         # Finding 2, on the question that asks for a group's lines together.

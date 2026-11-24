@@ -3149,6 +3149,213 @@ def test_the_flagged_subset_is_published_apart_from_the_open_lines():
             os.environ["LYRIC_CHECKPOINT_PATH"] = _was
 
 
+def test_a_group_try_the_grader_never_read_is_not_called_rejected():
+    """THE REVIEW OF THE BUG HUNT'S FIXES, 2026-11-23.
+
+    A group answer the loop passes over before the grader reads it (it could
+    not be read, it is not one line of text for each line asked for, it has
+    the wrong number of lines, nothing came back for the whole draft) uses
+    its attempt, and the next question quotes why. Every one of those
+    questions said "The PREVIOUS attempt was REJECTED. The grader's reasons,
+    verbatim:" over a reason the grader never wrote.
+
+    Three questions are asked again with such a reason, and each is reached
+    here on a song this file already holds: a group with a ranked pivot word,
+    a group asked for together with its copies, and the whole draft. The
+    line question and the undo for held runs are in
+    `test_audit_regressions.py`.
+    """
+    print("\n31. a group try the grader never read is not called a "
+          "rejected attempt")
+    from quality import propose as _PR
+    import quality.schemes as _SC
+    from lyric_harness import legacy_question_texts, _legacy_ban_partners
+
+    def as_held(question):
+        # MERGED 2026-11-24 (main 4def4c3f77 into the rule 1 branch): a run
+        # held at a question holds the count of banned partners its build
+        # printed. A question rebuilt by today's code prints today's count,
+        # which no build printed beside the old rows, so the held wording is
+        # that question with the newest undo applied, where it applies.
+        return _legacy_ban_partners("propose_group", question) or question
+    never = ("  The PREVIOUS attempt never reached the grader. Why, "
+             "verbatim:\n    - {0}\n  Do not send back a reply the same "
+             "reason would stop again.\n")
+    rejected = ("  The PREVIOUS attempt was REJECTED. The grader's reasons, "
+                "verbatim:\n    - {0}\n  Do not send back something the "
+                "same reason would reject again.\n")
+
+    def rows(question):
+        at = question.index("\n", question.index("  This is ATTEMPT ")) + 1
+        return question[at:question.index("\n\n", at) + 1]
+
+    def asked_again(reviser, lines, m, first, only=None, **kw):
+        """-> (the first brief, the brief the same question was asked again
+        with), `first` being the answer to the first one."""
+        seen = []
+
+        def group(brief):
+            if only is not None and brief.label != only:
+                return None
+            seen.append(brief)
+            return first(brief) if len(seen) == 1 else None
+        revise_loop(reviser, lines, m, propose_group=group, **kw)
+        return (seen[0], seen[1]) if len(seen) > 1 else (None, None)
+
+    RV = perfect_rhyme_reviser(nucleus_agreement="scalar")
+    ranked = _SC.mandate(_SC.mandate(ANCHOR_GROUPS, n_lines=6),
+                         default_relation="class:RHYME")
+    PIN = ANCHOR_IS_A_PIVOT + [ANCHOR_IS_A_PIVOT[2]]
+    copies = _SC.mandate(_SC.mandate([[1, 2], [1, 3], [3, 4], [5, 6], [3, 7]],
+                                     n_lines=7, returns=[[3, 7]]),
+                         default_relation="class:RHYME")
+    count = ("proposer returned 1 line(s) for group {0.label}, which has "
+             "{1} member(s) — the return is ordered by `GroupBrief.members`, "
+             "one line each")
+    count_atomic = ("proposer returned 1 line(s) for atomic group {0.label}, "
+                    "which has {1} member(s) — one line per "
+                    "GroupBrief.members entry")
+    cases = (
+        ("a group with a ranked pivot word", ANCHOR_IS_A_PIVOT, ranked, count),
+        ("a group asked for together with its copies", PIN, copies,
+         count_atomic))
+    for what, lines, m, miscount in cases:
+        for kind, first, why in (
+                ("unread", lambda b: _PR.UnreadReply(_PR.UNREAD_GROUP),
+                 lambda b: _PR.UNREAD_GROUP),
+                ("not one line of text for each line",
+                 lambda b: "every line at once",
+                 lambda b: "the answer was not a list of lines, one for "
+                           "each line asked for"),
+                ("the wrong number of lines", lambda b: ("only one line",),
+                 lambda b: miscount.format(b, len(b.members)))):
+            one, two = asked_again(RV, lines, m, first,
+                                   propose=lambda *a, **k: None)
+            same = (two is not None and two.members == one.members
+                    and two.attempt == one.attempt + 1)
+            check(f"PREMISE ({what}, {kind}): the same group is asked again",
+                  same, None if two is None else (one.members, two.members))
+            if not same:
+                continue
+            now = _PR.render_group(two)
+            check(f"{what}, answer {kind}: the question says the try never "
+                  "reached the grader, and why",
+                  rows(now) == never.format(why(two)), rows(now))
+            plain = _PR.render_group(_dc.replace(
+                two, reasons=tuple(str(r) for r in two.reasons)))
+            check("...and nothing else in it moved: with the reason handed "
+                  "over as plain text it is the question as it was",
+                  plain == now.replace(never.format(why(two)),
+                                       rejected.format(why(two)))
+                  and rows(plain) == rejected.format(why(two)))
+            # REPINNED 2026-11-24: ~~plain in legacy_question_texts(
+            # "propose_group", now)~~. A held run has `as_held(plain)`, not
+            # today's render (see as_held).
+            if what == "a group with a ranked pivot word":
+                check(f"PREMISE ({what}, {kind}): the question states the "
+                      "count of banned partners, so the held wording is not "
+                      "today's", as_held(plain) != plain)
+            check("...and a run held at that question while it still said "
+                  "REJECTED finds it again: the question's earlier wordings "
+                  "hold it, byte for byte",
+                  as_held(plain) in legacy_question_texts("propose_group", now))
+
+    for kind, first, why in (
+            ("nothing came back", lambda b: None,
+             "writer returned no unambiguous whole-draft answer"),
+            ("unread", lambda b: _PR.UnreadReply(_PR.UNREAD_GROUP),
+             _PR.UNREAD_GROUP),
+            ("not one line of text for each line", lambda b: "the whole song",
+             "the answer was not a list of lines, one for each line asked "
+             "for")):
+        one, two = asked_again(Reviser(), CLICHE, "ABAB", first,
+                               only="whole_draft", blueprint=CLICHE_BLUEPRINT,
+                               propose=default_propose)
+        same = two is not None and two.attempt == one.attempt + 1
+        check(f"PREMISE (the whole draft, {kind}): it is asked for again",
+              same)
+        if not same:
+            continue
+        now = _PR.render_group(two)
+        check(f"the whole draft, answer {kind}: the question says the try "
+              "never reached the grader, and why",
+              rows(now) == never.format(why), rows(now))
+        plain = _PR.render_group(_dc.replace(
+            two, reasons=tuple(str(r) for r in two.reasons)))
+        check("...and nothing else in it moved: with the reason handed over "
+              "as plain text it is the question as it was",
+              plain == now.replace(never.format(why), rejected.format(why))
+              and rows(plain) == rejected.format(why))
+        check("...and a run held at that question while it still said "
+              "REJECTED finds it again: the question's earlier wordings hold "
+              "it, byte for byte",
+              plain in legacy_question_texts("propose_group", now))
+
+    # BOTH AT ONCE. The line reply is never read, so the group is asked for
+    # with the words about that line reply; then the group reply is never read
+    # either, and the group is asked for again with the words about its own
+    # try. Each of the two questions was worded as a rejection before, and a
+    # run held at either one has to find it again.
+    one, two = asked_again(
+        RV, ANCHOR_IS_A_PIVOT, ranked,
+        lambda b: _PR.UnreadReply(_PR.UNREAD_GROUP),
+        propose=lambda *a, **k: _PR.UnreadReply(_PR.UNREAD_LINE))
+    same = (two is not None and two.members == one.members
+            and two.attempt == one.attempt + 1 and one.pivot_line_unread
+            and bool(one.pivot_line_reasons) and not one.reasons
+            and two.pivot_line_unread and _LP._not_graded(two.reasons))
+    check("PREMISE (a line reply nobody read, then a group reply nobody "
+          "read): the group is asked for twice, the first time with the line "
+          "reply's reason and the second with its own", same)
+    if same:
+        first_q, second_q = _PR.render_group(one), _PR.render_group(two)
+        old_first = _PR.render_group(_dc.replace(one, pivot_line_unread=False))
+        old_second = _PR.render_group(_dc.replace(
+            two, reasons=tuple(str(r) for r in two.reasons),
+            pivot_line_unread=False))
+        check("PREMISE (both at once): each question states the count of "
+              "banned partners, so neither held wording is today's",
+              as_held(old_first) != old_first
+              and as_held(old_second) != old_second)
+        check("the first group question says the line reply never reached "
+              "the grader, and a run held at it while it said REJECTED finds "
+              "it again",
+              _PR.PIVOT_UNREAD_ROW in first_q
+              and _PR.PIVOT_REJECTED_ROW not in first_q
+              # REPINNED 2026-11-24: ~~_PR.render_group(_dc.replace(one,
+              # pivot_line_unread=False)) in legacy_question_texts(
+              # "propose_group", first_q)~~. A held run has
+              # `as_held(old_first)`, not today's render (see as_held).
+              and as_held(old_first)
+              in legacy_question_texts("propose_group", first_q))
+        check("the second says its own try never reached the grader, and "
+              "nothing about the line reply",
+              rows(second_q) == never.format(_PR.UNREAD_GROUP)
+              and _PR.PIVOT_UNREAD_ROW not in second_q
+              and _PR.PIVOT_REJECTED_ROW not in second_q, rows(second_q))
+        check("...and a run held at it while it said REJECTED finds it again",
+              rows(old_second) == rejected.format(_PR.UNREAD_GROUP)
+              # REPINNED 2026-11-24: ~~old_second in legacy_question_texts(
+              # "propose_group", second_q)~~. A held run has
+              # `as_held(old_second)`, not today's render (see as_held).
+              and as_held(old_second) in legacy_question_texts(
+                  "propose_group", second_q))
+
+    # CONTROL: a group answer the grader read and rejected keeps its words.
+    one, two = asked_again(
+        RV, ANCHOR_IS_A_PIVOT, ranked,
+        lambda b: tuple(b.lines[n - 1] for n in b.members),
+        propose=lambda *a, **k: None)
+    graded = None if two is None else rows(_PR.render_group(two))
+    check("CONTROL: a group answer the grader read and turned down is still "
+          "quoted as a rejection, with the grader's reasons",
+          graded is not None and graded.startswith(
+              "  The PREVIOUS attempt was REJECTED. The grader's reasons, "
+              "verbatim:\n    - ")
+          and graded.endswith("  Do not send back something the same reason "
+                              "would reject again.\n"), graded)
+
+
 if __name__ == "__main__":
     # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
     # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_LOOP_SHARD=k/n`
@@ -3186,6 +3393,7 @@ if __name__ == "__main__":
                test_the_rebrief_carries_to_the_rest_of_the_round,
                test_the_batch_door_and_the_recorded_verdict,
                test_a_rejected_group_rewrite_is_recorded_and_quoted_next_round,
-               test_the_flagged_subset_is_published_apart_from_the_open_lines)
+               test_the_flagged_subset_is_published_apart_from_the_open_lines,
+               test_a_group_try_the_grader_never_read_is_not_called_rejected)
     sys.exit(run_sections(_SECTIONS, "TEST_LOOP_SHARD", FAILURES,
                           footer="all loop regressions pass"))

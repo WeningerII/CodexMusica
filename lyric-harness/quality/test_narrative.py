@@ -470,6 +470,12 @@ def test_measured_seeds():
     # ~~ZEROS = (20, 28, 38, 48, 64, 79, 81, 82, 97, 100)~~: 64 and 100 are
     # positive now and stay pinned with their new counts, and 96, never
     # pinned, is a zero, so ten zeros become nine. ~~12:3568640~~.
+    # REPINNED 2026-11-22 (bug hunt F21; the owner's ruling that these
+    # groups may run to five; measured over seeds 1-100): one seed moved.
+    # Seed 7's first draw now deals a run-on group whose last member needs
+    # two more syllables on line 18 than its grid holds, so the joint gate
+    # refuses it (OVERHANG_EXCEEDS_SPAN) and the seed redraws, disclosed in
+    # `choices.seed_redraw`. ~~7:513802240~~. The ~~nine~~ eight zeros hold.
     # REPINNED 2026-11-23 (owner's ruling: a rhyme tie inside a line is
     # named at a word as often as real sung lines have a word there, up to
     # word 22; measured): ~~ZEROS = (20, 28, 38, 48, 79, 81, 82, 96,
@@ -480,8 +486,16 @@ def test_measured_seeds():
     # refused and redraws to a positive count, and nine zeros become
     # eight. Seed 12's first draw is no longer refused, so it keeps the
     # count it had before F23 (~~12:30283776~~). No other pin moved.
+    # MERGED 2026-11-24 (main 4def4c3f77 into this branch; measured over
+    # seeds 1-100 on the merged tree): the two changes compose, and each
+    # moved seed was moved by one of them. F21 moved seed 7
+    # (~~7:513802240~~ -> 812160). The word places up to word 22 moved
+    # seeds 38 and 12: 38 redraws to a positive count and leaves the
+    # zeros, and 12 keeps its count from before F23 (~~12:30283776~~).
+    # The merged tree has eight zeros, the tuple below, and no other pin
+    # moved.
     ZEROS = (20, 28, 48, 79, 81, 82, 96, 97)
-    pins = {1:9635328, 6:32747520, 7:513802240,
+    pins = {1:9635328, 6:32747520, 7:812160,
             9:5865799680,
             15:15257600, 23:3533517619200, 25:21307392000, 27:221184,
             30:5548032,

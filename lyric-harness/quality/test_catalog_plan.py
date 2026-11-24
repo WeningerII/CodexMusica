@@ -607,10 +607,21 @@ class CatalogPlannerTests(unittest.TestCase):
                 self.assertIn(native["relations"]["A"], terminal_types())
             chosen = plan.make_plan(11, song_form=data, relations={"A": "schema:perfect rhyme"})
             self.assertEqual(chosen["groups"], ",".join(f"{line}.endword" for line in lines))
-            with self.assertRaisesRegex(plan.PlanRefused, "whole prescribed terminal group"):
-                plan.make_plan(11, song_form=data, relations={"A": "schema:semirhyme"})
+            # REPINNED 2026-11-22 (bug hunt F21; the owner's ruling: these
+            # groups may run to five): ~~a semirhyme over three or four
+            # lines is refused~~. Each member runs on one syllable further
+            # than the one before it, so the whole group binds.
+            run_on = plan.make_plan(11, song_form=data, relations={"A": "schema:semirhyme"})
+            self.assertEqual(run_on["groups"], ",".join(f"{line}.endword" for line in lines))
             with self.assertRaisesRegex(plan.PlanRefused, "group size"):
                 plan.make_plan(11, song_form=data, wants=["group<=2"])
+        # ...and one line past that limit the whole group cannot bind.
+        from quality.relations import OVERHANG_CHAIN_CAP
+        lines = list(range(1, OVERHANG_CHAIN_CAP + 2))
+        data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": len(lines)}],
+                       rhymes=[lines])
+        with self.assertRaisesRegex(plan.PlanRefused, "whole prescribed terminal group"):
+            plan.make_plan(11, song_form=data, relations={"A": "schema:semirhyme"})
 
     def test_prescribed_partition_keeps_each_group_and_its_relation(self):
         data = catalog("fixture", [{"unit": "section", "role": "verse", "lines": 8}],

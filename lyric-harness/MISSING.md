@@ -28991,7 +28991,7 @@ enjambed witness.)
   a line and its own tail, is satisfied, because `flush_right` with
   `unmatched='exclude'` never asks the rest of the longer line to match.
   **That tail half is REPAIRED 2026-11-21 (bug hunt F20):** the schema
-  declares `unmatched='forbid'`, Lear's pair is violated, and the row
+  declares `unmatched='forbid'`, the tail pair is violated, and the row
   answers ~~`[False, True]`~~ `[False, False]` (`test_mandate_relation.py`
   §17 draws its witnesses by seed from the dictionary's homophones). The
   word-boundary half above is still open.

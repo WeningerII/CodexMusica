@@ -4,13 +4,24 @@ import assert from 'node:assert/strict';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import test from 'node:test';
+import nativeTest from 'node:test';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, verdictOf } from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
 import { legacySession, legacySweep } from './statement_fixture.mjs';
+import groupRegistry from '../scripts/ci_node_test_groups.js';
+
+// CI runs this file as four processes, one per group named for it in
+// scripts/ci_node_test_groups.json; a plain `node --test` of the file still
+// runs every test. A test added here, renamed or removed must be changed in
+// that list too, in the same place: the file refuses to load otherwise.
+const groupedTests = groupRegistry.createRegistrar(
+  nativeTest,
+  'mcp/test_catalog_form_creation.mjs'
+);
+const test = groupedTests.test;
 
 async function sessionHost(t) {
   const directory = await mkdtemp(join(tmpdir(), 'creation-catalog-'));
@@ -3441,3 +3452,5 @@ test('an automatic catalog sweep whose settings plan but meet no want says so', 
     await server.close();
   }
 });
+
+groupedTests.complete();

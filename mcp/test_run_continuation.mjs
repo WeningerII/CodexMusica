@@ -231,11 +231,25 @@ try {
   // re-deals its sections and line ends and flags a different thirteen; the
   // door still opens on continuation 0 with all of them (192466 state bytes).
   // ~~[1, 2, 4, 5, 6, 8, 11, 12, 14, 16, 18, 19, 23]~~ REPINNED 2026-11-23
-  // (owner's ruling: a rhyme tie inside a line is placed as often as real
-  // sung lines have a word there; measured): the weighted place pick draws
-  // from the seed differently, so seed 1 at 24 lines re-deals its plan and
-  // flags a different eight; the door still opens on continuation 0 with all
-  // of them (114465 state bytes).
+  // (bug hunt F21, owner's ruling that a run-on rhyme group may hold up to
+  // five lines; measured on main, CI run 45112853472): seed 1 at 24 lines
+  // deals its apocopated-rhyme group B as lines 1, 7 and 11 where it dealt 1
+  // and 7, so L11 is a group member and no longer independent; the door
+  // still opens on continuation 0 with the other twelve, all admitted
+  // (202030 state bytes): ~~[1, 2, 4, 5, 6, 8, 12, 14, 16, 18, 19, 23]~~.
+  // REPINNED 2026-11-23 on this branch, from the thirteen (owner's ruling: a
+  // rhyme tie inside a line is placed as often as real sung lines have a
+  // word there; measured): the weighted place pick draws from the seed
+  // differently, so seed 1 at 24 lines re-deals its plan and flags a
+  // different eight; the door still opens on continuation 0 with all of
+  // them (114465 state bytes).
+  // MERGED 2026-11-24 (main 4def4c3f77, which carries F21; measured on the
+  // merged tree): F21 deals group B as lines 1, 7 and 11 here too, so L11 is
+  // a flagged group member (12 flagged lines, not 11), and the independent
+  // briefs are still the eight below; the door still opens on continuation 0
+  // with all of them (114519 state bytes: the 54 over the branch's 114465
+  // are group B's third member in the L7 question, its menu and the
+  // flagged-line list).
   const originalIndependent = [3, 7, 9, 10, 13, 20, 22, 24];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
@@ -341,9 +355,14 @@ try {
   // the merge order puts #627 first, so the pin is the merged reading.
   // ~~[1, 2, 4, 8, 10, 11, 12, 13, 14, 18, 19, 20, 24]~~ -> the thirteen below
   // (2026-11-13, the 22-function roster; measured).
+  // ~~the thirteen~~ -> ~~[1, 2, 4, 5, 6, 8, 12, 14, 16, 18, 19, 23]~~
+  // (2026-11-23, bug hunt F21; measured on main): L11 joins group B and
+  // leaves the independent briefs.
   // ~~[1, 2, 4, 5, 6, 8, 11, 12, 14, 16, 18, 19, 23]~~ -> the eight below
   // (2026-11-23, rhyme ties inside a line placed by the measured word places;
-  // measured).
+  // measured). MERGED 2026-11-24 (main 4def4c3f77; measured on the merged
+  // tree): with F21 in, L11 is in group B again, and the first subset is
+  // the same eight.
   assert.deepEqual(firstSubset, [3, 7, 9, 10, 13, 20, 22, 24]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)

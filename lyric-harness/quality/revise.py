@@ -4159,7 +4159,18 @@ class Reviser:
                                     {"message": _SECTION_TYPES_NOT_CHECKED})})
             if requested:
                 seen_located = set()
+                # WHICH FINDING IS A NUMBERED ROW'S OWN (bug hunt 2026-11-20,
+                # finding 30; R2's review, 2026-11-23). One finding is written
+                # per refusal, below, in this order. A refusal whose failed
+                # words all have a draft line writes `:L<n>` rows and no
+                # numbered one, so the numbered rows of a code can be fewer
+                # than its findings, and counting rows named the wrong one.
+                # Each numbered row carries its refusal's place among the
+                # refusals of its code.
+                place_in_code = collections.Counter()
                 for index, refusal in enumerate(rep["refusals"]):
+                    finding_index = place_in_code[refusal.code]
+                    place_in_code[refusal.code] += 1
                     located = [f for f in refusal.failed_words if f.line is not None]
                     unlocated = [f for f in refusal.failed_words if f.line is None]
                     for f in located:
@@ -4178,7 +4189,7 @@ class Reviser:
                     record = {"id": f"function:{refusal.code}:{index}",
                               "layer": "function",
                               "status": ("not_requested" if refusal.code in unasked else "refused"),
-                              "code": refusal.code}
+                              "code": refusal.code, "finding_index": finding_index}
                     if unlocated:
                         # Expansion has section-local evidence, not a draft
                         # coordinate. It must not erase the known failures.
@@ -6076,6 +6087,20 @@ class Reviser:
             depth = len(self.engine.index) + 1
         res = _engine_candidates(self.engine, word, depth)
         rows = res.get("candidates", [])
+        # THE CALL WORD IS NOT ITS OWN CANDIDATE, HOWEVER IT IS WRITTEN (the
+        # review of bug hunt F18's fix, 2026-11-23). The engine leaves out
+        # its query as typed, so a call written with a quote mark on its
+        # edge (`blown'`, as a brief hands a partner line's end word over)
+        # got the dictionary word `blown` back as a candidate of itself, and
+        # the question listed it among the words that call bans. The word as
+        # the rhyme judge reads it (`_end_key`) is left out too, under either
+        # spelling the dictionary may hold it by. The QUERY is not folded:
+        # `singin'` is read as written. For a call with no mark on its edge
+        # this is the word the engine already left out.
+        own = _end_key(word)
+        rows = [c for c in rows
+                if c["word"] != own
+                and not ("'" in c["word"] and _end_key(c["word"]) == own)]
         if rd.field_band == "scalar":
             coarse = tuple(c["word"] for c in rows
                            if c["score"] >= self.decl.theta_rhyme)
@@ -6104,7 +6129,7 @@ class Reviser:
                 # anchor -- the stressed nucleus, the coda, the onset -- or
                 # the spelled ending is added, in frequency order, after the
                 # scalar pool; `_member` decides each lazily.
-                seen = set(coarse) | set(pending) | {word.lower()}
+                seen = set(coarse) | set(pending) | {word.lower(), own}
                 keys = set()
                 for a in anc_q:
                     if a:
@@ -6114,7 +6139,8 @@ class Reviser:
                 tail = (w_q or word).lower()[-3:]
                 extra = []
                 for cand, anc_c, rank in self.engine.index:
-                    if cand in seen or not anc_c:
+                    if cand in seen or not anc_c or (
+                            "'" in cand and _end_key(cand) == own):
                         continue
                     if (("n", anc_c[0]["nucleus"]) in keys
                             or (("c", tuple(anc_c[-1]["coda"])) in keys
@@ -6347,8 +6373,19 @@ class Reviser:
         from lyric_harness import (admit_is_default as _AID, anchor as _anc,
                                    score as _score, syllabify as _syl)
         cond = collections.Counter()
+        # THE CALL WORD AS THE RHYME JUDGE READS IT (`_end_key`), wherever the
+        # search looks it up as text: this table's key here, the same table
+        # in `_rank_field_compute`, and the comparisons in `_widen_pool`,
+        # `_offer_reopens` and `_field_split`. ~~`call_word.lower()`~~
+        # REPLACED 2026-11-23 (the review of bug hunt F18's fix): a brief
+        # hands the search a partner line's end word as written, so a closing
+        # quote mark on it found no row here and the search stopped leaving
+        # out the banned partners, while `earned_pair_ban` (which folds)
+        # still banned them. `call_low` below is left as it was: the call
+        # word itself is also left out by its spelled ending, so no result
+        # depends on it.
         cond.update(FREQ.LAYER.conditional(
-            "eng-song", call_word.lower(), scoring=FREQ.UNSEEN))
+            "eng-song", _end_key(call_word), scoring=FREQ.UNSEEN))
         index = getattr(self, "_engine_word_index", None)
         if index is None:
             index = self._engine_word_index = {}
@@ -6487,7 +6524,7 @@ class Reviser:
         cond = collections.Counter()
         for call in calls:
             cond.update(FREQ.LAYER.conditional(
-                "eng-song", call.lower(), scoring=FREQ.UNSEEN))
+                "eng-song", _end_key(call), scoring=FREQ.UNSEEN))
         ranked = sorted(common,
                         key=lambda w: (-cond.get(w, 0),
                                        self.lex.freq_rank.get(w, 10 ** 9),
@@ -6703,10 +6740,18 @@ class Reviser:
             nuc = None
         out = []
         if nuc:
-            call_l = call.lower()
+            call_l = _end_key(call)
             rows = []
             for word, anc, rank in self.engine.index:
-                if not anc or word == call_l:
+                # The call word is left out under either spelling the
+                # dictionary holds it by, as `_field_split` leaves it out
+                # (R2's read of the fold, 2026-11-23). ~~`word == call_l`
+                # alone~~: `call_l` has lost its edge marks, so a word the
+                # dictionary spells with an apostrophe in front (`'round`)
+                # no longer equalled itself here and came back as its own
+                # offer.
+                if not anc or word == call_l or (
+                        "'" in word and _end_key(word) == call_l):
                     continue
                 if anc[0].get("nucleus") == nuc:
                     rows.append((rank, word))
@@ -6885,7 +6930,7 @@ class Reviser:
         cond_w = FREQ.LAYER.conditional("eng-song", w.lower(),
                                         scoring=FREQ.UNSEEN)
         for c, cfield in zip(calls, fields):
-            c = c.lower()
+            c = _end_key(c)
             cond_c = cond_w.get(c, 0)
             if cond_c <= 0:
                 # EVIDENCE-GATED HEAD (2026-09-24, `_rank_field_compute`):
@@ -7508,6 +7553,7 @@ class Reviser:
         genuinely clean.
         """
         from quality.propose import verify_reason           # noqa: PLC0415
+        import quality.propose as _reasons                  # noqa: PLC0415
         if self._pronunciation_origin is None:
             self = self.for_revision(before)
         out = {"accepted": False, "reasons": [],
@@ -7527,8 +7573,13 @@ class Reviser:
                 return out
             stray = changed - targeted
             if stray:
+                # ~~lines=sorted(stray)~~ REPLACED 2026-11-23: that printed
+                # a Python list to the writer ("lines [2] were changed").
                 out["reasons"].append(verify_reason(
-                    "untargeted", lines=sorted(stray)))
+                    "untargeted", lines=", ".join(map(str, sorted(stray)))))
+                _reasons.legacy_reason(
+                    out["reasons"][-1], _reasons.reason_before_1123(
+                        "untargeted", lines=sorted(stray)))
                 return out
         f_before = self.inspect(before, m, profile=profile,
                                 blueprint=blueprint, subdivision=subdivision,
@@ -7644,17 +7695,26 @@ class Reviser:
             return out
 
         if not fixed:
+            # ~~{sorted(broken)}~~ REPLACED 2026-11-23, with ~~flags=
+            # sorted(new_flags)~~ below: both printed the grader's records
+            # as Python wrote them, and the next question quotes the reason.
             out["reasons"].append(
                 verify_reason("nothing_fixed")
-                + (f" — the only finding(s) removed were {sorted(broken)}, "
-                   f"which record a requirement or licence HOLDING, so "
-                   f"ending one is a regression and not a repair"
-                   if broken else ""))
+                + (_reasons.NOTHING_FIXED_BUT_ENDED.format(
+                    broken=_reasons.named_findings(broken)) if broken else ""))
+            if broken:
+                _reasons.legacy_reason(
+                    out["reasons"][-1], _reasons.reason_before_1123(
+                        "nothing_fixed", broken=sorted(broken)))
             return out
         if sum(new[k] for k in new_flags) > self.rdecl.allow_net_new:
             out["reasons"].append(verify_reason(
-                "new_flags", n=len(new_flags), flags=sorted(new_flags),
-                fixed=len(fixed)))
+                "new_flags", n=len(new_flags),
+                flags=_reasons.named_findings(new_flags), fixed=len(fixed)))
+            _reasons.legacy_reason(
+                out["reasons"][-1], _reasons.reason_before_1123(
+                    "new_flags", n=len(new_flags), flags=sorted(new_flags),
+                    fixed=len(fixed)))
             return out
         out["accepted"] = True
         note_disclosure = (f", disclosing {len(out['new_notes'])} new "
