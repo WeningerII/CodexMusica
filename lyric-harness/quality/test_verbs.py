@@ -2812,9 +2812,14 @@ def test_both_mandate_spellings_are_read():
           [l.strip() for l in out_free.splitlines() if "VERDICT" in l][:1]
           + [l.strip() for l in out_free.splitlines()
              if "nothing was fixed" in l][:1])
+    # REPINNED 2026-11-24: ~~"[4] were changed but not targeted" in
+    # out_tgt~~. The reason printed its line numbers as a Python list, and
+    # the next question quotes the reason to the writer; it names them in
+    # words now ("lines 4 were changed"). The claim is the same one: the run
+    # that declares `1,3` names the line the diff touched.
     check("declaring `1,3` REJECTS the same diff and NAMES the line it "
           "touched — the trailing list is READ, not merely parsed",
-          "VERDICT: REJECTED" in out_tgt and "[4] were changed but not "
+          "VERDICT: REJECTED" in out_tgt and "lines 4 were changed but not "
           "targeted" in out_tgt,
           out_tgt.strip().splitlines()[-1:])
     check("and the two runs are not byte-identical",
