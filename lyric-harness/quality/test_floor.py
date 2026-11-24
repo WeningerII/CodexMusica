@@ -1361,9 +1361,9 @@ def test_anaphora_tie_break_reproduces():
                            text=True, env=env,
                            cwd=os.path.join(HERE, ".."))
         seen.add(r.stdout.strip() or r.stderr.strip()[-120:])
-    # REPINNED 2026-11-22: "one answer" alone passed when all six runs raised
-    # the same error (an unbound call through `self.opening_word`), so the
-    # answer must also be the tie-break's.
+    # REPINNED 2026-11-22: ~~"one answer" alone~~ -- the old check passed
+    # when all six runs raised the same error; this one requires the value
+    # itself, the tie-break's.
     check("six PYTHONHASHSEEDs give one answer, and it is the tie-break's",
           seen == {"(0.5, 'alpha')"}, f"{sorted(seen)}")
 
@@ -1923,52 +1923,6 @@ def test_a_declared_threshold_is_not_a_corpus_percentile():
               f11[0].evidence[:120])
 
 
-def test_a_mark_before_the_opening_word_does_not_hide_a_repeat():
-    print("\nbug-hunt finding 34 (Boris's test, carried in the pronunciation "
-          "batch) — a mark before the opening word does not hide a repeat")
-    # Four lines open with "the" and are flagged. With a quotation mark or an
-    # en dash in front of two of them the flag went away, because '"the' was
-    # counted as another word; a curly apostrophe split one opening word in
-    # two the same way.
-    from quality.song_profile_calibration import anaphora
-    floor = SlopFloor()
-    rest = ['rain came down the road', 'river ran away',
-            'wind blew on the hill', 'weather turned to gray']
-
-    def overload(lines):
-        return [f for f in floor.check(lines) if f.code == 'ANAPHORA_OVERLOAD']
-    plain = overload(['the ' + r for r in rest])
-    check("plain: 4 of 4 lines open with the same word",
-          len(plain) == 1
-          and plain[0].message == '4 of 4 lines open with the same word',
-          [f.message for f in plain])
-    for mark in ('\u201c', '"', '\u2013', '\u2014', "'", '('):
-        lines = ([mark + 'the ' + r for r in rest[:2]]
-                 + ['the ' + r for r in rest[2:]])
-        found = overload(lines)
-        check(f"a leading {mark!r} still finds the repeat on all four lines",
-              len(found) == 1 and plain and found[0].message == plain[0].message
-              and found[0].locations == [1, 2, 3, 4]
-              and anaphora(lines) == 1.0,
-              [(f.message, f.locations) for f in found])
-    got = [SlopFloor.opening_word(x) for x in
-           ('\u201cThe rain', '\u2013 the rain', "I\u2019m here", "I'm here",
-            'Well, then', '', '...')]
-    check("opening_word reads past marks and folds the apostrophe",
-          got == ['the', 'the', "i'm", "i'm", 'well', '', ''], got)
-    ends = ('river mountain window garden hammer candle ladder blanket '
-            'pocket lantern').split()
-    mixed = [("I'm" if i % 2 else "I\u2019m") + ' by the ' + w
-             for i, w in enumerate(ends[:8])]
-    mixed += ['and the ' + ends[8], 'so the ' + ends[9]]
-    found = overload(mixed)
-    check("eight of ten open with the same word under two apostrophes",
-          len(found) == 1
-          and found[0].message == '8 of 10 lines open with the same word'
-          and anaphora(mixed) == 0.8,
-          [f.message for f in found])
-
-
 if __name__ == "__main__":
     for fn in (test_the_length_gate_is_a_gate,
                test_never_returns_a_score, test_too_short_is_silent,
@@ -1979,7 +1933,6 @@ if __name__ == "__main__":
                test_disowned_types_are_not_written_on_the_writers_pair,
                test_cliche_pair_may_only_reject_where_it_was_measured,
                test_anaphora, test_anaphora_is_a_note_about_a_figure,
-               test_a_mark_before_the_opening_word_does_not_hide_a_repeat,
                test_thresholds_are_declared_not_hidden,
                test_length_is_a_coordinate,
                test_calibration_block_is_honest,

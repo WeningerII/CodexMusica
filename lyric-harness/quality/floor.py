@@ -978,16 +978,7 @@ PROFILES = [
         #: it here, or repin the constant." This is the repin: the corrected
         #: reader gives the true MATTR of this corpus, so the constant moves
         #: rather than the drift being ruled.
-        #:
-        #: ~~'anaphora_max': 0.3086080586080586~~ REPINNED 2026-11-24 -> 0.3125,
-        #: READER SCHEME v2 (moved at ded2284947, `SlopFloor.opening_word`):
-        #: a line's opening word is now read past a leading quote mark, edge
-        #: apostrophe, curly apostrophe, underscore markup, bracket or dash.
-        #: 19,067 of 278,126 lines open on a different word; in the band 191
-        #: of 3,251 items' anaphora rate moved (190 up). Measured by
-        #: `song_profile_calibration.py --check --without-predictability` on
-        #: the final tree; the other four re-derive exactly, as before.
-        percentiles={'anaphora_max': 0.3125,
+        percentiles={'anaphora_max': 0.3086080586080586,
  'line_length_cv_min': 0.10734042428432794,
  'function_word_ratio_max': 0.4806227538486295,
  'mattr_min': 0.7058043299534118,
@@ -1873,23 +1864,6 @@ class SlopFloor:
 
     # -- individual checks ------------------------------------------------
 
-    @staticmethod
-    def opening_word(line):
-        """-> the word a line opens with, as the repeated-opening check
-        compares it: the first token the rest of the floor reads
-        (`QualityFeatures._tokens`), lower-cased, without an apostrophe or a
-        hyphen at either end.
-
-        ONE DEFINITION FOR THE RATE AND THE LINES IT NAMES (bug hunt
-        2026-11-20, finding 34; patch by Boris). It was the first
-        whitespace-separated piece with seven punctuation marks stripped,
-        written out three times. A line that opened with a quotation mark or
-        an en dash was counted as opening with another word, and a curly
-        apostrophe made a second word of the same one, so marking some lines
-        as speech hid the repeat.
-        """
-        return (QualityFeatures._tokens(line) or [""])[0].lower().strip("'-")
-
     def _anaphora(self, lines):
         """Share of lines opening with the most frequent opening word.
 
@@ -1903,9 +1877,8 @@ class SlopFloor:
         reproduce (doctrine 66) -- and here it was the evidence and the line
         numbers, i.e. exactly the part a writer acts on.
         """
-        # `SlopFloor.`, not `self.`: test_floor §18 calls this unbound
-        # (`SlopFloor._anaphora(None, lines)`) across hash seeds.
-        firsts = [SlopFloor.opening_word(l) for l in lines]
+        firsts = [(l.split() or [""])[0].lower().strip(",.;:!?—-")
+                  for l in lines]
         if not firsts:
             return 0.0, ""
         counts = Counter(firsts)
@@ -2264,7 +2237,7 @@ class SlopFloor:
         a, word = self._anaphora(lines)
         if thr is not None and a > thr:
             hits = [i + 1 for i, l in enumerate(lines)
-                    if self.opening_word(l) == word]
+                    if (l.split() or [""])[0].lower().strip(",.;:!?—-") == word]
             # Assess how much opening identity is actually discretionary.
             # Collapsing required identity classes is a diagnostic, not a
             # newly calibrated population; it can only remove an impossible
