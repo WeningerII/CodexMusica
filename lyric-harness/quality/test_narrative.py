@@ -475,7 +475,7 @@ def test_measured_seeds():
     # Seed 7's first draw now deals a run-on group whose last member needs
     # two more syllables on line 18 than its grid holds, so the joint gate
     # refuses it (OVERHANG_EXCEEDS_SPAN) and the seed redraws, disclosed in
-    # `choices.seed_redraw`. ~~7:513802240~~. The ~~nine~~ eight zeros hold.
+    # `choices.seed_redraw`. ~~7:513802240~~. The nine zeros hold.
     # REPINNED 2026-11-23 (owner's ruling: a rhyme tie inside a line is
     # named at a word as often as real sung lines have a word there, up to
     # word 22; measured): ~~ZEROS = (20, 28, 38, 48, 79, 81, 82, 96,
