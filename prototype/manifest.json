@@ -1469,7 +1469,8 @@
     },
     {
       "n": 161,
-      "id": "genre-view-tabs",
+      "id": "genre-catalog-view",
+      "note": "#925: John authorized retiring Start exploring and the page tabs. This row now preserves their replacement: the sole full-catalog Genres view, with no automatic starter detail. Row numbers stay stable for existing scenario declarations.",
       "treatment": "Keep",
       "kind": "W",
       "gate": "reach",

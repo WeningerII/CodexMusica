@@ -1927,6 +1927,16 @@ notes: Kept alongside the exact returns in one declaration in the harness's spel
 The Genre page (`src/pages/genre.js`, `src/pages/genre.css`): a Browse column (the 25 taxonomy roots, the current branch, Find a sound) beside the catalogue (Rows or List), with Your recipe as the shell's sidebar. A fresh session shows the catalog with no selected genre; detail controls use the explicit `genre detail` precondition. Selectors below are presence checks; the interactions were exercised in Chromium for the PR (targets filter and rank, tab keys, both instrument destinations, View on map and back, list position on return).
 
 ```yaml
+name: genre-catalog-view
+kind: widget
+selector: '#surface-genre #genre-list'
+surface: Genre — the sole full catalog view; no page tabs or automatically opened starter. Replaces genre-view-tabs by John's explicit retirement decision in #925
+implementation: gpRenderMain always uses gpAll in src/pages/genre.js; foundation checks the default catalog, absent detail and retired tab semantics
+status: reachable
+precondition: empty
+```
+
+```yaml
 name: genre-layout-rows-list
 kind: widget
 selector: '#surface-genre [data-ui="genre-layout"]'
