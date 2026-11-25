@@ -933,7 +933,8 @@ function gpSayNoMatch() {
   }, 500);
 }
 function gpRenderMain() {
-  gpFinishTransition(false);
+  // Recipe/prose/layout redraws must not discard an accepted open or Back.
+  if (gpFinishTransition()) return; // The committed action already rendered and focused.
   const host = $ui('genre-list');
   if (!host) return;
   if (gpTreeOpen()) return;
@@ -1075,7 +1076,7 @@ function gpLoadMotion() {
   );
 }
 function gpFinishTransition(commit) {
-  gpMotion?.finish(commit);
+  return gpMotion?.finish(commit);
 }
 function gpTransition(id, back, change, opener) {
   if (gpMotion) gpMotion.run(id, back, change, opener);
@@ -1369,7 +1370,7 @@ uiRegisterPage({
   },
   render: renderGenreDiscovery,
   leave() {
-    gpFinishTransition();
+    gpFinishTransition(false);
   },
   // Escape closes what this page opened: the inline tree, then a detail.
   escape() {

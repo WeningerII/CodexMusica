@@ -42,8 +42,8 @@ State and focus still use the existing action bodies. A subsequent open/back
 finishes a pending action once before applying the next. Keyboard/resize/motion
 preference interruptions commit the pending action and skip its animation. A
 new pointer press supersedes an uncommitted update so it cannot remove the new
-pointer target before its click. An unrelated render cancels a pending stale
-update. Cleanup is idempotent and cannot erase a newer transition's name.
+pointer target before its click. A passive redraw commits a pending action once and keeps its focus; newer
+input, route navigation or an external genre selection supersedes it. Cleanup is idempotent and cannot erase a newer transition's name.
 
 ## Existing optional-module packaging
 
@@ -129,7 +129,8 @@ CHROMIUM_PATH=/usr/bin/chromium node scripts/check_genre_transition_browser.js \
   --output=/tmp/genres-native-evidence
 CHROMIUM_PATH=/usr/bin/chromium node scripts/check_genre_focus_browser.js \
   --html=/tmp/genres-native-after.html
-npx eslint src/pages/genre.js scripts/check_genre_transition_browser.js
+CHROMIUM_PATH=/usr/bin/chromium node scripts/check_genre_transition_races.js
+npx eslint src/pages/genre.js src/pages/genre-motion.mjs scripts/check_genre_transition_browser.js scripts/check_genre_transition_races.js
 npx prettier --check src/pages/genre.js src/pages/genre.css \
   scripts/check_genre_transition_browser.js docs/genres-native-transition.md
 ```

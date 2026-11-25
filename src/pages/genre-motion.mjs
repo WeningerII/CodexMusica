@@ -1,4 +1,4 @@
-/* global document, window, matchMedia, getComputedStyle, innerHeight, innerWidth, $ui, uiFind */
+/* global document, window, matchMedia, getComputedStyle, innerHeight, innerWidth, $ui, uiFind, UI */
 // The Chrome same-document recipe: temporarily name the actual image on each
 // side of a DOM update, then clear the name when the native transition finishes.
 // Adapted from developer.chrome.com/docs/web-platform/view-transitions/same-document
@@ -8,9 +8,10 @@ function gpFinishTransition(commit = true) {
   const state = gpTransitionState;
   if (!state || state.updating) return;
   state.transition?.skipTransition();
-  if (commit) state.update();
+  const changed = commit && state.update();
   state.done = true;
   state.clean();
+  return changed;
 }
 function gpTransitionImage(id, detail, opener, hitTest = false) {
   const container = detail
@@ -64,6 +65,7 @@ function gpTransition(id, back, change, opener) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   if (!from || reduced.matches || !document.startViewTransition) return change();
   let to;
+  const selected = UI.genre;
   const source = from.querySelector('img').currentSrc;
   const state = {
     done: false,
@@ -71,6 +73,8 @@ function gpTransition(id, back, change, opener) {
     update() {
       if (state.done) return;
       state.done = true;
+      // A map selection or route change can arrive without a DOM input event.
+      if (UI.view !== 'genre' || UI.genre !== selected) return;
       state.updating = true;
       from.style.viewTransitionName = '';
       change();
@@ -79,6 +83,7 @@ function gpTransition(id, back, change, opener) {
       // Never wait for an image or scroll to manufacture a counterpart.
       if (!to || to.querySelector('img').currentSrc !== source) state.transition?.skipTransition();
       else to.style.viewTransitionName = 'genre-image';
+      return true;
     },
     clean() {
       if (state.cleaned) return;
@@ -92,15 +97,18 @@ function gpTransition(id, back, change, opener) {
       reduced.removeEventListener('change', interrupt);
       window.removeEventListener('resize', interrupt);
       document.removeEventListener('pointerdown', interrupt, true);
+      document.removeEventListener('click', interrupt, true);
+      document.removeEventListener('input', interrupt, true);
       document.removeEventListener('keydown', interrupt, true);
       document.removeEventListener('wheel', interrupt, true);
     },
   };
-  // A new pointer target must survive until its click. Discard an update
-  // that has not run yet; never replace that target underneath the pointer.
+  // New input supersedes an uncommitted update, including assistive or
+  // programmatic activation without pointerdown. Keep its target intact.
   // Keyboard defaults instead start from the committed focus (e.g. Tab).
   const interrupt = (event) => {
-    if (gpTransitionState === state) gpFinishTransition(event.type !== 'pointerdown');
+    if (gpTransitionState === state)
+      gpFinishTransition(!['pointerdown', 'click', 'input'].includes(event.type));
   };
   gpTransitionState = state;
   from.style.viewTransitionName = 'genre-image';
@@ -108,6 +116,8 @@ function gpTransition(id, back, change, opener) {
   reduced.addEventListener('change', interrupt);
   window.addEventListener('resize', interrupt);
   document.addEventListener('pointerdown', interrupt, true);
+  document.addEventListener('click', interrupt, true);
+  document.addEventListener('input', interrupt, true);
   document.addEventListener('keydown', interrupt, true);
   document.addEventListener('wheel', interrupt, { capture: true, passive: true });
   try {
