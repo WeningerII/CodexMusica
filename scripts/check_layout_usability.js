@@ -718,6 +718,35 @@ async function editorKeyboard(page, where) {
       // the Genre page lands below its sticky tabs, and on a phone a control
       // focused behind the Lyrics line dock scrolls into view.
       if (width === 899 || width === 1280) {
+        if (width === 899) {
+          // Enter a row arrow from its first card with the arrow already near
+          // the sticky bar. Native focus must reserve the bar's full height.
+          const row = page.locator('.cm-rows-group[data-rows="genre:Y"]');
+          await row.scrollIntoViewIfNeeded();
+          await settle(page);
+          await row.evaluate((group) => {
+            const arrow = group.querySelector('[data-ui="rows-scroll"][data-dir="1"]');
+            group
+              .querySelector('.cm-rows-track button, .cm-rows-track a')
+              .focus({ preventScroll: true });
+            const main = document.getElementById('genre-main');
+            const bar = document.getElementById('genre-maintabs');
+            main.scrollTop +=
+              arrow.getBoundingClientRect().top - bar.getBoundingClientRect().bottom + 10;
+          });
+          assert.deepEqual(
+            await obscuredFocus(page, 'Shift+Tab', 1),
+            [],
+            'Genre: the Y arrow clears the full sticky bar'
+          );
+          assert.equal(
+            await page
+              .locator('[data-ui="rows-scroll"][data-id="genre:Y"][data-dir="1"]')
+              .evaluate((el) => el === document.activeElement),
+            true,
+            'Genre: Shift+Tab reaches the Y arrow'
+          );
+        }
         await page.locator('#genre-main').evaluate((el) => {
           const all = [...el.querySelectorAll('a, button, input, select, [tabindex="0"]')];
           all
