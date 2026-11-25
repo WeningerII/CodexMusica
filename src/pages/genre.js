@@ -933,6 +933,8 @@ function gpSayNoMatch() {
   }, 500);
 }
 function gpRenderMain() {
+  // Recipe/prose/layout redraws must not discard an accepted open or Back.
+  if (gpFinishTransition()) return; // The committed action already rendered and focused.
   const host = $ui('genre-list');
   if (!host) return;
   if (gpTreeOpen()) return;
@@ -986,6 +988,7 @@ function gpMarkOpen(open) {
 }
 function renderGenreDiscovery() {
   if (!$ui('genre-body')) return;
+  gpLoadMotion();
   if (!G.view) G.view = UILayout.remember('genre-view', 'rows', () => gpRenderMain());
   // The place names and photos are optional and the first view shows glyphs
   // without them, so they are fetched after the first paint, and after the
@@ -1052,8 +1055,41 @@ function gpShowDetail() {
   else d.scrollIntoView?.({ block: 'nearest' });
 }
 
+// Reuse the site's direct ES-module loading pattern. Motion is optional:
+// never wait for it or replay the user's first interaction after it loads.
+let gpMotion, gpMotionPending;
+function gpLoadMotion() {
+  if (
+    UI.view !== 'genre' ||
+    gpMotionPending ||
+    !document.startViewTransition ||
+    !/^https?:$/.test(location.protocol)
+  )
+    return;
+  gpMotionPending = import('./src/pages/genre-motion.mjs').then(
+    (module) => {
+      gpMotion = module;
+    },
+    () => {
+      gpMotionPending = null;
+    }
+  );
+}
+function gpFinishTransition(commit) {
+  return gpMotion?.finish(commit);
+}
+function gpTransition(id, back, change, opener) {
+  if (gpMotion) gpMotion.run(id, back, change, opener);
+  else change();
+}
+
 // ── Opening, closing, tabs ───────────────────────────────────────────────
-function gpSelect(id) {
+function gpSelect(id, opener) {
+  gpFinishTransition();
+  if (!Tradition(id)) return;
+  gpTransition(id, false, () => gpSelectNow(id), opener);
+}
+function gpSelectNow(id) {
   if (!Tradition(id)) return;
   gpCloseTree();
   if (G.tab === 'start') G.featureClosed = true;
@@ -1073,6 +1109,12 @@ function gpSelect(id) {
 }
 // Back from a genre's detail to the list, returning focus to its row.
 function uiGenreBack() {
+  gpFinishTransition();
+  const id = gpOpenId();
+  if (!id) return;
+  gpTransition(id, true, gpBackNow);
+}
+function gpBackNow() {
   const id = gpOpenId();
   if (!id) return;
   UI.genre = null;
@@ -1327,8 +1369,12 @@ uiRegisterPage({
     Catalog.onProse(gpApplyProse);
   },
   render: renderGenreDiscovery,
+  leave() {
+    gpFinishTransition(false);
+  },
   // Escape closes what this page opened: the inline tree, then a detail.
   escape() {
+    gpFinishTransition();
     if (gpTreeOpen()) {
       $ui('modal-trad').querySelector('[data-close]').click();
       uiFocus(document.querySelector('#surface-genre [data-ui="genre-tree"]'));
@@ -1372,8 +1418,8 @@ uiRegisterPage({
       G.allRoots = !G.allRoots;
       renderGenreDiscovery();
     },
-    'genre-select'(id) {
-      gpSelect(id);
+    'genre-select'(id, button) {
+      gpSelect(id, button);
     },
     'genre-place'(_, b) {
       b.ariaExpanded = b.ariaExpanded !== 'true';

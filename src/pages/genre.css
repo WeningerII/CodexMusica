@@ -1293,3 +1293,32 @@
   height: 100%;
   object-fit: contain;
 }
+
+/* Chrome's shared-image recipe; no change to the resting page. */
+html.gp-transition::view-transition {
+  pointer-events: none;
+}
+html.gp-transition::view-transition-old(root) {
+  animation: none;
+  opacity: 0;
+}
+html.gp-transition::view-transition-new(root) {
+  animation: none;
+}
+html.gp-transition::view-transition-group(genre-image) {
+  animation-duration: 250ms;
+}
+html.gp-transition::view-transition-old(genre-image),
+html.gp-transition::view-transition-new(genre-image) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: 100%;
+}
+html.gp-transition::view-transition-image-pair(genre-image) {
+  isolation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.gp-transition::view-transition-group(genre-image) {
+    animation-duration: 0s;
+  }
+}
