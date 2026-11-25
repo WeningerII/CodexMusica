@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-/* global document, window */
+/* global document, window, Tradition */
 // Local browser comparison. Uses real catalog photographs cached by URL; no
 // synthetic image stands in for a genre. See docs/genres-native-transition.md.
 const { chromium } = require('playwright');
@@ -126,7 +126,14 @@ const results = [];
           };
         });
         await page.goto(origin + '/' + variant + '.html#genre');
-        await page.locator('[data-ui="genre-close"]').click();
+        await page.evaluate(() =>
+          document.querySelector('#genre-browse [data-ui="genre-all"]').click()
+        );
+        if (variant === 'after') {
+          assert.equal(await page.locator('#genre-detail').count(), 0);
+          assert.equal(await page.locator('#genre-maintabs [role="tablist"]').count(), 0);
+          assert.equal(await page.locator('#genre-list').getAttribute('role'), null);
+        }
         const button = (id) =>
           page.locator(`#genre-list [data-ui="genre-select"][data-id="${id}"]`).first();
         const settle = async () => {
@@ -134,6 +141,25 @@ const results = [];
           await page.waitForTimeout(50);
         };
         const ready = async (id) => {
+          const list =
+            (await page
+              .locator('[data-ui="genre-layout"][data-id="list"]')
+              .getAttribute('aria-pressed')) === 'true';
+          await page
+            .locator('#genre-search')
+            .fill(list ? await page.evaluate((id) => Tradition(id).name, id) : '');
+          if (!list) {
+            const letter = await page.evaluate((id) => Tradition(id).name[0].toUpperCase(), id);
+            await page
+              .locator(`.cm-rows-group[data-rows="genre:${letter}"]`)
+              .scrollIntoViewIfNeeded();
+            for (let n = 0; !(await button(id).count()) && n < 100; n++) {
+              await page.locator(`.cm-rows-track[data-rows="genre:${letter}"]`).evaluate((t) => {
+                t.scrollLeft = t.scrollWidth;
+              });
+              await page.waitForTimeout(30);
+            }
+          }
           const b = button(id);
           await b.locator('..').locator('..').scrollIntoViewIfNeeded();
           await page.waitForFunction((id) => {
@@ -181,6 +207,7 @@ const results = [];
         }
         // Rapid open/open and open/Escape while the real API callback is pending.
         await page.locator('[data-ui="genre-layout"][data-id="rows"]').click();
+        await ready('detroit_techno'); // Materialize both cards in the lazy D shelf.
         await ready('delta_blues');
         await page.evaluate(() => {
           window.delayUpdate = true;
@@ -266,7 +293,7 @@ const results = [];
             // Freeze a deliberate clipping fixture; proximity snap would turn
             // a 32px scroll back into a fully visible card on some hosts.
             track.style.scrollSnapType = 'none';
-            track.scrollLeft = offset;
+            track.scrollLeft = b.closest('.cm-tile').offsetLeft - track.offsetLeft + offset;
           }, offset);
           await page.waitForTimeout(80);
           assert(
@@ -327,7 +354,10 @@ const results = [];
           };
         });
         await slow.goto(origin + '/' + variant + '.html#genre', { waitUntil: 'domcontentloaded' });
-        await slow.locator('[data-ui="genre-close"]').click();
+        await slow.evaluate(() =>
+          document.querySelector('#genre-browse [data-ui="genre-all"]').click()
+        );
+        await slow.locator('#genre-search').fill('Delta blues');
         await slow.locator('.cm-tile[data-id="delta_blues"] .cm-tile-img').waitFor();
         await slow.locator('.cm-tile-name[data-id="delta_blues"]').click();
         assert.equal(await slow.locator('#genre-detail').getAttribute('data-gp-id'), 'delta_blues');
@@ -385,7 +415,8 @@ const results = [];
           await cold.locator('button[data-view="genre"]').click();
           await cold.waitForTimeout(100);
           assert.equal(requests, 1);
-          await cold.locator('[data-ui="genre-close"]').click();
+          assert.equal(await cold.locator('#genre-detail').count(), 0);
+          await cold.locator('#genre-search').fill('Delta blues');
           const card = cold.locator('.cm-tile[data-id="delta_blues"]');
           await card.scrollIntoViewIfNeeded();
           await cold.waitForFunction(
@@ -442,6 +473,7 @@ const results = [];
           await absent.locator('#genre-detail[data-gp-id="detroit_techno"]').waitFor();
           assert.equal(new URL(absent.url()).searchParams.has('trad'), false);
           await absent.locator('[data-ui="genre-close"]').click();
+          await absent.locator('#genre-search').fill('Delta blues');
           await absent.locator('.cm-tile-name[data-id="delta_blues"]').first().click();
           assert(
             await absent.locator('#gp-detail-title').evaluate((n) => n === document.activeElement)

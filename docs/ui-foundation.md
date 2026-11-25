@@ -255,7 +255,7 @@ alternative; splitters widen for touch.
 Nothing below is implemented by the foundation. Each item needs real wiring,
 an entry in `tests/ui_capability_inventory.md`, and a gate where it is a claim.
 
-- **Genre** — the reference layout (Browse column, Start exploring / All genres,
+- **Genre** — the reference layout (Browse column, full catalog,
   recipe sidebar on the right: set `recipe: 'sidebar-right'` in the
   `uiRegisterPage` call in `src/pages/genre.js`); Rows/List; "Find a sound" with the 13
   characteristics as applied, clearable controls; Overview / Sound profile /

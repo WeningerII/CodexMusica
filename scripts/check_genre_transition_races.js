@@ -96,7 +96,8 @@ const server = http.createServer((req, res) => {
         const loaded = page.waitForResponse((r) => r.url().endsWith('/src/pages/genre-motion.mjs'));
         await page.goto(origin + '/codex.html#genre');
         assert((await loaded).ok());
-        await page.locator('[data-ui="genre-close"]').click();
+        assert.equal(await page.locator('#genre-detail').count(), 0);
+        await page.locator('#genre-search').fill('Delta blues');
         const tile = page.locator('.cm-tile[data-id="delta_blues"]');
         await page.waitForFunction(() => {
           const img = document.querySelector('.cm-tile[data-id="delta_blues"] img');
@@ -107,7 +108,16 @@ const server = http.createServer((req, res) => {
       };
       const detail = () =>
         page.locator('#genre-detail').evaluateAll((ns) => ns[0]?.dataset.gpId || null);
-      for (const next of ['recipe', 'render', 'resize', 'tab', 'search', 'tree', 'route', 'map']) {
+      for (const next of [
+        'recipe',
+        'render',
+        'resize',
+        'category',
+        'search',
+        'tree',
+        'route',
+        'map',
+      ]) {
         await reset();
         await page.evaluate(() => {
           window.hold = true;
@@ -122,9 +132,9 @@ const server = http.createServer((req, res) => {
           if (next === 'recipe') await page.evaluate(() => uiAddGenre('detroit_techno'));
           if (next === 'render') await page.evaluate(() => UI_PAGES.genre.render());
           if (next === 'resize') await page.setViewportSize({ width: width + 1, height: 900 });
-          if (next === 'tab')
+          if (next === 'category')
             await page.evaluate(() =>
-              document.querySelector('[data-ui="genre-view-tab"][data-id="all"]').click()
+              document.querySelector('#genre-browse [data-ui="genre-all"]').click()
             );
           if (next === 'search')
             await page.evaluate(() => {
