@@ -791,6 +791,15 @@ async function newContext(browser, opts, reports) {
 
 // Fails when the page scrolls sideways, naming the elements that stick out.
 async function expectNoHScroll(page, what) {
+  // A lane inserts its stylesheet during mount. Route/focus readiness precedes
+  // that response; measure styled geometry, not an intrinsic cover image while
+  // its CSS is still in flight. A missing stylesheet still times out and fails.
+  await page.waitForFunction(() =>
+    [...document.querySelectorAll('[data-panel]:not([hidden]) link[rel="stylesheet"]')].every(
+      (link) => link.sheet
+    )
+  );
+  await page.evaluate(() => new Promise((done) => window.requestAnimationFrame(done)));
   const wide = await page.evaluate(() => {
     const doc = document.documentElement;
     if (doc.scrollWidth <= doc.clientWidth) return '';

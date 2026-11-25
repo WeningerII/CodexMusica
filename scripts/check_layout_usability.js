@@ -630,6 +630,8 @@ async function editorKeyboard(page, where) {
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
       // Forced colours erase colour-only state: a chosen tab, view or page
       // must still differ from its siblings, and a focused field keeps a ring.
+      await page.locator('#genre-list [data-ui="genre-select"]').first().click();
+      await page.locator('#genre-detail [role="tab"]').first().waitFor();
       await page.emulateMedia({ forcedColors: 'active' });
       const forced = await page.evaluate(() => {
         const bg = (el) => (el ? getComputedStyle(el).backgroundColor : null);
@@ -643,8 +645,8 @@ async function editorKeyboard(page, where) {
             '#surface-genre [role="tab"][aria-selected="false"]'
           ),
           layout: pair(
-            '#surface-genre button[aria-pressed="true"]',
-            '#surface-genre button[aria-pressed="false"]'
+            '#genre-maintabs [data-ui="genre-layout"][aria-pressed="true"]',
+            '#genre-maintabs [data-ui="genre-layout"][aria-pressed="false"]'
           ),
           page: pair(
             '.cm-tab[aria-current="page"]',
@@ -752,8 +754,8 @@ async function editorKeyboard(page, where) {
       }
       assert.equal(
         await page.locator('#genre-list').getAttribute('role'),
-        'tabpanel',
-        'Genre: the list the view tabs control is their tabpanel'
+        null,
+        'Genre: the sole catalog has no obsolete page-tab semantics'
       );
       if (width === 1280) {
         // The part editor speaks plainly (Jony #27, #28 on #519): a part option
@@ -2577,7 +2579,9 @@ async function editorKeyboard(page, where) {
           );
       });
       try {
-        await page.goto(base + '/codex.html#genre/delta_blues');
+        await page.goto(base + '/codex.html#genre');
+        await page.locator('#genre-search').fill('Delta blues');
+        await page.locator('.cm-tile-name[data-id="delta_blues"]').first().click();
         await page.locator('#gp-tab-instruments').click();
         assert.equal(
           await page.locator('#gp-tab-instruments').getAttribute('aria-selected'),
@@ -3364,7 +3368,9 @@ async function editorKeyboard(page, where) {
         false,
         'Phone editor: a second Escape closes the sheet'
       );
-      await page.goto(base + '/codex.html#genre/delta_blues');
+      await page.goto(base + '/codex.html#genre');
+      await page.locator('#genre-search').fill('Delta blues');
+      await page.locator('.cm-tile-name[data-id="delta_blues"]').first().click();
       await page.locator('.gp-crumbs .gp-link').first().waitFor();
       const small = await page.evaluate(() =>
         [...document.querySelectorAll('.gp-crumbs .gp-link')]
