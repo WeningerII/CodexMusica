@@ -304,13 +304,11 @@ export async function mountSongForms(root, startConversation, chatState) {
   sheet.rel = 'stylesheet';
   sheet.href = new URL('./song-forms.css', import.meta.url);
   surface.prepend(sheet);
-  if (!document.getElementById('song-form-motion')) {
-    const motion = document.createElement('link');
-    motion.id = 'song-form-motion';
-    motion.rel = 'stylesheet';
-    motion.href = new URL('./song-forms-motion.css', import.meta.url).href;
-    document.head.append(motion);
-  }
+  const wrapper = surface.querySelector('.song-forms');
+  const motion = document.createElement('link');
+  motion.rel = 'stylesheet';
+  motion.href = new URL('./song-forms-motion.css', import.meta.url).href;
+  surface.prepend(motion);
   root.replaceChildren(host);
   const $ = (id) => surface.getElementById(id);
   const HTML = (tag, cls, text) => {
@@ -436,11 +434,10 @@ export async function mountSongForms(root, startConversation, chatState) {
     const update = () => {
       if (request === motionRequest) apply();
     };
-    if (!animate || reduceMotion.matches || !document.startViewTransition) {
+    if (!animate || reduceMotion.matches || !wrapper.startViewTransition) {
       host.removeAttribute('data-view-motion');
-      document.documentElement.removeAttribute('data-song-form-transition');
       update();
-      if (animate && !reduceMotion.matches && !document.startViewTransition) {
+      if (animate && !reduceMotion.matches && !wrapper.startViewTransition) {
         const targets = scope === 'form' ? ['relations', 'chart-region'] : ['chart-region'];
         fallbackEffects = targets
           .map((id) =>
@@ -454,15 +451,13 @@ export async function mountSongForms(root, startConversation, chatState) {
       return;
     }
     host.dataset.viewMotion = scope;
-    document.documentElement.dataset.songFormTransition = scope;
-    const transition = document.startViewTransition(update);
+    const transition = wrapper.startViewTransition(update);
     formTransition = transition;
     transition.ready.catch(() => {});
     const clear = () => {
       if (formTransition === transition) {
         formTransition = null;
         host.removeAttribute('data-view-motion');
-        document.documentElement.removeAttribute('data-song-form-transition');
       }
     };
     transition.finished.then(clear, clear);
@@ -1057,6 +1052,10 @@ export async function mountSongForms(root, startConversation, chatState) {
     if (!force && available === renderedWidth) return;
     renderedWidth = available;
     const previous = force ? null : chartView;
+    const focusedMark =
+      !force && target.contains(surface.activeElement)
+        ? surface.activeElement?.closest('.mark')
+        : null;
     const g = geometry(model, available);
     target.replaceChildren();
     chartView = null;
@@ -1281,6 +1280,10 @@ export async function mountSongForms(root, startConversation, chatState) {
     target.append(svg);
     updateMarks();
     attachChartZoom(svg, content, width, totalHeight, previous);
+    if (focusedMark)
+      svg
+        .querySelector('[data-index="' + focusedMark.dataset.index + '"]')
+        ?.focus({ preventScroll: true });
   }
   function attachChartZoom(svg, content, width, height, previous) {
     const d3 = window.d3,

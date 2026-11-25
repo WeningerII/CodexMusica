@@ -70,7 +70,25 @@ async function checkViewport(browser, origin, viewport) {
     assert.match(await reverse.locator('..').innerText(), /Catalog evidence only/);
     await reverse.press('Enter');
     await current.getByText('8-bar blues', { exact: true }).waitFor();
+    const wrapper = await view.locator('.song-forms').elementHandle();
+    const supportsScoped = await wrapper.evaluate(async (element) => {
+      await element.activeViewTransition?.finished;
+      element.fadeEvents = [];
+      element.addEventListener('animationstart', (event) => {
+        if (event.animationName === 'song-fade-in') element.fadeEvents.push(event.pseudoElement);
+      });
+      return typeof element.startViewTransition === 'function';
+    });
     await select('triolet', 'Triolet');
+    if (supportsScoped && viewport.width >= 500) {
+      await page.waitForFunction(
+        (element) =>
+          ['song-relations', 'song-structure'].every((name) =>
+            element.fadeEvents.includes('::view-transition-new(' + name + ')')
+          ),
+        wrapper
+      );
+    }
     const chart = view.locator('#diagram svg');
     await chart.waitFor();
     const marks = chart.locator('.mark');
@@ -78,6 +96,11 @@ async function checkViewport(browser, origin, viewport) {
     await marks.first().focus();
     await page.keyboard.press('ArrowRight');
     assert.equal(await marks.nth(1).getAttribute('aria-pressed'), 'true');
+    const oldChart = await chart.elementHandle();
+    await page.setViewportSize({ ...viewport, width: viewport.width - 50 });
+    await page.waitForFunction((old) => !old.isConnected, oldChart);
+    assert.ok(await marks.nth(1).evaluate((mark) => mark.getRootNode().activeElement === mark));
+    await page.setViewportSize(viewport);
     await view.getByRole('button', { name: 'Zoom in' }).click();
     await view.locator('#diagram svg[data-zoomed]').waitFor();
     await view.getByRole('button', { name: 'Fit entire diagram' }).click();
@@ -114,17 +137,24 @@ async function checkViewport(browser, origin, viewport) {
     assert.match(await view.locator('#symbolic-body').innerText(), /refrain r1/);
     assert.ok(await view.evaluate((n) => n.scrollWidth <= n.clientWidth + 1));
     assert.equal(new URL(page.url()).hash, '#lyrics');
-    const notes = view.locator('#writing-note');
+    const notes = page.locator('#writing-note');
     for (const [id, name, pattern, expected] of [
       ['tritina', 'Tritina', null, /closing passage on line 10/],
-      ['ruthless-rhyme', 'Ruthless rhyme', '1', /distinct ending sound/],
+      ['ruthless-rhyme', 'Ruthless rhyme', '1', /distinct ending sound.*1, 3.*2, 4/],
       ['tumbling-verse', 'Tumbling verse', null, /number of unstressed syllables can vary/],
       ['quatrain', 'Quatrain', null, /one 4-line verse/],
     ]) {
       await select(id, name);
       if (pattern !== null) await view.locator('#patterns').selectOption(pattern);
-      await notes.filter({ hasText: expected }).waitFor();
-      assert.ok(await action.isEnabled());
+      const readyPattern = view
+        .locator('.structure')
+        .filter({ has: notes.filter({ hasText: expected }) })
+        .locator('#write-with-form:enabled');
+      await readyPattern.waitFor().catch((error) => {
+        throw new Error('Writer readiness for ' + id + ' pattern ' + (pattern ?? '0'), {
+          cause: error,
+        });
+      });
     }
     await select('contrafactum', 'Contrafactum');
     await view.getByText('This form has a catalog entry but no structure yet.').waitFor();
