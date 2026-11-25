@@ -19,6 +19,15 @@ async function checkViewport(browser, origin, viewport) {
       new URL(route.request().url()).origin === origin ? route.continue() : route.abort()
     );
     const page = await context.newPage();
+    // Capture the actual native POST without contacting or charging a provider.
+    await page.route('**/chat', (route) =>
+      route.fulfill({
+        status: 400,
+        contentType: 'application/json',
+        body: JSON.stringify({ error: 'Offline request captured.' }),
+      })
+    );
+
     await page.goto(origin + '/codex.html#lyrics');
     const draft = page.locator('#lyrics-draft');
     await draft.waitFor();
@@ -105,6 +114,18 @@ async function checkViewport(browser, origin, viewport) {
     assert.match(await view.locator('#symbolic-body').innerText(), /refrain r1/);
     assert.ok(await view.evaluate((n) => n.scrollWidth <= n.clientWidth + 1));
     assert.equal(new URL(page.url()).hash, '#lyrics');
+    const notes = view.locator('#writing-note');
+    for (const [id, name, pattern, expected] of [
+      ['tritina', 'Tritina', null, /closing passage on line 10/],
+      ['ruthless-rhyme', 'Ruthless rhyme', '1', /distinct ending sound/],
+      ['tumbling-verse', 'Tumbling verse', null, /number of unstressed syllables can vary/],
+      ['quatrain', 'Quatrain', null, /one 4-line verse/],
+    ]) {
+      await select(id, name);
+      if (pattern !== null) await view.locator('#patterns').selectOption(pattern);
+      await notes.filter({ hasText: expected }).waitFor();
+      assert.ok(await action.isEnabled());
+    }
     await select('contrafactum', 'Contrafactum');
     await view.getByText('This form has a catalog entry but no structure yet.').waitFor();
     assert.ok(await action.isDisabled());
@@ -160,17 +181,12 @@ async function checkViewport(browser, origin, viewport) {
     );
     if (viewport.width < 500) {
       await badge.getByRole('button', { name: 'Remove form' }).click();
-      assert.equal(await badge.isVisible(), false);
       assert.deepEqual(await page.evaluate(() => window.uiLyricContext('lyrics').declarations), {});
+      await page.locator('#ly-mtab-song').click();
+      await action.press('Enter');
+      await input.waitFor();
+      assert.equal(posts, 0);
     }
-    // Capture the actual native POST without contacting or charging a provider.
-    await page.route('**/chat', (route) =>
-      route.fulfill({
-        status: 400,
-        contentType: 'application/json',
-        body: JSON.stringify({ error: 'Offline request captured.' }),
-      })
-    );
     const request = page.waitForRequest(
       (req) => new URL(req.url()).pathname === '/chat' && req.method() === 'POST'
     );
@@ -178,7 +194,7 @@ async function checkViewport(browser, origin, viewport) {
     await page.locator('#chat-send').click();
     const body = (await request).postDataJSON();
     assert.deepEqual(body.task, { domain: 'lyrics', phase: 'create' });
-    assert.deepEqual(body.lyric_context.declarations, viewport.width < 500 ? {} : selection);
+    assert.deepEqual(body.lyric_context.declarations, selection);
     assert.equal(await draft.inputValue(), original);
     if (viewport.width === 1280) {
       const retry = await context.newPage();
