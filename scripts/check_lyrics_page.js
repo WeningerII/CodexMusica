@@ -7051,7 +7051,1665 @@ async function browserChecks(chromium) {
       const said = [];
       for (let i = 0; i < 2; i++) {
         await page.keyboard.press('Enter');
-        await page.waitForTimeout(150);
+        const announcement = new RegExp('^.+, ' + (i + 2) + ' of \\d+
+          await page.evaluate(() => ({
+            focus: document.activeElement?.dataset?.ui || document.activeElement?.tagName,
+            live: $ui('ly-live')?.textContent || '',
+            pos: document.querySelector('.ly-sec-pos > span')?.textContent || '',
+          }))
+        );
+      }
+      const after = await page.evaluate(() => $ui('lyrics-draft').value);
+      check(after === before, 'a second Enter on Next section typed into the song');
+      check(
+        said.every((s) => s.focus === 'ly-sec-step'),
+        `Next section did not keep focus: ${JSON.stringify(said)}`
+      );
+      check(
+        /^.+, 2 of \d+$/.test(said[0].live) && /^.+, 3 of \d+$/.test(said[1].live),
+        `the section step was not announced: ${JSON.stringify(said)}`
+      );
+      await ctx.close();
+    });
+
+    // R17 #73: the phone's Sections sheet is a modal dialog: Tab stays in
+    // it, and Escape or Collapse returns focus to the visible opener.
+    await step('R17b. Sections sheet is modal and returns focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light', phone: true });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+      const state = () =>
+        page.evaluate(() => {
+          const panel = $ui('ly-outline-panel');
+          const a = document.activeElement;
+          return {
+            role: panel.getAttribute('role'),
+            modal: panel.getAttribute('aria-modal'),
+            mainInert: $ui('ly-main').inert,
+            inPanel: panel.contains(a),
+            focus: a === document.body ? 'BODY' : a?.className || a?.tagName,
+            visible: !!a?.getClientRects().length,
+          };
+        });
+      for (const close of ['Escape', 'Collapse']) {
+        await page.focus('#ly-section-nav .ly-sec-pos');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(100);
+        const open = await state();
+        check(
+          open.role === 'dialog' && open.modal === 'true' && open.mainInert && open.inPanel,
+          `the open Sections sheet is not a modal dialog: ${JSON.stringify(open)}`
+        );
+        const walked = [];
+        for (let i = 0; i < 12; i++) {
+          await page.keyboard.press('Tab');
+          walked.push((await state()).inPanel || (await state()).focus);
+        }
+        check(
+          walked.every((w) => w === true),
+          `Tab left the Sections sheet: ${JSON.stringify(walked)}`
+        );
+        if (close === 'Escape') await page.keyboard.press('Escape');
+        else {
+          await page.focus('#ly-outline-panel .ly-outline-close');
+          await page.keyboard.press('Enter');
+        }
+        await page.waitForTimeout(100);
+        const shut = await state();
+        check(
+          /ly-sec-pos/.test(shut.focus) && shut.visible && !shut.mainInert && !shut.modal,
+          `${close} on the Sections sheet: ${JSON.stringify(shut)}`
+        );
+      }
+      await ctx.close();
+    });
+
+    // R17 #74: typing in Find lands on the first match, marked as the
+    // current one; Enter goes to the second and Shift+Enter comes back.
+    await step('R17c. Find starts on the first match', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.click('[data-ui="ly-find-open"]');
+      await page.keyboard.type('rain');
+      await page.waitForTimeout(100);
+      const where = () =>
+        page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const line = d.value.slice(0, d.selectionStart).split('\n').length - 1;
+          return {
+            count: $ui('ly-find-count').textContent,
+            selected: d.value.slice(d.selectionStart, d.selectionEnd),
+            line: LY.model.rows[line]?.n || 0,
+            current: [
+              ...new Set(
+                [...document.querySelectorAll('#ly-overlay .ly-hit-current')].map(
+                  (e) => e.closest('.ly-r')?.dataset.n
+                )
+              ),
+            ],
+            focus: document.activeElement?.id,
+          };
+        });
+      const typed = await where();
+      check(
+        typed.count === '1 of 2 lines' &&
+          typed.selected === 'rain' &&
+          typed.line === 2 &&
+          JSON.stringify(typed.current) === '["2"]' &&
+          typed.focus === 'ly-find-input',
+        `typing in Find did not land on match 1: ${JSON.stringify(typed)}`
+      );
+      await page.keyboard.press('Enter');
+      const next = await where();
+      check(
+        next.count === '2 of 2 lines' &&
+          next.line === 9 &&
+          JSON.stringify(next.current) === '["9"]',
+        `the first Enter in Find did not go to match 2: ${JSON.stringify(next)}`
+      );
+      await page.keyboard.press('Shift+Enter');
+      const back = await where();
+      check(
+        back.count === '1 of 2 lines' &&
+          back.line === 2 &&
+          JSON.stringify(back.current) === '["2"]',
+        `Shift+Enter in Find did not come back to match 1: ${JSON.stringify(back)}`
+      );
+      // A phrase marks every word it spans (it marked none: each word was
+      // tested for the whole query on its own), the current line's as current.
+      await page.fill('#ly-find-input', 'rain has blur');
+      await page.waitForTimeout(150);
+      const phrase = await page.evaluate(() => {
+        const words = (sel) =>
+          [...document.querySelectorAll(`#ly-overlay .ly-r[data-n="2"] ${sel}`)].map((e) =>
+            e.textContent.trim()
+          );
+        return {
+          count: $ui('ly-find-count').textContent,
+          hit: words('.ly-hit'),
+          current: words('.ly-hit-current'),
+        };
+      });
+      check(
+        phrase.count === '1 of 1 line' &&
+          JSON.stringify(phrase.hit) === '["rain","has","blurred"]' &&
+          JSON.stringify(phrase.current) === '["rain","has","blurred"]',
+        `a Find phrase did not mark the words it spans: ${JSON.stringify(phrase)}`
+      );
+      await ctx.close();
+    });
+    // R20. Jony's round 20, Lyrics parts. #97/#98: in forced colours the
+    // draft's own text was forced visible with a readability backplate over
+    // the read layer, so every header showed twice and the Find marks behind
+    // it vanished; #98 also asks a non-colour cue on the current section.
+    // #95: at 320×256 the Sections sheet's list was 0 px. #100: rotating with
+    // Find's field focused left it off-screen.
+    await step('R20. forced colours, short sheet, rotation', async () => {
+      // The colour the page shows at the centre of an element, read from a
+      // screenshot decoded in the page (no image library in this repo).
+      const pixel = async (page, selector) => {
+        await page.$eval(selector, (e) => e.scrollIntoView({ block: 'center' }));
+        await page.waitForTimeout(100);
+        const box = await (await page.$(selector)).boundingBox();
+        const shot = await page.screenshot({
+          clip: {
+            x: box.x + box.width / 2 - 1,
+            y: box.y + box.height / 2 - 1,
+            width: 2,
+            height: 2,
+          },
+        });
+        return page.evaluate(async (b64) => {
+          const img = new Image();
+          img.src = 'data:image/png;base64,' + b64;
+          await img.decode();
+          const c = document.createElement('canvas');
+          c.width = img.width;
+          c.height = img.height;
+          const g = c.getContext('2d');
+          g.drawImage(img, 0, 0);
+          return [...g.getImageData(0, 0, 1, 1).data.slice(0, 3)];
+        }, shot.toString('base64'));
+      };
+      const rgb = (css) => (css.match(/\d+/g) || []).slice(0, 3).map(Number);
+      const near = (a, b) => a.every((v, k) => Math.abs(v - b[k]) <= 24);
+      for (const phone of [false, true]) {
+        const { ctx, page } = await boot({ theme: 'light', phone });
+        const cdp = await ctx.newCDPSession(page);
+        await cdp.send('Emulation.setEmulatedMedia', {
+          features: [{ name: 'forced-colors', value: 'active' }],
+        });
+        await setDraft(page, DRAFT);
+        if (phone) await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.evaluate(() => {
+          LY.find = { q: 'rain', at: 0, open: true };
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const tag = phone ? '390' : '1280';
+        const mark = '#ly-overlay .ly-hit:not(.ly-hit-current)';
+        const want = rgb(await page.$eval(mark, (e) => getComputedStyle(e).backgroundColor));
+        // The mark's commonest colour over its whole box, not one pixel: a
+        // single sample can land on a letter or an edge, depending on the
+        // fonts and line breaks of the machine, and the question here is
+        // whether the mark's background shows through the draft above it.
+        await page.$eval(mark, (e) => e.scrollIntoView({ block: 'center' }));
+        await page.waitForTimeout(100);
+        const box = await (await page.$(mark)).boundingBox();
+        const shot = await page.screenshot({
+          clip: { x: box.x + 1, y: box.y + 1, width: box.width - 2, height: box.height - 2 },
+        });
+        const seen = await page.evaluate(async (b64) => {
+          const img = new Image();
+          img.src = 'data:image/png;base64,' + b64;
+          await img.decode();
+          const c = document.createElement('canvas');
+          c.width = img.width;
+          c.height = img.height;
+          const g = c.getContext('2d');
+          g.drawImage(img, 0, 0);
+          const d = g.getImageData(0, 0, c.width, c.height).data;
+          const count = new Map();
+          for (let i = 0; i < d.length; i += 4) {
+            const k = `${d[i]},${d[i + 1]},${d[i + 2]}`;
+            count.set(k, (count.get(k) || 0) + 1);
+          }
+          return [...count]
+            .sort((a, b) => b[1] - a[1])[0][0]
+            .split(',')
+            .map(Number);
+        }, shot.toString('base64'));
+        const draft = await page.$eval('#lyrics-draft', (d) => getComputedStyle(d).color);
+        check(
+          near(seen, want) && rgb(draft).length === 3 && /rgba\(.*,\s*0\)$/.test(draft),
+          `${tag} forced colours: a Find mark shows ${seen}, not its ${want}, and the draft's own text is ${draft}`
+        );
+        // The draft's selection still shows, in Highlight: a whole line selected
+        // with Find closed, sampled over its text.
+        await page.evaluate(() => {
+          LY.find = { q: '', at: 0, open: false };
+          lyRefresh(true);
+        });
+        await page.focus('#lyrics-draft');
+        const hl = rgb(
+          await page.evaluate(() => {
+            const probe = document.createElement('span');
+            probe.style.color = 'Highlight';
+            document.body.append(probe);
+            const c = getComputedStyle(probe).color;
+            probe.remove();
+            return c;
+          })
+        );
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const line = LY.model.sung[1];
+          const rows = d.value.split('\n');
+          const start = rows.slice(0, line.i).reduce((t, r) => t + r.length + 1, 0);
+          d.setSelectionRange(start, start + rows[line.i].length);
+        });
+        const at = await pixel(page, '#ly-overlay .ly-r[data-n="2"] .ly-t');
+        check(
+          near(at, hl),
+          `${tag} forced colours: the draft's selection shows ${at}, not Highlight ${hl}`
+        );
+        await ctx.close();
+      }
+      // The current section: a cue that is not colour, everywhere, and a
+      // Highlight outline in forced colours.
+      {
+        const { ctx, page } = await boot({ theme: 'light' });
+        const cdp = await ctx.newCDPSession(page);
+        await cdp.send('Emulation.setEmulatedMedia', {
+          features: [{ name: 'forced-colors', value: 'active' }],
+        });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => {
+          LY.railOpen = true;
+          lyScrollToLine(2);
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const cur = await page.evaluate(() => {
+          const b = document.querySelector('#ly-sections .ly-sec[aria-current]');
+          const cs = b && getComputedStyle(b);
+          return b ? { weight: Number(cs.fontWeight), outline: cs.outlineStyle } : null;
+        });
+        check(
+          cur && cur.weight >= 600 && cur.outline === 'solid',
+          `the current section has no cue but colour: ${JSON.stringify(cur)}`
+        );
+        await ctx.close();
+      }
+      // #95: the sheet at 320×256 keeps a list and scrolls as a whole.
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await page.setViewportSize({ width: 320, height: 256 });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => LY_ACTIONS['ly-mobile']('song'));
+        await page.focus('#ly-section-nav .ly-sec-pos');
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(200);
+        const sheet = await page.evaluate(() => {
+          const list = $ui('ly-sections');
+          const outline = document.querySelector('.ly-outline');
+          const last = [...list.querySelectorAll('.ly-sec')].at(-1);
+          last.focus();
+          const r = last.getBoundingClientRect();
+          return {
+            list: list.getBoundingClientRect().height,
+            modal: $ui('ly-outline-panel').getAttribute('aria-modal'),
+            lastVisible: r.top >= 0 && r.bottom <= innerHeight,
+            scrolls: outline.scrollHeight > outline.clientHeight,
+          };
+        });
+        check(
+          sheet.list >= 88 && sheet.modal === 'true' && sheet.lastVisible,
+          `the Sections sheet at 320×256: ${JSON.stringify(sheet)}`
+        );
+        await ctx.close();
+      }
+      // #100: Find's field stays in view across a rotation.
+      {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        await setDraft(page, DRAFT);
+        await page.click('[data-ui="ly-find-open"]');
+        await page.waitForSelector('#ly-find-input', { state: 'visible' });
+        await page.focus('#ly-find-input');
+        await page.setViewportSize({ width: 844, height: 390 });
+        await page.waitForTimeout(400);
+        const where = await page.evaluate(() => {
+          const r = $ui('ly-find-input').getBoundingClientRect();
+          return {
+            focus: document.activeElement?.id,
+            inView: r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth,
+            top: Math.round(r.top),
+          };
+        });
+        check(
+          where.focus === 'ly-find-input' && where.inView,
+          `after rotating, Find's focused field is off-screen: ${JSON.stringify(where)}`
+        );
+        await ctx.close();
+      }
+    });
+    // R22 (Jony #107): a pair of words, "a ~ b", is heard "a with b"; the
+    // tilde is for the eye only (it was read "tilde"). Both places that print
+    // one: the declared groups in Rhymes and the checked pairs under them.
+    await step('R22. pair separator is spoken as "with"', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => {
+        LY.results.rhymes = {
+          pairs: [{ a: 'night', b: 'light', refused: false, codes: [], relations: ['perfect'] }],
+          baseId: null,
+        };
+        LY_ACTIONS['ly-tool']('rhymes');
+        lyRefresh(true);
+      });
+      await page.waitForTimeout(150);
+      const seps = await page.evaluate(() => {
+        const out = [];
+        const walk = document.createTreeWalker($ui('surface-lyrics'), NodeFilter.SHOW_TEXT);
+        for (let n = walk.nextNode(); n; n = walk.nextNode()) {
+          if (!n.nodeValue.includes('~') || !n.parentElement.getClientRects().length) continue;
+          const hidden = n.parentElement.closest('[aria-hidden="true"]');
+          out.push({
+            text: n.parentElement.closest('strong, small')?.textContent.trim() || n.nodeValue,
+            hidden: !!hidden,
+            spoken: hidden?.nextElementSibling?.matches('.ly-sr')
+              ? hidden.nextElementSibling.textContent
+              : '',
+          });
+        }
+        return out;
+      });
+      check(
+        seps.length >= 2 && seps.every((s) => s.hidden && s.spoken.trim() === 'with'),
+        `a pair separator is read as "tilde": ${JSON.stringify(seps.slice(0, 4))}`
+      );
+      await ctx.close();
+    });
+
+    await step('10. expired saved request and New conversation', async () => {
+      const KEY = 'codex-musica-chat-v2:https://mcp.codexmusica.com';
+      const stuck = async ({ status, backup = false }) => {
+        const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+        const id = (status === 404 ? 'e' : 'f').repeat(64);
+        await ctx.route(/mcp\.codexmusica\.com/, (r) => {
+          if (/\/chat\/jobs\//.test(r.request().url()))
+            return r.fulfill({
+              status,
+              contentType: 'application/json',
+              body: JSON.stringify({
+                error: status === 404 ? 'No retained receipt.' : 'Unavailable.',
+              }),
+            });
+          return r.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' });
+        });
+        await ctx.addInitScript(
+          ([key, id, backup]) => {
+            if (sessionStorage.getItem('seeded')) return;
+            sessionStorage.setItem('seeded', '1');
+            const v = JSON.stringify({
+              task: { domain: 'lyrics', phase: 'edit' },
+              continuationId: id,
+            });
+            localStorage.setItem(key, v);
+            if (backup) localStorage.setItem(key + ':lyrics', v);
+          },
+          [KEY, id, backup]
+        );
+        const page = await ctx.newPage();
+        page.on('pageerror', (e) => pageErrors.push(e.message));
+        await page.goto(url);
+        await page.waitForFunction(
+          () => typeof UI !== 'undefined' && UI.ready && !!LY.model,
+          null,
+          {
+            timeout: 60000,
+          }
+        );
+        await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+        return { ctx, page, id };
+      };
+      const state = (page) =>
+        page.evaluate((key) => {
+          LY_ACTIONS['ly-tab']('writer');
+          return {
+            unknown: lyWriterState().unknown,
+            pending: chatState.pending?.request_id || null,
+            archived: chatState.archives.map((a) => a.request_id),
+            options: lyToolRequestAction('ly-pron-options', 'Get dictionary options', 'search'),
+            writer: $ui('ly-writer-status')?.innerText || '',
+            backup: localStorage.getItem(key + ':lyrics'),
+          };
+        }, KEY);
+      const reload = async (page) => {
+        await page.reload();
+        await page.waitForFunction(
+          () => typeof UI !== 'undefined' && UI.ready && !!LY.model,
+          null,
+          {
+            timeout: 60000,
+          }
+        );
+        await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      };
+
+      {
+        const { ctx, page, id } = await stuck({ status: 404 });
+        let s = await state(page);
+        check(
+          !s.unknown && !s.pending,
+          'an expired receipt (404) still leaves the outcome unknown'
+        );
+        check(s.archived.includes(id), 'an expired receipt was dropped instead of set aside');
+        check(
+          /Get dictionary options/.test(s.options),
+          'pronunciation options stay hidden after a 404'
+        );
+        await reload(page);
+        s = await state(page);
+        check(!s.unknown && !s.pending, 'an expired receipt re-arms on the next load');
+        await ctx.close();
+      }
+      {
+        const { ctx, page, id } = await stuck({ status: 503 });
+        const s = await state(page);
+        check(
+          s.unknown && s.pending === id,
+          'a 503 (persistence down) dropped an unsettled ticket'
+        );
+        await ctx.close();
+      }
+      {
+        const { ctx, page } = await stuck({ status: 503, backup: true });
+        let s = await state(page);
+        check(
+          s.unknown && /Outcome unknown/.test(s.writer),
+          'the stuck fixture did not start stuck'
+        );
+        await page.locator('#chat-reset').click();
+        // Read the open Writer panel before anything else renders it.
+        const shown = await page.evaluate(() => $ui('ly-writer-status')?.innerText || '');
+        check(!/Outcome unknown/.test(shown), 'New conversation left the panel unredrawn');
+        s = await state(page);
+        check(!s.unknown, 'New conversation left the outcome unknown');
+        check(s.backup === null, 'New conversation kept the writer-switch copy');
+        await reload(page);
+        s = await state(page);
+        check(
+          !s.unknown && !s.pending,
+          'the old request came back after New conversation and a reload'
+        );
+        check(
+          /Get dictionary options/.test(s.options),
+          'pronunciation options hidden after New conversation'
+        );
+        await ctx.close();
+      }
+    });
+
+    // S803: real DOM events and persistence, with no save/focus/render doubles.
+    // Mutation counts establish DOM delivery only; audible AT remains manual.
+    const structuralSong =
+      '[CHORUS]\nI lead you home\nWe watch the rain\n\n[VERSE]\nThe road bends east\nA lantern lights the lane\n\n[CHORUS]\nI lead you home\nWe watch the rain';
+    const structuralDecl =
+      '[SETUP — rhyme groups — 2,4,6 — numbering v2 — cut v2]\n[SETUP — returns — 1,5;2,6 — numbering v2 — cut v2]\n';
+    const structuralExtra = '\n\n[VERSE]\nClouds gather above the hill\nThe gate stands open';
+    const structuralNear = structuralSong.replace(/We watch the rain$/, 'We await the dawn');
+    const structuralButton = (action, id) =>
+      `#surface-lyrics [data-ui="${action}"]${id == null ? '' : `[data-id="${id}"]`}`;
+    const structuralOpen = async (page, review = false) => {
+      // Reuse the harness's navigation setup; operations below use real controls.
+      await page.evaluate((review) => {
+        LY_ACTIONS['ly-tab'](review ? 'review' : 'tools');
+        if (!review) LY_ACTIONS['ly-tool']('form-story');
+      }, review);
+      await page.waitForFunction(() => !!lyLibraryStore);
+      // The existing Library persistence debounce is 300 ms (J14 uses 800).
+      await page.waitForTimeout(800);
+    };
+    const structuralState = (page) =>
+      page.evaluate(async () => ({
+        text: $ui('lyrics-draft').value,
+        saved: app.lyrics,
+        meta: JSON.stringify(app.lyricMeta),
+        history: JSON.stringify(app.history),
+        index: app.historyIndex,
+        revision: UI.lyricRevision,
+        selection: [$ui('lyrics-draft').selectionStart, $ui('lyrics-draft').selectionEnd],
+        picked: LY.picks.formSec,
+        renderedSelection: [
+          ...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]'),
+        ].map((b) => [b.dataset.id, b.getAttribute('aria-pressed')]),
+        session: localStorage.getItem('codex-workbench-v1'),
+        recovery: sessionStorage.getItem('codex-workbench-recovery'),
+        library: app.lyricMeta?.draftId
+          ? JSON.stringify((await lyLibraryStore.getDraft(app.lyricMeta.draftId)) || null)
+          : 'NO_DRAFT_ID',
+      }));
+    const structuralImport = (page, text) =>
+      page.evaluate(async (text) => {
+        const envelope = {
+          protocol: CMLibraryImport.PROTOCOL,
+          version: 1,
+          handoffId: 'handoff:one',
+          draftId: 'draft:imported',
+          createdAt: '2026-10-08T00:00:00Z',
+          payload: {
+            text,
+            title: 'Test reading',
+            language: 'eng',
+            scope: 'whole',
+            provenance: {
+              snapshotId: 'snapshot:one',
+              unitId: 'unit:one',
+              workId: 'work:one',
+              editionId: 'edition:one',
+              revisionId: 'revision:one',
+              rights: {
+                attribution: 'Source credit',
+                notices: ['First notice', 'Second notice'],
+              },
+            },
+            lineage: [{ row: 1, sourceLine: 12, sourceStart: 100, sourceEnd: 116 }],
+            declarations: [{ type: 'meter', line: 1, value: '7/8' }],
+          },
+        };
+        envelope.digest = await CMLibraryImport.envelopeDigest(envelope, crypto);
+        await lyLibraryImport(envelope);
+        if (!app.lyricMeta?.libraryOrigin)
+          throw new Error('import did not activate source metadata');
+      }, text);
+    const structuralDrag = (page) =>
+      page
+        .locator('#ly-form-rows tr[data-sec="0"] .ly-handle')
+        .dragTo(page.locator('#ly-form-rows tr[data-sec="2"] .ly-handle'));
+    await step(
+      'S803 imported move uses existing adapted export with unedited control',
+      async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await structuralImport(page, structuralDecl + structuralSong);
+          await structuralOpen(page);
+          const exported = () =>
+            page.evaluate(async () => ({
+              origin: JSON.parse(JSON.stringify(app.lyricMeta.libraryOrigin)),
+              envelope: await CMLibraryImport.makeWorkingCopyEnvelope(
+                $ui('lyrics-draft').value,
+                app.lyricMeta,
+                crypto
+              ),
+            }));
+          const before = await exported();
+          check(before.origin.adapted === false, 'unedited import already adapted');
+          check(
+            before.envelope.payload.declarations.length === 1 &&
+              JSON.stringify(before.envelope.payload.declarations) ===
+                JSON.stringify(before.origin.declarations),
+            'unedited control lost source declarations'
+          );
+          const snapshot = await structuralState(page);
+          await page.locator('#ly-form-rows [data-ui="ly-sec-move"][data-id="0:1"]').focus();
+          await page.keyboard.press('Enter');
+          const after = await exported();
+          const state = await structuralState(page);
+          check(
+            state.text !== snapshot.text && state.index === snapshot.index + 1,
+            'imported move was not accepted exactly once'
+          );
+          check(
+            after.origin.adapted === true &&
+              after.envelope.payload.provenance.workingCopy.adapted === true,
+            'existing imported adaptation mechanism was not used'
+          );
+          check(
+            JSON.stringify(after.origin.lineage) === JSON.stringify(before.origin.lineage) &&
+              JSON.stringify(after.envelope.payload.lineage) ===
+                JSON.stringify(before.origin.lineage),
+            'imported lineage was rebound'
+          );
+          check(
+            after.envelope.payload.provenance.workingCopy.lineageBasis ===
+              'Imported reading before edits',
+            'export omitted exact original-reading lineage basis'
+          );
+          check(
+            JSON.stringify(after.envelope.payload.declarations) === '[]',
+            'adapted export still binds source declarations'
+          );
+          check(
+            JSON.stringify(after.envelope.payload.provenance.workingCopy.declarations) ===
+              JSON.stringify(before.origin.declarations),
+            'adapted export lost historical source declarations'
+          );
+          check(q.calls.length === 0, 'imported move sent provider request');
+        } finally {
+          await ctx.close();
+        }
+      }
+    );
+    for (const scenario of [
+      {
+        name: 'move',
+        action: 'ly-sec-move',
+        id: '0:1',
+        text: '[SETUP — placement — 3:5:1:4]\n' + structuralSong,
+        named: 'timing',
+      },
+      {
+        name: 'duplicate',
+        action: 'ly-sec-dup',
+        id: '0',
+        text: structuralDecl + structuralSong,
+        named: 'returns',
+      },
+      {
+        name: 'remove',
+        action: 'ly-sec-remove',
+        id: '1',
+        text: structuralDecl + structuralSong,
+        named: 'rhyme groups',
+      },
+      {
+        name: 'drop',
+        action: 'ly-form-pick',
+        id: '0',
+        text: '[INTRO — 4 bars]\n' + structuralSong,
+        named: '[INTRO — 4 bars]',
+      },
+      {
+        name: 'label',
+        action: 'ly-label-stanzas',
+        text: '[SETUP — returns — ]\n' + structuralSong.replace(/^\[(CHORUS|VERSE)\]\n/gm, ''),
+        named: 'returns',
+      },
+      {
+        name: 'make-return',
+        action: 'ly-make-return',
+        id: '2:0',
+        text: structuralDecl + structuralNear,
+        named: 'returns',
+        review: true,
+      },
+      {
+        name: 'imported-remove',
+        action: 'ly-sec-remove',
+        id: '0',
+        text: structuralDecl + structuralSong,
+        named: 'returns',
+        imported: true,
+      },
+    ]) {
+      await step(`S803 refusal ${scenario.name}: focus and selection unchanged`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          if (scenario.imported) {
+            // Exact valid envelope fixture from test_library_import.js;
+            // the actual receiver validates/digests and activates the draft.
+            await structuralImport(page, scenario.text);
+          } else await setDraft(page, scenario.text);
+          await structuralOpen(page, scenario.review);
+          const button = page.locator(structuralButton(scenario.action, scenario.id)).first();
+          await button.waitFor({ state: 'visible' });
+          await page.evaluate(() => $ui('lyrics-draft').setSelectionRange(7, 9));
+          await button.focus();
+          // Repeat the same refusal: each activation must deliver one message.
+          for (let attempt = 0; attempt < 2; attempt++) {
+            const before = await structuralState(page);
+            const observation = await page.evaluateHandle((drag) => {
+              const state = {
+                focus: document.activeElement,
+                messages: [],
+                observer: null,
+                dragStarted: false,
+                selection: null,
+              };
+              // mousedown/drag initiation may move focus before the app sees
+              // drop. Sample that real boundary, not pre-gesture focus.
+              if (drag)
+                document.addEventListener(
+                  'dragstart',
+                  () => {
+                    state.dragStarted = true;
+                    state.focus = document.activeElement;
+                    const draft = $ui('lyrics-draft');
+                    state.selection = [draft.selectionStart, draft.selectionEnd];
+                  },
+                  { once: true, capture: true }
+                );
+              state.observer = new MutationObserver((records) => {
+                for (const record of records)
+                  for (const node of record.addedNodes)
+                    if (
+                      node.nodeType === 1 &&
+                      node.matches('span') &&
+                      node.textContent.startsWith('Nothing changed.')
+                    )
+                      state.messages.push(node.textContent);
+              });
+              state.observer.observe(document.getElementById('toast'), { childList: true });
+              return state;
+            }, scenario.name === 'drop');
+            if (scenario.name === 'drop') await structuralDrag(page);
+            else await page.keyboard.press('Enter');
+            await page.waitForFunction(() => document.querySelector('#toast.toast-error.show'));
+            const after = await structuralState(page);
+            if (scenario.name === 'drop') {
+              const gesture = await observation.evaluate((state) => ({
+                started: state.dragStarted,
+                selection: state.selection,
+              }));
+              check(gesture.started, 'drop fixture did not produce a real dragstart');
+              before.selection = gesture.selection;
+            }
+            check(
+              JSON.stringify(after) === JSON.stringify(before),
+              `${scenario.name}: refusal mutated state: ${JSON.stringify({ before, after })}`
+            );
+            const delivery = await observation.evaluate((state) => {
+              state.observer.disconnect();
+              const toast = document.getElementById('toast');
+              return {
+                sameFocus: document.activeElement === state.focus,
+                connected: state.focus.isConnected,
+                messages: state.messages,
+                role: toast.getAttribute('role'),
+                live: toast.getAttribute('aria-live'),
+                dismiss: !!toast.querySelector('.toast-dismiss'),
+                secondRegion: $ui('ly-live').textContent,
+              };
+            });
+            check(
+              delivery.sameFocus && delivery.connected,
+              `${scenario.name}: refusal moved or destroyed focus`
+            );
+            check(
+              delivery.messages.length === 1 && delivery.messages[0].includes(scenario.named),
+              `${scenario.name}: wrong message/update count ${JSON.stringify(delivery)}`
+            );
+            check(
+              delivery.role === 'status' && delivery.live === 'polite' && delivery.dismiss,
+              `${scenario.name}: refusal lacks persistent polite notification`
+            );
+            check(
+              !delivery.secondRegion.includes('Nothing changed.'),
+              `${scenario.name}: refusal duplicated in Lyrics live region`
+            );
+            await observation.dispose();
+          }
+          check(q.calls.length === 0, 'structural refusal sent a provider request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+    for (const scenario of [
+      {
+        name: 'move',
+        action: 'ly-sec-move',
+        id: '0:1',
+        text: structuralDecl + structuralSong,
+        lines: 6,
+        focus: 'ly-sec-move',
+        focusId: '1:1',
+        groups: '4,2,6',
+        returns: '3,5;4,6',
+      },
+      {
+        name: 'duplicate',
+        action: 'ly-sec-dup',
+        id: '3',
+        text: structuralDecl + structuralSong + structuralExtra,
+        lines: 10,
+        focus: 'ly-sec-dup',
+        focusId: '4',
+      },
+      {
+        name: 'remove',
+        action: 'ly-sec-remove',
+        id: '3',
+        text: structuralDecl + structuralSong + structuralExtra,
+        lines: 6,
+        focus: 'ly-sec-remove',
+        focusId: '2',
+      },
+      {
+        name: 'drop',
+        action: 'ly-form-pick',
+        id: '0',
+        text: structuralDecl + structuralSong,
+        lines: 6,
+        groups: '6,2,4',
+        returns: '5,3;6,4',
+      },
+      {
+        name: 'label',
+        action: 'ly-label-stanzas',
+        text: structuralSong.replace(/^\[(CHORUS|VERSE)\]\n/gm, ''),
+        lines: 6,
+      },
+      {
+        name: 'make-return',
+        action: 'ly-make-return',
+        id: '2:0',
+        text: structuralNear,
+        lines: 6,
+        review: true,
+      },
+    ]) {
+      await step(`S803 success ${scenario.name} and Undo`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await setDraft(page, scenario.text);
+          await structuralOpen(page, scenario.review);
+          await page.locator(structuralButton(scenario.action, scenario.id)).first().focus();
+          const before = await structuralState(page);
+          if (scenario.name === 'drop') await structuralDrag(page);
+          else await page.keyboard.press('Enter');
+          await page.waitForFunction((text) => $ui('lyrics-draft').value !== text, before.text);
+          const after = await structuralState(page);
+          const got = await page.evaluate(() => ({
+            lines: LY.model.sung.length,
+            headers: LY.model.sections.map((s) => s.header?.name),
+            sung: LY.model.sung.map((r) => r.text),
+            declarations: lyDeclarationsOf(LY.model),
+            focus: document.activeElement?.dataset?.ui,
+            focusId: document.activeElement?.dataset?.id,
+            focusAlive:
+              document.activeElement !== document.body && document.activeElement?.isConnected,
+            picked: LY.picks.formSec,
+            toast: document.getElementById('toast').classList.contains('toast-success'),
+          }));
+          check(
+            got.lines === scenario.lines && got.toast,
+            `${scenario.name}: supported edit did not succeed`
+          );
+          check(
+            after.revision === before.revision + 1 && after.index === before.index + 1,
+            `${scenario.name}: edit is not one save/history step`
+          );
+          check(
+            after.saved === after.text && JSON.parse(after.session).lyrics === after.text,
+            `${scenario.name}: edited text not saved`
+          );
+          if (scenario.focus)
+            check(
+              got.focus === scenario.focus && got.focusId === scenario.focusId,
+              `${scenario.name}: wrong success focus ${JSON.stringify(got)}`
+            );
+          else if (scenario.name !== 'drop')
+            check(got.focusAlive, `${scenario.name}: success lost focus to body`);
+          if (scenario.name === 'drop') {
+            check(got.picked === 2, 'drop did not select its destination');
+            check(
+              got.focus === 'ly-form-pick' && got.focusId === '2' && got.focusAlive,
+              'successful drop did not focus the moved section control'
+            );
+          }
+          if (['move', 'drop'].includes(scenario.name)) {
+            const destination = scenario.name === 'move' ? 1 : 2;
+            const pressed = await page.evaluate(() =>
+              [...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]')]
+                .filter((b) => b.getAttribute('aria-pressed') === 'true')
+                .map((b) => Number(b.dataset.id))
+            );
+            check(
+              JSON.stringify(pressed) === JSON.stringify([destination]),
+              `${scenario.name}: moved row must be the only pressed row`
+            );
+          }
+          if (scenario.groups)
+            check(
+              got.declarations.groups === scenario.groups &&
+                got.declarations.returns === scenario.returns,
+              `${scenario.name}: wrong occurrence mapping`
+            );
+          if (scenario.name === 'label')
+            check(
+              JSON.stringify(got.headers) === JSON.stringify(['Stanza 1', 'Stanza 2', 'Stanza 3']),
+              'label did not create the three headers'
+            );
+          if (scenario.name === 'make-return')
+            check(
+              JSON.stringify(got.sung.slice(0, 2)) === JSON.stringify(got.sung.slice(4, 6)),
+              'make-return did not copy the first occurrence'
+            );
+          // Form & story hides the document toolbar; use the visible native
+          // session history buttons, retained by workbench setup.
+          await page.locator('#btn-undo').click();
+          check(
+            (await structuralState(page)).text === before.text,
+            `${scenario.name}: Undo did not restore exact text`
+          );
+          await page.locator('#btn-redo').click();
+          check(
+            (await structuralState(page)).text === after.text,
+            `${scenario.name}: Redo did not restore exact edit`
+          );
+          check(
+            await page.evaluate(
+              () => document.activeElement !== document.body && document.activeElement?.isConnected
+            ),
+            `${scenario.name}: Redo lost focus to body`
+          );
+          check(q.calls.length === 0, 'structural edit sent a provider request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+    // HTML pointer drag is qualified on desktop; the touch-emulated phone
+    // uses keyboard Move checks below, not a claim of touch drag support.
+    for (const phone of [false]) {
+      await step(
+        `S803 drop destination after splice: first, last and repeated reorder (${phone ? 'phone' : 'desktop'})`,
+        async () => {
+          const { ctx, page, q } = await boot({ phone });
+          try {
+            await setDraft(page, structuralDecl + structuralSong);
+            await structuralOpen(page);
+            for (const [from, to] of [
+              [0, 2],
+              [2, 0],
+              [0, 1],
+            ]) {
+              const before = await structuralState(page);
+              const movedWords = await page.evaluate(
+                (from) => LY.model.sections[from].sung.map((r) => r.text),
+                from
+              );
+              await page
+                .locator(`#ly-form-rows tr[data-sec="${from}"] .ly-handle`)
+                .dragTo(page.locator(`#ly-form-rows tr[data-sec="${to}"] .ly-handle`));
+              const after = await structuralState(page);
+              const focus = await page.evaluate((to) => {
+                const control = document.querySelector(
+                  `#ly-form-rows tr[data-sec="${to}"] [data-ui="ly-form-pick"]`
+                );
+                return {
+                  matches: document.activeElement === control && control?.isConnected,
+                  words: LY.model.sections[to].sung.map((r) => r.text),
+                  picked: LY.picks.formSec,
+                  pressed: [...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]')]
+                    .filter((b) => b.getAttribute('aria-pressed') === 'true')
+                    .map((b) => Number(b.dataset.id)),
+                };
+              }, to);
+              check(
+                focus.matches &&
+                  JSON.stringify(focus.pressed) === JSON.stringify([to]) &&
+                  focus.picked === to &&
+                  JSON.stringify(focus.words) === JSON.stringify(movedWords),
+                `drop ${from}→${to} did not focus the moved occurrence`
+              );
+              check(after.index === before.index + 1, 'repeated drop added other history steps');
+              // Native header history controls are desktop-only.
+              if (!phone) {
+                await page.locator('#btn-undo').click();
+                check(
+                  (await structuralState(page)).text === before.text,
+                  'repeated drop Undo did not restore text/declarations'
+                );
+                await page.locator('#btn-redo').click();
+                check(
+                  (await structuralState(page)).text === after.text,
+                  'repeated drop Redo did not restore text/declarations'
+                );
+                // Undo and Redo set the draft, and the page redraws these rows
+                // 120 ms later (lyRefresh's debounce). Run that redraw now: one
+                // that lands while the next drag is aiming at a handle replaces
+                // the row it aimed at, and the drag never reaches its drop.
+                await page.evaluate(() => lyRefresh(true));
+              }
+            }
+            check(q.calls.length === 0, 'repeated drop sent a provider request');
+          } finally {
+            await ctx.close();
+          }
+        }
+      );
+    }
+    for (const phone of [false, true]) {
+      await step(
+        `S803 keyboard Move repeated Enter and first/last fallback (${phone ? 'phone' : 'desktop with Undo/Redo'})`,
+        async () => {
+          const { ctx, page, q } = await boot({ phone });
+          try {
+            await setDraft(page, structuralDecl + structuralSong);
+            await structuralOpen(page);
+            for (const [from, direction] of [
+              [0, 1],
+              [1, 1],
+              [2, -1],
+              [1, -1],
+            ]) {
+              const to = from + direction;
+              const before = await structuralState(page);
+              const button = page.locator(
+                `#ly-form-rows [data-ui="ly-sec-move"][data-id="${from}:${direction}"]`
+              );
+              // Focus only at the start of each direction. The second Enter
+              // must reuse the browser's post-move focus, without test repair.
+              if (from !== 1) await button.focus();
+              await page.keyboard.press('Enter');
+              const after = await structuralState(page);
+              const rendered = await page.evaluate(() => ({
+                picked: LY.picks.formSec,
+                pressed: [...document.querySelectorAll('#ly-form-rows [data-ui="ly-form-pick"]')]
+                  .filter((b) => b.getAttribute('aria-pressed') === 'true')
+                  .map((b) => Number(b.dataset.id)),
+                focus: document.activeElement?.dataset?.ui,
+                focusId: document.activeElement?.dataset?.id,
+              }));
+              check(
+                rendered.picked === to && JSON.stringify(rendered.pressed) === JSON.stringify([to]),
+                `Move ${from}→${to}: moved row not exclusively pressed`
+              );
+              check(
+                rendered.focus === (to === 1 ? 'ly-sec-move' : 'ly-form-pick') &&
+                  rendered.focusId === (to === 1 ? `${to}:${direction}` : String(to)),
+                `Move ${from}→${to}: focus did not retain Move or boundary fallback`
+              );
+              check(
+                after.index === before.index + 1 && after.revision === before.revision + 1,
+                'Enter must cause exactly one move/save/history step'
+              );
+              console.log(
+                'S803 repeated Enter',
+                JSON.stringify({
+                  phone,
+                  from,
+                  to,
+                  historyDelta: after.index - before.index,
+                  focus: rendered.focus,
+                  focusId: rendered.focusId,
+                  pressed: rendered.pressed,
+                })
+              );
+              // Native history handoff is separately owned; preserve its behavior.
+              if (!phone && to !== 1) {
+                for (const action of ['undo', 'redo']) {
+                  await page.locator(`#btn-${action}`).click();
+                  check(
+                    await page.evaluate(
+                      () => document.activeElement === document.getElementById('btn-undo')
+                    ),
+                    `${action} after Move changed native history focus`
+                  );
+                  check(
+                    (await structuralState(page)).text ===
+                      (action === 'undo' ? before.text : after.text),
+                    `${action} after Move changed text restoration`
+                  );
+                }
+                // The same delayed redraw as in the drop step above. Run it
+                // before the next focus and Enter, or it can replace the
+                // focused Move button and the Enter moves nothing.
+                await page.evaluate(() => lyRefresh(true));
+              }
+            }
+            check(q.calls.length === 0, 'keyboard selection checks sent a provider request');
+          } finally {
+            await ctx.close();
+          }
+        }
+      );
+    }
+    // Keep history-button clicks outside the causal repeated-Enter sequence.
+    // The upward fixture follows the same moves as the original history checks.
+    for (const direction of [1, -1]) {
+      await step(`S803 interior Move history ${direction === 1 ? 'down' : 'up'}`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await setDraft(page, structuralDecl + structuralSong);
+          await structuralOpen(page);
+          let before;
+          let after;
+          const moves =
+            direction === 1
+              ? [[0, 1]]
+              : [
+                  [0, 1],
+                  [1, 1],
+                  [2, -1],
+                ];
+          for (const [from, d] of moves) {
+            before = await structuralState(page);
+            await page.locator(structuralButton('ly-sec-move', `${from}:${d}`)).focus();
+            await page.keyboard.press('Enter');
+            after = await structuralState(page);
+            check(
+              after.text !== before.text && after.index === before.index + 1,
+              'interior history fixture must perform one actual move'
+            );
+          }
+          for (const action of ['undo', 'redo']) {
+            await page.locator(`#btn-${action}`).click();
+            check(
+              await page.evaluate(
+                () => document.activeElement === document.getElementById('btn-undo')
+              ),
+              `${action} after interior ${direction === 1 ? 'down' : 'up'} Move changed native history focus`
+            );
+            // Downward text restoration is already checked by S803 success move.
+            if (direction === -1)
+              check(
+                (await structuralState(page)).text ===
+                  (action === 'undo' ? before.text : after.text),
+                `${action} after interior up Move changed text restoration`
+              );
+          }
+          check(q.calls.length === 0, 'interior history checks sent a provider request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+    await step('S803 drop Undo/Redo focus unchanged from existing implementation', async () => {
+      const { ctx, page, q } = await boot();
+      try {
+        await setDraft(page, structuralDecl + structuralSong);
+        await structuralOpen(page);
+        await structuralDrag(page);
+        // Native history controls retain their node while rendering. Existing
+        // _historyFocusHandoff keeps an enabled control focused and transfers
+        // focus to its partner when the action disables it. Exercise both
+        // branches, independently of the text-restoration assertions above.
+        const outcomes = [];
+        for (const action of ['undo', 'redo']) {
+          const control = page.locator(`#btn-${action}`);
+          const node = await control.elementHandle();
+          await control.click();
+          const focus = await node.evaluate((button, action) => {
+            const partner = document.getElementById(action === 'undo' ? 'btn-redo' : 'btn-undo');
+            const expected = button.disabled ? partner : button;
+            return {
+              matches: document.activeElement === expected,
+              connected: expected?.isConnected,
+              enabled: !expected?.disabled,
+              id: document.activeElement?.id,
+              transferred: button.disabled,
+            };
+          }, action);
+          check(
+            focus.matches && focus.connected && focus.enabled,
+            `${action} changed existing history focus behavior: ${JSON.stringify(focus)}`
+          );
+          outcomes.push({ action, id: focus.id, transferred: focus.transferred });
+          await node.dispose();
+        }
+        check(!outcomes[0].transferred, 'Undo fixture did not exercise retained control focus');
+        check(outcomes[1].transferred, 'Redo fixture did not exercise partner focus handoff');
+        console.log('S803 existing history focus:', JSON.stringify(outcomes));
+        check(q.calls.length === 0, 'history focus check sent a provider request');
+      } finally {
+        await ctx.close();
+      }
+    });
+    await step('S803 focused older-toast replacement', async () => {
+      const { ctx, page } = await boot();
+      try {
+        await setDraft(page, structuralDecl + structuralSong);
+        await structuralOpen(page);
+        const button = page.locator(structuralButton('ly-sec-remove', '1'));
+        await button.focus();
+        const opener = await page.evaluateHandle(() => document.activeElement);
+        await page.evaluate(() => showToast('Older notification.', 'error'));
+        await page.keyboard.press('F8');
+        check(
+          await page
+            .locator('#toast .toast-dismiss')
+            .evaluate((el) => el === document.activeElement),
+          'F8 did not focus the older Dismiss button'
+        );
+        const before = await structuralState(page);
+        // DOM click while Dismiss holds focus exercises notification replacement
+        // without a pointer press first moving focus to the section button.
+        await button.evaluate((el) => el.click());
+        const after = await structuralState(page);
+        check(
+          JSON.stringify(after) === JSON.stringify(before),
+          'older-toast replacement mutated document state'
+        );
+        check(
+          await opener.evaluate((el) => el === document.activeElement),
+          'existing toast replacement did not restore its opener'
+        );
+        check(
+          await page
+            .locator('#toast')
+            .evaluate((el) => el.textContent.includes('Nothing changed.')),
+          'older toast was not replaced by the refusal'
+        );
+        await opener.dispose();
+      } finally {
+        await ctx.close();
+      }
+    });
+    for (const route of ['session', 'Library']) {
+      await step(`S803 separate ${route} reload`, async () => {
+        const { ctx, page, q } = await boot();
+        try {
+          await setDraft(page, structuralDecl + structuralSong);
+          // Existing /chat fixture route, real request/receive binding. No
+          // assignment to LY.run and no live provider or grading assertion.
+          const final = await page.evaluate(() => LY.model.sung.map((r) => r.text));
+          const reply = certified();
+          reply.artifact = { ...reply.artifact, text: final.join('\n'), final_draft: final };
+          await sendReview(page, q, reply);
+          const current = await page.evaluate(() => LY.run && lyRunStatus(LY.run));
+          if (!current?.certified)
+            throw new Error('fixture did not establish a current accepted review');
+          await structuralOpen(page);
+          await page.locator(structuralButton('ly-sec-move', '0:1')).click();
+          const expected = await page.evaluate(() => ({
+            text: $ui('lyrics-draft').value,
+            declarations: lyDeclarationsOf(LY.model),
+          }));
+          const stale = await page.evaluate(() => LY.run && lyRunStatus(LY.run));
+          check(
+            stale?.word === 'Last run certified an earlier draft' && !stale.certified,
+            'structural edit did not invalidate the accepted review'
+          );
+          let draftId;
+          if (route === 'Library') {
+            await page.waitForFunction(() => !!lyLibraryStore);
+            // Actual IndexedDB adapter, as in J14; no replacement store.
+            draftId = await page.evaluate(async () => {
+              const record = lyLibraryCapture();
+              await lyLibraryStore.saveDraft(record);
+              const saved = await lyLibraryStore.getDraft(record.draftId);
+              if (saved?.text !== record.text) throw new Error('Library readback differs');
+              localStorage.clear();
+              sessionStorage.clear();
+              return record.draftId;
+            });
+          }
+          await page.reload();
+          await page.waitForFunction(() => UI.ready && !!LY.model);
+          if (route === 'Library') {
+            check(
+              (await structuralState(page)).text !== expected.text,
+              'Library reload was accidentally satisfied by session restore'
+            );
+            await page.evaluate(async (id) => LY_ACTIONS['ly-library-restore'](id), draftId);
+          }
+          const restored = await page.evaluate(() => ({
+            text: $ui('lyrics-draft').value,
+            declarations: lyDeclarationsOf(LY.model),
+          }));
+          check(
+            JSON.stringify(restored) === JSON.stringify(expected),
+            `${route}: reload changed text/declarations`
+          );
+          const reloadedReview = await page.evaluate(() => (LY.run ? lyRunStatus(LY.run) : null));
+          if (route === 'Library')
+            check(
+              reloadedReview?.word === 'Last run certified an earlier draft' &&
+                !reloadedReview.certified,
+              'Library reload lost the stale review or made it current'
+            );
+          else {
+            // Page render may recover the saved writer artifact without its
+            // request binding. That is explicitly unknown, never current.
+            const recoveredArtifact = await page.evaluate(() => !!chatState.task?.artifact);
+            check(
+              recoveredArtifact
+                ? reloadedReview?.word === 'Earlier result · declarations unknown' &&
+                    !reloadedReview.certified
+                : reloadedReview === null,
+              'session restore treated an unbound artifact as a current review'
+            );
+          }
+          check(q.calls.length === 1, 'reload or structural edit sent another review request');
+        } finally {
+          await ctx.close();
+        }
+      });
+    }
+
+    // U. Undo in the draft is the page's one history, a typing run per step
+    // (Jony #79: the read layer's redraw broke Chromium's native typing group,
+    // so Ctrl+Z took back one character a press); Undo and Redo say what they
+    // did, and a toolbar button that runs out hands focus on (Jony #76).
+    await step('U. draft undo runs, announcements and focus', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      const BASE = 'Hold the light\nRiver runs';
+      await setDraft(page, BASE);
+      const live = async () => {
+        await page.waitForTimeout(120);
+        return page.evaluate(() => $ui('ly-live')?.textContent || '');
+      };
+      const state = () =>
+        page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          const a = document.activeElement;
+          return {
+            value: d.value,
+            caret: d.selectionStart,
+            focus: a === d ? 'draft' : a === document.body ? 'BODY' : a?.dataset?.ui || a?.tagName,
+          };
+        });
+      await page.click('#lyrics-draft');
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' word', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      let s = await state();
+      check(
+        s.value === BASE,
+        `Ctrl+Z after typing " word" left ${JSON.stringify(s.value.slice(-8))}, not the text before the run`
+      );
+      check(s.focus === 'draft', `Ctrl+Z moved focus to ${s.focus}`);
+      check(s.caret === BASE.length, `Ctrl+Z put the caret at ${s.caret}, not where the run was`);
+      check((await live()) === 'Undone', 'Ctrl+Z in the draft did not say "Undone"');
+      await page.keyboard.press('Control+Shift+z');
+      s = await state();
+      check(s.value === BASE + ' word', `Ctrl+Shift+Z gave ${JSON.stringify(s.value.slice(-8))}`);
+      check((await live()) === 'Redone', 'Ctrl+Shift+Z in the draft did not say "Redone"');
+      // A pause closes the run: the second run goes back alone.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' again', { delay: 30 });
+      await page.waitForTimeout(1300);
+      await page.keyboard.type(' more', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      s = await state();
+      check(
+        s.value === BASE + ' word again',
+        `after a pause Ctrl+Z gave ${JSON.stringify(s.value.slice(-12))}, not the run before it`
+      );
+      // A paste is a step of its own.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' x', { delay: 30 });
+      await page.evaluate(() => {
+        const d = $ui('lyrics-draft');
+        const ev = new InputEvent('beforeinput', {
+          inputType: 'insertFromPaste',
+          data: ' pasted',
+          bubbles: true,
+          cancelable: true,
+        });
+        if (d.dispatchEvent(ev)) {
+          d.setRangeText(' pasted', d.selectionStart, d.selectionEnd, 'end');
+          d.dispatchEvent(new InputEvent('input', { inputType: 'insertFromPaste', bubbles: true }));
+        }
+      });
+      await page.keyboard.press('Control+z');
+      s = await state();
+      check(
+        s.value === BASE + ' word again x',
+        `Ctrl+Z after a paste gave ${JSON.stringify(s.value.slice(-14))}, not the text before the paste`
+      );
+      // The toolbar: Undo to the oldest step and Redo to the newest by keys;
+      // focus is never left on the page, and each step is said.
+      const press = async (act) => {
+        const seen = [];
+        await page.focus(`#ly-toolbar [data-ui="${act}"]`);
+        for (let k = 0; k < 80; k++) {
+          const off = await page.evaluate(
+            (a) => document.querySelector(`#ly-toolbar [data-ui="${a}"]`).disabled,
+            act
+          );
+          if (off) break;
+          await page.keyboard.press('Enter');
+          seen.push((await state()).focus);
+        }
+        return seen;
+      };
+      const undos = await press('ly-undo');
+      check(undos.length > 0, 'toolbar Undo was never available');
+      check(!undos.includes('BODY'), `toolbar Undo dropped focus to BODY (${undos.join(' ')})`);
+      check(undos.at(-1) === 'ly-redo', `the last Undo left focus on ${undos.at(-1)}, not Redo`);
+      check((await live()) === 'Undone', 'toolbar Undo did not say "Undone"');
+      const redos = await press('ly-redo');
+      check(!redos.includes('BODY'), `toolbar Redo dropped focus to BODY (${redos.join(' ')})`);
+      check(redos.at(-1) === 'ly-undo', `the last Redo left focus on ${redos.at(-1)}, not Undo`);
+      check((await live()) === 'Redone', 'toolbar Redo did not say "Redone"');
+      check(
+        (await state()).value === BASE + ' word again x pasted',
+        'Redo to the newest step did not restore the pasted text'
+      );
+      await ctx.close();
+    });
+
+    // U2. Two edges of the typing runs (second review of b7ba5a0f2): text
+    // moved by dragging it inside the draft is one Undo step (Chromium sends
+    // deleteByDrag, then insertFromDrop; each was a step, so one Undo left
+    // the moved words deleted), and while a new run is open the toolbar does
+    // not offer the Redo that run has already replaced.
+    await step('U2. drag-move is one step; an open run drops Redo', async () => {
+      const { ctx, page } = await boot({ theme: 'light' });
+      const BASE = 'Hold the light\nRiver runs';
+      const val = () => page.evaluate(() => $ui('lyrics-draft').value);
+      const edit = (type, text, from, to) =>
+        page.evaluate(
+          ([type, text, from, to]) => {
+            const d = $ui('lyrics-draft');
+            d.setSelectionRange(from < 0 ? d.value.length : from, to < 0 ? d.value.length : to);
+            const ev = new InputEvent('beforeinput', {
+              inputType: type,
+              data: text,
+              bubbles: true,
+              cancelable: true,
+            });
+            if (!d.dispatchEvent(ev)) return;
+            d.setRangeText(text, d.selectionStart, d.selectionEnd, 'end');
+            d.dispatchEvent(
+              new InputEvent('input', { inputType: type, data: text, bubbles: true })
+            );
+          },
+          [type, text, from, to]
+        );
+      await setDraft(page, BASE);
+      await page.click('#lyrics-draft');
+      await edit('deleteByDrag', '', 0, 5);
+      await edit('insertFromDrop', ' Hold', -1, -1);
+      const moved = await val();
+      await page.keyboard.press('Control+z');
+      const back = await val();
+      check(
+        moved === 'the light\nRiver runs Hold' && back === BASE,
+        `one Undo after moving "Hold " by drag gave ${JSON.stringify(back)}, not the text before the move`
+      );
+      await page.keyboard.press('Control+Shift+z');
+      check((await val()) === moved, 'Redo did not bring the moved text back in one step');
+      // Undo, then type: the new run replaces the Redo step at once.
+      await page.keyboard.press('Control+End');
+      await page.keyboard.type(' r1', { delay: 30 });
+      await page.keyboard.press('Control+z');
+      await page.keyboard.type(' r2', { delay: 30 });
+      const typing = await page.evaluate(() => ({
+        redo: document.querySelector('#ly-toolbar [data-ui="ly-redo"]')?.disabled,
+        undo: document.querySelector('#ly-toolbar [data-ui="ly-undo"]')?.disabled,
+      }));
+      check(
+        typing.redo === true && typing.undo === false,
+        `while a new run is open the toolbar offered Redo=${!typing.redo}, Undo=${!typing.undo}`
+      );
+      await page.keyboard.press('Control+Shift+z');
+      await page.waitForTimeout(120);
+      check(
+        (await val()).endsWith(' r2') &&
+          (await page.evaluate(() => $ui('ly-live').textContent)) === 'Nothing to redo',
+        'Redo after new typing did not keep the typing and say "Nothing to redo"'
+      );
+      await ctx.close();
+    });
+    // M2. The phone's Line actions menu lives in the line dock, which is
+    // redrawn whenever the history moves: its own Undo, or any step while it
+    // is open, replaced the item in focus (focus to <body>, the menu shut
+    // under the person, LY.menu left set). It stays open, on that item. A
+    // tool chosen from it closes it (LY.menu was left 'line-actions').
+    // Second review of lyrics-menus-sr 0dda776ba.
+    await step('M2. Line actions survives a dock redraw', async () => {
+      for (const how of ['keyboard', 'pointer']) {
+        const { ctx, page } = await boot({ theme: 'light', phone: true });
+        const where = () =>
+          page.evaluate(() => {
+            const a = document.activeElement;
+            const menu = $ui('ly-menu-line-actions');
+            return {
+              inMenu: !!menu && !menu.hidden && menu.contains(a),
+              item: a?.dataset?.ui || (a === document.body ? 'BODY' : a?.tagName),
+              menu: LY.menu,
+              open: [...document.querySelectorAll('#surface-lyrics .ly-menu:not([hidden])')].length,
+            };
+          });
+        const sel = '#ly-linedock [aria-controls="ly-menu-line-actions"]';
+        const press = async (selector) => {
+          if (how === 'keyboard') {
+            await page.focus(selector);
+            await page.keyboard.press('Enter');
+          } else await page.click(selector);
+          await page.waitForTimeout(200);
+        };
+        const song = () =>
+          page.evaluate(() => {
+            LY_ACTIONS['ly-mobile']('song');
+            lyScrollToLine(2);
+            lySyncCaret();
+            lyRefresh(true);
+          });
+        await setDraft(page, DRAFT);
+        await page.evaluate(() => {
+          const d = $ui('lyrics-draft');
+          d.value += '\nOne more line';
+          uiSaveLyrics();
+          pushHistory();
+        });
+        await song();
+        await press(sel);
+        await press('#ly-menu-line-actions [data-ui="ly-undo"]');
+        const undone = await where();
+        check(
+          undone.inMenu && undone.menu === 'line-actions',
+          `${how}: Undo from Line actions dropped focus or shut the menu: ${JSON.stringify(undone)}`
+        );
+        await page.evaluate(() => {
+          app.workspaceName = 'Renamed while the menu is open';
+          pushHistory();
+          lyRefresh(true);
+        });
+        await page.waitForTimeout(200);
+        const moved = await where();
+        check(
+          moved.inMenu && moved.menu === 'line-actions',
+          `${how}: a history step under the open Line actions dropped it: ${JSON.stringify(moved)}`
+        );
+        await page.keyboard.press('Escape');
+        await song();
+        await press(sel);
+        await press('#ly-menu-line-actions [data-ui="ly-line-tool"]');
+        const tool = await where();
+        check(
+          tool.menu === '' && tool.open === 0 && tool.item === 'ly-tool',
+          `${how}: a tool chosen from Line actions left the menu set: ${JSON.stringify(tool)}`
+        );
+        await ctx.close();
+      }
+    });
+
+    // ── screenshots: a suggestion, light and dark, desktop and phone ─────
+    if (SHOTS) {
+      stage = 'screenshots';
+      for (const theme of ['light', 'dark'])
+        for (const phone of [false, true]) {
+          const { ctx, page, q } = await boot({ theme, phone });
+          await setDraft(page, DRAFT);
+          await sendReview(page, q, unfinished(), () =>
+            page.evaluate(() => {
+              const d = $ui('lyrics-draft');
+              d.value = d.value.replace('The rain has blurred', 'The rain had blurred');
+              uiSaveLyrics();
+            })
+          );
+          await page.evaluate((p) => LY_ACTIONS[p ? 'ly-mobile' : 'ly-tab']('review'), phone);
+          await shot(page, `lyrics-${theme}-${phone ? 'phone' : 'desktop'}`);
+          await ctx.close();
+        }
+    }
+  } catch (e) {
+    failures.push(`gate threw during "${stage}": ` + String((e && e.message) || e).split('\n')[0]);
+  } finally {
+    await browser.close();
+    server.close();
+  }
+  checks++;
+  if (pageErrors.length) failures.push('uncaught page error: ' + pageErrors[0]);
+}
+
+(async () => {
+  if (!flags['browser-only']) {
+    unitWriterPayload();
+    unitTypePlacement();
+    unitTypeMenu();
+    unitTypeEndToEnd();
+    await unitNewSongDraw();
+    await unitSavedReadings();
+    await unitVoicesBasis();
+    await unitPolicyA();
+    await unitBoundaries();
+    unitEndIdentity();
+    unitFormOrder();
+    unitHeadersAndIdentity();
+    checks += await require('./check_lyrics_structural_preflight')(UNIT_SOURCE);
+  }
+  if (flags['unit-only']) {
+    if (failures.length) {
+      console.error(`LYRICS PAGE (unit): FAIL — ${failures.length} problem(s):`);
+      for (const f of failures) console.error('  ✗ ' + f);
+      process.exit(1);
+    }
+    console.log(`LYRICS PAGE (unit): PASS — ${checks} assertions`);
+    process.exit(0);
+  }
+  if (!fs.existsSync(path.join(ROOT, HTML))) {
+    console.error(`LYRICS PAGE: FAIL — ${HTML} not found (build it first)`);
+    process.exit(1);
+  }
+  let chromium;
+  try {
+    ({ chromium } = require('playwright'));
+  } catch {
+    console.error('LYRICS PAGE: FAIL — playwright not installed (npm ci)');
+    process.exit(2);
+  }
+  await browserChecks(chromium);
+  if (!flags['browser-filter']) {
+    try {
+      await require('./check_lyric_type_placement')();
+    } catch (e) {
+      failures.push('type placement browser: ' + e.message);
+    }
+  }
+  if (failures.length) {
+    console.error(`LYRICS PAGE: FAIL — ${failures.length} problem(s):`);
+    for (const f of failures) console.error('  ✗ ' + f);
+    process.exit(1);
+  }
+  if (flags['browser-only'] || flags['browser-filter']) {
+    console.log(
+      `LYRICS PAGE: PASS — ${checks} assertions (fixture replies, no provider; browser filter: ${flags['browser-filter'] || 'all'}; units ${flags['browser-only'] ? 'skipped' : 'included'})`
+    );
+    process.exit(0);
+  }
+  console.log(
+    `LYRICS PAGE: PASS — ${checks} assertions (fixture replies, no provider): one document with ` +
+      'fixed tabs and tools; no [SETUP] row reaches the writer (unit, harness reader and /chat); ' +
+      'every rhythm header shape round-trips; certified only for the same whole version; stale ' +
+      'suggestions recheck, never apply; a waiting run is never reset behind the person; pending ' +
+      'tool values stay out of the document and apply as one Undo; progress read-only from the ' +
+      'receipt; phone navigation without sideways scroll.'
+  );
+  process.exit(0);
+})();
+);
+        await page
+          .locator('#ly-live')
+          .filter({ hasText: announcement })
+          .waitFor({ state: 'attached' });
         said.push(
           await page.evaluate(() => ({
             focus: document.activeElement?.dataset?.ui || document.activeElement?.tagName,
