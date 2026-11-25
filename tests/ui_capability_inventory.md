@@ -64,7 +64,8 @@ The reachability check supports these standardized preconditions. The check grou
 | `genre search: no results` | Type a query no genre matches into `#genre-search`, clear `UI.genre`, `renderGenreDiscovery()`. Surfaces the no-results state and its Clear search. |
 | `instrument search: no results` | Type a query no instrument matches into `#instrument-search`, `renderInstrumentDiscovery()`. Surfaces the no-results state and its recovery actions. |
 | `genre just imported` | `await importTraditionWithFeedback('delta_blues')`. Surfaces the import toast and its Undo action. |
-| `genre: all genres` | Click the Genre page's All genres tab. In Rows (the default layout) it is one row per first letter with the A–Z bar. RESET returns the page to Start exploring in Rows. |
+| `genre detail` | Open Delta blues from the catalog for detail controls. |
+| `genre: all genres` | Use the sidebar All genres category reset. In Rows (the default layout) it is one row per first letter with the A–Z bar. RESET returns the page to the full catalog in Rows. |
 | `genre list layout` | Click the Genre page's List layout button (Rows is the default). Surfaces the List rows. RESET returns the page to Rows. |
 | `map view` | `uiNavigate('map')`. The Map presents Your recipe as a dock. RESET returns every group to the Genre section with both search fields cleared. |
 | `photo enlarged` | As `instrument picker open, similar drill-down active` (the Instrument inspector on `voice`), then its photo (`.ip-media [data-ui="lightbox"]`) is clicked. The gate serves every remote photo as a local PNG, so the photo exists offline. RESET closes it (`uiCloseLightbox`). |
@@ -1073,7 +1074,7 @@ selector: '#surface-genre .listen'
 surface: shared workbench
 implementation: src/workbench.js
 status: reachable
-precondition: empty
+precondition: genre detail
 ```
 
 ```yaml
@@ -1923,24 +1924,13 @@ notes: Kept alongside the exact returns in one declaration in the harness's spel
 
 ## Genre page redesign (2026-09-25)
 
-The Genre page (`src/pages/genre.js`, `src/pages/genre.css`): a Browse column (the 25 taxonomy roots, the current branch, Find a sound) beside the catalogue (Start exploring / All genres, Rows or List), with Your recipe as the shell's sidebar. On a fresh session Start exploring opens the first starter recipe (Delta blues) in place, so its five detail tabs resolve under `empty`. Selectors below are presence checks; the interactions were exercised in Chromium for the PR (targets filter and rank, tab keys, both instrument destinations, View on map and back, list position on return).
-
-```yaml
-name: genre-view-tabs
-kind: widget
-selector: '#surface-genre [data-ui="genre-view-tab"]'
-surface: Genre — Start exploring / All genres (tab list; Arrow keys, Home, End)
-implementation: genre-view-tab and gpTabKeys in src/pages/genre.js
-status: reachable
-precondition: empty
-notes: A search always shows All genres; the six starter recipes, Suggestions for this recipe (when Your recipe has a primary genre) and Browse all live under Start exploring.
-```
+The Genre page (`src/pages/genre.js`, `src/pages/genre.css`): a Browse column (the 25 taxonomy roots, the current branch, Find a sound) beside the catalogue (Rows or List), with Your recipe as the shell's sidebar. A fresh session shows the catalog with no selected genre; detail controls use the explicit `genre detail` precondition. Selectors below are presence checks; the interactions were exercised in Chromium for the PR (targets filter and rank, tab keys, both instrument destinations, View on map and back, list position on return).
 
 ```yaml
 name: genre-layout-rows-list
 kind: widget
 selector: '#surface-genre [data-ui="genre-layout"]'
-surface: Genre — Rows / List. Rows (the default) is a row of cards per first letter under All genres (see "Browse rows"), and one row each for the starter recipes and the suggestions; a genre's details open at the top of the catalogue. List is the compact rows, details in place
+surface: Genre — Rows / List. Rows (the default) is a row of cards per first letter under All genres (see "Browse rows"), a genre's details open at the top of the catalogue. List is the compact rows, details in place
 implementation: genre-layout and gpLayout in src/pages/genre.js; remembered as the layout preference codex-layout:genre-view (a stored Grid reads as Rows), cleared by Reset layout
 status: reachable
 precondition: empty
@@ -2024,7 +2014,7 @@ selector: '#genre-detail [role="tab"][data-ui="genre-tab"]'
 surface: Genre detail — Overview / Sound profile / Instruments / Similar sounds / Background (tab list; Arrow keys, Home, End)
 implementation: gpDetail / gpSetTab in src/pages/genre.js
 status: reachable
-precondition: empty
+precondition: genre detail
 notes: Opens in place in its row, or at the top when the genre is not in the current list (a deep link, Similar sounds, the Map). Close (Esc) returns focus to the row it came from and puts it back in view.
 ```
 
@@ -2035,7 +2025,7 @@ selector: '#genre-detail [data-ui="genre-sound-from"]'
 surface: Genre detail — Sound profile / Similar sounds: Use as sound targets (sets all 13 targets to this genre's profile and lists the genres within one step)
 implementation: genre-sound-from in src/pages/genre.js
 status: reachable
-precondition: empty
+precondition: genre detail
 ```
 
 ```yaml
@@ -2045,7 +2035,7 @@ selector: '#genre-detail #gp-inst-dest'
 surface: Genre detail — Instruments: "Add single instruments to" this genre (set up as it plays it; the group is created if absent), another genre already in Your recipe, or an independent instrument
 implementation: gpInstruments / gpAddInstrument in src/pages/genre.js — the shell's uiAddInstrument with this destination (the canonical addInstrumentFromPicker path); the toast names the destination
 status: reachable
-precondition: empty
+precondition: genre detail
 ```
 
 ```yaml
@@ -2055,7 +2045,7 @@ selector: '#genre-detail [data-ui="genre-inst-add"]'
 surface: Genre detail — Instruments: Add one instrument to the chosen destination (also Inspect on the Instrument page, Listen, and Add the whole ensemble)
 implementation: gpAddInstrument in src/pages/genre.js
 status: reachable
-precondition: empty
+precondition: genre detail
 ```
 
 ```yaml
@@ -2065,7 +2055,7 @@ selector: '#genre-detail [data-ui="genre-map"]'
 surface: Genre detail — View on map: the Map opens with this tradition selected; the toast offers Back to <genre>, and Back or the Genre tab return to the same detail
 implementation: gpViewOnMap in src/pages/genre.js (the atlas's ?trad= deep link)
 status: reachable
-precondition: empty
+precondition: genre detail
 ```
 
 ```yaml
@@ -2075,7 +2065,7 @@ selector: '#genre-detail #gp-panel-background'
 surface: Genre detail — Background: About, Lineage, Classification (primary path and cross-listings, "not a claim of historical descent"), Recordings & references (the catalog's exemplar artists with Listen searches; catalog status). Nothing is added that the catalog does not hold; in the lazy shell, until the descriptions arrive, About and Recordings say they are loading (or could not be loaded, with Retry), never that the catalog has none
 implementation: gpBackground, gpBgAboutHTML, gpBgRecordingsHTML and gpApplyProse in src/pages/genre.js
 status: reachable
-precondition: empty
+precondition: genre detail
 ```
 
 ```yaml
@@ -2095,7 +2085,7 @@ selector: '#surface-genre .gp-media'
 surface: Genre — a genre's picture in List rows and details (a Rows card's picture is uiTile's; see "Browse rows"). When api/tradition_images.json is served (the tradition rows of PR #389's references/_image_manifest.json, derived by scripts/_image_tables.js compactTraditionImages and fetched once after the first paint and, in the lazy shell, after the instrument data's bytes (Engine.fetched), its photos then put into the rows and details already drawn without rebuilding them), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details), and the photo is a button that enlarges it (photo-enlarge); in a row it sits beside the row's name button, never inside it; without an entry, without the table (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
 implementation: gpLoadOptional / gpIndexImages / gpApplyPhotos / gpImage / gpMedia and the image error listener in src/pages/genre.js; scripts/_image_tables.js compactTraditionImages builds the table
 status: reachable
-precondition: empty
+precondition: genre detail
 notes: Presence check only (the glyph fallback always renders). The photo path was exercised in Chromium with PR #389's manifest served and the thumbnails stubbed, since the sandbox cannot reach Wikimedia.
 ```
 
@@ -2498,7 +2488,7 @@ precondition: 'genre: all genres'
 name: browse-rows-jump-letters
 kind: widget
 selector: '#genre-maintabs .cm-rows-jump [data-ui="rows-jump"]'
-surface: Genre — the A–Z bar, sticky under the Start exploring / All genres tabs; a letter scrolls its row under the bar, is marked current (aria-current) while its row is the one in view, and takes focus to that row's heading so the next Tab goes on into the row; a letter with no genres is disabled; the bar fades at an edge its letters continue past; on a touch screen each letter is 44px tall to a thumb
+surface: Genre — the A–Z bar, sticky under the layout controls; a letter scrolls its row under the bar, is marked current (aria-current) while its row is the one in view, and takes focus to that row's heading so the next Tab goes on into the row; a letter with no genres is disabled; the bar fades at an edge its letters continue past; on a touch screen each letter is 44px tall to a thumb
 implementation: uiRowsJumpHTML, uiRowsJump and uiRowsSpy in src/workbench.js
 status: reachable
 precondition: 'genre: all genres'
@@ -2532,7 +2522,7 @@ surface: A row's ‹ › buttons (desktop; hidden on a touch screen, which swipe
 implementation: the 'rows-scroll' shell action and uiRowsFill in src/workbench.js
 status: reachable
 precondition: empty
-notes: Start exploring shows the starter recipes as one row.
+notes: The catalog is the only Genres view.
 ```
 
 ```yaml

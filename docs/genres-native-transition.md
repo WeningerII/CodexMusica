@@ -105,9 +105,9 @@ node scripts/_pages_server.js --root=. --port=8124
 ```
 
 Open `http://127.0.0.1:8123/codex.html#genre` and
-`http://127.0.0.1:8124/codex.html#genre` side by side in Chromium. Close the opening
-feature, wait for the real photographs, and select Delta blues, Detroit techno
-or Javanese gamelan. Try Rows and List, Close and Escape, horizontal scrolling,
+`http://127.0.0.1:8124/codex.html#genre` side by side in Chromium. On the older baseline, use the sidebar All genres control. The current page
+opens directly to that catalog. Wait for the real photographs, and select Delta
+blues, Detroit techno or Javanese gamelan (search or scroll the letter shelves). Try Rows and List, Close and Escape, horizontal scrolling,
 keyboard entry, and reduced motion. Keep each browser viewport at the same width
 (390 or 1280) for a controlled comparison. `git rev-parse HEAD` in each checkout
 identifies the served revision. The generated `codex.html` is local only.
