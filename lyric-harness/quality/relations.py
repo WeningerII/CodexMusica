@@ -2203,7 +2203,12 @@ def _spans_at(rule, stream, ids, origin):
 def _declared_occurrence(stream, unit):
     """True when the writer declared the reading of `unit`'s token (a
     pronunciation with basis `declared`), as the stream's phonology narrows
-    to that token; False where it cannot say."""
+    to that token; False where it cannot say.
+
+    It depends on `Lexicon._pronunciation_choice` (lyric_harness), read with
+    `getattr` so a lexicon from another reader, without that attribute, or a
+    phonology without `for_line` / `for_token`, counts as not declared rather
+    than raising."""
     raw = (stream.text_lines[unit.line]
            if 0 <= unit.line < len(stream.text_lines) else None)
     phon = stream.phon
