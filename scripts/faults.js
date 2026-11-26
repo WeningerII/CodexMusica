@@ -599,20 +599,15 @@ if (want('9c', 'lazy-prose-desync')) {
   );
 }
 
-// 9d. the first view needs prose the boot index no longer carries -> check_lazy_app.js
-//     The featured genre (the page's first starter) loses its prose from the
-//     boot index, so the first view would wait on the file that follows it.
+// 9d. the catalog first view waits for prose instead of drawing from the boot index.
 if (want('9d', 'first-view-needs-prose')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
-  const B = require('./_browse_tables.js');
-  const featured = B.starterIds(fs.readFileSync(path.join(d, 'src/app.js'), 'utf8'))[0];
-  const f = path.join(d, 'api/browse_boot.json');
-  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
-  const it = j.items.find((x) => x.id === featured);
-  if (!it || typeof it.description !== 'string')
-    throw new Error(`faults: the boot index carries no prose for ${featured}; class 9d is vacuous`);
-  for (const k of B.PROSE_KEYS) delete it[k];
-  fs.writeFileSync(f, JSON.stringify(j));
+  plantIn(
+    d,
+    'src/pages/genre.js',
+    'function gpAll(open) {',
+    "function gpAll(open) {\n  if (!Catalog.proseLoaded()) return '<p>Loading catalog…</p>';"
+  );
   record(
     'first-view-needs-prose -> check_lazy_app.js',
     gate(d, ['scripts/check_lazy_app.js', '--only=first-view', '--scenarios=default']),
@@ -755,18 +750,14 @@ if (want('9i', 'engine-desync')) {
   );
 }
 
-// 9j. engine-read-in-first-view -> check_lazy_app.js
-//     A genre's roster names its instruments through InstLite, which reads the
-//     page's index. Inst reads the engine, which the first view holds back; put
-//     it back in the roster and the read throws EngineNotReadyError and is
-//     counted, which is how the gate sees a reader nobody declared.
+// 9j. an engine read in the catalog's actual first render must be caught.
 if (want('9j', 'engine-read-in-first-view')) {
   const d = lazyEnv();
   plantIn(
     d,
     'src/pages/genre.js',
-    '      const name = InstLite(i)?.name || i;',
-    '      const name = Inst(i)?.name || i;'
+    'function gpAll(open) {',
+    "function gpAll(open) {\n  Inst('voice');"
   );
   record(
     'engine-read-in-first-view -> check_lazy_app.js',

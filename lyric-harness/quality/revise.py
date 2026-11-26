@@ -1317,7 +1317,9 @@ class Reviser:
         the song must have and wrong for one it must avoid, so a pair whose
         end words have several readings (or end on a small word that may be
         sung weak) is asked again with every combination required."""
-        from lyric_harness import fold_apostrophes, line_tokens, weak_token, _scheme_of
+        from lyric_harness import (end_word_readings, fold_apostrophes,
+                                   line_tokens, weak_token, _scheme_of,
+                                   sung_stressed_at_line_end)
         ambiguous = False
         for text in (lines[i], lines[j]):
             words = line_tokens(text, strip_parens=self.lex.strip_parens,
@@ -1325,8 +1327,12 @@ class Reviser:
             if not words:
                 continue
             key = fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
-            if (len(self.lex.entries.get(key, ())) > 1
-                    or weak_token(self.lex, key, phrase_final=True)):
+            # Counted as spelled (`end_word_readings`): an edge-marked word's
+            # own entry is a reading too. A word with no stress in its entry
+            # has two hearings at a line's end (owner ruling 2026-11-23).
+            if (len(end_word_readings(self.lex, words[-1])) > 1
+                    or weak_token(self.lex, key, phrase_final=True)
+                    or sung_stressed_at_line_end(self.lex, words[-1])):
                 ambiguous = True
         if not ambiguous:
             return True
@@ -2168,9 +2174,14 @@ class Reviser:
             _coarse = ((not wants and not _nondefault_struct)
                        or (bool(wants) and all(str(w).startswith("class:")
                                                for w in wants)))
-            # KEYED EXACTLY AS `coarse_relation_consensus` KEYS ITS OWN
-            # LOOKUP (fold, lower, strip boundary punctuation). This read
-            # `str(w).lower()` until 2026-09-24, so a QUOTED end word --
+            # KEYED AS `coarse_relation_consensus` KEYED ITS OWN LOOKUP
+            # until 2026-11-23 (fold, lower, strip boundary punctuation).
+            # Since then the consensus counts an edge-marked word's readings
+            # as spelled (`end_word_readings`) and this gate keeps the bare
+            # key: it only decides whether a refusal is possible, and with
+            # quantifier "any" the consensus refuses only an end word it
+            # cannot read at all, which a word with readings never is.
+            # Earlier still it read `str(w).lower()` (until 2026-09-24), so a QUOTED end word --
             # the sonnets' `'Will'` -- missed `entries` and was never asked
             # for consensus, while `check_scheme` (which asks every mandated
             # pair) refused it: under #375's `nucleus_agreement="licensed"`

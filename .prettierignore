@@ -173,3 +173,6 @@ lyric-harness/quality/fixtures/reader_v2_mirror.json
 /docs/evidence/ui-repairs-2026-10-15/viewport/focused-summary.json
 /docs/evidence/ui-repairs-2026-10-15/viewport/green-center/results.json
 /docs/evidence/ui-repairs-2026-10-15/viewport/red-final/results.json
+
+# Keep the licensed D3 distribution byte-identical to upstream.
+src/pages/vendor/d3.min.js

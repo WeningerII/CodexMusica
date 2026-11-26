@@ -78,14 +78,48 @@ def declared_spelling(word, token_text, line, pieces):
     return word in (mark + token_text, "'" + token_text)
 
 
-def _quoted_here(line, token, word, strip_parens):
-    # `declared_spelling` at the v2 token `token` of `line`, read off its span.
+def edge_run_spelling(word, token_text, line, pieces):
+    """-> True when the declared `word` is the scheme-v2 token `token_text`
+    spelled with the whole run of apostrophes at its edge that the reader
+    cuts to one mark (2026-11-23, `_reader_line_v2`'s `make`): a row saved
+    before that cut names `''Tis` for the token `'Tis`.
+
+    The source decides, as in `declared_spelling`: every extra mark must be
+    in `line`, right before the token's first piece (a leading run) or right
+    after its last (a trailing run), and `word` must be the token with
+    exactly those marks back. A doubled mark the line does not hold there is
+    an ordinary spelling and is refused as one. Scheme v1 never cuts a run,
+    so its callers never ask."""
+    from lyric_harness import fold_apostrophes
+    if not (isinstance(word, str) and isinstance(token_text, str)
+            and isinstance(line, str) and pieces and word != token_text):
+        return False
+    folded = fold_apostrophes(word)
+    a, b = pieces[0][0], pieces[-1][1]
+    lead = len(folded) - len(folded.lstrip("'"))
+    trail = len(folded) - len(folded.rstrip("'"))
+    if token_text.startswith("'") and lead > 1 and folded[lead - 1:] == token_text:
+        extra = lead - 1
+        return (a >= extra and all(fold_apostrophes(c) == "'"
+                                   for c in line[a - extra:a]))
+    if (token_text.endswith("'") and trail > 1
+            and folded[:len(folded) - trail + 1] == token_text):
+        extra = trail - 1
+        return (b + extra <= len(line) and all(fold_apostrophes(c) == "'"
+                                               for c in line[b:b + extra]))
+    return False
+
+
+def _saved_spelling_here(line, token, word, strip_parens):
+    """`declared_spelling` or `edge_run_spelling` at the v2 token `token` of
+    `line`: a declaration naming the token as it was printed."""
     from lyric_harness import reader_token_spans
     spans = reader_token_spans(line, strip_parens, 'v2') or []
     if not 1 <= token <= len(spans):
         return False
     text, pieces = spans[token - 1]
-    return declared_spelling(word, text, line, pieces)
+    return (declared_spelling(word, text, line, pieces)
+            or edge_run_spelling(word, text, line, pieces))
 
 
 def numbered_token(line, token, lex, numbering=None, word=None):
@@ -106,7 +140,8 @@ def numbered_token(line, token, lex, numbering=None, word=None):
             # coordinates, the word must be exactly as written, as before.
             if (word is None or value[0] == word
                     or current.split('+')[0] == mark.split('+')[0] == 'v2'
-                    and declared_spelling(word, value[0], line, value[1])):
+                    and (declared_spelling(word, value[0], line, value[1])
+                         or edge_run_spelling(word, value[0], line, value[1]))):
                 return value
         return None
 
@@ -204,9 +239,12 @@ def validate_choices(rows, lex):
                 row['numbering'] = numbering_of(lex)
         words = line_tokens(line, strip_parens=lex.strip_parens, scheme=scheme)
         if (scheme == 'v2' and type(token) is int and 1 <= token <= len(words)
-                and word != words[token-1] and _quoted_here(line, token, word, lex.strip_parens)):
-            # The declaration names the word with its opening quotation mark;
-            # it binds the token, and the row records the token's own text.
+                and word != words[token-1]
+                and _saved_spelling_here(line, token, word, lex.strip_parens)):
+            # The declaration names the word with its opening quotation mark,
+            # or with the whole edge run of apostrophes the reader cuts to one
+            # mark; it binds the token, and the row records the token's own
+            # text.
             row = copy.deepcopy(row)
             row['word'] = word = words[token-1]
         if type(token) is not int or not 1 <= token <= len(words) or words[token-1] != word:
@@ -346,6 +384,10 @@ def for_token(lex, index):
     from lyric_harness import fold_apostrophes
     out = copy.copy(lex)
     out._pronunciation_choice = row
+    # The dictionary's own entries, kept beside the narrowed ones: a question
+    # about the WORD (`sung_stressed_at_line_end`'s class) is asked of the
+    # dictionary, never of the reading the writer chose for this occurrence.
+    out._dictionary_entries = lex.entries
     out.entries = ChainMap({fold_apostrophes(row['word']).lower(): [row['phones']]}, lex.entries)
     return out
 
