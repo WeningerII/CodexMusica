@@ -573,17 +573,6 @@ class Profile:
     #: for the owner's call to keep grading 4-8 token lyrics after the M-25
     #: residue left no human item under 9 tokens.
     reach_lo: int = 0
-    #: For a row re-fit on the seeded English draw: K, the seed count the
-    #: stability rule settled on. Every number the row takes from the draw is
-    #: the mean over seeds 1..K, and `length_class_calibration check`
-    #: re-derives it from those seeds. 0 for a row measured on one fixed
-    #: population.
-    draw_seeds: int = 0
-    #: For a row whose predictability knots were fit on another population
-    #: than its other numbers: that population's item count and token range,
-    #: which `length_curve_calibration check` re-counts before it re-derives
-    #: the knots. Empty when the knots share the row's own population.
-    knots_population: dict = field(default_factory=dict)
 
     def band(self):
         return (self.reach_lo or int(self.lo / self.tolerance),
@@ -1936,8 +1925,8 @@ class SlopFloor:
         # The word-variety and same-first-word checks (LEXICAL_MONOTONY,
         # ANAPHORA_OVERLOAD and their declared-repeat notes) were removed by
         # the owner's ruling, 22 Nov 2026: their only evidence was one
-        # comparison of the 152 Shakespeare sonnets with 40 machine-written
-        # sonnets, never repeated and never made for songs.
+        # comparison of the 152 sonnets with 40 machine-written sonnets,
+        # never repeated and never made for songs.
         v = self.qf.extract(lines, scheme, features=FLOOR_FEATURES)
 
         # 2. function-word load

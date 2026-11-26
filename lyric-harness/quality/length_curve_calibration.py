@@ -1008,42 +1008,20 @@ def cmd_check(a):
             write_rows(rs, tmp, provenance)
             rows = read_rows([tmp], verify=True)
         print("ROWS  computed: %d items (memo hits %d, misses %d)" % (len(rows), cache.hits, cache.misses))
-    # A ROW RE-FIT ON THE SEEDED DRAW (`draw_seeds`) takes its two cheap
-    # curves, range and size from the draw, and only its
-    # predictability knots from these rows; `knots_population` records the
-    # count and range the knots were fit on.
-    drawn = bool(getattr(prof, "draw_seeds", 0))
-    knots = getattr(prof, "knots_population", None) or {}
-    if drawn and not knots:
-        print("CANNOT TELL: the row is re-fit on the draw but records no knots_population")
-        sys.exit(2)
-    want_n, want_range = ((knots["items"], (knots["lo"], knots["hi"])) if drawn
-                          else (prof.n_human, (prof.lo, prof.hi)))
-    if len(rows) != want_n:
+    if len(rows) != prof.n_human:
         print("MOVED: the corpus holds %d items, the row was fit on %d — the "
               "population moved, so every curve is a different population's "
               "(doctrine 58); re-run the cell and re-adopt as a set"
-              % (len(rows), want_n))
+              % (len(rows), prof.n_human))
         sys.exit(1)
     measured_range = (rows[0]["n_tokens"], rows[-1]["n_tokens"])
-    if want_range != measured_range:
+    if (prof.lo, prof.hi) != measured_range:
         print("MOVED: the lyric range was %r, measured %r; do not extrapolate a stale boundary"
-              % (want_range, measured_range))
+              % ((prof.lo, prof.hi), measured_range))
         sys.exit(1)
     bins = make_bins(rows)
     moved = []
-    if drawn:
-        from quality import length_class_calibration as LCC
-        workers = max(1, min(4, os.cpu_count() or 1))
-        bad = LCC.check_row(prof.name, workers=workers, held_out=False)
-        print("  the draw's curves (%d seeds) -> %s" % (prof.draw_seeds, "HOLDS" if not bad else "MOVED"))
-        for line in bad:
-            print("    " + line)
-        if bad:
-            moved.append("the draw's curves")
     for f, m in SHIPPED_MODEL.items():
-        if drawn and m != "CK":
-            continue
         key = KEY_OF[f]
         shipped = prof.curves.get(key)
         # TWO STARTS, exactly as the banked run fit the shipped row (§3 of
@@ -1073,8 +1051,7 @@ def cmd_check(a):
         print("RESULT: MOVED — %s. Argue it and repin as a SET; do not tune (doctrine 58)."
               % ", ".join(moved))
         sys.exit(1)
-    print("RESULT: HOLDS — the lyric row's %d curves re-derive from the corpus" % len(SHIPPED_MODEL)
-          + (" and the seeded draw" if drawn else ""))
+    print("RESULT: HOLDS — the lyric row's %d curves re-derive from the corpus" % len(SHIPPED_MODEL))
 
 
 def main():
