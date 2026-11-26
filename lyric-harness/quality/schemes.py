@@ -693,7 +693,10 @@ name("ABBAABBACDECDE", "Petrarchan sonnet", "Italian sonnet")
 name("ABBAABBACDCDCD", "Petrarchan sonnet (sestet variant)")
 name("ABBAABBACDDCEE", "Petrarchan sonnet (couplet close)")
 name("ABABBCBCCDCDEE", "Spenserian sonnet")
-name("ABABCBCDCDEDEE", "Onegin stanza", tradition="Russian")
+# ~~ABABCBCDCDEDEE~~ (forms audit review on #857, 2026-11-19; corrected
+# 2026-11-23): the stanza is aBaB ccDD eFFe GG, three quatrains (alternate,
+# paired, enclosed) and a couplet. The old row named none of those.
+name("ABABCCDDEFFEGG", "Onegin stanza", tradition="Russian")
 name("ABABCDCDEFEFGG", "Elizabethan sonnet")
 name("AABBCCDDEEFFGG", "couplet sonnet")
 name("ABABABABABABCC", "monorhyme-drift sonnet")

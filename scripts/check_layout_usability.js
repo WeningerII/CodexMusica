@@ -630,6 +630,8 @@ async function editorKeyboard(page, where) {
       await page.locator('.catalog-row, .cm-tile').first().waitFor();
       // Forced colours erase colour-only state: a chosen tab, view or page
       // must still differ from its siblings, and a focused field keeps a ring.
+      await page.locator('#genre-list [data-ui="genre-select"]').first().click();
+      await page.locator('#genre-detail [role="tab"]').first().waitFor();
       await page.emulateMedia({ forcedColors: 'active' });
       const forced = await page.evaluate(() => {
         const bg = (el) => (el ? getComputedStyle(el).backgroundColor : null);
@@ -643,8 +645,8 @@ async function editorKeyboard(page, where) {
             '#surface-genre [role="tab"][aria-selected="false"]'
           ),
           layout: pair(
-            '#surface-genre button[aria-pressed="true"]',
-            '#surface-genre button[aria-pressed="false"]'
+            '#genre-maintabs [data-ui="genre-layout"][aria-pressed="true"]',
+            '#genre-maintabs [data-ui="genre-layout"][aria-pressed="false"]'
           ),
           page: pair(
             '.cm-tab[aria-current="page"]',
@@ -716,6 +718,35 @@ async function editorKeyboard(page, where) {
       // the Genre page lands below its sticky tabs, and on a phone a control
       // focused behind the Lyrics line dock scrolls into view.
       if (width === 899 || width === 1280) {
+        if (width === 899) {
+          // Enter a row arrow from its first card with the arrow already near
+          // the sticky bar. Native focus must reserve the bar's full height.
+          const row = page.locator('.cm-rows-group[data-rows="genre:Y"]');
+          await row.scrollIntoViewIfNeeded();
+          await settle(page);
+          await row.evaluate((group) => {
+            const arrow = group.querySelector('[data-ui="rows-scroll"][data-dir="1"]');
+            group
+              .querySelector('.cm-rows-track button, .cm-rows-track a')
+              .focus({ preventScroll: true });
+            const main = document.getElementById('genre-main');
+            const bar = document.getElementById('genre-maintabs');
+            main.scrollTop +=
+              arrow.getBoundingClientRect().top - bar.getBoundingClientRect().bottom + 10;
+          });
+          assert.deepEqual(
+            await obscuredFocus(page, 'Shift+Tab', 1),
+            [],
+            'Genre: the Y arrow clears the full sticky bar'
+          );
+          assert.equal(
+            await page
+              .locator('[data-ui="rows-scroll"][data-id="genre:Y"][data-dir="1"]')
+              .evaluate((el) => el === document.activeElement),
+            true,
+            'Genre: Shift+Tab reaches the Y arrow'
+          );
+        }
         await page.locator('#genre-main').evaluate((el) => {
           const all = [...el.querySelectorAll('a, button, input, select, [tabindex="0"]')];
           all
@@ -752,8 +783,8 @@ async function editorKeyboard(page, where) {
       }
       assert.equal(
         await page.locator('#genre-list').getAttribute('role'),
-        'tabpanel',
-        'Genre: the list the view tabs control is their tabpanel'
+        null,
+        'Genre: the sole catalog has no obsolete page-tab semantics'
       );
       if (width === 1280) {
         // The part editor speaks plainly (Jony #27, #28 on #519): a part option
@@ -2577,7 +2608,9 @@ async function editorKeyboard(page, where) {
           );
       });
       try {
-        await page.goto(base + '/codex.html#genre/delta_blues');
+        await page.goto(base + '/codex.html#genre');
+        await page.locator('#genre-search').fill('Delta blues');
+        await page.locator('.cm-tile-name[data-id="delta_blues"]').first().click();
         await page.locator('#gp-tab-instruments').click();
         assert.equal(
           await page.locator('#gp-tab-instruments').getAttribute('aria-selected'),
@@ -3364,7 +3397,9 @@ async function editorKeyboard(page, where) {
         false,
         'Phone editor: a second Escape closes the sheet'
       );
-      await page.goto(base + '/codex.html#genre/delta_blues');
+      await page.goto(base + '/codex.html#genre');
+      await page.locator('#genre-search').fill('Delta blues');
+      await page.locator('.cm-tile-name[data-id="delta_blues"]').first().click();
       await page.locator('.gp-crumbs .gp-link').first().waitFor();
       const small = await page.evaluate(() =>
         [...document.querySelectorAll('.gp-crumbs .gp-link')]

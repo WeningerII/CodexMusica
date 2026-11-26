@@ -1021,9 +1021,10 @@ async function loadDelta(page) {
         }, render);
       const names = (sel) =>
         page.$$eval(sel, (els) => els.map((e) => e.textContent.replace(/\s+/g, ' ').trim()));
-      // Similar sounds (the featured genre's, open on Start exploring) ranks by
+      // Explicitly open a catalog genre: Similar sounds ranks by
       // distance across the 13 characteristics; the same distance reads A to Z.
       stage = `N. ${vp.name}: Similar sounds`;
+      await page.click('#genre-list [data-ui="genre-select"]');
       const similar = await page.evaluate(() => {
         const d = document.querySelector('#genre-detail');
         if (!d) return [];
@@ -1032,13 +1033,15 @@ async function loadDelta(page) {
           key: computeDistance(d.dataset.gpId, b.dataset.id),
         }));
       });
-      check(similar.length > 1, where('the featured genre lists no similar sounds'));
+      check(similar.length > 1, where('the selected genre lists no similar sounds'));
       check(
         azBreak(similar) === '',
         where('Similar sounds is not A to Z at equal distance: ' + azBreak(similar))
       );
       stage = `N. ${vp.name}: All genres`;
-      await page.click('#genre-maintabs [data-ui="genre-view-tab"][data-id="all"]');
+      await page.evaluate(() =>
+        document.querySelector('#genre-browse [data-ui="genre-all"]').click()
+      );
       // The List layout: every row of it, in its order. (Rows is Q.)
       await page.click('[data-ui="genre-layout"][data-id="list"]');
       await all('renderGenreDiscovery');
@@ -1515,7 +1518,19 @@ async function loadDelta(page) {
         (await pressed('[data-ui="genre-layout"][data-id="rows"]')) === 'true',
         "Q. Rows is not the Genre page's default layout"
       );
-      await page.click('#genre-maintabs [data-ui="genre-view-tab"][data-id="all"]');
+      check(
+        (await page.locator('#genre-detail').count()) === 0,
+        'Q. arrival must not auto-open a genre'
+      );
+      check(
+        (await page.locator('#genre-maintabs [role="tablist"]').count()) === 0,
+        'Q. catalog has no view tab bar'
+      );
+      check(
+        (await page.locator('#genre-list').getAttribute('role')) !== 'tabpanel' &&
+          !(await page.locator('#genre-list').getAttribute('aria-labelledby')),
+        'Q. catalog must not reference a removed tab'
+      );
       // A row per first letter, # first, A to Z within each and filed right;
       // together they hold the whole catalog.
       const rows = await page.evaluate(() =>
@@ -1975,7 +1990,10 @@ async function loadDelta(page) {
       await stubPhotos(ctx);
       await page.goto(url + '#genre');
       await ready(page);
-      await page.tap('#genre-maintabs [data-ui="genre-view-tab"][data-id="all"]');
+      check(
+        (await page.locator('#genre-maintabs [role="tab"]').count()) === 0,
+        'catalog has no view tabs'
+      );
       const touch = await page.evaluate(() => {
         const t = document.querySelector('#genre-list .cm-tile');
         return {

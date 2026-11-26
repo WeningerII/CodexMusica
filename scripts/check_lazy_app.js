@@ -56,8 +56,8 @@
 //   first view at the boot status, writing nothing, until it lands; no other
 //   state preloads it. The Instrument route says its list is loading
 //   (role=status, no count, never "0 instruments") and is the embedded
-//   build's everywhere else. Two states draw prose slots as pending
-//   (the non-starter deep link, and the restored recipe's List suggestions);
+//   build's everywhere else. Catalog List states and the non-starter deep
+//   link draw prose slots as pending;
 //   there the pending slots must be exactly the genres without prose, and the
 //   page must be equal once they are masked. Then both are released: every
 //   slot fills IN PLACE (no control the page had is rebuilt) and the page is
@@ -235,9 +235,9 @@ const LIST = { 'codex-layout:genre-view': '"list"' };
 // `route`: the page opens on that route's hash (codex.html#instrument).
 const SCENARIOS = {
   default: {},
-  list: { storage: LIST },
+  list: { storage: LIST, pending: true },
   mobile: { width: 375 },
-  'mobile-list': { width: 375, storage: LIST },
+  'mobile-list': { width: 375, storage: LIST, pending: true },
   'deep-starter': { query: '?trad=dub' },
   deep: { query: '?trad=bluegrass', pending: true },
   'deep-unknown': { query: '?trad=nope_not_a_genre' },
@@ -597,6 +597,17 @@ function bootDom(html, fetchShim, { url = 'about:blank', width, storage, onWindo
         removeListener() {},
       });
       w.scrollTo = () => {};
+      // jsdom omits the standards-mode document scroller and element scrolling.
+      // Model that browser boundary; non-finite scroll requests remain errors.
+      Object.defineProperty(w.document, 'scrollingElement', {
+        get: () => w.document.documentElement,
+      });
+      w.HTMLElement.prototype.scrollBy = function ({ top = 0, left = 0 }) {
+        if (!Number.isFinite(top) || !Number.isFinite(left))
+          throw new Error('Invalid scroll delta');
+        this.scrollTop += top;
+        this.scrollLeft += left;
+      };
       // jsdom has no scrollIntoView; an import scrolls its first card into view.
       w.HTMLElement.prototype.scrollIntoView = () => {};
       if (width) Object.defineProperty(w, 'innerWidth', { value: width, configurable: true });
@@ -1257,7 +1268,7 @@ async function firstView(embedHtml, lazyHtml, name) {
         unproven: ${PENDING}.filter(([id]) => !id || Catalog.hasProse(id)).length,
         rowsNoSlot: [...document.querySelectorAll('.gp-row[data-gp-id]')].filter((r) => !Catalog.hasProse(r.dataset.gpId) && !r.querySelector('[data-prose-pending="row"]')).map((r) => r.dataset.gpId),
         nonStarterRows: [...document.querySelectorAll('#genre-list .gp-row[data-gp-id]')].map((r) => r.dataset.gpId).filter((id) => !STARTER_TRADITIONS.includes(id)),
-        suggestions: /Suggestions for this recipe/.test(document.getElementById('genre-list').textContent),
+        detail: !!document.getElementById('genre-detail'),
         cards: app.cards.length,
         snap: (${SNAP_FN})(document.body),
       };`,
@@ -1287,14 +1298,18 @@ async function firstView(embedHtml, lazyHtml, name) {
           );
         if (name === 'deep' && !pending.some(([id, k]) => id === 'bluegrass' && k === 'lede'))
           fail(`${tag}: the deep-linked genre's description is not drawn as loading`);
-        if (name === 'restored-list') {
+        if (['list', 'mobile-list', 'restored-list'].includes(name)) {
           const rows = pending
             .filter(([, k]) => k === 'row')
             .map(([id]) => id)
             .sort();
-          if (lazyState.cards !== 2 || !lazyState.suggestions)
+          if (
+            lazyState.cards !== (name === 'restored-list' ? 2 : 0) ||
+            lazyState.detail ||
+            !rows.length
+          )
             fail(
-              `${tag}: the restored recipe did not draw its suggestions (cards=${lazyState.cards}) — the scenario is vacuous`
+              `${tag}: the catalog List did not retain its recipe and pending rows without an automatic detail (cards=${lazyState.cards}) — the scenario is vacuous`
             );
           if (JSON.stringify(rows) !== JSON.stringify([...lazyState.nonStarterRows].sort()))
             fail(
@@ -2952,9 +2967,14 @@ async function engineSweep(lazyHtml) {
           `(() => {
             ${setup}
             const skip = new Set(${JSON.stringify([...seen])});
-            const el = [...document.querySelectorAll('${sel}')].find((e) => !skip.has(e.dataset.ui));
+            const el = [...document.querySelectorAll('${sel}')].find((e) => !skip.has(e.dataset.ui) && (e.dataset.ui !== 'rows-jump' || e.closest('[id^="surface-"]')?.id === 'surface-' + UI.view));
             if (!el) return null;
             el.click();
+            if (el.dataset.ui === 'rows-jump') {
+              const group = [...document.querySelectorAll('.cm-rows-group')].find((g) => g.dataset.rows === el.dataset.id);
+              if (!group || document.activeElement !== group.querySelector('.cm-rows-label') || el.getAttribute('aria-current') !== 'true')
+                throw new Error('Rows jump did not mark and focus its real target');
+            }
             return el.dataset.ui;
           })()`
         );
@@ -3220,8 +3240,10 @@ async function failure(lazyHtml) {
       const r = await runProbe(
         dom,
         `const out = { bootError: !!document.getElementById('boot-error') };
+        out.catalog = !!document.querySelector('#genre-list .cm-rows-group') && !document.getElementById('genre-detail');
+        gpSelect(STARTER_TRADITIONS[0]);
         const lede = document.querySelector('#genre-detail .gp-lede');
-        out.featured = !!lede && !lede.hasAttribute('data-prose-pending');
+        out.starter = !!lede && !lede.hasAttribute('data-prose-pending');
         UI.genre = 'bluegrass'; G.detailTab = 'background'; gpRenderMain();
         const bg = document.getElementById('gp-panel-background');
         out.bg = bg ? bg.textContent : '';
@@ -3238,7 +3260,9 @@ async function failure(lazyHtml) {
       else {
         const claims = /has no description|names no exemplar artists/;
         if (r.bootError) fail('a prose failure rendered #boot-error — the app must keep working');
-        if (!r.featured) fail("a prose failure left the featured starter's description pending");
+        if (!r.catalog) fail('a prose failure did not preserve the default catalog');
+        if (!r.starter)
+          fail('a prose failure left an explicitly opened starter description pending');
         if (!/Couldn.t load/.test(r.bg) || !r.retry || claims.test(r.bg))
           fail(
             `a prose failure: the Background tab must say it could not load, with Retry: ${JSON.stringify(r.bg.slice(0, 200))}`

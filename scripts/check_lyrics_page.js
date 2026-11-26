@@ -7051,7 +7051,11 @@ async function browserChecks(chromium) {
       const said = [];
       for (let i = 0; i < 2; i++) {
         await page.keyboard.press('Enter');
-        await page.waitForTimeout(150);
+        const announcement = new RegExp('^.+, ' + (i + 2) + ' of \\d+$');
+        await page
+          .locator('#ly-live')
+          .filter({ hasText: announcement })
+          .waitFor({ state: 'attached' });
         said.push(
           await page.evaluate(() => ({
             focus: document.activeElement?.dataset?.ui || document.activeElement?.tagName,

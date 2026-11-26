@@ -79,7 +79,9 @@ const server = http.createServer((req, res) => {
             );
         });
         try {
-          await page.goto(`http://127.0.0.1:${server.address().port}/codex.html#genre/delta_blues`);
+          await page.goto(`http://127.0.0.1:${server.address().port}/codex.html#genre`);
+          await page.locator('#genre-search').fill('Delta blues');
+          await page.locator('.cm-tile-name[data-id="delta_blues"]').first().click();
           const tab = page.locator('#gp-tab-instruments');
           await tab.scrollIntoViewIfNeeded();
           const before = await tab.boundingBox();

@@ -381,12 +381,12 @@
 /* ── Main pane ─────────────────────────────────────────────────────────── */
 /* Focus moved into view (Shift+Tab, a jump) lands below the sticky tabs, not
    under them (Jony, #519; WCAG 2.4.11). The tabs are about 64 px tall, with
-   the A–Z line about 100 px. */
+   the A–Z line up to 119 px, plus clearance for the focus ring. */
 #genre-main {
   scroll-padding-top: 72px;
 }
 #genre-main:has(> .gp-maintabs-jump) {
-  scroll-padding-top: 112px;
+  scroll-padding-top: 128px;
 }
 .gp-maintabs {
   position: sticky;
@@ -401,36 +401,17 @@
   border-bottom: 1px solid var(--cm-border-subtle);
   background: var(--cm-surface-subtle);
 }
-.gp-viewtabs {
-  display: flex;
-  gap: 4px;
-}
-.gp-viewtabs .cm-tab {
-  font-size: var(--cm-text-lg);
-}
-.gp-viewtabs .cm-tab[aria-selected='true'] {
-  color: var(--cm-accent-text);
-}
 .gp-layout {
+  margin-left: auto;
   margin-bottom: 6px;
 }
-/* All genres in Rows: the A–Z bar is the tabs' second line, and sticks. */
+/* The A–Z bar sticks below the layout controls. */
 .gp-maintabs-jump {
   flex-wrap: wrap;
 }
 .gp-maintabs > .cm-rows-jump {
   flex: 1 0 100%;
   margin-top: -2px;
-}
-.gp-h {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 20px 0 2px;
-  font: 600 var(--cm-text-lg) var(--cm-font);
-}
-.gp-h svg {
-  color: var(--cm-amber);
 }
 .gp-count-line {
   padding: 4px 0 8px !important;
@@ -445,9 +426,6 @@
   border-color: var(--cm-accent);
   background: var(--cm-accent-soft);
   color: var(--cm-accent-text);
-}
-.gp-browse-all {
-  margin: 12px 0 0;
 }
 #surface-genre .gp-more-btn {
   display: flex;
@@ -1194,10 +1172,6 @@
   .gp-maintabs.gp-maintabs-jump {
     position: sticky;
   }
-  .gp-viewtabs .cm-tab {
-    padding: 0 10px;
-    font-size: var(--cm-text-md);
-  }
   .gp-layout span {
     display: none;
   }
@@ -1292,4 +1266,33 @@
   max-width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* Chrome's shared-image recipe; no change to the resting page. */
+html.gp-transition::view-transition {
+  pointer-events: none;
+}
+html.gp-transition::view-transition-old(root) {
+  animation: none;
+  opacity: 0;
+}
+html.gp-transition::view-transition-new(root) {
+  animation: none;
+}
+html.gp-transition::view-transition-group(genre-image) {
+  animation-duration: 250ms;
+}
+html.gp-transition::view-transition-old(genre-image),
+html.gp-transition::view-transition-new(genre-image) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: 100%;
+}
+html.gp-transition::view-transition-image-pair(genre-image) {
+  isolation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.gp-transition::view-transition-group(genre-image) {
+    animation-duration: 0s;
+  }
 }

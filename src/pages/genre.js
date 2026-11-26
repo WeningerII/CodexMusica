@@ -1,12 +1,11 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiAnnounce, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, searchRank, uiSearchToResults */
+/* global $ui, Catalog, Engine, InstLite, Tradition, UI, UILayout, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiAnnounce, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, searchRank, uiSearchToResults */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
 
    Layout: a Browse column (the 25 taxonomy roots, the branch you are in, and
-   Find a sound) beside the catalogue (Start exploring / All genres, Rows or
-   List). All genres in Rows is one scrolling row of cards per first letter,
+   Find a sound) beside the catalogue (Rows or List). All genres in Rows is one scrolling row of cards per first letter,
    with an A–Z bar to jump between them. A genre's details open in place —
    inside its List row, or at the top when it is not in the list you are
    looking at or the list is Rows — with five tabs: Overview, Sound
@@ -20,9 +19,7 @@
 // are the shell-visible part; everything else lives here.
 const G = {
   saidNoMatch: '', // the search gpSayNoMatch last announced as matching nothing
-  tab: 'start', // 'start' | 'all'
   detailTab: 'overview',
-  featureClosed: false, // the Start exploring feature has been closed
   targets: {}, // axis id -> -2..2, only the applied characteristics
   allAxes: false, // Find a sound shows all 13, not just the first three
   allRoots: false, // Browse shows all 25 roots, not just the first ten
@@ -31,7 +28,7 @@ const G = {
   listScroll: null, // list position before a pinned detail opened
   origin: null, // the list row a chain of details was opened from
   view: null, // UILayout.remember('genre-view') — 'rows' | 'list'
-  jump: '', // the A–Z bar for All genres in Rows, drawn with the main tabs
+  jump: '', // the A–Z bar for All genres in Rows, drawn with the layout controls
   members: null, // taxonomy membership, computed once from the catalog
   sorted: null, // the catalog sorted by name, computed once
   geo: null, // data/atlas-geo.json coords, when it can be read
@@ -629,7 +626,7 @@ function gpBrowse() {
   } else {
     const roots = getRoots();
     const shown = G.allRoots ? roots : roots.slice(0, GP_ROOTS_SHOWN);
-    nav = `<button type="button" class="gp-all" data-ui="genre-all" aria-pressed="${G.tab === 'all' && !UI.genreNode}"><span>All genres</span><span class="gp-count">${total.toLocaleString()}</span></button><ul class="gp-roots">${shown.map((k) => gpBranchItem(k, members)).join('')}</ul>${roots.length > GP_ROOTS_SHOWN ? uiButton('genre-roots', G.allRoots ? 'Fewer categories' : `All ${roots.length} categories`, 'chevron-down', `class="cm-btn gp-linkbtn gp-roots-toggle" aria-expanded="${G.allRoots}"`) : ''}`;
+    nav = `<button type="button" class="gp-all" data-ui="genre-all" aria-pressed="${!UI.genreNode}"><span>All genres</span><span class="gp-count">${total.toLocaleString()}</span></button><ul class="gp-roots">${shown.map((k) => gpBranchItem(k, members)).join('')}</ul>${roots.length > GP_ROOTS_SHOWN ? uiButton('genre-roots', G.allRoots ? 'Fewer categories' : `All ${roots.length} categories`, 'chevron-down', `class="cm-btn gp-linkbtn gp-roots-toggle" aria-expanded="${G.allRoots}"`) : ''}`;
   }
   // Below 900px everything after the heading row is behind one disclosure;
   // Browse tree stays in the heading row, reachable without opening it.
@@ -713,7 +710,6 @@ function gpApplyAxis(input) {
   input.setAttribute('aria-valuetext', state);
   input.title = `${ax.name}: ${state}`;
   gpSyncSoundHead();
-  G.tab = 'all';
   UI.limit = 50;
   gpListToTop();
   gpScheduleList();
@@ -740,44 +736,7 @@ function gpScheduleList() {
 
 // ── Main pane ────────────────────────────────────────────────────────────
 function gpOpenId() {
-  if (UI.genre) return UI.genre;
-  if (G.tab === 'start' && !G.featureClosed && !gpQuery()) return STARTER_TRADITIONS[0];
-  return null;
-}
-function gpStart(open) {
-  const starters = STARTER_TRADITIONS.map((id) => Tradition(id))
-    .filter(Boolean)
-    .map((t) => ({ t }));
-  const pinned = open && (gpLayout() === 'rows' || !starters.some((r) => r.t.id === open));
-  let html = pinned ? `<div class="gp-pinned">${gpDetail(open)}</div>` : '';
-  html += `<h2 class="gp-h">Six starter recipes</h2><p class="gp-note">Chosen to span the catalog: sparse and dense, acoustic and electronic, modal and functional, equal-tempered and not.</p>${gpList(starters, pinned ? null : open, null, 'genre-start')}`;
-  html += gpSuggestions();
-  html += `<div class="gp-browse-all">${uiButton('genre-all', `Browse all ${gpCatalogSize().toLocaleString()} traditions`, 'arrow-right', 'class="cm-btn gp-linkbtn"')}</div>`;
-  return html;
-}
-// Genres close to Your recipe's primary genre and not already in it — the
-// same axis-distance neighbours the recipe panel suggests from.
-function gpSuggestions() {
-  const primaryCard = app.cards.find((c) => c.id === _determinePrimaryCard(app.cards));
-  const primary = primaryCard?.traditionId;
-  if (!primary || !Tradition(primary)) return '';
-  const inRecipe = new Set(uiRecipeGenres());
-  const pool = findSimilar(primary, 16)
-    .filter((s) => !inRecipe.has(s.id))
-    .slice(0, 4);
-  if (!pool.length) return '';
-  const name = Tradition(primary).name;
-  return `<h2 class="gp-h">${icon('lightbulb', 18)}Suggestions for this recipe</h2><p class="gp-note">Close to ${esc(name)}, the primary genre in Your recipe, across the 13 sound characteristics.</p>${gpList(
-    pool.map((s) => ({ t: Tradition(s.id) })).filter((r) => r.t),
-    null,
-    (r) =>
-      `<span class="gp-row-reason">${icon('sparkles', 12)}Shares ${esc(
-        getMatchingAxes(primary, r.t.id, 2)
-          .map((mm) => axisLabel(mm.axis, mm.bv))
-          .join(' · ')
-      )}</span>`,
-    'genre-suggest'
-  )}`;
+  return UI.genre || null;
 }
 const GP_BEST = 12;
 function gpAll(open) {
@@ -933,6 +892,8 @@ function gpSayNoMatch() {
   }, 500);
 }
 function gpRenderMain() {
+  // Recipe/prose/layout redraws must not discard an accepted open or Back.
+  if (gpFinishTransition()) return; // The committed action already rendered and focused.
   const host = $ui('genre-list');
   if (!host) return;
   if (gpTreeOpen()) return;
@@ -943,15 +904,7 @@ function gpRenderMain() {
   const keep = uiRowsKeep(host);
   gpRecipeSig = gpRecipeSignature();
   $ui('genre-maintabs').innerHTML =
-    `<div class="gp-viewtabs" role="tablist" aria-label="What to show">${[
-      ['start', 'Start exploring'],
-      ['all', 'All genres'],
-    ]
-      .map(
-        ([k, l]) =>
-          `<button type="button" role="tab" class="cm-tab" id="gp-view-${k}" data-ui="genre-view-tab" data-id="${k}" aria-controls="genre-list" aria-selected="${G.tab === k}" tabindex="${G.tab === k ? 0 : -1}">${l}</button>`
-      )
-      .join('')}</div><div class="cm-segmented gp-layout" role="group" aria-label="Layout">${[
+    `<div class="cm-segmented gp-layout" role="group" aria-label="Layout">${[
       ['rows', 'Rows', 'rows'],
       ['list', 'List', 'list'],
     ]
@@ -960,14 +913,9 @@ function gpRenderMain() {
           `<button type="button" data-ui="genre-layout" data-id="${k}" aria-pressed="${layout === k}" aria-label="${l}">${icon(ic, 16)}<span>${l}</span></button>`
       )
       .join('')}</div>`;
-  // A search always shows its results (All genres), however it was set.
-  if (gpQuery()) G.tab = 'all';
   G.jump = '';
-  host.innerHTML = G.tab === 'all' ? gpAll(open) : gpStart(open);
-  // The view tabs control this list: it is their tabpanel.
-  host.setAttribute('role', 'tabpanel');
-  host.setAttribute('aria-labelledby', `gp-view-${G.tab}`);
-  // All genres in Rows: the A–Z bar sticks under the tabs.
+  host.innerHTML = gpAll(open);
+  // The A–Z bar stays with the layout controls.
   $ui('genre-maintabs').insertAdjacentHTML('beforeend', G.jump);
   $ui('genre-maintabs').classList.toggle('gp-maintabs-jump', !!G.jump);
   uiRowsRestore(host, keep);
@@ -977,7 +925,7 @@ function gpRenderMain() {
   // (rebuilding would drop a slider mid-drag).
   document
     .querySelectorAll('#genre-browse [data-ui="genre-all"]')
-    .forEach((b) => b.setAttribute('aria-pressed', String(G.tab === 'all' && !UI.genreNode)));
+    .forEach((b) => b.setAttribute('aria-pressed', String(!UI.genreNode)));
 }
 function gpMarkOpen(open) {
   document.querySelectorAll('#genre-list .gp-open').forEach((b) => {
@@ -986,6 +934,7 @@ function gpMarkOpen(open) {
 }
 function renderGenreDiscovery() {
   if (!$ui('genre-body')) return;
+  gpLoadMotion();
   if (!G.view) G.view = UILayout.remember('genre-view', 'rows', () => gpRenderMain());
   // The place names and photos are optional and the first view shows glyphs
   // without them, so they are fetched after the first paint, and after the
@@ -1052,11 +1001,43 @@ function gpShowDetail() {
   else d.scrollIntoView?.({ block: 'nearest' });
 }
 
+// Reuse the site's direct ES-module loading pattern. Motion is optional:
+// never wait for it or replay the user's first interaction after it loads.
+let gpMotion, gpMotionPending;
+function gpLoadMotion() {
+  if (
+    UI.view !== 'genre' ||
+    gpMotionPending ||
+    !document.startViewTransition ||
+    !/^https?:$/.test(location.protocol)
+  )
+    return;
+  gpMotionPending = import('./src/pages/genre-motion.mjs').then(
+    (module) => {
+      gpMotion = module;
+    },
+    () => {
+      gpMotionPending = null;
+    }
+  );
+}
+function gpFinishTransition(commit) {
+  return gpMotion?.finish(commit);
+}
+function gpTransition(id, back, change, opener) {
+  if (gpMotion) gpMotion.run(id, back, change, opener);
+  else change();
+}
+
 // ── Opening, closing, tabs ───────────────────────────────────────────────
-function gpSelect(id) {
+function gpSelect(id, opener) {
+  gpFinishTransition();
+  if (!Tradition(id)) return;
+  gpTransition(id, false, () => gpSelectNow(id), opener);
+}
+function gpSelectNow(id) {
   if (!Tradition(id)) return;
   gpCloseTree();
-  if (G.tab === 'start') G.featureClosed = true;
   // Remember the row the reader came from, and the list position, so that
   // closing a detail opened from Similar sounds (or a breadcrumb) returns there.
   const inList = !!uiFind('#genre-list .gp-open', 'id', id);
@@ -1073,12 +1054,15 @@ function gpSelect(id) {
 }
 // Back from a genre's detail to the list, returning focus to its row.
 function uiGenreBack() {
+  gpFinishTransition();
+  const id = gpOpenId();
+  if (!id) return;
+  gpTransition(id, true, gpBackNow);
+}
+function gpBackNow() {
   const id = gpOpenId();
   if (!id) return;
   UI.genre = null;
-  // Closing anything on Start exploring also retires its opening feature, so
-  // closing never makes a different genre spring open.
-  if (G.tab === 'start') G.featureClosed = true;
   gpRenderMain();
   gpRestoreScroll();
   const origin = G.origin;
@@ -1262,7 +1246,6 @@ uiRegisterPage({
       gpForgetPosition();
       UI.genre = null;
       UI.limit = 50;
-      if (gpQuery()) G.tab = 'all';
       gpRenderMain();
       gpSayNoMatch();
     });
@@ -1327,8 +1310,12 @@ uiRegisterPage({
     Catalog.onProse(gpApplyProse);
   },
   render: renderGenreDiscovery,
+  leave() {
+    gpFinishTransition(false);
+  },
   // Escape closes what this page opened: the inline tree, then a detail.
   escape() {
+    gpFinishTransition();
     if (gpTreeOpen()) {
       $ui('modal-trad').querySelector('[data-close]').click();
       uiFocus(document.querySelector('#surface-genre [data-ui="genre-tree"]'));
@@ -1346,7 +1333,6 @@ uiRegisterPage({
       UI.genre = null;
       UI.genreNode = id;
       UI.limit = 50;
-      G.tab = 'all';
       $ui('genre-search').value = '';
       renderGenreDiscovery();
       uiFocus($ui('gp-count'));
@@ -1365,15 +1351,14 @@ uiRegisterPage({
       UI.genreNode = '';
       UI.genre = null;
       UI.limit = 50;
-      G.tab = 'all';
       renderGenreDiscovery();
     },
     'genre-roots'() {
       G.allRoots = !G.allRoots;
       renderGenreDiscovery();
     },
-    'genre-select'(id) {
-      gpSelect(id);
+    'genre-select'(id, button) {
+      gpSelect(id, button);
     },
     'genre-place'(_, b) {
       b.ariaExpanded = b.ariaExpanded !== 'true';
@@ -1388,14 +1373,6 @@ uiRegisterPage({
       const tab = $ui('gp-tab-' + id);
       gpRevealUnderBar(tab);
       uiFocus(tab);
-    },
-    'genre-view-tab'(id) {
-      gpForgetPosition();
-      gpCloseTree();
-      G.tab = id === 'all' ? 'all' : 'start';
-      UI.genre = null;
-      UI.limit = 50;
-      renderGenreDiscovery();
     },
     'genre-layout'(id) {
       G.view.set(id === 'list' ? 'list' : 'rows');
@@ -1466,7 +1443,6 @@ uiRegisterPage({
       G.targets = {};
       for (const ax of AXIS_DEFINITIONS) G.targets[ax.id] = axes[ax.id] ?? 0;
       G.allAxes = true;
-      G.tab = 'all';
       UI.genre = null;
       UI.genreNode = '';
       UI.limit = 50;
@@ -1494,12 +1470,10 @@ uiRegisterPage({
       if (gpQuery() && !Catalog.proseLoaded()) await Catalog.loadProse().catch(() => {});
       const best = gpResults()[0];
       if (!best) {
-        G.tab = 'all';
         renderGenreDiscovery();
         uiFocus($ui('gp-count'));
         return;
       }
-      G.tab = 'all';
       gpSelect(best.t.id);
     },
     async 'genre-inst-add'(id, button) {
