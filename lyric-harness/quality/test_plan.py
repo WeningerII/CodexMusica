@@ -8538,17 +8538,55 @@ class IncrementalRepetitionRule(unittest.TestCase):
     @staticmethod
     def _unread_word(rng, pools, known, kind, taken=()):
         """-> a word the stream gives no syllables, drawn by seed. 'hyphen'
-        joins two dictionary words with a hyphen and 'unknown' is consonants
-        drawn by seed (neither is a dictionary entry); 'shapes' is a
-        dictionary word whose readings differ in syllable count."""
+        joins a dictionary word and letters outside the dictionary with a
+        hyphen, in either order, and 'unknown' is consonants drawn by seed
+        (neither is a dictionary entry); 'shapes' is a dictionary word whose
+        readings differ in syllable count.
+
+        REPINNED 2026-11-24: 'hyphen' ~~joins two dictionary words with a
+        hyphen~~. The reader now reads most hyphen-joined words whose every
+        part is a dictionary word (`English._piece_readings`), so that draw
+        is no longer reliably unread;
+        `test_a_read_hyphen_joined_word_is_one_word` below holds it. A joined
+        word with a part the dictionary lacks is still given no syllables."""
         read, two_shape = pools
+
+        def letters():
+            while True:
+                w = "".join(rng.choice("bcdfghjklmnpqrstvwxz")
+                            for _ in range(rng.randint(6, 9)))
+                if w not in known:
+                    return w
+
         while True:
-            w = ("-".join(rng.sample(read, 2)) if kind == 'hyphen' else
-                 rng.choice(two_shape) if kind == 'shapes' else
-                 "".join(rng.choice("bcdfghjklmnpqrstvwxz")
-                         for _ in range(rng.randint(6, 9))))
+            if kind == 'hyphen':
+                parts = [rng.choice(read), letters()]
+                rng.shuffle(parts)
+                w = "-".join(parts)
+            elif kind == 'shapes':
+                w = rng.choice(two_shape)
+            else:
+                w = letters()
             if (kind == 'shapes' or w not in known) and w not in taken:
                 return w
+
+    @staticmethod
+    def _joined_word(rng, R, words, taken=()):
+        """-> two dictionary words joined by a hyphen, drawn by seed, that
+        the stream reads and the dictionary does not hold whole. The reader
+        leaves a few joined words unread (speakers its parts' readings do
+        not share, or more combinations than it will try), so a draw that
+        holds one is drawn again, up to 200 times: a reader that reads no
+        joined word fails here and does not loop."""
+        for _ in range(200):
+            w = "-".join(rng.sample(words, 2))
+            if w in R.lex.entries or w in taken:
+                continue
+            if not RL.build_stream([w], R._relation_phonology(),
+                                   declaration={"language": "eng"}).unreadable:
+                return w
+        raise AssertionError("200 draws of two dictionary words joined by a "
+                             "hyphen, and the stream reads none of them")
 
     @staticmethod
     def _text_answer(one, two):
@@ -8578,7 +8616,9 @@ class IncrementalRepetitionRule(unittest.TestCase):
 
     def test_an_unread_word_is_still_a_word(self):
         """Every cell of kind x change x other change, lines drawn by seed.
-        Kind: the unread word is two dictionary words joined by a hyphen,
+        Kind: the unread word is a dictionary word joined by a hyphen to
+        letters outside the dictionary (REPINNED 2026-11-24: ~~two
+        dictionary words joined by a hyphen~~, which the reader now reads),
         letters outside the dictionary, or a dictionary word whose readings
         differ in syllable count. Change: it is changed for another unread
         word, changed for a read word, added, or dropped. Other change:
@@ -8645,7 +8685,8 @@ class IncrementalRepetitionRule(unittest.TestCase):
 
     def test_the_count_names_an_unread_changed_word(self):
         """`whole_line_identity_failures` on lines drawn by seed that differ
-        only in a hyphen-joined word: one word differs, so no rule fails.
+        only in a hyphen-joined word the reader gives no syllables (one part
+        is outside the dictionary): one word differs, so no rule fails.
         With one more changed word the count is 2, and the same line twice
         is 0."""
         R = _round_trip_reviser()
@@ -8675,6 +8716,43 @@ class IncrementalRepetitionRule(unittest.TestCase):
                          for other in (1, 2, 3)]
                 self.assertEqual(notes, [[], ['2 words differ'],
                                          ['0 words differ']])
+
+    def test_a_read_hyphen_joined_word_is_one_word(self):
+        """Two dictionary words joined by a hyphen, drawn by seed. The
+        reader reads the joined word since 2026-11-24 (until then it gave
+        it no syllables, and it was this class's 'hyphen' draw). The count
+        still takes it as one word: lines that differ only in it differ in
+        one word and the pair stands, with one more changed word the count
+        is 2, and the same line twice is 0."""
+        R = _round_trip_reviser()
+        sch = RL.REGISTRY['incremental repetition']
+        words = self._word_pools(R)[0]
+        rng = random.Random('hyphen-lift-joined-word')
+        for _ in range(8):
+            n = rng.randint(2, 5)
+            drawn = self._read_words(rng, R, words, n + 1)
+            base, fresh = drawn[:n], drawn[n]
+            j1 = self._joined_word(rng, R, words)
+            j2 = self._joined_word(rng, R, words, taken=(j1,))
+            at = rng.randint(0, n)
+            more = list(base)
+            more[rng.randrange(n)] = fresh
+            one = " ".join(base[:at] + [j1] + base[at:])
+            two = " ".join(base[:at] + [j2] + base[at:])
+            three = " ".join(more[:at] + [j2] + more[at:])
+            st = RL.build_stream([one, two, three, one], R._relation_phonology(),
+                                 declaration={"language": "eng"})
+            with self.subTest(one=one, two=two, three=three):
+                self.assertEqual(list(st.unreadable), [])
+                self.assertEqual([len(t) for t in st.lexical_tokens],
+                                 [n + 1] * 4)
+                notes = [[r.note for _, r in
+                          RL.whole_line_identity_failures(sch, st, 0, other)]
+                         for other in (1, 2, 3)]
+                self.assertEqual(notes, [[], ['2 words differ'],
+                                         ['0 words differ']])
+                _, note, verdict, stands = self._judged(R, one, two)
+                self.assertEqual((note, verdict, stands), (None, True, True))
 
     def test_capitals_and_marks_are_not_a_changed_word(self):
         """WHAT A WORD IS HERE, pinned on lines of dictionary words drawn by

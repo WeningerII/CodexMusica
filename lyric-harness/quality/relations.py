@@ -2202,6 +2202,28 @@ def _spans_at(rule, stream, ids, origin):
             yield replace(sp, idx=ids[-1:], promoted=True)
 
 
+def _declared_occurrence(stream, unit):
+    """True when the writer declared the reading of `unit`'s token (a
+    pronunciation with basis `declared`), as the stream's phonology narrows
+    to that token; False where it cannot say.
+
+    It depends on `Lexicon._pronunciation_choice` (lyric_harness), read with
+    `getattr` so a lexicon from another reader, without that attribute, or a
+    phonology without `for_line` / `for_token`, counts as not declared rather
+    than raising."""
+    raw = (stream.text_lines[unit.line]
+           if 0 <= unit.line < len(stream.text_lines) else None)
+    phon = stream.phon
+    if raw is None or not hasattr(phon, "for_line"):
+        return False
+    line_phon = phon.for_line(raw)
+    token_phon = (line_phon.for_token(unit.token)
+                  if hasattr(line_phon, "for_token") else line_phon)
+    choice = getattr(getattr(token_phon, "lexicon", None),
+                     "_pronunciation_choice", None)
+    return bool(choice) and choice.get("basis") == "declared"
+
+
 def _promotable_final(stream, ids, ap, rule):
     """Is the last syllable of `ids` the one `Declaration.final_promotion`
     promotes? (`MISSING.md` M-319.) The same three conditions
@@ -2209,12 +2231,36 @@ def _promotable_final(stream, ids, ap, rule):
     its LINE, its last-stressed anchor (`ap`) is a definitely stressed
     syllable BEFORE the last one, and the last syllable is definitely
     unstressed. An uncertain prominence offers nothing here; the
-    any-reading rule pins each reading and asks again."""
-    if rule.direction <= 0 or len(ids) < 2 or ap >= len(ids) - 1:
+    any-reading rule pins each reading and asks again.
+
+    A ONE-SYLLABLE WORD WITH NO STRESS IN ITS ENTRY (owner ruling
+    2026-11-23): `'cause` K AH0 Z, `'em` AH0 M have no stressed syllable
+    before the last, so the three conditions never held. Such a word, ending
+    its line and definitely unstressed, is promoted too, when its token is
+    in `sung_stressed_at_line_end`'s class, asked of the stream's lexicon,
+    and the writer did not DECLARE that occurrence's reading. A declared
+    reading is never promoted (review of #913, 2026-11-26): the writer chose
+    that stress, so the "heard stressed at a line end" class does not
+    override it; the class only adds a hearing beside a dictionary reading.
+    The declaration is read where the stream read the token: the line's
+    phonology narrowed to that token."""
+    if rule.direction <= 0 or not ids:
         return False
     last = stream.units[ids[-1]]
     line = stream.lines[last.line] if 0 <= last.line < len(stream.lines) else ()
     if not line or line[-1] != ids[-1]:
+        return False
+    if len(ids) == 1:
+        # Asked of the stream's own lexicon: this module imports nothing
+        # from lyric_harness (P10), and a reader without the question
+        # promotes nothing.
+        heard = getattr(_stream_lexicon(stream), "sung_stressed_at_line_end",
+                        None)
+        tail = last.syl.prominence
+        return (heard is not None and not uncertain(tail) and tail == 0
+                and not _declared_occurrence(stream, last)
+                and bool(heard(last.token_text)))
+    if ap >= len(ids) - 1:
         return False
     head = stream.units[ids[ap]].syl.prominence
     tail = last.syl.prominence
@@ -3412,9 +3458,15 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
     # Duplicate candidates only share history with the same left span.
     # Retain that row until its last occurrence (left spans can repeat),
     # instead of keeping the entire Cartesian product alive for the query.
+    # A SPAN IS ITS UNITS AND WHETHER IT IS THE PROMOTED READING: a
+    # one-syllable line-final word offers its dictionary span and its
+    # promoted span on the same unit (`_promotable_final`), and keyed on the
+    # units alone the second was taken for the first and never evaluated.
+    def skey(sp):
+        return (sp.idx, getattr(sp, "promoted", False))
     remaining = {}
     for a, _ in layout:
-        remaining[a.idx] = remaining.get(a.idx, 0) + 1
+        remaining[skey(a)] = remaining.get(skey(a), 0) + 1
     seen = {}
     # A requested pair projection used to filter only after visiting the
     # complete span Cartesian product. Build the same canonical line-pair
@@ -3457,12 +3509,12 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
     for a, buckets in layout:
         a_head = a.head()
         la = _span_line(a, stream) if need_line else None
-        remaining[a.idx] -= 1
+        remaining[skey(a)] -= 1
         if requested_partners is not None:
             partners = requested_partners.get(la)
             if not partners:
-                if not remaining[a.idx]:
-                    seen.pop(a.idx, None)
+                if not remaining[skey(a)]:
+                    seen.pop(skey(a), None)
                 continue
         elif keep_partners is not None:
             partners = keep_partners.get(la)
@@ -3471,7 +3523,7 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
                     lb for lb in cand_lines
                     if la is None or lb is None or lb == la
                     or (min(la, lb), max(la, lb)) not in skip_line_pairs)
-        row_seen = seen.setdefault(a.idx, set())
+        row_seen = seen.setdefault(skey(a), set())
         for v in buckets:
             candidates = bucket_meta[id(v)]
             if requested_partners is not None or keep_partners is not None:
@@ -3491,9 +3543,9 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
                         key=lambda entry: entry[0])]
                 candidates = projected_buckets[key]
             for b, b_head, lb in candidates:
-                if a.idx == b.idx or b.idx in row_seen:
+                if a.idx == b.idx or skey(b) in row_seen:
                     continue
-                row_seen.add(b.idx)
+                row_seen.add(skey(b))
                 reversed_pair = a_head > b_head
                 if reversed_pair and (mirror_complete or mirrored(a, b, a_keys, b_keys)):
                     # CANDIDATE level: a de-duplicated pair is never
@@ -3513,8 +3565,8 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
                         0 < units[b_head].line - units[a_head].line <= gap):
                     continue      # `evaluate` would answer None: placement
                 yield a, b, reversed_pair
-        if not remaining[a.idx]:
-            del seen[a.idx]
+        if not remaining[skey(a)]:
+            del seen[skey(a)]
 
 
 def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,

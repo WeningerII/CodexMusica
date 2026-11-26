@@ -307,6 +307,31 @@ WEAK_NONFINAL = {
     "but", "if", "i", "this", "that", "my", "his", "her", "them", "your",
     "you", "he", "she", "we", "they", "me", "him", "us",
 }
+# PRONOUN + AUXILIARY CONTRACTIONS (bug-hunt finding 11, 2026-11-21), READER
+# SCHEME v2 ONLY: a contraction is read as weak as its spelled-out form, so a
+# line's stress no longer depends on whether the writer contracts. `it's`
+# joins `its` and `i'm` (its pronoun is weak everywhere); every other one
+# takes the weaker of its two halves' rules, which for a pronoun + auxiliary
+# is mid-phrase. The two sets above are scheme v1's, frozen as they were
+# (review of #913, 2026-11-26: adding to them reached v1's stress and end
+# anchors on every line with a pronoun contraction); `weak_sets` picks.
+WEAK_ALWAYS_V2 = WEAK_ALWAYS | {"it's"}
+WEAK_NONFINAL_V2 = WEAK_NONFINAL | {
+    p + "'" + aux
+    for p in ("i", "you", "he", "she", "we", "they", "it")
+    for aux in ("re", "s", "ll", "d", "ve")
+    if not (p == "i" and aux in ("re", "s"))
+    and not (p in ("he", "she", "it") and aux in ("re", "ve"))
+    and not (p in ("you", "we", "they") and aux == "s")
+} - WEAK_ALWAYS_V2
+
+
+def weak_sets(reader):
+    """-> (weak everywhere, weak mid-phrase) under `reader`'s scheme: v1's
+    frozen sets, or v2's with the pronoun contractions."""
+    if _scheme_of(reader) == "v1":
+        return WEAK_ALWAYS, WEAK_NONFINAL
+    return WEAK_ALWAYS_V2, WEAK_NONFINAL_V2
 
 
 def weak_token(reader, word, phrase_final=False):
@@ -320,7 +345,56 @@ def weak_token(reader, word, phrase_final=False):
     if getattr(reader, "_pronunciation_choice", None):
         return False
     word = word.lower()
-    return word in WEAK_ALWAYS or (word in WEAK_NONFINAL and not phrase_final)
+    always, nonfinal = weak_sets(reader)
+    return word in always or (word in nonfinal and not phrase_final)
+
+def sung_stressed_at_line_end(reader, word):
+    """-> True when `word`, a line's last token, may be HEARD STRESSED though
+    its dictionary entry marks no stress (owner ruling 2026-11-23:
+    `'cause`/`buzz` and `'em`/`hum` are full rhymes).
+
+    THE CLASS: a word whose own entry has exactly one vowel and no stressed
+    syllable in every reading, and every one of whose readings has exactly
+    one vowel, so there is one vowel to stress and nothing is chosen. A word
+    with no vowel (`hm`) or with two unstressed vowels stays out. Asked on
+    the RAW token, because the edge mark is part of the spelling (`em` has a
+    stressed entry of its own). Scheme v2 only; v1 is frozen.
+
+    It ADDS a hearing and never replaces one: every reader that asks keeps
+    the dictionary reading and offers the stressed one beside it, as the
+    small end word does (owner ruling 2026-10-01; standing rule 5)."""
+    if _scheme_of(reader) != "v2" or not hasattr(reader, "pronunciation_variants"):
+        return False
+    # A READING THE WRITER DECLARED IS NOT LIFTED (review of #913,
+    # 2026-11-26): the hearing is added beside the dictionary's, so where the
+    # writer declared the occurrence's reading there is nothing to add to. A
+    # dictionary-basis pick of a class word keeps it: the class has no
+    # stressed reading to pick against. And the class is asked of the
+    # dictionary's own entries, not of a reader narrowed to the occurrence,
+    # whose entry is the declaration itself (`buzz` declared B AH0 Z looked
+    # like a class word there).
+    choice = getattr(reader, "_pronunciation_choice", None)
+    if choice and choice.get("basis") == "declared":
+        return False
+    entries = getattr(reader, "_dictionary_entries", None)
+    if entries is None:
+        entries = getattr(reader, "entries", {})
+    own = entries.get(fold_apostrophes(word).lower(), ())
+    if not own:
+        return False
+    vowels = lambda r: sum(1 for p in r if p[-1:].isdigit())
+    if not all(vowels(r) == 1 and not any(p[-1] in "12" for p in r)
+               for r in own):
+        return False
+    prons = reader.pronunciation_variants(word)
+    return bool(prons) and all(vowels(r) == 1 for r in prons)
+
+
+def stressed_hearing(phones):
+    """-> `phones` with every vowel's stress written 1: the hearing
+    `sung_stressed_at_line_end` adds (its words have one vowel)."""
+    return [re.sub(r"[0-2]$", "1", ph) for ph in phones]
+
 
 SUFFIXES = [
     "ation", "ition", "ology", "ability", "iness", "fully",
@@ -1049,7 +1123,15 @@ SPELLING_ALIASES = {
 # TRAP (EI), the Scottish long GOOSE (UU), the Scottish centralised vowel
 # (EO), /x/ (KH), /ɬ/ (LH), the glottal stop (Q), /ç/ (CX) and the loan
 # vowels. They reach a song through a declared reading.
-ACCENT_RULES = "accent-readings-2026-10-30"
+# SMOOTHING (2026-11-21, bug-hunt finding 10) is the one rule that DROPS a
+# syllable on purpose: a stressed PRICE or MOUTH vowel straight before an
+# unstressed lettER at the end of the word (fire, tire, desire, hour, flower,
+# tired, hours) is sung and scanned as one syllable, AY1 R / AW1 R, the
+# reading CMUdict already lists for fire, hire, wire and sour and leaves out
+# for tire, desire, power and the rest. It is appended after the word's own
+# readings and is not an accent choice: one singer smooths fire and keeps
+# fi-er in the next line, so no pairing is refused on it.
+ACCENT_RULES = "accent-readings-2026-11-21"
 
 _RESPELL_BEFORE_CODA_R = {"IH": "IA", "IY": "IA",              # NEAR
                           "EH": "EA", "AE": "EA", "EY": "EA",  # SQUARE
@@ -1250,7 +1332,29 @@ def derive_accent_readings(word, readings):
             if (alt and alt != phones
                     and sum(1 for p in alt if _is_vowel(p)) == syll):
                 add(alt, name)
+    for phones in bases:
+        sm = _smoothed(phones)
+        if sm:
+            add(sm, "smoothing")
+            # A non-rhotic singer smooths too (fire -> F AY1, as CMUdict's
+            # own fire / hour readings already go): the same two rules the
+            # rhotic route composes for cure-force and force.
+            add(_non_rhotic(sm), "smoothing non-rhotic")
     return out, rules
+
+
+def _smoothed(phones):
+    """-> the one-syllable PRICE/MOUTH + R reading of a word that ends on a
+    stressed AY or AW, an unstressed ER and only consonants after it (tire
+    T AY1 ER0 -> T AY1 R, tired -> T AY1 R D, flower -> F L AW1 R), or None.
+    A vowel after the ER (fiery, towering) leaves it alone: the smoothed
+    syllable has to be the word's last."""
+    for i in range(len(phones) - 1):
+        if (_base(phones[i]) in ("AY", "AW") and phones[i][-1] in "12"
+                and phones[i + 1] == "ER0"
+                and not any(_is_vowel(p) for p in phones[i + 2:])):
+            return list(phones[:i + 1]) + ["R"] + list(phones[i + 2:])
+    return None
 
 
 #: One derivation per process: CMUdict and SPELLING_ALIASES are the same for
@@ -1325,6 +1429,30 @@ def accents_agree(readings):
             if seen.setdefault(rule, rule in has) != (rule in has):
                 return False
     return True
+
+
+def _last_rime(phones):
+    """-> (stress digit, the last vowel without its mark, the sounds after
+    it) of one reading, or None when it has no vowel."""
+    idx = [i for i, ph in enumerate(phones) if ph[-1] in "012"]
+    if not idx:
+        return None
+    i = idx[-1]
+    return phones[i][-1], phones[i][:-1], tuple(phones[i + 1:])
+
+
+def _join_keeps_end(last_piece, joined):
+    """-> whether reading a hyphenated word whole keeps every line-end sound
+    its last piece had (the coordinator's review of #913, 2026-11-23).
+
+    `sea-men` read piece by piece ends M EH1 N; the dictionary's `seamen`
+    ends M AH0 N, so joining took away the rhyme with `again`. A reading of
+    the last piece whose last syllable is stressed (1 or 2) must keep that
+    vowel and what follows it in some reading of the joined word; the stress
+    mark itself may change (`new-born` B AO1 R N, `newborn` B AO0 R N)."""
+    kept = {r[1:] for r in map(_last_rime, joined) if r}
+    return all(r[1:] in kept for r in map(_last_rime, last_piece)
+               if r and r[0] in "12")
 
 
 class Lexicon:
@@ -1501,8 +1629,46 @@ class Lexicon:
         if (choice and choice['word'] == word) or (
                 has_numeral(word) and _scheme_of(self) == "v2"):
             return [word]
-        return re.split(r"[-\u2011]", word)
+        pieces = re.split(r"[-\u2011]", word)
+        # A HYPHENATED WORD THE DICTIONARY HAS WHOLE IS READ WHOLE (bug-hunt
+        # finding 12, 2026-11-21): `re-write` and `to-day` read their pieces
+        # in citation form (R EY1, T UW1) where `rewrite` and `today` reduce
+        # the prefix. The joined spelling wins only when every reading of it
+        # has as many syllables as the pieces have together, so `co-op` (two
+        # syllables) is never read as `coop` (one), and a one-letter piece
+        # never joins: the dialect `a-` of `a-rid`, `a-blest` is not `arid`
+        # or `ablest` (measured on corpus/ before this guard: 4,421 tokens
+        # joined, 939 types,
+        # and those two were the wrong joins in the top of the list). Scheme
+        # v1 keeps the pre-batch split.
+        if (len(pieces) > 1 and all(len(x.strip("'")) > 1 for x in pieces)
+                and _scheme_of(self) == "v2"):
+            joined = self.entries.get("".join(pieces).lower().strip("'"))
+            if joined:
+                counts = []
+                for piece in pieces:
+                    prons = self.entries.get(piece.lower().strip("'"))
+                    if not prons:
+                        counts = None
+                        break
+                    counts.append({sum(1 for ph in p if ph[-1] in "012")
+                                   for p in prons})
+                if counts and all(len(c) == 1 for c in counts):
+                    total = sum(next(iter(c)) for c in counts)
+                    if (all(sum(1 for ph in p if ph[-1] in "012") == total
+                            for p in joined)
+                            and _join_keeps_end(
+                                self.entries[pieces[-1].lower().strip("'")],
+                                joined)):
+                        return ["".join(pieces)]
+        return pieces
 
+
+    def sung_stressed_at_line_end(self, word):
+        """-> `sung_stressed_at_line_end(self, word)`, asked of the reader, so
+        a module that imports nothing from this one (`quality.relations`)
+        can ask the stream's own lexicon."""
+        return sung_stressed_at_line_end(self, word)
 
     def pronunciation_variants(self, word):
         """Keep explicit -in' elision separate from a bare-name homograph.
@@ -1524,6 +1690,36 @@ class Lexicon:
         if _scheme_of(self) == "v2":
             raw = fold_apostrophes(normalise_word(word)).lower().strip('"“”.,;:!?()[]')
         key = raw.strip("'")
+        # A WORD SPELLED WITH AN APOSTROPHE AT ITS EDGE KEEPS ITS OWN ENTRY
+        # (scheme v2, 2026-11-23; `quality/test_reader_quotes.py`,
+        # `AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry`). Only the
+        # letters without the mark were looked up, so `'cause` (K AH0 Z) was
+        # heard only as `cause` and could not rhyme the way it is sung, and a
+        # marked word whose letters are no dictionary word went to the
+        # guesser. Its own entry now comes first; the bare spelling's
+        # readings it lacks follow, so no pair that held stops holding
+        # (owner rule 5). Scheme v1 is frozen and reads the bare spelling.
+        # NOT A POSSESSIVE `s'` WITH A WORD UNDER IT (the coordinator's review
+        # of #913, 2026-11-23): the dictionary's own entries for those words
+        # are often machine guesses (`sons'` S AA1 N Z), so `sons'` rhymed
+        # with `cons`; a word ending in `s'` whose bare letters are a word
+        # reads the bare word, as before. A word marked at both edges tries
+        # the spelling with its front mark, then the one with its end mark.
+        # AN `-in'` SPELLING with a reduced `-ing` reading answers that
+        # reduced reading first, as it always did, then the readings of its
+        # own entry the reduced list lacks: five own entries (`goin'`
+        # G OW1 AH0 N) are not the plain elision, and the first reading is
+        # the one a line is heard by.
+        own = []
+        if key != raw and _scheme_of(self) == "v2":
+            for spelling in dict.fromkeys((raw, raw.rstrip("'"),
+                                           raw.lstrip("'"))):
+                if spelling == key or spelling not in self.entries:
+                    continue
+                if spelling.endswith("s'") and key in self.entries:
+                    continue
+                own = [list(p) for p in self.entries[spelling]]
+                break
         prons = [list(p) for p in self.entries.get(key, ())]
         reduced = []
         if key.endswith("in"):
@@ -1531,11 +1727,11 @@ class Lexicon:
                 if len(phones) >= 2 and phones[-2:] == ["IH0", "NG"]:
                     reduced.append(list(phones[:-1]) + ["N"])
         if reduced and raw.endswith("in'"):
-            return reduced
+            return reduced + [p for p in own if p not in reduced]
         for phones in reduced:
             if phones not in prons:
                 prons.append(phones)
-        return prons
+        return own + [p for p in prons if p not in own]
 
     def dictionary_readings(self, word):
         """-> the readings a `basis: dictionary` choice may name for `word`:
@@ -2861,7 +3057,10 @@ def normalise_word(word):
     and U+2010/U+2011 folds, U+00AD removed. U+2032 (prime) is NOT folded: it
     is a different character with its own uses, and stays a breaker."""
     word = unicodedata.normalize("NFC", str(word))
-    return "".join(_reader_fold(c) for c in word if c != _SHY)
+    # The reader's expansion too (ligature letters), so a
+    # token's text is its raw pieces normalised, as `reader_line` promises.
+    kept = [(_reader_fold(c), 0, 0) for c in word if c != _SHY]
+    return "".join(c for c, _, _ in _reader_expand(kept))
 
 
 def _reader_stream(text):
@@ -2908,7 +3107,45 @@ def _reader_stream(text):
             for m in re.finditer(r"\S+|\s+", text):
                 out.extend((ch, m.start(), m.end())
                            for ch in unicodedata.normalize("NFC", m.group()))
-    return [(_reader_fold(c), a, b) for c, a, b in out]
+    return _reader_expand([(_reader_fold(c), a, b) for c, a, b in out])
+
+
+#: THE LATIN LIGATURE LETTERS (bug-hunt finding 14, 2026-11-21): U+FB00-U+FB06
+#: are one codepoint each for two or three letters, set by a typesetter and
+#: carried into pasted text. They are letters, not separators, so `\ufb01re`
+#: reads `fire`. Only these seven expand -- full compatibility folding would
+#: also rewrite superscripts, fractions and full-width forms, which is a
+#: separate decision. Each output letter maps to the ligature's own raw span.
+_LIGATURES = {chr(0xFB00 + k): unicodedata.normalize("NFKC", chr(0xFB00 + k))
+              for k in range(7)}
+
+
+def expand_ligatures(word):
+    """-> `word` with each Latin ligature letter written as its letters, as
+    the reader reads it (`_reader_expand`, the same table). A word list that
+    holds a typeset spelling beside the plain one (`find` set with the `fi`
+    ligature letter, and `find`) reads them as one word through this
+    (2026-11-24, `quality/capacity.population`)."""
+    return "".join(_LIGATURES.get(c, c) for c in word)
+
+
+def _reader_expand(stream):
+    """The reader's expansion on the folded stream: a Latin ligature letter
+    becomes its letters (bug-hunt finding 14). Nothing else is expanded: an
+    `&` is left as written, standing alone or inside a run (`R&B`), and `+`
+    likewise -- each is a symbol the reader does not voice.
+
+    NOT IN THIS RELEASE (2026-11-26): reading a standalone `&` as the sung
+    word `and` (bug-hunt finding 13). It adds a token, so every saved scheme-v2
+    token number after a standalone `&` would name a different word under the
+    same numbering mark. It returns in its own change, with its own mark."""
+    out = []
+    for c, a, b in stream:
+        if c in _LIGATURES:
+            out.extend((ch, a, b) for ch in _LIGATURES[c])
+        else:
+            out.append((c, a, b))
+    return out
 
 
 def printed_endpoint(rl):
@@ -2983,10 +3220,19 @@ def _opening_quotes(text, stream, groups):
     out = set()
     for g in groups:
         g = [i for i in g if stream[i][0] != _SHY]
-        if (len(g) >= 2 and stream[g[0]][0] == "'" and stream[g[1]][0] != "'"
-                and text[stream[g[0]][1]] in _OPENING_QUOTES
-                and "".join(stream[i][0] for i in g).lower() not in LEADING_ELISIONS):
-            out.add(g[0])
+        # ~~one mark~~ A RUN OF OPENING MARKS (2026-11-23): `\u2018\u2018This`
+        # opens with two quotation marks by the same printer's rule, so every
+        # mark of a leading run of U+2018/U+201B leaves the word. A run with
+        # any other apostrophe in it keeps that apostrophe (`\u2018'cause`
+        # is the word `'cause`; `make` cuts the run to that one mark).
+        r = 0
+        while r < len(g) and stream[g[r]][0] == "'":
+            r += 1
+        if (1 <= r < len(g)
+                and all(text[stream[i][1]] in _OPENING_QUOTES for i in g[:r])
+                and "".join(stream[i][0] for i in g[r - 1:]).lower()
+                not in LEADING_ELISIONS):
+            out.update(g[:r])
     return out
 
 
@@ -3030,6 +3276,24 @@ def _reader_line_v2(text, strip_parens):
         # material: it leaves the token's text and its pieces.
         while idx and (idx[0] in drop or stream[idx[0]][0] == _SHY):
             idx = idx[1:]
+        # A RUN OF APOSTROPHES AT EITHER EDGE OF A TOKEN IS ONE MARK
+        # (2026-11-23). The fold makes every apostrophe `'`, so a word that
+        # ends in its own apostrophe and is closed by a single quotation mark
+        # (`nothin'\u2019`) read as `nothin''`, a word with no entry, and a
+        # word that starts with its own apostrophe after an opening mark
+        # (`\u2018'cause`) read as `''cause`. At the end the word's own mark is
+        # the first of the run and the close follows it; at the start the
+        # word's own mark is the last. The marks that leave also leave the
+        # token's pieces. Scheme v2 only: v1 is the frozen pre-batch cut.
+        vis = [k for k, i in enumerate(idx) if stream[i][0] != _SHY]
+        while len(vis) >= 2 and stream[idx[vis[0]]][0] == "'" \
+                and stream[idx[vis[1]]][0] == "'":
+            idx = idx[vis[1]:]
+            vis = [k for k, i in enumerate(idx) if stream[i][0] != _SHY]
+        while len(vis) >= 2 and stream[idx[vis[-1]]][0] == "'" \
+                and stream[idx[vis[-2]]][0] == "'":
+            idx = idx[:vis[-2] + 1]
+            vis = vis[:-1]
         if not idx:
             return None
         chars = "".join(stream[i][0] for i in idx if stream[i][0] != _SHY)
@@ -3476,6 +3740,7 @@ def _phone_owners(lex, words):
     rather than a mislabelled span.
     """
     owners = []
+    weak_always, weak_nonfinal = weak_sets(lex)
     for k, w in enumerate(words):
         reader = lex.for_token(k) if hasattr(lex, "for_token") else lex
         for piece in (reader.word_pieces(w) if hasattr(reader, "word_pieces") else re.split(r"[-\u2011]", w)):
@@ -3483,7 +3748,7 @@ def _phone_owners(lex, words):
                 continue
             p, _ = reader.transcribe_word(piece)
             lw = piece.lower()
-            if lw in WEAK_ALWAYS or lw in WEAK_NONFINAL:
+            if lw in weak_always or lw in weak_nonfinal:
                 pass          # stress rewrite does not change the phone count
             owners.extend([k] * len(p))
     return owners
@@ -3731,14 +3996,25 @@ def line_anchors(lex, text, promote=False, endpoint_pronunciations=None,
     # enumerating ways of singing the line can treat them as separate
     # readings; None (the default) offers both.
     _demote = weak_token(end_reader, lw, phrase_final=True)
+    # A WORD WITH NO STRESS IN ITS ENTRY MAY BE HEARD STRESSED at the line's
+    # end (owner ruling 2026-11-23), the same two hearings the other way
+    # round: its dictionary reading is the weak one and stays first, and its
+    # own vowel heard stressed follows (`sung_stressed_at_line_end`).
+    _lift = not _demote and sung_stressed_at_line_end(end_reader, last)
     if _demote and small_end == "stressed":
         readings = [(var, False) for var in variants]
     elif _demote and small_end == "weak":
         readings = [(var, True) for var in variants]
+    elif _lift and small_end == "stressed":
+        readings = [(stressed_hearing(var), False) for var in variants]
+    elif _lift and small_end == "weak":
+        readings = [(var, False) for var in variants]
     else:
         readings = [(var, _demote) for var in variants]
         if _demote:
             readings += [(var, False) for var in variants]
+        if _lift:
+            readings += [(stressed_hearing(var), False) for var in variants]
     for var, demote in readings:
         v = list(var)
         if not syllabify(v):
@@ -5198,6 +5474,21 @@ def ending_carries_the_rhyme(word_a, word_b, lex=None, decl=None, suffix=None):
 # Candidates — reverse index over the lexicon
 # ---------------------------------------------------------------------------
 
+def _line_end_stressed_anchor(lex, word, phones):
+    """-> the anchor of `phones` with its last vowel heard stressed, when
+    `word` ends them and is in `sung_stressed_at_line_end`'s class (one
+    vowel, so the last vowel is the word's own); None otherwise."""
+    if not phones or not sung_stressed_at_line_end(lex, word):
+        return None
+    last = max((i for i, ph in enumerate(phones) if ph[-1:].isdigit()),
+               default=None)
+    if last is None:
+        return None
+    lifted = list(phones)
+    lifted[last] = stressed_hearing([lifted[last]])[0]
+    return anchor(syllabify(lifted))
+
+
 class CandidateEngine:
     def __init__(self, lex, decl):
         self.lex, self.decl = lex, decl
@@ -5212,6 +5503,13 @@ class CandidateEngine:
             anc = anchor(sylls)
             if anc:
                 self.index.append((word, anc, rank))
+                # A candidate is offered as a line's end word, where a word
+                # in `sung_stressed_at_line_end`'s class is heard stressed
+                # too (owner ruling 2026-11-23): it is indexed both ways and
+                # offered once, at its better score.
+                lifted = _line_end_stressed_anchor(lex, word, prons[0])
+                if lifted and lifted != anc:
+                    self.index.append((word, lifted, rank))
 
     def candidates(self, text, n=20, include_perfect=True):
         """-> ONE dict shape, always, whether or not the query reads.
@@ -5233,15 +5531,24 @@ class CandidateEngine:
             return {"query": text, "anchor_syllables": 0, "oov": oov,
                     "candidates": [], "error": "no anchor"}
         query_word = words[-1].lower() if words else ""
-        scored = []
+        # The query is a line's end word too (owner ruling 2026-11-23).
+        ancs_q = [anc_q]
+        lifted_q = (_line_end_stressed_anchor(self.lex, words[-1], phones)
+                    if words else None)
+        if lifted_q and lifted_q != anc_q:
+            ancs_q.append(lifted_q)
+        best = {}
         for word, anc, rank in self.index:
             if word == query_word:
                 continue
-            s = score(anc_q, anc, self.decl, query_word, word)
-            if "RIME_RICHE" in s["relations"] and not include_perfect:
-                continue
-            if s["total"] >= self.decl.theta_rhyme - 0.15:
-                scored.append((s["total"], rank, word, s))
+            for a_q in ancs_q:
+                s = score(a_q, anc, self.decl, query_word, word)
+                if "RIME_RICHE" in s["relations"] and not include_perfect:
+                    continue
+                if (s["total"] >= self.decl.theta_rhyme - 0.15
+                        and (word not in best or s["total"] > best[word][0])):
+                    best[word] = (s["total"], rank, word, s)
+        scored = list(best.values())
         scored.sort(key=lambda t: (-t[0], t[1]))
         out = []
         for tot, rank, word, s in scored[:n]:
@@ -6298,6 +6605,12 @@ def word_syllable_map(lex, text):
             sung = next((list(alt) for alt in
                          getattr(reader, "entries", {}).get(lw, ())
                          if any(x in (1, 2) for x in stressed(alt))), None)
+        # A line-final word with no stress in its entry may be heard
+        # stressed (owner ruling 2026-11-23): where no reading of its own
+        # carries a stress, its own vowel heard stressed is `sung_alt`.
+        if (sung is None and final and phones
+                and sung_stressed_at_line_end(reader, w)):
+            sung = stressed_hearing(phones)
         # The hyphen halves, read exactly as `_tag_span_words` reads them:
         # a span may name a token that is only partly the string it was built
         # from, and a provenance record that cannot say so is the defect
@@ -6521,6 +6834,26 @@ def fold_apostrophes(text):
     for ch in APOSTROPHES:
         text = text.replace(ch, "'")
     return text
+
+
+def end_word_readings(reader, word):
+    """-> the readings a check counts for `word` where it ends a line.
+
+    Scheme v2 reads a word spelled with an apostrophe at its edge as spelled,
+    its own entry first and then the bare word's readings it lacks
+    (`Lexicon.pronunciation_variants`), so `'cause` is K AH0 Z before it is
+    `cause`. A check that looked up only the bare key never counted the own
+    entry: it judged a different word from the one the reader reads. Every
+    other word, and every word under the frozen scheme v1, keeps the bare
+    key's entry, as before."""
+    # The bare key is the one every check already used, byte for byte.
+    key = fold_apostrophes(word).lower().strip("'\".,;:!?()[]")
+    bare = list((getattr(reader, "entries", None) or {}).get(key) or ())
+    spelled = fold_apostrophes(word).lower().strip('"\u201c\u201d.,;:!?()[]')
+    if (spelled != spelled.strip("'") and _scheme_of(reader) == "v2"
+            and hasattr(reader, "pronunciation_variants")):
+        return [list(p) for p in reader.pronunciation_variants(word)] or bare
+    return bare
 
 
 #: English enclitics that a 19th-century compositor may set with a SPACE before
@@ -12623,6 +12956,27 @@ def main():
             print(f"  INDETERMINATE: {e}")
             _lyric_result(**_lexicon_kw(), status="indeterminate", exit=0)
             return
+        # READINGS THAT DISAGREE ON SYLLABLE COUNT (bug-hunt finding 10,
+        # 2026-11-21): the merged reading of fire, hour, every or flower is
+        # refused because its readings do not align, where the grade reads
+        # the same words by the any-reading rule. The lookup now does the
+        # same before calling a member unreadable: each whole reading of
+        # each word, paired within one accent, classified on its own.
+        per_reading = []
+        if t is None:
+            combos, _ = RT._member_reading_combos(w1, w2, phon, phon)
+            for pinned in combos:
+                try:
+                    tt = RT.classify_pair(w1, w2, phon, member_phons=pinned, **kw)
+                except RT.Indeterminate:
+                    continue
+                if tt is not None:
+                    per_reading.append(tt)
+            if per_reading:
+                t = per_reading[0]
+                print("  readings differ in syllable count, so no merged "
+                      "reading exists; each whole reading is listed below "
+                      "and the first stands for the pair")
         if t is None:
             print(f"  UNREADABLE in {lang}: the phonology refuses one or both "
                   f"members. That is a refusal, not a non-rhyme.")
@@ -12631,8 +12985,7 @@ def main():
         # THE ANY-READING RULE (owner ruling 2026-10-01): where the merged
         # readings leave a channel undecided, each whole reading of each
         # word, paired within one accent, is classified on its own.
-        per_reading = []
-        if any(v is None for syl in t.agreement for v in syl):
+        if not per_reading and any(v is None for syl in t.agreement for v in syl):
             combos, _ = RT._member_reading_combos(w1, w2, phon, phon)
             for pinned in combos:
                 try:

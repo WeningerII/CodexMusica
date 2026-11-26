@@ -365,6 +365,17 @@ def grade(name, lines, lang, supply=(), declare=None, whole=False):
     if rep["refused"]:
         detail["refused"] = rep["refused"]
         return None, detail
+    # A WORD EVERY WHOLE READING READS WAS READ. The merged stream holds one
+    # syllable count per token, so a word whose readings differ in count
+    # (`tired` T AY1 ER0 D and T AY1 R D) is left unread there. It is read
+    # again under each whole reading; if every reading reads it, it is not
+    # unread, and the figure holds on a line if one reading holds it.
+    still, more = _read_under_whole_readings(st, name, build)
+    if more is not None:
+        detail["unreadable"] = still
+        for ln, figs in more.items():
+            if ln not in rep["lines"]:
+                rep["lines"][ln] = figs
     hits = [f for fs in rep["lines"].values() for f in fs if f["schema"] == name]
     detail["instances"] = [(f["a"], f["b"]) for f in hits]
     if whole:
@@ -383,6 +394,36 @@ def grade(name, lines, lang, supply=(), declare=None, whole=False):
         # `Dong-ding` (unreadable whole) was passing as a negative on it.
         return None, detail
     return bool(hits), detail
+
+
+def _read_under_whole_readings(st, name, build):
+    """-> (words still unread, {line_no: [Figure...]}) after reading the
+    stream's unread tokens under each whole reading of them, or
+    (None, None) when there is nothing to read again or a reading cannot be
+    pinned. A token stays unread when any whole reading leaves it unread,
+    or when its readings are more than `relations.reading_combos` takes."""
+    tokens = {(li, ti) for li, ti, _ in st.unreadable}
+    if not tokens:
+        return None, None
+    combos, complete = R.reading_combos(st, tokens)
+    if not combos or not complete:
+        return None, None
+    unread, found = set(), {}
+    for combo in combos:
+        phon = R.pinned_phonology(st, combo)
+        if phon is None:
+            return None, None
+        s2 = build(phon)
+        unread |= {(li, ti) for li, ti, _ in s2.unreadable} & tokens
+        got = F.line_figures(s2, names=[name], build=build)
+        if got["refused"]:
+            return None, None
+        for ln, figs in got["lines"].items():
+            found.setdefault(ln, [dict(f, readings=R.reading_witness(combo)
+                                         + list(f.get("readings", ())))
+                                  for f in figs if f["schema"] == name])
+    still = [w for li, ti, w in st.unreadable if (li, ti) in unread]
+    return still, {ln: figs for ln, figs in found.items() if figs}
 
 
 def grade_exhibit(name):

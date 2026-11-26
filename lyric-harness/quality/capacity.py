@@ -319,9 +319,18 @@ def population(lex):
     only because they are taken over ONE population (M-41's own table is
     'over the identical population'), and the RHYME key's gate is 'the
     word carries a rhymable syllable at all'."""
+    import lyric_harness as _lh  # noqa: PLC0415
     out = {}
     for w in lex.freq_rank:
         if not w.isalpha() or len(w) < 2:
+            continue
+        # ONE WORD HOWEVER IT WAS TYPESET (2026-11-24): reader scheme v2
+        # reads a Latin ligature letter as its letters, so a spelling set
+        # with one is the word it spells. It is counted under that spelling,
+        # once, at the rank the list gives it first; it was a second word
+        # (and in two families a second class) beside the plain spelling.
+        w = _lh.expand_ligatures(w)
+        if w in out:
             continue
         phones, oov = lex.transcribe_word(w)
         if not oov and phones and _rime_key(phones):

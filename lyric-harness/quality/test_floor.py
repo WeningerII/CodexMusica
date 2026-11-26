@@ -358,9 +358,17 @@ def test_disowned_types_are_not_written_on_the_writers_pair():
         return (r.returncode, text,
                 json.loads(result[-1].split("lyric result:", 1)[1]) if result else {})
 
-    code, text, result = grade("fire", "desire")
-    fails = [ln for ln in text.splitlines() if "FAILS L2-L3 (fire/desire)" in ln]
-    check("fire/desire still FAILS the declared relation (no verdict moves)",
+    # REPINNED 2026-11-21 (bug-hunt finding 10): ~~fire/desire~~ -- desire
+    # now has the smoothed reading D IH0 Z AY1 R, one syllable shorter than
+    # D IH0 Z AY1 ER0 (~~one-syllable~~, corrected 2026-11-23: it has two),
+    # as fire already had F AY1 R, so the pair genuinely satisfies the declared cluster
+    # consonance (both close on R). day/way is the same shape the check
+    # needs: a perfect rhyme, a common pair that the disowned trite and
+    # same-ending schemas would both claim, and a FAIL of the declared
+    # relation (an open syllable has no cluster to agree on).
+    code, text, result = grade("day", "way")
+    fails = [ln for ln in text.splitlines() if "FAILS L2-L3 (day/way)" in ln]
+    check("day/way still FAILS the declared relation (no verdict moves)",
           code == 3 and len(fails) == 2, f"exit {code}, {len(fails)} FAILS lines")
     check("...and its relation list names no disowned type",
           fails and not any(n in ln for ln in fails for n in disowned),
@@ -376,9 +384,14 @@ def test_disowned_types_are_not_written_on_the_writers_pair():
           sorted(ev.get("population", {}).get("not_requested_schemas", ()))
           == disowned, str(ev.get("population", {}).get(
               "not_requested_schemas")))
-    code, text, _ = grade("chair", "choir")
-    check("the chair/choir control is unchanged: exit 3, `consonance` only",
-          code == 3 and "FAILS L2-L3 (chair/choir): 0.315  consonance" in text)
+    # REPINNED 2026-11-21 (bug-hunt finding 10): ~~chair/choir, 0.315~~ --
+    # choir now reads K W AY1 R as well as K W AY1 ER0, and on that reading
+    # it closes on R with chair, so the declared relation holds. chair/lower
+    # (lower has no smoothed reading: OW, not AY or AW) keeps the control's
+    # shape: consonance only, failing the declared relation.
+    code, text, _ = grade("chair", "lower")
+    check("the chair/lower control: exit 3, `consonance` only",
+          code == 3 and "FAILS L2-L3 (chair/lower): 0.214  consonance" in text)
 
 
 def test_cliche_pair_may_only_reject_where_it_was_measured():
@@ -1391,8 +1404,30 @@ def test_anaphora_tie_break_reproduces():
                            text=True, env=env,
                            cwd=os.path.join(HERE, ".."))
         seen.add(r.stdout.strip() or r.stderr.strip()[-120:])
-    check("six PYTHONHASHSEEDs give one answer", len(seen) == 1,
-          f"{sorted(seen)}")
+    # REPINNED 2026-11-22: ~~"one answer" alone~~ -- the old check passed
+    # when all six runs raised the same error; this one requires the value
+    # itself, the tie-break's.
+    # REPINNED 2026-11-26 (main 300c21c536 merged into the Rule 1 branch):
+    # ~~seen == {"(0.5, 'alpha')"}~~, the value of the tie-break reader this
+    # branch removes. Git joined main's assertion to this branch's report
+    # without a conflict. Main's reason stands: one answer alone passed when
+    # all six runs raised the same error, so the one answer has to be the
+    # value itself, and here that value is the whole report as this process
+    # reads it. A report wrong the same way in every process (an empty one)
+    # would still match, so the report must also hold what only a real check
+    # of these four lines finds: they are all two words long, so their
+    # lengths do not vary (UNIFORM_LINE_LENGTH), and no opening finding is
+    # left to break a tie.
+    report = SlopFloor().check(tie)
+    want = str([(f.code, f.severity, f.locations, f.evidence)
+                for f in report])
+    check("six PYTHONHASHSEEDs give one answer, and it is the report itself",
+          seen == {want}, f"{sorted(seen)}")
+    got = {f.code for f in report}
+    check("the report is the check's: four two-word lines read as uniform "
+          "length, and no opening finding",
+          "UNIFORM_LINE_LENGTH" in got and not (got & REMOVED_CODES),
+          f"codes: {sorted(got)}")
 
 
 

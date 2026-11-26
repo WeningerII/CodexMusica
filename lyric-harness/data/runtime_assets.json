@@ -276,7 +276,7 @@
         {
           "path": "data/rhyme_capacity_eng.tsv",
           "bytes": 526419,
-          "sha256": "d48ec304d84d12bbb06dfb077abba79067193a160b1ad5b35c48121620a7b834"
+          "sha256": "ccf53b01cb12dbf2cf8fc0617fbd606a9f8e57f7b76f376a52afabb8ccf205e7"
         },
         {
           "path": "data/siku_orthography.tsv",
@@ -296,12 +296,12 @@
         {
           "path": "data/word_places_en.tsv",
           "bytes": 730,
-          "sha256": "3ad53316a60f34faf6f76a2d7f943739c2baee02bf7839f134f1ec8cb088fc66"
+          "sha256": "a91bc423a86f5844f0c40379a9fa433c79f0dc2de4cb1c25d5a1e3a19134cc43"
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1667140,
-          "sha256": "d4def7e6a69186ee6477c7de82864d7b0c0bdac21d1918e79c5680da0c8ff664"
+          "bytes": 1667455,
+          "sha256": "ddd29cbae59ce1b21aa53d78ab76fa9e0f36b68c05bd72b7d3de057c58ed332b"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",
@@ -363,8 +363,8 @@
         },
         {
           "path": "data/structure_canon.tsv",
-          "bytes": 183009,
-          "sha256": "830c9e592f5bad2aab810299467f311fa7be59765259bdbb107766efb852ebf5"
+          "bytes": 184538,
+          "sha256": "59eb8aedf2dda4b4ca38ceba84fe2ab34d527f237d95a56e468371d87811c60d"
         }
       ]
     },

@@ -212,8 +212,14 @@ def test_witnesses():
         check(f"{w}: the supplement adds nothing and reorders nothing",
               SUPP.pronunciation_variants(w) == PLAIN.pronunciation_variants(w)
               and SUPP.transcribe_word(w) == PLAIN.transcribe_word(w))
-    check("re-sign is not read as resign (no whole entry; it splits)",
-          SUPP.word_pieces("re-sign") == ["re", "sign"])
+    # ~~re-sign is not read as resign (no whole entry; it splits)~~
+    # REPINNED 2026-11-23: finding 12 reads a hyphenated spelling whole where
+    # the joined letters are a word (the split read the note name R EY1).
+    check("the supplement changes nothing in how re-sign is cut",
+          SUPP.word_pieces("re-sign") == PLAIN.word_pieces("re-sign"))
+    check("re-sign keeps the S reading among its readings",
+          any(["R", "IY0", "S", "AY1", "N"] in SUPP.pronunciation_variants(w)
+              for w in SUPP.word_pieces("re-sign")))
     check("record keeps its first reading first",
           SUPP.pronunciation_variants("record")[0] == ["R", "AH0", "K", "AO1", "R", "D"])
 
@@ -333,8 +339,18 @@ def test_consumer_paths():
           and r.layer == "dictionary", repr(r))
     check("and a CMUdict word still reads as CMUdict",
           English(lexicon=SUPP).read("moon").rule == "CMUdict")
-    check("while a plain English reader refuses the supplement word",
-          English(lexicon=PLAIN).read("thirty-one") is None)
+    # REPINNED 2026-11-24 (the owner's ruling on hyphenated words, "lift
+    # it"): a plain English reader ~~refuses the supplement word~~ reads
+    # `thirty-one` from its two CMUdict parts now, and every shipped v1 row is
+    # such a number compound, so none of them is unread by it. The claim kept
+    # here is that the parts' reading is not the row's; the planted word below
+    # carries the refusal.
+    pr = English(lexicon=PLAIN).read("thirty-one")
+    check("while a plain English reader reads the word from its CMUdict "
+          "parts, not as the supplement row",
+          pr is not None and pr.rule == "CMUdict"
+          and pr.basis == ("thirty", "one") and pr.phones != r.phones,
+          repr(pr))
     hi = English(fallback="high", lexicon=SUPP).read("thirty-one")
     check("high mode reads the whole entry before its compound layer splits it",
           hi is not None and hi.phones[-3:] == ("W", "AH2", "N")
@@ -349,6 +365,8 @@ def test_consumer_paths():
     try:
         check("a planted supplement-only word reads",
               English(lexicon=fx).read("zorbo") is not None)
+        check("while a plain English reader refuses it",
+              English(lexicon=PLAIN).read("zorbo") is None)
         check("but high mode derives nothing from it as a stem",
               English(fallback="high", lexicon=fx).read("zorbos") is None)
         check("nor does the no-fallback view of a lexicon built with one "
@@ -364,25 +382,41 @@ def test_consumer_paths():
               and d_supp.get("lexicon_supplement_sha256") == SUPP.supplement_sha256)
         check("two supplement versions declare apart",
               d_fx.get("lexicon_supplement_sha256") not in (None, d_supp.get("lexicon_supplement_sha256")))
-        lines = ["I turned thirty-one", "beneath the burning sun"]
+        # REPINNED 2026-11-24: ~~"I turned thirty-one" / "beneath the
+        # burning sun"~~. The plain reader reads `thirty-one` from its parts
+        # now and finds the same relations there as the supplement, so the
+        # pair could no longer show the memo keeping the two apart. The
+        # planted word is read by the fixture alone; its partner is the first
+        # CMUdict word, in spelling order, that ends on the planted rime.
+        partner = sorted(w for w, ps in PLAIN.entries.items()
+                         if w != "zorbo" and "-" not in w
+                         and any(tuple(p[-4:]) == ("AO1", "R", "B", "OW0")
+                                 for p in ps))[0]
+        lines = ["I met a zorbo", f"beneath the burning {partner}"]
         keys = {R._wvp_key(lines, English(lexicon=lx), None, None)
                 for lx in (PLAIN, SUPP, fx)}
         check("the whole-vocabulary memo keys plain, supplement and a second "
               "version three ways apart", len(keys) == 3)
         plain = R.whole_vocabulary_pairs(lines, English(lexicon=PLAIN),
                                          requested_pairs=[(1, 2)])
-        memo = R.whole_vocabulary_pairs(lines, English(lexicon=SUPP),
+        memo = R.whole_vocabulary_pairs(lines, English(lexicon=fx),
                                         requested_pairs=[(1, 2)])
         R._WVP_MEMO.clear()
-        fresh = R.whole_vocabulary_pairs(lines, English(lexicon=SUPP),
+        fresh = R.whole_vocabulary_pairs(lines, English(lexicon=fx),
                                          requested_pairs=[(1, 2)])
         check("a supplemented call after a plain one on the same text equals a "
               "fresh supplemented call",
               dict(memo) == dict(fresh) and memo.undecided == fresh.undecided)
+        # The partner has non-rhotic readings and the planted word does not,
+        # so the fixture's definite verdict leaves the pair undecided and
+        # `perfect rhyme` stands in the rule-5 listing; the check above
+        # compares both the verdict and the undecided set, and they differ.
         check("and the two readings really differ there (so the check above "
-              "could fail)", dict(plain) != dict(memo)
-              and "perfect rhyme" in dict(memo).get((1, 2), ()),
-              f"plain {dict(plain)} | supplement {dict(memo).get((1, 2))}")
+              "could fail)",
+              (dict(plain), plain.undecided) != (dict(memo), memo.undecided)
+              and "perfect rhyme" in dict(memo.listed()).get((1, 2), ()),
+              f"plain {dict(plain)} {dict(plain.undecided)} | supplement "
+              f"{dict(memo)} {dict(memo.undecided)}")
     finally:
         os.remove(path)
         os.remove(path_h)
