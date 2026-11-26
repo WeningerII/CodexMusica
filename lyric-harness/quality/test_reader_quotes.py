@@ -1296,7 +1296,11 @@ class AReadingTheWriterDeclaredIsNotLifted(unittest.TestCase):
 
     A dictionary-basis pick of a class word keeps the added hearing: the
     class has no stressed reading to pick against, so the pick chooses only
-    the vowel. Every word is drawn by seed from the dictionary; the partner
+    the vowel. OWNER RULING 2026-11-26, to the question "The `'cause`
+    ruling: does a dictionary pronunciation the writer picked still rhyme
+    fully with "buzz" at a line end? I recommend yes." (asked by Boris, an
+    agent handle John assigned, not the person): "yes". A reading with basis
+    `declared` is taken exactly as typed. Every word is drawn by seed from the dictionary; the partner
     rhymes by the stream's own verdict on the undeclared word."""
 
     SEED, N = "a reading the writer declared", 8
