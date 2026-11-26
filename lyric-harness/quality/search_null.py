@@ -183,6 +183,8 @@ PER_K_BUCKETS = ((3, 4), (5, 8), (9, 16), (17, None))
 #: The verdicts hold: both buckets sit above `theta_rhyme` 0.75. In the same
 #: run k=9-16 is ~~294~~ 295 pairs, k=17+ ~~105~~ 109, and the all-pairs
 #: crossover ~~0.7505~~ 0.7597 against the adopted 0.72. The total stays 1102.
+#: Re-run 2026-11-26 on the final reader of #913, with the standalone `&`
+#: reading taken back out: every row above reproduces to the digit.
 #: CROSSOVER and theta_rhyme are untouched.
 PER_K_CROSSOVER = {
     ("sonnets", (3, 4)): {"pairs": 382, "crossover": 0.8152,

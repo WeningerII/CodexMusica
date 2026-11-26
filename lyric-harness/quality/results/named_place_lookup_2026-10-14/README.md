@@ -64,13 +64,13 @@ Sung lines ~~281,399~~ 281,366; identical cut ~~271,092~~ 271,062 (~~262,604~~ 2
 
 ## Remeasured 2026-11-24 (reader scheme v2 batch, #913): two counts only
 
-Two of the batch's reader commits change which lines read identically under v1 and v2. Identical cut ~~270,633~~ 270,614 (~~262,167~~ 262,149 unique); sung lines unchanged at 281,366. It moves in two steps, each measured at every commit of the branch:
+The batch's reader changes which lines read identically under v1 and v2. Identical cut ~~270,633~~ ~~270,614~~ 270,624 (~~262,167~~ ~~262,149~~ 262,159 unique); sung lines unchanged at 281,366. 270,624 is measured on the final reader of #913 (2026-11-26). The per-commit steps below were measured on 24 Nov, on a set that still read a standalone `&` as "and"; that reading was taken back out of #913 on 2026-11-26, so the steps are kept as that day's record, not re-measured:
 
 - ded2284947 (the reader's smoothing, contractions, hyphen-joined words, ligatures and standalone `&`): 270,633 to 270,623.
 - a4285159ac (a run of apostrophes at a word's edge is read as one mark): 270,623 to 270,614.
 
-No other commit of the branch moves it, and the merges of main do not.
+No other commit of the branch moved it on 24 Nov, and the merges of main did not. Taking the standalone `&` reading out moves it back up by 10, to 270,624 (262,159 unique): those ten lines read identically under v1 and v2 again.
 
-**This file was not regenerated.** Those two figures were typed into `result.json` by hand, and nothing else in it was changed. They are `measure.py`'s own printed counts on the final tree: `python3 quality/results/named_place_lookup_2026-10-14/measure.py` printed `"identical_cut": 270614` and `"unique_identical_cut": 262149`. The `lookup_differs` list from that run is the committed list item for item (24 lines). Everything else in the file is as of 2026-10-16.
+**This file was not regenerated.** Those two figures were typed into `result.json` by hand, and nothing else in it was changed. They are `measure.py`'s own printed counts on the final tree: `python3 quality/results/named_place_lookup_2026-10-14/measure.py` printed `"identical_cut": 270624` and `"unique_identical_cut": 262159` on the final reader (2026-11-26; 270614 and 262149 on 24 Nov). The `lookup_differs` list from that run is the committed list item for item (24 lines). On the same run it printed `end_changed` 101,654 (see below). Everything else in the file is as of 2026-10-16.
 
 Why not `--write`: `measure.py`'s end-binding comparison has been stale since M-322 (2026-10-30). It reads each scheme with that scheme's own lexicon, while `test_reader.py` `NamedPlaceLookup` has compared the quiet lines over one lexicon since then, because the v2 lexicon carries accent readings v1 lacks. So `measure.py` now measures the lexicon difference, not the cut. On main 4def4c3f77 it prints `end_changed` 100,017 against the committed 8, and `--write` would produce a file of about 17 million lines. Reading both schemes with the v2 lexicon alone is no fix: `end_changed` falls to 0 and the eight real moves vanish too. The fix has to separate "the cut moved" from "the lexicon moved". It is written down as a defect, not started, so the other fields cannot be regenerated until it is fixed.

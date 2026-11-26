@@ -399,6 +399,9 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 # values below, measured by `--check` over GRID at the same seed; rhyme held.
 # More words read, so a few more random pairs hold some relation.
 # This records the instrument's new result, not a relaxed acceptance band.
+# Re-measured 2026-11-26 on the final reader of #913, with the standalone
+# `&` reading taken back out: ANY 1124, ADMIT 88, RHYME 7, SCHEMA 1122, every
+# band held, so nothing below changes.
 ADOPTED = {
     "any": (1124, 1146),
     "admit": (64, 89),

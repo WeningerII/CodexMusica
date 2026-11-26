@@ -2,8 +2,8 @@
   "population": {
     "rule": "corpus/song/eng_*.txt stripped lines, non-blank, not starting '#', '---' or '['; voices off",
     "sung_lines": 281366,
-    "identical_cut": 270614,
-    "unique_identical_cut": 262149
+    "identical_cut": 270624,
+    "unique_identical_cut": 262159
   },
   "condition": "v1 lookup words (_line_tokens_v1 of the space-joined words before the last, then the last word) differ from the identical cut",
   "lookup_differs": [
