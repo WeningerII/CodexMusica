@@ -495,12 +495,13 @@ def test_the_pronunciation_batch_of_2026_11_21():
           "UNREADABLE" not in r.stdout and "NAMES:" in r.stdout,
           r.stdout[-300:])
     # 11. A pronoun + auxiliary contraction is as weak as its spelled form.
-    from lyric_harness import WEAK_ALWAYS, WEAK_NONFINAL, weak_token
+    # Scheme v2 only (review of #913, 2026-11-26): v1's sets are frozen.
+    from lyric_harness import WEAK_ALWAYS_V2, WEAK_NONFINAL_V2, weak_token
     check("it's is weak everywhere, like its and i'm",
-          "it's" in WEAK_ALWAYS and weak_token(LEX, "it's", phrase_final=True))
+          "it's" in WEAK_ALWAYS_V2 and weak_token(LEX, "it's", phrase_final=True))
     check("you're, we'll, I'll, they've are weak mid-phrase",
           all(weak_token(LEX, w) for w in ("you're", "we'll", "I'll", "they've"))
-          and all(w in WEAK_NONFINAL for w in ("you're", "we'll", "i'll")))
+          and all(w in WEAK_NONFINAL_V2 for w in ("you're", "we'll", "i'll")))
     # 12. A hyphenated word the dictionary has whole is read whole, only
     # when the syllable count agrees and no piece is a single letter.
     for word, want in (("re-write", ["rewrite"]), ("to-day", ["today"]),

@@ -2200,6 +2200,23 @@ def _spans_at(rule, stream, ids, origin):
             yield replace(sp, idx=ids[-1:], promoted=True)
 
 
+def _declared_occurrence(stream, unit):
+    """True when the writer declared the reading of `unit`'s token (a
+    pronunciation with basis `declared`), as the stream's phonology narrows
+    to that token; False where it cannot say."""
+    raw = (stream.text_lines[unit.line]
+           if 0 <= unit.line < len(stream.text_lines) else None)
+    phon = stream.phon
+    if raw is None or not hasattr(phon, "for_line"):
+        return False
+    line_phon = phon.for_line(raw)
+    token_phon = (line_phon.for_token(unit.token)
+                  if hasattr(line_phon, "for_token") else line_phon)
+    choice = getattr(getattr(token_phon, "lexicon", None),
+                     "_pronunciation_choice", None)
+    return bool(choice) and choice.get("basis") == "declared"
+
+
 def _promotable_final(stream, ids, ap, rule):
     """Is the last syllable of `ids` the one `Declaration.final_promotion`
     promotes? (`MISSING.md` M-319.) The same three conditions
@@ -2213,7 +2230,13 @@ def _promotable_final(stream, ids, ap, rule):
     2026-11-23): `'cause` K AH0 Z, `'em` AH0 M have no stressed syllable
     before the last, so the three conditions never held. Such a word, ending
     its line and definitely unstressed, is promoted too, when its token is
-    in `sung_stressed_at_line_end`'s class, asked of the stream's lexicon."""
+    in `sung_stressed_at_line_end`'s class, asked of the stream's lexicon,
+    and the writer did not DECLARE that occurrence's reading. A declared
+    reading is never promoted (review of #913, 2026-11-26): the writer chose
+    that stress, so the "heard stressed at a line end" class does not
+    override it; the class only adds a hearing beside a dictionary reading.
+    The declaration is read where the stream read the token: the line's
+    phonology narrowed to that token."""
     if rule.direction <= 0 or not ids:
         return False
     last = stream.units[ids[-1]]
@@ -2228,6 +2251,7 @@ def _promotable_final(stream, ids, ap, rule):
                         None)
         tail = last.syl.prominence
         return (heard is not None and not uncertain(tail) and tail == 0
+                and not _declared_occurrence(stream, last)
                 and bool(heard(last.token_text)))
     if ap >= len(ids) - 1:
         return False

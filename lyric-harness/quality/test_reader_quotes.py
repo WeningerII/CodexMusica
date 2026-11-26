@@ -752,6 +752,79 @@ class AWordSpelledWithAnEdgeApostropheKeepsItsOwnEntry(unittest.TestCase):
         self.assertEqual(unread[:5], [])
 
 
+class ASavedSpellingWithTheWholeEdgeRunStillBinds(unittest.TestCase):
+    """A pronunciation saved against a token read before 2026-11-23 names the
+    token with its whole run of edge apostrophes (`''Tis`); the reader now
+    cuts that run to one mark (`'Tis`). The saved row must still bind the
+    same token, bare and stamped `numbering: "v2"` alike, and the row handed
+    back carries the token's own text, as the opening-quote path does. The
+    source decides: a doubled mark that is not in the line at that edge is an
+    ordinary spelling and is refused. Lines drawn by seed from the corpus
+    (review of #913, 2026-11-26)."""
+
+    @classmethod
+    def setUpClass(cls):
+        import glob
+        cls.lex = LH.Lexicon(reader_scheme="v2")
+        rng = random.Random("a saved spelling with the whole edge run")
+        paths = sorted(glob.glob(str(ROOT / "corpus" / "song" / "*.txt")))
+        paths += [str(ROOT / "corpus" / "sonnets.txt"),
+                  str(ROOT / "corpus" / "whitman.txt")]
+        cls.cases, cls.controls = [], []
+        for p in paths:
+            for line in Path(p).read_text(encoding="utf-8").split("\n"):
+                if "''" not in LH.fold_apostrophes(line):
+                    continue
+                for k, (text, pieces) in enumerate(
+                        LH.reader_token_spans(line, True, "v2") or []):
+                    a, b = pieces[0][0], pieces[-1][1]
+                    if (text.startswith("'") and a >= 1
+                            and LH.fold_apostrophes(line[a - 1]) == "'"):
+                        cls.cases.append((line, k + 1, "'" + text, text))
+                    elif (text.endswith("'") and b < len(line)
+                            and LH.fold_apostrophes(line[b]) == "'"):
+                        cls.cases.append((line, k + 1, text + "'", text))
+                    elif text[:1].isalpha() and "'" not in text:
+                        cls.controls.append((line, k + 1, "''" + text, text))
+        rng.shuffle(cls.cases)
+        rng.shuffle(cls.controls)
+
+    def row(self, line, token, word, **extra):
+        readings = (self.lex.pronunciation_variants(word.strip("'"))
+                    or [["AH0"]])
+        return dict({"line": line, "token": token, "word": word,
+                     "phones": list(readings[0]), "basis": "declared",
+                     "source": "test: a saved row from before the edge-run cut"},
+                    **extra)
+
+    def bind(self, row, stamped):
+        import copy
+        from quality import pronunciation as P
+        lex = copy.copy(self.lex)
+        if stamped:
+            lex._numbering_guard = True
+            lex._numbering_notices = []
+        return P.validate_choices([row], lex)[0]
+
+    def test_the_saved_spelling_binds_the_same_token_bare_and_stamped(self):
+        self.assertGreaterEqual(len(self.cases), 4, self.cases)
+        for line, token, saved, now in self.cases[:12]:
+            for stamped in (False, True):
+                extra = {"numbering": "v2"} if stamped else {}
+                with self.subTest(line=line, saved=saved, stamped=stamped):
+                    got = self.bind(self.row(line, token, saved, **extra), stamped)
+                    self.assertEqual((got["token"], got["word"]), (token, now))
+
+    def test_a_doubled_mark_the_line_does_not_hold_is_refused(self):
+        self.assertGreaterEqual(len(self.controls), 4)
+        for line, token, spelled, _ in self.controls[:12]:
+            for stamped in (False, True):
+                extra = {"numbering": "v2"} if stamped else {}
+                with self.subTest(line=line, spelled=spelled, stamped=stamped):
+                    with self.assertRaises(ValueError):
+                        self.bind(self.row(line, token, spelled, **extra), stamped)
+
+
 class AJoinedHyphenatedWordKeepsItsLineEnd(unittest.TestCase):
     """Reading a hyphenated word whole never takes away a sound its last
     piece had at a line's end (the coordinator's review of #913, 2026-11-23).
@@ -1209,6 +1282,107 @@ class AWordWithNoStressIsHeardStressedAtALineEnd(unittest.TestCase):
                         self.assertNotIn("SCHEME_VIOLATION", got.stdout)
                         self.assertEqual(got.returncode, 0,
                                          got.stdout[-2000:])
+
+
+class AReadingTheWriterDeclaredIsNotLifted(unittest.TestCase):
+    """REVIEW OF #913 (2026-11-26): the line-end hearing ADDS a stressed
+    hearing; it never overrides a reading the writer declared. Two faults:
+
+    - the class was asked of a reader narrowed to the declared occurrence,
+      whose entry IS the declaration, so a word whose dictionary entry is
+      stressed (`buzz` B AH1 Z), declared unstressed, looked like a class
+      word and was heard stressed too;
+    - a class word declared unstressed (basis `declared`) was lifted anyway.
+
+    A dictionary-basis pick of a class word keeps the added hearing: the
+    class has no stressed reading to pick against, so the pick chooses only
+    the vowel. Every word is drawn by seed from the dictionary; the partner
+    rhymes by the stream's own verdict on the undeclared word."""
+
+    SEED, N = "a reading the writer declared", 8
+
+    @classmethod
+    def setUpClass(cls):
+        cls.base = LH.Lexicon(strip_parens=True, pronunciations=None,
+                              reader_scheme="v2")
+        lex = cls.base
+
+        def vowels(r):
+            return sum(1 for p in r if p[-1].isdigit())
+
+        def stress_free(r):
+            return not any(p[-1] in "12" for p in r)
+        rng = random.Random(cls.SEED)
+        plain = sorted(w for w, rs in lex.entries.items()
+                       if w.isalpha() and w.islower() and len(rs) == 1)
+        cls.stressed = rng.sample(
+            [w for w in plain if vowels(lex.entries[w][0]) == 1
+             and not stress_free(lex.entries[w][0])], cls.N)
+        cls.klass = sorted(
+            w for w, rs in lex.entries.items()
+            if rs and all(vowels(r) == 1 and stress_free(r) for r in rs)
+            and all(vowels(r) == 1 for r in lex.pronunciation_variants(w))
+            and LH.sung_stressed_at_line_end(lex, w))
+        rng.shuffle(cls.klass)
+
+    @staticmethod
+    def line_for(w):
+        line = f"we sang it {w}"
+        toks = LH.line_tokens(line, strip_parens=True, scheme="v2")
+        return (line, len(toks)) if toks and toks[-1] == w else (w, 1)
+
+    def declared(self, w, phones, basis):
+        line, token = self.line_for(w)
+        row = {"line": line, "token": token, "word": w, "phones": phones,
+               "basis": basis, "source": "test: the writer's own reading"}
+        return LH.Lexicon(strip_parens=True, pronunciations=[row],
+                          reader_scheme="v2"), line
+
+    def end_stresses(self, lex, line, w):
+        return {a[-1]["stress"] for a in LH.line_anchors(lex, line)[0]
+                if a and a[-1]["word"] == w}
+
+    def promoted(self, lex, line):
+        """-> `relations._promotable_final` on the line's last token, the
+        relations stream's line-end promotion, read through `lex`."""
+        import types
+        import quality.relations as RL
+        import quality.revise as RV
+        with LH.reader_scheme_scope("v2"):
+            stream = RL.build_stream([line], RV.relation_phonology_for(lex))
+            last = stream.lines[0][-1]
+            ids = tuple(i for i in stream.lines[0]
+                        if stream.units[i].token == stream.units[last].token)
+            return RL._promotable_final(stream, ids, 0,
+                                        types.SimpleNamespace(direction=1))
+
+    def test_a_stressed_word_declared_unstressed_is_heard_as_declared(self):
+        for w in self.stressed:
+            phones = [p[:-1] + "0" if p[-1:].isdigit() else p
+                      for p in self.base.entries[w][0]]
+            lex, line = self.declared(w, phones, "declared")
+            with self.subTest(word=w, phones=phones):
+                self.assertFalse(LH.sung_stressed_at_line_end(
+                    lex.for_line(line).for_token(self.line_for(w)[1] - 1), w))
+                self.assertEqual(self.end_stresses(lex, line, w), {0})
+
+    def test_a_class_word_declared_unstressed_is_not_lifted(self):
+        self.assertGreaterEqual(len(self.klass), 4, self.klass)
+        for w in self.klass[:self.N]:
+            lex, line = self.declared(w, list(self.base.entries[w][0]),
+                                      "declared")
+            with self.subTest(word=w):
+                self.assertEqual(self.end_stresses(lex, line, w), {0})
+                self.assertFalse(self.promoted(lex, line))
+
+    def test_a_dictionary_pick_of_a_class_word_keeps_the_added_hearing(self):
+        self.assertGreaterEqual(len(self.klass), 4, self.klass)
+        for w in self.klass[:self.N]:
+            lex, line = self.declared(w, list(self.base.entries[w][0]),
+                                      "dictionary")
+            with self.subTest(word=w):
+                self.assertIn(1, self.end_stresses(lex, line, w))
+                self.assertTrue(self.promoted(lex, line))
 
 
 class EachLineEndHearingSiteChangesARealAnswer(unittest.TestCase):

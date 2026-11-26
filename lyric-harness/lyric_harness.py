@@ -307,20 +307,31 @@ WEAK_NONFINAL = {
     "but", "if", "i", "this", "that", "my", "his", "her", "them", "your",
     "you", "he", "she", "we", "they", "me", "him", "us",
 }
-# PRONOUN + AUXILIARY CONTRACTIONS (bug-hunt finding 11, 2026-11-21): a
-# contraction is read as weak as its spelled-out form, so a line's stress no
-# longer depends on whether the writer contracts. `it's` joins `its` and
-# `i'm` (its pronoun is weak everywhere); every other one takes the weaker
-# of its two halves' rules, which for a pronoun + auxiliary is mid-phrase.
-WEAK_ALWAYS |= {"it's"}
-WEAK_NONFINAL |= {
+# PRONOUN + AUXILIARY CONTRACTIONS (bug-hunt finding 11, 2026-11-21), READER
+# SCHEME v2 ONLY: a contraction is read as weak as its spelled-out form, so a
+# line's stress no longer depends on whether the writer contracts. `it's`
+# joins `its` and `i'm` (its pronoun is weak everywhere); every other one
+# takes the weaker of its two halves' rules, which for a pronoun + auxiliary
+# is mid-phrase. The two sets above are scheme v1's, frozen as they were
+# (review of #913, 2026-11-26: adding to them reached v1's stress and end
+# anchors on every line with a pronoun contraction); `weak_sets` picks.
+WEAK_ALWAYS_V2 = WEAK_ALWAYS | {"it's"}
+WEAK_NONFINAL_V2 = WEAK_NONFINAL | {
     p + "'" + aux
     for p in ("i", "you", "he", "she", "we", "they", "it")
     for aux in ("re", "s", "ll", "d", "ve")
     if not (p == "i" and aux in ("re", "s"))
     and not (p in ("he", "she", "it") and aux in ("re", "ve"))
     and not (p in ("you", "we", "they") and aux == "s")
-} - WEAK_ALWAYS
+} - WEAK_ALWAYS_V2
+
+
+def weak_sets(reader):
+    """-> (weak everywhere, weak mid-phrase) under `reader`'s scheme: v1's
+    frozen sets, or v2's with the pronoun contractions."""
+    if _scheme_of(reader) == "v1":
+        return WEAK_ALWAYS, WEAK_NONFINAL
+    return WEAK_ALWAYS_V2, WEAK_NONFINAL_V2
 
 
 def weak_token(reader, word, phrase_final=False):
@@ -334,7 +345,8 @@ def weak_token(reader, word, phrase_final=False):
     if getattr(reader, "_pronunciation_choice", None):
         return False
     word = word.lower()
-    return word in WEAK_ALWAYS or (word in WEAK_NONFINAL and not phrase_final)
+    always, nonfinal = weak_sets(reader)
+    return word in always or (word in nonfinal and not phrase_final)
 
 def sung_stressed_at_line_end(reader, word):
     """-> True when `word`, a line's last token, may be HEARD STRESSED though
@@ -353,7 +365,21 @@ def sung_stressed_at_line_end(reader, word):
     small end word does (owner ruling 2026-10-01; standing rule 5)."""
     if _scheme_of(reader) != "v2" or not hasattr(reader, "pronunciation_variants"):
         return False
-    own = getattr(reader, "entries", {}).get(fold_apostrophes(word).lower(), ())
+    # A READING THE WRITER DECLARED IS NOT LIFTED (review of #913,
+    # 2026-11-26): the hearing is added beside the dictionary's, so where the
+    # writer declared the occurrence's reading there is nothing to add to. A
+    # dictionary-basis pick of a class word keeps it: the class has no
+    # stressed reading to pick against. And the class is asked of the
+    # dictionary's own entries, not of a reader narrowed to the occurrence,
+    # whose entry is the declaration itself (`buzz` declared B AH0 Z looked
+    # like a class word there).
+    choice = getattr(reader, "_pronunciation_choice", None)
+    if choice and choice.get("basis") == "declared":
+        return False
+    entries = getattr(reader, "_dictionary_entries", None)
+    if entries is None:
+        entries = getattr(reader, "entries", {})
+    own = entries.get(fold_apostrophes(word).lower(), ())
     if not own:
         return False
     vowels = lambda r: sum(1 for p in r if p[-1:].isdigit())
@@ -3714,6 +3740,7 @@ def _phone_owners(lex, words):
     rather than a mislabelled span.
     """
     owners = []
+    weak_always, weak_nonfinal = weak_sets(lex)
     for k, w in enumerate(words):
         reader = lex.for_token(k) if hasattr(lex, "for_token") else lex
         for piece in (reader.word_pieces(w) if hasattr(reader, "word_pieces") else re.split(r"[-\u2011]", w)):
@@ -3721,7 +3748,7 @@ def _phone_owners(lex, words):
                 continue
             p, _ = reader.transcribe_word(piece)
             lw = piece.lower()
-            if lw in WEAK_ALWAYS or lw in WEAK_NONFINAL:
+            if lw in weak_always or lw in weak_nonfinal:
                 pass          # stress rewrite does not change the phone count
             owners.extend([k] * len(p))
     return owners

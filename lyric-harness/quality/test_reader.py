@@ -3853,6 +3853,101 @@ class HyphenatedWordsInANamedType(unittest.TestCase):
                 self.assertEqual(len(phon.parses(word)), count)
 
 
+#: Scheme v1's reading of pronoun-contraction lines, pinned from MAIN
+#: (4def4c3f77's lyric tree, before the pronunciation batch), not from this
+#: tree: copy `_v1_contraction_lines`, `_v1_reading_digest` and
+#: `_v1_meter_digest` below into a file in that tree's lyric-harness
+#: directory and print the three values (review of #913, 2026-11-26; the
+#: batch's weak-contraction sets had reached v1). A third reader of the weak
+#: sets, or anything else that moves v1 on these lines, fails here.
+V1_CONTRACTION_LINES = 300
+V1_READING_DIGEST = (
+    "2dc4383451b8cec32c09a6b60171207fe3393c0976c29275a4f85c14275547a6")
+V1_METER_DIGEST = (
+    "ef7228d5a6efa2443ce09f4c630a1fd019f5206c1f55c50fda3e3bf8e1b829ea")
+
+
+def _v1_contraction_lines(seed="scheme v1 is frozen on contraction lines",
+                          n=150):
+    """-> a seeded draw of corpus lines with a pronoun + auxiliary
+    contraction: `n` written joined (`they're`) and `n` with a space before
+    the apostrophe (`they 're`). A line opening with `-` is left out: the
+    meter verb would read it as a flag."""
+    import glob
+    import random
+    joined = re.compile(
+        r"\b(i|you|he|she|we|they|it)['\u2019](re|s|ll|d|ve|m)\b", re.I)
+    spaced = re.compile(
+        r"\b(i|you|he|she|we|they|it) ['\u2019](re|s|ll|d|ve|m)\b", re.I)
+    paths = sorted(glob.glob("corpus/song/*.txt")) + ["corpus/sonnets.txt",
+                                                      "corpus/whitman.txt"]
+    seen, one, two = set(), [], []
+    for p in paths:
+        with open(p, encoding="utf-8") as fh:
+            text = fh.read()
+        for line in text.split("\n"):
+            if not line.strip() or line.lstrip().startswith("-") or line in seen:
+                continue
+            seen.add(line)
+            if spaced.search(line):
+                two.append(line)
+            elif joined.search(line):
+                one.append(line)
+    rng = random.Random(seed)
+    return (rng.sample(one, min(n, len(one)))
+            + rng.sample(two, min(n, len(two))))
+
+
+def _v1_reading_digest(lines):
+    """sha256 of v1's stress string and end anchors, line by line."""
+    lex = LH.Lexicon(reader_scheme="v1")
+    out = []
+    for line in lines:
+        ph, _, _ = lex.transcribe(line)
+        stress = "".join(p[-1] for p in ph if p[-1:].isdigit())
+        ancs = LH.line_anchors(lex, line)[0]
+        out.append([stress, [[[s["nucleus"], s["stress"]] for s in a]
+                             for a in ancs]])
+    return hashlib.sha256(json.dumps(out).encode()).hexdigest()
+
+
+def _v1_meter_digest(lines):
+    """-> (lines reported, sha256 of the stress column) of the `meter` verb
+    under `--reader-scheme=v1`, the call the review named."""
+    got = subprocess.run([sys.executable, "lyric_harness.py",
+                          "--reader-scheme=v1", "meter", "//", *lines],
+                         capture_output=True, text=True, timeout=1200).stdout
+    col = [re.search(r"stress (\S*)", line).group(1)
+           for line in got.splitlines()
+           if re.match(r"\s+L\d+ ", line) and "stress" in line]
+    return len(col), hashlib.sha256("\n".join(col).encode()).hexdigest()
+
+
+class SchemeV1IsFrozenOnContractionLines(unittest.TestCase):
+    """v1 reads a pronoun contraction as main does: its stress, its end
+    anchors and the meter verb's stress column, on a seeded corpus draw."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.cwd = os.getcwd()
+        os.chdir(ROOT)
+        cls.lines = _v1_contraction_lines()
+
+    @classmethod
+    def tearDownClass(cls):
+        os.chdir(cls.cwd)
+
+    def test_the_draw_is_the_pinned_one(self):
+        self.assertEqual(len(self.lines), V1_CONTRACTION_LINES)
+
+    def test_stress_and_end_anchors_are_mains(self):
+        self.assertEqual(_v1_reading_digest(self.lines), V1_READING_DIGEST)
+
+    def test_the_meter_verb_is_mains(self):
+        self.assertEqual(_v1_meter_digest(self.lines),
+                         (V1_CONTRACTION_LINES, V1_METER_DIGEST))
+
+
 class MirrorFixture(unittest.TestCase):
     """10. The website mirror's agreement fixture is what the reader returns."""
 
