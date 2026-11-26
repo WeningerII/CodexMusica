@@ -86,9 +86,9 @@ def _triggered(text):
             or "‐" in text or "‑" in text
             # an opening quotation mark leaves its word (2026-10-16)
             or "\u2018" in text or "\u201b" in text
-            # a standalone `&` is sung `and`, and a Latin ligature letter is
-            # its letters (2026-11-21, bug-hunt findings 13 and 14)
-            or "&" in text or any("\ufb00" <= c <= "\ufb06" for c in text)
+            # a Latin ligature letter is its letters (2026-11-21, bug-hunt
+            # finding 14)
+            or any("\ufb00" <= c <= "\ufb06" for c in text)
             # a run of apostrophes at a word's edge is one mark (2026-11-23)
             or "''" in LH.normalise_word(text)
             or not unicodedata.is_normalized("NFC", text))

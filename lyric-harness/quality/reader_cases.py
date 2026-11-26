@@ -159,8 +159,10 @@ V2_REGRESSIONS = [
     "go\u2000\u0301bed",
     "love\u037e\u0301night",
     "a\u0387\u0327\u0301b",
-    # bug-hunt findings 13 and 14 (2026-11-21): a standalone `&` is sung
-    # `and`; one inside a run is not; a Latin ligature letter is its letters.
+    # bug-hunt finding 14 (2026-11-21): a Latin ligature letter is its
+    # letters. An `&`, standing alone or inside a run, is left as written in
+    # this release (finding 13's reading of a standalone `&` as `and` is not
+    # in it); these lines hold both tokenizers to that.
     "rock & roll all night",
     "& so it goes &",
     "R&B & soul",

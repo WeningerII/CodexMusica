@@ -138,26 +138,17 @@
   }
 
   // The grader's `_reader_expand`, mirrored: a Latin ligature letter
-  // (U+FB00-U+FB06) becomes its letters, and a standalone `&` (no letter or
-  // numeral touching it) is the sung word `and`. `+` stays as written.
+  // (U+FB00-U+FB06) becomes its letters. `&` and `+` stay as written.
   const LIGATURES = new Map(
     Array.from({ length: 7 }, (_, k) => {
       const c = String.fromCodePoint(0xfb00 + k);
       return [c, Array.from(c.normalize('NFKC'))];
     })
   );
-  const wordChar = (c) => L_ONE.test(c) || N_ONE.test(c);
   function expand(s) {
     const out = [];
-    for (let k = 0; k < s.length; k++) {
-      const [c, a, b] = s[k];
+    for (const [c, a, b] of s) {
       if (LIGATURES.has(c)) for (const ch of LIGATURES.get(c)) out.push([ch, a, b]);
-      else if (
-        c === '&' &&
-        (k === 0 || !(wordChar(s[k - 1][0]) || s[k - 1][0] === '&')) &&
-        (k === s.length - 1 || !(wordChar(s[k + 1][0]) || s[k + 1][0] === '&'))
-      )
-        for (const ch of 'and') out.push([ch, a, b]);
       else out.push([c, a, b]);
     }
     return out;

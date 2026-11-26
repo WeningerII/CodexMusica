@@ -169,30 +169,12 @@ class BatchEvidenceTests(unittest.TestCase):
         self.assertEqual((work_count, declaration_count), (1030, 9638))
         # A named word the lexicon no longer reads is a stale entry.
         self.assertEqual(since_read, SINCE_READ)
-        # ~~Exactly ten rows change position, all on the six `U--h` lines
-        # whose dash run v2 reads as punctuation (`U--h, Lawdy` is three
-        # tokens).~~ REPINNED 2026-11-24 (#913, ded2284947: v2 reads a
-        # standalone `&` as the word `and`): thirteen rows change position,
-        # of two kinds, and every row is shown to be one of them, so a row
-        # moved by any third cause fails here rather than being absorbed.
-        # - DASH: the ten on the six `U--h` lines, as before;
-        # - AMPERSAND: three, each later on its line than a standalone `&`,
-        #   moved by exactly the number of standalone `&` before it.
-        standalone_amp = re.compile(r'(?<![\w&])&(?![\w&])')
-
-        def amps_before(line, word):
-            text = LH.fold_apostrophes(line)
-            at = text.find(word)
-            return (sum(1 for m in standalone_amp.finditer(text)
-                        if m.start() < at) if at >= 0 else 0)
-
-        dash = [m for m in moved if m[0].startswith('U--h') and m[3] > m[2]]
-        amp = [m for m in moved if not m[0].startswith('U--h')
-               and amps_before(m[0], m[1]) > 0
-               and m[3] - m[2] == amps_before(m[0], m[1])]
-        self.assertEqual(len(moved), len(dash) + len(amp), moved)
-        self.assertEqual((len(dash), len({m[0] for m in dash})), (10, 6), dash)
-        self.assertEqual((len(amp), len({m[0] for m in amp})), (3, 3), amp)
+        # Exactly ten rows change position, all on the six `U--h` lines whose
+        # dash run v2 reads as punctuation (`U--h, Lawdy` is three tokens).
+        self.assertEqual(len(moved), 10, moved)
+        self.assertEqual(len({line for line, *_ in moved}), 6, moved)
+        self.assertTrue(all(line.startswith('U--h') and new > old
+                            for line, word, old, new in moved), moved)
         coverage = read_json(BATCH / 'pronunciations' / 'coverage.json')
         self.assertEqual(coverage['works_with_prepared_declarations'], work_count)
         self.assertEqual(coverage['prepared_declarations'], declaration_count)

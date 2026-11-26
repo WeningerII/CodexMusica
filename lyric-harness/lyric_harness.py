@@ -3031,7 +3031,7 @@ def normalise_word(word):
     and U+2010/U+2011 folds, U+00AD removed. U+2032 (prime) is NOT folded: it
     is a different character with its own uses, and stays a breaker."""
     word = unicodedata.normalize("NFC", str(word))
-    # The reader's expansions too (ligature letters, a standalone `&`), so a
+    # The reader's expansion too (ligature letters), so a
     # token's text is its raw pieces normalised, as `reader_line` promises.
     kept = [(_reader_fold(c), 0, 0) for c in word if c != _SHY]
     return "".join(c for c, _, _ in _reader_expand(kept))
@@ -3103,30 +3103,20 @@ def expand_ligatures(word):
     return "".join(_LIGATURES.get(c, c) for c in word)
 
 
-def _word_char(ch):
-    """A letter or a numeral (General_Category L or N): what keeps an `&`
-    inside a run rather than standalone."""
-    return unicodedata.category(ch)[0] in "LN"
-
-
 def _reader_expand(stream):
-    """The reader's expansions on the folded stream: a Latin ligature letter
-    becomes its letters, and a STANDALONE `&` (no letter or numeral touching
-    it on either side) is the sung word `and` (bug-hunt finding 13) -- `rock
-    & roll` reads five syllables, as `rock and roll` does, and `& 'll` joins
-    as `and'll`. An `&` inside a run (`R&B`, `AT&T`, `&&`) is left as written. `+` is not expanded: it is sung as
-    `and` and as `plus` alike, so it stays a symbol the reader does not
-    voice."""
+    """The reader's expansion on the folded stream: a Latin ligature letter
+    becomes its letters (bug-hunt finding 14). Nothing else is expanded: an
+    `&` is left as written, standing alone or inside a run (`R&B`), and `+`
+    likewise -- each is a symbol the reader does not voice.
+
+    NOT IN THIS RELEASE (2026-11-26): reading a standalone `&` as the sung
+    word `and` (bug-hunt finding 13). It adds a token, so every saved scheme-v2
+    token number after a standalone `&` would name a different word under the
+    same numbering mark. It returns in its own change, with its own mark."""
     out = []
-    n = len(stream)
-    for k, (c, a, b) in enumerate(stream):
+    for c, a, b in stream:
         if c in _LIGATURES:
             out.extend((ch, a, b) for ch in _LIGATURES[c])
-        elif (c == "&" and (k == 0 or not (_word_char(stream[k - 1][0])
-                                           or stream[k - 1][0] == "&"))
-              and (k == n - 1 or not (_word_char(stream[k + 1][0])
-                                      or stream[k + 1][0] == "&"))):
-            out.extend((ch, a, b) for ch in "and")
         else:
             out.append((c, a, b))
     return out
