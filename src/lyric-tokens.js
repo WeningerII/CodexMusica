@@ -134,7 +134,24 @@
         }
       }
     }
-    return out.map(([c, a, b]) => [fold(c), a, b]);
+    return expand(out.map(([c, a, b]) => [fold(c), a, b]));
+  }
+
+  // The grader's `_reader_expand`, mirrored: a Latin ligature letter
+  // (U+FB00-U+FB06) becomes its letters. `&` and `+` stay as written.
+  const LIGATURES = new Map(
+    Array.from({ length: 7 }, (_, k) => {
+      const c = String.fromCodePoint(0xfb00 + k);
+      return [c, Array.from(c.normalize('NFKC'))];
+    })
+  );
+  function expand(s) {
+    const out = [];
+    for (const [c, a, b] of s) {
+      if (LIGATURES.has(c)) for (const ch of LIGATURES.get(c)) out.push([ch, a, b]);
+      else out.push([c, a, b]);
+    }
+    return out;
   }
 
   // UTF-16 offset -> stream index, for regex matches over the joined string.
@@ -199,6 +216,28 @@
       let k = 0;
       while (k < idx.length && (drop.has(idx[k]) || st[idx[k]][0] === SHY)) k++;
       idx = idx.slice(k);
+      // lyric_harness._reader_line_v2 `make`: a run of apostrophes at either
+      // edge of a token is one mark (2026-11-23). At the end the word's own
+      // mark is the first of the run, at the start the last.
+      let vis = idx
+        .map((i, n) => [i, n])
+        .filter(([i]) => st[i][0] !== SHY)
+        .map(([, n]) => n);
+      while (vis.length >= 2 && st[idx[vis[0]]][0] === "'" && st[idx[vis[1]]][0] === "'") {
+        idx = idx.slice(vis[1]);
+        vis = idx
+          .map((i, n) => [i, n])
+          .filter(([i]) => st[i][0] !== SHY)
+          .map(([, n]) => n);
+      }
+      while (
+        vis.length >= 2 &&
+        st[idx[vis[vis.length - 1]]][0] === "'" &&
+        st[idx[vis[vis.length - 2]]][0] === "'"
+      ) {
+        idx = idx.slice(0, vis[vis.length - 2] + 1);
+        vis = vis.slice(0, -1);
+      }
       if (!idx.length) return null;
       const chars = idx
         .map((i) => st[i][0])
@@ -279,19 +318,22 @@
     cut(tokenMember, tokenKeep, groups);
     for (const g0 of groups) {
       const g = g0.filter((i) => st[i][0] !== SHY);
+      // A leading run made only of opening marks leaves the word (2026-11-23).
+      let r = 0;
+      while (r < g.length && st[g[r]][0] === "'") r++;
       if (
-        g.length >= 2 &&
-        st[g[0]][0] === "'" &&
-        st[g[1]][0] !== "'" &&
-        OPENING_QUOTES.includes(cps[st[g[0]][1]]) &&
+        r >= 1 &&
+        r < g.length &&
+        g.slice(0, r).every((i) => OPENING_QUOTES.includes(cps[st[i][1]])) &&
         !LEADING_ELISIONS.has(
           g
+            .slice(r - 1)
             .map((i) => st[i][0])
             .join('')
             .toLowerCase()
         )
       )
-        drop.add(g[0]);
+        for (const i of g.slice(0, r)) drop.add(i);
     }
     const tokens = cut(tokenMember, tokenKeep);
     const runs = cut(

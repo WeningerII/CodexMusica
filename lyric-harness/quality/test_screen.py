@@ -433,9 +433,11 @@ def test_the_screen_says_which_words_cannot_be_bound_at_a_token():
     check("`buy`, `bye`, `window` anchor at both",
           all(LH.token_anchorability(lex, w) == (True, True)
               for w in ("buy", "bye", "window")))
+    # The lists of the scheme this reader uses (`weak_sets`): the two module
+    # lists are scheme v1's, and v2 adds the pronoun contractions.
     check("every listed small word anchors at both positions",
           all(LH.token_anchorability(lex, w) == (True, True)
-              for w in sorted(LH.WEAK_ALWAYS | LH.WEAK_NONFINAL)))
+              for w in sorted(set().union(*LH.weak_sets(lex)))))
     lines = LH.anchor_disclosure_lines(lex, ["by", "buy", "in", "qzzxv"])
     check("the disclosure names only the word the dictionary cannot read, "
           "its position, and that a mandate binding it there is REFUSED "

@@ -261,11 +261,44 @@ def test_mutations():
           == "witness_and_contrast")
 
 
+MIXED_COUNT_SEED, MIXED_COUNT_DRAW = 913, 12
+
+
+def test_a_word_every_whole_reading_reads_is_read():
+    print("\n8. a line-end word whose readings differ in syllable count is "
+          "read, not left unread (seeded draw)")
+    import random
+    lex = R._stream_lexicon(R.build_stream(["a"], get_phonology("eng"),
+                                           declaration={"language": "eng"}))
+    def counts(w):
+        return {sum(1 for p in r if p[-1].isdigit())
+                for r in lex.pronunciation_variants(w)}
+    pool = sorted(w for w in lex.entries
+                  if w.isalpha() and w.islower() and len(counts(w)) > 1)
+    draw = random.Random(MIXED_COUNT_SEED).sample(pool, MIXED_COUNT_DRAW)
+    head = FE.FIGURE_EXHIBITS["leonine rhyme"]["contrast"][0][0]
+    head = head[:head.rstrip(",").rfind(" ") + 1]
+    premise, read = [], []
+    for w in draw:
+        line = f"{head}{w},"
+        st = R.build_stream([line], get_phonology("eng"),
+                            declaration={"language": "eng"})
+        if any(t == w for _, _, t in st.unreadable):
+            premise.append(w)
+        verdict, d = FE.grade("leonine rhyme", [line], "eng")
+        if w not in d["unreadable"] and verdict is not None:
+            read.append(w)
+    check("PREMISE: the merged stream leaves some of the draw unread",
+          bool(premise), f"{len(premise)} of {len(draw)}")
+    check("every drawn word is read, and the line answers True or False",
+          read == draw, f"unread: {sorted(set(draw) - set(read))}")
+
+
 def main():
     for fn in (test_roster, test_phonology_is_the_traditions,
                test_cites_are_verbatim, test_findings_are_not_stale,
                test_cywydd_counts, test_census_reads_this_route,
-               test_mutations):
+               test_mutations, test_a_word_every_whole_reading_reads_is_read):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

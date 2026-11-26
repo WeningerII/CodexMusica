@@ -89,14 +89,20 @@ CONC_ABSTRACT = 2.5       # Brysbaert midpoint used for the abstract-noun cut
 #: MATTR's moving-average window, in TOKENS. It was a bare default in
 #: `_mattr`'s signature until 2026-08-14 — no comment, no declaration, no
 #: results document, four call sites and not one passing it. It is a real
-#: coordinate and `_mattr`'s docstring carries the sweep that says so; the
-#: place to disagree with it is `quality.floor.FloorDeclaration.mattr_window`,
-#: whose provenance block is `quality.floor.CALIBRATION["mattr_window"]`.
+#: coordinate and `_mattr`'s docstring carries the sweep that says so.
 #:
-#: This constant is only the DEFAULT the declaration itself takes. Nothing
-#: reads it to decide anything: the gate threads `FloorDeclaration.
-#: mattr_window` into `extract()` on every call, so an override reaches the
-#: statistic rather than being quietly outranked by this line (doctrine 1).
+#: REPINNED 2026-11-22 (owner's ruling): ~~the place to disagree with it is
+#: `quality.floor.FloorDeclaration.mattr_window`, whose provenance block is
+#: `quality.floor.CALIBRATION["mattr_window"]`; this constant is only the
+#: DEFAULT the declaration takes, and the gate threads the declared window
+#: into `extract()` on every call~~. The grader's word-variety check was
+#: removed on 22 Nov 2026, and the declaration field and the provenance block
+#: went with it; the grader no longer asks for `mattr` at all
+#: (`quality.floor.FLOOR_FEATURES`). This constant is now the window itself
+#: for the readers left: the superseded song and short rows' drift check
+#: (`song_profile_calibration`), `within_item`, `library/form.py` and the
+#: discrimination experiments. A caller can still pass another window per
+#: call. The sweep stays in `_mattr`'s docstring.
 MATTR_WINDOW = 50
 
 
@@ -457,11 +463,13 @@ class QualityFeatures:
                                      for name in set(self.NAMES) - self.requested_features}
         self.field = RhymeField(self.lex, self.decl)
         self.pos_tag = _tagger()
-        #: the window `extract()` uses when its caller names none. A caller
-        #: holding a `FloorDeclaration` should pass that declaration's
-        #: `mattr_window` per call instead of relying on this, so one shared
-        #: `QualityFeatures` can serve two declarations without either of
-        #: them silently mutating the other's statistic.
+        #: the window `extract()` uses when its caller names none.
+        #: REPINNED 2026-11-22: ~~A caller holding a `FloorDeclaration` should
+        #: pass that declaration's `mattr_window` per call~~ -- the
+        #: declaration has no window since the grader's word-variety check
+        #: was removed (owner's ruling). A caller that wants another window
+        #: passes it per call, so one shared `QualityFeatures` can serve two
+        #: windows without either silently mutating the other's statistic.
         self.mattr_window = mattr_window
 
     # -- helpers ----------------------------------------------------------
@@ -729,10 +737,13 @@ class QualityFeatures:
         does not justify FIFTY, and until this date nothing did: `window=50`
         was a bare default with no comment, absent from `FloorDeclaration`,
         absent from `floor.CALIBRATION`, absent from every results document,
-        and not passed by any of its four call sites. It is now
-        `FloorDeclaration.mattr_window`; the provenance block is
-        `floor.CALIBRATION["mattr_window"]` and the numbers are repeated here
-        because this is where a reader meets the constant.
+        and not passed by any of its four call sites. REPINNED 2026-11-22:
+        ~~It is now `FloorDeclaration.mattr_window`; the provenance block is
+        `floor.CALIBRATION["mattr_window"]` and the numbers are repeated
+        here~~. It was a grader setting from then until 22 Nov 2026, when the
+        grader's word-variety check was removed (owner's ruling) and the
+        declaration field and the provenance block with it. The numbers below
+        are the record that is left, and `MATTR_WINDOW` is the window.
 
         IT IS NOT ON A PLATEAU. Sonnet-level separation (`mattr` alone,
         Experiment 2, 152 Shakespeare sonnets vs 40 model ones -- the same

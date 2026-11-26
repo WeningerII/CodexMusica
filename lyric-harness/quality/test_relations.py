@@ -2320,9 +2320,17 @@ def test_relation_report_renderer_runs():
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 80" in out
           and "REFUSED 27 (capability 27 · EMPTY DECLARED FRAME 0 · OTHER 0)"
-          in out and "RAN AND FOUND NOTHING 30" in out
-          and "RAN AND FIRED 23" in out,
-          "REFUSED 27 · RAN AND FOUND NOTHING 30 · RAN AND FIRED 23, "
+          in out and "RAN AND FOUND NOTHING 29" in out
+          and "RAN AND FIRED 24" in out,
+          "REFUSED 27 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 24, "
+          "REPINNED 2026-11-24 (the owner's ruling on hyphenated words, "
+          "\"lift it\") from FOUND NOTHING ~~30~~ and FIRED ~~23~~: line 5's "
+          "`double-eyed` is read from its two dictionary parts now (units "
+          "92 -> 95, unreadable tokens 5 -> 4), so it rhymes with the "
+          "poem's other `-ide` ends (perfect rhyme 76 -> 89 instances) and "
+          "reverse rhyme fires once (1 true of 16); measured "
+          "against 74861ec95d with eng.py alone put back, it is the only "
+          "schema that moved between the counts. "
           "REPINNED 2026-11-20 (owner's ruling: a word may rhyme with "
           "itself) from FOUND NOTHING ~~31~~ and FIRED ~~22~~: rime riche "
           "no longer requires different words, so it fires on the 15 "
@@ -2414,7 +2422,10 @@ def test_relation_report_renderer_runs():
         os.unlink(probe)
     check("a `#` stage direction and a `--- TITLE:` note are APPARATUS here "
           "too — this reader kept only the `[` case",
-          "lines 16   units 92" in tagged and "lines 16   units 92" in plain,
+          "lines 16   units 95" in tagged and "lines 16   units 95" in plain,
+          "REPINNED 2026-11-24, units ~~92~~ 95: `double-eyed` is read from "
+          "its parts (the owner's ruling \"lift it\"); the claim is that "
+          "the two texts read alike, and they still do. "
           "`lyric_harness.py`'s relations verb was centralised onto "
           "is_apparatus_line on 2026-08-12 and this module's own main() was "
           "not, so the same file read through the two surfaces was two "

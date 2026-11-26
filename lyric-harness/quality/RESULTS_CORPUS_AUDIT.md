@@ -1,6 +1,14 @@
 # RESULTS — the corpus audit (adversary 5)
 
-Current result, 2026-10-27 (the generated sonnets deleted, owner-approved):
+Current result, 2026-11-24 (the hyphen lift, fd1d20d75a):
+**2,327 files, 0 FAIL, 36 WARN, 1,860 NOTE**; supersedes WARN ~~37~~. The one
+lost finding is check D's WARN on `corpus/song/eng_hbv_charles_henry_luders.txt`
+("declared eng and barely readable", 52.4% of 21 sampled tokens). Its
+hyphenated words `to-night` and `pocket-book` now read from their dictionary
+parts, which lifts the file over the 60% line. Every other finding is identical
+line for line against a run at 74861ec95d.
+
+Result of 2026-10-27 (the generated sonnets deleted, owner-approved):
 **2,327 files, 0 FAIL, 37 WARN, 1,860 NOTE**; supersedes files ~~2,328~~,
 WARN ~~38~~, NOTE ~~1,861~~. The deleted file is
 `corpus/generated/sonnets_generated.txt`, the model-generated sonnets. Its two

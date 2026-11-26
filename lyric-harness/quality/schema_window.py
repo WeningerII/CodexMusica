@@ -109,8 +109,14 @@ RETENTION_FLOOR = 0.990
 #: coarse passes) and 14 L10-12 art/convert' left. The one distance-1 rescue
 #: is 72 L13-14 forth/worth, a closing couplet. E2 STILL FIRES: the
 #: mandate's furthest binding is still 2.
+#: ~~{"rescues": 36, "by_distance": {2: 35, 1: 1}}~~ REPINNED 2026-11-24 ->
+#: {"rescues": 35, "by_distance": {2: 34, 1: 1}}, READER SCHEME v2 (moved at
+#: ded2284947). The same set `schema_end_reading.PINNED` repinned to 1 + 34
+#: that day: 122 L5-7 admire/desire, a distance-2 rescue, now passes the
+#: coarse check and is no rescue. E2 STILL FIRES: the mandate's furthest
+#: binding is still 2.
 PINNED = {
-    "sonnets": {"rescues": 36, "by_distance": {2: 35, 1: 1}},
+    "sonnets": {"rescues": 35, "by_distance": {2: 34, 1: 1}},
 }
 
 

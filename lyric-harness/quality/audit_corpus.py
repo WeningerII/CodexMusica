@@ -3284,7 +3284,14 @@ def main(argv=None):
 # NOTE "no declared language"). Every other finding is identical line for line
 # against a run with the file restored. Source declarations stay 2917 (the file
 # declared none). See RESULTS_CORPUS_AUDIT.md.
-PINNED_SHAPE = {"files": 2327, "FAIL": 0, "WARN": 37, "NOTE": 1860}
+# 2026-11-24 the hyphen lift (fd1d20d75a: a hyphenated word whose parts are
+# dictionary words reads as its parts): WARN ~~37~~ -> 36. The one lost finding
+# is check D's WARN on `corpus/song/eng_hbv_charles_henry_luders.txt`
+# ("declared eng and barely readable", 52.4% of 21 sampled tokens): its
+# `to-night` and `pocket-book` now read, which lifts the file over the 60%
+# line. Files, FAIL and NOTE hold; every other finding is identical line for
+# line. See RESULTS_CORPUS_AUDIT.md.
+PINNED_SHAPE = {"files": 2327, "FAIL": 0, "WARN": 36, "NOTE": 1860}
 
 
 def _verify_shape(files, findings):

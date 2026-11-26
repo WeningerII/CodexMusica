@@ -178,14 +178,27 @@ def test_provenance_and_shape():
           LEX.reading_source("car", ["K", "AA1", "R"]) == "cmudict")
     check("CMUdict's own respelled reading still validates as a dictionary choice",
           ["HH", "IY1", "R"] in LEX.dictionary_readings("here"))
-    bad = []
+    # REPINNED 2026-11-21 (bug-hunt finding 10): ~~every derived reading
+    # keeps a CMUdict reading's syllable count~~ -- smoothing is the one rule
+    # that drops a syllable on purpose (tire T AY1 ER0 -> T AY1 R), so the
+    # invariant now holds for every OTHER rule, and a smoothed reading is
+    # exactly one syllable shorter than a CMUdict reading of its word.
+    bad, smooth_bad, smoothed = [], [], 0
     for (word, phones), rule in LEX.reading_rules.items():
         n = sum(1 for ph in phones if L._is_vowel(ph))
-        if not any(sum(1 for ph in p if L._is_vowel(ph)) == n
-                   for p in LEX.cmu_raw_entries.get(word, ())):
+        counts = {sum(1 for ph in p if L._is_vowel(ph))
+                  for p in LEX.cmu_raw_entries.get(word, ())}
+        if rule.startswith("smoothing"):
+            smoothed += 1
+            if n + 1 not in counts and n not in counts:
+                smooth_bad.append((word, rule))
+        elif n not in counts:
             bad.append((word, rule))
-    check("every derived reading keeps a CMUdict reading's syllable count",
-          not bad, str(bad[:5]))
+    check("every derived reading but smoothing keeps a CMUdict reading's "
+          "syllable count", not bad, str(bad[:5]))
+    check("a smoothed reading is one syllable short of a CMUdict reading",
+          smoothed > 300 and not smooth_bad, f"{smoothed} smoothed; "
+          f"{smooth_bad[:5]}")
     check("no word is added: the derived lexicon has CMUdict's keys",
           set(LEX.entries) == set(V1.entries))
     check("v1 replays the pre-batch dictionary: here is HH IY1 R only",
@@ -454,13 +467,59 @@ def test_listings_report_every_schema_some_reading_holds():
           str(v[0]["schemas"] if v else g.keys()))
 
 
+def test_the_pronunciation_batch_of_2026_11_21():
+    print("\n7. bug-hunt findings 10-12: smoothing, weak contractions, "
+          "hyphenated words read whole")
+    import subprocess
+    # 10. Smoothing: a stressed AY/AW + unstressed ER at the word's end gains
+    # the one-syllable reading fire and hour already had; a vowel after the
+    # ER leaves the word alone.
+    for word, want in (("tire", "T AY1 R"), ("desire", "D IH0 Z AY1 R"),
+                       ("flower", "F L AW1 R"), ("tired", "T AY1 R D")):
+        got = [" ".join(p) for p in LEX.entries.get(word, ())]
+        check(f"smoothing: {word} reads {want}", want in got
+              and LEX.reading_rules.get((word, tuple(want.split())))
+              == "smoothing", got)
+    check("smoothing leaves fiery (a vowel after the ER) alone",
+          not any(r.startswith("smoothing") for (w, _), r in
+                  LEX.reading_rules.items() if w == "fiery"))
+    check("v1 replays CMUdict: tire has no smoothed reading there",
+          ["T", "AY1", "R"] not in [list(p) for p in V1.entries.get("tire", ())])
+    # 10. The types lookup reads words whose readings differ in syllable
+    # count instead of calling them unreadable.
+    here = os.path.dirname(os.path.abspath(__file__))
+    r = subprocess.run([sys.executable, os.path.join(here, "..", "lyric_harness.py"),
+                        "types", "fire", "--", "desire", "--position=end"],
+                       capture_output=True, text=True)
+    check("types fire -- desire is read, not UNREADABLE",
+          "UNREADABLE" not in r.stdout and "NAMES:" in r.stdout,
+          r.stdout[-300:])
+    # 11. A pronoun + auxiliary contraction is as weak as its spelled form.
+    # Scheme v2 only (review of #913, 2026-11-26): v1's sets are frozen.
+    from lyric_harness import WEAK_ALWAYS_V2, WEAK_NONFINAL_V2, weak_token
+    check("it's is weak everywhere, like its and i'm",
+          "it's" in WEAK_ALWAYS_V2 and weak_token(LEX, "it's", phrase_final=True))
+    check("you're, we'll, I'll, they've are weak mid-phrase",
+          all(weak_token(LEX, w) for w in ("you're", "we'll", "I'll", "they've"))
+          and all(w in WEAK_NONFINAL_V2 for w in ("you're", "we'll", "i'll")))
+    # 12. A hyphenated word the dictionary has whole is read whole, only
+    # when the syllable count agrees and no piece is a single letter.
+    for word, want in (("re-write", ["rewrite"]), ("to-day", ["today"]),
+                       ("co-op", ["co", "op"]), ("a-rid", ["a", "rid"])):
+        check(f"word_pieces({word!r}) -> {want}",
+              LEX.word_pieces(word) == want, LEX.word_pieces(word))
+    check("v1 keeps the pre-batch split", V1.word_pieces("re-write")
+          == ["re", "write"], V1.word_pieces("re-write"))
+
+
 if __name__ == "__main__":
     for fn in (test_the_inventory_has_one_definition,
                test_every_rule_has_positive_and_negative_cases,
                test_provenance_and_shape,
                test_the_rulings_hold_under_any_reading,
                test_readings_pair_within_an_accent,
-               test_listings_report_every_schema_some_reading_holds):
+               test_listings_report_every_schema_some_reading_holds,
+               test_the_pronunciation_batch_of_2026_11_21):
         fn()
     print("=" * 70)
     if FAILURES:

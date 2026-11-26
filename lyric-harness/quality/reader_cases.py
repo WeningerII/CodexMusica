@@ -159,6 +159,17 @@ V2_REGRESSIONS = [
     "go\u2000\u0301bed",
     "love\u037e\u0301night",
     "a\u0387\u0327\u0301b",
+    # bug-hunt finding 14 (2026-11-21): a Latin ligature letter is its
+    # letters. An `&`, standing alone or inside a run, is left as written in
+    # this release (finding 13's reading of a standalone `&` as `and` is not
+    # in it); these lines hold both tokenizers to that.
+    "rock & roll all night",
+    "& so it goes &",
+    "R&B & soul",
+    "rock && roll",
+    "her eyes burn like a \ufb01re",
+    "\ufb02y away, o\ufb00 we go",
+    "an e\ufb03cient ra\ufb04e",
 ]
 
 

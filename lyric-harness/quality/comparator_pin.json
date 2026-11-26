@@ -1,16 +1,16 @@
 {
-  "fingerprint": "8005dddf4d012093a6abdd9742d5919da1b7f2a850f32392b9739cad411a787b",
+  "fingerprint": "ecd8ec08c371c34984a9b04dee5d857b1d367390833de8c225a6ddb927e9083d",
   "parts": {
     "Declaration()": "5f1ef1c954d2534cdcdcad5f817d5a33b6148ea194e93d2ffd7a34add802bb68",
     "_couplet_pairs": "942c42ed7326bedcc27b0e8b42671b4094c225d7b5773fec1227c3350c8e5a86",
     "cmudict.dict": "449bfdeafc1c748d11f822c78b4a77981a82635f5f6b7729253a9790d3683b85",
-    "features.py": "80e6fb9f6df23662f16f61819eb4ee40f55e5fda0974ae20ef92db3e70888db1",
-    "lyric_harness.py closure": "7c8acf3bafe6de8b5ceefc8a990a81fea641df3773371675c5db0c020ef7ed4a",
+    "features.py": "c49ef79c7c971bc479a90ac6155910d055f69aed55d9980cceebc34b0175ee78",
+    "lyric_harness.py closure": "082d17e5c44cdc124355455d727f657a6a5fa93ba9276c8a5921833926b0bf3c",
     "opensubtitles_en_50k.tsv": "1869ef3c76633403756cd7922c98599567e5a6f1a3f2c6e8eac0b894b955dc09",
     "predictability_frac": "b786e21a6e2d17e283a1829d21f6365524e72c51deaf2b148423d866f778c8c9"
   },
-  "pinned_on": "2026-10-31",
-  "verdict": "RESULT: HOLDS \u2014 the lyric row's 5 curves re-derive from the corpus, after the owner-ruled re-adoption of predictability's knots (2026-10-31)",
-  "verified_by": "quality/results/comparator_repin_2026-10-31/curve-check.txt",
+  "pinned_on": "2026-11-26",
+  "verdict": "RESULT: HOLDS \u2014 the lyric row's 5 curves re-derive from the corpus, and every shipped constant reproduces in the song and short profiles, on the final reader of #913 (2026-11-26; 16-shard memo, 8,585 entries). Finding 34's first-word reading is not in #913: the owner's decision of 2026-11-26, \"yes, leave the first-word reading out of 913\".",
+  "verified_by": "quality/results/comparator_repin_2026-11-26/EVIDENCE.txt",
   "version": 1
 }

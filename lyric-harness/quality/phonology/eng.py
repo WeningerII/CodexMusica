@@ -87,12 +87,19 @@ SEPARATELY from the dictionary's: `three_counts()` returns
 dictionary / fallback / refused as three numbers, never two, because a rate
 computed over "read" without saying how much of it was DERIVED has hidden the
 assumption it rests on. Measured on the 2,128 end words of the 152 sonnets the
-battery parses: **2,056 / 0 / 72** with the fallback off and **2,065 / 51 / 12**
-with it at `high`. The nine that move into the first column rather than the
-second are hyphenated compounds (`to-day`, `Easter-day`) that the LINE path has
-always read by splitting on the hyphen and a per-word path did not; that is a
-tokenisation agreement, not a derivation, so it belongs in the dictionary
-column.
+battery parses: ~~**2,056 / 0 / 72**~~ **2,063 / 0 / 65** with the fallback off
+under reader scheme v2 and **2,065 / 51 / 12** with it at `high`. REPINNED
+2026-11-23, re-measured with `three_counts` over those end words (each line's
+last token): a hyphenated word whose every part is a dictionary word is now read
+from its parts with the fallback off (`_piece_readings`, the owner's ruling
+"lift it"), so seven of the eleven hyphenated end words move from refused to
+dictionary. The four still refused, `down-raz'd`, `o'er-read`, `self-kill'd` and
+`wilful-slow`, each have a part the dictionary lacks. Scheme v1 still gives
+2,056 / 0 / 72, and `high` is unchanged. The nine that move into the first
+column rather than the second are hyphenated compounds (`to-day`, `Easter-day`)
+that the LINE path has always read by splitting on the hyphen and a per-word
+path did not; that is a tokenisation agreement, not a derivation, so it belongs
+in the dictionary column.
 
 `rhymes()` IS DELIBERATELY LEFT AS THE INHERITED STUB
 
@@ -115,8 +122,8 @@ would compete with a coordinate that can already say it.
 import contextlib
 import re
 
-from quality.phonology import (DISPUTED, UNALIGNABLE, Phonology, Syllable,
-                              merge_readings, register)
+from quality.phonology import (DISPUTED, UNALIGNABLE, UNREADABLE, Phonology,
+                              Syllable, merge_readings, register)
 from quality import quotients as _QUOTIENTS  # noqa: E402
 from quality import morphology as _MORPH  # noqa: E402
 
@@ -531,8 +538,90 @@ class English(Phonology):
             lex = _NoFallbackView(lex)
         phones, oov = lex.transcribe_word(word)
         if oov or not phones:
-            return None
+            parts = self._piece_readings(word)
+            if parts is None or parts[3]:
+                return None
+            readings, pieces, source, _ = parts
+            return Reading(tuple(readings[0]), "dictionary", source, pieces)
         return Reading(tuple(phones), "dictionary", "CMUdict", (word.lower(),))
+
+    def _piece_readings(self, word):
+        """-> `(readings, pieces, source, refusal)` for a hyphenated word whose
+        every part is a dictionary word, or None.
+
+        THE WORD IS READ AS THE LINE READS IT (owner ruling 2026-11-23, "lift
+        it"). Under v2 a line keeps `to-day` as one token, and with no
+        fallback declared -- the relation judge `relation_phonology_for`
+        gives a plain lexicon -- `read` looked that token up whole, found no
+        entry and refused it, so a named rhyme type at that line end was
+        left unjudged. `Lexicon.word_pieces` is the line's own cut: it joins
+        a spelling the dictionary has whole when the syllables agree
+        (`to-day` reads as `today`) and otherwise keeps the parts, which
+        sound in order. A part the dictionary lacks, an empty part (`king-`)
+        and a numeral (kept whole by `word_pieces`) are None: nothing is
+        guessed. With a fallback declared, `read` never reaches here:
+        `quality.g2p.Fallback._compound` reads the compound, as before.
+        Scheme v1 is unchanged.
+
+        `readings` is every combination of one reading per part that one
+        speaker could say (`Lexicon.accents_agree`, as the any-reading
+        search combines readings), each part's first reading first. `parses`
+        hands them all to `merge_readings`, as it does a dictionary word's own
+        readings, so a check that every combination answers alike is judged.
+        Where they answer differently the check stays unjudged, as before
+        this change: the any-reading search varies a token through
+        `pronunciation.occurrence_readings`, which asks the lexicon for the
+        whole token and finds no reading of a hyphenated one.
+
+        THE CAP is `relations.READING_COMBO_CAP`, the one the any-reading
+        search uses (R2, 2026-11-23; no new number). Past it `readings` is
+        empty and `refusal` says why: the word stays unread, never read under
+        a sample of its combinations. `refusal` is None otherwise.
+        """
+        import itertools
+        import lyric_harness as lh
+        # Lazily: quality.relations imports this module.
+        from quality.relations import READING_COMBO_CAP
+        if self.reader_scheme != "v2":
+            return None
+        w = lh.fold_apostrophes(lh.normalise_word(word)).strip('"“”.,;:!?()[]')
+        if not re.search(r"[-\u2011]", w):
+            return None
+        lex = self._lexicon()
+        if not (hasattr(lex, "word_pieces") and hasattr(lex, "pronunciation_variants")):
+            return None
+        pieces = lex.word_pieces(w)
+        if pieces == [w]:
+            return None
+        per_piece = []
+        for piece in pieces:
+            if not piece.strip("'") or lh.has_numeral(piece):
+                return None
+            prons = lex.pronunciation_variants(piece)
+            if not prons:
+                return None
+            per_piece.append(list(dict.fromkeys(tuple(p) for p in prons)))
+        same = getattr(lex, "accents_agree", None) or (lambda _r: True)
+        agree = (c for c in itertools.product(*per_piece)
+                 if same([(lex, piece, list(r)) for piece, r in zip(pieces, c)]))
+        combos = list(itertools.islice(agree, READING_COMBO_CAP + 1))
+        if not combos:
+            return None
+        named = tuple(x.lower() for x in pieces)
+        if len(combos) > READING_COMBO_CAP:
+            return [], named, None, (
+                f"a hyphenated word whose parts ({', '.join(named)}) have more "
+                f"than {READING_COMBO_CAP} combinations of their dictionary "
+                f"readings, the most the grader tries for one word; it is not "
+                f"read, rather than read under some of them")
+        readings = [tuple(ph for r in c for ph in r) for c in combos]
+        sources = {(lex.reading_source(piece, list(prons[0]))
+                    if hasattr(lex, "reading_source") else None) or "cmudict"
+                   for piece, prons in zip(pieces, per_piece)}
+        source = ("CMUdict" if sources == {"cmudict"}
+                  else ", ".join(sorted("CMUdict" if x == "cmudict" else x
+                                        for x in sources)))
+        return readings, named, source, None
 
     def layer_of(self, word):
         """-> 'dictionary' | 'morphology' | 'elision' | 'letter' | None.
@@ -611,6 +700,12 @@ class English(Phonology):
         lex = self._lexicon()
         prons = (lex.pronunciation_variants(word) if hasattr(lex, "pronunciation_variants")
                  else lex.entries.get(key))
+        if not prons and self._fallback() is None:
+            # A hyphenated word whose parts are dictionary words: every
+            # combination of the parts' readings (`_piece_readings`).
+            parts = self._piece_readings(word)
+            if parts is not None and not parts[3]:
+                prons = [list(r) for r in parts[0]]
         if self.readings == "first" or not prons:
             return [self._syllabify_single(word)]
         return [[Syllable(word, tuple(s["onset"]), s["nucleus"],
@@ -656,6 +751,12 @@ class English(Phonology):
 
     def reading_status(self, word):
         status, note = super().reading_status(word)
+        if status == UNREADABLE and self._fallback() is None:
+            # A hyphenated word past the combination cap says why it is not
+            # read (`_piece_readings`).
+            parts = self._piece_readings(word)
+            if parts is not None and parts[3]:
+                return status, parts[3]
         if status == UNALIGNABLE and self.syllable_disputes == "first":
             return DISPUTED, note.split(":")[0] + (
                 ": read under its first-listed reading, and a check holds "
