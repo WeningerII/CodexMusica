@@ -249,10 +249,15 @@ def test_named_forms_are_coordinates_not_the_taxonomy():
             return [node.get("rhyme") or ""]
         return [r for c in node.get("children", ()) for r in _rhymes(c)]
     entry = [f for f in forms if f.get("id") == "onegin-stanza"]
-    want = ["".join(_rhymes(p)) for f in entry for p in f["patterns"]]
+    # The labels are checked one per line, before they are joined: a joined
+    # string drops an empty label, so an unrhymed fifteenth line would read
+    # as the same fourteen-letter scheme (3PO's review, #857, 2026-11-26).
+    labels = [_rhymes(p) for f in entry for p in f["patterns"]]
+    want = ["".join(lab) for lab in labels]
     check("PREMISE: the song-forms catalog has one Onegin stanza pattern, "
-          "every line rhymed",
-          len(want) == 1 and all(want[0]), str(want))
+          "fourteen lines, every line rhymed",
+          len(labels) == 1 and len(labels[0]) == 14 and all(labels[0]),
+          str(labels))
     onegin = [S.label(code) for code, row in S.NAMED.items()
               if "Onegin stanza" in row["names"]]
     check("the named table gives the Onegin stanza the catalog's scheme",
