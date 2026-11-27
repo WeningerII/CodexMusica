@@ -925,6 +925,62 @@ class CatalogPlannerTests(unittest.TestCase):
         self.assertEqual(deep[:8], [], f"{len(deep)} of {len(read)} places sit past what the line holds "
                                        "(setting, seed, line, place, the line's count, last word tied)")
 
+    def test_the_room_check_moves_no_plan_the_gate_accepts(self):
+        """The room `fit_type` keeps a tied word in (`catalog_line_rooms`)
+        only redraws what `line_fit_conflicts` would refuse. Every setting of
+        the automatic draw whose lines carry a syllable, word or stress count
+        is planned at seeds 1 to 6 twice in one process, with the room check
+        taken out and as shipped: a seed that plans without it plans the same
+        bytes with it, and a seed refused without it either plans with it or
+        is refused with the same codes."""
+        import hashlib
+        import json
+        import re
+        import subprocess
+        from pathlib import Path
+        form_js = Path(__file__).resolve().parents[2] / "mcp" / "lyric_form.js"
+        listed = subprocess.check_output(
+            ["node", "--input-type=module", "-e",
+             ("const { automaticFormCandidates } = await import(process.argv[1]);"
+              "const all = await automaticFormCandidates({});"
+              "console.log(JSON.stringify(all.filter((c) => (c.lineRequirements || []).some("
+              "(r) => 'syllables' in r || 'words' in r || 'stress' in r))));"),
+             form_js.as_uri()], text=True, stdin=subprocess.DEVNULL)
+        settings = json.loads(listed)
+        real = plan.fit_type
+
+        def without_rooms(*args, rooms=None, **kwargs):
+            return real(*args, **kwargs)
+
+        def outcome(setting, seed):
+            try:
+                built = plan.make_plan(seed, song_form=setting)
+            except plan.PlanRefused as exc:
+                return "refused", sorted(set(re.findall(r"\b[A-Z]+(?:_[A-Z]+)+\b", str(exc))))
+            return "planned", hashlib.sha256(json.dumps(built, sort_keys=True, default=str).encode()).hexdigest()
+
+        kept, rescued, moved, changed = 0, 0, [], []
+        for setting in settings:
+            key = f"{setting['id']} {setting['variant']} {json.dumps(setting['counts'])}"
+            for seed in range(1, 7):
+                with patch.object(plan, "fit_type", without_rooms):
+                    before = outcome(setting, seed)
+                after = outcome(setting, seed)
+                if before[0] == "planned":
+                    kept += 1
+                    if after != before:
+                        moved.append((key, seed, after[0]))
+                elif after[0] == "planned":
+                    rescued += 1
+                elif after != before:
+                    changed.append((key, seed, before[1], after[1]))
+        # The check acts in this window (refused seeds plan with it), and the
+        # window holds enough working plans that keeping them means something.
+        self.assertGreaterEqual(kept, 500, f"{kept} working plans")
+        self.assertGreater(rescued, 0)
+        self.assertEqual(moved[:8], [], f"{len(moved)} of {kept} working plans moved")
+        self.assertEqual(changed[:8], [], f"{len(changed)} refused seeds changed their codes")
+
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])
         with self.assertRaises(plan.PlanRefused):

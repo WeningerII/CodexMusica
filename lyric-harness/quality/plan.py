@@ -1547,8 +1547,61 @@ def _position(place):
             else "internal")
 
 
+def catalog_line_rooms(requirements, total, copies=()):
+    """-> {line: (count, "words" or "syllables")}: how deep a tied word may
+    sit in each catalog line that declares an exact word or syllable count.
+
+    THE GATE'S OWN BOUND (the fixed-syllable repair, 2026-11-27).
+    `catalog_shape.line_fit_conflicts` refuses the whole seed when a line's
+    ties need more words than the line declares, or more than its exact
+    syllables, since every word has at least one: a tied word at place k
+    needs k words while the line's last word is free and k + 1 once the last
+    word is tied too. So a place past the smaller of the two counts is
+    refused whatever the last word does, and that count is the room. The
+    rows are read through the gate's own `_validate_line_requirements`,
+    which takes a stress pattern's length as the line's syllables; a count
+    of stressed syllables bounds no word and is not read. A verbatim
+    whole-line copy holds the same words as each line it copies, so it has
+    the smallest room among them. A word at the count while the last word
+    is tied too is left to the gate, which refuses that seed as before."""
+    if not requirements:
+        return {}
+    from quality.catalog_shape import _validate_line_requirements
+    own = {}
+    for line, row in _validate_line_requirements(requirements, total).items():
+        counts = [(row[unit], unit) for unit in ("words", "syllables") if unit in row]
+        if counts:
+            own[line] = min(counts)
+    classes = {}
+    if copies:
+        groups = [[str(n) for n in group] for group in copies]
+        for item in SC._normalise_returns(groups, total, SC.ReturnRule()):
+            if item.verbatim is True and not item.placed:
+                classes.update((i, item.lines) for i in item.lines)
+    rooms = {}
+    for line in range(1, total + 1):
+        held = [own[i] for i in classes.get(line, (line,)) if i in own]
+        if held:
+            rooms[line] = min(held)
+    return rooms
+
+
+def _past_room(lines, places, rooms):
+    """-> why a drawn place sits past its catalog line's count
+    (`catalog_line_rooms`), else None."""
+    for line, place in zip(lines, places):
+        if line in rooms and re.fullmatch(r"T\d+", place) and int(place[1:]) > rooms[line][0]:
+            count, unit = rooms[line]
+            if unit == "words":
+                return (f"line {line} has {count} word{'s' * (count != 1)}, so a tied "
+                        f"word cannot sit past the {_ordinal(count)}")
+            return (f"line {line} is {count} syllable{'s' * (count != 1)} long, so a "
+                    f"tied word cannot sit past its {_ordinal(count)} word")
+    return None
+
+
 def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
-             verbatim_groups=(), reserve_end=False):
+             verbatim_groups=(), reserve_end=False, rooms=None):
     """-> (members, None) when the type can bind this group, else
     (None, reason). `lines` are the group's line numbers in text order,
     `section_lines` every line of the section the group sits in.
@@ -1560,7 +1613,14 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
     through `relations.placement_bindable`; a member whose locus is not a
     token (a searched run, a syllable index, a whole line) is the bare line
     number, judged by the grader at the type's own loci. Only the drawn
-    type's positions are bound."""
+    type's positions are bound.
+
+    A TIED WORD STAYS INSIDE ITS CATALOG LINE (the fixed-syllable repair,
+    2026-11-27). `rooms` (`catalog_line_rooms`) bounds how deep a tied word
+    sits in a line with an exact count. A draw that would be returned but
+    names a word past its line's count is drawn again on the same weights,
+    so the table's odds hold over the places that fit, and a draw that fits
+    is returned exactly as before."""
     k = len(lines)
     if k < 2:
         return None, "a group needs two members"
@@ -1621,6 +1681,10 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
         if all(_bindable_at(sch.name, _position(places[i]),
                             _position(places[j]))
                for i in range(k) for j in range(i + 1, k)):
+            deep = _past_room(lines, places, rooms) if rooms else None
+            if deep:
+                last = deep
+                continue
             # THE LAST WORD IS DECLARED (`N.endword`) for a type the grader
             # can judge at a declared word: its declared-token route reads
             # the type's own anchors, channels and identity at the named
@@ -1790,7 +1854,7 @@ def _line_reach(sch):
     return cap, gap, consecutive
 
 
-def _carve(sch, block, free, trng, max_token, reserve_end=False):
+def _carve(sch, block, free, trng, max_token, reserve_end=False, rooms=None):
     """-> (members, lines used) for the largest group of this type the block
     can hold, else a pair of consecutive unbound lines of the section, else
     (None, reason). THE TYPE SHAPES ITS GROUP (D2's skew fix, 2026-10-27):
@@ -1801,7 +1865,7 @@ def _carve(sch, block, free, trng, max_token, reserve_end=False):
     if reserve_end and any(span.locus not in _TOKEN_LOCI for span in (sch.spans[0], sch.spans[-1])):
         return None, "a prescribed end word leaves only explicit nonterminal word positions"
     block = sorted(block)
-    members, why = fit_type(sch, block, trng, max_token, reserve_end=reserve_end)
+    members, why = fit_type(sch, block, trng, max_token, reserve_end=reserve_end, rooms=rooms)
     if members is not None:
         return members, block
     cap, gap, consecutive = _line_reach(sch)
@@ -1817,7 +1881,7 @@ def _carve(sch, block, free, trng, max_token, reserve_end=False):
                 continue
             if len(take) < 2:
                 continue
-            got, w = fit_type(sch, take, trng, max_token, reserve_end=reserve_end)
+            got, w = fit_type(sch, take, trng, max_token, reserve_end=reserve_end, rooms=rooms)
             if got is not None:
                 return got, take
             why = w
@@ -1826,7 +1890,7 @@ def _carve(sch, block, free, trng, max_token, reserve_end=False):
 
 def _assign_types(section_blocks, trng, max_token, declared=None,
                   language="eng", per_group=None, reserve_end=False,
-                  pool=None, whole=False):
+                  pool=None, whole=False, rooms=None):
     """-> (groups as member lists, {label: 'schema:name'}, records, unplaced).
 
     `section_blocks` is one (section lines, drawn blocks) per sung section.
@@ -1850,7 +1914,8 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
 
     `pool` narrows the draw (a catalog form's prescribed groups draw only
     types that rhyme at both line endings), and `whole` rejects a type that
-    binds only part of a block, so a prescribed group is never split."""
+    binds only part of a block, so a prescribed group is never split.
+    `rooms` keeps every tied word inside its catalog line (`fit_type`)."""
     pool = list(eligible_types(language) if pool is None else pool)
     pool_words = (f"{len(pool)} eligible types" if not whole else
                   f"{len(pool)} eligible types that rhyme at both line endings")
@@ -1880,7 +1945,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                                     "proposed": [], "rejected": []})
                     continue
                 unbound = sorted(set(free).union(*queue))
-                members, took = _carve(sch, block, unbound, trng, max_token)
+                members, took = _carve(sch, block, unbound, trng, max_token, rooms=rooms)
                 if members is None:
                     raise JointRefused(
                         f"the declared type {bare!r} cannot bind group "
@@ -1895,7 +1960,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                 unbound = sorted(set(free).union(*queue))
                 def carve(cand):
                     members, took = _carve(_RL.REGISTRY[cand], block, unbound,
-                                           trng, max_token, reserve_end)
+                                           trng, max_token, reserve_end, rooms=rooms)
                     if members is not None and whole and set(took) != set(block):
                         return None, "binds only part of the prescribed group"
                     return members, took
@@ -6353,11 +6418,16 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                 additional_bindings.append((i, requested))
                 requested = "draw"
             binding_overrides[label] = requested
+    # A tied word stays inside a catalog line's exact count (the
+    # fixed-syllable repair, `catalog_line_rooms`); a form with no counted
+    # line has no rooms, and its draw is untouched.
+    line_rooms = (catalog_line_rooms(song_form.get("lineRequirements", ()), total,
+                                     prescribed_returns) if song_form else {})
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
         declared=None if terminal_groups else relation, per_group=binding_overrides,
         reserve_end=bool(song_form and song_form.get("endingWords")),
-        pool=terminal_pool, whole=bool(terminal_groups))
+        pool=terminal_pool, whole=bool(terminal_groups), rooms=line_rooms)
     if terminal_groups and [record["lines"] for record in _type_records] != source_groups:
         raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
 
@@ -6371,7 +6441,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         for group in copies:
             bound_copy_lines.update(group)
         members, why = fit_type(schema, block, extra_rng, _max_token,
-                                verbatim_groups=copies, reserve_end=True)
+                                verbatim_groups=copies, reserve_end=True, rooms=line_rooms)
         if members is None:
             raise JointRefused(f"the requested additional relation cannot bind the whole catalog group: {why}",
                                codes=("TYPE_DOES_NOT_FIT",),
