@@ -817,7 +817,7 @@
 /* Keep the catalog on the controls row until it opens. */
 #surface-lyrics .ly-song-forms:not([open]) {
   float: inline-start;
-  margin: 16px 0 0 16px;
+  margin: 16px 0 0 20px;
 }
 #surface-lyrics .ly-main-scroll {
   position: relative;
@@ -855,7 +855,9 @@
 #surface-lyrics .ly-empty-doc {
   margin: 0 0 16px;
 }
+/* A tool view hides the controls row, so it starts below the catalog, not beside it. */
 #surface-lyrics .ly-tool-main {
+  clear: both;
   padding: 20px;
 }
 #surface-lyrics .ly-section-nav {
@@ -1632,6 +1634,9 @@
 #surface-lyrics .ly-page[data-size='narrow'] .ly-tool-main {
   padding-left: 16px;
   padding-right: 16px;
+}
+#surface-lyrics .ly-page[data-size='narrow'] .ly-song-forms:not([open]) {
+  margin-left: 16px;
 }
 #surface-lyrics .ly-page[data-size='narrow'] .ly-toolbar [data-ui='ly-undo'],
 #surface-lyrics .ly-page[data-size='narrow'] .ly-toolbar [data-ui='ly-redo'] {
