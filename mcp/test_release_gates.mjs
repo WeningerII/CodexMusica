@@ -453,6 +453,223 @@ test('a newer failed CI run cannot be replaced by an older success', async () =>
   );
 });
 
+// THE LOOKUP ASKS AGAIN WHEN THE FAULT IS GITHUB'S, AND ONLY THEN -- 2026-11-27.
+// MEASURED on main at `85cae190`: the site publish (sync run 832) failed twice
+// in this lookup and nothing was wrong with the evidence. Attempt 1 printed
+// `terminated` (the reply broke off while its body was being read) and attempt
+// 2 `CI evidence lookup failed (HTTP 502)`, each after GitHub's own ten-second
+// limit. One fault stopped the whole publish. A 4xx, a reply of the wrong
+// shape and every "absent", "running" or "did not succeed" answer are answers,
+// not faults: they are asked ONCE, exactly as before.
+test('CI evidence lookup asks again on a server error or a broken connection, and only then', async () => {
+  const { LOOKUP_TRIES } = await import('../scripts/verify_ci.mjs');
+  assert(Number.isSafeInteger(LOOKUP_TRIES) && LOOKUP_TRIES >= 2 && LOOKUP_TRIES <= 5);
+  const answer = (url) => ({
+    ok: true,
+    json: async () =>
+      url.includes('/runs?') ? { workflow_runs: [run] } : { jobs, total_count: jobs.length },
+  });
+  // `faults` are served, in order, to the job-list requests before the answer.
+  const ask = async (faults, { always = false, onRuns = false } = {}) => {
+    const urls = [];
+    const waits = [];
+    let served = 0;
+    const outcome = await verifyCI(sha, {
+      repository,
+      token: 'fixture',
+      wait: async (ms) => {
+        waits.push(ms);
+      },
+      fetchImpl: async (url) => {
+        urls.push(url);
+        if (url.includes('/runs?') !== onRuns) return answer(url);
+        const fault = always ? faults[0] : faults[served++];
+        return fault ? fault(url) : answer(url);
+      },
+    }).then(
+      (value) => ({ value }),
+      (error) => ({ error })
+    );
+    return { ...outcome, urls, waits };
+  };
+  const http = (status) => () => ({ ok: false, status });
+  const brokenBody = () => ({
+    ok: true,
+    json: async () => {
+      throw new TypeError('terminated', { cause: new Error('other side closed') });
+    },
+  });
+  const brokenRequest = () => {
+    throw new TypeError('fetch failed', { cause: new Error('connect ETIMEDOUT') });
+  };
+  const timedOut = () => {
+    throw new DOMException('The operation was aborted due to timeout', 'TimeoutError');
+  };
+
+  // Each fault once, on the job list: the answer still arrives, after one wait.
+  for (const fault of [http(502), http(500), http(503), brokenBody, brokenRequest, timedOut]) {
+    const r = await ask([fault]);
+    assert.equal(r.error, undefined, String(r.error));
+    assert.equal(r.value.run_id, run.id);
+    assert.equal(r.urls.length, 3, 'the run list, the faulted job list, the job list again');
+    assert.equal(r.urls[1], r.urls[2], 'the SAME question is asked again');
+    assert.equal(r.waits.length, 1);
+    assert(r.waits[0] > 0);
+  }
+  // The run list is asked again the same way.
+  let r = await ask([http(502)], { onRuns: true });
+  assert.equal(r.value.run_id, run.id);
+  assert.equal(r.urls.length, 3);
+  assert.equal(r.urls[0], r.urls[1]);
+  // ...and when it never answers, the message says it was the run list.
+  r = await ask([http(502)], { onRuns: true, always: true });
+  assert.match(r.error.message, /HTTP 502\) on the run list after/);
+  assert.equal(r.urls.length, LOOKUP_TRIES, 'the job list is never reached');
+
+  // A fault on every ask: red after exactly LOOKUP_TRIES requests, and the
+  // message says what GitHub answered and how often it was asked.
+  r = await ask([http(502)], { always: true });
+  assert.match(r.error.message, /CI evidence lookup failed \(HTTP 502\)/);
+  assert.match(r.error.message, new RegExp(`${LOOKUP_TRIES} tries`));
+  assert.match(r.error.message, /on the job list, page 1 /, 'the message names the request');
+  assert.equal(r.urls.length, 1 + LOOKUP_TRIES);
+  assert.equal(r.waits.length, LOOKUP_TRIES - 1, 'no wait after the last try');
+  r = await ask([brokenBody], { always: true });
+  assert.match(r.error.message, /terminated/);
+  assert.match(r.error.message, /other side closed/, 'the cause is printed, not the bare word');
+  assert.equal(r.urls.length, 1 + LOOKUP_TRIES);
+
+  // NOT faults. Each is asked once and never waited on.
+  for (const status of [401, 403, 404, 422, 429]) {
+    r = await ask([http(status)], { always: true });
+    assert.match(r.error.message, new RegExp(`HTTP ${status}\\) on the job list, page 1\\.`));
+    assert.equal(r.urls.length, 2, `HTTP ${status} is an answer: the run list, one job list`);
+    assert.equal(r.waits.length, 0);
+  }
+  // A complete reply that is not JSON, or JSON of the wrong shape.
+  r = await ask(
+    [
+      () => ({
+        ok: true,
+        json: async () => {
+          throw new SyntaxError('Unexpected token < in JSON at position 0');
+        },
+      }),
+    ],
+    { always: true }
+  );
+  assert(r.error instanceof SyntaxError);
+  assert.equal(r.urls.length, 2);
+  assert.equal(r.waits.length, 0);
+  r = await ask([() => ({ ok: true, json: async () => ({ jobs: 'none' }) })], { always: true });
+  assert.match(r.error.message, /malformed/);
+  assert.equal(r.urls.length, 2);
+  // No run at this SHA, and a run that did not succeed: one request each.
+  for (const [runs, why, requests] of [
+    [[], /No trusted main push CI run/, 1],
+    [[{ ...run, status: 'in_progress', conclusion: null }], /has not completed yet/, 1],
+    [[{ ...run, conclusion: 'failure' }], /not succeeded/, 2],
+  ]) {
+    let asked = 0;
+    const waits = [];
+    await assert.rejects(
+      verifyCI(sha, {
+        repository,
+        token: 'fixture',
+        wait: async (ms) => {
+          waits.push(ms);
+        },
+        fetchImpl: async (url) => {
+          asked++;
+          return {
+            ok: true,
+            json: async () =>
+              url.includes('/runs?') ? { workflow_runs: runs } : { jobs, total_count: jobs.length },
+          };
+        },
+      }),
+      why
+    );
+    assert.equal(asked, requests);
+    assert.equal(waits.length, 0);
+  }
+});
+
+// THE JOB LIST IS ASKED FOR IN SMALL PAGES -- 2026-11-27. MEASURED the same
+// morning on main's CI run 45944129693, which was on its SECOND attempt (71
+// jobs): a plain listing of its jobs at 100 a page was answered `502 Server
+// Error` 2 times in 5 asks, and at 30 a page 0 times in 4. A first-attempt run
+// of the same 71 jobs answered at 100. The whole inventory is still read, and
+// the bound on it is the same 2,000 jobs.
+test('CI evidence reads the job list in small pages, all of it, inside the same bound', async () => {
+  const { JOBS_PER_PAGE, MAX_JOBS } = await import('../scripts/verify_ci.mjs');
+  assert(Number.isSafeInteger(JOBS_PER_PAGE) && JOBS_PER_PAGE >= 1 && JOBS_PER_PAGE <= 30);
+  assert.equal(MAX_JOBS, 2000, 'the inventory bound did not shrink with the page');
+  const filler = (count) =>
+    Array.from({ length: count }, (_, i) => ({
+      name: `shard-${i}`,
+      status: 'completed',
+      conclusion: 'success',
+    }));
+  const serve = (all, total = all.length) => {
+    const urls = [];
+    const fetchImpl = async (url) => {
+      urls.push(url);
+      if (url.includes('/runs?')) return { ok: true, json: async () => ({ workflow_runs: [run] }) };
+      const query = new URL(url).searchParams;
+      const size = Number(query.get('per_page'));
+      const page = Number(query.get('page'));
+      return {
+        ok: true,
+        json: async () => ({ jobs: all.slice((page - 1) * size, page * size), total_count: total }),
+      };
+    };
+    return { urls, fetchImpl };
+  };
+  const seventyOne = [...filler(71 - jobs.length), ...jobs];
+  let served = serve(seventyOne);
+  const result = await verifyCI(sha, { repository, token: 'fixture', fetchImpl: served.fetchImpl });
+  assert.equal(result.run_attempt, 2);
+  const pages = served.urls.filter((url) => url.includes('/jobs?'));
+  assert.equal(pages.length, Math.ceil(71 / JOBS_PER_PAGE));
+  pages.forEach((url, index) => {
+    assert(url.includes('/attempts/2/jobs'));
+    assert.equal(new URL(url).searchParams.get('per_page'), String(JOBS_PER_PAGE));
+    assert.equal(new URL(url).searchParams.get('page'), String(index + 1));
+  });
+  // A job that failed is seen wherever it sits, the last page included.
+  for (const at of [0, JOBS_PER_PAGE, 70]) {
+    const withFailure = filler(71 - jobs.length).concat(jobs);
+    withFailure.splice(at, 0, { name: 'late', status: 'completed', conclusion: 'failure' });
+    served = serve(withFailure);
+    await assert.rejects(
+      verifyCI(sha, { repository, token: 'fixture', fetchImpl: served.fetchImpl }),
+      /unsuccessful job/
+    );
+  }
+  // A required job on the last page is found there.
+  const requiredLast = [...filler(60), ...jobs];
+  served = serve(requiredLast);
+  await verifyCI(sha, { repository, token: 'fixture', fetchImpl: served.fetchImpl });
+  // The bound: exactly MAX_JOBS is read whole; one more is refused, after
+  // asking for no more pages than the bound holds.
+  served = serve([...filler(MAX_JOBS - jobs.length), ...jobs]);
+  await verifyCI(sha, { repository, token: 'fixture', fetchImpl: served.fetchImpl });
+  assert.equal(
+    served.urls.filter((url) => url.includes('/jobs?')).length,
+    Math.ceil(MAX_JOBS / JOBS_PER_PAGE)
+  );
+  served = serve([...filler(MAX_JOBS + 1 - jobs.length), ...jobs]);
+  await assert.rejects(
+    verifyCI(sha, { repository, token: 'fixture', fetchImpl: served.fetchImpl }),
+    /bounded inventory/
+  );
+  assert(
+    served.urls.filter((url) => url.includes('/jobs?')).length <=
+      Math.ceil(MAX_JOBS / JOBS_PER_PAGE)
+  );
+});
+
 test('song coverage rejects sparse arrays, omitted verdicts and naked exit reasons', () => {
   const good = { song: 0, exit_reason: 'finished', completion: { certified: true } };
   assert.equal(allSongsExpected({ songs: [good] }, 1, 'finished'), true);
@@ -1350,13 +1567,20 @@ test('qualification image CLI verifies checkout source and inspected immutable i
 test('qualification select CLI binds the successful CI run and attempt to the release identity', async () => {
   const { createServer } = await import('node:http');
   const { spawn } = await import('node:child_process');
+  // REPINNED 2026-11-27: ~~jobs?per_page=100&page=1~~. The lookup asks for the
+  // job list `JOBS_PER_PAGE` at a time since that day (30; the site publish
+  // failed twice on a job list asked for 100 at a time).
+  const { JOBS_PER_PAGE } = await import('../scripts/verify_ci.mjs');
   const requests = [];
   const server = createServer((req, res) => {
     requests.push(req.url);
     res.setHeader('content-type', 'application/json');
     if (req.url.includes('/workflows/ci.yml/runs?'))
       res.end(JSON.stringify({ workflow_runs: [run] }));
-    else if (req.url === '/repos/owner/repo/actions/runs/12/attempts/2/jobs?per_page=100&page=1')
+    else if (
+      req.url ===
+      `/repos/owner/repo/actions/runs/12/attempts/2/jobs?per_page=${JOBS_PER_PAGE}&page=1`
+    )
       res.end(JSON.stringify({ jobs, total_count: jobs.length }));
     else {
       res.statusCode = 404;
