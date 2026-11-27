@@ -270,12 +270,18 @@ WRITING_BAN_ROW = list(VERIFY_REJECTIONS).index("writing_ban") + 1
 #: than reading the declaration: this module is stdlib-only and imports no
 #: grader (the module docstring), and `test_propose` §4d fails if the three
 #: differ.
+#: REWORDED 2026-11-27 (bug hunt 2026-11-21, finding 17): the first
+#: sentence says ~~"from the stressed vowel on"~~ "from the last stressed
+#: vowel on, main stress or lighter", with the planner's copy. The change
+#: moves every question's bytes, so it has its own frozen undo
+#: (`lyric_harness._legacy_ban_ending`).
 WRITING_BAN_PARTNERS = 3
 WRITING_BAN_RULES = {
     "HOMEOTELEUTON": (
         "two different paired words whose endings sound alike are also "
-        "spelled the same from the stressed vowel on (the same word, or two "
-        "words that sound exactly alike, is never caught)"),
+        "spelled the same from the last stressed vowel on, main stress or "
+        "lighter (the same word, or two words that sound exactly alike, is "
+        "never caught)"),
     "MODAL_RHYME": (
         f"two paired words whose endings sound alike, where one is among "
         f"the {WRITING_BAN_PARTNERS} or fewer differently spelled partners "

@@ -7758,9 +7758,15 @@ def _limit_unjudged_line(plan):
 def _limit_same_spelled_ending(plan):
     # The same word and a homophone are never caught (owner's ruling,
     # 2026-11-20: a word may rhyme with itself).
+    # REWORDED 2026-11-27 (bug hunt 2026-11-21, finding 17): ~~"from the
+    # stressed vowel on"~~. The ban reads each word from its last stressed
+    # vowel, main stress or lighter (`Reviser._spelled_rime`), and the old
+    # words read as the main stress alone, so a pair that shares a lighter
+    # last syllable looked allowed and was then rejected.
     return ("two different paired words whose endings sound alike are also "
-            "spelled the same from the stressed vowel on (the same word, or "
-            "two words that sound exactly alike, is never caught)")
+            "spelled the same from the last stressed vowel on, main stress "
+            "or lighter (the same word, or two words that sound exactly "
+            "alike, is never caught)")
 
 
 def _limit_common_partner(plan):
