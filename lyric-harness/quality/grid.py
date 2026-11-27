@@ -3000,7 +3000,7 @@ def single_use_off_edge(song, fn):
 
 
 def return_findings(song, function="chorus", convention=POPULAR_SONG,
-                    rhyme_key=None, decl=None, planned=False):
+                    rhyme_key=None, decl=None, planned=False, language=None):
     """Does this function land in the same place, and the same shape, each
     time it returns?  -> (findings, refusals, returns).
 
@@ -3082,7 +3082,12 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     slots = [song.slot_profile(s) for s in inst]
     reference_blocks = [[l.text for l in song.lines_in(s)] for s in inst]
     import lyric_harness as LH
-    has_pointer = any(LH.is_chorus_stub(line)
+    # THE SONG'S OWN POINTERS (2026-11-23). ~~`LH.is_chorus_stub(line)`~~
+    # asked every language's pointer, so an English song whose line ended
+    # in another language's pointer was refused here for a reason no writer
+    # of it could guess. `language` is the song's (None asks them all, as
+    # before, for a caller that has none).
+    has_pointer = any(LH.is_chorus_stub(line, language)
                       for block in reference_blocks for line in block)
     if has_pointer:
         refusals.append(Refusal(
@@ -3111,7 +3116,7 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             [l.text for l in song.lines_in(inst[k])],
             decl=decl, rhyme_key=rhyme_key,
             first_slot=slots[0], again_slot=slots[k],
-            reference_blocks=reference_blocks)
+            reference_blocks=reference_blocks, language=language)
         rets.append((inst[0], inst[k], r))
 
     # THE RETURN'S OWN REFUSALS, COLLECTED 2026-08-14. `compare_returns`
@@ -3140,7 +3145,11 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
     # this collected it and broke six existing assertions — correctly. It is a
     # property of the CALL, not of the draft: the caller passed no phonology,
     # which is ONE fact, and this report already states it once as
-    # CHANNEL_NOT_MEASURED from `bridge_contrast`. Collecting it here turns
+    # CHANNEL_NOT_MEASURED from `bridge_contrast`. ~~CHANNEL_NOT_MEASURED is
+    # that fact about the call~~ (2026-11-23): it is also filed on a call
+    # that passes a phonology, when a contrasted section's last word has no
+    # rhyme sound (`bridge_contrast`), which is a fact about the draft, and
+    # the planner's stop rows name it as one. Collecting it here turns
     # that one fact into one record per returning function, which is the exact
     # inflation `song_function_report`'s own counting docstring records being
     # bitten by ("a three-question report came back asked 3, answered -1,
@@ -3411,7 +3420,7 @@ def _came_back(song, src, dst, anywhere=False):
 
 def reprise_findings(song, later="outro", earlier="intro",
                      convention=POPULAR_SONG, rhyme_key=None, decl=None,
-                     classes=None):
+                     classes=None, language=None):
     """Does ONE declared function's section come back to ANOTHER'S?
     -> (findings, refusals, reprises).
 
@@ -3508,7 +3517,8 @@ def reprise_findings(song, later="outro", earlier="intro",
                             first_slot=song.slot_profile(src),
                             again_slot=song.slot_profile(dst),
                             reference_blocks=[[l.text for l in song.lines_in(s)]
-                                              for s in e_inst])
+                                              for s in e_inst],
+                            language=language)
         out.append((src, dst, r))
         if r.kind == "STUB":
             refusals.append(Refusal(
@@ -3970,6 +3980,53 @@ MEASURED_CONTRASTS = tuple((fn, other)
                            for other in sp.contrasts_with)
 
 
+def asked_comparisons(functions, convention=POPULAR_SONG):
+    """Which sections `song_function_report` compares, for a song whose
+    sections declare `functions` in song order (`UNDECLARED` where a section
+    declares none, as `Section.function` holds it). -> a dict of three lists:
+
+    - "returns": each function asked whether it lands in the same place and
+      shape each time it comes back (`return_findings`): `chorus` always;
+      a declared function whose recurrence the registry asks about, or one
+      the convention fixes to return; and a single-use function that occurs
+      more than once.
+    - "reprises": each (later, earlier) pair of the convention whose two
+      sides both occur (`reprise_findings`).
+    - "contrasts": each pair of the registry's `contrasts_with` whose two
+      sides both occur (`bridge_contrast`), the bridge and the verse first.
+    - "single_use_recurred": each single-use function that occurs more than
+      once, which "returns" holds too. Its copies off the song's edge get the
+      SINGLE_USE_RECURRED note, and the report drops their placement note.
+
+    THE ONE PLACE THESE LISTS ARE BUILT (2026-11-23). The planner's stop rows
+    name the comparisons the grader makes (`plan._compared_sections`), and
+    two readings of the same tables could drift on a shape nobody seeded; so
+    the report below and the planner both ask this. Plain data in, because
+    the planner has no Song.
+    """
+    declared = [fn for fn in functions if fn != UNDECLARED]
+    present = set(declared)
+    returns = {"chorus"} | {
+        fn for fn in present
+        if (RECURRENCE_READERS[SECTION_FUNCTIONS[fn].recurrence] == "asked"
+            or fn in convention.fixed_return)}
+    recurred = Counter(declared)
+    single_use_recurred = sorted(fn for fn in convention.single_use
+                                 if recurred.get(fn, 0) > 1)
+    returns |= set(single_use_recurred)
+    reprises = []
+    for later, earlier in convention.reprises:
+        ln, en = as_function(later), as_function(earlier)
+        if ln in present and en in present:
+            reprises.append((ln, en))
+    contrasts = [pair for pair in MEASURED_CONTRASTS
+                 if pair[0] in present and pair[1] in present]
+    contrasts.sort(key=lambda pair: pair != ("bridge", "verse"))
+    return {"returns": sorted(returns), "reprises": reprises,
+            "contrasts": contrasts,
+            "single_use_recurred": single_use_recurred}
+
+
 @dataclass(frozen=True)
 class Unasked:
     """Something the registry says of a DECLARED function that no question in
@@ -4024,7 +4081,8 @@ def not_asked(song):
 
 def song_function_report(song, hooks=(), rhyme_key=None,
                          convention=POPULAR_SONG, decl=None, classes=None,
-                         hook_in_class=False, *, selected_roles=()):
+                         hook_in_class=False, *, selected_roles=(),
+                         language=None):
     """Every function-dependent question, asked once. -> dict.
 
     `classes`: the plan's return classes (sets of 1-based line numbers) when
@@ -4077,11 +4135,12 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # `chorus` is ALWAYS asked, declared or not: a song with no declared
     # chorus is a fact about the song, and not asking is how a report comes
     # back clean because nobody said anything (doctrine 20).
-    ask = {"chorus"} | {s.function for s in song.sections if s.declared
-                        and (RECURRENCE_READERS[
-                                 SECTION_FUNCTIONS[s.function].recurrence]
-                             == "asked"
-                             or s.function in convention.fixed_return)}
+    # ~~`ask = {"chorus"} | {s.function for s in song.sections if
+    # s.declared and ...}`~~ (2026-11-23): what this report compares is
+    # built in ONE place, `asked_comparisons`, which the planner's stop rows
+    # ask too. The rules in the comments below are its rules.
+    asked_lists = asked_comparisons([s.function for s in song.sections],
+                                    convention)
     # A SINGLE-USE function that RECURRED is asked too, and only then.
     # `return_findings` carries the SINGLE_USE_RECURRED guard, but every
     # function in `convention.single_use` has recurrence "once" and none is in
@@ -4091,7 +4150,9 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # nothing. Gating on count>1 rather than on declaredness is what keeps a
     # well-formed song silent: a single intro is not a question, so asking
     # would only spend a SINGLE_INSTANCE refusal on every song that has one.
-    recurred = Counter(s.function for s in song.sections if s.declared)
+    # ~~`recurred = Counter(s.function for s in song.sections if
+    # s.declared)`~~ (2026-11-23): `asked_comparisons` lists the single-use
+    # functions that recurred, and the note below reads that list.
     # ~~"EXPECTED ONCE" HAS TWO SPELLINGS and the gate used to read only one of
     # them. `convention.single_use` is a tuple a caller may override; the
     # vocabulary's own `FunctionSpec.recurrence == "once"` is the same
@@ -4121,16 +4182,21 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # default.
     # STAGE 4 (2026-11-16): `convention.single_use` is now read from the
     # column by default, so the union above collapsed to the tuple itself.
-    expects_once = set(convention.single_use)
-    ask |= {fn for fn in expects_once if recurred.get(fn, 0) > 1}
+    # ~~`expects_once = set(convention.single_use)`~~ (2026-11-23): read
+    # only by the two lines below, which `asked_comparisons` now answers.
+    # ~~`ask |= {fn for fn in expects_once if recurred.get(fn, 0) > 1}`~~
+    # (2026-11-23): `asked_comparisons` adds them.
     # The copies a SINGLE_USE_RECURRED note will name (§2.5 of the stage 4
     # design): their SECTION_NOT_AT_BOUNDARY is the same fact and is dropped
     # below, so a repeated edge row gets one note.
-    _named_by_recurred = {i for fn in expects_once if recurred.get(fn, 0) > 1
+    # ~~Gated here on `expects_once` and `recurred`~~ (2026-11-23): the
+    # functions are the ones `asked_comparisons` lists, so the note and the
+    # question read one count.
+    _named_by_recurred = {i for fn in asked_lists["single_use_recurred"]
                           for i in single_use_off_edge(song, fn)}
-    for fn in sorted(ask):
+    for fn in asked_lists["returns"]:
         f, r, rets = return_findings(song, fn, convention, rhyme_key, decl,
-                                     planned=planned)
+                                     planned=planned, language=language)
         ask_one(f, r)
         detail[fn] = rets
     # THE CROSS-FUNCTION HALF. Every question above asks whether ONE declared
@@ -4149,12 +4215,12 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # question is ASKED, and an unasked question is in none of the three
     # counts (doctrine 79).
     reprises = {}
-    for later, earlier in convention.reprises:
-        ln, en = as_function(later), as_function(earlier)
-        if not song.instances_of(ln) or not song.instances_of(en):
-            continue
+    # ~~Each `convention.reprises` pair, gated here on both sides'
+    # instances~~ (2026-11-23): `asked_comparisons` applies that gate.
+    for ln, en in asked_lists["reprises"]:
         f, r, reps = reprise_findings(song, ln, en, convention, rhyme_key,
-                                      decl, classes=classes)
+                                      decl, classes=classes,
+                                      language=language)
         ask_one(f, r)
         reprises[(ln, en)] = reps
     # WHERE THE SECTIONS SIT (2026-08-22, `MISSING.md` M-54). One question,
@@ -4211,10 +4277,11 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # EVERY OTHER PAIR THE TABLE NAMES (2026-11-13, owner: no row's promise
     # stays prose). Asked only where the song declares both sides: contrast
     # is a relation, and a side nobody declared is not a missing contrast.
-    for cfn, other in MEASURED_CONTRASTS:
+    # ~~Each MEASURED_CONTRASTS pair, gated here on both sides'
+    # instances~~ (2026-11-23): `asked_comparisons` applies that gate. The
+    # bridge and the verse are asked above, by the default call.
+    for cfn, other in asked_lists["contrasts"]:
         if (cfn, other) == ("bridge", "verse"):
-            continue
-        if not song.instances_of(cfn) or not song.instances_of(other):
             continue
         cf, cr, cch = bridge_contrast(song, cfn, (other,),
                                       convention=convention,
@@ -4311,6 +4378,10 @@ def song_function_report(song, hooks=(), rhyme_key=None,
             #: two are different questions and folding them into one dict
             #: would make a caller unable to tell them apart.
             "reprises": reprises, "contrast": ch,
+            #: the contrast pairs this song's sections put to
+            #: `bridge_contrast`, as `asked_comparisons` lists them: the
+            #: detail the planner's stop rows are held equal to.
+            "contrasts": list(asked_lists["contrasts"]),
             #: what the registry expects of this song's declared functions
             #: that nothing above asks (`not_asked`). Outside the three
             #: counts by construction: an unasked question is in none of them.

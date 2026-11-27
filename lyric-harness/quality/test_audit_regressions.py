@@ -285,9 +285,15 @@ class AuditRegressions(unittest.TestCase):
         # ...AND BEFORE THE QUESTION SAID WHAT THE TWO WRITING BANS FORBID
         # (REPINNED 2026-11-21, bug hunt finding 3: ~~the 671 undo alone~~;
         # this build's question carries that block, a held one did not).
+        # ...AND BEFORE THE COMMON-PARTNER BAN FELL FROM 6 PARTNERS TO 3
+        # (REPINNED 2026-11-23, owner's ruling of 22 Nov 2026: ~~the
+        # ban-definitions undo first~~). This build's block says 3, the one
+        # the ban-definitions undo takes out says 6, so the partner undo comes
+        # first.
         def render_at_200(*a, **k):
             with patch.object(PRM, 'MAX_LINE_CHARS', 200):
                 text = real_render(*a, **k)
+            text = LH._legacy_ban_partners('propose', text) or text
             text = LH._legacy_ban_definitions('propose', text) or text
             return LH._legacy_671_prose('propose', text) or text
         held = lambda *a, **k: render_at_200(*a, **k) + '\nwhy: x — ' + old_tail
@@ -350,7 +356,12 @@ class AuditRegressions(unittest.TestCase):
         # ~~LEGACY_QUESTION_RENDERINGS[-3]~~. One more change sits after it
         # (a question states the rule a declared group is graded by). This
         # line declares no rule, so that undo leaves its question alone.
-        older = LH.legacy_question_texts('propose', now_line)[1]
+        # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~[1]~~, here
+        # and for `undone` below. The undo for the common-partner ban falling
+        # from 6 partners to 3 now sits last, and every question prints that
+        # ban's line, so it is this question's first undo and the 671 wording
+        # is its third.
+        older = LH.legacy_question_texts('propose', now_line)[2]
         self.assertIn('Reviser.verify rejects an answer', now_line)
         self.assertNotIn('Reviser.verify rejects an answer', older)
         self.assertIn('  1. ONE line back, and it replaces L2. The draft stays 2 '
@@ -383,7 +394,7 @@ class AuditRegressions(unittest.TestCase):
         quoted = PRM.render_line(b, ['original cat', 'original dog'],
                                  attempt=1, reasons=[named])
         self.assertIn(f"  - {named}", quoted)
-        undone = LH.legacy_question_texts('propose', quoted)[1]
+        undone = LH.legacy_question_texts('propose', quoted)[2]
         self.assertIn(f"  - {fixed}", undone)
         self.assertNotIn("prayer", undone)
         self.assertNotIn("<pairs>", undone)
@@ -421,8 +432,15 @@ class AuditRegressions(unittest.TestCase):
                         undos.index(LH._legacy_pivot_rejection))
         # The undo reads a FROZEN copy of the block; while the block is
         # unchanged the two agree, and a later change needs its own entry.
-        self.assertEqual('\n' + '\n'.join(PRM._writing_ban_rows()),
-                         LH._BAN_DEFINITIONS_1121)
+        # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~the block
+        # this build prints IS the frozen block~~. That later change came:
+        # the block now says 3 partners where the frozen one says 6, and
+        # with that one line put back by its own undo the two agree again
+        # (`test_the_partner_count_undoes_to_the_six_partner_question`).
+        self.assertEqual(
+            LH._legacy_ban_partners(
+                'propose', '\n' + '\n'.join(PRM._writing_ban_rows())),
+            LH._BAN_DEFINITIONS_1121)
         for kind, render in (
                 ('propose', lambda: PRM.render_line(b, lines)),
                 ('propose', lambda: PRM.render_line(
@@ -436,9 +454,66 @@ class AuditRegressions(unittest.TestCase):
                 before = render()
             self.assertIn('HOMEOTELEUTON: two different paired words', now)
             self.assertNotIn('What each one forbids', before)
-            self.assertEqual(LH.legacy_question_texts(kind, now)[0], before)
+            # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~[0]~~.
+            # The 6-partner wording is this question's first undo now, and
+            # the question from before the block is its second.
+            self.assertEqual(LH.legacy_question_texts(kind, now)[1], before)
         # A question with no rules block (a whole-draft repair) is untouched.
         self.assertIsNone(LH._legacy_ban_definitions('propose', 'no rules'))
+
+    def test_the_partner_count_undoes_to_the_six_partner_question(self):
+        # 2026-11-22 (owner's ruling): the common-partner ban (MODAL_RHYME)
+        # bans at most 3 differently spelled partners, not 6, and every
+        # question says so in the block that says what the two bans forbid.
+        # That moves the bytes of every line, batch and group question, so a
+        # run held across the change replays only because the newest undo
+        # puts the 6-partner line back exactly (`LEGACY_QUESTION_RENDERINGS`,
+        # `_legacy_ban_partners`).
+        import quality.propose as PRM
+        from types import SimpleNamespace as NS
+        # The undo's two lines are FROZEN, so neither can drift from the
+        # block it edits: the old line is the one `_BAN_DEFINITIONS_1121`
+        # printed, the new line is the one this build prints, and the block
+        # this build prints with the one line put back is that frozen block.
+        self.assertIn(LH._BAN_PARTNERS_LINE_1121, LH._BAN_DEFINITIONS_1121)
+        today = '\n' + '\n'.join(PRM._writing_ban_rows())
+        self.assertIn(LH._BAN_PARTNERS_LINE_1122, today)
+        self.assertNotIn(LH._BAN_PARTNERS_LINE_1121, today)
+        self.assertEqual(
+            today.replace(LH._BAN_PARTNERS_LINE_1122,
+                          LH._BAN_PARTNERS_LINE_1121),
+            LH._BAN_DEFINITIONS_1121)
+        self.assertEqual(LH.LEGACY_QUESTION_RENDERINGS[-1][1],
+                         LH._legacy_ban_partners)
+        lines = ['original cat', 'original dog']
+        b = Brief(2, lines[1])
+        group = NS(pivot_line_no=2, pivot_text=lines[1], pivot_word='dog',
+                   anchors=(), label='A', members=(1, 2), brief=b,
+                   lines=lines, attempt=0, reasons=None, whole=())
+        for kind, render in (
+                ('propose', lambda: PRM.render_line(b, lines)),
+                ('propose', lambda: PRM.render_line(
+                    b, lines, attempt=1, reasons=['nothing was fixed'])),
+                ('propose', lambda: PRM.render_batch(
+                    [Brief(1, lines[0]), b], lines)),
+                ('propose_group', lambda: PRM.render_group(group))):
+            now = render()
+            older = LH.legacy_question_texts(kind, now)
+            # A question printed today, with the undo applied, carries the
+            # frozen block byte for byte.
+            self.assertIn(LH._BAN_DEFINITIONS_1121,
+                          LH._legacy_ban_partners(kind, now))
+            # The 6-partner wording comes first, and the wording from before
+            # the question said what the bans forbid comes after it.
+            self.assertEqual(older[0], LH._legacy_ban_partners(kind, now))
+            self.assertIn(LH._BAN_PARTNERS_LINE_1121, older[0])
+            self.assertNotIn(LH._BAN_PARTNERS_LINE_1122, older[0])
+            with patch.object(PRM, '_writing_ban_rows',
+                              lambda indent='  ': []):
+                before = render()
+            self.assertEqual(older[1], before)
+        # A question with no rules block (a whole-draft repair) is untouched.
+        self.assertIsNone(LH._legacy_ban_partners('propose', 'no rules'))
 
     def test_a_question_held_under_the_200_line_limit_replays(self):
         # 2026-11-12 (#851). The line limit a question states rose from 200
@@ -461,8 +536,14 @@ class AuditRegressions(unittest.TestCase):
         real_render = PRM.render_line
         # ...AND BEFORE THE QUESTION SAID WHAT THE TWO WRITING BANS FORBID
         # (REPINNED 2026-11-21, bug hunt finding 3: ~~the 671 undo alone~~).
-        def without_bans(*args, **kwargs):
+        # ...AND BEFORE THE COMMON-PARTNER BAN FELL FROM 6 PARTNERS TO 3
+        # (REPINNED 2026-11-23, owner's ruling of 22 Nov 2026: ~~the
+        # ban-definitions undo first~~), whose own undo is applied first.
+        def six_partners(*args, **kwargs):
             text = real_render(*args, **kwargs)
+            return LH._legacy_ban_partners('propose', text) or text
+        def without_bans(*args, **kwargs):
+            text = six_partners(*args, **kwargs)
             return LH._legacy_ban_definitions('propose', text) or text
         def worded_then(*args, **kwargs):
             text = without_bans(*args, **kwargs)
@@ -476,9 +557,12 @@ class AuditRegressions(unittest.TestCase):
         # question and for a group question's "Each line is at most ...".
         # REPINNED 2026-11-21: ~~[worded_then(b, initial), held_line]~~;
         # the newest undo (the ban definitions) comes first.
+        # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~[without_bans,
+        # worded_then, held_line]~~; the newest undo is now the 6-partner
+        # line, so it comes first.
         self.assertEqual(LH.legacy_question_texts('propose', now_line),
-                         [without_bans(b, initial), worded_then(b, initial),
-                          held_line])
+                         [six_partners(b, initial), without_bans(b, initial),
+                          worded_then(b, initial), held_line])
         self.assertEqual(
             LH.legacy_question_texts('propose_group', '  Each line ' + now),
             ['  Each line ' + then])
@@ -800,13 +884,24 @@ class AuditRegressions(unittest.TestCase):
                         undos.index(LH._legacy_group_rules))
         self.assertLess(undos.index(LH._legacy_group_rules),
                         undos.index(LH._legacy_pivot_unread))
+        # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~below
+        # [1]~~. The undo for the common-partner ban falling from 6
+        # partners to 3 comes after these, and every question prints that
+        # ban's line, so the question a held run was asked is the third
+        # earlier wording, and `before` is compared with its 6-partner line
+        # put back as well.
+        self.assertLess(undos.index(LH._legacy_group_rules),
+                        undos.index(LH._legacy_ban_partners))
+        def held_wording(text):
+            text = LH._legacy_ban_partners('propose_group', text) or text
+            return LH._legacy_group_rules('propose_group', text)
         first = groups[0]
         self.assertEqual(first.path, 'escalation')
         before = PRM.render_group(dataclasses.replace(first, pivot_line_reasons=()))
         self.assertIn('  No previous attempt was rejected on this line in this '
                       'round.\n', before)
-        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[1],
-                         LH._legacy_group_rules('propose_group', before))
+        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[2],
+                         held_wording(before))
         # With last round's rejection of the same group also on the question,
         # the old wording had that block and nothing after it.
         earlier = {'round': 1, 'text': 'x', 'reasons': ['nothing was fixed']}
@@ -815,8 +910,8 @@ class AuditRegressions(unittest.TestCase):
         self.assertIn('Your rewrite of this group in ROUND 1 was REJECTED', now)
         self.assertIn("L3's line question (attempt 1, round 1) was asked first", now)
         self.assertEqual(
-            LH.legacy_question_texts('propose_group', now)[1],
-            LH._legacy_group_rules('propose_group', PRM.render_group(
+            LH.legacy_question_texts('propose_group', now)[2],
+            held_wording(PRM.render_group(
                 dataclasses.replace(with_prior, pivot_line_reasons=()))))
         # A second try at the group quotes the group's own rejection, the
         # latest one, and a group asked before any line question has no line
@@ -884,10 +979,22 @@ class AuditRegressions(unittest.TestCase):
         was = PRM.render_group(dataclasses.replace(first, pivot_line_unread=False))
         self.assertIn(self.REJECTED_ROWS.format(why=PRM.UNREAD_LINE), was)
         older = LH.legacy_question_texts('propose_group', asked)
-        self.assertEqual(older[0], was)
-        self.assertEqual(older[1:], LH.legacy_question_texts('propose_group', was))
+        # REPINNED 2026-11-24: ~~older[0] == was~~, ~~older[1:] ==
+        # legacy_question_texts('propose_group', was)~~ and ~~older[2]~~ below.
+        # `was` is built by today's code, so it states today's count of banned
+        # partners, which no build asked beside these rows; a held run has the
+        # newest undo of it. No position in the table is pinned.
+        held = LH._legacy_ban_partners('propose_group', was)
+        self.assertIsNotNone(held)
+        self.assertNotEqual(held, was)
+        self.assertIn(held, older)
+        self.assertLess(
+            older.index(LH._legacy_ban_partners('propose_group', asked)),
+            older.index(held))
+        self.assertEqual(older[older.index(held):],
+                         LH.legacy_question_texts('propose_group', was))
         self.assertIn('  No previous attempt was rejected on this line in this '
-                      'round.\n', older[2])
+                      'round.\n', older[older.index(held) + 2])
         # An answer the grader did reject keeps its words and needs no undo,
         # and a line question has no such block.
         graded = self._hill_loop()
@@ -1092,8 +1199,31 @@ class AuditRegressions(unittest.TestCase):
                                      self.WAS_REJECTED_ROWS.format(why=why)),
                     'nothing else in the question moved')
                 older = LH.legacy_question_texts(kind, now)
-                self.assertEqual(older[0], was)
-                self.assertEqual(older[1:], LH.legacy_question_texts(kind, was))
+                if kind == 'propose':
+                    # REPINNED 2026-11-24: ~~older[0] == was~~ and ~~older[1:]
+                    # == legacy_question_texts(kind, was)~~. A line question
+                    # states the count of banned partners, and `was` is built
+                    # by today's code, so it states today's count, which no
+                    # build asked beside these rows; a held run has the newest
+                    # undo of it. No position in the table is pinned.
+                    as_held = LH._legacy_ban_partners(kind, was)
+                    self.assertIsNotNone(as_held)
+                    self.assertNotEqual(as_held, was)
+                    self.assertIn(as_held, older)
+                    self.assertLess(
+                        older.index(LH._legacy_ban_partners(kind, now)),
+                        older.index(as_held))
+                    self.assertEqual(older[older.index(as_held):],
+                                     LH.legacy_question_texts(kind, was))
+                else:
+                    # These four are unchanged from main: a group asked for
+                    # together with its copies states no count of banned
+                    # partners, so the newest undo leaves it alone and `was`
+                    # is still the first earlier wording.
+                    self.assertIsNone(LH._legacy_ban_partners(kind, was))
+                    self.assertEqual(older[0], was)
+                    self.assertEqual(older[1:],
+                                     LH.legacy_question_texts(kind, was))
         # The group question that follows a line reply nobody read has its
         # own rows and its own undo; this one leaves it alone.
         after_unread = self._hill_loop(
@@ -1127,9 +1257,15 @@ class AuditRegressions(unittest.TestCase):
         def before_the_change(*a, **k):
             # The question as the build before this change printed it: the
             # loop's own reason arrived as plain text.
+            # MERGED 2026-11-24: ~~return spy(*a, **k)~~. That build also
+            # counted the banned partners as it did, and the count has changed
+            # since; today's render with plain-text reasons would be a question
+            # no build ever asked, and no undo reaches it.
             if k.get('reasons'):
                 k = dict(k, reasons=[str(r) for r in k['reasons']])
-            return spy(*a, **k)
+            text = real_render(*a, **k)
+            asked.append(LH._legacy_ban_partners('propose', text) or text)
+            return asked[-1]
 
         def run(render):
             rv = Reviser(rdecl=ReviseDeclaration(
@@ -1174,12 +1310,22 @@ class AuditRegressions(unittest.TestCase):
     # next question quotes the grader's reason. That reason printed the
     # grader's own records of the new findings as Python wrote them, so a
     # writer read "[(3, 'SCHEME_VIOLATION', 'flag', (1, 3), ('A',), ())]".
-    # Three lines in one rhyme group; L3 repeats L1's end word.
-    GATE = ['The lantern swings above the gate',
-            'We count the hours and we wait',
-            'The river carries off the gate']
+    # Three lines in one rhyme group. L3 ends in a word spelled like L1's
+    # ending ('gate'/'plate'), which is flagged while a song is being
+    # written, so the loop asks for L3.
+    # REPINNED 2026-11-24: ~~GATE = ['The lantern swings above the gate',
+    # 'We count the hours and we wait', 'The river carries off the gate']~~,
+    # with ~~'The river carries off the late'~~ as the answer that is
+    # accepted and a grader that applied no writing ban. The loop asked for
+    # L3 there for one reason only: two of the three lines open with "the",
+    # and that check is removed (the owner's ruling of 2026-11-22). No line
+    # here opens on another's first word, and the rejection these tests read
+    # is the same one, byte for byte.
+    GATE = ['A lantern swings above the gate',
+            'We count the hours with the freight',
+            'The river carries off the plate']
     GATE_SPEC = {'L3': ['The river carries off the kitchen',
-                        'The river carries off the late']}
+                        'The river carries off the bait']}
     GATE_OLD_ROW = ("    - introduced 2 new flagged finding(s) [(3, "
                     "'SCHEME_VIOLATION', 'flag', (1, 3), ('A',), ()), (3, "
                     "'SCHEME_VIOLATION', 'flag', (2, 3), ('A',), ())] while "
@@ -1195,8 +1341,8 @@ class AuditRegressions(unittest.TestCase):
         with a word that rhymes with nothing, then with one that does."""
         from quality.propose import ModelProposer
         m = mandate([[1, 2, 3]], n_lines=3, default_relation='class:RHYME')
-        rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=3,
-                                            backtrack_width=1))
+        rv = Reviser(writing=True, rdecl=ReviseDeclaration(
+            max_rounds=1, attempts_per_line=3, backtrack_width=1))
         call = self._fake_writer(self.GATE_SPEC)
         writer = ModelProposer(call)
         one, two = writer.propose, writer.propose_group
@@ -1339,10 +1485,21 @@ class AuditRegressions(unittest.TestCase):
         undos = [e[1] for e in LH.LEGACY_QUESTION_RENDERINGS]
         self.assertLess(undos.index(LH._legacy_attempt_not_graded),
                         undos.index(LH._legacy_reason_lists))
+        self.assertLess(undos.index(LH._legacy_reason_lists),
+                        undos.index(LH._legacy_ban_partners))
 
         def as_before(keys):
             # What the build before this change put in the reason.
             return str(sorted(keys))
+        real_line = PRM.render_line
+
+        def line_as_before(*a, **k):
+            # MERGED 2026-11-24: the build before this change also counted
+            # the banned partners as that build did, and the count has
+            # changed since. A stand-in that printed today's count with the
+            # old reason would be a question no build ever asked.
+            text = real_line(*a, **k)
+            return LH._legacy_ban_partners('propose', text) or text
         for held_by, old_build in (('this build', False),
                                    ('the build before', True)):
             with self.subTest(held_by=held_by), \
@@ -1352,13 +1509,18 @@ class AuditRegressions(unittest.TestCase):
                  contextlib.redirect_stdout(io.StringIO()):
                 if old_build:
                     with patch.object(PRM, 'named_findings', as_before), \
-                         patch.object(PRM, 'legacy_reason', lambda new, old: None):
+                         patch.object(PRM, 'legacy_reason', lambda new, old: None), \
+                         patch.object(PRM, 'render_line', line_as_before):
                         first, call = self._gate_run(checkpointed=True)
                 else:
                     first, call = self._gate_run(checkpointed=True)
                 held = [p for k, p in call.calls if k == 'L3'][1]
                 self.assertIn(self.GATE_OLD_ROW if old_build
                               else self.GATE_NEW_ROW, held)
+                # The older build's question holds the older count, so the
+                # newest undo finds nothing in it to put back.
+                self.assertEqual(
+                    LH._legacy_ban_partners('propose', held) is None, old_build)
                 journal = json.loads((Path(tmp)/'cp.json').read_text())
                 self.assertEqual(len(journal['proposals']), len(call.calls))
                 PRM.LEGACY_REASONS.clear()
@@ -1383,13 +1545,13 @@ class AuditRegressions(unittest.TestCase):
         import quality.propose as PRM
         from quality.propose import ModelProposer
         spec = {'L3': ['The river carries off the kitchen'] * 2,
-                'group': ['L1: The lantern swings above the kitchen\n'
-                          'L2: We count the hours and we wait\n'
+                'group': ['L1: A lantern swings above the kitchen\n'
+                          'L2: We count the hours with the freight\n'
                           'L3: The river carries off the garden'] * 2}
 
         def run():
             m = mandate([[1, 2, 3]], n_lines=3, default_relation='class:RHYME')
-            rv = Reviser(rdecl=ReviseDeclaration(
+            rv = Reviser(writing=True, rdecl=ReviseDeclaration(
                 max_rounds=1, attempts_per_line=1, backtrack_width=1))
             call = self._fake_writer(spec)
             writer = ModelProposer(call)
@@ -1422,8 +1584,22 @@ class AuditRegressions(unittest.TestCase):
             self.assertIn(self.GATE_OLD_ROW, before)
             self.assertEqual(LH._legacy_reason_lists('propose_group', asked),
                              before)
-            self.assertEqual(
-                LH.legacy_question_texts('propose_group', asked)[0], before)
+            # REPINNED 2026-11-24: ~~legacy_question_texts('propose_group',
+            # asked)[0] == before~~. `before` is built by today's code, so it
+            # states today's count of banned partners beside the old reason,
+            # which no build ever asked. A run held before this change holds
+            # the count that build stated: the later undo puts that back
+            # (a run held between the two changes), and this one then puts
+            # the list back (a run held before both). No position in the
+            # table is pinned, so a later entry moves nothing here.
+            between = LH._legacy_ban_partners('propose_group', asked)
+            held = LH._legacy_ban_partners('propose_group', before)
+            self.assertNotIn(None, (between, held))
+            self.assertNotEqual(held, before)
+            older = LH.legacy_question_texts('propose_group', asked)
+            self.assertLess(older.index(between), older.index(held))
+            self.assertEqual(older[older.index(held):],
+                             LH.legacy_question_texts('propose_group', before))
 
         # Every block that quotes a reason prints it as the same kind of
         # row, so one undo serves them all: this try's rejection, last
@@ -1658,11 +1834,21 @@ class AuditRegressions(unittest.TestCase):
         lines = [('I see the %s' if i < 15 else 'we found a %s') % w
                  for i, w in enumerate(ends)]
         self.assertEqual(int(15 / 22 * 22), 14)
-        (found,) = [f for f in SlopFloor().check(lines)
-                    if f.code == 'ANAPHORA_OVERLOAD']
-        self.assertEqual(found.locations, list(range(1, 16)))
-        self.assertEqual(found.message,
-                         '15 of 22 lines open with the same word')
+        # REPINNED 2026-11-23 (merge of main into the removal branch; owner's
+        # ruling of 22 Nov 2026, "yes, take it out"): ~~the one
+        # ANAPHORA_OVERLOAD finding lists L1-L15 and its message says "15 of
+        # 22 lines open with the same word"~~. The same-first-word check is
+        # out of the grader, so the draft whose count that message got wrong
+        # now gets no finding about its openings, and no message counts them.
+        # Premise: the draft still opens 15 of its 22 lines on one word, so it
+        # is the draft the removed check would have caught.
+        self.assertEqual(sum(l.split()[0] == 'I' for l in lines), 15)
+        self.assertEqual(len(lines), 22)
+        found = SlopFloor().check(lines)
+        self.assertEqual([f.code for f in found if f.code in
+                          ('ANAPHORA_OVERLOAD', 'ANAPHORA_DECLARED')], [])
+        self.assertFalse([f for f in found
+                          if 'open with the same word' in (f.message or '')])
 
     STREET = ['we walked along the street',
               'a quiet word was all i had',
@@ -1723,7 +1909,14 @@ class AuditRegressions(unittest.TestCase):
                                  lines)
         self.assertIn("this line must stand in at least one relation with: "
                       "L1 ('street')", before)
-        self.assertEqual(LH.legacy_question_texts('propose', asked)[0], before)
+        # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~[0] ==
+        # before~~ and ~~LEGACY_QUESTION_RENDERINGS[-1]~~. The undo for the
+        # common-partner ban falling from 6 partners to 3 was added after this
+        # one, and both questions print that ban's line, so the wording a held
+        # run was asked is the second undo, and it is `before` with its
+        # 6-partner line put back.
+        self.assertEqual(LH.legacy_question_texts('propose', asked)[1],
+                         LH._legacy_ban_partners('propose', before))
         # REPINNED 2026-11-23 (the review of the bug hunt's fixes):
         # ~~LEGACY_QUESTION_RENDERINGS[-1][1] is `_legacy_group_rules`~~. One
         # more undo was added at the end (a line reply that was never read is
@@ -1763,8 +1956,12 @@ class AuditRegressions(unittest.TestCase):
             group, brief=dataclasses.replace(briefs[3], group_rules={}))
         before = PRM.render_group(plain)
         self.assertIn('must stand in a relation with what', before)
-        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[0],
-                         before)
+        # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~[0] ==
+        # before~~, here and for the two-rule group below. The 6-partner
+        # wording is the first undo now, so the wording from before the rule
+        # was stated is the second, with that line put back as well.
+        self.assertEqual(LH.legacy_question_texts('propose_group', asked)[1],
+                         LH._legacy_ban_partners('propose_group', before))
         # A group that requires two relations has two rules, and each is
         # printed.
         m2, both = self._street_briefs(
@@ -1786,15 +1983,17 @@ class AuditRegressions(unittest.TestCase):
         self.assertNotIn('class:ASSONANCE', two)
         self.assertIn(self.ONLY_THIS_RULE, two)
         self.assertEqual(
-            LH.legacy_question_texts('propose', two)[0],
-            PRM.render_line(dataclasses.replace(both[3], group_rules={}), lines))
+            LH.legacy_question_texts('propose', two)[1],
+            LH._legacy_ban_partners('propose', PRM.render_line(
+                dataclasses.replace(both[3], group_rules={}), lines)))
         coupled = PRM.render_group(dataclasses.replace(group, brief=both[3]))
         self.assertIn('must satisfy every rule printed under this paragraph '
                       'with what\n', coupled)
         self.assertEqual(
-            LH.legacy_question_texts('propose_group', coupled)[0],
-            PRM.render_group(dataclasses.replace(
-                group, brief=dataclasses.replace(both[3], group_rules={}))))
+            LH.legacy_question_texts('propose_group', coupled)[1],
+            LH._legacy_ban_partners('propose_group', PRM.render_group(
+                dataclasses.replace(group, brief=dataclasses.replace(
+                    both[3], group_rules={})))))
 
     def test_the_question_that_repairs_the_declared_requirements_gives_each_rule(self):
         # Finding 2, on the question headed REPAIR THE DECLARED REQUIREMENTS.
@@ -1956,10 +2155,14 @@ class AuditRegressions(unittest.TestCase):
             self.assertEqual(b3.group_rules, {'A': (row_of(promote),)})
             asked = PRM.render_line(b3, lines)
             self.assertIn(f'    {row_of(promote)}\n', asked)
+            # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~[0] ==
+            # the question with no rule~~. The 6-partner wording is the first
+            # undo now, so the question with no rule is the second, with its
+            # 6-partner line put back.
             self.assertEqual(
-                LH.legacy_question_texts('propose', asked)[0],
-                PRM.render_line(dataclasses.replace(b3, group_rules={}),
-                                lines))
+                LH.legacy_question_texts('propose', asked)[1],
+                LH._legacy_ban_partners('propose', PRM.render_line(
+                    dataclasses.replace(b3, group_rules={}), lines)))
 
     def test_the_group_questions_give_the_rule_their_reviser_grades_by(self):
         # The same follow-up, on the two questions the loop builds its own

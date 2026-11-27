@@ -346,10 +346,16 @@ def emit(required):
         check("the old literal-only reader loses all four branches, so the fixture kills the regression",
               not blind and len(actual) == 4)
     live = GC.census()
-    check("both original floor flags remain gates while their required-identity counterparts remain notes",
-          all(live[code]["verdict"] == "GATED" for code in ("LEXICAL_MONOTONY", "ANAPHORA_OVERLOAD"))
-          and all(live[code]["verdict"] == "DISCLOSED-ONLY" for code in
-                  ("LEXICAL_REPETITION_DECLARED", "ANAPHORA_DECLARED")))
+    # REPINNED 2026-11-22 (owner's ruling): ~~both original floor flags
+    # remain gates while their required-identity counterparts remain notes~~.
+    # The word-variety and same-first-word checks are removed, flags, notes
+    # and rulings together, so none of their five codes is emitted anywhere.
+    gone = ("LEXICAL_MONOTONY", "ANAPHORA_OVERLOAD", "MATTR_WINDOW_UNCALIBRATED",
+            "LEXICAL_REPETITION_DECLARED", "ANAPHORA_DECLARED")
+    check("the two removed checks' codes are emitted nowhere and ruled on nowhere",
+          not any(code in live for code in gone)
+          and not any(code in GC.DISPOSITION for code in gone),
+          [code for code in gone if code in live or code in GC.DISPOSITION])
 
 
 def test_conventions_cannot_be_promoted():

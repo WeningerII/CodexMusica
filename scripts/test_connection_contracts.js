@@ -272,8 +272,10 @@ function baselineFamily(name) {
 }
 const DISPLAYED = registry.methods.filter((m) => I.layerOfNamespace(m.namespace));
 
-test('b1 84/84 ids keep today’s display family', () => {
-  assert.equal(DISPLAYED.length, 84, 'registry baseline: 80 schema + 4 shared_sound');
+// REPINNED 2026-11-22: ~~84~~ 83 and rhyme ~~37~~ 36 — `trite rhyme` left the
+// registry (owner's ruling: the declared trite pairs come out).
+test('b1 83/83 ids keep today’s display family', () => {
+  assert.equal(DISPLAYED.length, 83, 'registry baseline: 79 schema + 4 shared_sound');
   const families = new Map(model(BASE.records).methods.map((m) => [m.method_id, m.family]));
   const tally = {};
   for (const m of DISPLAYED) {
@@ -281,7 +283,7 @@ test('b1 84/84 ids keep today’s display family', () => {
     assert.equal(families.get(m.id), want, `${m.id} (${m.name})`);
     tally[want || 'none'] = (tally[want || 'none'] || 0) + 1;
   }
-  assert.deepEqual(tally, { rhyme: 37, consonance: 5, assonance: 3, alliteration: 3, none: 36 });
+  assert.deepEqual(tally, { rhyme: 36, consonance: 5, assonance: 3, alliteration: 3, none: 36 });
 });
 
 test(

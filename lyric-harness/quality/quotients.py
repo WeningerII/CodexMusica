@@ -153,94 +153,16 @@ _check_total()
 ENG_QUOTIENTS = {"manner": manner}
 
 # ---------------------------------------------------------------------------
-# 2. THE DECLARED TRITE-PAIR PARTITION
+# 2. ~~THE DECLARED TRITE-PAIR PARTITION~~ — REMOVED 2026-11-22
 # ---------------------------------------------------------------------------
-#: `trite rhyme` carries `requires=("frequency",)` and `relations.UNPROVIDABLE`
-#: records it as `blocker="disjoint"` with a MEASUREMENT this table does not
-#: dispute and does not need to: the pre-1931 corpus is the only admissible
-#: English source here, and it cannot say what is over-familiar to a LIVING
-#: listener — 7 of `lyric_harness.CLICHE_PAIRS`' 30 pairs have count ZERO in
-#: it, while its own top by author dispersion is `me`/`thee` (1,080 over 51
-#: authors), which is a cliche to nobody now.
-#:
-#: THAT ARGUMENT IS ABOUT CORPUS FREQUENCY AND IT IS RIGHT. It is not about
-#: whether the schema can be answered, and the entry's own
-#: `would_manufacture` field says exactly what goes wrong if the capability is
-#: merely rubber-stamped: "every perfect rhyme in the text, labelled trite",
-#: because the schema's two channels are nucleus AGREE and coda AGREE and
-#: NOTHING IN IT READS A RANK. Supplying `frequency` without giving the schema
-#: something to consult IS the manufacture.
-#:
-#: SO THE ANSWER IS A PREDICATE, NOT A CAPABILITY. This repo already owns a
-#: frequency-independent triteness source — `lyric_harness.CLICHE_PAIRS`, 30
-#: hand-declared pairs, already load-bearing in the doctrine-9 modal
-#: exclusion — and a quotient turns it into something `ClassEqual` can read:
-#: both members of a declared pair map to that pair's id, every other word
-#: maps to itself. Two words are CLASS-EQUAL exactly when the declaration
-#: names them as a trite pair, so the schema flags 30 pairs and not one
-#: perfect rhyme more. Nothing is ranked, nothing is thresholded, and there is
-#: no uncalibrated cut (doctrine 16/22) because there is no cut.
-#:
-#: WHAT THIS IS NOT: a claim that 30 pairs are all the trite pairs in English.
-#: It is a claim that these 30 are DECLARED trite by this repo, which is the
-#: only honest thing any list can say. Widening it is an edit to that list.
-
-
-def _trite_index():
-    """-> {word: pair-id}, built once from the declared pair list."""
-    global _TRITE
-    if _TRITE is None:
-        try:
-            _TRITE = _check_trite_disjoint()
-        except Exception:
-            _TRITE = {}
-    return _TRITE
-
-
-_TRITE = None
-
-
-def _check_trite_disjoint():
-    """No word may sit in TWO declared pairs. Checked ON FIRST USE, not
-    asserted in prose: `ClassEqual` compares ONE class per value, so a word in
-    two pairs would silently get whichever the dict wrote last and the schema
-    would answer False for one of its own declared pairs. MEASURED at the time
-    of writing: 30 pairs, 60 distinct words, no overlap — which is exactly the
-    condition that makes a single class per word exact, and exactly the
-    condition a future edit could break without any test noticing."""
-    import lyric_harness as _lh
-    seen = {}
-    for pair in _lh.CLICHE_PAIRS:
-        key = "trite:" + "~".join(sorted(pair))
-        for w in pair:
-            w = str(w).lower()
-            if w in seen and seen[w] != key:
-                raise ValueError(
-                    f"{w!r} is in two declared trite pairs ({seen[w]} and "
-                    f"{key}); `ClassEqual` carries ONE class per value, so "
-                    f"the partition must be disjoint or `trite rhyme` will "
-                    f"silently answer False for one of them. Either merge "
-                    f"the pairs or give the schema a set-valued predicate.")
-            seen[w] = key
-    return seen
-
-
-def trite(value):
-    """-> the trite-pair class of a token value.
-
-    A word in a declared pair maps to that pair's id; every other word maps to
-    ITSELF, so two non-declared words are class-equal only when they are the
-    same word — which the schema's own `DISTINCT` identity rule already
-    forbids. The partition is therefore exactly "these two are a declared
-    trite pair", with no rank and no threshold.
-
-    `None` in, `None` out — `ClassEqual` reads that as outside the partition
-    and refuses at the channel rather than answering False.
-    """
-    if value is None:
-        return None
-    w = str(value).lower()
-    return _trite_index().get(w, w)
+#: The owner ruled on 22 Nov 2026 that the 30 declared trite pairs
+#: (`lyric_harness.CLICHE_PAIRS`) come out everywhere. This section held the
+#: partition that turned them into a class `ClassEqual` could read
+#: (`trite`, `_trite_index`, `_check_trite_disjoint`), and its one reader was
+#: the `trite rhyme` schema in `relations.py`, which came out with it. So
+#: English declares no `trite` quotient now, and no stream provides
+#: `quotient:trite`. The corpus-frequency argument this section quoted stays
+#: whole where it belongs, in `relations.RETIRED_UNPROVIDABLE`.
 
 
 #: THE ENGLISH REDUCED VOWELS (2026-10-31, `MISSING.md` M-311 F1; R2's
@@ -262,7 +184,7 @@ def reduced_vowel(value):
     return REDUCED_VOWELS.get(sym, sym) if prom == "0" else sym
 
 
-ENG_QUOTIENTS = {"manner": manner, "trite": trite, "reduced_vowel": reduced_vowel}
+ENG_QUOTIENTS = {"manner": manner, "reduced_vowel": reduced_vowel}
 
 # ---------------------------------------------------------------------------
 # 3. WELSH VOWEL CLASS (proest)
@@ -383,7 +305,7 @@ CYM_QUOTIENTS = {"vowel_class": vowel_class}
 
 
 __all__ = ["ARPABET_CONSONANTS", "MANNER", "MANNER_CLASSES", "REDUCED_VOWELS", "reduced_vowel", "manner",
-           "trite", "vowel_class", "ENG_QUOTIENTS", "CYM_QUOTIENTS",
+           "vowel_class", "ENG_QUOTIENTS", "CYM_QUOTIENTS",
            "CYM_LONG_MARKS"]
 
 

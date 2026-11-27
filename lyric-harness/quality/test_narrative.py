@@ -476,7 +476,25 @@ def test_measured_seeds():
     # two more syllables on line 18 than its grid holds, so the joint gate
     # refuses it (OVERHANG_EXCEEDS_SPAN) and the seed redraws, disclosed in
     # `choices.seed_redraw`. ~~7:513802240~~. The nine zeros hold.
-    ZEROS = (20, 28, 38, 48, 79, 81, 82, 96, 97)
+    # REPINNED 2026-11-23 (owner's ruling: a rhyme tie inside a line is
+    # named at a word as often as real sung lines have a word there, up to
+    # word 22; measured): ~~ZEROS = (20, 28, 38, 48, 79, 81, 82, 96,
+    # 97)~~. A seed's first draw deals its roster before its word places,
+    # so no first draw's roster moved; what moved is which first draws the
+    # copy check (F23) refuses. Seed 38's first draw now puts two groups on
+    # the last word of line 95 and its verbatim copy, line 114, so it is
+    # refused and redraws to a positive count, and nine zeros become
+    # eight. Seed 12's first draw is no longer refused, so it keeps the
+    # count it had before F23 (~~12:30283776~~). No other pin moved.
+    # MERGED 2026-11-24 (main 4def4c3f77 into this branch; measured over
+    # seeds 1-100 on the merged tree): the two changes compose, and each
+    # moved seed was moved by one of them. F21 moved seed 7
+    # (~~7:513802240~~ -> 812160). The word places up to word 22 moved
+    # seeds 38 and 12: 38 redraws to a positive count and leaves the
+    # zeros, and 12 keeps its count from before F23 (~~12:30283776~~).
+    # The merged tree has eight zeros, the tuple below, and no other pin
+    # moved.
+    ZEROS = (20, 28, 48, 79, 81, 82, 96, 97)
     pins = {1:9635328, 6:32747520, 7:812160,
             9:5865799680,
             15:15257600, 23:3533517619200, 25:21307392000, 27:221184,
@@ -484,7 +502,7 @@ def test_measured_seeds():
             31:384, 34:1847350886400, 89:29952,
             41:37995520,
             56:59904, 73:29696,
-            4:1159004160, 12:30283776, 62:26726400, 67:245760,
+            4:1159004160, 12:3568640, 62:26726400, 67:245760,
             85:4313088, 94:6311936,
             # the stage-4 zeros that are positive under the cap
             11:10416036145161830400, 13:483065856, 19:76288, 24:100352,
@@ -493,6 +511,8 @@ def test_measured_seeds():
             83:63311576039424000, 90:3070080,
             # the two cap zeros the copy check (F23) redraws
             64:3561323038801920, 100:11197440,
+            # the zero the copy check redraws under the measured word places
+            38:4751360,
             **{seed: 0 for seed in ZEROS}}
     got = {}
     for seed, want in sorted(pins.items()):
@@ -500,8 +520,8 @@ def test_measured_seeds():
         got[seed] = N.count_lineups(fns)
     check("all eighteen historical seeds, the three former bridge-first "
           "zeros, the six zeros before stage 4, the thirteen stage-4 zeros "
-          "that are positive now, the two cap zeros the copy check "
-          "redraws and all nine current zero exemplars "
+          "that are positive now, the three zeros the copy check "
+          "redraws and all eight current zero exemplars "
           "re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
     # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
@@ -532,11 +552,14 @@ def test_measured_seeds():
     # REPINNED 2026-11-21 (bug hunt F23): ~~exactly ten zero shapes~~;
     # 64 and 100 redraw to positive counts, 96 redraws to a zero, and the
     # first forty keep their three.
-    check("the complete current 100-seed denominator has exactly nine "
-          "zero shapes, three of them among the first forty, over all 100 "
+    # REPINNED 2026-11-23 (the measured word places): ~~exactly nine zero
+    # shapes, three of them among the first forty~~ (~~37 positive~~);
+    # seed 38 redraws to a positive count.
+    check("the complete current 100-seed denominator has exactly eight "
+          "zero shapes, two of them among the first forty, over all 100 "
           "plans with no seed refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
-          and sum(sweep[seed] > 0 for seed in range(1,41)) == 37
+          and sum(sweep[seed] > 0 for seed in range(1,41)) == 38
           and refused == [],
           f"{len(sweep)} plans of 100 seeds; refused NO_FREE_WORD: "
           f"{refused or 'none'}")
@@ -603,10 +626,14 @@ def test_measured_seeds():
     # and are positive now, and 96 redraws to a zero at the third section.
     # 38 still collapses at the sixth section and 97 at the second, so
     # every depth the check names keeps a seed.
+    # REPINNED 2026-11-23 (the measured word places): ~~38: 6~~ and ~~at
+    # the second, third, sixth and eighth sections~~. Seed 38 redraws and
+    # is positive now, so no seed in 1-100 collapses at the sixth section;
+    # its old zero was a RESOLVE with nothing before it to COMPLICATE, and
+    # the declared shapes below now cover that depth too.
     check("actual current zeros distinguish opening refusals from refusals "
-          "at the second, third, sixth and eighth sections",
-          at == {20: 1, 28: 3, 38: 6, 48: 3, 79: 1, 81: 1, 82: 8, 96: 3,
-                 97: 2},
+          "at the second, third and eighth sections",
+          at == {20: 1, 28: 3, 48: 3, 79: 1, 81: 1, 82: 8, 96: 3, 97: 2},
           at)
     # THE THREE SHAPES THE BRIDGE RULE DISPLACED, KEPT AS AUTHORED INPUT
     # (2026-11-15). Each opened on a bridge and the story layer already
@@ -651,7 +678,9 @@ def test_measured_seeds():
     # The old seeded depth 3/4/5 exemplars no longer belong to the zero class.
     # Keep the actual semantic clauses covered at each missing depth with
     # declared shapes and positive controls, rather than claiming dice saw it.
-    for depth in (2,3,4,5):
+    # REPINNED 2026-11-23: ~~depths 2 to 5~~; depth 6 joins them, because
+    # seed 38, its last seeded witness, redraws to a positive count.
+    for depth in (2,3,4,5,6):
         shape = ["intro"] + ["chorus"] * (depth-2) + ["false_ending"]
         check(f"declared depth {depth} has a legal prefix, refuses RESOLVE "
               "without COMPLICATE, and admits after an actual build",

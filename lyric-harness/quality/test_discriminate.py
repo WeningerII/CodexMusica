@@ -660,11 +660,15 @@ PINNED = {
             "pos_binding_diversity": 0.4225071225071225,
             # THE COORDINATE THIS PINS IS THE WINDOW, and it took until
             # 2026-08-14 for anything to say so. `mattr` is a moving average
-            # over `FloorDeclaration.mattr_window` tokens (50), so this
+            # over `quality.features.MATTR_WINDOW` tokens (50), so this
             # number is a reading at ONE window and not a property of the
             # feature -- move the window and it moves, monotonically and by
             # far more than any tolerance here. The sweep and the admissible
-            # range are `quality.floor.CALIBRATION["mattr_window"]`.
+            # range are in `QualityFeatures._mattr`'s docstring. (REPINNED
+            # 2026-11-22: ~~`FloorDeclaration.mattr_window`~~ and
+            # ~~`quality.floor.CALIBRATION["mattr_window"]`~~ were removed
+            # with the grader's word-variety check, owner's ruling; this
+            # experiment still reads the statistic.)
             "mattr": 0.41025641025641024,
             "function_word_ratio": 0.5632478632478632,
             "syntactic_inversion_rate": 0.5612535612535613,

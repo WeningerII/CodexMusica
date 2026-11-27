@@ -6067,7 +6067,7 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                          if s["relations"] & RHYME_RELATIONS
                          else f"unintended {relation_label(s)} across "
                               f"scheme letters, NOT a rhyme"))
-    # ALL ~~77~~ ~~78~~ 80 SCHEMAS ARE IN THE DEFAULT (M-116), judged by
+    # ALL ~~77~~ ~~78~~ ~~80~~ 79 SCHEMAS ARE IN THE DEFAULT (M-116), judged by
     # `relations.whole_vocabulary_pairs` — THE SAME CALL
     # `quality.revise.grade` makes, so the two readers consult one judge
     # (doctrine 1). REPEAT stays a violation — identity has its own licence
@@ -7468,10 +7468,10 @@ def dedupe_findings(findings):
 #              a whole rather than about any line in it.
 #   IDENTICAL  every occurrence RENDERS THE SAME CHARACTERS. That is one fact
 #              fanned out, not N measurements that happen to share a code:
-#              `ANAPHORA_OVERLOAD` is a whole-draft rate attached to each of
-#              the lines that carry the opening word, so its message, its
-#              evidence AND its `locations` list are byte-identical on all of
-#              them. A per-PAIR code (`NEAR_COLLISION`, `SCHEME_COLLISION`)
+#              `ANAPHORA_OVERLOAD` (removed 2026-11-22, owner's ruling) was a
+#              whole-draft rate attached to each of the lines that carried the
+#              opening word, so its message, its evidence AND its `locations`
+#              list were byte-identical on all of them. A per-PAIR code (`NEAR_COLLISION`, `SCHEME_COLLISION`)
 #              names different words every time and is never caught by this.
 # Both need ROLLUP_MIN_LINES before they fire at all, so a four-line draft is
 # rendered exactly as it was before this existed.
@@ -8614,7 +8614,7 @@ VERB_LAYERS = (
     ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
     ("refrain", "quality/schemes.py", "A-1 notation: the VERBATIM return"),
     ("cycle", "quality/meter.py", "exact-rational metric cycles"),
-    ("relations", "quality/relations.py", "~~77~~ ~~78~~ 80 named relation "
+    ("relations", "quality/relations.py", "~~77~~ ~~78~~ ~~80~~ 79 named relation "
      "schemas (`len(relations.REGISTRY)` is the count)"),
     ("brief / verify / song", "quality/revise.py",
      "the revision loop -- song adds a structural pre-check against "
@@ -11022,6 +11022,28 @@ def _legacy_group_rules(kind, prompt):
     return None if text == prompt else text
 
 
+#: The common-partner line of the block `_BAN_DEFINITIONS_1121` holds, as it
+#: read until 2026-11-22 and as it reads since: the owner ruled that day that
+#: the common-partner ban (MODAL_RHYME) bans at most 3 differently spelled
+#: partners, not 6, and `quality/propose.py` prints the new count. Both
+#: FROZEN as `_BAN_DEFINITIONS_1121` is, which keeps saying 6.
+_BAN_PARTNERS_LINE_1121 = (
+    "    MODAL_RHYME: two paired words whose endings sound alike, where one "
+    "is among the 6 or fewer differently spelled partners most often paired "
+    "with the other in songs.")
+_BAN_PARTNERS_LINE_1122 = (
+    "    MODAL_RHYME: two paired words whose endings sound alike, where one "
+    "is among the 3 or fewer differently spelled partners most often paired "
+    "with the other in songs.")
+
+
+def _legacy_ban_partners(kind, prompt):
+    """-> the question as worded before the common-partner ban fell to 3."""
+    if _BAN_PARTNERS_LINE_1122 not in prompt:
+        return None
+    return prompt.replace(_BAN_PARTNERS_LINE_1122, _BAN_PARTNERS_LINE_1121)
+
+
 #: What a group question says since 2026-11-23 when the reply to its pivot's
 #: own line question never reached the grader (the review of the bug hunt's
 #: fixes), FROZEN as `_BAN_DEFINITIONS_1121` is. From 2026-11-21 until then
@@ -11149,6 +11171,11 @@ LEGACY_QUESTION_RENDERINGS = (
     ("2026-11-23 writer: a rejection reason names its findings in words, not "
      "as the grader's records print",
      _legacy_reason_lists),
+    # Ruled 2026-11-22 but reaching main after the 2026-11-23 changes above,
+    # so it is the newest change a held run can meet, and undone first.
+    ("2026-11-22 writer: the common-partner ban bans 3 partners, not 6 "
+     "(owner's ruling)",
+     _legacy_ban_partners),
 )
 
 
@@ -12168,7 +12195,10 @@ def main():
             groups = [[m.strip() for m in g.split(',') if m.strip()]
                       for g in (values[0] if values else '').split(';') if g.strip()]
             try:
-                groups = numbered_groups(groups, lines, lex, numbering)
+                # A short place is kept in a group and refused in a return,
+                # as the grade does (`numbered_groups`).
+                groups = numbered_groups(groups, lines, lex, numbering,
+                                         returns=field == 'returns')
             except ValueError as e:
                 _refuse(f'{field}: {e}')
             canonical[field] = ';'.join(','.join(g) for g in groups)
@@ -14221,7 +14251,7 @@ def main():
                              line_status=ground.line_status,
                              exclude_status=ground.exclude_status)
         # --schema= IS A SUBSTRING FILTER OVER THE POPULATION THE TWO COUNTS
-        # BELOW ARE TAKEN FROM, and an unmatched value used to filter all ~~77~~ ~~78~~ 80
+        # BELOW ARE TAKEN FROM, and an unmatched value used to filter all ~~77~~ ~~78~~ ~~80~~ 79
         # schemas out and print `schemas finding something: 0   refusing on a
         # capability eng does not have: 0` at exit 0 -- the SAME SHAPE as a
         # genuine null, wrapped in the two paragraphs about how to read these
@@ -14241,7 +14271,7 @@ def main():
         #     whose denominator was silently changed is doctrine 91's defect
         #     exactly. The filter stays a substring match on purpose -- it is
         #     how `--schema=rhyme` reaches a family -- so saying HOW MANY of
-        #     the ~~77~~ ~~78~~ 80 it selected is the only way a reader can tell a narrow
+        #     the ~~77~~ ~~78~~ ~~80~~ 79 it selected is the only way a reader can tell a narrow
         #     filter from a wide one.
         all_schemas = list(RL.all_schemas().values())
         selected = [s for s in all_schemas
@@ -15413,7 +15443,11 @@ def main():
                     from quality.pronunciation import numbered_groups
                     try:
                         start_notices = len(lex._numbering_notices)
-                        groups = numbered_groups(groups, lines, lex, numbering)
+                        # A place past the end of its line is kept in a
+                        # group, for the grade to flag, and refused in a
+                        # return (`numbered_groups`).
+                        groups = numbered_groups(groups, lines, lex, numbering,
+                                                 returns=field == "returns")
                         if (numbering is not None or len(lex._numbering_notices) > start_notices) and any(
                                 re.fullmatch(r'\d+\.T[1-9]\d*', str(m))
                                 for g in groups for m in g):
@@ -15859,7 +15893,9 @@ def main():
             # this run computed was DISCARDED HERE, silently, on `brief`
             # and on `song` both -- including the only FLAG the
             # song-function layer has (`HOOK_ABSENT`), the six
-            # `grid.stanza_lock` shape codes, and `LEXICAL_MONOTONY`.
+            # `grid.stanza_lock` shape codes, and `LEXICAL_MONOTONY`
+            # (removed 2026-11-22; `FUNCTION_WORD_HEAVY` is the floor's
+            # whole-draft flag now).
             # Measured on `quality/fixtures/song.txt` with a blueprint
             # declaring an absent hook: `inspect()` put 10 findings in
             # `whole` and this report printed 0 of them, while the banner
@@ -17506,7 +17542,8 @@ def main():
         # the one a gate would most easily have lost. `brief()` is built
         # from `inspect()`'s `per_line` half, so a finding that names no
         # line is in no `Brief` — `HOOK_ABSENT` (the song-function layer's
-        # ONLY flag), `LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY`. `verify()`
+        # ONLY flag), `FUNCTION_WORD_HEAVY` (and `LEXICAL_MONOTONY` until
+        # its removal, 2026-11-22). `verify()`
         # already reads them and a whole-draft flag can REJECT a revision,
         # so a `song` that exited 0 over one would be certifying a draft the
         # very same run refuses to accept a revision of. THE TWO COUNTS ARE

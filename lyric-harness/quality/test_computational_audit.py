@@ -243,12 +243,16 @@ class RuntimeArithmetic(unittest.TestCase):
                 QualityFeatures._mattr(['cat', 'bat'], value)
 
     def test_anaphora_keeps_first_occurrence_ties(self):
-        for lines in ([], ['Beta fox', 'Alpha bat', 'Alpha dog', 'Beta cat'],
+        # REPINNED 2026-11-22 (owner's ruling): the same-first-word check is
+        # removed and its reader with it, so ~~ties go to the first
+        # occurrence~~ has no reader left to hold; what stands is that the
+        # floor's report on these inputs does not depend on that reader.
+        self.assertFalse(hasattr(SlopFloor, '_anaphora'))
+        floor = SlopFloor()
+        for lines in (['Beta fox', 'Alpha bat', 'Alpha dog', 'Beta cat'],
                       ['One cat'] * 100 + ['Two cats'] * 100 + ['Two cats']):
-            firsts = [(s.split() or [''])[0].lower().strip(',.;:!?—-') for s in lines]
-            top = max(dict.fromkeys(firsts), key=firsts.count) if firsts else ''
-            expected = (firsts.count(top) / len(firsts), top) if firsts else (0., '')
-            self.assertEqual(SlopFloor._anaphora(None, lines), expected)
+            codes = {f.code for f in floor.check(lines)}
+            self.assertFalse(codes & {'ANAPHORA_OVERLOAD', 'ANAPHORA_DECLARED'})
 
     def test_empty_chain_input_has_no_invented_first_line(self):
         self.assertEqual(LH.infer_chains(None, [], LH.Declaration()), [])
@@ -259,7 +263,9 @@ class CalibrationHandoffs(unittest.TestCase):
         from quality.corpus import load_sonnets
         from quality.floor import PROFILES
         from quality import song_profile_calibration as C
-        qf = QualityFeatures(features={'mattr', 'function_word_ratio'})
+        # REPINNED 2026-11-22: ~~mattr_min and anaphora_max~~ are removed
+        # from the stanza rows with their checks (owner's ruling).
+        qf = QualityFeatures(features={'function_word_ratio'})
         sonnets = list(load_sonnets().values())
         for name, poems in (('sonnet', sonnets),
                             ('section', [s[k:k+4] for s in sonnets for k in (0, 4, 8)])):
@@ -268,9 +274,7 @@ class CalibrationHandoffs(unittest.TestCase):
             counts = []
             for lines in poems:
                 features = qf.extract(lines)
-                rows.append({'mattr_min': features['mattr'],
-                             'function_word_ratio_max': features['function_word_ratio'],
-                             'anaphora_max': SlopFloor._anaphora(None, lines)[0],
+                rows.append({'function_word_ratio_max': features['function_word_ratio'],
                              'line_length_cv_min': C.line_cv(lines)})
                 counts.append(sum(len(qf._tokens(line)) for line in lines))
             self.assertEqual(profile.n_human, len(rows))
