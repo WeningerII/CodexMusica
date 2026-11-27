@@ -577,14 +577,19 @@ print("WordNet staging contract holds")
         self.assertEqual(check(full), calibration.EXIT_OK)
         self.assertEqual(check({**full, "predictability": .9}), calibration.EXIT_DRIFT)
 
-    def test_curve_gate_checks_ttr_population_at_inclusive_window_boundary(self):
+    def test_curve_gate_reads_no_ttr_population_and_still_checks_its_range(self):
+        # REPINNED 2026-11-22, renamed from
+        # ~~test_curve_gate_checks_ttr_population_at_inclusive_window_boundary~~:
+        # the word-variety check is removed (owner's ruling), and with it the
+        # row's `mattr_ttr_population` and the gate's TTR-mix refusal, so ~~a
+        # stale population refuses with exit 1~~ — any value now reaches the
+        # curve fit. The range half is unchanged.
         from quality import length_curve_calibration as curve, floor
         from types import SimpleNamespace
         from contextlib import redirect_stdout
         import io
         rows = [{"n_tokens": n} for n in (49, 50, 51)]
-        profile = SimpleNamespace(n_lines=0, curves={"fixture": True}, n_human=3, lo=49, hi=51,
-                                  mattr_ttr_population={"window": 50, "items": 2})
+        profile = SimpleNamespace(n_lines=0, curves={"fixture": True}, n_human=3, lo=49, hi=51)
         args = SimpleNamespace(rows=["fixture.tsv"])
         with patch.object(floor, "PROFILES", [profile]), patch.object(curve, "read_rows", return_value=rows), \
                 patch.object(curve, "make_bins", side_effect=RuntimeError("reached curve fitting")), \
@@ -593,11 +598,13 @@ print("WordNet staging contract holds")
                 curve.cmd_check(args)
             for stale in ({"window": 50, "items": 1}, {"window": 49, "items": 2}, {}):
                 profile.mattr_ttr_population = stale
-                with self.assertRaises(SystemExit) as refused:
+                with self.assertRaisesRegex(RuntimeError, "reached curve fitting"):
                     curve.cmd_check(args)
-                self.assertEqual(refused.exception.code, 1)
+            del profile.mattr_ttr_population
+            import dataclasses
+            self.assertNotIn("mattr_ttr_population",
+                             {f.name for f in dataclasses.fields(floor.Profile)})
 
-            profile.mattr_ttr_population = {"window": 50, "items": 2}
             for profile.lo, profile.hi in ((48, 51), (49, 52), (50, 51)):
                 with self.assertRaises(SystemExit) as refused:
                     curve.cmd_check(args)

@@ -215,10 +215,17 @@ def test_verify_reads_no_offer():
 # 2. every batch answer has a standing
 # ---------------------------------------------------------------------------
 
-#: Four of eight lines open with "and": over the anaphora threshold at this
-#: length (MEASURED 2026-10-02: 43.2% at 54 tokens). Rewriting one opener
-#: leaves 3 of 8 and closes the finding on the other three, which are rhyme-
-#: independent, so the four are asked as ONE batch [1, 3, 5, 7].
+#: Four of eight lines open with "and". REPINNED 2026-11-24 (owner's ruling
+#: of 22 Nov 2026: the same-first-word check comes out): ~~over the anaphora
+#: threshold at this length (MEASURED 2026-10-02: 43.2% at 54 tokens).
+#: Rewriting one opener leaves 3 of 8 and closes the finding on the other
+#: three, which are rhyme-independent, so the four are asked as ONE batch
+#: [1, 3, 5, 7]~~. With the check gone nothing reads the openers: through
+#: the verb under AABBCCDD (`--attempts=1 --backtrack=0`) the batch is L2, L4
+#: and L6, and no line's rewrite closes another's finding (MEASURED
+#: 2026-11-24, revision-loop shard 2/4 of run 45347222528). Sections 4 and 5
+#: still drive it as an eight-line draft; the batch that one member's
+#: acceptance closes is now CLOSED_BY_PARTNER's, in sections 2(b) and 6.
 ANAPHORA = ["and the river wanders past the mill",
             "the heron stands there waiting until",
             "and the children whistle in the rain",
@@ -227,6 +234,19 @@ ANAPHORA = ["and the river wanders past the mill",
             "my mother folds her winter shawl",
             "and the kettle rattles on the coal",
             "a sparrow settles on the pole"]
+
+#: `quality/test_loop.py` CHECK 3's draft (`CLOSE`): L1 and L2 are one rhyme
+#: group, L3 is in none, and L2 and L3 end on the same word. L2's flag is the
+#: broken rhyme; L3's finding is the repeated end word, which is a note and is
+#: worked on only when pursued. Rewriting L2 to end on a rhyme for L1 also
+#: ends the repeat, so L3's finding closes without L3 being asked. MEASURED
+#: 2026-11-23 under `class:RHYME`, pursuing REPEAT_ACROSS_GROUPS: L2 is asked
+#: once and its rewrite accepted, and L3 is closed (`resolved_elsewhere`
+#: [3]).
+CLOSED_BY_PARTNER = ["morning light was burning at half past four",
+                     "and nobody came back to climb the stairs",
+                     "wet empty coats are hanging on the stairs"]
+CLOSED_BY_PARTNER_FIX = "and nobody came back to cross the floor"
 
 
 class _Deferred:
@@ -298,46 +318,80 @@ def test_every_batch_answer_has_a_standing():
           str([(o["line"], o["accepted"], o["reasons"][:1]) for o in l4]))
 
     # (b) a member closed by an earlier member's acceptance: not_applied.
-    run = _Deferred(ANAPHORA, "AABBCCDD", *flags, "--backtrack=0")
-    run.call()
-    check("PREMISE: the four 'and' lines are asked as one batch",
-          run.asked() == ("propose_batch", [1, 3, 5, 7]), str(run.asked()))
-    run.call("L1: the river wanders past the mill\n"
-             "L3: and the children whistle in the falling rain\n"
-             "L5: and the lantern flickers by the garden wall\n"
-             "L7: and the kettle rattles on the glowing coal")
-    kind, asked = run.asked()
-    cur = run.read()["accepted_lines"]
-    run.call("\n".join(f"L{n}: {cur[n - 1]} again" for n in asked))
-    st = run.read()
+    # REPINNED 2026-11-24 (owner's ruling of 22 Nov 2026: the same-first-word
+    # check comes out). ~~ANAPHORA under AABBCCDD through the verb: the four
+    # 'and' lines asked as one batch [1, 3, 5, 7], and L1's accepted rewrite
+    # closing the finding on L3, L5 and L7~~. With the check gone the verb
+    # asks L2, L4 and L6, and no line's rewrite closes another's finding
+    # (MEASURED: revision-loop shard 2/4 of run 45347222528). The draft is now
+    # CLOSED_BY_PARTNER, as in (c): L2's rhyme fix also ends L3's repeated
+    # end word. That needs REPEAT_ACROSS_GROUPS pursued.
+    # WHAT MOVED, AND WHY: this check ran through the verb and now runs the
+    # verb's own `defer:` proposer in-process, as sections 6 and 7 do. The
+    # verb refuses `--pursue=REPEAT_ACROSS_GROUPS` ("`brief()` cannot offer a
+    # candidate field for"). Of the codes it accepts, MODAL_RHYME was
+    # measured: it is filed on one pair at a time, so an answer on one pair
+    # cannot move another pair's note. The other accepted codes were not
+    # tried. So the through-the-verb form of this check has no known draft
+    # today. (a) above still drives a batch
+    # through the verb, process by process, and section 5 still holds resume
+    # through the verb. What nothing holds through the verb any more is a
+    # `not_applied` entry in the state file.
+    # MEASURED 2026-11-24: call 0 asks L2 and L3 as one batch, and the run
+    # ends on call 1 with L2 accepted and L3 passed by.
+    rd = RV.ReviseDeclaration(max_rounds=2, attempts_per_line=1,
+                              backtrack_width=0,
+                              pursue=frozenset({"REPEAT_ACROSS_GROUPS"}))
+    run = _inproc(CLOSED_BY_PARTNER, _m([[1, 2]], 3, "class:RHYME"), rd,
+                  answers={0: f"L2: {CLOSED_BY_PARTNER_FIX}\n"
+                              "L3: wet empty coats are hanging by the door"})
+    pend = (run[0]["after"] or {}).get("pending") or {}
+    asked = (pend.get("kind"), [r["line"] for r in
+                                (pend.get("record") or {}).get("records", ())])
+    check("PREMISE: L2 and L3 are asked as one batch",
+          run[0]["kind"] == "asked" and asked == ("propose_batch", [2, 3]),
+          str(asked))
+    # The proposer's state after `json.loads(json.dumps(...))`, not the live
+    # object (see `_inproc`), so the entry is checked as a next process would
+    # read it back.
+    st = run[-1].get("state") or {}
     disp = {d["line"]: d for d in st.get("dispositions") or ()}
-    check("L1's accepted rewrite closed the anaphora on L3, L5 and L7: each "
-          "gets a `not_applied` disposition naming L1 — before the redesign "
-          "nothing was written, so this fails there",
-          sorted(disp) == [3, 5, 7]
+    check("L2's accepted rewrite ended L3's repeated end word: L3 gets a "
+          "`not_applied` disposition naming L2 — before the redesign nothing "
+          "was written, so this fails there",
+          sorted(disp) == [3]
           and all(d["disposition"] == "not_applied" and d["why"] == "closed"
-                  and d["by"] == [1] for d in disp.values()),
+                  and d["by"] == [2] for d in disp.values()),
           str(st.get("dispositions")))
-    check("...and those answers are NOT in `outcomes`: the rejection history "
+    check("...and that answer is NOT in `outcomes`: the rejection history "
           "and the questions it feeds are exactly as before",
-          not any(o["line"] in (3, 5, 7) for o in st["outcomes"])
-          and any(o["line"] == 1 and o["accepted"] for o in st["outcomes"]),
-          str([(o["line"], o["accepted"]) for o in st["outcomes"]]))
+          not any(o["line"] == 3 for o in st.get("outcomes") or ())
+          and any(o["line"] == 2 and o["accepted"]
+                  for o in st.get("outcomes") or ()),
+          str([(o["line"], o["accepted"]) for o in st.get("outcomes") or ()]))
 
     # (c) THE COUPLING TEST: the hook changes nothing about the walk.
+    # REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026: the same-first-word
+    # check comes out). ~~ANAPHORA under AABBCCDD, the proposer dropping each
+    # asked line's opening "and"~~: that walk passed lines by only because
+    # one opener's rewrite closed the same-first-word flag on the others.
+    # With the check gone it passed nothing by, and the premise below failed
+    # while the coupling check still passed on a walk the hook never saw.
+    # The draft is now CLOSED_BY_PARTNER, where L2's rewrite closes L3.
     def scripted(with_hook):
         asked = []
 
         def propose(brief, lines, attempt, reasons=None, whole=()):
             asked.append((brief.line_no, attempt, brief.round_no))
-            words = lines[brief.line_no - 1].split()
-            return " ".join(words[1:] if words[0] == "and" else words)
+            return (CLOSED_BY_PARTNER_FIX if brief.line_no == 2
+                    else lines[brief.line_no - 1])
         if with_hook:
             propose.skipped = lambda *a, **k: None
         rd = RV.ReviseDeclaration(max_rounds=2, attempts_per_line=1,
-                                  backtrack_width=0)
-        res = LP.revise_loop(Reviser(rdecl=rd), list(ANAPHORA),
-                             _m("AABBCCDD", 8, "class:RHYME"), propose=propose)
+                                  backtrack_width=0,
+                                  pursue=frozenset({"REPEAT_ACROSS_GROUPS"}))
+        res = LP.revise_loop(Reviser(rdecl=rd), list(CLOSED_BY_PARTNER),
+                             _m([[1, 2]], 3, "class:RHYME"), propose=propose)
         return asked, list(res.lines), res.stop_reason, [
             (r.round_no, [(a.line_no, a.accepted) for a in r.attempts],
              r.fixed_lines, r.resolved_elsewhere) for r in res.rounds]
@@ -741,17 +795,24 @@ def _position(st):
                       sort_keys=True)
 
 
-def _inproc(lines, mand, rd, plan=None, strip=(), calls=200):
+def _inproc(lines, mand, rd, plan=None, strip=(), calls=200, answers=None):
     """Drive a deferred conversation in-process with the real `defer:`
     proposer, the way the verb and the connector do: one proposer per call,
     bound to the run, the state file written on a question or a stop, and on
     a kill only the last printed checkpoint kept. `plan` maps a call index to
-    (k, kill); `strip` names the calls whose saved position is deleted first.
+    (k, kill); `strip` names the calls whose saved position is deleted first;
+    `answers` maps a call index to the answer its question gets in place of
+    the default one. Between calls the state is carried as JSON, through the
+    state file. The last call's dict also holds the proposer's final `state`
+    (its dispositions and outcomes), which no file receives, so it is taken
+    after `json.loads(json.dumps(...))`: what it holds has been through JSON
+    as a state file's contents would be, not read off the live object.
     -> list of per-call dicts."""
     import contextlib
     import io
     import lyric_harness as LH
     plan = plan or {}
+    answers = answers or {}
     d = tempfile.mkdtemp(prefix="loop-redesign-inproc-")
     path = os.path.join(d, "state.json")
 
@@ -783,7 +844,8 @@ def _inproc(lines, mand, rd, plan=None, strip=(), calls=200):
                                      propose=propose,
                                      propose_group=propose_group,
                                      resume=resume, deadline=dl)
-                rec.update(kind="done", result=res)
+                rec.update(kind="done", result=res,
+                           state=json.loads(json.dumps(disc.state)))
             except LH._NeedProposal as need:
                 write(disc.state)
                 rec.update(kind="asked", prompt=need.prompt)
@@ -810,7 +872,9 @@ def _inproc(lines, mand, rd, plan=None, strip=(), calls=200):
             pend = st["pending"]
             cur = st["accepted_lines"]
             r = pend["record"]
-            if pend["kind"] == "propose":
+            if call in answers:
+                pend["answer"] = answers[call]
+            elif pend["kind"] == "propose":
                 pend["answer"] = " ".join(cur[r["line"] - 1].split()[::-1])
             else:
                 asked = ([x["line"] for x in r["records"]]
@@ -859,9 +923,21 @@ def _first(run, name, skip_calls=0):
 def test_safe_point_stops():
     print("\n6. a call that nears its deadline stops at a safe point and the "
           "next call finishes the same run (§2.3b, §2.8 E; T4)")
-    cases = (("ANAPHORA batch", ANAPHORA, _m("AABBCCDD", 8, "class:RHYME"),
+    # REPINNED 2026-11-24 (owner's ruling of 22 Nov 2026: the same-first-word
+    # check comes out). ~~("ANAPHORA batch", ANAPHORA under AABBCCDD)~~: its
+    # four 'and' lines were a batch whose menus were built member by member.
+    # With the check gone its batch builds no menu at all (steps [['grade',
+    # 'grade'], ['grade', 'grade', 'verdict', 'grade']], revision-loop shard
+    # 3/4 of run 45347222528). CLOSED_BY_PARTNER, pursuing the repeated end
+    # word as section 2(b) does, asks L2 and L3 as one batch and builds their
+    # two menus one after the other (MEASURED 2026-11-24: call 0's steps
+    # 'grade', 'grade', 'menu', 'menu').
+    cases = (("PARTNER batch", CLOSED_BY_PARTNER,
+              _m([[1, 2]], 3, "class:RHYME"),
               RV.ReviseDeclaration(max_rounds=2, attempts_per_line=1,
-                                   backtrack_width=0), "menu"),
+                                   backtrack_width=0,
+                                   pursue=frozenset({"REPEAT_ACROSS_GROUPS"})),
+              "menu"),
              ("COUPLET group", COUPLET, _m("AA", 2, "class:RHYME"),
               RV.ReviseDeclaration(max_rounds=2, attempts_per_line=1,
                                    backtrack_width=1), "member menu"),
@@ -958,10 +1034,21 @@ def test_group_menus_resume_member_by_member():
 #: A line that binds at TWO places (its second word and its end), so its
 #: menu is built place by place. MEASURED 2026-10-03: `brief(target_lines=
 #: {1})` gives L1 the places `1.T2` (0 words offered) and its end (24).
-TWO_PLACES = ["the silver river ran beneath the stove",
-              "and every lantern burned the month",
-              "the winter came and took the yard"]
-TWO_PLACES_GROUPS = [["1.T2", 2], [1, 3]]
+#: REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026: the same-first-word
+#: check comes out). ~~["the silver river ran beneath the stove", "and
+#: every lantern burned the month", "the winter came and took the yard"]
+#: with groups [["1.T2", 2], [1, 3]]~~: L1's only flag was that check (two
+#: of the three lines open on "the"). With it gone L1 had no brief, and the
+#: byte-identical check below compared two empty results. A broken pair is
+#: flagged on its later line, so the line that binds at two places is now
+#: the later member of both groups: L3, at its second word against L1's end
+#: and at its end against L2's. MEASURED 2026-11-23: `brief(target_lines=
+#: {3})` gives L3 two SCHEME_VIOLATION flags, group A [1, 3] at 'month' and
+#: group B [2, 3] at 'yard'.
+TWO_PLACES = ["and every lantern burned the month",
+              "the winter came and took the yard",
+              "the silver river ran beneath the stove"]
+TWO_PLACES_GROUPS = [["3.T2", 1], [2, 3]]
 
 
 def test_menus_resume_place_by_place():
@@ -974,9 +1061,14 @@ def test_menus_resume_place_by_place():
     print("\n9. a brief builds no menu, so no place step is taken or saved "
           "(D6, 2026-10-27; was §2.3b option B)")
     lines, mand = TWO_PLACES, _m(TWO_PLACES_GROUPS, 3, "class:RHYME")
-    want = Reviser().brief(list(lines), mand, target_lines={1})
+    want = Reviser().brief(list(lines), mand, target_lines={3})
+    check("PREMISE: the line that binds at two places has a brief, and it "
+          "answers both of its groups",
+          len(want) == 1 and want[0].line_no == 3
+          and [lab for lab, _mem, _prs in want[0].must_answer] == ["A", "B"],
+          str([(b.line_no, b.must_answer) for b in want]))
     cache = LP._VerdictCache(Reviser(), {}, {}, deadline=_StopAt(None))
-    got = cache.brief(list(lines), mand, target_lines={1})
+    got = cache.brief(list(lines), mand, target_lines={3})
     check("no place step is taken and no place menu is saved",
           "place" not in cache._deadline.steps
           and not any("'place'" in k for k, _ in cache.menus_on(lines)),

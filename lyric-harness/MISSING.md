@@ -738,7 +738,7 @@ when the grading path consults the registry, which is the relation ladder's
 own destination and not a fix this entry can make alone.
 
 2026-09-25: the two paragraphs above are kept as written. The registry is now
-~~77~~ ~~78~~ 80 schemas since M-40 (`chain rhyme (interlocking scheme)`, a61fe4e69),
+~~77~~ ~~78~~ ~~80~~ 79 schemas since M-40 (`chain rhyme (interlocking scheme)`, a61fe4e69),
 and `quality/test_relations.py` ~~:148~~ (§0, `test_inventory`, line 232 at 2026-11-19) pins that size; the
 schemas declaring a `Tradition(lang='eng')` are now ~~58~~ 59, measured, with
 no check pinning that count.

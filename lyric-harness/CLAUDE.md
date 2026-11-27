@@ -20,14 +20,14 @@ House rules: never abbreviate project names (Codex Musica, Pantheon Registry, De
 
 New song: `lyric_sweep` (pick a seed) → `lyric_plan` (song shape and rhyme plan) → `lyric_screen` (test rhyme words for that plan) → write the draft → `lyric_grade` → `lyric_revise` (asks for replacement lines until it stops). Pasted lyrics: `lyric_recover` → `lyric_check` → `lyric_revise` → `lyric_verify`.
 
-Slowest call per tool in the last traced run (2026-11-09, limit 600s per call): `lyric_sweep` 3s, `lyric_screen` 16s, `lyric_plan` 1s, `lyric_grade` 13s, `lyric_revise` 7s, `lyric_recover` 3s, `lyric_check` 10s, `lyric_verify` 7s, `lyric_types` 5s.
+Slowest call per tool in the last traced run (2026-11-24, limit 600s per call): `lyric_sweep` 3s, `lyric_plan` 1s, `lyric_screen` 13s, `lyric_grade` 7s, `lyric_revise` 5s, `lyric_recover` 3s, `lyric_check` 5s, `lyric_verify` 5s, `lyric_types` 3s.
 
 ## Map sections (read only what the task needs)
 
 | section | what it answers | tokens |
 |---|---|---:|
 | `map/song-path.md` | which functions run for each tool, and where the time goes | 3.9k |
-| `map/rules.md` | every finding code, its severity, and whether it can stop a song; the section types and what each gets checked | 2.2k |
+| `map/rules.md` | every finding code, its severity, and whether it can stop a song; the section types and what each gets checked | 2.1k |
 | `map/limits.md` | every numeric cap, budget and time limit, with its file | 2.2k |
 | `map/files.md` | which files the song program uses, which it never loads, sizes | 3.4k |
 | `map/timings.md` | seconds per tool call in the last traced run | <1k |
@@ -39,7 +39,7 @@ Slowest call per tool in the last traced run (2026-11-09, limit 600s per call): 
 ## Large files: search them, never load them whole
 
 - `HANDBOOK.md` (98k): the previous version of this file — design history, doctrines (numbered 1–96; the table is its last section), test discipline. Sections:
-  - FIVE STANDING RULES FROM THE OWNER — read before proposing any architecture (4.9k)
+  - FIVE STANDING RULES FROM THE OWNER — read before proposing any architecture (5k)
   - The code graph (graphify) — what it answers, and what it cannot (1.7k)
   - The loop, and the MCP wrap plan (61k)
   - Commands (python3 lyric_harness.py ...) (2k)
@@ -51,7 +51,7 @@ Slowest call per tool in the last traced run (2026-11-09, limit 600s per call): 
   - The doctrine index — every number, and where it lives (3k)
 - `MISSING.md` (660k): the defect register, entries `M-<n>`. Grep for the entry number.
 - `BACKLOG.md` (52k): open work, by tier.
-- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 71 data files and 0 under `corpus/` (`map/files.md` lists them).
+- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 72 data files and 0 under `corpus/` (`map/files.md` lists them).
 
 ## Keeping this map true
 

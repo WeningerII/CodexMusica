@@ -481,12 +481,22 @@ FLOOR_MUTANTS = [
      f"{_MATTR} | {_FWR} | {_SONG['anaphora_max']:.4f} | 0.1123 | "
      f"{_SONG['predictable_pair_fraction_max']:.4f} |",
      "line_length_cv_min back to its pre-adoption value"),
-    ("| (section, for contrast) | 0.7697 | 0.5282 | 0.5000 | 0.0525 | — |",
-     "| (section, for contrast) | 0.7697 | 0.5282 | 0.5000 | 0.0525 | 0.9 |",
+    # REPINNED 2026-11-22 (owner's ruling): the section and sonnet rows'
+    # `mattr_min` and `anaphora_max` cells are struck to "—" in the document,
+    # because those checks were removed from the grader and the two rows no
+    # longer ship them. ~~`| (section, for contrast) | 0.7697 | 0.5282 |
+    # 0.5000 | …`~~ and ~~`| (sonnet, for contrast) | 0.7615 | 0.4898 |
+    # 0.2857 | …`~~ are the anchors as they read before.
+    ("| (section, for contrast) | ~~0.7697~~ — | 0.5282 | ~~0.5000~~ — | 0.0525 | — |",
+     "| (section, for contrast) | ~~0.7697~~ — | 0.5282 | ~~0.5000~~ — | 0.0525 | 0.9 |",
      "a threshold asserted for a profile that ships none"),
-    ("| (sonnet, for contrast) | 0.7615 | 0.4898 | 0.2857 | 0.0939 | 1.0000 |",
-     "| (sonnet, for contrast) | 0.7615 | 0.4898 | 0.2857 | 0.0939 | — |",
+    ("| (sonnet, for contrast) | ~~0.7615~~ — | 0.4898 | ~~0.2857~~ — | 0.0939 | 1.0000 |",
+     "| (sonnet, for contrast) | ~~0.7615~~ — | 0.4898 | ~~0.2857~~ — | 0.0939 | — |",
      "an absence asserted for a threshold the profile does ship"),
+    ("| (sonnet, for contrast) | ~~0.7615~~ — |",
+     "| (sonnet, for contrast) | 0.7615 |",
+     "a removed check's cutoff put back on a live row that no longer "
+     "ships it (REPINNED 2026-11-22: the word-variety check is removed)"),
     (f"| song profile | {_MATTR} | {_FWR} |",
      f"| song profile | {_FWR} | {_MATTR} |",
      "two cells swapped — every number right, every column wrong"),

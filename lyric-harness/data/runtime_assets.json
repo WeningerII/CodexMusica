@@ -224,6 +224,7 @@
         "data/sources.tsv",
         "data/structure_canon.tsv",
         "data/structure_census_eng.tsv",
+        "data/word_places_en.tsv",
         "data/LICENSE.perceptron-tagger"
       ],
       "files": [
@@ -293,9 +294,14 @@
           "sha256": "289ad2b6c2f8012713b9950844ff20dd8c026963430d6c66c57ca05ea0dace3d"
         },
         {
+          "path": "data/word_places_en.tsv",
+          "bytes": 730,
+          "sha256": "a91bc423a86f5844f0c40379a9fa433c79f0dc2de4cb1c25d5a1e3a19134cc43"
+        },
+        {
           "path": "data/sources.tsv",
-          "bytes": 1666141,
-          "sha256": "743d8b684fddb27427d35ebefe2ea4376c21b1f28df50c60df9fd1268a704ead"
+          "bytes": 1667455,
+          "sha256": "ddd29cbae59ce1b21aa53d78ab76fa9e0f36b68c05bd72b7d3de057c58ed332b"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",

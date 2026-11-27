@@ -86,7 +86,23 @@ const catalog = await resolver.probe();
 // snapshot differs only by that collection, its work, edition and reading and
 // the sources.tsv digest. Readable units stay 25512, and the cases below and
 // the retained 5226b4fb snapshot are unchanged.
-const pinnedSnapshot = '80a88e5a80c378e3bef9ab2b382ed08411fa38b62954ae1715fa137d7814ff92';
+// REPINNED 2026-11-24: ~~80a88e5a~~ -> 2c5bdd0e, when data/word_places_en.tsv
+// got its data/sources.tsv row. That file is not a corpus source, so no
+// reading's rights move; the manifest's rights_registry_sha256 (the digest of
+// sources.tsv) is the only input that changed. Built on 4def4c3f77 and on
+// e21a2bd7fc, the two manifests differ only by that digest and the id: all
+// 39194 artifacts and every count are the same, readable units stay 25512,
+// and the cases below are unchanged.
+// REPINNED 2026-11-26: ~~2c5bdd0e~~ -> 1f3af269, on the merge of main
+// 300c21c536 (#913) into the Rule 1 branch. The merged reader moves five
+// counts of data/word_places_en.tsv by one to three lines, so its
+// data/sources.tsv row records a new md5, and rights_registry_sha256 is again
+// the only input that changed. The id is the 80a88e5a manifest with that
+// digest replaced and hashed again (library/catalog.py's sha); the same step
+// with the Rule 1 branch's sources.tsv gives 2c5bdd0e exactly. Main changes
+// no corpus file and no catalog builder, and its own qualification ran
+// #913's reader against an unchanged snapshot, so the cases below stay.
+const pinnedSnapshot = '1f3af2693a6abceeedf7b59d4afa404447a605a5bfd9eb3918714fafaf700fd4';
 const retainedSnapshot = '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e';
 const retainedImage =
   'ghcr.io/weningerii/codexmusica/lyrics@sha256:3a9ad3711a338653cb1dc97e81badae2ab9a330eb624ae154e0c8b33e805e7f7';

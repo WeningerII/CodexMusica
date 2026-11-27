@@ -174,7 +174,7 @@ def test_both_directions():
               RS.needs_arity_extension(s) is want)
 
     # -- THE GENEROSITY CONTROL.  Over the REAL registry each predicate must
-    #    return both answers. A predicate that answered one way for all ~~77~~ ~~78~~ 80
+    #    return both answers. A predicate that answered one way for all ~~77~~ ~~78~~ ~~80~~ 79
     #    would satisfy every count in this file and have looked at nothing.
     sh = RS.shapes()
     for key in ("pair_shaped", "arity_extension", "span_shaped"):
@@ -214,8 +214,11 @@ def test_gate_goes_red():
     codeb = RS.check(registry=reg, out=buf)
     txt = buf.getvalue()
     check("a schema whose FIGURE moves turns --check red", codeb == 1)
+    # REPINNED 2026-11-22: ~~"committed 26, measured 25"~~ — `trite rhyme`
+    # left the registry (owner's ruling), so the pin is 25 and the mutation
+    # measures 24.
     check("...and the report names the moved figure and its measured value",
-          "committed 26, measured 25" in txt,
+          "committed 25, measured 24" in txt,
           [l for l in txt.splitlines() if "pair_shaped" in l])
     check("...and names the schema that left the pair-shaped membership",
           "perfect rhyme" in txt,
@@ -256,8 +259,10 @@ def test_gate_goes_red():
                        capture_output=True, text=True)
     check("a moved SCALAR pin exits 1 through the CLI", p.returncode == 1,
           p.stdout.strip().splitlines()[-1:])
-    check("...and prints `committed 999, measured 26`",
-          "committed 999, measured 26" in p.stdout)
+    # REPINNED 2026-11-22: ~~measured 26~~ 25, `trite rhyme` left the
+    # registry (owner's ruling).
+    check("...and prints `committed 999, measured 25`",
+          "committed 999, measured 25" in p.stdout)
 
     prog = ("import sys; sys.path.insert(0, %r);"
             "from quality import relation_shapes as RS;"

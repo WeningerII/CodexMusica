@@ -3146,7 +3146,9 @@ BLANK_DRAFT = ["we walked out into the rain",
 #: which is the only party entitled to renumber it (see `Reviser.mandate`).
 BLANK_DRAFT_CLEAN = [l for l in BLANK_DRAFT if l.strip()]
 #: a LEADING blank, for the `locations` half: every real line opens with the
-#: same word, so `ANAPHORA_OVERLOAD` names all four of them.
+#: same word, so `ANAPHORA_OVERLOAD` named all four of them. REPINNED
+#: 2026-11-22: that check is removed (owner's ruling), so no floor finding
+#: names a line here now, and `BLANK_CLICHE` below carries the seam alone.
 LEADING_BLANK = ["",
                  "and the river ran on",
                  "and the river ran cold",
@@ -3237,13 +3239,16 @@ def test_a_blank_line_is_refused_not_renumbered():
     ana = [f for f in lead_found if f.code == "ANAPHORA_OVERLOAD"]
     truth = [i for i, l in enumerate(LEADING_BLANK, 1)
              if l.strip().lower().startswith("and")]
-    check("EVERY floor finding's locations are enumerate()d over the "
-          "STRIPPED list and filed by `inspect()` as RAW line numbers",
-          len(ana) == 1 and ana[0].locations == [1, 2, 3, 4]
+    # REPINNED 2026-11-22: ~~ANAPHORA_OVERLOAD comes back at [1, 2, 3, 4]
+    # against true raw lines [2, 3, 4, 5]~~ — the check is removed (owner's
+    # ruling), so this draft has no floor finding that names a line, and the
+    # CLICHE_PAIR check just below is the seam's witness in `locations`.
+    check("the removed same-first-word check names no line here, and no "
+          "other floor finding does either",
+          not ana and not any(f.locations for f in lead_found)
           and truth == [2, 3, 4, 5],
-          f"ANAPHORA_OVERLOAD at {ana[0].locations if ana else None}, true "
-          f"raw lines {truth}. L1 is the EMPTY line, so `brief()` briefs '' "
-          f"and the last real line is never named by this finding at all")
+          f"{[(f.code, f.locations) for f in lead_found]}; true raw lines "
+          f"{truth}")
 
     _mb, blank_cliche = _floor_as_inspect_would(BLANK_CLICHE, [[1, 3], [2, 4]])
     cli = [f for f in blank_cliche if f.code == "CLICHE_PAIR"]

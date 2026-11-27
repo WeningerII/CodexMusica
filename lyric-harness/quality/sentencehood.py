@@ -31,7 +31,8 @@ Two modes were measured (all figures re-derived by `--check`):
     than forgotten (doctrine 20).
 
 SEVERITY. `STACKED_DRAFT` is a WHOLE-DRAFT FLAG, the same species as the
-floor's `LEXICAL_MONOTONY` / `FUNCTION_WORD_HEAVY`: it fails `song` (exit 3)
+floor's `FUNCTION_WORD_HEAVY` (and its `LEXICAL_MONOTONY`, removed
+2026-11-22): it fails `song` (exit 3)
 and rejects a regressing revision through `verify()`'s `new_flags`, and it
 cannot stop `revise_loop` (no single line names it, and the loop's own
 docstring prices what promoting such a code costs). `STACKED_LINE` is a

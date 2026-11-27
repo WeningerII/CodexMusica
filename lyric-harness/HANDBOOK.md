@@ -124,7 +124,10 @@ stale.
    planner's own verbatim returns). THE CORPUS SAMPLES NOTHING — measured
    distributions as a sampler would give the unprecedented shape
    probability ~zero (the owner's "move 37" ban), and `test_plan.py` §4
-   pins by AST that `plan.py` imports no corpus reader and opens no file.
+   pins by AST that `plan.py` imports no corpus reader and opens no file
+   (one written exception since 2026-11-23, the owner's ruling: the word a
+   rhyme tie inside a line is named at follows `data/word_places_en.tsv`,
+   and the same section holds that reader to that one pick).
    The same section holds the samplers to their enumerations at small n —
    a pin that caught `bell()` returning B(k−1) on the day it was written,
    with every above-enumeration scheme pool disclosed an order of
@@ -455,7 +458,7 @@ projection wearing the doctrine's name.
 **THE VOCABULARY WAS ALREADY ON DISK AND REACHABLE BY ALMOST NOTHING.**
 `quality/relations.py`'s `SpanRule` — locus, anchor, direction, magnitude —
 has carried it since 2026-08-10, and its own census is the argument: over the
-~~77~~ ~~78~~ 80 schemas' ~~154~~ ~~156~~ 160 member rules the anchors are `word_start`
+~~77~~ ~~78~~ ~~80~~ 79 schemas' ~~154~~ ~~156~~ 160 member rules the anchors are `word_start`
 ~~64~~ 66, `last_stressed` ~~58~~ ~~60~~ ~~61~~ ~~65~~ 64, `word_end` ~~15~~ 14, `searched` ~~8~~ 9, `none`
 ~~6~~ 4, `final_unstressed` 2, `penult` 1 (re-derived 2026-09-25 from
 `s.spans[*].anchor` over `relations.REGISTRY`, and again the same day after
@@ -603,7 +606,7 @@ line, because nothing else was sayable), and groups came from an RGS code,
 which is a PARTITION, so doctrine 2's own overlapping cliques were declarable
 and never drawable.
 **PLACEMENT IS DRAWN PER MEMBER**, uniform over what the grading path
-resolves — per member because ~~8~~ ~~7~~ 6 (2026-11-19) of the ~~77~~ ~~78~~ 80 schemas anchor one member at
+resolves — per member because ~~8~~ ~~7~~ 6 (2026-11-19) of the ~~77~~ ~~78~~ ~~80~~ 79 schemas anchor one member at
 each end of a word (`spans[0].anchor != spans[-1].anchor`;
 `choices.placements.measure` prints the live count). MEASURED over ~~200~~ 400 seeds: `end` takes ~~9.6%~~ **8.5%**
 of members (REPINNED 2026-08-23 with M-80's word-keying: once a WORD is bound
@@ -1041,7 +1044,7 @@ relation, `grade()` routes through `satisfies_relation` and **never consults
 said anything.~~ **STRUCK with the same date and for the same reason, twice
 over**: the door is not 2-name (M-59, all four of `ADMITTABLE_RELATIONS`), and
 the one case it governs — where nobody said anything — is precisely the case
-M-116 then handed ALL ~~77~~ ~~78~~ 80 SCHEMAS, so the silent case is now judged by
+M-116 then handed ALL ~~77~~ ~~78~~ ~~80~~ 79 SCHEMAS, so the silent case is now judged by
 `admits(s, theta, decl.admit)` OR `relations.whole_vocabulary_pairs` and is the
 WIDEST door in the tree rather than the narrowest. Its chance rate is
 `quality/chance_rate.py` and is priced by nothing (`MISSING.md` M-138, M-140).
@@ -1096,7 +1099,7 @@ looking exactly like a site that never needed to move.
 pair-satisfaction sites and TWO reached the complete default** — `check_scheme`
 and `Reviser.grade`, which are two because they are ONE judge deliberately
 called twice (doctrine 1). Six dispositions, never summed past the partition:
-FULL / INCOMPLETE / PER_WORD (holds a word, and the ~~77~~ ~~78~~ 80 judge LINE PAIRS, so it
+FULL / INCOMPLETE / PER_WORD (holds a word, and the ~~77~~ ~~78~~ ~~80~~ 79 judge LINE PAIRS, so it
 cannot ask) / RENDERING / VALIDATION / ARGUED.
 **THE SHARPEST INSTANCE WAS THE WRITER'S OWN CANDIDATE FIELD.**
 `Reviser._field` promises in capitals that *"THE BRIEF AND THE VERDICT HAVE TO
@@ -1196,7 +1199,7 @@ Python. Validated at DECLARATION time through `Mandate.__post_init__`, which is
 the one place every construction passes through (`mandate()` is not: `plan.py`,
 the tests and the re-open path all build `Mandate` directly).
 **AND THE `schema:` NAMESPACE IS JUDGED SINCE 2026-08-22 — ALL 77 NAMES
-(owner ruling, `MISSING.md` M-59); ~~77~~ ~~78~~ 80 today, M-40's `chain rhyme
+(owner ruling, `MISSING.md` M-59); ~~77~~ ~~78~~ ~~80~~ 79 today, M-40's `chain rhyme
 (interlocking scheme)` included (`rhyme_types.schema_relation_names()`).** Those names RESOLVED 77/77 through the
 vocabulary and were judged 0/77: `satisfies_relation` refused them for a
 shape reason and a policy reason, and only the shape reason was real.
@@ -1778,8 +1781,8 @@ carries a flag finding **ON A LINE. That qualifier is load-bearing and was
 missing until 2026-08-13.** Every stop condition reads `brief()`, `brief()` is
 built from `inspect()`'s `per_line` half, and a WHOLE-DRAFT finding names no
 line — so it is in no `Brief` and no stop condition can see it. ~~Exactly three
-codes are~~ ~~FOUR codes are~~ ~~FIVE codes are~~ **SIX codes are (2026-08-25: `STACKED_DRAFT` joined — the sentencehood layer's calibrated noun-stack ceiling, `MISSING.md` M-110, same species as the floor's two and priced by the same argument below)** whole-draft AND a flag:
-`LEXICAL_MONOTONY` and
+codes are~~ ~~FOUR codes are~~ ~~FIVE codes are~~ ~~**SIX codes are (2026-08-25: `STACKED_DRAFT` joined — the sentencehood layer's calibrated noun-stack ceiling, `MISSING.md` M-110, same species as the floor's two and priced by the same argument below)**~~ **FIVE codes are (2026-11-22: `LEXICAL_MONOTONY` removed with the word-variety check, owner's ruling; `STACKED_DRAFT` joined 2026-08-25, `MISSING.md` M-110)** whole-draft AND a flag:
+~~`LEXICAL_MONOTONY` and~~
 `FUNCTION_WORD_HEAVY`
 (the floor, and only inside a calibrated profile's MEASURED range) and
 `HOOK_ABSENT` — ~~which is the song-function layer's ONLY flag~~ **joined

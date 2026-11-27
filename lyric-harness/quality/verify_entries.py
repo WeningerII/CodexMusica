@@ -1738,7 +1738,10 @@ def _floor_probe(delta):
     # curves and whose `percentiles` is empty, and a probe rendered from it
     # has no keys — TRUE and FALSE both fall to `None` and the control is
     # vacuous. A curve row's table cells are not this shape's business.
-    _named = sorted(n for n, p in floor_profiles().items() if p.percentiles)
+    # At least `_FLOOR_MIN_KEYS` of them, because the shape reads no header
+    # with fewer, and a probe from a one- or two-key profile is vacuous too.
+    _named = sorted(n for n, p in floor_profiles().items()
+                    if len(p.percentiles) >= _FLOOR_MIN_KEYS)
     prof = floor_profiles()[_named[0]]
     keys = sorted(prof.percentiles)
     head = "| | " + " | ".join("`%s`" % k for k in keys) + " |"

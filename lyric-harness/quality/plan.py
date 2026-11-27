@@ -127,6 +127,13 @@ GENERATOR over a space the enforcement layers already grade:
   grading side: conventions are DISCLOSED (the shape layer's notes), never
   enforced, and never weighted into the dice. A regression pins that this
   module imports no corpus reader.
+  ONE WRITTEN EXCEPTION (owner's ruling, 2026-11-23, made knowing the cost):
+  the word a rhyme tie inside a line is named at is picked as often as real
+  sung lines have a word there (`fit_type`, through `word_place_lines`, which
+  reads `data/word_places_en.tsv` by `quality/word_places.read`). So word 15
+  comes up about 1 time in 9,000 and word 22 about 1 time in a million. The
+  regression allows `word_places` as this module's one corpus reader and
+  holds it to that one function; nothing else here may follow the corpus.
 
 EVERY FREE CHOICE IS SEEDED AND DISCLOSED. Doctrine 66: a tie broken by
 nothing is a tie broken by the hash seed, and it does not reproduce. The
@@ -163,6 +170,7 @@ from quality import schemes as SC
 from quality import relations as _RL
 from quality import floor as _FL
 from quality import slots as _SL
+from quality import word_places as _WP
 #: THE MOST BEATS THE PLANNER GIVES A LINE, as the character count it was
 #: derived from. Until 2026-11-12 this was `propose.MAX_LINE_CHARS`, the one
 #: line limit the harness keeps, imported here. Issue #851 raised that limit
@@ -185,7 +193,8 @@ PLANNED_LINE_CHARS = 200
 from quality import narrative as _NV
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
-           "tokens_per_line_band", "gradeable_line_counts",
+           "tokens_per_line_band", "word_place_lines", "longest_line_words",
+           "gradeable_line_counts",
            "line_count_gaps", "song_line_counts", "stanza_line_floor",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "SeedRefused", "JointRefused", "REDRAW_BOUND",
@@ -563,8 +572,10 @@ SONG_LINE_CAP = 150
 
 @lru_cache(maxsize=None)
 def song_line_counts():
-    """-> frozenset of line counts THE LYRIC-SHEET PROFILE CAN GRADE WITH
-    TEETH. (~~THE SONG PROFILE~~ — repinned 2026-09-05, `MISSING.md` M-239:
+    """-> frozenset of line counts a new song may be planned with,
+    1..SONG_LINE_CAP (REPINNED 2026-11-22; the last paragraph says why).
+    ~~-> frozenset of line counts THE LYRIC-SHEET PROFILE CAN GRADE WITH
+    TEETH.~~ (~~THE SONG PROFILE~~ — repinned 2026-09-05, `MISSING.md` M-239:
     the sheet row is `lyric` since 2026-09-04; `song` and `short` are
     superseded and applied nowhere. The function name is unchanged because
     it names the OBJECT this planner emits, a song, not the profile row.)
@@ -665,33 +676,17 @@ def song_line_counts():
     COINCIDES with this function's set rather than answering a different
     question — the union it computes is over `section`, `sonnet` and `lyric`,
     and `lyric` already contains the other two.
+
+    REPINNED 2026-11-22 (owner's ruling: the floor's whole-sheet length
+    profiles and their calibration come out). ~~Read off the `lyric` row's
+    measured token band at the band's tokens-per-line, then held under the
+    owner's cap.~~ The set is now **1..SONG_LINE_CAP** and reads no floor
+    profile. It is the same set as before: since #902 the profile's reach
+    (1..463) was wider than the cap, so the cap alone decided the set, and
+    no seeded draw moves. The fillable floor of 12 is still the form's
+    (`fillable_line_counts()`), never this set's.
     """
-    tlo, thi = tokens_per_line_band()
-    # LIVE sheet profiles only (M-239): a band row a later calibration
-    # superseded keeps its place in `PROFILES` for its own drift check, and
-    # reading its band here would put the seam it was retired for back into
-    # the envelope.
-    lyric = [p for p in _FL.PROFILES if not p.n_lines and not p.superseded_by]
-    if not lyric:
-        raise PlanRefused(
-            "no floor profile declares itself a whole lyric sheet "
-            "(`n_lines == 0`), so a SONG length cannot be derived and this "
-            "planner has no envelope to volunteer inside. A REFUSAL, not a "
-            "fallback to the union: grading a song against a quatrain's "
-            "calibration is the laundering doctrine 13/14 forbids.")
-    out = set()
-    for prof in lyric:
-        out.update(range(max(1, math.ceil(prof.lo / thi)),
-                         int(prof.hi // tlo) + 1))
-    # THE OWNER'S CAP, read last: the floor could grade up to its own
-    # ceiling, and a song is held to SONG_LINE_CAP lines whatever that is.
-    out = {n for n in out if n <= SONG_LINE_CAP}
-    if not out:
-        raise PlanRefused(
-            # M-239 (2026-09-05): the sheet row is `lyric`, not `song`.
-            "no line count lands inside the lyric-sheet profile's measured "
-            "range.")
-    return frozenset(out)
+    return frozenset(range(1, SONG_LINE_CAP + 1))
 
 
 @lru_cache(maxsize=None)
@@ -1318,7 +1313,7 @@ def _place_group(group, rng, max_token, used):
 
     A PLACEMENT PER MEMBER, uniform over what the grading path can resolve.
     Per member and not per group, because the mixed case is real and is the
-    one no letter scheme can express: ~~8~~ 7 of the registry's ~~77~~ ~~78~~ 80 schemas
+    one no letter scheme can express: ~~8~~ 7 of the registry's ~~77~~ ~~78~~ ~~80~~ 79 schemas
     anchor their two members differently (`spans[0].anchor !=
     spans[-1].anchor`; `choices.placements.measure` prints the live count),
     and linked rhyme binds a line-final to
@@ -1362,12 +1357,13 @@ def _PLACE_POOL(max_token):
 # A type's `name`, `aka` and `note` are never read to decide whether it is
 # drawn or how often, and of its `traditions` only each one's language code
 # is read (rule (e), the owner's ruling that a type not specifically for
-# English does not count for English). The four types the system disowns
-# (homoioteleuton, trite rhyme, cynghanedd sain drosgl, fourth lift must not
+# English does not count for English). The ~~four~~ three types the system
+# disowns (homoioteleuton, cynghanedd sain drosgl, fourth lift must not
 # alliterate) are exactly the registry rows whose `normative` field is not
 # `attested`; they leave the eligible set through that field, never through
-# their names, and test_plan pins that the field selects those four and only
-# those.
+# their names, and test_plan pins that the field selects those three and only
+# those. (2026-11-22: `trite rhyme`, the fourth, left the registry by the
+# owner's ruling.)
 
 #: The `normative` values that disown a type: never drawn, and refused when
 #: requested. Eligibility asks the stricter `normative == "attested"` (rule
@@ -1387,7 +1383,9 @@ DISOWNED_NORMATIVE = _RL.DISOWNED_NORMATIVE
 GRADE_STREAM_CAPABILITIES = {
     "eng": frozenset({"lexicon", "morphology", "prominence",
                       "quotient:manner", "quotient:reduced_vowel",
-                      "quotient:trite", "stanza"}),
+                      "stanza"}),
+    # ~~"quotient:trite"~~ — English declares no `trite` quotient since
+    # 2026-11-22 (owner's ruling: the declared trite pairs come out).
 }
 
 _LANGUAGE_NAMES = {"eng": "English"}
@@ -1497,6 +1495,39 @@ def _member_options(locus, max_token):
     return ["end", "head"] + [f"T{n}" for n in range(2, max_token + 1)]
 
 
+#: WHERE REAL WORDS SIT (owner's ruling, 2026-11-23). A tied word inside a
+#: line is named by its number, and the number forces the line to be at least
+#: that long. ~~It was drawn evenly up to the floor's 7 words a line~~: the
+#: owner took that ceiling out and ruled that a place is picked as often as
+#: real sung lines have a word there. `data/word_places_en.tsv` counts the
+#: lines of `corpus/song/eng_*` by how many words they have, numbered as a
+#: placement numbers them; `quality/word_places.py --check` recounts it.
+@lru_cache(maxsize=None)
+def word_place_lines():
+    """-> for k = 1 up to the longest line, how many real sung lines have a
+    word at place k: the lines with k or more words."""
+    held = _WP.read()
+    longest = max(n for n, lines in held.items() if lines)
+    return tuple(sum(lines for n, lines in held.items() if n >= k)
+                 for k in range(1, longest + 1))
+
+
+def longest_line_words():
+    """-> the most words a real sung line has, and so the deepest place a
+    tied word may be named at."""
+    return len(word_place_lines())
+
+
+def _place_weight(place):
+    """-> how often `place` is picked: the real lines with a word there.
+    Every line has a first word and a last word, so `head` and `end` weigh
+    what place 1 weighs; `T<k>` weighs the lines with k or more words."""
+    at = word_place_lines()
+    if place in ("end", "head"):
+        return at[0]
+    return at[int(place[1:]) - 1]
+
+
 def _position_of(member):
     """-> 'end', 'head' or 'internal' for a declared-word member
     (`N.end`, `N.endword`, `N.head`, `N.T<k>`), else None (a bare line, or a
@@ -1516,8 +1547,61 @@ def _position(place):
             else "internal")
 
 
+def catalog_line_rooms(requirements, total, copies=()):
+    """-> {line: (count, "words" or "syllables")}: how deep a tied word may
+    sit in each catalog line that declares an exact word or syllable count.
+
+    THE GATE'S OWN BOUND (the fixed-syllable repair, 2026-11-27).
+    `catalog_shape.line_fit_conflicts` refuses the whole seed when a line's
+    ties need more words than the line declares, or more than its exact
+    syllables, since every word has at least one: a tied word at place k
+    needs k words while the line's last word is free and k + 1 once the last
+    word is tied too. So a place past the smaller of the two counts is
+    refused whatever the last word does, and that count is the room. The
+    rows are read through the gate's own `_validate_line_requirements`,
+    which takes a stress pattern's length as the line's syllables; a count
+    of stressed syllables bounds no word and is not read. A verbatim
+    whole-line copy holds the same words as each line it copies, so it has
+    the smallest room among them. A word at the count while the last word
+    is tied too is left to the gate, which refuses that seed as before."""
+    if not requirements:
+        return {}
+    from quality.catalog_shape import _validate_line_requirements
+    own = {}
+    for line, row in _validate_line_requirements(requirements, total).items():
+        counts = [(row[unit], unit) for unit in ("words", "syllables") if unit in row]
+        if counts:
+            own[line] = min(counts)
+    classes = {}
+    if copies:
+        groups = [[str(n) for n in group] for group in copies]
+        for item in SC._normalise_returns(groups, total, SC.ReturnRule()):
+            if item.verbatim is True and not item.placed:
+                classes.update((i, item.lines) for i in item.lines)
+    rooms = {}
+    for line in range(1, total + 1):
+        held = [own[i] for i in classes.get(line, (line,)) if i in own]
+        if held:
+            rooms[line] = min(held)
+    return rooms
+
+
+def _past_room(lines, places, rooms):
+    """-> why a drawn place sits past its catalog line's count
+    (`catalog_line_rooms`), else None."""
+    for line, place in zip(lines, places):
+        if line in rooms and re.fullmatch(r"T\d+", place) and int(place[1:]) > rooms[line][0]:
+            count, unit = rooms[line]
+            if unit == "words":
+                return (f"line {line} has {count} word{'s' * (count != 1)}, so a tied "
+                        f"word cannot sit past the {_ordinal(count)}")
+            return (f"line {line} is {count} syllable{'s' * (count != 1)} long, so a "
+                    f"tied word cannot sit past its {_ordinal(count)} word")
+    return None
+
+
 def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
-             head_cap=None, verbatim_groups=(), reserve_end=False):
+             verbatim_groups=(), reserve_end=False, rooms=None):
     """-> (members, None) when the type can bind this group, else
     (None, reason). `lines` are the group's line numbers in text order,
     `section_lines` every line of the section the group sits in.
@@ -1529,7 +1613,14 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
     through `relations.placement_bindable`; a member whose locus is not a
     token (a searched run, a syllable index, a whole line) is the bare line
     number, judged by the grader at the type's own loci. Only the drawn
-    type's positions are bound."""
+    type's positions are bound.
+
+    A TIED WORD STAYS INSIDE ITS CATALOG LINE (the fixed-syllable repair,
+    2026-11-27). `rooms` (`catalog_line_rooms`) bounds how deep a tied word
+    sits in a line with an exact count. A draw that would be returned but
+    names a word past its line's count is drawn again on the same weights,
+    so the table's odds hold over the places that fit, and a draw that fits
+    is returned exactly as before."""
     k = len(lines)
     if k < 2:
         return None, "a group needs two members"
@@ -1544,13 +1635,6 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
     cap, why = _domain_cap(sch)
     if cap is not None and k > cap:
         return None, why
-    if (head_cap is not None and _RL.identity_forced(sch)
-            and all(r.locus == "line_initial_token"
-                    for r in (sch.spans[0], sch.spans[-1]))
-            and k > head_cap):
-        return None, (f"its identity rule starts every member line with the "
-                      f"same word, and the floor allows {head_cap} such "
-                      f"line(s) in a song this long")
     loci = (sch.spans[0].locus, sch.spans[-1].locus)
     if not all(lc in _TOKEN_LOCI for lc in loci):
         if verbatim_groups:
@@ -1567,8 +1651,14 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
                     and all(isinstance(c.predicate, _RL.Agree) for c in sch.channels if c.required)
                     and all(isinstance(rule.predicate, _RL.Agree) for rule in sch.identity))
     last = "no in-line places satisfy its placement"
+    weights = [[_place_weight(p) for p in o] for o in opts]
     for _ in range(tries):
-        places = [rng.choice(o) for o in opts]
+        # A place with a choice is picked by where real words sit (owner's
+        # ruling, 2026-11-23); ~~`rng.choice(o)`, evenly~~. A member with one
+        # place keeps `rng.choice`, so its draw is what it was.
+        places = [rng.choice(o) if len(o) == 1
+                  else rng.choices(o, weights=w)[0]
+                  for o, w in zip(opts, weights)]
         if reserve_end and any(placement_word(place) == LAST_WORD for place in places):
             last = "the prescribed ending already binds that word"
             continue
@@ -1591,6 +1681,10 @@ def fit_type(sch, lines, rng, max_token, section_lines=None, tries=48,
         if all(_bindable_at(sch.name, _position(places[i]),
                             _position(places[j]))
                for i in range(k) for j in range(i + 1, k)):
+            deep = _past_room(lines, places, rooms) if rooms else None
+            if deep:
+                last = deep
+                continue
             # THE LAST WORD IS DECLARED (`N.endword`) for a type the grader
             # can judge at a declared word: its declared-token route reads
             # the type's own anchors, channels and identity at the named
@@ -1617,10 +1711,10 @@ def type_eligibility(language="eng"):
     `scripts/lyric_type_menu.py`, is to import it rather than restate it).
     A registry type is eligible for a song in `language` when ALL hold:
 
-      (a) its `normative` is `attested` — which leaves out the four disowned
-          types (homoioteleuton, trite rhyme, cynghanedd sain drosgl, fourth
-          lift must not alliterate), the registry's only rows marked
-          `forbidden` or `deprecated`;
+      (a) its `normative` is `attested` — which leaves out the ~~four~~ three
+          disowned types (homoioteleuton, cynghanedd sain drosgl, fourth lift
+          must not alliterate), the registry's only rows marked `forbidden`
+          or `deprecated` (`trite rhyme` left the registry 2026-11-22);
       (b) every `requires` input is one this language's grade stream
           provides, and
       (c) every channel in `channels` is computable for it — (b) and (c) are
@@ -1744,15 +1838,11 @@ def refuse_ineligible(name, language="eng"):
                           f"and no other type is put in its place.")
 
 
-def _line_reach(sch, head_cap=None):
+def _line_reach(sch):
     """-> (most members, widest line gap, consecutive?) the type's own fields
-    allow a group: its Differ/overhang cap and head-repeat cap, its gap
-    placement, and whether its members must be two consecutive lines."""
+    allow a group: its Differ/overhang cap, its gap placement, and whether
+    its members must be two consecutive lines."""
     cap, _ = _domain_cap(sch)
-    if (head_cap is not None and _RL.identity_forced(sch)
-            and all(r.locus == "line_initial_token"
-                    for r in (sch.spans[0], sch.spans[-1]))):
-        cap = head_cap if cap is None else min(cap, head_cap)
     gap, consecutive = None, False
     for p in sch.placement or ():
         if not p.polarity:
@@ -1764,7 +1854,7 @@ def _line_reach(sch, head_cap=None):
     return cap, gap, consecutive
 
 
-def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
+def _carve(sch, block, free, trng, max_token, reserve_end=False, rooms=None):
     """-> (members, lines used) for the largest group of this type the block
     can hold, else a pair of consecutive unbound lines of the section, else
     (None, reason). THE TYPE SHAPES ITS GROUP (D2's skew fix, 2026-10-27):
@@ -1775,10 +1865,10 @@ def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
     if reserve_end and any(span.locus not in _TOKEN_LOCI for span in (sch.spans[0], sch.spans[-1])):
         return None, "a prescribed end word leaves only explicit nonterminal word positions"
     block = sorted(block)
-    members, why = fit_type(sch, block, trng, max_token, head_cap=head_cap, reserve_end=reserve_end)
+    members, why = fit_type(sch, block, trng, max_token, reserve_end=reserve_end, rooms=rooms)
     if members is not None:
         return members, block
-    cap, gap, consecutive = _line_reach(sch, head_cap)
+    cap, gap, consecutive = _line_reach(sch)
     for source in (block, sorted(set(block) | set(free))):
         starts = list(range(len(source)))
         trng.shuffle(starts)
@@ -1791,7 +1881,7 @@ def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
                 continue
             if len(take) < 2:
                 continue
-            got, w = fit_type(sch, take, trng, max_token, head_cap=head_cap, reserve_end=reserve_end)
+            got, w = fit_type(sch, take, trng, max_token, reserve_end=reserve_end, rooms=rooms)
             if got is not None:
                 return got, take
             why = w
@@ -1799,8 +1889,8 @@ def _carve(sch, block, free, trng, max_token, head_cap, reserve_end=False):
 
 
 def _assign_types(section_blocks, trng, max_token, declared=None,
-                  language="eng", per_group=None, head_cap=None, reserve_end=False,
-                  pool=None, whole=False):
+                  language="eng", per_group=None, reserve_end=False,
+                  pool=None, whole=False, rooms=None):
     """-> (groups as member lists, {label: 'schema:name'}, records, unplaced).
 
     `section_blocks` is one (section lines, drawn blocks) per sung section.
@@ -1824,7 +1914,8 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
 
     `pool` narrows the draw (a catalog form's prescribed groups draw only
     types that rhyme at both line endings), and `whole` rejects a type that
-    binds only part of a block, so a prescribed group is never split."""
+    binds only part of a block, so a prescribed group is never split.
+    `rooms` keeps every tied word inside its catalog line (`fit_type`)."""
     pool = list(eligible_types(language) if pool is None else pool)
     pool_words = (f"{len(pool)} eligible types" if not whole else
                   f"{len(pool)} eligible types that rhyme at both line endings")
@@ -1854,8 +1945,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                                     "proposed": [], "rejected": []})
                     continue
                 unbound = sorted(set(free).union(*queue))
-                members, took = _carve(sch, block, unbound, trng, max_token,
-                                       head_cap)
+                members, took = _carve(sch, block, unbound, trng, max_token, rooms=rooms)
                 if members is None:
                     raise JointRefused(
                         f"the declared type {bare!r} cannot bind group "
@@ -1870,7 +1960,7 @@ def _assign_types(section_blocks, trng, max_token, declared=None,
                 unbound = sorted(set(free).union(*queue))
                 def carve(cand):
                     members, took = _carve(_RL.REGISTRY[cand], block, unbound,
-                                           trng, max_token, head_cap, reserve_end)
+                                           trng, max_token, reserve_end, rooms=rooms)
                     if members is not None and whole and set(took) != set(block):
                         return None, "binds only part of the prescribed group"
                     return members, took
@@ -2556,15 +2646,19 @@ def plan_max_token(plan):
     """-> the highest token index this plan's lines are asked for.
 
     The same derivation `make_plan` makes, read off the plan so a pure
-    function of the emitted dict can ask the same question: the floor's own
-    measured tokens-per-line FLOOR, held under the tightest line's syllable
+    function of the emitted dict can ask the same question: the longest real
+    sung line (`longest_line_words`), held under the tightest line's syllable
     ceiling so a placement never names a word past what the shortest line can
     reach.
+
+    REPINNED 2026-11-23 (owner's ruling: the per-line word cap comes out, and
+    a tied word may be named up to the longest real line). ~~the floor's own
+    measured tokens-per-line FLOOR~~, 7 words, no longer bounds it.
     """
     sub = plan["subdivision"]
     caps = [line_syllable_ceiling(float(s["duration"]) * sub)
             for s in plan["line_slots"]] or [1]
-    return max(1, min(int(tokens_per_line_band()[0]), int(min(caps)) - 1))
+    return max(1, min(longest_line_words(), int(min(caps)) - 1))
 
 
 def bound_token_share(plan):
@@ -5999,8 +6093,10 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                  for fn in dict.fromkeys(funcs) if ks[fn] > 0}
 
     # THE WORD INDEX A PLACEMENT MAY NAME. Two bounds, and the second is this
-    # plan's own (`MISSING.md` M-80): the floor's measured tokens-per-line
-    # floor says what a line of English verse RELIABLY carries, and the
+    # plan's own (`MISSING.md` M-80): ~~the floor's measured tokens-per-line
+    # floor says what a line of English verse RELIABLY carries~~ the longest
+    # real sung line says how deep a tied word may sit at all (REPINNED
+    # 2026-11-23, owner's ruling: the per-line word cap comes out), and the
     # shortest line THIS PLAN drew says what it can carry AT ALL. A plan whose
     # sections run seven slots after their pickup was still asking for the
     # seventh word, because the ceiling was a module-level constant computed
@@ -6014,7 +6110,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     _spans = [(bars * beats - a) * sub for a in anacrusis.values()] \
         or [bars * beats * sub]
     _cap_lo = min(int(line_syllable_ceiling(s)) for s in _spans)
-    _max_token = max(1, min(int(tokens_per_line_band()[0]), _cap_lo - 1))
+    _max_token = max(1, min(longest_line_words(), _cap_lo - 1))
 
     # THE DENSITY COORDINATE (`MISSING.md` M-191, ruled 2026-09-01 under the
     # owner's delegation). Each line's participation was drawn uniform over
@@ -6128,10 +6224,15 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # gets no pair. ~~A drawn order with no sung section before the
         # reprise was drawn again~~: that was a second placement rule beside
         # `placement_findings`, which the length proof does not read.
+        # SUCH A REPRISE STILL SINGS NEW WORDS (2026-11-23), so its first
+        # line is a source for a later reprise, as any sung section's is.
+        # ~~It was no source~~, and a second reprise with only it before
+        # was planned with no line to bring back.
         copied = any(first in g[1:] for g in prescribed_returns) or (
             fn in VERBATIM_RETURNERS and fn in first_seen)
         if fn == "reprise" and not copied and not fresh_heads:
             reprise_lineless.append(first)
+            fresh_heads.append(first)
         elif fn == "reprise" and not copied:
             source = reprise_rng.choice(fresh_heads)
             returns.append([source, first])
@@ -6291,15 +6392,6 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
     # from the plan's seed, so the shape above is the same whichever types a
     # writer declares for which groups; drawn after the shape, and before the
     # narrative and the denominator, which keep the main stream.
-    # The floor's cap on lines opening with one word, at this song's length:
-    # the same reading the declared-relation gate made before 2026-10-27.
-    _aprof = next(p for p in _FL.PROFILES
-                  if p.n_lines == 0 and not p.superseded_by)
-    _tlo, _thi = tokens_per_line_band()
-    _atok = min(max(max(1, int(round(total * (_tlo + _thi) / 2))),
-                    _aprof.lo), _aprof.hi)
-    _head_cap = max(1, int(_FL.FloorDeclaration().resolve(
-        "anaphora_max", _aprof, _atok) * total + 1e-9))
     binding_overrides = relations
     additional_bindings = []
     terminal_pool = None
@@ -6326,11 +6418,16 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
                 additional_bindings.append((i, requested))
                 requested = "draw"
             binding_overrides[label] = requested
+    # A tied word stays inside a catalog line's exact count (the
+    # fixed-syllable repair, `catalog_line_rooms`); a form with no counted
+    # line has no rooms, and its draw is untouched.
+    line_rooms = (catalog_line_rooms(song_form.get("lineRequirements", ()), total,
+                                     prescribed_returns) if song_form else {})
     groups, _type_rels, _type_records, _unplaced = _assign_types(
         _section_blocks, random.Random(f"{seed}/types"), _max_token,
         declared=None if terminal_groups else relation, per_group=binding_overrides,
-        head_cap=_head_cap, reserve_end=bool(song_form and song_form.get("endingWords")),
-        pool=terminal_pool, whole=bool(terminal_groups))
+        reserve_end=bool(song_form and song_form.get("endingWords")),
+        pool=terminal_pool, whole=bool(terminal_groups), rooms=line_rooms)
     if terminal_groups and [record["lines"] for record in _type_records] != source_groups:
         raise PlanRefused("the selected rhyme type cannot bind the whole prescribed terminal group")
 
@@ -6344,7 +6441,7 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         for group in copies:
             bound_copy_lines.update(group)
         members, why = fit_type(schema, block, extra_rng, _max_token,
-                                head_cap=_head_cap, verbatim_groups=copies, reserve_end=True)
+                                verbatim_groups=copies, reserve_end=True, rooms=line_rooms)
         if members is None:
             raise JointRefused(f"the requested additional relation cannot bind the whole catalog group: {why}",
                                codes=("TYPE_DOES_NOT_FIT",),
@@ -7108,7 +7205,8 @@ STACKED_DRAFT_ADOPTED = {
 }
 #: `revise.ReviseDeclaration.modal_exclusion`: at most this many partners
 #: per word are banned by the second writing ban.
-WRITING_BAN_PARTNERS = 6
+#: REPINNED 2026-11-22 (owner's ruling): ~~6~~ 3, with the grader's value.
+WRITING_BAN_PARTNERS = 3
 
 #: EVERY RULE THAT CAN STOP A PLANNED SONG, one row per blocking code (the
 #: gate census's GATED codes plus the reviser's writing bans), as data:
@@ -7126,9 +7224,6 @@ WRITING_BAN_PARTNERS = 6
 #: (`features.QualityFeatures._tokens` for the floor's rows,
 #: `sentencehood._tokens` for the stacked-draft row); this module may not
 #: import either, so test_plan probes each tokenizer and holds the copy equal.
-#: The anaphora row also carries `opening`, how `floor.SlopFloor._anaphora`
-#: reads the word a line opens on (its first space-split piece, with the
-#: `trimmed` marks cut from its ends); test_plan probes that reader too.
 STOP_RULES = {
     "CATALOG_FORM_MISMATCH": {"applies": "catalog_form", "stop": "flag",
                               "limit": "catalog_form"},
@@ -7138,27 +7233,12 @@ STOP_RULES = {
                                            "straight_apostrophe": True,
                                            "curly_apostrophe": True,
                                            "hyphen": True}},
-    "ANAPHORA_OVERLOAD": {"applies": "always", "stop": "flag",
-                          "limit": "openings",
-                          "words": {"accented": True,
-                                    "straight_apostrophe": True,
-                                    "curly_apostrophe": True,
-                                    "hyphen": True},
-                          "opening": {"trimmed": ",.;:!?\u2014-",
-                                      "case_folded": True,
-                                      "apostrophes_folded": False}},
     "FUNCTION_WORD_HEAVY": {"applies": "always", "stop": "flag",
                             "limit": "grammar_words",
                             "words": {"accented": True,
                                       "straight_apostrophe": True,
                                       "curly_apostrophe": True,
                                       "hyphen": True}},
-    "LEXICAL_MONOTONY": {"applies": "always", "stop": "flag",
-                         "limit": "variety",
-                         "words": {"accented": True,
-                                   "straight_apostrophe": True,
-                                   "curly_apostrophe": True,
-                                   "hyphen": True}},
     "STACKED_DRAFT": {"applies": "stacked_min_lines", "stop": "flag",
                       "limit": "stacked",
                       "words": {"accented": False,
@@ -7208,6 +7288,36 @@ STOP_RULES = {
                      "limit": "nothing_read", "layer": "meter"},
     "COUNT_IS_A_LOWER_BOUND": {"applies": "sung_lines", "stop": "unjudged",
                                "limit": "unjudged_line", "layer": "meter"},
+    # The same, one layer over again (2026-11-23): the song-function
+    # questions `grid.song_function_report` asks of a planned song's own
+    # sections, each refused on a draft whose words it cannot compare. A
+    # refusal here refuses the `function:draft` obligation (`Reviser.inspect`,
+    # `blocking`), so the draft cannot pass. Each row names the sections the
+    # grader compares in THIS plan (`_compared_sections`), and prints only
+    # where it has some.
+    "END_WORD_UNREADABLE": {"applies": "compared_sections", "stop": "unjudged",
+                            "limit": "end_word_unreadable",
+                            "layer": "function"},
+    "CHANNEL_NOT_MEASURED": {"applies": "contrasted_sections",
+                             "stop": "unjudged",
+                             "limit": "channel_not_measured",
+                             "layer": "function"},
+    "STUB_RETURN": {"applies": "returned_sections", "stop": "unjudged",
+                    "limit": "stub_return", "layer": "function"},
+    "RETURN_SLOTS_UNRESOLVED": {"applies": "returned_sections",
+                                "stop": "unjudged",
+                                "limit": "return_slots_unresolved",
+                                "layer": "function"},
+    "REPRISE_STUB": {"applies": "reprised_sections", "stop": "unjudged",
+                     "limit": "reprise_stub", "layer": "function"},
+    "REPRISE_SIDE_HAS_NO_WORDS": {"applies": "reprised_sections",
+                                  "stop": "unjudged",
+                                  "limit": "reprise_no_words",
+                                  "layer": "function"},
+    "TITLE_LONGER_THAN_HOOK": {"applies": "hook_slot_and_title",
+                               "stop": "unjudged",
+                               "limit": "title_longer_than_hook",
+                               "layer": "function"},
     # The other two meter refusals `Reviser.inspect` names, left out of
     # the brief with the reason each cannot fire on a graded song.
     "PROMINENCE_UNDECIDED": {"applies": "never", "stop": "unjudged",
@@ -7240,9 +7350,6 @@ STOP_RULES = {
                     "there, and a plan with no hook line asks for no hook"},
     "CLICHE_PAIR": {"applies": "never", "stop": "flag", "never":
                     "the default declaration lists no banned pairs"},
-    "MATTR_WINDOW_UNCALIBRATED": {"applies": "never", "stop": "ungraded",
-                                  "never": "the default window is the "
-                                           "calibrated one"},
 }
 
 #: How each kind of stop reads in the brief.
@@ -7310,20 +7417,76 @@ def _ban_groups(plan):
     return False
 
 
-def _verbatim_classes(plan):
-    """-> True when the plan has verbatim returns: the lines the floor
-    drops as copies before it judges vocabulary (`revise._floor_for`)."""
-    return bool(plan.get("returns"))
+def _compared_sections(plan):
+    """-> what the grader compares in this plan's song, as
+    `grid.song_function_report` compares it: the three lists
+    `grid.asked_comparisons` gives for the plan's section functions (the one
+    place they are built), each read down to the sections compared.
+
+    - "returns": [(first, later)], for each function asked whether it comes
+      back the same that the plan gives two or more sections: its first
+      section and each later one (`grid.return_findings`). A function the
+      convention expects at most once stands at the song's edge and the
+      planner deals it once (`test_plan.test_the_planner_reads_no_list_of_
+      once_rows`), so it never has a later section here.
+    - "reprises": [(earlier, later)], for each reprise pair asked: the first
+      section of the earlier function and each section of the later one
+      that comes after it (`grid.reprise_findings`), where both carry lines.
+    - "contrasts": [(function, other)], each pair asked whether the two
+      differ (`grid.bridge_contrast`).
+
+    Sections are the plan's own section dicts. test_plan holds the first two
+    equal to the report's own detail on seeded plans of every form, so the
+    rows cannot name a comparison the grader does not make."""
+    from quality import grid as _GR
+    secs = plan["sections"]
+    asked = _GR.asked_comparisons([s["function"] for s in secs])
+    sung = {s["section"] for s in plan.get("line_slots") or ()}
+    of = lambda fn: [i for i, s in enumerate(secs) if s["function"] == fn]
+    returns = []
+    for fn in asked["returns"]:
+        at = of(fn)
+        if len(at) >= 2:
+            returns += [(secs[at[0]], secs[k]) for k in at[1:]]
+    reprises = []
+    for later, earlier in asked["reprises"]:
+        src = of(earlier)[0]
+        reprises += [(secs[src], secs[k]) for k in of(later)
+                     if k > src and secs[src]["name"] in sung
+                     and secs[k]["name"] in sung]
+    return {"returns": returns, "reprises": reprises,
+            "contrasts": list(asked["contrasts"])}
 
 
-def _matched_openings(plan):
-    """-> True when the plan names lines the floor counts as one opening
-    (`revise._floor_for`): verbatim returns, or a group under the one
-    schema that asks its lines to open alike."""
-    return _verbatim_classes(plan) or any(
-        str(v) == "schema:anaphora"
-        for v in (plan.get("relations") or {}).values()) or (
-        str(plan.get("relation") or "") == "schema:anaphora")
+def _lines_named(plan, secs):
+    """-> "line 11" or "lines 1 to 7", over the lines of `secs` in order;
+    sections apart are listed apart ("line 11 and line 15")."""
+    parts = []
+    for sec in secs:
+        ln = [s["line"] for s in plan["line_slots"]
+              if s["section"] == sec["name"]]
+        if ln:
+            parts.append(f"line {ln[0]}" if len(ln) == 1
+                         else f"lines {ln[0]} to {ln[-1]}")
+    return (parts[0] if len(parts) == 1
+            else ", ".join(parts[:-1]) + " and " + parts[-1])
+
+
+def _section_named(plan, sec, first=False):
+    """-> "the chorus at line 11", or "the first chorus, at line 11": a
+    section by the name its bracket prints (`section_label`) and its
+    lines."""
+    name = section_label(sec).lower().replace("_", " ")
+    return (f"the first {name}, at {_lines_named(plan, [sec])}" if first
+            else f"the {name} at {_lines_named(plan, [sec])}")
+
+
+def _function_named(plan, fn):
+    """-> "the chorus (line 11 and line 15)": every section of one function
+    and their lines."""
+    secs = [s for s in plan["sections"] if s["function"] == fn]
+    name = section_label(secs[0]).lower().replace("_", " ")
+    return f"the {name} ({_lines_named(plan, secs)})"
 
 
 _STOP_APPLIES = {
@@ -7342,6 +7505,15 @@ _STOP_APPLIES = {
     # tell a repeated ending from a refrain and writes a note
     # (`floor.SlopFloor`, "only one rhyme pair here").
     "floor_pairs": lambda plan: len(_floor_pairs(plan)) >= 2,
+    "compared_sections": lambda plan: bool(
+        _compared_sections(plan)["returns"]
+        or _compared_sections(plan)["reprises"]),
+    "returned_sections": lambda plan: bool(
+        _compared_sections(plan)["returns"]),
+    "reprised_sections": lambda plan: bool(
+        _compared_sections(plan)["reprises"]),
+    "contrasted_sections": lambda plan: bool(
+        _compared_sections(plan)["contrasts"]),
 }
 
 
@@ -7358,7 +7530,7 @@ def _syllable_capacity(plan):
 
 def _word_count_band(plan):
     """-> (lo, hi) words in the whole song at the planner's own
-    `tokens_per_line_band()`, the reading `_head_cap` makes, held under
+    `tokens_per_line_band()`, held under
     the plan's own syllable capacity: a word has at least one syllable, so
     a draft with more words than `_syllable_capacity(plan)` is flagged
     SLOTS_EXCEEDED. Where the capacity is below the band's top, the top
@@ -7377,8 +7549,8 @@ def _covering_profile(n_tokens, n_lines):
     """-> the floor profile that grades a draft of `n_tokens` words and
     `n_lines` lines AS A FLAG, or None: `floor.declaration_for`'s choice
     among the profiles that cover the length (exact), read from
-    `floor.PROFILES`. Outside every covering profile the three length
-    limits are notes or do not run, so they stop nothing there."""
+    `floor.PROFILES`. Outside every covering profile the length limit
+    is a note or does not run, so it stops nothing there."""
     covering = [p for p in _FL.PROFILES
                 if not p.superseded_by and p.covers(n_tokens)]
     if not covering:
@@ -7411,12 +7583,6 @@ def _span(vals, fmt):
     """-> "A" or "A to B" for the smallest and largest of `vals`."""
     a, b = fmt(min(vals)), fmt(max(vals))
     return a if a == b else f"{a} to {b}"
-
-
-def _opening_cap(thr, n_lines):
-    """-> the most lines of `n_lines` that may open on one word under the
-    share `thr`, by the grader's own comparison (share > thr flags)."""
-    return max(c for c in range(n_lines + 1) if not c / n_lines > thr)
 
 
 def _stacked_floor(n_lines):
@@ -7467,31 +7633,6 @@ def _limit_word_unit(words):
     return f"a word is a run of {letters}; " + ", and ".join(parts)
 
 
-def _limit_opening_word(opening):
-    """-> how the anaphora row reads the word a line opens on, from its
-    `opening` copy in `STOP_RULES`, in the brief's words."""
-    marks = list(opening["trimmed"])
-    cut = " ".join(marks[:-1]) + " and " + marks[-1] if len(marks) > 1 \
-        else "".join(marks)
-    text = "for this row, the word a line opens on is everything before " \
-           "its first space"
-    if opening["case_folded"]:
-        text += ", in any case"
-    if marks:
-        text += f", with the marks {cut} cut from its ends"
-    kept = []
-    if not ({'"', "\u201c", "\u201d"} & set(marks)):
-        kept.append("a quote mark")
-    if not ({"(", ")", "[", "]"} & set(marks)):
-        kept.append("a bracket")
-    if kept:
-        text += f"; every other mark stays on it, {' and '.join(kept)} among them"
-    if not opening["apostrophes_folded"]:
-        text += ", and a curly apostrophe and a straight one make different " \
-                "words"
-    return text
-
-
 def _limit_length_reach(plan):
     live = [p for p in _FL.PROFILES if not p.superseded_by]
     lo = min(p.band()[0] for p in live)
@@ -7500,43 +7641,12 @@ def _limit_length_reach(plan):
             f"leave the draft ungraded")
 
 
-def _limit_openings(plan):
-    n = plan["total_lines"]
-    vals = _length_limits(plan, "anaphora_max")
-    if not vals:
-        return None
-    caps = sorted({_opening_cap(v, n) for v in vals})
-    opening = _limit_opening_word(STOP_RULES["ANAPHORA_OVERLOAD"]["opening"])
-    text = (f"more than {_span(caps, str)} of the {n} lines open on the "
-            f"same word ({opening})")
-    if _matched_openings(plan):
-        text += ("; a note instead when the lines this plan requires to "
-                 "match account for it")
-    return text
-
-
 def _limit_grammar_words(plan):
     vals = _length_limits(plan, "function_word_ratio_max")
     if not vals:
         return None
     return (f"more than {_span(vals, _pct)} of the song's words are "
             f"{GRAMMAR_WORDS}")
-
-
-def _limit_variety(plan):
-    vals = _length_limits(plan, "mattr_min")
-    if not vals:
-        return None
-    w = _FL.FloorDeclaration().mattr_window
-    whole = (f" (over the whole song at {w} words or fewer)"
-             if _word_count_band(plan)[0] <= w else "")
-    text = (f"the song's distinct words per word, averaged over each run of "
-            f"{w} words{whole}, fall below "
-            f"{_span(vals, lambda v: f'{v:.3f}')}")
-    if _verbatim_classes(plan):
-        text += ("; a note instead when the lines left after dropping "
-                 "word-for-word copies pass")
-    return text
 
 
 def _limit_stacked(plan):
@@ -7579,9 +7689,11 @@ WORD_RUN = "as one unbroken run, in the same order,"
 
 
 def _limit_title_in_hook(plan):
+    # ~~"; a title of more words than that line leaves this check unjudged,
+    # so the draft cannot pass"~~ (2026-11-23): TITLE_LONGER_THAN_HOOK says
+    # that in its own row, with what clears it.
     return (f"the title's words are not found {WORD_RUN} inside line "
-            f"{plan['hook_slot']}; a title of more words than that line "
-            f"leaves this check unjudged, so the draft cannot pass")
+            f"{plan['hook_slot']}")
 
 
 #: What ends an unjudged row's stop: the reading the grader takes
@@ -7657,14 +7769,156 @@ def _limit_common_partner(plan):
             f"partners most often paired with the other in songs")
 
 
+#: What the song-function rows mean by a word with no sound to compare: the
+#: function layer reads a line's last word through `grid.rime_cmudict`,
+#: which looks a word up whole, then part by part across a hyphen, through
+#: the dictionary and the `fallback` the grade sets; a numeral has no
+#: reading, and a dictionary word read with no vowel ("hmm") has no sound
+#: from a stressed vowel on. The brief never says "rhyme" outside a type's
+#: own name (`test_plan`), so the sentence names the sound itself.
+NO_END_SOUND = ("a word whose sound, from its last stressed vowel on, the "
+                "grader cannot read (one written with a digit, one that "
+                "neither the dictionary nor `fallback` on lyric_grade, where "
+                "set, reads, or one read with no vowel)")
+
+#: The song-function rows' other way out. `fallback` reads only a word the
+#: dictionary does not have, so it cannot give a vowel to a dictionary word
+#: read with none.
+FALLBACK_UNLISTED_UNTIL = ("or, for a word the dictionary does not have and "
+                           "that is written with no digit, until `fallback` "
+                           "on lyric_grade reads it")
+
+#: The pointers the grader reads at the end of a planned song's line: the
+#: English row of `lyric_harness.CHORUS_STUB_FORMS` (a planned song is read
+#: as English, `Reviser._relation_phonology`). A copy this module may not
+#: import; `test_plan.test_the_stop_rules` holds it equal to that row.
+POINTER_SPELLINGS = ("&c.", "etc.")
+POINTERS = " or ".join(f"'{p}'" for p in POINTER_SPELLINGS)
+
+#: Where a pointer stands to be one (`lyric_harness._STUB_EDITORIAL_TAIL`
+#: and the row's own pattern): last in the line, any case, its last full
+#: stop optional, and after it only closing punctuation or a bracketed
+#: note of up to 60 characters.
+POINTER_PLACE = ("at the end of the line (in capitals or not, with or "
+                 "without its last full stop, and with nothing after it but "
+                 "closing punctuation or a short note in brackets)")
+
+#: What ends a pointer row's stop.
+WRITTEN_OUT_UNTIL = "until those lines are written out in full"
+
+
+def _first_if_more(plan, sec):
+    """True when `sec`'s function has more sections than one in the plan, so
+    naming it "the first" says which."""
+    return sum(1 for s in plan["sections"]
+               if s["function"] == sec["function"]) > 1
+
+
+def _reprise_pairs_named(plan):
+    """-> "the outro at line 16 and the first chorus, at line 11; ..." for
+    each reprise comparison, the later side first."""
+    return "; ".join(
+        f"{_section_named(plan, later)} and "
+        f"{_section_named(plan, earlier, _first_if_more(plan, earlier))}"
+        for earlier, later in _compared_sections(plan)["reprises"])
+
+
+def _returned_named(plan):
+    """-> "the chorus (line 11 and line 15)", each function the grader
+    compares with its first time, in song order, joined by "or"."""
+    fns = list(dict.fromkeys(a["function"]
+                             for a, _b in _compared_sections(plan)["returns"]))
+    return " or ".join(_function_named(plan, fn) for fn in fns)
+
+
+def _limit_end_word_unreadable(plan):
+    c = _compared_sections(plan)
+    pairs = ([f"{_section_named(plan, a)} with {_section_named(plan, b)}"
+              for a, b in c["returns"]]
+             + [f"{_section_named(plan, b)} with "
+                f"{_section_named(plan, a, _first_if_more(plan, a))}"
+                for a, b in c["reprises"]])
+    return (f"the last word of a line of a section the grader compares with "
+            f"another ({'; '.join(pairs)}) is {NO_END_SOUND}; whether those "
+            f"sounds match across that comparison is left unjudged, and "
+            f"the draft cannot pass {UNJUDGED_UNTIL}, "
+            f"{FALLBACK_UNLISTED_UNTIL}")
+
+
+def _limit_channel_not_measured(plan):
+    pairs = _compared_sections(plan)["contrasts"]
+    named = "; ".join(f"{_function_named(plan, a)} and "
+                      f"{_function_named(plan, b)}" for a, b in pairs)
+    # The bridge and the verse are put to the default call, whose refusal
+    # stands whatever else differs; every other pair is answered by any
+    # measured channel that separates the two (`song_function_report`).
+    bv = ("bridge", "verse") in pairs
+    rest = any(p != ("bridge", "verse") for p in pairs)
+    when = ("for the bridge and the verse whatever else differs, and for "
+            "the others only where nothing else the grader measures tells "
+            "them apart" if bv and rest else
+            "whatever else differs" if bv else
+            "only where nothing else the grader measures tells them apart")
+    return (f"the last word of a line in one of two sections the grader "
+            f"expects to differ ({named}) is {NO_END_SOUND}, and the last "
+            f"words it does read in the two share no such sound; whether "
+            f"the two differ is left unjudged ({when}), and the draft cannot "
+            f"pass {UNJUDGED_UNTIL}, {FALLBACK_UNLISTED_UNTIL}")
+
+
+def _limit_stub_return(plan):
+    return (f"a line of {_returned_named(plan)}, which the grader compares "
+            f"each time it is sung with its first time, has {POINTERS} "
+            f"{POINTER_PLACE}, a pointer to lines written elsewhere, and the "
+            f"words before the pointer, if any, are not how a copy of that "
+            f"section written out in full begins; the grader cannot tell "
+            f"which lines it points to, so that comparison is left "
+            f"unjudged, and the draft cannot pass {WRITTEN_OUT_UNTIL}")
+
+
+def _limit_return_slots_unresolved(plan):
+    return (f"a line of {_returned_named(plan)}, which the grader compares "
+            f"each time it is sung with its first time, has {POINTERS} "
+            f"{POINTER_PLACE}, a pointer to lines written elsewhere; the "
+            f"grader does not place the lines a pointer stands for on the "
+            f"beat, so whether that section lands in the same place each "
+            f"time it is sung is left unjudged, and the draft cannot pass "
+            f"{WRITTEN_OUT_UNTIL}")
+
+
+def _limit_reprise_stub(plan):
+    return (f"a line of a section the grader compares to see whether the "
+            f"later brings the earlier back ({_reprise_pairs_named(plan)}) "
+            f"has {POINTERS} {POINTER_PLACE}, a pointer to lines written "
+            f"elsewhere, and the words before the pointer, if any, are not "
+            f"how a copy of the earlier section written out in full begins; "
+            f"that comparison is left unjudged, and the draft cannot pass "
+            f"{WRITTEN_OUT_UNTIL}")
+
+
+def _limit_reprise_no_words(plan):
+    return (f"every line of one of two sections the grader compares to see "
+            f"whether the later brings the earlier back "
+            f"({_reprise_pairs_named(plan)}) is punctuation only, with no "
+            f"word; that comparison is left unjudged, and the draft cannot "
+            f"pass until a line of each has a word")
+
+
+def _limit_title_longer_than_hook(plan):
+    n = plan["hook_slot"]
+    return (f"the title has more words than line {n} (here a word in "
+            f"parentheses counts, and two words joined by a hyphen count "
+            f"once); the title check on that line is left unjudged, and the "
+            f"draft cannot pass until line {n} has at least as many words as "
+            f"the title")
+
+
 _STOP_LIMITS = {
     "catalog_form": lambda plan: (
         f"the draft fails a measured requirement of catalog form {plan['request']['song_form']['id']!r}, "
         f"variant {plan['request']['song_form']['variant']}"),
     "length_reach": _limit_length_reach,
-    "openings": _limit_openings,
     "grammar_words": _limit_grammar_words,
-    "variety": _limit_variety,
     "stacked": _limit_stacked,
     "syllables": _limit_syllables,
     "group_rule": _limit_group_rule,
@@ -7675,11 +7929,19 @@ _STOP_LIMITS = {
     "unjudged_line": _limit_unjudged_line,
     "same_spelled_ending": _limit_same_spelled_ending,
     "common_partner": _limit_common_partner,
+    "end_word_unreadable": _limit_end_word_unreadable,
+    "channel_not_measured": _limit_channel_not_measured,
+    "stub_return": _limit_stub_return,
+    "return_slots_unresolved": _limit_return_slots_unresolved,
+    "reprise_stub": _limit_reprise_stub,
+    "reprise_no_words": _limit_reprise_no_words,
+    "title_longer_than_hook": _limit_title_longer_than_hook,
 }
 
-#: The three limits that move with the finished song's word count.
-LENGTH_LIMIT_CODES = ("ANAPHORA_OVERLOAD", "FUNCTION_WORD_HEAVY",
-                      "LEXICAL_MONOTONY")
+#: The limit that moves with the finished song's word count. The
+#: same-first-word and word-variety limits were removed with their grader
+#: checks (owner's ruling, 22 Nov 2026).
+LENGTH_LIMIT_CODES = ("FUNCTION_WORD_HEAVY",)
 
 
 def stop_rules_for(plan):
@@ -8226,6 +8488,31 @@ def group_rules(plan):
         lines.append(f"  group {SC.label((gi,))}: "
                      + ", ".join(_member_words(m, token) for m in members)
                      + f" must satisfy rule R{rule_no[key]} ({shown})")
+    # HOW LONG A LINE A WORD PLACE NEEDS (2026-11-23, with the owner's ruling
+    # of that day that a tie inside a line may name any word up to the
+    # 22nd). A member `L.Tn` is line L's nth sung word to the grader
+    # (`pronunciation.numbered_groups`). ~~It refuses a shorter line whole,
+    # before anything is graded~~ (2026-11-23, the owner's ruling "mark the
+    # line"): a shorter line gets a flag saying how long it must be, and the
+    # draft cannot pass until it is that long (`Reviser.grade`). So the
+    # brief says each such line's least
+    # length, once, after the group list. The count is the grader's: words
+    # in parentheses are left out unless `voices` is set, and a word joined
+    # by a hyphen is one word (`lyric_harness.reader_token_spans`).
+    least = {}
+    for g in groups:
+        for m in g.split(","):
+            ln, _, place = m.strip().partition(".")
+            if re.fullmatch(r"T\d+", place):
+                least[int(ln)] = max(least.get(int(ln), 0), int(place[1:]))
+    if least:
+        each = [f"line {ln} at least {n}" for ln, n in sorted(least.items())]
+        each[0] = each[0].replace(" at least ", " needs at least ", 1)
+        lines.append("A group that names a word inside a line needs the line "
+                     "to have that many words: " + ", ".join(each)
+                     + f". Words in parentheses are not counted "
+                     f"{UNLESS_VOICES}, and a word joined by a hyphen counts "
+                     "once.")
     lines.append("Rules:")
     for n, shown, clauses in rules:
         lines.append(f"  R{n} ({shown}): " + "; ".join(clauses) + ".")

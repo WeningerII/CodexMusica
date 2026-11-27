@@ -59,7 +59,7 @@ output, and the coincidence is one declaration away from ending.
 WHAT READING ALL 77 TURNED UP (2026-08-22), and each one is asserted somewhere rather than
 left as prose (doctrine 48):
 
-  * `Figure.nodes`, `Figure.edges` and `Figure.template` are declared on all ~~77~~ ~~78~~ 80
+  * `Figure.nodes`, `Figure.edges` and `Figure.template` are declared on all ~~77~~ ~~78~~ ~~80~~ 79
     schemas and READ BY NOTHING IN THE REPOSITORY except this module.
     `realise()`/`assemble()` branch on `quantifier`, `k`, `fraction` and
     `frame`; `evaluate(schema, a, b, stream)` takes exactly two spans.  So the
@@ -432,7 +432,7 @@ def census(registry=None):
 
 
 def survey_coverage(registry=None):
-    """-> how much of `quality/canon_index.tsv` the ~~77~~ ~~78~~ 80 schemas between them cite.
+    """-> how much of `quality/canon_index.tsv` the ~~77~~ ~~78~~ ~~80~~ 79 schemas between them cite.
 
     THE INDEX IS ASKED, NOT PARSED HERE.  `quality/canon_sources.index()` owns
     the reader and `cell_of()` owns the cell prefix rule; a second TSV reader in
@@ -629,7 +629,7 @@ def report(registry=None, out=None):
 # WHAT IS DELIBERATELY NOT PINNED, AND WHY.
 #
 #   1. THE SCHEMA COUNT AND THE INDEX ROW COUNT.  `audit_register.PINNED`
-#      already pins `schemas: ~~77~~ ~~78~~ 80` and `index_rows: 601`.  Pinning them here as
+#      already pins `schemas: ~~77~~ ~~78~~ ~~80~~ 79` and `index_rows: 601`.  Pinning them here as
 #      well would be one fact in two media with no grep that finds both, which
 #      is `MISSING.md` M-21's own subject; so both are DERIVED here as
 #      denominators and neither appears as a pin.  `pair_shaped` and
@@ -687,18 +687,18 @@ def report(registry=None, out=None):
 # not_pair=52, spans=156, placements=95.
 PINNED = {
     # -- the three buckets --------------------------------------------------
-    "pair_shaped": 26,
-    "not_pair_shaped": 54,  # ~~52~~ (2026-10-30, M-323)
+    "pair_shaped": 25,  # ~~26~~ REPINNED 2026-11-22 (owner's ruling: `trite rhyme` comes out)
+    "not_pair_shaped": 54,  # ~~52~~ (2026-10-30, M-323); unchanged 2026-11-22
     #: REPINNED 2026-09-25 from 12: `cynghanedd sain drosgl` took sain's
     #: three-node figure (it was a bare onset edge firing on 103 of 108
     #: cywydd lines), so it joins the sain family here.
     "arity_extension": 13,
     # -- the figure-blind reading, and the two disagreements ----------------
-    "span_shaped": 27,
+    "span_shaped": 26,  # ~~27~~ REPINNED 2026-11-22 (owner's ruling: `trite rhyme` comes out)
     "n_span_not_pair": 1,
     "n_pair_and_arity": 1,
     # -- slot totals --------------------------------------------------------
-    "span_slots": 160,  # ~~156~~ (2026-10-30, M-323)
+    "span_slots": 158,  # ~~160~~ REPINNED 2026-11-22 (owner's ruling: `trite rhyme` comes out): its two line-final loci; ~~156~~ (2026-10-30, M-323)
     #: REPINNED 2026-08-23 from ~~91~~ (doctrine 17). ONE slot, and it is
     #: `off_beat` on `offbeat internal rhyme`: the schema kept its `beat`
     #: capability gate AND gained the placement, because the gate is what
@@ -706,12 +706,14 @@ PINNED = {
     #: declared one selective, and either alone is one of the two defects
     #: that schema has had. The gate-only version fired on every internal
     #: rhyme and called it off-beat.
-    "placement_slots": 99,  # ~~97~~ (2026-10-31, #657 M-311 F1: mosaic rhyme adds `mosaic_anchor` and `either_multiword`) ~~95~~ (2026-10-30, M-323)
+    "placement_slots": 98,  # ~~99~~ REPINNED 2026-11-22 (owner's ruling: `trite rhyme` comes out): its one both_line_final; ~~97~~ (2026-10-31, #657 M-311 F1: mosaic rhyme adds `mosaic_anchor` and `either_multiword`) ~~95~~ (2026-10-30, M-323)
     # -- the survey ---------------------------------------------------------
     #    `survey_rows` is NOT here: `audit_register.PINNED["index_rows"]` owns
     #    it (exclusion 1).
-    "survey_covered": 376,
-    "survey_uncited": 225,
+    #: REPINNED 2026-11-22 (owner's ruling: `trite rhyme` comes out): the survey rows it
+    #: alone cited are uncited now, two of them (cells S and E).
+    "survey_covered": 374,  # ~~376~~
+    "survey_uncited": 227,  # ~~225~~
     "n_schemas_citing_nothing": 2,
     "n_cited_off_index": 0,
 }
@@ -722,7 +724,9 @@ PINNED_LOCUS_PROFILE = (
     # 2026-10-31 (#657, M-311 F1): mosaic rhyme's members are both free runs
     # to the line end, so line_final_token ~~73~~ 72 and free_run ~~8~~ 9,
     # which now sorts before line_initial_token on the key.
-    ("line_final_token", 72), ("any_token", 32), ("line", 12),
+    # REPINNED 2026-11-22 (owner's ruling: `trite rhyme` comes out): line_final_token
+    # ~~72~~ 70, its two members.
+    ("line_final_token", 70), ("any_token", 32), ("line", 12),
     ("free_run", 9), ("line_initial_token", 9), ("half_line_a", 4),
     ("half_line_b", 4), ("lift", 4), ("line_head_index", 4),
     ("token_first_half", 3), ("token_second_half", 3),
@@ -743,7 +747,9 @@ PINNED_PLACEMENT_PROFILE = (
     # mosaic_anchor, either_multiword and different_lines, where they were
     # word_count_differs: different_lines ~~16~~ 17, word_count_differs ~~1~~ 0
     # (gone), either_multiword and mosaic_anchor 1 each.
-    ("both_line_final", 29), ("different_lines", 17), ("same_line", 16),
+    # REPINNED 2026-11-22 (owner's ruling: `trite rhyme` comes out): both_line_final
+    # ~~29~~ 28.
+    ("both_line_final", 28), ("different_lines", 17), ("same_line", 16),
     ("adjacent_lines", 5), ("line_gap_at_most", 5), ("across_line_break", 3),
     # 2026-10-30 (M-323): both_line_final (forbidden) ~~1~~ 3, the two
     # interior schemas; it now sorts among the 3s.
@@ -760,7 +766,7 @@ PINNED_PLACEMENT_PROFILE = (
 #: selective, as against the `beat` capability gate, which is the half that
 #: makes an UNDECLARED one refuse. Every other row is unchanged.
 
-#: THE FIGURE CENSUS: 13 distinct signatures over the ~~77~~ ~~78~~ 80 schemas.  Pinned as
+#: THE FIGURE CENSUS: 13 distinct signatures over the ~~77~~ ~~78~~ ~~80~~ 79 schemas.  Pinned as
 #: the SIGNATURE and not as `_fmt_fig`'s rendering of it, so a cosmetic change
 #: to the printed wording cannot turn this gate red -- a gate that goes red on
 #: a rewording is a gate people learn to skip (`audit_register.PINNED`
@@ -773,7 +779,9 @@ PINNED_FIGURE_PROFILE = (
     # REPINNED 2026-09-25: song/2/exists 59 -> 58 and line/3/exists 2 -> 3,
     # one schema moving -- `cynghanedd sain drosgl` now carries sain's figure.
     # REPINNED 2026-10-30 (M-323): song/2/exists ~~58~~ 60.
-    ((('frame', 'song'), ('nodes', 2), ('quantifier', 'exists')), 60),
+    # REPINNED 2026-11-22 (owner's ruling: `trite rhyme` comes out): song/2/exists
+    # ~~60~~ 59.
+    ((('frame', 'song'), ('nodes', 2), ('quantifier', 'exists')), 59),
     ((('frame', 'line'), ('k', 2), ('nodes', 2), ('quantifier', 'exists_k')), 3),
     ((('frame', 'line'), ('nodes', 3), ('quantifier', 'exists')), 3),
     ((('frame', 'stanza'), ('nodes', 2), ('quantifier', 'forall')), 3),
@@ -791,8 +799,10 @@ PINNED_FIGURE_PROFILE = (
 )
 
 #: The uncited half of the survey, by inventory cell.
-PINNED_UNCITED_BY_CELL = (("X", 84), ("S", 50), ("G", 32), ("C", 27),
-                          ("I", 20), ("E", 12))
+#: REPINNED 2026-11-22 (owner's ruling: `trite rhyme` comes out): S ~~50~~ 51 and
+#: E ~~12~~ 13, the two survey rows only it cited.
+PINNED_UNCITED_BY_CELL = (("X", 84), ("S", 51), ("G", 32), ("C", 27),
+                          ("I", 20), ("E", 13))
 
 #: THE BUCKET THE NEXT CONSUMER HAS TO BUILD FOR: 13 schemas whose figure is
 #: not a 2-node exists/exists_k pair.  Pinned by NAME, not by count -- a swap
@@ -813,7 +823,8 @@ PINNED_ARITY = (
     "平仄 tonal template",
 )
 
-#: THE 25 THE EXISTING MACHINERY REACHES UNCHANGED.
+#: THE 25 THE EXISTING MACHINERY REACHES UNCHANGED. (2026-11-22: `trite
+#: rhyme` removed; the list held 26 before, one more than this line said.)
 PINNED_PAIR_SHAPED = (
     "chain rhyme (interlocking scheme)",
     "Middle Chinese end rhyme (同用 group)",
@@ -839,7 +850,7 @@ PINNED_PAIR_SHAPED = (
     "semirhyme",
     "subtractive rhyme",
     "syllabic rhyme",
-    "trite rhyme",
+    # ~~"trite rhyme"~~ — removed 2026-11-22 (owner's ruling).
     "wrenched rhyme",
 )
 

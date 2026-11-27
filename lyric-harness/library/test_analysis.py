@@ -40,14 +40,19 @@ def complete(reading, declarations=None, schemas=None, batch=256, restart=False,
 class ReaderAcceptance(unittest.TestCase):
     def test_engine_registry_not_a_second_taxonomy(self):
         registry = build_registry()
-        self.assertEqual(registry["counts"], {"schemas": 80, "types": 76, "type_cells": 49,
-            "classes": 5, "functions": 22, "shared_sound": 4, "pair_local": 67, "whole_figures": 13})
+        # REPINNED 2026-11-22 (owner's ruling: the declared trite pairs come
+        # out, and `trite rhyme` with them): schemas ~~80~~ 79 and pair_local
+        # ~~67~~ 66, that one pattern.
+        self.assertEqual(registry["counts"], {"schemas": 79, "types": 76, "type_cells": 49,
+            "classes": 5, "functions": 22, "shared_sound": 4, "pair_local": 66, "whole_figures": 13})
         schemas = [m for m in registry["methods"] if m["namespace"] == "schema"]
         self.assertEqual({m["name"] for m in schemas}, set(RL.REGISTRY))
         for row in schemas:
             self.assertEqual(row["required_capabilities"], list(RL.REGISTRY[row["name"]].capabilities()))
         # 23: mosaic rhyme declares `quotient:reduced_vowel` (#657).
-        self.assertEqual(len(registry["capabilities"]), 23)
+        # REPINNED 2026-11-22: ~~23~~ 22, `quotient:trite` left with
+        # `trite rhyme`.
+        self.assertEqual(len(registry["capabilities"]), 22)
         self.assertEqual(len({m["id"] for m in registry["methods"]}), len(registry["methods"]))
 
     def test_nine_profiles_exhaust_all_78_questions(self):

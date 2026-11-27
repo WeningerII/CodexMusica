@@ -228,9 +228,12 @@ _MARKER = re.compile(r"^(#|--- |\[)")
 #: `floor.PROFILES`' `song` entry ships, so if the two ever disagreed about
 #: the window, `--check` would be comparing a threshold against a different
 #: statistic and would report agreement or drift for the wrong reason. Taking
-#: it from `FloorDeclaration` makes that disagreement impossible to have.
+#: it from ~~`FloorDeclaration`~~ the one shared constant (REPINNED
+#: 2026-11-22, below) makes that disagreement impossible to have.
 #: The window itself is a coordinate with a sweep behind it -- see
-#: `quality.floor.CALIBRATION["mattr_window"]`; ~~every song-band item is
+#: `QualityFeatures._mattr`'s docstring
+#: (~~`quality.floor.CALIBRATION["mattr_window"]`~~, removed 2026-11-22);
+#: ~~every song-band item is
 #: 150-400 tokens, comfortably past 50, so every `mattr` below IS a genuine
 #: moving average (unlike the `section` profile's, which is plain TTR).~~
 #: REPINNED 2026-09-05: every `song`-band item is 200-400 tokens (the band
@@ -244,7 +247,12 @@ _MARKER = re.compile(r"^(#|--- |\[)")
 #: corrected. Both bands are SUPERSEDED for grading since 2026-09-04
 #: (`MISSING.md` M-239, the `lyric` curve row) and this file re-derives them
 #: as drift checks.
-MATTR_WINDOW = FloorDeclaration().mattr_window
+#: REPINNED 2026-11-22: ~~`FloorDeclaration().mattr_window`~~ — the grader's
+#: word-variety check and its window field were removed by the owner's ruling
+#: (22 Nov 2026), so the window is read from `quality.features.MATTR_WINDOW`,
+#: the same 50 words, which the superseded rows' drift check still measures
+#: until the #913 batch drops it.
+MATTR_WINDOW = quality.features.MATTR_WINDOW
 
 #: (feature, side, percentile). "lo" flags below the 5th, "hi" above the 95th.
 #: `predictability` closes the gap this file's own module docstring names:
@@ -1505,18 +1513,21 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     cmp("band hi (tokens)", float(p.hi), float(hi), 0)
     # THE MATTR WINDOW IS A COORDINATE OF EVERY ROW BELOW, and until
     # 2026-08-14 nothing here named it. `threshold mattr` and `held-out FPR
-    # mattr` are readings at `FloorDeclaration.mattr_window` = 50 tokens; the
+    # mattr` are readings at `quality.features.MATTR_WINDOW` = 50 tokens; the
     # band lo/hi above are too, because the band rule's homogeneity test is
     # computed on the same statistic (at window 20 the rule returns 100-350,
     # 2,953 items over 132 authors, instead of 150-400 / 1,859 / 108 -- so
     # every threshold in this block would then be a percentile of a different
     # population). `MATTR_WINDOW` at the top of this file is read off the
-    # shipped declaration precisely so this comparison cannot become a
+    # one shared constant (REPINNED 2026-11-22: ~~the shipped declaration~~,
+    # whose window field left with the grader's word-variety check) precisely
+    # so this comparison cannot become a
     # threshold from one window against a statistic from another. If a future
     # run moves the window, these rows drift for a reason that is NOT corpus
     # change and must not be repinned as if it were. The sweep, the
     # admissible set [1,22] u [40,93], and why 50 is kept rather than retuned
-    # toward the gradient: `quality.floor.CALIBRATION["mattr_window"]`.
+    # toward the gradient: `QualityFeatures._mattr`'s docstring
+    # (~~`quality.floor.CALIBRATION["mattr_window"]`~~, removed 2026-11-22).
     #
     # STRUCTURAL, like the two checks at the end of this function: it reads
     # the band edge and the declaration and owes nothing to how many items

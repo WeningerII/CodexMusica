@@ -33,6 +33,7 @@ Run: python3 quality/test_homeoteleuton.py
 """
 
 import os
+import random
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -43,7 +44,8 @@ from lyric_harness import (ADMITTABLE_RELATIONS, Declaration,  # noqa: E402
                            check_scheme, Lexicon, spelled_rime)
 from quality.loop import MANDATORY_PURSUE  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
-from quality.revise import RHYME_FINDINGS, Reviser  # noqa: E402
+from quality.revise import (RHYME_FINDINGS, ReviseDeclaration,  # noqa: E402
+                            Reviser)
 
 FAILURES = []
 
@@ -78,17 +80,92 @@ def test_spelled_rime():
 def test_two_tiers_compose():
     print("\n2. the two tiers compose in the field (joint_field)")
     R = Reviser()
-    offered, forbidden = R.modal_field("hair")
-    fs = set(forbidden)
-    check("TIER 1: every same-spelled partner in the field is forbidden — "
-          "chair, stair, despair, the whole -air family, whatever its rank",
-          {"chair", "stair", "despair", "affair"} <= fs,
-          sorted(w for w in fs if spelled_rime(w) == "air")[:8])
-    check("TIER 2 digs into the DIFFERENTLY-spelled remainder — prayer "
-          "(rank 7 under the old cliff, the word the gap let through) is "
-          "now forbidden", "prayer" in fs)
-    check("...and the ban is deeper than the old six",
-          len(fs) > 6, f"{len(fs)} forbidden")
+    k = R.rdecl.modal_exclusion
+    # REPINNED 2026-11-22: every check in this section drew its call word by
+    # hand (`hair`). The owner's rule is that a test's witnesses are drawn
+    # by seed, so each check now draws its call words by seed (Random(1))
+    # from the song table. What each check used to assert of `hair` is
+    # struck beside it.
+    calls = sorted(FREQ.LAYER._song_tables(FREQ.LAYER.source_for("eng-song"))[1])
+    random.Random(1).shuffle(calls)
+
+    def same_class(call):
+        """-> the call's field members on its own spelled ending: the coarse
+        ones, and the pending ones `_member` admits."""
+        rime = R._spelled_rime(call)
+        coarse, pending = R._field_split(call)
+        low = call.lower()
+        return ({w for w in coarse if w != low and R._spelled_rime(w) == rime}
+                | {w for w in pending if w != low
+                   and R._spelled_rime(w) == rime and R._member(call, w)})
+
+    # TIER 1. ~~`{"chair", "stair", "despair", "affair"} <= fs` for
+    # `hair`~~. Five call words whose spelled-ending class in the field has
+    # more than one member; every member is forbidden, whatever its rank.
+    t1, t1_wrong, fields = [], [], {}
+    for call in calls:
+        cls = same_class(call)
+        if len(cls) <= 1:
+            continue
+        offered, forbidden = R.modal_field(call)
+        fields[call] = (offered, forbidden, cls)
+        t1.append(call)
+        if not cls <= set(forbidden):
+            t1_wrong.append((call, sorted(cls - set(forbidden))[:8]))
+        if len(t1) == 5:
+            break
+    check("TIER 1: every same-spelled partner in the field is forbidden, "
+          "whatever its rank — on five call words drawn by seed whose "
+          "spelled-ending class has more than one member",
+          len(t1) == 5 and not t1_wrong,
+          t1_wrong or [(c, len(fields[c][2])) for c in t1])
+
+    # TIER 2. ~~`"prayer" in fs` for `hair`~~ (owner's ruling 2026-11-22:
+    # tier 2 bans at most the top 3 differently-spelled partners, ~~6~~ 3;
+    # `prayer` is fifth for `hair` and now offered). Five call words whose
+    # partner ranking runs past the cut; the differently-spelled words each
+    # field forbids are exactly the first `modal_exclusion` of that ranking.
+    whole = Reviser(lex=R.lex, rdecl=ReviseDeclaration(modal_exclusion=10 ** 6))
+    t2, t2_wrong = [], []
+    for call in calls:
+        ranking = whole.modal_head_evidenced(call)
+        if len(ranking) <= k:
+            continue
+        if call not in fields:
+            offered, forbidden = R.modal_field(call)
+            fields[call] = (offered, forbidden, same_class(call))
+        forb = fields[call][1]
+        tier2 = {w for w in forb if R._spelled_rime(w) != R._spelled_rime(call)}
+        t2.append(call)
+        if tier2 != set(ranking[:k]):
+            t2_wrong.append((call, sorted(tier2), ranking[:k]))
+        if len(t2) == 5:
+            break
+    check("TIER 2 digs into the DIFFERENTLY-spelled remainder — on five call "
+          f"words drawn by seed, the field forbids exactly the first {k} of "
+          "each one's partner ranking", len(t2) == 5 and not t2_wrong,
+          t2_wrong or t2)
+
+    # THE TWO COMPOSE. ~~`len(fs) > 6` for `hair`, "the ban is deeper than
+    # the old six"~~: the claim was that tier 1 has no cap. On the tier-1
+    # draws, the banned list is the whole spelled-ending class plus the
+    # tier-2 head and nothing else, and at least one of them bans more
+    # than `modal_exclusion` words.
+    comp_wrong, longest = [], 0
+    for call in t1:
+        _o, forb, cls = fields[call]
+        head = set(R.modal_head_evidenced(call))
+        if set(forb) != cls | head:
+            comp_wrong.append((call, sorted(set(forb) ^ (cls | head))[:8]))
+        longest = max(longest, len(forb))
+    check(f"...and the ban is deeper than {k}: the class plus the tier-2 head "
+          "and nothing else, so tier 1 has no cap",
+          t1 and not comp_wrong and longest > k,
+          comp_wrong or f"longest banned list {longest}")
+
+    # THE OFFERS. ~~the same three conditions for `hair` alone~~. On every
+    # word drawn above: something is offered, no offered word shares the
+    # call's spelled ending, and nothing banned is offered.
     # FIXED 2026-09-24: the same-spelled test here used the BARE
     # `spelled_rime` (last vowel group), which `spelled_rime`'s own docstring
     # says over-reaches on a word not stressed on its last group. The ban and
@@ -100,13 +177,17 @@ def test_two_tiers_compose():
     # the test's predicate differing from the verdict's. The check now asks
     # the verdict's predicate, so "the menu and the verdict cannot disagree"
     # is literally what it tests.
-    call_rime = R._spelled_rime("hair")
-    same = [w for w in offered if R._spelled_rime(w) == call_rime]
+    off_wrong = []
+    for call, (offered, forbidden, _cls) in fields.items():
+        rime = R._spelled_rime(call)
+        same = [w for w in offered if R._spelled_rime(w) == rime]
+        clash = sorted(set(offered) & set(forbidden))
+        if not offered or same or clash:
+            off_wrong.append((call, len(offered), same, clash))
     check("the OFFERS exclude both tiers — no same-spelled word, nothing "
-          "forbidden: the menu and the verdict cannot disagree",
-          offered and not same and not (set(offered) & fs),
-          f"{offered[:6]}; same-spelled -{call_rime}: {same}; forbidden "
-          f"offered: {sorted(set(offered) & fs)}")
+          "forbidden: the menu and the verdict cannot disagree, on every "
+          "word drawn above", fields and not off_wrong,
+          off_wrong or f"{len(fields)} call words")
 
 
 def test_pair_verdicts():

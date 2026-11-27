@@ -772,14 +772,12 @@ test('real warm/cold CLI refuses invalid usage and truncated candidates with aut
   const dir = await mkdtemp(path.join(tmpdir(), 'lyrics-real-provider-test-'));
   const draft = path.join(dir, 'draft.txt');
   // The draft only has to force one revision round, so the proposer is asked.
-  // Seven `elephant`s sat at TTR 9/15 = 0.600, 0.0013 under the lyric floor's
-  // LEXICAL_MONOTONY threshold at 15 tokens; the 2026-10-04 curve re-adoption
-  // moved that threshold to 0.5924 and the draft stopped flagging. Nine give
-  // 9/17 = 0.529, a margin that a routine re-adoption does not erase.
-  await writeFile(
-    draft,
-    'The elephant elephant elephant elephant elephant elephant elephant elephant elephant stove\nYour fingers brush my heavy coat\n'
-  );
+  // REPINNED 2026-11-22: ~~nine `elephant`s under the lyric floor's
+  // LEXICAL_MONOTONY threshold~~ — the word-variety check is removed (owner's
+  // ruling). The round is forced by the declared relation instead, as
+  // test_kitchen_repairs.mjs forces its own: 'sink' is not assonant with
+  // 'coat', so the pair fails and its later line is asked.
+  await writeFile(draft, 'Your fingers brush my heavy coat\nMy kettle whistles by the sink\n');
   try {
     for (const workerEnabled of [true, false])
       for (const invalidUsage of [true, false]) {

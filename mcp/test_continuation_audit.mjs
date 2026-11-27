@@ -10,6 +10,8 @@ import { BRIEFS, RUNS, _workerInternals, _verdictInternals } from './lyric_tools
 import { _agentInternals } from './gemini_agent.js';
 import { decodeState, encodeState } from './state_codec.js';
 import { stated } from './statement_fixture.mjs';
+import { createHash } from 'node:crypto';
+import { automaticFormCandidates } from './lyric_form.js';
 
 const peers = [];
 async function connect(native = false, session = null) {
@@ -508,12 +510,69 @@ test('F07: uncertified results retain their exit code and actionable coverage re
 });
 
 test('F08: native creation carries server revisions through repeated answers and reconnect', async () => {
-  let c = await connect(true);
-  verdict(await c.call('lyric_sweep', stated({ seed_from: 31, count: 1, lines: 12 })));
-  verdict(await c.call('lyric_plan', { seed: 31, lines: 12 }));
-  verdict(await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' }));
+  // THE SONG'S FORM IS NAMED, DRAWN BY SEED (REPINNED 2026-11-23, measured).
+  // ~~The sweep named no form~~, so the connector shuffled the whole catalog
+  // with an unseeded random number (`automaticFormCandidates`) and each run
+  // planned another song. On some of those songs one retry asked only two
+  // questions before the run stopped, and the third answer below had none to
+  // answer: camp-meeting-song (variant 1), forebitter (1) and
+  // hymn-with-refrain (0) did so in three of eight runs, with the same walk
+  // under the planner before and after the word-place ruling of that day. So
+  // the setting is now drawn by seed from the sorted 12-line candidates, as
+  // test_brief_gate.mjs does, and the first in that order that plans seed 31
+  // and leaves a flag standing on the draft is used: a song on which the
+  // draft stands clean asks nothing, and has no revision to carry.
+  // REPINNED 2026-11-23: ~~attempts: 1~~ -> one attempt per answer below. The
+  // loop asks an open line once at each attempt before it gives the line up,
+  // so as many attempts as answers ask the first open line that many times on
+  // whatever form is drawn. Nothing this test claims rested on one attempt:
+  // the revision and reconnect checks read whichever question is asked.
+  const answers = 3;
+  const key = (x) => JSON.stringify([x.id, x.variant, x.counts]);
+  const settings = (await automaticFormCandidates({ lines: 12 })).sort((x, y) =>
+    key(x) < key(y) ? -1 : key(x) > key(y) ? 1 : 0
+  );
+  const draw = (k, n) =>
+    parseInt(
+      createHash('sha256')
+        .update(JSON.stringify(['F08', k]))
+        .digest('hex')
+        .slice(0, 8),
+      16
+    ) % n;
   const draft = Array(12).fill('The kettle whistles by the stove');
-  verdict(await c.call('lyric_grade', { seed: 31, lines: 12, draft }));
+  const passedOver = [];
+  const quiet = (result) => (result.isError ? null : verdict(result));
+  let c = null;
+  const start = draw('setting', settings.length);
+  for (let j = 0; j < settings.length && !c; j++) {
+    const setting = settings[(start + j) % settings.length];
+    const counts = Object.entries(setting.counts).map(([path, count]) => ({ path, count }));
+    const named = {
+      catalog_form: setting.id,
+      catalog_variant: setting.variant,
+      ...(counts.length && { catalog_counts: counts }),
+    };
+    const trial = await connect(true);
+    const swept = quiet(
+      await trial.call('lyric_sweep', stated({ seed_from: 31, count: 1, lines: 12, ...named }))
+    );
+    const planned =
+      swept?.exit_code === 0 && quiet(await trial.call('lyric_plan', { seed: 31, lines: 12 }));
+    if (planned?.exit_code === 0) {
+      verdict(
+        await trial.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' })
+      );
+      const graded = verdict(await trial.call('lyric_grade', { seed: 31, lines: 12, draft }));
+      if (graded.exit_code === 3) c = trial;
+      else passedOver.push(`${setting.id}:${setting.variant} grade exit ${graded.exit_code}`);
+    } else
+      passedOver.push(
+        `${setting.id}:${setting.variant} ${swept?.exit_code === 0 ? 'plan' : 'sweep'} not accepted`
+      );
+    if (c !== trial) await trial.close();
+  }
+  assert.ok(c, `no 12-line setting plans seed 31 with a flag standing: ${passedOver.join('; ')}`);
   let v = verdict(
     await c.call('lyric_revise', {
       seed: 31,
@@ -521,11 +580,11 @@ test('F08: native creation carries server revisions through repeated answers and
       draft,
       writer: 'interview',
       max_rounds: 2,
-      attempts: 1,
+      attempts: answers,
       backtrack: 0,
     })
   );
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < answers; i++) {
     assert.equal(v.exit_code, 4);
     const snapshot = c.snapshot();
     assert.equal(snapshot.continuation.args.run_id, v.run_id);

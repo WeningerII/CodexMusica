@@ -507,6 +507,110 @@ class PronunciationChoices(unittest.TestCase):
                 self.assertIn(f"{a + '--' + b!r} at v1 token 1", said)
                 self.assertIn(f'1 {a!r}, 2 {b!r}, 3 {c!r}', said)
 
+    def test_a_place_past_the_end_of_its_line_is_kept_for_the_grade_to_mark(self):
+        # THE OWNER'S RULING "MARK THE LINE" (2026-11-23). A group's place past
+        # the end of its line under every numbering the call reads is kept as
+        # written, for the grade to flag; in a return it is refused, in the
+        # flag's own words. A place one of those numberings holds, even as the
+        # line's last word, resolves or refuses as before. Lines are drawn by
+        # seed from the dictionary.
+        import random
+        lex = copy.copy(self.base.with_reader_scheme('v2'))
+        lex._numbering_guard = True
+        lex._numbering_notices = []
+        pool = sorted(w for w in lex.entries if w.isalpha() and w.islower() and 3 <= len(w) <= 8)
+        counts = {'kept': 0, 'resolved': 0, 'refused': 0}
+        for seed in range(40):
+            rng = random.Random(f'short place {seed}')
+            words = rng.sample(pool, rng.randint(3, 9))
+            n = len(words)
+            line, other = ' '.join(words), ' '.join(rng.sample(pool, 3))
+            past = n + 1 + rng.randrange(5)
+            with self.subTest(seed=seed, case='past the end'):
+                for numbering in (None, 'v1', 'v2'):
+                    kept = P.numbered_groups([[f'1.T{past}', '2.end']], [line, other], lex, numbering)
+                    self.assertEqual(kept, [[f'1.T{past}', '2.end']])
+                    self.assertEqual(P.short_place(line, past, lex, numbering), (n, 0))
+                    with self.assertRaises(ValueError) as refused:
+                        P.numbered_groups([[f'1.T{past}', '2']], [line, other], lex, numbering,
+                                          returns=True)
+                    self.assertEqual(str(refused.exception), P.short_line_sentence(
+                        1, n, past, 'A return'))
+                    self.assertTrue(str(refused.exception).startswith(
+                        f'Line 1 has {n} words. A return names its word {past}. '
+                        f'Write line 1 with at least {past} words.'))
+                    counts['kept'] += 1
+            with self.subTest(seed=seed, case='the last word'):
+                self.assertIsNone(P.short_place(line, n, lex))
+                self.assertEqual(P.numbered_groups([[f'1.T{n}', '2.end']], [line, other], lex),
+                                 [[f'1.T{n}', '2.end']])
+                counts['resolved'] += 1
+            # Two words joined by two hyphens are one word under v1 and two
+            # under v2: a place n + 1 is the last word under v2 and past the
+            # end under v1, so it resolves under v2 (R2's condition), and
+            # declared under v1 it refuses as before, saying what v1 holds.
+            joined = ' '.join([f'{words[0]}--{words[1]}'] + words[2:])
+            with self.subTest(seed=seed, case='one numbering holds it'):
+                self.assertIsNone(P.short_place(joined, n, lex))
+                self.assertEqual(P.numbered_groups([[f'1.T{n}', '2.end']], [joined, other], lex),
+                                 [[f'1.T{n}', '2.end']])
+                with self.assertRaisesRegex(ValueError, f'the line has {n - 1} sung tokens'):
+                    P.numbered_groups([[f'1.T{n}', '2.end']], [joined, other], lex, 'v1')
+                self.assertEqual(P.numbered_groups([[f'1.T{n + 1}', '2.end']], [joined, other],
+                                                   lex), [[f'1.T{n + 1}', '2.end']])
+                self.assertEqual(P.short_place(joined, n + 1, lex), (n, 0))
+                counts['refused'] += 1
+            # Words in parentheses: left out of the count unless `voices` is
+            # set, and the sentence says so.
+            aside = ' '.join(words[:-2] + [f'({words[-2]})', f'({words[-1]})'])
+            with self.subTest(seed=seed, case='words in parentheses'):
+                self.assertEqual(P.short_place(aside, n - 1, lex), (n - 2, 2))
+                with self.assertRaises(ValueError) as refused:
+                    P.numbered_groups([[f'1.T{n - 1}', '2']], [aside, other], lex, returns=True)
+                self.assertIn('(words in parentheses are not counted unless `voices` is set',
+                              str(refused.exception))
+                voiced = copy.copy(lex)
+                voiced.strip_parens = False
+                self.assertIsNone(P.short_place(aside, n - 1, voiced))
+        self.assertGreater(min(counts.values()), 0, counts)
+
+    def test_the_return_refusal_and_the_line_flag_print_the_same_counts(self):
+        # One line, one place past its end: the grade's flag on the line and
+        # a return's refusal of the same place say the same two counts, the
+        # words the line has and the words it needs, with the parentheses
+        # clause in both or in neither. Only who names the word differs.
+        # Lines are drawn by seed from the dictionary.
+        import random
+        from quality import revise as RV, schemes as SC
+        lex = self.base
+        pool = sorted(w for w in lex.entries if w.isalpha() and w.islower() and 3 <= len(w) <= 8)
+        compared = 0
+        for seed in range(6):
+            rng = random.Random(f'same counts {seed}')
+            words = rng.sample(pool, rng.randint(3, 9))
+            n = len(words)
+            other = ' '.join(rng.sample(pool, 3))
+            past = n + 1 + rng.randrange(5)
+            plain = ' '.join(words)
+            aside = ' '.join(words[:-1] + [f'({words[-1]})'])
+            for case, line in (('plain', plain), ('words in parentheses', aside)):
+                with self.subTest(seed=seed, case=case):
+                    got = RV.Reviser(lex=lex).inspect(
+                        [line, other], SC.mandate([[f'1.T{past}', '2']], n_lines=2))
+                    flags = [f.message for f in got['per_line'].get(1, ())
+                             if f.code == 'SCHEME_VIOLATION' and f.message.startswith('Line 1 has ')]
+                    self.assertEqual(len(flags), 1, got['per_line'].get(1))
+                    with self.assertRaises(ValueError) as refused:
+                        P.numbered_groups([[f'1.T{past}', '2']], [line, other], lex, returns=True)
+                    flag, refusal = flags[0].split('. '), str(refused.exception).split('. ')
+                    self.assertEqual(len(flag), 3, flags[0])
+                    self.assertEqual((flag[0], flag[2]), (refusal[0], refusal[2]))
+                    self.assertTrue(flag[1].startswith('Group '), flags[0])
+                    self.assertTrue(refusal[1].startswith('A return '), refusal)
+                    self.assertEqual('words in parentheses' in flag[0], case != 'plain', flags[0])
+                    compared += 1
+        self.assertEqual(compared, 12)
+
     def test_private_numbering_normalization_compares_physical_occurrences(self):
         import json, os, subprocess, tempfile
         with tempfile.TemporaryDirectory() as directory:

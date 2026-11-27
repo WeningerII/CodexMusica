@@ -949,11 +949,18 @@ def test_model_proposer_drives_a_real_loop_to_success():
     # per-line work closes with nothing unjudged. MEASURED: unresolved [],
     # certified, whole-draft flags remain. Invariant kept: what is left is
     # exactly the unjudged set, and certification follows it.
+    # REPINNED 2026-11-22 (owner's ruling): ~~and retains remaining global
+    # work~~ (`whole_draft_unresolved`, whole-draft flags standing). The one
+    # whole-draft flag this draft carried was the word-variety check's
+    # LEXICAL_MONOTONY, which is removed, so with the per-line work closed
+    # the run is a SUCCESS and no whole-draft flag stands. That a standing
+    # whole-draft flag still holds a run open is pinned in test_loop §14.
     check("the line writer clears judged per-line work and retains unknown "
-          "readings and remaining global work",
+          "readings; with no whole-draft flag left on this draft, that is "
+          "success",
           res.unresolved == res.unresolved_unjudged
-          and res.stop_reason == "whole_draft_unresolved"
-          and bool(res.whole_flags)
+          and res.stop_reason == "success"
+          and not res.whole_flags
           and res.coverage['certified'] == (not res.unresolved_unjudged),
           (res.stop_reason, [b.line_no for b in res.unresolved],
            res.coverage['certified']))

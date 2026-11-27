@@ -577,10 +577,9 @@ DISPOSITIONS = {
 #: new note cannot join the silent majority without somebody deciding it
 #: should — which is the gate this list did not have.
 DISPOSITION = {
-    # Required return/anaphora identity is satisfied, while the same raw
-    # repetition metric remains visible. Rewriting it would violate the task.
-    "LEXICAL_REPETITION_DECLARED": "SATISFIED",
-    "ANAPHORA_DECLARED": "SATISFIED",
+    # ~~LEXICAL_REPETITION_DECLARED and ANAPHORA_DECLARED: SATISFIED~~ —
+    # removed 2026-11-22 with the word-variety and same-first-word checks
+    # they were the declared-repeat notes of (owner's ruling).
     # --- quality/grid.py: the SHAPE layer. Conventions, near enough entire.
     "DOWNBEAT_LOCKED": "CONVENTION",
     "METER_LOCKED": "CONVENTION",
@@ -854,7 +853,12 @@ def by_disposition(c=None):
 # REPINNED 2026-11-20 (owner's ruling: a word may rhyme with itself):
 # REPEAT_IN_VERSE is a note at every length, so it stops gating and carries
 # an ALLOWED ruling: 80/20/60 -> 80/19/61.
-PINNED = {'codes': 80, 'gated': 19, 'disclosed_only': 61, 'undecidable': 0,
+# REPINNED 2026-11-22 (owner's ruling): the word-variety and same-first-word
+# checks are removed. Three gated codes leave (LEXICAL_MONOTONY,
+# ANAPHORA_OVERLOAD, MATTR_WINDOW_UNCALIBRATED) and two disclosed ones with
+# their rulings (LEXICAL_REPETITION_DECLARED, ANAPHORA_DECLARED); no other
+# code or disposition moves: ~~80/19/61~~ -> 75/16/59.
+PINNED = {'codes': 75, 'gated': 16, 'disclosed_only': 59, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

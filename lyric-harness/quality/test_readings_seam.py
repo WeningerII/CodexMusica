@@ -665,7 +665,7 @@ def test_the_guards_now_fire():
 #    test is the fourth inert coordinate wearing a fix
 # ---------------------------------------------------------------------------
 
-#: the ~~64~~ ~~63~~ ~~64~~ 63 of ~~78~~ 80 schemas whose channel map touches a patched reader
+#: the ~~64~~ ~~63~~ ~~64~~ ~~63~~ 62 of ~~78~~ ~~80~~ 79 schemas whose channel map touches a patched reader
 #: (63 since 2026-09-24: #375 dropped assonance's `coda DIFFER`).  Measured
 #: rather than listed, so a new schema is covered the day it lands.
 AFFECTED = sorted(n for n, s in R.REGISTRY.items()
@@ -719,8 +719,10 @@ def test_end_to_end():
     # MOVED ~~64~~ -> 63, 2026-10-31 (`MISSING.md` M-311 F1, #657): `mosaic
     # rhyme` read `coda` syllable by syllable and now reads `rime_phones`, one
     # phone string from the first vowel, so it leaves the seam.
+    # MOVED ~~63~~ -> 62, 2026-11-22 (owner's ruling: the declared trite
+    # pairs come out, and `trite rhyme` with them): it read `coda` AGREE.
     check(f"{len(AFFECTED)} of {len(R.REGISTRY)} schemas read onset / coda / "
-          f"consonants / phones", len(AFFECTED) == 63
+          f"consonants / phones", len(AFFECTED) == 62
           and "assonance" not in AFFECTED
           and "internal assonance" not in AFFECTED
           and "internal consonance" in AFFECTED,

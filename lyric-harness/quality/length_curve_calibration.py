@@ -4,7 +4,7 @@
     python3 quality/length_curve_calibration.py compute --out rows.tsv \\
         [--without-predictability] [--shard I/K] [--cache-path P]
     python3 quality/length_curve_calibration.py fit rows.tsv [more.tsv ...] \\
-        [--seeds 200] [--checks mattr,fwr,anaphora,cv,predictability] \\
+        [--seeds 200] [--checks fwr,cv,predictability] \\
         [--picks check=MODEL,...]   # a DECLARED pick for the in-sample
                                     # sections, printed as an override; the
                                     # shipped predictability knot table was
@@ -975,10 +975,10 @@ def cmd_fit(a):
 # pick holds and passes every bin, so the models are unchanged and only the
 # coefficients, knots, range and held-out rates were re-adopted as a set.
 # Measurement: quality/results/m25_residue_2026-10-15/curves-measurement.txt.
-SHIPPED_MODEL = {"mattr": "C1", "fwr": "C1", "anaphora": "C2", "cv": "C2",
-                 "predictability": "CK"}
-KEY_OF = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
-          "anaphora": "anaphora_max", "cv": "line_length_cv_min",
+# The word-variety (mattr) and same-first-word (anaphora) curves were removed
+# with their checks by the owner's ruling, 22 Nov 2026.
+SHIPPED_MODEL = {"fwr": "C1", "cv": "C2", "predictability": "CK"}
+KEY_OF = {"fwr": "function_word_ratio_max", "cv": "line_length_cv_min",
           "predictability": "predictable_pair_fraction_max"}
 REL_TOL = 1e-6
 
@@ -1019,15 +1019,6 @@ def cmd_check(a):
         print("MOVED: the lyric range was %r, measured %r; do not extrapolate a stale boundary"
               % ((prof.lo, prof.hi), measured_range))
         sys.exit(1)
-    ttr_population = {"window": C.MATTR_WINDOW,
-                      "items": sum(row["n_tokens"] <= C.MATTR_WINDOW for row in rows)}
-    recorded_ttr_population = getattr(prof, "mattr_ttr_population", None)
-    if recorded_ttr_population != ttr_population:
-        print("MOVED: the lyric MATTR/TTR population was %r, measured %r"
-              % (recorded_ttr_population, ttr_population))
-        sys.exit(1)
-    print("MATTR/TTR  %d of %d items degenerate at calibration window %d -> HOLDS"
-          % (ttr_population["items"], len(rows), ttr_population["window"]))
     bins = make_bins(rows)
     moved = []
     for f, m in SHIPPED_MODEL.items():
@@ -1079,7 +1070,7 @@ def main():
                    help="exact independent seed partitions; results retain original seed order")
     f.add_argument("--allow-unverified-rows", action="store_true",
                    help="historical/exploratory fit only; never accepted by the current check gate")
-    f.add_argument("--checks", default="mattr,fwr,anaphora,cv,predictability")
+    f.add_argument("--checks", default="fwr,cv,predictability")
     f.add_argument("--report", help="write full-precision adoption measurements with provenance as JSON")
     f.add_argument("--picks", default=None,
                    help="check=MODEL,... — force the picks for the in-sample sections (disclosed)")
