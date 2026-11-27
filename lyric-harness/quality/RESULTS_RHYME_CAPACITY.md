@@ -75,6 +75,21 @@ the family. The largest witnessed group is a lower bound, not a proven
 maximum. Measured apart, the anchor alone takes the 20-class tier from 82
 families to 11, and the letter line-up alone from 82 to 80.
 
+**Re-derived 2026-11-27 under the 3-partner ban.** Since 2026-11-27 the
+second tier bans a rhyme word's 3 most predictable differently spelled
+partners; it was 6. Tier 1 does not read that number: the 39,969 words, the
+12,381 families and the four counts above are unchanged. The six witnesses
+were constructed again and three sizes moved: `IY-Z` ~~36~~ **37**, `UW`
+~~27~~ **26**, `UW-Z` ~~20~~ **21**. `IY` (40), `EY` (30) and `OW` (24) keep
+their size and change some words. MEASURED on this tree: declaring 6
+partners rebuilds the 2026-11-22 table word for word and the default 3
+gives this one, so the partner count is the only cause. All six 2026-11-22
+witnesses still pass whole under the 3-partner ban, the 27-word `UW` group
+among them. `UW` reads 26 because the construction is a bounded greedy
+repair that took another path under the looser ban, not because a group
+was lost: each figure is a lower bound. `--check` re-grades the six new
+witnesses whole (2,692 pairs) under the full two-tier ban.
+
 **Was:** The 2026-10-30 headline (M-322), retained for its history. 39,969 words in 12,381 first-reading
 construction families (previously 12,387). The tier 1 counts are 2,813 pools
 with at least 2 spelling classes, 591 with at least 5, 163 with at least 12,

@@ -275,8 +275,8 @@
         },
         {
           "path": "data/rhyme_capacity_eng.tsv",
-          "bytes": 494363,
-          "sha256": "b9103965e9435ce2738788f4b8799d132d405f3eb996024cf70fa31c5a5a8835"
+          "bytes": 494358,
+          "sha256": "8b1a5f07bdff1ce849d9d83eeb23dfae40ad1a05d099f78c83a70a842819adcb"
         },
         {
           "path": "data/siku_orthography.tsv",

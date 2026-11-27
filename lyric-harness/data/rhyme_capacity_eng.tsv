@@ -1,12 +1,12 @@
 #judge	data/song_endword_en.tsv=85283645e989be61d0f05abc09b32c4d	data/song_rhymepair_en.tsv=fb851397681b69c06284e27c158d83f0
-#certification-source	2d88eee699ff2cbace48391d376665b163f30bc2e7a7a42be97098eeba91ba3d
+#certification-source	f76a445d609d7c2df9a20c67a5802751a0cb09ff4bd971fd14189eed7b3fc0ca
 relation	family	words	classes	chain_hi	certified	chain_lo	witness	examples
-RHYME	IY	342	65	65	1	40	we agree probably tv key tea maggie li hawaii louie cd dvd dc nypd debris bbc vip asap bp cctv lapd pc hiv kgb suv ac leigh bc cc phd mit nbc lsd cdc abc mtv prix vp ptsd tb	we see probably tv key sea maggie li
-RHYME	IY-Z	136	37	37	1	36	disease chinese keys rupees cheese freeze companies jeez louise hercules fleas expertise ds cds ruiz ids dvds skis tvs gs ps keyes trapeze vips belize cs sleaze stds zs suvs acs cvs lps reis pcs dcs	please these keys sees cheese freeze companies jeez
-RHYME	EY	287	30	30	1	30	they okay ok dna re cia tae ballet yea sleigh dj sensei uk renee lingerie olivier faye jfk baa chez dalai calais aaa oj inoue dk andrzej parfait kkk wy	they okay ok dna re cia tae ballet
-RHYME	UW	229	27	27	1	27	lou to woo few breakthrough clue ooh canoe yu que hugh oooh rendezvous coup queue debut iq chiu adieu sioux deux jus bleu bbq ewe roux suu	you to too new through true ooh shoe
-RHYME	OW	315	24	24	1	24	hello tomorrow oh though whoa joe owe ohh ceo au poirot sew beau gogh bordeaux renault kayo margaux arnaud peugeot truffaut apropos pernod shindou	no know oh though whoa joe owe ohh
-RHYME	UW-Z	82	21	21	1	20	news whose canoes accuse booze cruise blues tattoos cruz hughes hewes hindus twos sous toulouse breakthroughs queues luiz chartreuse oohs	news lose shoes choose refuse booze cruise blues
+RHYME	IY	342	65	65	1	40	we three probably tv key tea maggie li hawaii louie cd dvd dc nypd debris bbc vip asap bp cctv lapd pc hiv kgb suv ac leigh bc cc phd mit nbc lsd cdc abc mtv prix vp ptsd tb	we see probably tv key sea maggie li
+RHYME	IY-Z	136	37	37	1	37	disease chinese keys degrees cheese freeze companies jeez louise hercules seize peas expertise ds cds ruiz ids dvds skis tvs gs ps keyes trapeze vips belize cs sleaze stds zs suvs acs cvs lps reis pcs dcs	please these keys sees cheese freeze companies jeez
+RHYME	EY	287	30	30	1	30	they okay ok dna re cia tae ballet yea weigh dj sensei uk renee lingerie olivier faye jfk baa chez dalai calais aaa oj inoue dk andrzej parfait kkk wy	they okay ok dna re cia tae ballet
+RHYME	UW	229	27	27	1	26	lou to boo knew through sue ooh canoe fu que hugh oooh rendezvous coup debut iq chiu adieu sioux deux jus bleu bbq ewe roux suu	you to too new through true ooh shoe
+RHYME	OW	315	24	24	1	24	hello show oh though whoa joe owe ohh ceo au poirot sew beau gogh bordeaux renault kayo margaux arnaud peugeot truffaut apropos pernod shindou	no know oh though whoa joe owe ohh
+RHYME	UW-Z	82	21	21	1	21	news whose canoes choose fuse booze cruise blues tattoos cruz hughes hewes hindus twos sous toulouse breakthroughs queues luiz chartreuse oohs	news lose shoes choose refuse booze cruise blues
 RHYME	EH-S	72	18	18	0			yes guess ls gps ss abs irs cbs
 RHYME	EY-Z	109	17	17	0			always raise phase hayes gaze weighs tres entrees
 RHYME	AO-R	111	15	15	0			for your more door war drawer corps roar
