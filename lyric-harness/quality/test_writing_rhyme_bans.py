@@ -135,6 +135,55 @@ class WritingRhymeBanTests(unittest.TestCase):
                 with self.subTest(pair=(a, b)):
                     self.assertTrue(modal(draft(a, b, k)))
 
+    def test_the_spelled_ending_starts_at_the_rhyming_vowel(self):
+        # Bug hunt finding 17 (2026-11-21). The ending was cut by counting
+        # groups of vowel LETTERS where it needed vowel SOUNDS, and it was
+        # anchored on the last primary stress where the rhyme judge anchors
+        # on the latest stress of either kind. The owner's ruling, 2026-11-22:
+        # the rule is the sentence writers are shown, spelled the same from
+        # the stressed vowel on, and a shared ending such as -ly or -ment is
+        # not by itself the same spelled ending.
+        endings = {
+            "nicely": "icely", "precisely": "isely",
+            "placement": "acement", "basement": "asement",
+            "lately": "ately", "greatly": "eatly",
+            "create": "ate", "relate": "ate",
+            "desiring": "iring", "firing": "iring",
+            "desire": "ire", "fire": "ire",
+            "sunlight": "ight", "tight": "ight",
+            "queen": "een", "green": "een",
+            "isles": "isles", "smiles": "iles",
+            # unchanged, and they must stay unchanged
+            "hair": "air", "chair": "air", "silver": "ilver",
+            "deliver": "iver", "singing": "inging", "ringing": "inging",
+        }
+        for word, want in endings.items():
+            with self.subTest(word=word):
+                self.assertEqual(self.writer._spelled_rime(word), want)
+        blocked = (("create", "relate"), ("desiring", "firing"),
+                   ("desire", "fire"), ("sunlight", "tight"),
+                   ("queen", "green"), ("singing", "ringing"))
+        allowed = (("nicely", "precisely"), ("placement", "basement"),
+                   ("lately", "greatly"), ("isles", "smiles"))
+        # No rule is declared for the group, so every kind of rhyme counts
+        # and the only question left is whether the spelling ban stops it.
+        m = mandate([[1, 2]], n_lines=2)
+        for a, b in blocked + allowed:
+            with self.subTest(pair=(a, b)):
+                lines = [f"We walked along and spoke of {a}",
+                         f"And all the while we thought of {b}"]
+                found = self.writer.inspect(lines, m)
+                self.assertFalse(found["grade"]["violations"])
+                caught = any(f.code == "HOMEOTELEUTON" for f in bans(found))
+                self.assertEqual(caught, (a, b) in blocked)
+
+    def test_a_word_that_does_not_line_up_keeps_the_old_ending(self):
+        # An initialism has sounds no letter spells, so the letters cannot be
+        # lined up with them. The ending falls back to the form used before
+        # finding 17, and never to a guess.
+        self.assertEqual(self.writer._spelled_rime("tv"),
+                         LH.spelled_rime("tv", stress_from_end=1))
+
     def test_a_quote_mark_on_a_partner_word_does_not_empty_the_search_s_ban_list(self):
         """The review of the bug hunt's fixes, 2026-11-23: finding 18 on the
         other path. `earned_pair_ban` folds an end word before it looks up
@@ -352,6 +401,238 @@ class WritingRhymeBanTests(unittest.TestCase):
                     self.assertNotIn(call, self.writer._widen_pool(bare))
         self.assertGreater(pooled, 0, "PREMISE: at least one of them has a "
                            "widened pool")
+
+    def test_a_word_stressed_two_ways_is_cut_on_the_reading_that_rhymes(self):
+        # Found 2026-11-23, following finding 17. The ending was cut on the
+        # word's FIRST dictionary reading only. `combat` reads COM-bat first,
+        # so its ending was `ombat`, and cat/combat was never asked, though
+        # the pair rhymes on com-BAT and is spelled -at from that vowel on.
+        # The cut is taken on the reading the two words rhyme on.
+        m = pair_mandate()
+
+        def caught(a, b):
+            lines = [f"We left the table for the {a}",
+                     f"And nothing here will hold the {b}"]
+            found = self.writer.inspect(lines, m)
+            self.assertFalse(found["grade"]["violations"], (a, b))
+            return any(f.code == "HOMEOTELEUTON" for f in bans(found))
+
+        # The rhyme is on the word's second reading, either way round.
+        for a, b in (("cat", "combat"), ("combat", "cat"),
+                     ("went", "content"), ("strict", "convict")):
+            with self.subTest(second_reading=(a, b)):
+                self.assertNotEqual(self.writer._spelled_rime(a),
+                                    self.writer._spelled_rime(b))
+                self.assertTrue(caught(a, b))
+        # The rhyme is on the first reading: caught before, caught still.
+        for a, b in (("sun", "begun"), ("night", "light")):
+            with self.subTest(first_reading=(a, b)):
+                self.assertTrue(caught(a, b))
+        # Spelled another way from that vowel on: still not this ban.
+        for a, b in (("matte", "combat"), ("meant", "content")):
+            with self.subTest(other_spelling=(a, b)):
+                self.assertFalse(caught(a, b))
+
+    def test_only_a_stressed_vowel_sets_a_cut(self):
+        # A reading with no stressed vowel starts no rhyme of its own, so it
+        # adds no ending: the bare last syllable would make one banned class
+        # of every word in -er, which the owner ruled out.
+        readings = self.writer._spelled_rime_readings
+        self.assertEqual({spell for _, spell in readings("combat")},
+                         {"ombat", "at"})
+        self.assertEqual({spell for _, spell in readings("cat")}, {"at"})
+        for word in ("the", "a", "of"):
+            with self.subTest(word=word):
+                for phones in self.writer.lex.pronunciation_variants(word):
+                    if not any(p[-1:] in "12" for p in phones):
+                        self.assertNotIn(
+                            LH.spelled_rime(word),
+                            {spell for sound, spell in readings(word)
+                             if sound == tuple(q.rstrip("012") for q in phones)})
+
+    def _drawn_readings(self):
+        """12,000 dictionary words drawn by seed -> {word: its ways}."""
+        if not hasattr(type(self), "_drawn"):
+            import random
+            words = sorted(w for w in self.writer.lex.entries
+                           if w.isalpha() and len(w) > 1)
+            drawn = random.Random(20261123).sample(words, 12000)
+            type(self)._drawn = {
+                w: self.writer._spelled_rime_readings(w) for w in drawn}
+        return type(self)._drawn
+
+    def test_a_further_reading_never_moves_the_first_readings_letters(self):
+        # Measured 2026-11-23 on the first draft of this fix: each further
+        # reading was lined up with the letters afresh, and one with its r
+        # left unsounded came out wrong (`square` as 'e', which then met
+        # `anywhere`, 'are' against 'ere'). The letters are cut on the first
+        # reading's own line-up; a further reading only says which vowel.
+        same = self.writer._same_spelled_ending
+        self.assertIsNone(same("square", "anywhere"))
+        self.assertIsNone(same("anywhere", "square"))
+        self.assertEqual(same("fire", "berkshire"), "ire")
+
+        def place(phones):
+            vowels = [p for p in phones if p[-1:].isdigit()]
+            last = max((n for n, p in enumerate(vowels) if p[-1] in "12"),
+                       default=None)
+            return len(vowels), last
+
+        lex, one_vowel = self.writer.lex, 0
+        for word, ways in self._drawn_readings().items():
+            own = self.writer._spelled_rime(word)
+            for _, letters in ways:
+                self.assertTrue(word.endswith(letters), (word, letters))
+            if ways:
+                self.assertEqual(ways[0][1], own, word)
+            places = {place(ph) for ph in lex.pronunciation_variants(word)}
+            if len(places) == 1 and None not in next(iter(places)):
+                # Every reading stresses the same vowel: one spelled ending,
+                # however many ways the word is sounded.
+                one_vowel += len(lex.pronunciation_variants(word)) > 1
+                self.assertEqual({letters for _, letters in ways}, {own}, word)
+        self.assertGreater(one_vowel, 1000)
+
+    def test_same_spelled_ending_is_one_answer_for_a_pair(self):
+        # Two words can share more than one ending. The first draft named
+        # whichever ending the first word's readings listed first, so the
+        # ban's own sentence depended on line order.
+        same = self.writer._same_spelled_ending
+        self.assertEqual(same("coordinates", "subordinates"), "ordinates")
+        self.assertEqual(same("subordinates", "coordinates"), "ordinates")
+        # THE RULE, restated from the readings and held over the draw:
+        # (1) equal first-reading endings are caught, as before this change;
+        # (2) otherwise the pair is caught when it rhymes on some reading of
+        #     each and every such rhyme is spelled the same from its vowel on.
+        # The last clause is the owner's standing rule that a word passes if
+        # any way of singing it works.
+        drawn = self._drawn_readings()
+        by_sound = {}
+        for word, ways in drawn.items():
+            for sound, _ in ways:
+                by_sound.setdefault(sound, set()).add(word)
+        two = sorted(w for w, ways in drawn.items()
+                     if len({letters for _, letters in ways}) > 1)
+        self.assertGreater(len(two), 50)
+        asked = caught_only_by_reading = 0
+        for a in two:
+            for b in sorted(set().union(*(by_sound[s] for s, _ in drawn[a]))):
+                if b == a:
+                    continue
+                asked += 1
+                got = same(a, b)
+                self.assertEqual(got, same(b, a), (a, b))
+                ka, kb = (self.writer._spelled_rime(w) for w in (a, b))
+                if ka == kb:
+                    self.assertEqual(got, ka, (a, b))
+                    continue
+                spell_a, spell_b = {}, {}
+                for into, word in ((spell_a, a), (spell_b, b)):
+                    for sound, letters in drawn[word]:
+                        into.setdefault(sound, set()).add(letters)
+                rhymes = set(spell_a) & set(spell_b)
+                agree = all(spell_a[s] == spell_b[s] and len(spell_a[s]) == 1
+                            for s in rhymes)
+                self.assertEqual(bool(got), bool(rhymes) and agree, (a, b))
+                caught_only_by_reading += bool(got)
+        self.assertGreater(asked, 500)
+        self.assertGreater(caught_only_by_reading, 50)
+        # A pair that rhymes two ways, spelled the same on one and
+        # differently on the other, is left alone, as it was before.
+        self.assertEqual(
+            {letters for _, letters in self.writer._spelled_rime_readings("defect")},
+            {"efect", "ect"})
+        self.assertIsNone(same("defect", "effect"))
+        self.assertIsNone(same("effect", "defect"))
+        self.assertEqual(same("collect", "defect"), "ect")
+
+    def test_the_search_asks_the_ban_s_own_question_of_a_word_stressed_two_ways(self):
+        """Following finding 17, 2026-11-23. The ban reads a word's other
+        stress readings. The search has to read them too, or it offers a
+        word the ban then refuses (`cat` for a line ending in `combat`).
+
+        Calls are drawn by seed from the dictionary, in pairs: a word that
+        gains an ending on a further reading, and a word with one ending
+        that shares it. Four pairs whose searches both offer something."""
+        import random
+        rng = random.Random(20261123)
+        drawn = self._drawn_readings()
+        key, same = self.writer._spelled_rime, self.writer._same_spelled_ending
+        two = sorted(w for w, ways in drawn.items()
+                     if len({letters for _, letters in ways}) > 1)
+        one_ending = {}
+        for word, ways in drawn.items():
+            if ways and len({letters for _, letters in ways}) == 1:
+                one_ending.setdefault(ways[0], []).append(word)
+        calls = []
+        for word in rng.sample(two, len(two)):
+            mates = sorted(m for way in drawn[word][1:] if way[1] != key(word)
+                           for m in one_ending.get(way, ()))
+            if not mates:
+                continue
+            mate = rng.choice(mates)
+            if all(self.writer.joint_field([c])[0] for c in (word, mate)):
+                calls += [word, mate]
+            if len(calls) == 8:
+                break
+        self.assertEqual(len(calls), 8, calls)
+        m = pair_mandate()
+
+        def graded(a, b):
+            found = self.writer.inspect(
+                [f"We left the table for the {a}",
+                 f"And nothing here will hold the {b}"], m)
+            grade = found["grade"]
+            rich = any("RIME_RICHE" in v["relations"]
+                       for v in grade["verdicts"])
+            return (not grade["violations"] and not rich,
+                    {f.code for f in bans(found)})
+
+        refused = 0
+        for call in calls:
+            offered, forbidden = self.writer.joint_field([call])
+            with self.subTest(call=call):
+                # Nothing offered is a word the ban's own question catches.
+                self.assertEqual([w for w in offered if same(w, call)], [])
+                for word in offered[:3]:
+                    self.assertNotIn("HOMEOTELEUTON", graded(call, word)[1],
+                                     (call, word))
+                # What only a further reading forbids, the ban refuses too.
+                newly = [w for w in forbidden
+                         if same(w, call) and key(w) != key(call)]
+                for word in newly[:2]:
+                    plain_rhyme, codes = graded(call, word)
+                    if plain_rhyme:
+                        self.assertIn("HOMEOTELEUTON", codes, (call, word))
+                        refused += 1
+        self.assertGreater(refused, 3, "PREMISE: pairs only a further "
+                           "reading forbids, graded as rhymes")
+
+    def test_a_word_that_cannot_share_an_ending_is_not_read_reading_by_reading(self):
+        # The search asks the same-ending question of every candidate of
+        # every call. Measured 2026-11-23 over 90 calls: reading each
+        # candidate reading by reading took the search from 94 to 334
+        # seconds. A candidate can share an ending with the call only if it
+        # ends in one of the call's endings, which its spelling alone says.
+        asked = []
+        real = Reviser._spelled_rime_readings
+
+        def counted(reviser, word):
+            asked.append(word)
+            return real(reviser, word)
+
+        same = self.writer._same_spelled_ending
+        with patch.object(Reviser, "_spelled_rime_readings", counted):
+            self.assertIsNone(same("zebra", "cat"))
+            self.assertEqual(asked, ["cat"])
+            del asked[:]
+            self.assertEqual(same("combat", "cat"), "at")
+            self.assertEqual(asked, ["cat", "combat"])
+            del asked[:]
+            # A quote mark on the call's edge changes nothing: the call is
+            # read as the rhyme judge reads it.
+            self.assertEqual(same("cat", "combat’"), "at")
+            self.assertEqual(same("combat’", "cat"), "at")
 
     def test_shared_spelling_on_consonance_only_is_not_a_rhyme_ban(self):
         # have/save share -ave but their stressed vowels differ. A declared

@@ -408,9 +408,21 @@ def run(*argv):
 def test_the_verb():
     print("\n5. the capacity verb")
     rc, out, _ = run("capacity", "fire")
+    # REPINNED 2026-11-22 (bug hunt finding 17): ~~"and the certified
+    # witness shown" ... and "chain_lo" in out~~. Under the corrected
+    # spelling class AY-ER holds 13 classes (~~34~~), below the 20-class
+    # floor, so the table carries no witness for it and the verb says so.
+    # The witness half is asked of `key` below, whose family IY is certified.
     check("`capacity fire` answers: family AY-ER, its class named as "
-          "tier-1 banned, and the certified witness shown",
+          "tier-1 banned, and the family said to sit below the "
+          "certification floor",
           rc == 0 and "AY-ER" in out and "HOMEOTELEUTON" in out
+          and "below the certification floor" in out
+          and "chain_lo" not in out, f"rc {rc}")
+    rc, out, _ = run("capacity", "key")
+    check("`capacity key` answers: family IY, its class named as tier-1 "
+          "banned, and the certified witness shown",
+          rc == 0 and "family IY under" in out and "HOMEOTELEUTON" in out
           and "chain_lo" in out, f"rc {rc}")
     rc, out, _ = run("capacity", "--top=5")
     check("`capacity --top=5` separates construction upper bounds from earned witnesses",

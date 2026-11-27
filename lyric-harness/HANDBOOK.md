@@ -804,10 +804,16 @@ The owner's ruling remains: solve capacity, do not enforce a census of
 what has been popular. `quality/capacity.py` partitions 39,969 declared
 readable words into ~~12,387~~ 12,381 first-reading construction families (repinned 2026-10-30, M-322; corrected here 2026-11-19). Spelling-class
 counts are upper bounds for those pools, not earned-chain witnesses.
-All ~~81~~ 82 families at the 20-class certification floor have rebuilt witnesses
-under explicit class:RHYME and the unchanged two-tier ban. The deepest
-certified chain is 39, held by ONE family, ~~`EH-R`~~ `EA-R` (the same witness, renamed 2026-10-30); 39 is a
-witnessed lower bound, not a maximum-clique proof. **REPINNED 2026-09-24 with
+All ~~81~~ ~~82~~ 6 families at the 20-class certification floor have rebuilt witnesses
+under explicit class:RHYME and the two-tier ban. The deepest
+certified chain is 40, held by ONE family, `IY`; 40 is the construction attempt cap and a
+witnessed lower bound, not a maximum-clique proof. **REPINNED 2026-11-22 (bug
+hunt finding 17), superseding ~~39, held by ONE family, `EA-R`~~: a spelling
+class is now the word's letters from the vowel its rhyme is heard on, where
+the earlier key cut at the last primary stress and counted vowel letter
+groups, so `related`, `celebrated` and `eliminated` were three classes and
+are one. The 20-class tier fell from 82 families to 6, and every published
+witness carried pairs the corrected ban stops. That 39 was REPINNED 2026-09-24 with
 the N-relation model's re-certified `data/rhyme_capacity_eng.tsv`, superseding
 ~~22, held by TWO families, `IY` and `IY-Z`~~; that 22 was REPINNED 2026-09-16
 with E-5, superseding a 23 that IY-Z witnessed alone** — struck here rather than
@@ -827,7 +833,7 @@ claims failed the declared relation: default rescue and ambiguous readings
 had certified groups the narrower class does not accept. Current evidence:
 `quality/RESULTS_CAPACITY_PRODUCTION_2026-09-08.md` and
 `data/rhyme_capacity_eng.tsv`. Installed lookup and planning require an
-all ~~81~~ 82-family attestation from `quality/verify_capacity.py` bound to the
+all ~~81~~ ~~82~~ 6-family attestation from `quality/verify_capacity.py` bound to the
 actual runtime, judge inputs and table bytes; the six-family `--check` smoke
 cannot renew that proof. Stages 2 and 3 remain deliberately unbuilt; no draft
 is graded against a corpus popularity distribution.
@@ -936,8 +942,13 @@ sOWN/grOWN each passed at rank 7-11 of the very predictability ranking
 that computed the old cliff — a reviser iterating candidates until the
 checker passed was descending that ranking and stopping at rank 7 every
 time. Tier 1: HOMEOTELEUTON — a partner on the SAME SPELLED ENDING
-(`lyric_harness.spelled_rime`: silent-e folds, y is a vowel letter, w is
-not) is banned outright, whatever the corpus frequency, and the pair
+(~~`lyric_harness.spelled_rime`: silent-e folds, y is a vowel letter, w is
+not~~ CORRECTED 2026-11-22, bug hunt finding 17: the word's letters from the
+vowel its rhyme is heard on, `Reviser._spelled_rime`, lined up with its
+sounds by `quality/letter_sound.py`. ADDED 2026-11-23: a word stressed two
+ways has an ending for each stress, so cat/combat share -at, and a pair that
+also rhymes on a reading spelled differently, defect/effect, is left alone:
+`Reviser._same_spelled_ending`) is banned outright, whatever the corpus frequency, and the pair
 check reads the spellings directly so no finite field can shelter one.
 Tier 2: ~~the top `modal_exclusion` of the DIFFERENTLY-spelled remainder~~
 **AT MOST `modal_exclusion` of the DIFFERENTLY-spelled remainder, and only

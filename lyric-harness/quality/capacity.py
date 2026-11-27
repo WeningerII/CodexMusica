@@ -144,15 +144,41 @@ CERTIFY_ATTEMPT_CAP = 40
 #: `recertify_capacity.py --reverify-from` under the new judge and every one
 #: still certifies unchanged; EH-R's 39-word witness now certifies as EA-R, so
 #: max_chain_lo stays 39 and only the family's NAME moves ~~"EH-R"~~ -> "EA-R".
+#: RE-MEASURED 2026-11-22, THE SPELLING CLASS ITSELF WAS WRONG (bug hunt
+#: finding 17). A spelling class is `Reviser._spelled_rime`'s value, and that
+#: key cut each word at its last PRIMARY stress and counted vowel LETTER
+#: groups from the end. The rhyme judge hears from the latest stressed vowel,
+#: primary or secondary, so `related`, `celebrated` and `eliminated` rhyme on
+#: one ending and were filed as three classes; the same count read `nicely`
+#: as `ely`. The family KEY here was corrected for that anchor long ago
+#: (`_rime_key`, the gasoline/tambourine note below); the class key was not.
+#: With the key corrected (`quality/letter_sound.py`), 1,217 of the 12,381
+#: families change class count, 1,144 of them down: EA-R ~~48~~ -> 12 classes,
+#: EY-T-IH-D ~~146~~ -> 3, OW ~~183~~ -> 24, IY ~~228~~ -> 65. Every one of
+#: the 82 published witnesses carried pairs the corrected ban stops (the six
+#: sampled: IY 108, AY-ER 29, EA-R 122, UW-Z 31, EY-N 15, AO-R 31), so the
+#: whole table was re-derived by `recertify_capacity.py` with nothing carried
+#: over. Six families still hold 20 classes and were CONSTRUCTED afresh: IY
+#: 40 words (the attempt cap), IY-Z 36, EY 30, UW 27, OW 24, UW-Z 20.
+#: Measured apart: the anchor alone takes the 20-class tier ~~82~~ -> 11, the
+#: letter line-up alone ~~82~~ -> 80.
 ADOPTED = {
     "population": 39969,
     "families": 12381,             # ~~12387~~ 2026-10-30
     # ~~{2: 2817, 5: 593, 8: 272, 12: 162, 16: 106, 20: 81}~~ 2026-10-30
-    "chain_hi_at_least": {2: 2813, 5: 591, 8: 271, 12: 163, 16: 106,
-                          20: 82},
-    "certified": 82,               # ~~81~~ 2026-10-30 (IA-R joins)
-    "max_chain_lo": 39,            # REPINNED 2026-09-23 ~~22~~ ~~38~~ (N-relation)
-    "max_chain_lo_family": "EA-R", # ~~"IY"~~ ~~"EY"~~ ~~"EH-R"~~ 2026-10-30
+    # REPINNED 2026-11-22 ~~{2: 2813, 5: 591, 8: 271, 12: 163, 16: 106,
+    # 20: 82}~~: the corrected spelling class (finding 17, above).
+    "chain_hi_at_least": {2: 2445, 5: 281, 8: 69, 12: 23, 16: 8,
+                          20: 6},
+    # ~~81~~ 2026-10-30 (IA-R joins). REPINNED 2026-11-22 ~~82~~: six
+    # families still hold 20 spelling classes under the corrected key.
+    "certified": 6,
+    # REPINNED 2026-09-23 ~~22~~ ~~38~~ (N-relation). REPINNED 2026-11-22
+    # ~~39~~: IY's 40-word witness, constructed under the corrected key.
+    "max_chain_lo": 40,
+    # ~~"IY"~~ ~~"EY"~~ ~~"EH-R"~~ 2026-10-30. REPINNED 2026-11-22
+    # ~~"EA-R"~~: EA-R has 12 spelling classes now and is below the floor.
+    "max_chain_lo_family": "IY",
 }
 
 #: Families the per-push crown re-certifies (test_capacity §3) — the
@@ -160,7 +186,12 @@ ADOPTED = {
 #: RENAMED 2026-10-30 (M-322): ~~"EH-R"~~ -> "EA-R". The SQUARE vowel before a
 #: coda R is its own symbol now, so the family the sample named is keyed EA-R;
 #: the same words, read by their first reading.
-CHECK_SAMPLE = ("IY", "AY-ER", "EA-R", "UW-Z", "EY-N", "AO-R")
+#: REPINNED 2026-11-22 ~~("IY", "AY-ER", "EA-R", "UW-Z", "EY-N", "AO-R")~~
+#: (bug hunt finding 17): AY-ER, EA-R, EY-N and AO-R hold 13, 12, 14 and 15
+#: spelling classes under the corrected key, below the 20-class floor, so
+#: the table carries no witness for them. The sample is now every certified
+#: family, deepest first; the six together re-grade in under a minute.
+CHECK_SAMPLE = ("IY", "IY-Z", "EY", "UW", "OW", "UW-Z")
 
 
 #: Largest actually witnessed class:RHYME group in the current artifact.
@@ -196,7 +227,12 @@ CHECK_SAMPLE = ("IY", "AY-ER", "EA-R", "UW-Z", "EY-N", "AO-R")
 #: 20->39, AA-N 19->35, AA-T 15->29, IY-AH 13->29, EH-T 13->29, AE-K-S 14->27,
 #: EH-N 13->23, AH-P 10->23; EY 38->37, EY-Z 36->35, AA 36->35, AA-K 33->31,
 #: AE-M 31->30), then all 81 re-verified on the final judge. ~~38~~ -> 39.
-ADOPTED_MAX_GROUP = 39
+#: REPINNED 2026-11-22 ~~39~~ -> 40 (bug hunt finding 17). The 39 was EA-R's
+#: witness under the old spelling class, and 122 of its 741 pairs are spelled
+#: the same from the rhyming vowel on. The 40 is IY's witness, constructed
+#: under the corrected key, and 40 is `CERTIFY_ATTEMPT_CAP`: IY has 65
+#: classes, so this figure is bounded by the attempt, not by the family.
+ADOPTED_MAX_GROUP = 40
 
 
 def _rime_key(phones):

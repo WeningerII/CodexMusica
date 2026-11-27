@@ -11044,6 +11044,34 @@ def _legacy_ban_partners(kind, prompt):
     return prompt.replace(_BAN_PARTNERS_LINE_1122, _BAN_PARTNERS_LINE_1121)
 
 
+#: The same-spelled-ending line of the block `_BAN_DEFINITIONS_1121` holds, as
+#: it read until 2026-11-27 and as it reads since. The ban compares two words'
+#: spelling from each one's last stressed vowel, whether that stress is the
+#: word's main one or a lighter one (bug hunt 2026-11-21, finding 17, and the
+#: owner's ruling of 23 Nov 2026 that a pair sharing a lighter last syllable
+#: is stopped as well). "The stressed vowel" read as the main stress alone,
+#: so the line told a writer such a pair was allowed, and the grader then
+#: rejected it. `quality/propose.py` prints the new line. Both FROZEN as
+#: `_BAN_DEFINITIONS_1121` is, which keeps the old one.
+_BAN_ENDING_LINE_1121 = (
+    "    HOMEOTELEUTON: two different paired words whose endings sound alike "
+    "are also spelled the same from the stressed vowel on (the same word, or "
+    "two words that sound exactly alike, is never caught).")
+_BAN_ENDING_LINE_1127 = (
+    "    HOMEOTELEUTON: two different paired words whose endings sound alike "
+    "are also spelled the same from the last stressed vowel on, main stress "
+    "or lighter (the same word, or two words that sound exactly alike, is "
+    "never caught).")
+
+
+def _legacy_ban_ending(kind, prompt):
+    """-> the question as worded before the same-spelled-ending line said
+    which stressed vowel the two spellings are compared from."""
+    if _BAN_ENDING_LINE_1127 not in prompt:
+        return None
+    return prompt.replace(_BAN_ENDING_LINE_1127, _BAN_ENDING_LINE_1121)
+
+
 #: What a group question says since 2026-11-23 when the reply to its pivot's
 #: own line question never reached the grader (the review of the bug hunt's
 #: fixes), FROZEN as `_BAN_DEFINITIONS_1121` is. From 2026-11-21 until then
@@ -11176,6 +11204,9 @@ LEGACY_QUESTION_RENDERINGS = (
     ("2026-11-22 writer: the common-partner ban bans 3 partners, not 6 "
      "(owner's ruling)",
      _legacy_ban_partners),
+    ("2026-11-27 writer: the same-spelled-ending ban says it reads from the "
+     "last stressed vowel, main stress or lighter (bug hunt finding 17)",
+     _legacy_ban_ending),
 )
 
 

@@ -326,7 +326,12 @@ _CAP_ROWS = VE.capacity_rows()
 _CAP_AY = _CAP_ROWS["AY-ER"]
 _CAP_IY = _CAP_ROWS["IY"]
 # M-322 (2026-10-30): SQUARE before R is EA; the old EH-R row is EA-R.
-_CAP_EAR = _CAP_ROWS["EA-R"]
+# REPINNED 2026-11-22 (bug hunt finding 17): ~~_CAP_EAR = _CAP_ROWS["EA-R"]~~.
+# Under the corrected spelling class EA-R holds 12 classes and AY-ER 13, both
+# below the 20-class floor, so neither row carries a certified depth or a
+# witness to mutate. The certified-depth row reads EY and the clique row
+# reads IY's witness (`capacity key`); AY-ER keeps its class-count row.
+_CAP_EY = _CAP_ROWS["EY"]
 _CAP_DEPTH = max(row["chain_lo"] or 0 for row in _CAP_ROWS.values())
 _CAP_HOLDERS = sorted(f for f, row in _CAP_ROWS.items()
                       if row["certified"] and row["chain_lo"] == _CAP_DEPTH)
@@ -336,24 +341,32 @@ _CAP_WRONG_COUNT = "TWO" if _CAP_COUNT == "ONE" else "ONE"
 _CAP_NOUN = "y" if len(_CAP_HOLDERS) == 1 else "ies"
 _CAP_WRONG_FAMILY = next(f for f in _CAP_ROWS if f not in _CAP_HOLDERS)
 _CAP_ATTEMPTS = VE._cap_attempts(_CAP_IY)
-_CAP_CLIQUE = len(str(_CAP_AY["witness"]).split())
+# REPINNED 2026-11-22: ~~len(str(_CAP_AY["witness"]).split())~~ (see above).
+_CAP_CLIQUE = len(str(_CAP_IY["witness"]).split())
 
 CAPACITY_MUTANTS = [
+    # REPINNED 2026-11-22 (bug hunt finding 17): ~~f"{chain_hi} classes,\n
+    # certified **{chain_lo}**"~~. AY-ER has no certified depth now, so the
+    # anchor is the family's own clause and the class count alone.
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     f"{_CAP_AY['chain_hi']} classes,\n   certified **{_CAP_AY['chain_lo']}**",
-     f"{_CAP_AY['chain_hi'] + 1} classes,\n   certified **{_CAP_AY['chain_lo']}**",
+     f"AY-ER (fire's family): {_CAP_AY['chain_hi']} classes",
+     f"AY-ER (fire's family): {_CAP_AY['chain_hi'] + 1} classes",
      "AY-ER's current spelling-class ceiling off by one"),
+    # REPINNED 2026-11-22: ~~EA-R's current certified floor off by one~~,
+    # asked of EY, which is certified (EA-R is below the floor).
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     f"{_CAP_EAR['chain_hi']} classes, certified **{_CAP_EAR['chain_lo']}**",
-     f"{_CAP_EAR['chain_hi']} classes, certified **{_CAP_EAR['chain_lo'] + 1}**",
-     "EA-R's current certified floor off by one"),
+     f"{_CAP_EY['chain_hi']} classes, certified **{_CAP_EY['chain_lo']}**",
+     f"{_CAP_EY['chain_hi']} classes, certified **{_CAP_EY['chain_lo'] + 1}**",
+     "EY's current certified floor off by one"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
      f"IY: attempts {_CAP_ATTEMPTS}, certified **{_CAP_IY['chain_lo']}**",
      f"IY: attempts {_CAP_ATTEMPTS + 1}, certified **{_CAP_IY['chain_lo']}**",
      "the attempt bound quoted above CERTIFY_ATTEMPT_CAP"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
      f"**{_CAP_CLIQUE}**-word clique", f"**{_CAP_CLIQUE + 1}**-word clique",
-     "the current `capacity fire` witness clique off by one"),
+     # REPINNED 2026-11-22: ~~`capacity fire`~~, whose family is below
+     # the floor and prints no clique.
+     "the current `capacity key` witness clique off by one"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
      f"IY: {_CAP_IY['chain_hi']} classes", f"IY: {_CAP_IY['chain_hi'] + 1} classes",
      "the second family of a semicolon list, which is the elliptical form"),

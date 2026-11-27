@@ -38,9 +38,19 @@ try {
   // superseded: input ['Cat', 'Dog'], scheme 'AA', relation 'type:rime
   // riche', answers ending 'oak' / 'door', accepted prefix [p0, 'Dog'].
   const input = ['Cat', 'Dog', 'Sun'];
+  // REPINNED 2026-11-23: ~~'I watched the window like a diplomat'~~ and
+  // ~~'She tumbled down the stairs, an acrobat'~~ — the same-spelled-ending
+  // ban now cuts a word's spelling at the vowel its rhyme starts on, a lighter
+  // last syllable included (bug hunt 2026-11-21, finding 17), so 'cat',
+  // 'diplomat' and 'acrobat' are one spelled ending and the first answer was
+  // refused (measured: "L1 'cat' / L2 'diplomat' (HOMEOTELEUTON)"). 'matte'
+  // and 'batt' rhyme with 'Cat' and each spells the ending its own way; both
+  // answers are accepted in this order (measured through this tool, exit 0).
+  // ~~each answer ends on an OFFERED rhyme~~: the question this writer gets
+  // lists no offered words, so that was never read here.
   const proposed = [
-    'I watched the window like a diplomat',
-    'She tumbled down the stairs, an acrobat',
+    'I watched the window dry from gloss to matte',
+    'She lined the attic wall with cotton batt',
   ];
   const first = verdict(
     await call({

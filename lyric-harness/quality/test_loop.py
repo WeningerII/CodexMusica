@@ -3169,7 +3169,8 @@ def test_a_group_try_the_grader_never_read_is_not_called_rejected():
           "rejected attempt")
     from quality import propose as _PR
     import quality.schemes as _SC
-    from lyric_harness import legacy_question_texts, _legacy_ban_partners
+    from lyric_harness import (legacy_question_texts, _legacy_ban_ending,
+                               _legacy_ban_partners)
 
     def as_held(question):
         # MERGED 2026-11-24 (main 4def4c3f77 into the rule 1 branch): a run
@@ -3177,6 +3178,11 @@ def test_a_group_try_the_grader_never_read_is_not_called_rejected():
         # printed. A question rebuilt by today's code prints today's count,
         # which no build printed beside the old rows, so the held wording is
         # that question with the newest undo applied, where it applies.
+        # REPINNED 2026-11-27 (bug hunt finding 17): ~~the partner undo
+        # alone~~. Today's code also prints the same-spelled-ending line as
+        # reworded after the count changed, so that newer change is undone
+        # first, where it applies.
+        question = _legacy_ban_ending("propose_group", question) or question
         return _legacy_ban_partners("propose_group", question) or question
     never = ("  The PREVIOUS attempt never reached the grader. Why, "
              "verbatim:\n    - {0}\n  Do not send back a reply the same "

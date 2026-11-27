@@ -2468,7 +2468,13 @@ class LegacyReplay(unittest.TestCase):
         # group-rules undo first~~). The block the ban-definitions undo takes
         # out says 6, so this change's own undo (`_legacy_ban_partners`) is
         # the newest and is applied before every other.
+        # ...AND ITS SAME-SPELLED-ENDING LINE SAYS "THE LAST STRESSED VOWEL,
+        # MAIN STRESS OR LIGHTER" (REPINNED 2026-11-27, bug hunt finding 17:
+        # ~~the partner undo first~~). That line of the same block was
+        # reworded after the count changed, so its own undo
+        # (`_legacy_ban_ending`) is the newest now and is applied first.
         def undo_671(text):
+            text = LH._legacy_ban_ending("propose", text) or text
             text = LH._legacy_ban_partners("propose", text) or text
             text = LH._legacy_group_rules("propose", text) or text
             text = LH._legacy_ban_definitions("propose", text) or text

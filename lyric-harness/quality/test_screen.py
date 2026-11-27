@@ -64,10 +64,25 @@ def test_the_controls():
     r = rows_for("obey", "away")[0]
     check("obey/away is banned as MODAL_RHYME, answered rather than refused",
           r["codes"] == ["MODAL_RHYME"] and not r["refused"], r)
+    # REPINNED 2026-11-22 (bug hunt finding 17): ~~gasoline/tambourine is
+    # unbanned ... r["codes"] == []~~. Both words rhyme on their last
+    # syllable and both spell it `ine`, so the pair is one spelled ending.
+    # It read as clean because the spelling was cut at each word's PRIMARY
+    # stress (`asoline` against `ine`) while the rhyme was heard from the
+    # last stressed vowel. The pair stays here as the row that shows it; the
+    # clean control is tambourine/caffeine (`ine` against `eine`).
     r = rows_for("gasoline", "tambourine")[0]
-    check("gasoline/tambourine is unbanned and stands in RHYME (with "
+    check("gasoline/tambourine stands in RHYME and is banned as "
+          "HOMEOTELEUTON: both spell the rhyming syllable `ine` — the pair "
+          "Count to Five was built on",
+          r["codes"] == ["HOMEOTELEUTON"] and r["why"] is None
+          and not r["refused"]
+          and {"RHYME", "ASSONANCE", "CONSONANCE"} <= set(r["coarse_relations"])
+          and "perfect rhyme" in r["schema_relations"], r)
+    r = rows_for("tambourine", "caffeine")[0]
+    check("tambourine/caffeine is unbanned and stands in RHYME (with "
           "ASSONANCE and CONSONANCE beside it — a perfect rhyme is all "
-          "three) — the pair Count to Five was built on",
+          "three)",
           r["codes"] == [] and r["why"] is None and not r["refused"]
           and {"RHYME", "ASSONANCE", "CONSONANCE"} <= set(r["coarse_relations"])
           and "perfect rhyme" in r["schema_relations"], r)
@@ -139,15 +154,18 @@ def test_no_drift():
     # pair for pair.
     from quality.revise import Reviser
     import quality.schemes as SC
+    # REPINNED 2026-11-22 (bug hunt finding 17): the clean pair was
+    # ~~"the engine idled sweet on gasoline" / "her cousin kept the time on
+    # tambourine"~~, which is one spelled ending (section 1).
     draft = ["the morning swept the sidewalk past the hair",
              "a stranger left umbrellas on the chair",
-             "the engine idled sweet on gasoline",
-             "her cousin kept the time on tambourine"]
+             "her cousin kept the time on tambourine",
+             "the kettle whistled low without caffeine"]
     found = Reviser(writing=True).inspect(draft, SC.mandate([[1, 2], [3, 4]],
                                                 n_lines=4))
     codes = {f.code for fs in found["per_line"].values() for f in fs}
     s_bad = rows_for("hair", "chair")[0]
-    s_ok = rows_for("gasoline", "tambourine")[0]
+    s_ok = rows_for("tambourine", "caffeine")[0]
     check("the screen and writing grade agree on the ban and the clean pair",
           s_bad["codes"] == ["HOMEOTELEUTON"] and s_ok["codes"] == []
           and {c for c in codes if c in LH.SCREEN_PAIR_CODES}
@@ -222,7 +240,9 @@ def test_the_cli():
     rc, out, _ = run("screen", "hair", "chair")
     check("`screen hair chair` answers at exit 0 and names the writing ban",
           rc == 0 and "BANNED: HOMEOTELEUTON" in out, f"rc {rc}")
-    rc, out, _ = run("screen", "gasoline", "tambourine")
+    # REPINNED 2026-11-22 (bug hunt finding 17): ~~gasoline tambourine~~,
+    # a banned pair now (section 1); the unbanned pair is asked instead.
+    rc, out, _ = run("screen", "tambourine", "caffeine")
     check("an unbanned pair lists EVERY relation it stands in at exit 0, "
           "with no CLEAN verdict standing in for them",
           rc == 0 and "relation(s): " in out and "RHYME" in out
