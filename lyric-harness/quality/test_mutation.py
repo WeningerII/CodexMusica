@@ -883,25 +883,26 @@ def test_the_shadow_reaches_what_the_suites_read():
     which imports from `<repo>/src` and reads `<repo>/data/song-forms.json`.
     Neither directory was in the shadow, so every suite that touches a
     catalog form was red at the mutation baseline while reading PASS at
-    head. On 2026-11-27 `test_grid.py` gained such a check; it is the only
-    declared catcher of QG1, so QG1 escalated to the whole tree and its
-    shard ran out of its 7,200 s budget in production qualification
-    (measured: 121 min against 9.9 min on the last passing run; 5.4 min
-    with the two directories mirrored). `test_sound_inventory.py` and
-    `test_taxonomy.py` open a file in the same two directories themselves
-    and were red in the shadow for it.
+    head. On 2026-11-27 `test_grid.py` gained such a check. Of the two
+    suites QG1 declares it is the one that catches QG1, so QG1 escalated to
+    the whole tree and its shard ran out of its 7,200 s budget in
+    production qualification (measured on the hosted runner: 121 min,
+    against 9.9 min on the last passing run). `test_sound_inventory.py`
+    and `test_taxonomy.py` open a file in the same two directories
+    themselves and were red in the shadow for it.
 
     Three things are added. The two files those suites open join the
-    declared list. `test_meter_honesty.py` RUNS inside the shadow: it is
-    the cheapest suite that resolves a catalog form (6.6 s, measured), and
-    it is red with either directory missing. And one kind of reach is now
-    DERIVED, because it can be read off the source without the earlier
-    attempt's fault: `_files_a_node_launch_loads` follows what each script
-    the harness launches loads, and every such file must be in the shadow.
-    Measured on 2026-11-27: 4 launched scripts load 21 files; 17 of them
-    are absent without the two directories, 16 without `src` alone and 1
-    without `data` alone. What it cannot see is in its own docstring, and
-    for those reaches the class is still open.
+    declared list. `test_meter_honesty.py` RUNS inside the shadow: of the
+    suites timed there it is the cheapest that resolves a catalog form
+    (6.6 s, measured), and it is red with either directory missing. And
+    one kind of reach is now DERIVED, because it can be read off the
+    source without the earlier attempt's fault:
+    `_files_a_node_launch_loads` follows what each script the harness
+    launches loads, and every such file must be in the shadow. Measured on
+    2026-11-27: 4 launched scripts load 21 files; 17 of them are absent
+    without the two directories, 16 without `src` alone and 1 without
+    `data` alone. What it cannot see is in its own docstring, and for
+    those reaches the class is still open.
     """
     print("\n3f. the shadow reaches what the suites read (M-176)")
     import shutil
