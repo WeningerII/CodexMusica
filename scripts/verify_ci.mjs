@@ -68,6 +68,38 @@ export const QUALIFICATION_ABSENT = 'No trusted main production qualification ex
 export const QUALIFICATION_PENDING =
   'A main production qualification at this SHA has not completed yet.';
 
+//: A FAULT OF GITHUB'S OWN IS ASKED AGAIN; AN ANSWER NEVER IS -- 2026-11-27.
+//: MEASURED on main at `85cae190`: the site publish (sync run 832) went red
+//: twice in this lookup while the evidence it wanted was green. Attempt 1
+//: printed the one word `terminated` (the reply broke off while its body was
+//: being read) and attempt 2 `CI evidence lookup failed (HTTP 502)`, each
+//: about ten seconds in, which is GitHub's own limit on a request. One fault
+//: stopped the whole publish, and the deploy gate asks through this same
+//: function. So a 5xx reply, a request or a reply that breaks, and a timeout
+//: are asked again, `LOOKUP_TRIES` times in all with a pause between. NOTHING
+//: ELSE IS: a 4xx, a reply that is not JSON, and every answer about the run
+//: itself (absent, running, did not succeed) are read once, as they always
+//: were. Asking the same question again cannot turn a red answer green.
+export const LOOKUP_TRIES = 3;
+const LOOKUP_PAUSES_MS = Object.freeze([2_000, 5_000]);
+
+//: THE JOB LIST IS ASKED FOR IN SMALL PAGES. MEASURED the same morning on
+//: main's CI run 45944129693, which was on its SECOND attempt (71 jobs): a
+//: plain listing of its jobs at 100 a page was answered `502 Server Error`
+//: 2 times in 5 asks, and at 30 a page 0 times in 4. A first-attempt run of
+//: the same 71 jobs answered at 100 (1 ask), and the two publishes of the
+//: day before, on first-attempt runs, passed. Until then this asked for 100.
+//: WHAT IS INFERRED, NOT MEASURED: that the two failures above were this
+//: request. The script asks for the run list and then the job list, and its
+//: message did not say which of the two had failed; the listing made by hand
+//: also used the run's "latest jobs" address, not the per-attempt one below.
+//: The bound on the inventory is counted in jobs so that the smaller page
+//: does not shrink it: it was 20 pages of 100 and is still 2,000 jobs.
+export const JOBS_PER_PAGE = 30;
+export const MAX_JOBS = 2000;
+
+const pause = (ms) => new Promise((done) => setTimeout(done, ms));
+
 export async function productionEvidence(sha, options = {}) {
   const result = await verifyCI(sha, options);
   try {
@@ -140,23 +172,52 @@ export async function verifyCI(
     token = process.env.GH_TOKEN,
     base = process.env.GITHUB_API_URL || 'https://api.github.com',
     fetchImpl = fetch,
+    wait = pause,
     qualification = false,
   } = {}
 ) {
   if (!/^[a-f0-9]{40}$/.test(sha || '') || !/^[\w.-]+\/[\w.-]+$/.test(repository || '') || !token) {
     throw new Error('A full SHA, repository and CI read token are required.');
   }
-  const get = async (path) => {
-    const response = await fetchImpl(`${base}/repos/${repository}/${path}`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-        accept: 'application/vnd.github+json',
-        'X-GitHub-Api-Version': '2022-11-28',
-      },
-      signal: AbortSignal.timeout(30_000),
-    });
-    if (!response.ok) throw new Error(`CI evidence lookup failed (HTTP ${response.status}).`);
-    return response.json();
+  // `what` names the request in every message: the two failures of
+  // 2026-11-27 did not say whether the run list or the job list had failed.
+  const get = async (path, what) => {
+    let fault;
+    for (let attempt = 1; attempt <= LOOKUP_TRIES; attempt++) {
+      if (attempt > 1) {
+        const ms = LOOKUP_PAUSES_MS[Math.min(attempt - 2, LOOKUP_PAUSES_MS.length - 1)];
+        console.error(
+          `CI evidence lookup: ${fault} on ${what}, try ${attempt - 1} of ${LOOKUP_TRIES}; asking again in ${ms / 1000} s.`
+        );
+        await wait(ms);
+      }
+      let response;
+      try {
+        response = await fetchImpl(`${base}/repos/${repository}/${path}`, {
+          headers: {
+            authorization: `Bearer ${token}`,
+            accept: 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28',
+          },
+          signal: AbortSignal.timeout(30_000),
+        });
+        // The body is read INSIDE the try: the first failure this answers
+        // (`terminated`) was a reply that broke off while it was being read.
+        if (response.ok) return await response.json();
+      } catch (error) {
+        // A complete reply that is not JSON is an answer of the wrong shape,
+        // not a broken connection, and is not asked again.
+        if (error instanceof SyntaxError) throw error;
+        // The cause is printed with the message: `terminated` alone said
+        // nothing about what had happened.
+        fault = error.cause?.message ? `${error.message}: ${error.cause.message}` : error.message;
+        continue;
+      }
+      if (response.status < 500)
+        throw new Error(`CI evidence lookup failed (HTTP ${response.status}) on ${what}.`);
+      fault = `HTTP ${response.status}`;
+    }
+    throw new Error(`CI evidence lookup failed (${fault}) on ${what} after ${LOOKUP_TRIES} tries.`);
   };
   // A QUALIFICATION NOW ARRIVES TWO WAYS AND BOTH ARE TRUSTED. Until
   // 2026-09-16 the only producer was a person pressing the button, so this
@@ -174,7 +235,8 @@ export async function verifyCI(
   // witness than a dispatch: it can only ever run from the default branch of
   // this repository, which is the same thing the predicate already requires.
   const data = await get(
-    `actions/workflows/${qualification ? 'production-qualification.yml' : 'ci.yml'}/runs?head_sha=${sha}${qualification ? '' : '&event=push'}&branch=main&per_page=100`
+    `actions/workflows/${qualification ? 'production-qualification.yml' : 'ci.yml'}/runs?head_sha=${sha}${qualification ? '' : '&event=push'}&branch=main&per_page=100`,
+    'the run list'
   );
   // AN IN-FLIGHT RUN IS NOT EVIDENCE, AND UNTIL 2026-09-18 IT MASKED THE
   // EVIDENCE THAT WAS THERE. The selection took the newest matching run BY ID
@@ -214,12 +276,16 @@ export async function verifyCI(
   if (!Number.isSafeInteger(run.run_attempt) || run.run_attempt < 1)
     throw new Error('The CI run has no verified attempt identity.');
   const jobs = [];
-  for (let page = 1; page <= 20; page++) {
+  for (let page = 1; page <= Math.ceil(MAX_JOBS / JOBS_PER_PAGE); page++) {
     const result = await get(
-      `actions/runs/${run.id}/attempts/${run.run_attempt}/jobs?per_page=100&page=${page}`
+      `actions/runs/${run.id}/attempts/${run.run_attempt}/jobs?per_page=${JOBS_PER_PAGE}&page=${page}`,
+      `the job list, page ${page}`
     );
     if (!Array.isArray(result.jobs)) throw new Error('CI jobs response is malformed.');
     jobs.push(...result.jobs);
+    // The page count above no longer lands on the bound exactly (67 pages of
+    // 30 is 2,010), so the bound is checked in jobs, where it is stated.
+    if (result.total_count > MAX_JOBS || jobs.length > MAX_JOBS) break;
     if (jobs.length >= result.total_count)
       return validateCI(run, jobs, { repository, sha, qualification });
   }
