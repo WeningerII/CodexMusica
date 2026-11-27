@@ -723,6 +723,16 @@ def test_the_two_writing_bans_are_stated_as_rules():
                                    "MODAL_RHYME": common}
           and set(PR.WRITING_BAN_RULES) == set(RV.WRITING_BAN_CODES),
           sorted(PR.WRITING_BAN_RULES))
+    # REWORDED 2026-11-27 (bug hunt 2026-11-21, finding 17): the ban reads
+    # each word from its last stressed vowel, main stress or lighter, and the
+    # sentence says so. ~~"from the stressed vowel on"~~ read as the main
+    # stress alone, which told a writer that a pair sharing a lighter last
+    # syllable was allowed (`test_audit_regressions` holds the two together
+    # and the undo for held runs).
+    check("the same-spelled-ending sentence says which stressed vowel the "
+          "spelling is compared from",
+          "from the last stressed vowel on, main stress or lighter" in same
+          and "from the stressed vowel on" not in same, same)
     check("the partner count is the grader's own default",
           PR.WRITING_BAN_PARTNERS
           == RV.ReviseDeclaration().modal_exclusion
