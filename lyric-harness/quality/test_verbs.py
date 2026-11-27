@@ -634,10 +634,23 @@ def test_brief_refuses_instead_of_tracebacking():
         check("the overlap is reported as having no letter scheme "
               "(doctrine 2)",
               rc2 == 0 and "NO LETTER SCHEME EXISTS" in out2, out2[:300])
+        # REPINNED 2026-11-22 (owner's ruling): ~~the pivot was briefed off
+        # `--cliques` alone~~. All three lines open on "I", and the floor's
+        # same-first-word flag (ANAPHORA_OVERLOAD, removed with that check)
+        # was the only flag on L2, so it was what put the pivot in the
+        # brief at all. Without it no line is flagged and nothing is
+        # briefed. The groups are still the derived cliques; the pivot is
+        # now briefed off a declared relation the AY~EY~IH chain does not
+        # satisfy (`class:RHYME`), so L2 carries a real SCHEME_VIOLATION in
+        # each of its two groups.
+        rc3, out3, _ = run("brief", pivot_path, "--cliques",
+                           "--relation=class:RHYME")
         check("a pivot is briefed on EVERY group it is in, which is the "
               "thing a letter scheme cannot say",
-              "is a PIVOT" in out2 and "must answer group" in out2,
-              out2[:300])
+              rc3 == 0 and "is a PIVOT" in out3
+              and "must answer group A" in out3
+              and "must answer group B" in out3,
+              out3[:300])
     finally:
         os.unlink(pivot_path)
 
@@ -1733,18 +1746,22 @@ def test_no_flag_silently_changes_a_measurement():
     # 78 -> 80, 2026-10-30 (`MISSING.md` M-323): `internal assonance` and
     # `internal consonance`; neither name contains 'rhyme', so the filtered
     # selection below keeps its count and only the denominator moves.
+    # REPINNED 2026-11-22 (owner's ruling: the declared trite pairs come
+    # out, and `trite rhyme` with them): ~~80~~ 79 in all three. `trite
+    # rhyme` contains 'rhyme', so the filtered selection moves too, 37 -> 36;
+    # no check here pins that count.
     rc_all, allout, _ = run("relations", EXAMPLE_TXT)
     check("the unfiltered run states that NO filter was declared, and over "
           "how many schemas the two counts below it were taken",
           rc_all == 0 and "schema filter: NONE DECLARED" in allout
-          and "80 schemas asked" in allout)
+          and "79 schemas asked" in allout)
 
     rc, out, _ = run("relations", EXAMPLE_TXT, "--schema=rhyme")
     check("a filter that matches states HOW MANY of the registry it "
           "selected — `found`/`refused` are counts over a POPULATION and "
           "the flag silently changed the denominator",
           rc == 0 and "schema filter: 'rhyme'" in out
-          and "of 80 schemas asked" in out,
+          and "of 79 schemas asked" in out,
           [l for l in out.splitlines() if "schema filter" in l][:1])
 
     rc, out, err = run("relations", EXAMPLE_TXT, "--schema=bogus")
@@ -1756,7 +1773,7 @@ def test_no_flag_silently_changes_a_measurement():
     check("a filter matching NOTHING REFUSES at exit 2 instead of printing "
           "`schemas finding something: 0`, which is a null's shape",
           rc == 2 and out.lstrip().startswith("REFUSED")
-          and "matched 0 of 80" in out
+          and "matched 0 of 79" in out
           and "TWO THINGS THESE COUNTS ARE NOT" not in out
           and "refusing on a capability" not in out
           and "Traceback" not in err,
@@ -5528,10 +5545,14 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     # N-relation model)~~ -> L16 (2026-10-01, the unread copy above: G's
     # (15,16) and (16,17) are REFUSED because L16 has no reading at all).
     _R3 = _machine_result(out3)
-    # Restored writing policy also keeps four/lore and all three
+    # Restored writing policy also keeps ~~four/lore and~~ all three
     # brake/snake/shake obligations open, independent of the unknown prix.
-    expected_bans = {("MODAL_RHYME", (1, 2)),
-                     ("HOMEOTELEUTON", (15, 16)),
+    # REPINNED 2026-11-22 (owner's ruling: the common-partner ban takes the
+    # top 3 partners, ~~6~~ 3): ~~("MODAL_RHYME", (1, 2))~~ and ~~L2~~ in
+    # the unresolved lines. `four` is sixth in `lore`'s partner ranking
+    # (yore, door, war, roar, pour, four), so four/lore is no longer banned
+    # and line 2 has nothing open.
+    expected_bans = {("HOMEOTELEUTON", (15, 16)),
                      ("HOMEOTELEUTON", (15, 17)),
                      ("HOMEOTELEUTON", (16, 17))}
 
@@ -5542,7 +5563,7 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
                 and f.get("code") in {"HOMEOTELEUTON", "MODAL_RHYME"}}
 
     m3 = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
-                   r"(\d+) round\(s\) — UNRESOLVED: L2, L16, L17 — "
+                   r"(\d+) round\(s\) — UNRESOLVED: L16, L17 — "
                    r"WHOLE-DRAFT FLAG: "
                    r"([^\]—]+) — COVERAGE UNCERTIFIED: [^\]]+\]", out3)
     check("under defer: the stamp carries `— WHOLE-DRAFT FLAG: "
@@ -5551,7 +5572,7 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           _swapped == 1
           and rc3 == 3 and m3 is not None and m3.group(1) == "3"
           and m3.group(4).strip() == "TITLE_NOT_IN_HOOK"
-          and _R3.get('unresolved_lines') == [2, 16, 17]
+          and _R3.get('unresolved_lines') == [16, 17]
           and standing_bans(_R3) == expected_bans
           and _R3.get('coverage', {}).get('certified') is False
           and {"rhyme:15:16:6", "rhyme:16:17:6"}
@@ -5570,7 +5591,7 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           rc4 == 3 and m4 is not None and m4.group(1) == "3"
           and "WHOLE-DRAFT FLAG" not in m4.group(0)
           and _R4.get("whole_flags") == []
-          and _R4.get("unresolved_lines") == [2, 16, 17]
+          and _R4.get("unresolved_lines") == [16, 17]
           and standing_bans(_R4) == expected_bans
           and _R4.get("coverage", {}).get("certified") is False
           and _R4.get("coverage", {}).get("refused_obligations")

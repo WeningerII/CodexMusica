@@ -265,7 +265,12 @@ WRITING_BAN_ROW = list(VERIFY_REJECTIONS).index("writing_ban") + 1
 #: module imports nothing from the planner or the grader; `test_propose` §4d
 #: holds each equal to its source. Each states a rule and names no word
 #: (2026-10-27, D6 on #519).
-WRITING_BAN_PARTNERS = 6
+#: REPINNED 2026-11-23 (owner's ruling of 22 Nov 2026): ~~6~~ 3, with the
+#: grader's `modal_exclusion` and the planner's copy. It stays a copy rather
+#: than reading the declaration: this module is stdlib-only and imports no
+#: grader (the module docstring), and `test_propose` §4d fails if the three
+#: differ.
+WRITING_BAN_PARTNERS = 3
 WRITING_BAN_RULES = {
     "HOMEOTELEUTON": (
         "two different paired words whose endings sound alike are also "

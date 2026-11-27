@@ -663,6 +663,22 @@
         "works.a49fe3259b.js"
       ],
       "first_published": "2026-11-10",
+      "retired": "2026-11-24"
+    },
+    {
+      "id": "d3e579a7823eed96",
+      "files": [
+        "analysis.e3aa1c947f.js",
+        "compare.dd92747264.js",
+        "connection-bindings.73302dd467.js",
+        "connection-views.cc63c4fc8d.js",
+        "core.e19ecd0658.js",
+        "marks.97e3addb07.js",
+        "reader.b726c826b0.js",
+        "rights.1378d82c76.js",
+        "works.a49fe3259b.js"
+      ],
+      "first_published": "2026-11-24",
       "retired": null
     }
   ]

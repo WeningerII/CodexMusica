@@ -196,7 +196,9 @@ class WithinItemFeatures(QualityFeatures):
         #   not cancel that -- the minuend is always a plain type ratio over
         #   the rhyme words -- so this feature is one statistic at one unit
         #   and another at the other, and the window is where that is decided.
-        #   See `quality.floor.CALIBRATION["mattr_window"]`.
+        #   See `QualityFeatures._mattr`'s docstring. (REPINNED 2026-11-22:
+        #   ~~`quality.floor.CALIBRATION["mattr_window"]`~~, removed with the
+        #   grader's word-variety check, owner's ruling.)
         rwords = [w for w, _ in marked]
         if rwords:
             base = self._mattr(

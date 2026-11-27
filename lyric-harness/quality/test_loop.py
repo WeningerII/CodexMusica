@@ -296,7 +296,8 @@ def check(name, cond, detail=""):
 #: "then" -- a word that occurs ONCE, chosen by trying every one-word cut:
 #: cutting a repeated function word (he, the, and, to) raises the draft's
 #: type-token ratio past the monotony floor and loses the whole-draft
-#: LEXICAL_MONOTONY flag that §1 and §14 pin, while cutting any unique
+#: LEXICAL_MONOTONY flag that §1 and §14 pinned (REPINNED 2026-11-22: that
+#: check is removed, owner's ruling, so §1 and §14 pin its absence), while cutting any unique
 #: content word keeps every pair, every flag and every measured value
 #: below (fixed [1, 2], L4 closed by those moves, round-limit fixed [1, 4]).
 #: Verified on both trees before the edit.
@@ -453,9 +454,21 @@ def test_success_stop():
     print("\n1. SUCCESS — nothing left flagged, the stock proposer alone")
     R = Reviser()
     res = revise_loop(R, CLICHE, "ABAB")
-    check("whole-draft flags prevent success after the line repairs close",
-          res.stop_reason == "whole_draft_unresolved" and bool(res.whole_flags),
-          res.stop_reason)
+    # REPINNED 2026-11-22 (owner's ruling): ~~whole-draft flags prevent
+    # success after the line repairs close~~ (`whole_draft_unresolved`). The
+    # one whole-draft flag this draft carried was the word-variety check's
+    # LEXICAL_MONOTONY, which is removed, so once the line repairs close the
+    # stock proposer reaches SUCCESS, as this section's title says. That a
+    # standing whole-draft flag still blocks success is pinned in §14, where
+    # HOOK_ABSENT stands.
+    check("with no whole-draft flag standing, the line repairs closing is "
+          "success, and no removed code is among the whole-draft flags",
+          res.stop_reason == "success" and not res.whole_flags
+          and not {f.code for f in res.whole_flags} & {
+              "LEXICAL_MONOTONY", "LEXICAL_REPETITION_DECLARED",
+              "MATTR_WINDOW_UNCALIBRATED", "ANAPHORA_OVERLOAD",
+              "ANAPHORA_DECLARED"},
+          (res.stop_reason, sorted(f.code for f in res.whole_flags)))
     # RESTATED 2026-08-17 under MANDATORY PURSUIT: the loop now also fixes
     # the two lines carrying only a MODAL_RHYME note, because success while
     # one stands is unreportable (owner's order — see loop.MANDATORY_PURSUE).
@@ -1304,9 +1317,11 @@ def test_propose_sees_the_whole_draft_rubric():
     # code, by a stub that had never been shown it.
     check("HOOK_ABSENT reaches the writer",
           "HOOK_ABSENT" in seen_whole, sorted(seen_whole))
-    check("so does LEXICAL_MONOTONY -- the floor's whole-draft flag, and the "
-          "other half of the pair this loop can never ask for",
-          "LEXICAL_MONOTONY" in seen_whole)
+    # REPINNED 2026-11-22 (owner's ruling): ~~so does LEXICAL_MONOTONY --
+    # the floor's whole-draft flag~~. The word-variety check is removed, so
+    # the writer is shown no such flag, and none stands on the result.
+    check("the removed word-variety flag is not among them",
+          "LEXICAL_MONOTONY" not in seen_whole, sorted(seen_whole))
     # REPOINTED 2026-08-23 (`MISSING.md` M-86). This compared `whole_flags`
     # against a HAND-LISTED pair, so it went red the moment the whole-draft
     # flag family grew — `TITLE_NOT_IN_HOOK` joined it by owner ruling and the
@@ -1323,7 +1338,8 @@ def test_propose_sees_the_whole_draft_rubric():
           "one source (`inspect()['whole']`), not two derivations of it "
           "(doctrine 1)",
           {f.code for f in res.whole_flags} == shown_flags
-          and {"HOOK_ABSENT", "LEXICAL_MONOTONY"} <= shown_flags,
+          and "HOOK_ABSENT" in shown_flags
+          and "LEXICAL_MONOTONY" not in shown_flags,
           f"result {sorted(f.code for f in res.whole_flags)} vs shown "
           f"{sorted(shown_flags)}")
     # AND IT IS NOT ON THE `Brief`, which is the point of passing it
@@ -1331,7 +1347,7 @@ def test_propose_sees_the_whole_draft_rubric():
     per_line = {f.code for b, _w in seen for f in b.findings}
     check("none of these codes is in ANY `Brief` -- widening `Brief` was "
           "never the move, which is why `whole` is its own argument",
-          not (per_line & {"HOOK_ABSENT", "LEXICAL_MONOTONY"}),
+          not (per_line & {"HOOK_ABSENT", "LEXICAL_MONOTONY"}),  # REPINNED 2026-11-22: the second is removed
           sorted(per_line))
     # 2026-10-01: the line checks this fixture left unjudged were reading
     # disagreements, which the any-reading rule (CLAUDE.md standing rule 5)
@@ -3153,7 +3169,15 @@ def test_a_group_try_the_grader_never_read_is_not_called_rejected():
           "rejected attempt")
     from quality import propose as _PR
     import quality.schemes as _SC
-    from lyric_harness import legacy_question_texts
+    from lyric_harness import legacy_question_texts, _legacy_ban_partners
+
+    def as_held(question):
+        # MERGED 2026-11-24 (main 4def4c3f77 into the rule 1 branch): a run
+        # held at a question holds the count of banned partners its build
+        # printed. A question rebuilt by today's code prints today's count,
+        # which no build printed beside the old rows, so the held wording is
+        # that question with the newest undo applied, where it applies.
+        return _legacy_ban_partners("propose_group", question) or question
     never = ("  The PREVIOUS attempt never reached the grader. Why, "
              "verbatim:\n    - {0}\n  Do not send back a reply the same "
              "reason would stop again.\n")
@@ -3224,10 +3248,17 @@ def test_a_group_try_the_grader_never_read_is_not_called_rejected():
                   plain == now.replace(never.format(why(two)),
                                        rejected.format(why(two)))
                   and rows(plain) == rejected.format(why(two)))
+            # REPINNED 2026-11-24: ~~plain in legacy_question_texts(
+            # "propose_group", now)~~. A held run has `as_held(plain)`, not
+            # today's render (see as_held).
+            if what == "a group with a ranked pivot word":
+                check(f"PREMISE ({what}, {kind}): the question states the "
+                      "count of banned partners, so the held wording is not "
+                      "today's", as_held(plain) != plain)
             check("...and a run held at that question while it still said "
                   "REJECTED finds it again: the question's earlier wordings "
                   "hold it, byte for byte",
-                  plain in legacy_question_texts("propose_group", now))
+                  as_held(plain) in legacy_question_texts("propose_group", now))
 
     for kind, first, why in (
             ("nothing came back", lambda b: None,
@@ -3278,16 +3309,25 @@ def test_a_group_try_the_grader_never_read_is_not_called_rejected():
           "reply's reason and the second with its own", same)
     if same:
         first_q, second_q = _PR.render_group(one), _PR.render_group(two)
+        old_first = _PR.render_group(_dc.replace(one, pivot_line_unread=False))
+        old_second = _PR.render_group(_dc.replace(
+            two, reasons=tuple(str(r) for r in two.reasons),
+            pivot_line_unread=False))
+        check("PREMISE (both at once): each question states the count of "
+              "banned partners, so neither held wording is today's",
+              as_held(old_first) != old_first
+              and as_held(old_second) != old_second)
         check("the first group question says the line reply never reached "
               "the grader, and a run held at it while it said REJECTED finds "
               "it again",
               _PR.PIVOT_UNREAD_ROW in first_q
               and _PR.PIVOT_REJECTED_ROW not in first_q
-              and _PR.render_group(_dc.replace(one, pivot_line_unread=False))
+              # REPINNED 2026-11-24: ~~_PR.render_group(_dc.replace(one,
+              # pivot_line_unread=False)) in legacy_question_texts(
+              # "propose_group", first_q)~~. A held run has
+              # `as_held(old_first)`, not today's render (see as_held).
+              and as_held(old_first)
               in legacy_question_texts("propose_group", first_q))
-        old_second = _PR.render_group(_dc.replace(
-            two, reasons=tuple(str(r) for r in two.reasons),
-            pivot_line_unread=False))
         check("the second says its own try never reached the grader, and "
               "nothing about the line reply",
               rows(second_q) == never.format(_PR.UNREAD_GROUP)
@@ -3295,8 +3335,11 @@ def test_a_group_try_the_grader_never_read_is_not_called_rejected():
               and _PR.PIVOT_REJECTED_ROW not in second_q, rows(second_q))
         check("...and a run held at it while it said REJECTED finds it again",
               rows(old_second) == rejected.format(_PR.UNREAD_GROUP)
-              and old_second in legacy_question_texts("propose_group",
-                                                      second_q))
+              # REPINNED 2026-11-24: ~~old_second in legacy_question_texts(
+              # "propose_group", second_q)~~. A held run has
+              # `as_held(old_second)`, not today's render (see as_held).
+              and as_held(old_second) in legacy_question_texts(
+                  "propose_group", second_q))
 
     # CONTROL: a group answer the grader read and rejected keeps its words.
     one, two = asked_again(

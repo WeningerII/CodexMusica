@@ -2393,6 +2393,21 @@ class LegacyReplay(unittest.TestCase):
                         f"slot(s), {h + 2} row(s) held)")
             return _memo_line.sub(bump, text)
 
+        # ...AND THEN LOST ONE (2026-11-22, the owner's ruling that the
+        # declared trite pairs come out everywhere: the `trite rhyme` pattern
+        # that read them is gone from the registry). Each of the same three
+        # counts reads one lower than `with_m323` makes it, where the recorded
+        # run judged anything: this build 43 / 71 / 43. Applied after
+        # `with_m323` on the recorded side, and to that line alone.
+        def without_trite(text):
+            def drop(m):
+                n, s, h = (int(x) for x in m.groups())
+                if not n:
+                    return m.group(0)
+                return (f"{n - 1} judged and recorded ({s - 1} schema "
+                        f"slot(s), {h - 1} row(s) held)")
+            return _memo_line.sub(drop, text)
+
         # THE LINE LIMIT A QUESTION STATES ROSE AFTER THIS CAPTURE (2026-11-12,
         # #851). The recorded question reads "The line is at most 200
         # characters; a longer one is not accepted." and this build prints
@@ -2448,7 +2463,13 @@ class LegacyReplay(unittest.TestCase):
         # 671 undo~~). This run's group declares a relation, so its question
         # and its printed brief carry that rule; the change's own undo
         # (`_legacy_group_rules`) is the newest and is applied first.
+        # ...AND IT SAYS THE COMMON-PARTNER BAN BANS 3 PARTNERS, NOT 6
+        # (REPINNED 2026-11-23, owner's ruling of 22 Nov 2026: ~~the
+        # group-rules undo first~~). The block the ban-definitions undo takes
+        # out says 6, so this change's own undo (`_legacy_ban_partners`) is
+        # the newest and is applied before every other.
         def undo_671(text):
+            text = LH._legacy_ban_partners("propose", text) or text
             text = LH._legacy_group_rules("propose", text) or text
             text = LH._legacy_ban_definitions("propose", text) or text
             return LH._legacy_671_prose("propose", text) or text
@@ -2510,8 +2531,12 @@ class LegacyReplay(unittest.TestCase):
                 self.assertEqual(
                     [rec["replay_stdout"].count(t) for t in _row_then],
                     [1, 2] if rec["name"] == "suspended+answer" else [0, 0])
-                self.assertEqual(got, norm(with_676_label(with_851(with_m323(
-                    without_d6(rec["replay_stdout"]))))))
+                # REPINNED 2026-11-23: ~~with_m323 alone~~ -- the registry
+                # lost the trite rhyme pattern after M-323 grew it
+                # (`without_trite` above).
+                self.assertEqual(got, norm(with_676_label(with_851(
+                    without_trite(with_m323(
+                        without_d6(rec["replay_stdout"])))))))
                 result = json.loads([l for l in r.stdout.splitlines()
                                      if l.startswith("  lyric result: ")][-1]
                                     [len("  lyric result: "):])

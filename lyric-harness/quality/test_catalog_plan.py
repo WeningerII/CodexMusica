@@ -723,8 +723,11 @@ class CatalogPlannerTests(unittest.TestCase):
         r = revise.Reviser(lex=lh.Lexicon(), writing=True)
         m = schemes.mandate([[1, 2]], 4, returns=[["1.endword", "3.endword"]])
         floor, _ = r._floor_for(m)
-        self.assertFalse(floor.declared_lexical_classes)
-        self.assertFalse(floor.declared_opening_classes)
+        # REPINNED 2026-11-22: ~~the floor's declared lexical and opening
+        # classes are empty~~ — the checks that read them were removed by the
+        # owner's ruling, so the reviser hands the floor no such classes.
+        self.assertFalse(hasattr(floor, "declared_lexical_classes"))
+        self.assertFalse(hasattr(floor, "declared_opening_classes"))
         self.assertIn((0, 1), floor._pairs(["one"] * 4, "????"))
 
     def test_relative_lengths_reject_impossible_or_malformed_pairs(self):
@@ -839,6 +842,144 @@ class CatalogPlannerTests(unittest.TestCase):
         self.assertEqual(built["returns"], "")
         self.assertEqual(built["choices"]["reprise"]["value"], [])
         self.assertEqual(built["choices"]["reprise"]["no_line_before"], [1])
+
+    def test_a_drawn_word_place_fits_the_catalog_line_it_is_on(self):
+        """A catalog line with an exact syllable or word count holds a tied
+        word inside it no deeper than that count, and one word less when the
+        line's last word is tied too: the depth `line_fit_conflicts` charges
+        before it refuses the seed. Every draw the planner makes is read where
+        the line counts are checked, refused or not, for every setting of the
+        automatic draw whose lines carry such a count, at seeds 1 to 6. A
+        whole-line copy shares the count and the tied words of each line it
+        copies. The draw itself keeps a tied word within the line's count; a
+        tied last word on top of a word at the count is left to the gate and
+        does not occur in this window, so a failure that reads "last word
+        tied" True is the gate's case, not a broken room check."""
+        import json
+        import subprocess
+        from pathlib import Path
+
+        from quality import catalog_shape
+        form_js = Path(__file__).resolve().parents[2] / "mcp" / "lyric_form.js"
+        listed = subprocess.check_output(
+            ["node", "--input-type=module", "-e",
+             ("const { automaticFormCandidates } = await import(process.argv[1]);"
+              "const all = await automaticFormCandidates({});"
+              "console.log(JSON.stringify(all.filter((c) => (c.lineRequirements || []).some("
+              "(r) => 'syllables' in r || 'words' in r || 'stress' in r))));"),
+             form_js.as_uri()], text=True, stdin=subprocess.DEVNULL)
+        settings = json.loads(listed)
+
+        def count(row):
+            counts = [row[key] for key in ("syllables", "words") if key in row]
+            if "stress" in row:
+                counts.append(len(row["stress"]))
+            return min(counts) if counts else None
+
+        read, deep = [], []
+        real = catalog_shape.line_fit_conflicts
+
+        def gate(native, requirements, bound_copy_lines=()):
+            rows = {row["line"]: row for row in requirements}
+            classes = {}
+            if native["returns"]:
+                groups = [m.split(",") for m in native["returns"].split(";") if m]
+                rule = plan.SC.ReturnRule()
+                for item in plan.SC._normalise_returns(groups, native["total_lines"], rule):
+                    if item.verbatim is True and not item.placed:
+                        classes.update((i, item.lines) for i in item.lines)
+            places = plan.bound_placements(native)
+            for members in sorted({classes.get(i, (i,)) for i in places}):
+                counts = [count(rows[i]) for i in members if i in rows]
+                counts = [c for c in counts if c is not None]
+                if not counts:
+                    continue
+                words = {plan.placement_word(p) for i in members for p in places.get(i, ())}
+                last_tied = int(plan.LAST_WORD in words)
+                for line in members:
+                    for place in places.get(line, ()):
+                        word = plan.placement_word(place)
+                        if not str(place).startswith("T") or word == plan.LAST_WORD:
+                            continue
+                        read.append(word)
+                        if word + last_tied > min(counts):
+                            deep.append((current[0], current[1], line, place, min(counts), bool(last_tied)))
+            return real(native, requirements, bound_copy_lines)
+
+        current = [None, None]
+        lengths = []
+        with patch.object(catalog_shape, "line_fit_conflicts", gate):
+            for setting in settings:
+                key = f"{setting['id']} {setting['variant']} {json.dumps(setting['counts'])}"
+                lengths.append(sum(s.get("lines", 0) for s in setting["sections"]))
+                for seed in range(1, 7):
+                    current[:] = [key, seed]
+                    try:
+                        plan.make_plan(seed, song_form=setting)
+                    except plan.PlanRefused:
+                        pass
+        # The window holds long settings and real draws on counted lines, so
+        # it cannot pass on nothing.
+        self.assertGreaterEqual(max(lengths), 140)
+        self.assertGreaterEqual(len(read), 200, f"{len(read)} places read")
+        self.assertEqual(deep[:8], [], f"{len(deep)} of {len(read)} places sit past what the line holds "
+                                       "(setting, seed, line, place, the line's count, last word tied)")
+
+    def test_the_room_check_moves_no_plan_the_gate_accepts(self):
+        """The room `fit_type` keeps a tied word in (`catalog_line_rooms`)
+        only redraws what `line_fit_conflicts` would refuse. Every setting of
+        the automatic draw whose lines carry a syllable, word or stress count
+        is planned at seeds 1 to 6 twice in one process, with the room check
+        taken out and as shipped: a seed that plans without it plans the same
+        bytes with it, and a seed refused without it either plans with it or
+        is refused with the same codes."""
+        import hashlib
+        import json
+        import re
+        import subprocess
+        from pathlib import Path
+        form_js = Path(__file__).resolve().parents[2] / "mcp" / "lyric_form.js"
+        listed = subprocess.check_output(
+            ["node", "--input-type=module", "-e",
+             ("const { automaticFormCandidates } = await import(process.argv[1]);"
+              "const all = await automaticFormCandidates({});"
+              "console.log(JSON.stringify(all.filter((c) => (c.lineRequirements || []).some("
+              "(r) => 'syllables' in r || 'words' in r || 'stress' in r))));"),
+             form_js.as_uri()], text=True, stdin=subprocess.DEVNULL)
+        settings = json.loads(listed)
+        real = plan.fit_type
+
+        def without_rooms(*args, rooms=None, **kwargs):
+            return real(*args, **kwargs)
+
+        def outcome(setting, seed):
+            try:
+                built = plan.make_plan(seed, song_form=setting)
+            except plan.PlanRefused as exc:
+                return "refused", sorted(set(re.findall(r"\b[A-Z]+(?:_[A-Z]+)+\b", str(exc))))
+            return "planned", hashlib.sha256(json.dumps(built, sort_keys=True, default=str).encode()).hexdigest()
+
+        kept, rescued, moved, changed = 0, 0, [], []
+        for setting in settings:
+            key = f"{setting['id']} {setting['variant']} {json.dumps(setting['counts'])}"
+            for seed in range(1, 7):
+                with patch.object(plan, "fit_type", without_rooms):
+                    before = outcome(setting, seed)
+                after = outcome(setting, seed)
+                if before[0] == "planned":
+                    kept += 1
+                    if after != before:
+                        moved.append((key, seed, after[0]))
+                elif after[0] == "planned":
+                    rescued += 1
+                elif after != before:
+                    changed.append((key, seed, before[1], after[1]))
+        # The check acts in this window (refused seeds plan with it), and the
+        # window holds enough working plans that keeping them means something.
+        self.assertGreaterEqual(kept, 500, f"{kept} working plans")
+        self.assertGreater(rescued, 0)
+        self.assertEqual(moved[:8], [], f"{len(moved)} of {kept} working plans moved")
+        self.assertEqual(changed[:8], [], f"{len(changed)} refused seeds changed their codes")
 
     def test_conflicting_declaration_and_unknown_fields_refuse(self):
         base = catalog("hookless-rap-track", [{"unit": "section", "role": "verse", "lines": 2}])

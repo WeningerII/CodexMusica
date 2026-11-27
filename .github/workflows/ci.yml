@@ -2198,6 +2198,17 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/mark_coverage.py --check
 
+      # WORD PLACES. Added 2026-11-23, with the owner's ruling that a tied
+      # word inside a line is placed where real words sit. The planner reads
+      # `data/word_places_en.tsv`: how many sung lines of corpus/song/eng_*
+      # have each number of words. `--check` recounts the corpus (about two
+      # minutes) and exits 1 if any number moved, so a corpus change moves
+      # the table only through `--write`, in a commit that says so.
+      - name: Word places table against a fresh recount of the corpus
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/word_places.py --check
+
       # ADVERSARY 7 (CLAUDE.md's roster: "the REPORT — do the number, the
       # label and the evidence agree?"). Added 2026-08-13, and it is the
       # adversary that had NOTHING running it: an audit found audit_spans.py

@@ -373,14 +373,59 @@ def dummy_draft(plan, unambiguous=False):
                 if any(len([p for p in ph if p[-1].isdigit()]) >= 2
                        and [p for p in ph if p[-1].isdigit()][-1][-1] == "0"
                        for ph in entries.get(w, ()))]
+    # A LINE AS LONG AS ITS DEEPEST TIE (REPINNED 2026-11-23, owner's ruling:
+    # a tie inside a line may sit up to the longest sung line, 22 words).
+    # ~~Every line is seven words~~, which held while the planner named no
+    # word past the seventh. A line whose group names word k now gets at
+    # least k + 1 words, so that word is an inner word as the plan says;
+    # the extra words cycle the prefix's own readable words, and under
+    # `unambiguous` only those with one reading, because the round trip
+    # declares a reading for every word that has more than one and the
+    # grader takes at most 128 declarations (the seven-word draft already
+    # made 115 to 125 of them over seeds 0-19). A copied line takes the
+    # length its copies need, so the copy stays word for word, and a
+    # line's length follows its end word, so two lines that end on one
+    # word are still one line, as they were.
+    need = {}
+    for g in str(plan.get("groups") or "").split(";"):
+        for m in g.split(","):
+            ln, _, place = m.strip().partition(".")
+            if re.fullmatch(r"T\d+", place):
+                need[int(ln)] = max(need.get(int(ln), 0), int(place[1:]) + 1)
+    for i in list(need):
+        r = i
+        while r in rets:
+            r = rets[r]
+        need[r] = max(need.get(r, 0), need[i])
+    prefix_words = DUMMY_PREFIX.split()
+    filler = prefix_words
+    if unambiguous:
+        entries = _round_trip_reviser().lex.entries
+        filler = [w for w in prefix_words if len(entries.get(w, ())) == 1]
+        if not filler:
+            raise AssertionError("the round-trip fixture has no single-reading "
+                                 "prefix word to lengthen a line with")
+
+    def end_word(i):
+        words = soft if i in weak else bank
+        return words[(i - 1) % len(words)]
+
+    width = {}
+    for i, k in need.items():
+        if i not in rets:
+            width[end_word(i)] = max(width.get(end_word(i), 0), k)
+
+    def prefix(i):
+        extra = max(0, width.get(end_word(i), 0) - len(prefix_words) - 1)
+        more = [filler[k % len(filler)] for k in range(extra)]
+        return " ".join(prefix_words + more) + " "
+
     lines = []
     for i in range(1, plan["total_lines"] + 1):
         if i in rets:
             lines.append(lines[rets[i] - 1])
-        elif i in weak:
-            lines.append(DUMMY_PREFIX + soft[(i - 1) % len(soft)])
         else:
-            lines.append(DUMMY_PREFIX + bank[(i - 1) % len(bank)])
+            lines.append(prefix(i) + end_word(i))
     return lines
 
 
@@ -1471,10 +1516,13 @@ def test_the_measure():
     # a hook or patter row as the codes that grade it with their severities,
     # read from `grid.SEVERITY` rather than restated. It is a lookup in a
     # declared table: it opens nothing and reads no corpus.
+    # `asked_comparisons` JOINED 2026-11-23 (stop rows): the rows name the
+    # sections the grader compares, from the one function the report builds
+    # those lists with. It reads the declared tables and opens nothing.
     ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec", "as_function",
                          "placement_findings",
                          "specialisation_of", "UnknownFunction",
-                         "severity_of"}
+                         "severity_of", "asked_comparisons"}
     # `floor` JOINED THE ALLOW-LIST 2026-08-23, ON THE SAME ARGUMENT AS
     # `meter_bands` AND WITH THE SAME RE-TIGHTENING AS `grid`. The owner's
     # standing rule is that no hard number may sit in the generator, and the
@@ -1493,10 +1541,12 @@ def test_the_measure():
     # the dice by a longer road (the owner's move-37 ban).
     ALLOWED_FROM_FLOOR = {"PROFILES", "FloorDeclaration"}
     # `FloorDeclaration` joined with M-125(b): the gate reads the floor's
-    # own `anaphora_max` through the declaration's `resolve`, so the
-    # forced-opener ceiling and ANAPHORA_OVERLOAD cannot hold two
-    # thresholds (doctrine 1). It is the declaration CLASS, not a reader
-    # — constructing one opens no file and reaches no feature table.
+    # own ~~`anaphora_max`~~ limits through the declaration's `resolve`, so
+    # the planner and the grader cannot hold two thresholds (doctrine 1).
+    # REPINNED 2026-11-22: the forced-opener ceiling and ANAPHORA_OVERLOAD
+    # are removed (owner's ruling); the stop rules still read
+    # `function_word_ratio_max` this way. It is the declaration CLASS, not a
+    # reader — constructing one opens no file and reaches no feature table.
     # `capacity` AND `slots` JOINED 2026-08-23, each with its own argument
     # and each RE-TIGHTENED the way `grid` and `floor` were.
     #
@@ -1715,15 +1765,47 @@ def test_the_measure():
           and catalog_plain == {"re"}
           and catalog_grid == {"placement_findings", "SECTION_FUNCTIONS", "setting_roles"}
           and not any(isinstance(n, ast.Name) and n.id == "open" for n in ast.walk(catalog_tree)))
+    # REPINNED 2026-11-23 (owner's ruling: a tie's word place inside a line
+    # follows where real words sit, the ONE written exception to the
+    # move-37 rule, in plan.py's module docstring). ~~exactly {schemes, ...,
+    # catalog_shape}~~: `word_places` joins as the one corpus count the
+    # planner may read. The exception is held narrow by the check after
+    # this one: plan.py names that module only to call `read`, and only
+    # inside `word_place_lines`, so no other pick can follow the corpus.
     check("plan.py imports exactly {schemes, structures, grid, "
-          "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure, catalog_shape} from quality and "
-          "opens NO file — the corpus cannot reach the dice (the owner's "
-          "move-37 rule)",
+          "floor, slots, relations, narrative, melody, rhyme_types, function_disclosure, catalog_shape, word_places} from quality and "
+          "opens NO file itself — the corpus cannot reach the dice (the owner's "
+          "move-37 rule), but for the one written exception",
           subs == {"schemes", "structures", "grid", "floor",
                    "slots", "relations", "narrative", "melody",
-                   "rhyme_types", "function_disclosure", "catalog_shape"}
+                   "rhyme_types", "function_disclosure", "catalog_shape",
+                   "word_places"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    wp_alias = {a.asname or a.name for n in ast.walk(tree)
+                if isinstance(n, ast.ImportFrom) and n.module == "quality"
+                for a in n.names if a.name == "word_places"}
+    wp_uses = []
+    for fn in [n for n in ast.walk(tree)
+               if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]:
+        for n in ast.walk(fn):
+            if isinstance(n, ast.Name) and n.id in wp_alias:
+                wp_uses.append(fn.name)
+    wp_attrs = {n.attr for n in ast.walk(tree)
+                if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name)
+                and n.value.id in wp_alias}
+    wp_module_level = [n for n in tree.body
+                       if not isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef,
+                                             ast.ClassDef, ast.ImportFrom))
+                       and any(isinstance(m, ast.Name) and m.id in wp_alias
+                               for m in ast.walk(n))]
+    check("...and the exception stays one pick wide: plan.py names "
+          "`word_places` only to call its `read`, only inside "
+          "`word_place_lines` (the word a tie inside a line is named at)",
+          len(wp_alias) == 1 and set(wp_uses) == {"word_place_lines"}
+          and wp_attrs == {"read"} and not wp_module_level,
+          f"alias {sorted(wp_alias)}, used in {sorted(set(wp_uses))}, "
+          f"attributes {sorted(wp_attrs)}, module-level {len(wp_module_level)}")
     prop_names = {a.name for n in ast.walk(tree)
                   if isinstance(n, ast.ImportFrom)
                   and n.module == "quality.propose" for a in n.names}
@@ -2611,6 +2693,92 @@ def test_the_planner_plans_the_whole_line():
           f"largest {max(len(x.split(',')) for pl in _declared for x in pl['groups'].split(';'))}")
 
 
+def test_a_tied_word_sits_where_real_words_sit():
+    """A tied word inside a line is placed where real words sit (owner's
+    ruling, 2026-11-23).
+
+    The ruling has three parts, and each gets its own check, with every
+    number read from `data/word_places_en.tsv` (the count of sung lines in
+    corpus/song/eng_* by how many words they have) and none typed here:
+      * the deepest word a plan may name is the longest real line, held under
+        the plan's shortest line less its end word, and no longer the floor's
+        old words-a-line band;
+      * every place with a choice is picked as often as real lines have a
+        word there: `head` and `end` as every line, word k as the lines with
+        k or more words;
+      * no place with a choice is picked evenly any more.
+    """
+    print("\n[a tied word sits where real words sit]")
+    from quality import word_places as WP
+    held = WP.read()
+    longest = max(n for n, lines in held.items() if lines)
+    at = {k: sum(lines for n, lines in held.items() if n >= k)
+          for k in range(1, longest + 1)}
+
+    def want_weight(place):
+        return at[1] if place in ("end", "head") else at[int(place[1:])]
+
+    check("the planner's deepest place is the table's longest line",
+          PLN.longest_line_words() == longest,
+          f"planner {PLN.longest_line_words()}, table {longest}")
+
+    def _is_places(pop):
+        return (isinstance(pop, (list, tuple)) and len(pop) > 1
+                and all(isinstance(p, str)
+                        and re.fullmatch(r"end|head|T\d+", p) for p in pop))
+
+    weighted, even = [], []
+    real_choices, real_choice = random.Random.choices, random.Random.choice
+
+    def rec_choices(self, population, weights=None, **kw):
+        if _is_places(population):
+            weighted.append((tuple(population),
+                             None if weights is None else tuple(weights)))
+        return real_choices(self, population, weights, **kw)
+
+    def rec_choice(self, seq):
+        if _is_places(seq):
+            even.append(tuple(seq))
+        return real_choice(self, seq)
+
+    # The band the cap read before the ruling, from the floor's own
+    # profiles: the premise below shows the cap check can tell the two apart.
+    old_cap = int(PLN.tokens_per_line_band()[0])
+    cap_wrong, past_old = [], []
+    with patch.object(random.Random, "choices", rec_choices), \
+            patch.object(random.Random, "choice", rec_choice):
+        for seed in range(40):
+            try:
+                pl = make_plan(seed=seed)
+            except PlanRefused:
+                continue
+            sub = pl["subdivision"]
+            caps = [PLN.line_syllable_ceiling(float(s["duration"]) * sub)
+                    for s in pl["line_slots"]] or [1]
+            want = max(1, min(longest, int(min(caps)) - 1))
+            if PLN.plan_max_token(pl) != want:
+                cap_wrong.append((seed, PLN.plan_max_token(pl), want))
+            if want > old_cap:
+                past_old.append(seed)
+    check("PREMISE: some drawn plan may name a word past the old "
+          f"{old_cap}-word band, so the check below can tell the two apart",
+          bool(past_old), past_old[:5])
+    check("the deepest word a plan may name is the longest real line, held "
+          "under the plan's shortest line less its end word",
+          not cap_wrong, cap_wrong[:5])
+    wrong = [(pop, w) for pop, w in weighted
+             if w != tuple(want_weight(p) for p in pop)]
+    deep = [pop for pop, _ in weighted
+            if any(p.startswith("T") and int(p[1:]) > old_cap for p in pop)]
+    check("PREMISE: the drawn plans picked places with a choice, some of them "
+          "past the old band, so the weights below were really read",
+          bool(weighted) and bool(deep),
+          f"{len(weighted)} weighted picks, {len(deep)} past word {old_cap}")
+    check("every place with a choice is picked as often as real sung lines "
+          "have a word there", not wrong, wrong[:2])
+    check("no place with a choice is picked evenly", not even, even[:2])
+
+
 def _place_group_keyed_on_the_name(group, rng, max_token, used):
     """THE PRE-FIX `plan._place_group`, verbatim but for its one coordinate:
     `used` holds the placement NAME rather than the WORD that placement binds.
@@ -3368,6 +3536,33 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
 
     union = set(_PL.gradeable_line_counts())
     song = set(_PL.song_line_counts())
+    # 2026-11-22, owner's ruling: the floor's whole-sheet length profiles
+    # come out, so the song's length reads the owner's 150-line cap
+    # (#902) and nothing else. The set the planner has drawn from since
+    # #902 was already 1..150, because the profile's own reach (1..463) was
+    # wider than the cap, so no seeded draw moves. Shown by emptying the
+    # floor's profile table, since every length profile comes out: the set
+    # is unchanged.
+    _sheets = list(FL.PROFILES)
+    _keep = list(FL.PROFILES)
+    try:
+        FL.PROFILES[:] = []
+        _PL.song_line_counts.cache_clear()
+        _no_sheet = set(_PL.song_line_counts())
+    except _PL.PlanRefused as exc:
+        _no_sheet = f"refused: {str(exc)[:80]}"
+    finally:
+        FL.PROFILES[:] = _keep
+        _PL.song_line_counts.cache_clear()
+    check("the SONG line set is 1 to the owner's line cap and reads no floor "
+          "length profile: with the floor's profile table emptied it is the "
+          "same set, and the table is restored",
+          song == set(range(1, _PL.SONG_LINE_CAP + 1)) == _no_sheet
+          and set(_PL.song_line_counts()) == song
+          and list(FL.PROFILES) == _keep,
+          f"song {min(song)}..{max(song)}, without the "
+          f"{len(_sheets)} profile(s): "
+          f"{_no_sheet if isinstance(_no_sheet, str) else (min(_no_sheet), max(_no_sheet))}")
     # REPINNED 2026-09-04 (`MISSING.md` M-239): the one live lyric-sheet
     # profile spans 4-3,245 tokens, which is 1..447 lines at the measured
     # tokens-per-line band and CONTAINS every stanza profile's reach, so the
@@ -3377,15 +3572,17 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # REPINNED 2026-11-19 (#902, owner ruling): the song set is the union
     # up to the owner's cap, `SONG_LINE_CAP` (150), which is under the
     # union's 463.
-    check("the SONG band is contained in the union of every live profile's "
-          "reach — this never widens what the planner volunteers past what "
-          "the floor can grade; since M-239 the two coincide up to the "
-          "owner's line cap (#902), because the lyric-sheet profile's range "
-          "contains the quatrain's and the sonnet's",
-          song <= union
-          and song == {n for n in union if n <= _PL.SONG_LINE_CAP}
-          and max(union) > _PL.SONG_LINE_CAP == max(song),
-          f"song {len(song)} of union {len(union)}, cap {_PL.SONG_LINE_CAP}")
+    # REPINNED 2026-11-22 (owner's ruling): ~~"the SONG band is contained
+    # in the union of every live profile's reach ... since M-239 the two
+    # coincide up to the owner's line cap"~~. The whole-sheet profiles come
+    # out of the floor, so the union no longer reaches a song's length and
+    # the song set answers to the cap alone (the check above). What stays
+    # true on both sides of that removal: the cap is the song set's top.
+    check("the SONG set's top is the owner's line cap (#902), whatever the "
+          "floor's length profiles reach",
+          max(song) == _PL.SONG_LINE_CAP and min(song) == 1,
+          f"song {min(song)}..{max(song)}, cap {_PL.SONG_LINE_CAP}, "
+          f"union {len(union)}")
     # REPINNED 2026-09-01 (`MISSING.md` M-193): a SECOND lyric-sheet
     # profile, `short` (50-150 tokens), reaches 6..20 lines, so the SONG
     # set is {6..20} | {22..55} with ONE hole at the seam between the two
@@ -3560,21 +3757,17 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # name test would be a second statement of which profile means what
     # (doctrine 1). Proven by ASKING the table rather than by reading the
     # source: exactly the profiles with `n_lines == 0` must reach the band.
-    lyric = [p for p in FL.PROFILES if not p.n_lines and not p.superseded_by]
-    _tlo, _thi = _PL.tokens_per_line_band()
-    check("the band is the reach of exactly the LIVE profile(s) declaring "
-          "`n_lines == 0` — ONE since M-239 (the two band rows are "
-          "superseded and read by nothing), and the set is its reach up to "
-          "the owner's line cap (#902): a lyric sheet has no fixed line "
-          "count, which is the coordinate, not the string 'song'",
-          len(lyric) == 1 and min(song) >= 1
-          and max(song) == min(_PL.SONG_LINE_CAP,
-                               max(int(p.hi // _tlo) for p in lyric))
-          and min(song) == min(math.ceil(p.lo / _thi) for p in lyric)
-          and song == {n for n in set().union(*[
-              set(range(max(1, math.ceil(p.lo / _thi)), int(p.hi // _tlo) + 1))
-              for p in lyric]) if n <= _PL.SONG_LINE_CAP},
-          f"{[p.name for p in lyric]}, {min(song)}..{max(song)}")
+    # REPINNED 2026-11-22 (owner's ruling: the whole-sheet length profiles
+    # come out of the floor). ~~"the band is the reach of exactly the LIVE
+    # profile(s) declaring `n_lines == 0` ... and the set is its reach up to
+    # the owner's line cap (#902)"~~ — the song set reads no profile now
+    # (the check at the top of this section takes every sheet row out and
+    # finds the same set), so what is asked of the table instead is that no
+    # profile's band is read: the set is exactly 1..cap.
+    check("the SONG set is exactly 1 to the owner's line cap (#902), and no "
+          "floor profile's token band is read for it",
+          song == set(range(1, _PL.SONG_LINE_CAP + 1)),
+          f"{min(song)}..{max(song)}, cap {_PL.SONG_LINE_CAP}")
 
     # MUTATION 1 — the band must be a FUNCTION of the ~~song~~ lyric-sheet
     # profile, not a literal wearing a derivation (doctrine 48). REPINNED
@@ -3584,15 +3777,18 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # REPINNED 2026-11-19 (#902): under the owner's line cap a WIDER band
     # cannot widen the song set, so the band is shown READ by narrowing it
     # under the cap, and the cap by raising it.
-    old_hi = lyric[0].hi
+    # REPINNED 2026-11-22 (owner's ruling): ~~narrowing the lyric-sheet
+    # band below the cap narrows the song set~~ — no band is read, so the
+    # cap is the one input, and it is shown read both ways: lowered, the
+    # set narrows to it; raised, the set widens to it.
+    old_cap = _PL.SONG_LINE_CAP
     try:
-        lyric[0].hi = _tlo * (_PL.SONG_LINE_CAP // 2)
+        _PL.SONG_LINE_CAP = old_cap // 2
         _PL.song_line_counts.cache_clear()
         narrowed = set(_PL.song_line_counts())
     finally:
-        lyric[0].hi = old_hi
+        _PL.SONG_LINE_CAP = old_cap
         _PL.song_line_counts.cache_clear()
-    old_cap = _PL.SONG_LINE_CAP
     try:
         _PL.SONG_LINE_CAP = old_cap + 200
         _PL.song_line_counts.cache_clear()
@@ -3600,16 +3796,14 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     finally:
         _PL.SONG_LINE_CAP = old_cap
         _PL.song_line_counts.cache_clear()
-    check("MUTATION — the SONG line band is read from the LIVE lyric-sheet "
-          "profile's measured token band (`lyric` since M-239, not the "
-          "superseded `song` row) under the owner's line cap (#902): "
-          "narrowing the band below the cap narrows the song set, raising "
-          "the cap widens it toward the band's reach, and both "
-          "perturbations are restored",
-          narrowed < song and uncapped > song
+    check("MUTATION — the SONG line set is read from the owner's line cap "
+          "(#902): lowering the cap narrows the set to it, raising it widens "
+          "the set to it, and both perturbations are restored",
+          narrowed == set(range(1, old_cap // 2 + 1)) < song
+          and uncapped == set(range(1, old_cap + 201)) > song
           and set(_PL.song_line_counts()) == song,
-          f"{len(song)} -> {len(narrowed)} narrowed, {len(uncapped)} with "
-          f"the cap raised")
+          f"{len(song)} -> {len(narrowed)} with the cap lowered, "
+          f"{len(uncapped)} with the cap raised")
 
     # MUTATION 2 — the stanza floor must be a FUNCTION of the section
     # profile, since it is what bounds the section COUNT.
@@ -3665,10 +3859,14 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
           "named",
           len(tot) + len(len_refused) == 120,
           f"{len(tot)} plans; refused NO_FREE_WORD: {len_refused or 'none'}")
-    check("every drawn total is INSIDE the lyric-sheet profile's own band "
-          "(`lyric` since M-239, repinned 2026-09-05), so the "
-          "planner volunteers no length that profile cannot hold to "
-          "anything", all(t in song for t in tot),
+    # REPINNED 2026-11-22 (owner's ruling): ~~"every drawn total is INSIDE
+    # the lyric-sheet profile's own band (`lyric` since M-239, repinned
+    # 2026-09-05), so the planner volunteers no length that profile cannot
+    # hold to anything"~~ — the song set reads no profile now, so the claim
+    # is the set itself.
+    check("every drawn total is INSIDE the song set (1 to the owner's line "
+          "cap), so the planner volunteers no length past the cap",
+          all(t in song for t in tot),
           f"[{min(tot)}, {max(tot)}] against [{min(song)}, {max(song)}]")
     # THE BIAS, STATED AS A RATE AND NOT AS AN ADJECTIVE (doctrine 22). The
     # ladder, all three measured on this same instrument: 52% under the
@@ -5144,6 +5342,114 @@ def test_a_rule_row_says_what_the_grader_accepts():
           bool(brief) and "class:" not in brief
           and rules["RHYME"][0] in brief and rules["RHYME"][1][0] in brief,
           brief[-400:])
+    # A WORD PLACE SAYS HOW LONG ITS LINE MUST BE (2026-11-23, item 1 of the
+    # owner's removals: a tie inside a line may name any word up to the
+    # 22nd). A group member `L.Tn` is resolved on line L as its nth sung
+    # word (`pronunciation.numbered_groups`). ~~A line with fewer is
+    # refused whole before anything is graded~~ REPINNED 2026-11-23 (the
+    # owner's ruling "mark the line"): a line with fewer gets a flag saying
+    # how long it must be (`Reviser.grade`). The brief says each such
+    # line's least length once, after the group list. Read off the grader:
+    # on a plan found by seed, each named line of the plan's own draft is
+    # cut to the number the brief prints for it, N, and to N - 1, and the
+    # grade flags the line at N - 1 and not at N (~~the shortest length the
+    # grader accepts is N~~: a shorter line is no longer refused, so a line
+    # cut to no words would be accepted); a word in parentheses is not
+    # counted unless `voices` is set, and two words joined by a hyphen count
+    # once.
+    from quality import revise as _RVw
+    lex_w = LH.Lexicon()
+    lex_wv = LH.Lexicon(strip_parens=False)
+    found = None
+    for seed in range(1, 200):
+        for n_lines in (12, 16, 24):
+            try:
+                pw = make_plan(seed, lines=n_lines)
+            except PLN.PlanRefused:
+                continue
+            places = [m.strip() for g in str(pw.get("groups") or "").split(";")
+                      for m in g.split(",")
+                      if re.fullmatch(r"\d+\.T\d+", m.strip())]
+            if any(int(m.split(".T")[1]) >= 2 for m in places):
+                found = (seed, n_lines, pw)
+                break
+        if found:
+            break
+    seed_w, lines_w, pw = found if found else (None, None, {})
+    groups_w = [[m.strip() for m in g.split(",") if m.strip()]
+                for g in str(pw.get("groups") or "").split(";") if g.strip()]
+    named = sorted({int(m.split(".")[0]) for g in groups_w for m in g
+                    if re.fullmatch(r"\d+\.T\d+", m)})
+    draft_w = dummy_draft(pw) if pw else []
+
+    rets_w = ([[int(x) for x in r.split(",")] for r in pw["returns"].split(";")]
+              if pw.get("returns") else None)
+    mandate_w = (SC.mandate(groups_w, n_lines=pw["total_lines"], returns=rets_w,
+                            relations=pw.get("relations"),
+                            default_relation=pw.get("relation"))
+                 if pw else None)
+
+    def _short_flag(lines, lex, ln):
+        # -> the grade's short-line flag on line `ln`, or None.
+        got = _RVw.Reviser(lex=lex).inspect(list(lines), mandate_w)
+        return next((f for f in got["per_line"].get(ln, ())
+                     if f.code == "SCHEME_VIOLATION"
+                     and f.message.startswith(f"Line {ln} has ")), None)
+
+    brief_lines = str(pw.get("writer_brief") or "").splitlines()
+    said_at = [t for t in brief_lines
+               if t.startswith("A group that names a word inside a line")]
+    least_printed = {int(a): int(b) for a, b in re.findall(
+        r"line (\d+) (?:needs )?at least (\d+)", said_at[0] if said_at else "")}
+    least_read, parens_bad, hyphen_bad = {}, [], []
+    for ln in named:
+        words = draft_w[ln - 1].split(" ")
+        k = least_printed.get(ln)
+        if not k or k < 2 or k > len(words):
+            continue
+        at, short = list(draft_w), list(draft_w)
+        at[ln - 1] = " ".join(words[:k])
+        short[ln - 1] = " ".join(words[:k - 1])
+        if _short_flag(short, lex_w, ln) and not _short_flag(at, lex_w, ln):
+            least_read[ln] = k
+        # The line at N words with its last word in parentheses (flagged,
+        # saying why, unless `voices` is set), and with its first two
+        # words joined by a hyphen (N - 1 words, so flagged).
+        inner = list(draft_w)
+        inner[ln - 1] = " ".join(words[:k - 1] + [f"({words[k - 1]})"])
+        flag = _short_flag(inner, lex_w, ln)
+        if (not flag or "words in parentheses are not counted" not in flag.message
+                or _short_flag(inner, lex_wv, ln)):
+            parens_bad.append((ln, inner[ln - 1]))
+        joined = list(draft_w)
+        joined[ln - 1] = " ".join([f"{words[0]}-{words[1]}"] + words[2:k])
+        if not _short_flag(joined, lex_w, ln):
+            hyphen_bad.append((ln, joined[ln - 1]))
+    said = [i for i, t in enumerate(brief_lines)
+            if t.startswith("A group that names a word inside a line")]
+    last_group = max((i for i, t in enumerate(brief_lines)
+                      if t.startswith("  group ")), default=-1)
+    rules_at = next((i for i, t in enumerate(brief_lines) if t == "Rules:"), -1)
+    sentence = brief_lines[said[0]] if said else ""
+    printed = {int(a): int(b) for a, b in re.findall(
+        r"line (\d+) (?:needs )?at least (\d+)", sentence)}
+    check("a group that names a word inside a line says, once and right "
+          "after the group list, how many words each such line needs; "
+          "~~the number is the shortest line the grader accepts there~~ "
+          "REPINNED 2026-11-23: the grade flags the line at one word fewer "
+          "and not at that number, a word in "
+          "parentheses is not counted unless `voices` is set, and two words "
+          "joined by a hyphen count once (plan found by seed "
+          f"{seed_w}, {lines_w} lines)",
+          found is not None and len(said) == 1
+          and said[0] == last_group + 1 == rules_at - 1
+          and printed == least_read and set(printed) == set(named)
+          and not parens_bad and not hyphen_bad
+          and f"Words in parentheses are not counted {PLN.UNLESS_VOICES}"
+          in sentence
+          and "a word joined by a hyphen counts once" in sentence,
+          (seed_w, sentence, least_read, parens_bad, hyphen_bad))
+
 
 def test_the_legend_states_the_whole_schema():
     print("\n19. M-214 — the legend's 'what each named relation asks' is "
@@ -5837,12 +6143,18 @@ def test_the_type_draw():
     ok, refused = PLN.type_eligibility()
     disowned = sorted(n for n, s in _R.REGISTRY.items()
                       if s.normative != "attested")
-    check("the disowned types are exactly the four the owner named, selected "
-          "by the registry's `normative` field, and none is eligible",
-          disowned == sorted(["homoioteleuton", "trite rhyme",
+    # REPINNED 2026-11-22 (owner's ruling): ~~"exactly the four the owner
+    # named"~~ — `trite rhyme` left the registry with the 30 declared trite
+    # pairs it read, so three are left, and the one that went is asserted
+    # gone rather than merely not disowned.
+    check("the disowned types are exactly the three left of the four the "
+          "owner named, selected by the registry's `normative` field, none is "
+          "eligible, and `trite rhyme` is gone from the registry",
+          disowned == sorted(["homoioteleuton",
                               "cynghanedd sain drosgl",
                               "fourth lift must not alliterate"])
-          and not set(disowned) & set(ok), disowned)
+          and not set(disowned) & set(ok)
+          and "trite rhyme" not in _R.REGISTRY, disowned)
     src = "".join(_insp.getsource(f) for f in (
         PLN.type_eligibility, PLN.fit_type, PLN._assign_types, PLN._carve,
         PLN._line_reach, PLN._domain_cap, PLN.type_rule))
@@ -5896,7 +6208,8 @@ def test_the_type_draw():
     leaks, unlabeled, unplaced = [], [], []
     # A FINDING CODE IS A NAME, NOT A WORD OF THE BRIEF (stage 3 box 1): the
     # stop block prints each code that can stop the song, and some codes
-    # hold a banned word (`MODAL_RHYME`, `ANAPHORA_OVERLOAD`). The scan
+    # hold a banned word (`MODAL_RHYME`; ~~`ANAPHORA_OVERLOAD`~~, removed
+    # 2026-11-22). The scan
     # skips exact code tokens the gate census lists, and nothing else.
     from quality import gate_census as _GC
     _codes = set(_GC.census())
@@ -5911,7 +6224,11 @@ def test_the_type_draw():
         p = make_plan(seed)
         drawn = {v[7:] for v in p["relations"].values()
                  if v.startswith("schema:")}
-        text = p["writer_brief"]
+        # A POINTER IS A SPELLING THE GRADER READS, NOT AN EXAMPLE MARKER
+        # (stop rows, 2026-11-23): the pointer rows quote the English row of
+        # the grader's table ('&c.' or 'etc.') so a writer knows what not to
+        # write. That exact quoted text is skipped, and nothing else.
+        text = p["writer_brief"].replace(PLN.POINTERS, "")
         for pat in named_at:
             text = re.sub(pat, lambda mo: mo.group(1) + (
                 "" if mo.group(2) in drawn else f"({mo.group(2)})"),
@@ -5942,12 +6259,23 @@ def test_the_type_draw():
           "schema:<name> in plan['relations']", not unlabeled, unlabeled)
     check("each member's place is one its type's spans allow", not unplaced,
           unplaced[:5])
+    # REPINNED 2026-11-22: ~~`relation="schema:trite rhyme"`~~, which named
+    # the removed schema. The disowned type asked for is drawn by seed from
+    # the three left, and the refusal must name that type's own `normative`.
+    _asked = random.Random(1).choice(disowned)
     try:
-        make_plan(1, lines=16, relation="schema:trite rhyme")
+        make_plan(1, lines=16, relation=f"schema:{_asked}")
         check("a disowned type is refused when requested, naming why", False)
     except PlanRefused as e:
         check("a disowned type is refused when requested, naming why",
-              "deprecated" in str(e), str(e)[:100])
+              _R.REGISTRY[_asked].normative in str(e),
+              f"{_asked}: {str(e)[:100]}")
+    try:
+        make_plan(1, lines=16, relation="schema:trite rhyme")
+        check("the removed `trite rhyme` is refused when requested", False)
+    except PlanRefused as e:
+        check("the removed `trite rhyme` is refused when requested",
+              "trite rhyme" in str(e), str(e)[:100])
     try:
         make_plan(1, lines=16, relation="schema:alliteration")
         check("a type the grader can never pass is refused, naming why",
@@ -6016,9 +6344,12 @@ def test_the_type_draw():
             # no line, and the receipt lists its first line instead. Before
             # the 150-line cap no open seed in 1-40 drew one, so the helper
             # never met the case; seed 38 now does.
-            # It is not a source for a later reprise either.
+            # REPINNED 2026-11-23: ~~It is not a source for a later reprise
+            # either.~~ It sings new words, so its first line is a source
+            # for a later reprise, as any sung section's is.
             if fn == "reprise" and not heads and ls[0] in lineless:
                 first_of.setdefault(fn, ls[0])
+                heads.append(ls[0])
                 continue
             if fn == "reprise":
                 src, line = next(value, (None, None))
@@ -6105,6 +6436,39 @@ def test_the_type_draw():
                       "no_line_before", ())) == (not sung)
                   for (line, sung), p in _heads),
           [(h, p["returns"]) for h, p in _heads][:6])
+    # A REPRISE AFTER ONE THAT BROUGHT BACK NO LINE (2026-11-23): the
+    # earlier reprise sings new words, so its first line is a source for the
+    # later one, as `_reprise_heads` above already reads it (a section with
+    # lines is sung). ~~Such a reprise was no source~~, so a second reprise
+    # with only it before was planned with no line to bring back. The
+    # witness is the first seed, by scan, whose plan has a reprise after a
+    # reprise that brought back no line.
+    _after_lineless = None
+    for _seed in range(400):
+        _p = make_plan(_seed, functions=["solo", "reprise", "verse"], lines=24)
+        _lineless = list((_p["choices"].get("reprise") or {}).get(
+            "no_line_before", ()))
+        _later = [h for h, _sung in _reprise_heads(_p)
+                  if _lineless and h > min(_lineless)]
+        if _later:
+            _after_lineless = (_seed, _p, _lineless, _later)
+            break
+    if _after_lineless is None:
+        check("a seed in 0-399 plans a reprise after one that brought back "
+              "no line", False)
+    else:
+        _seed, _p, _lineless, _later = _after_lineless
+        _drawn = _p["choices"].get("reprise") or {}
+        _src_of = {line: srcs for (_s, line), srcs in zip(
+            _drawn.get("value", ()), _drawn.get("sources", ()))}
+        check("a reprise after one that brought back no line brings back a "
+              "line, drawn from sources that hold the earlier reprise's "
+              "first line",
+              all(h in _src_of and all(x in _src_of[h]
+                                       for x in _lineless if x < h)
+                  for h in _later)
+              and _p["returns"] == _expected_returns(_p)[0],
+              (_seed, _lineless, _later, _drawn, _p["returns"]))
     # A BRIDGE NEEDS A SECTION BEFORE IT (owner's ruling, 2026-11-15): both
     # live retests of 2026-11-14 planned one as the song's first section.
     _all = opens + opens_40 + vcs
@@ -8508,6 +8872,279 @@ def _stop_rule_plans():
     return out, refused, len(spread)
 
 
+def _function_stop_probes(reviser):
+    """THE SONG-FUNCTION ROWS, read off the grader (2026-11-23). -> (codes
+    whose probes hold, what failed, the coverage layers the breaks refused).
+
+    For each `function`-layer row of `STOP_RULES`: a plan found by seed on
+    which the row prints, and its own draft. The row's break, made on the
+    sections the row names, graded under the plan's blueprint (as a seeded
+    grade carries it), must refuse `function:draft` and file the row's own
+    code; the remedy the row names must clear both. On a plan found by seed
+    on which the row does not print, the same break files no such code. The
+    breaks also refuse other layers (an unread word refuses its line's
+    meter, and its pair's rhyme); only the function layer is the row's."""
+    import copy as _copy
+    import random as _rnd
+    from quality import fit as _FT
+    from quality import pronunciation as _PR
+    from quality import revise as _RV
+    from quality.grid import tokens as _tokens
+    rng = _rnd.Random("function stop rows")
+    lex = reviser.lex
+    kinds = (dict(form="verse-chorus", lines=16), dict(form="verse-chorus", lines=24),
+             dict(form="verse-chorus", lines=16, title="<t>"),
+             dict(functions=["verse", "chorus", "verse", "chorus", "reprise"],
+                  lines=16),
+             dict(form="open", lines=16), dict(form="open", lines=12, title="<t>"))
+
+    def grade(p, lines, lx=None, title=None):
+        q = dict(p, title=title) if title is not None else p
+        gs = [g.split(",") for g in p["groups"].split(";")] if p["groups"] else []
+        rets = ([[int(x) for x in r.split(",")] for r in p["returns"].split(";")]
+                if p["returns"] else None)
+        m = SC.mandate(gs, n_lines=p["total_lines"], returns=rets,
+                       relations=p.get("relations"),
+                       default_relation=p.get("relation"))
+        rv = _RV.Reviser(lex=lx or lex)
+        got = rv.inspect(list(lines), m, blueprint=fill_plan(q, lines),
+                         subdivision=_FT.Subdivision(
+                             p["subdivision"], source="test_plan function rows"))
+        return [str(o) for o in got["coverage"]["refused_obligations"]]
+
+    def stops(refused, code):
+        return ("function:draft" in refused
+                and any(o.startswith(f"function:{code}:") for o in refused))
+
+    def filed(refused, code):
+        return any(o.startswith(f"function:{code}:") for o in refused)
+
+    def find(want):
+        # -> (plan, draft) for the first plan by seed over `kinds` where
+        # `want(plan)` holds and the draft as written leaves the function
+        # layer answered.
+        for kw in kinds:
+            for seed in range(1, 80):
+                try:
+                    p = make_plan(seed, **kw)
+                except PLN.PlanRefused:
+                    continue
+                if not p.get("line_slots") or not want(p):
+                    continue
+                clean = dummy_draft(p)
+                if not any(o.startswith("function:") for o in grade(p, clean)):
+                    return p, clean
+        return None, None
+
+    def lines_of(p, sec):
+        return [s["line"] for s in p["line_slots"] if s["section"] == sec["name"]]
+
+    def copies(p, ln):
+        # A line and every line the plan returns it as, and back.
+        out, rows = {ln}, [{int(x) for x in r.split(",") if x.strip()}
+                           for r in (p["returns"] or "").split(";") if r]
+        grown = True
+        while grown:
+            grown = False
+            for pair in rows:
+                if pair & out and not pair <= out:
+                    out |= pair
+                    grown = True
+        return sorted(out)
+
+    def end_swap(lines, at, word):
+        out = list(lines)
+        for x in at:
+            out[x - 1] = out[x - 1].rsplit(" ", 1)[0] + " " + word
+        return out
+
+    def declared(lines, at, phones):
+        # One row per line text: a reading is declared for a line's words,
+        # so the copies of a line sung again share one row (a second row for
+        # the same text and word is refused as a duplicate).
+        lx = _copy.copy(lex)
+        rows = []
+        for x in at:
+            toks = LH.line_tokens(lines[x - 1], strip_parens=lx.strip_parens,
+                                  scheme=_PR._scheme(lx))
+            if any(r["line"] == lines[x - 1] for r in rows):
+                continue
+            rows.append(dict(line=lines[x - 1], token=len(toks), word=toks[-1],
+                             phones=phones, basis="declared",
+                             source="test_plan function rows"))
+        lx.pronunciations = _PR.validate_choices(rows, lx)
+        return lx
+
+    nonword = "".join(rng.choice("bcdfghjklmnpqrstvwxz") for _ in range(7))
+    while nonword in lex.entries:
+        nonword += rng.choice("bcdfghjklmnpqrstvwxz")
+    vowels = set("AEIOU")
+    voiceless = sorted(w for w, rs in lex.entries.items()
+                       if w.isalpha() and rs
+                       and all(not any(ph[0] in vowels for ph in r) for r in rs))
+    novowel = rng.choice(voiceless) if voiceless else None
+    marks = "".join(rng.choice(".,;:!?") for _ in range(3))
+    comp = PLN._compared_sections
+    passed, bad, layers = set(), [], set()
+
+    def unread_case(code, label, want, at_of):
+        # An unread last word on the lines `at_of` names: a word no reader
+        # has, then one the dictionary reads with no vowel; a declared
+        # reading clears each, and `fallback` clears only the first.
+        p, clean = find(want)
+        if p is None:
+            bad.append((code, label, "no plan found by seed"))
+            return False
+        at = at_of(p)
+        phones = list(_PR.dictionary_readings(
+            lex, clean[at[0] - 1].rsplit(" ", 1)[1])[0])
+        ok = True
+        for word, fallback_clears in ((nonword, True), (novowel, False)):
+            broken = end_swap(clean, at, word)
+            r_b = grade(p, broken)
+            layers.update(o.split(":")[0] for o in r_b)
+            r_d = grade(p, broken, declared(broken, at, phones))
+            r_f = grade(p, broken, LH.Lexicon(fallback="low"))
+            res = (stops(r_b, code), filed(r_d, code), filed(r_f, code))
+            if res != (True, False, not fallback_clears):
+                ok = False
+                bad.append((code, label, word, res))
+        return ok
+
+    def returned_line(p):
+        first, later = comp(p)["returns"][0]
+        return copies(p, lines_of(p, later)[-1])
+
+    ok_e = unread_case("END_WORD_UNREADABLE", "a section sung again",
+                       lambda p: comp(p)["returns"], returned_line)
+    ok_e &= unread_case("END_WORD_UNREADABLE", "a reprise pair",
+                        lambda p: comp(p)["reprises"],
+                        lambda p: copies(p, lines_of(p, comp(p)["reprises"][0][1])[-1]))
+
+    def bridge_line(p):
+        b = next(s for s in p["sections"] if s["function"] == "bridge")
+        return copies(p, lines_of(p, b)[-1])
+    ok_c = unread_case("CHANNEL_NOT_MEASURED", "the bridge and the verse",
+                       lambda p: ("bridge", "verse") in comp(p)["contrasts"]
+                       and any(s["function"] == "bridge" and lines_of(p, s)
+                               for s in p["sections"]),
+                       bridge_line)
+
+    def pointer_case(codes, label, want, where, not_filed=()):
+        # The row's break on the lines `where` names (-> {line: text}); the
+        # draft as written clears it.
+        p, clean = find(want)
+        if p is None:
+            bad.append((codes, label, "no plan found by seed"))
+            return False
+        broken = list(clean)
+        for ln, text in where(p, clean).items():
+            broken[ln - 1] = text
+        r_b = grade(p, broken)
+        layers.update(o.split(":")[0] for o in r_b)
+        res = ([stops(r_b, c) for c in codes], [filed(r_b, c) for c in not_filed])
+        if res != ([True] * len(codes), [False] * len(not_filed)):
+            bad.append((codes, label, res, r_b[:6]))
+            return False
+        return True
+
+    later_first = lambda p: lines_of(p, comp(p)["returns"][0][1])[0]
+    ok_s = pointer_case(
+        ("STUB_RETURN", "RETURN_SLOTS_UNRESOLVED"), "a bare pointer",
+        lambda p: comp(p)["returns"],
+        lambda p, c: {later_first(p): PLN.POINTER_SPELLINGS[0]})
+    # Words before the pointer that begin the section written out in full
+    # tell the grader which lines it points to, so only the slots stand.
+    ok_s2 = pointer_case(
+        ("RETURN_SLOTS_UNRESOLVED",), "a pointer after the section's opening",
+        lambda p: comp(p)["returns"],
+        lambda p, c: {later_first(p): c[lines_of(p, comp(p)["returns"][0][0])[0] - 1]
+                      + " " + PLN.POINTER_SPELLINGS[-1]},
+        not_filed=("STUB_RETURN",))
+    reprise_lines = lambda p: lines_of(p, comp(p)["reprises"][0][1])
+    ok_r = pointer_case(
+        ("REPRISE_STUB",), "a bare pointer in the later section",
+        lambda p: comp(p)["reprises"],
+        lambda p, c: {reprise_lines(p)[-1]: PLN.POINTER_SPELLINGS[0]})
+    ok_w = pointer_case(
+        ("REPRISE_SIDE_HAS_NO_WORDS",), "punctuation only",
+        lambda p: comp(p)["reprises"],
+        lambda p, c: {ln: marks for ln in reprise_lines(p)})
+
+    # The title: one word longer than the hook line, drawn from the draft.
+    p_t, clean_t = find(lambda p: p.get("hook_slot") and p.get("title"))
+    ok_t = False
+    if p_t is None:
+        bad.append(("TITLE_LONGER_THAN_HOOK", "no plan found by seed"))
+    else:
+        h = p_t["hook_slot"]
+        k = len(_tokens(clean_t[h - 1]))
+        pool = " ".join(clean_t).split()
+        title = " ".join(rng.choice(pool) for _ in range(k + 1))
+        r_b = grade(p_t, clean_t, title=title)
+        layers.update(o.split(":")[0] for o in r_b)
+        longer = end_swap(clean_t, copies(p_t, h),
+                          clean_t[h - 1].rsplit(" ", 1)[1] + " " + pool[0])
+        r_l = grade(p_t, longer, title=title)
+        # The row's two counting clauses, through the same grade (2026-11-23,
+        # Boris asked whether the row counts as the grader does): with its
+        # first word in parentheses the title is still one word longer and
+        # refused, and with its first two words joined by a hyphen it is no
+        # longer than the hook line and not filed.
+        words = title.split()
+        r_p = grade(p_t, clean_t,
+                    title=" ".join(["(" + words[0] + ")"] + words[1:]))
+        r_j = grade(p_t, clean_t,
+                    title=" ".join([words[0] + "-" + words[1]] + words[2:]))
+        res = (stops(r_b, "TITLE_LONGER_THAN_HOOK"),
+               filed(r_l, "TITLE_LONGER_THAN_HOOK"),
+               stops(r_p, "TITLE_LONGER_THAN_HOOK"),
+               filed(r_j, "TITLE_LONGER_THAN_HOOK"))
+        ok_t = res == (True, False, True, False)
+        if not ok_t:
+            bad.append(("TITLE_LONGER_THAN_HOOK", title, res, r_b[:6]))
+
+    # Where the row does not print, the same break files no such code.
+    p_n, clean_n = find(lambda p: not comp(p)["returns"]
+                        and not comp(p)["reprises"]
+                        and not comp(p)["contrasts"])
+    if p_n is None:
+        bad.append(("no plan found by seed that prints none of the rows",))
+        ok_n = False
+    else:
+        last = p_n["total_lines"]
+        broken = {
+            "END_WORD_UNREADABLE": end_swap(clean_n, [last], nonword),
+            "CHANNEL_NOT_MEASURED": end_swap(clean_n, [last], nonword),
+            "STUB_RETURN": clean_n[:-1] + [PLN.POINTER_SPELLINGS[0]],
+            "RETURN_SLOTS_UNRESOLVED": clean_n[:-1] + [PLN.POINTER_SPELLINGS[0]],
+            "REPRISE_STUB": clean_n[:-1] + [PLN.POINTER_SPELLINGS[0]],
+            "REPRISE_SIDE_HAS_NO_WORDS": clean_n[:-1] + [marks]}
+        printed = {c for c, _k, _t in PLN.stop_rules_for(p_n)}
+        stray = [c for c, lines in broken.items()
+                 if c in printed or filed(grade(p_n, lines), c)]
+        # The title: a plan with a title and no hook line has no title row,
+        # and no title, however long, is filed as longer than a hook.
+        p_o, clean_o = find(lambda p: p.get("title") and not p.get("hook_slot"))
+        if p_o is None:
+            stray.append("no titled plan without a hook line found by seed")
+        elif ("TITLE_LONGER_THAN_HOOK" in {c for c, _k, _t in PLN.stop_rules_for(p_o)}
+              or filed(grade(p_o, clean_o, title=" ".join(
+                  " ".join(clean_o).split())), "TITLE_LONGER_THAN_HOOK")):
+            stray.append("TITLE_LONGER_THAN_HOOK")
+        ok_n = not stray
+        if stray:
+            bad.append(("filed where its row does not print", stray))
+    for code, ok in (("END_WORD_UNREADABLE", ok_e), ("CHANNEL_NOT_MEASURED", ok_c),
+                     ("STUB_RETURN", ok_s and ok_s2),
+                     ("RETURN_SLOTS_UNRESOLVED", ok_s and ok_s2),
+                     ("REPRISE_STUB", ok_r), ("REPRISE_SIDE_HAS_NO_WORDS", ok_w),
+                     ("TITLE_LONGER_THAN_HOOK", ok_t)):
+        if ok and ok_n:
+            passed.add(code)
+    return passed, bad, layers
+
+
 def test_the_stop_rules():
     """§ THE BRIEF'S LAST BLOCK NAMES WHAT CAN STOP THE SONG (stage 3 box
     1). One row per blocking code that applies to the plan, each limit the
@@ -8645,6 +9282,10 @@ def test_the_stop_rules():
         if row["applies"] == "never":
             continue
         layer = row.get("layer")
+        if layer == "function":
+            # Probed apart, each by its own break and remedy
+            # (`_function_stop_probes`, below).
+            continue
         if code not in probes:
             unjudged_bad.append((code, layer, "no probe for this code"))
             continue
@@ -8832,7 +9473,45 @@ def test_the_stop_rules():
     # Every layer and every meter code the grader refuses for words with no
     # reading has its row: what the probes refuse, read off the grader,
     # against the rows that can fire.
-    refused_layers, refused_codes = set(), set()
+    fn_passed, fn_bad, fn_layers = _function_stop_probes(reviser)
+    fn_rows = {c for c in unjudged_rows
+               if PLN.STOP_RULES[c].get("layer") == "function"}
+    for c in fn_passed:
+        kinds[c] = "unjudged"
+    check("...and each song-function row stops the song as it says: on a "
+          "plan found by seed where it prints, its break on the sections it "
+          "names refuses the function layer under its own code, and its "
+          "remedy clears that; where it does not print, the same break files "
+          "no such code (a word no reader has and a dictionary word read "
+          "with no vowel, each cleared by a declared reading, the first by "
+          "`fallback` too; a bare pointer; a pointer after the section's "
+          "opening, which leaves only the slots unjudged; punctuation only; "
+          "a title one word longer than the hook line, refused also with "
+          "its first word in parentheses and not filed with its first "
+          "two words joined by a hyphen)",
+          fn_rows and fn_passed == fn_rows and not fn_bad,
+          (sorted(fn_rows - fn_passed), fn_bad[:4]))
+    stub_eng = [form for langs, _g, form in _LH.CHORUS_STUB_FORMS
+                if "eng" in langs]
+    check("...and the pointers the rows name are the English row of the "
+          "grader's own table, each read as a pointer at a line's end",
+          len(stub_eng) == 1 and all(
+              _LH.is_chorus_stub("a line " + sp, "eng")
+              for sp in PLN.POINTER_SPELLINGS)
+          and [s.strip() for s in next(
+              g for langs, g, _f in _LH.CHORUS_STUB_FORMS if "eng" in langs
+          ).split(" (")[0].split(" / ")] == list(PLN.POINTER_SPELLINGS),
+          PLN.POINTER_SPELLINGS)
+    # The row's pattern also reads '&amp;c.', the pointer as a web page's
+    # HTML writes it. The rows leave it out on purpose: a writer does not
+    # type it, and the grader reads it only so pasted HTML reads alike.
+    check("...and the row also reads '&amp;c.', the pointer as HTML writes "
+          "it, which the rows leave out on purpose",
+          _LH.is_chorus_stub("a line &amp;c.", "eng")
+          and "&amp;c." not in PLN.POINTER_SPELLINGS,
+          PLN.POINTER_SPELLINGS)
+    # The song-function breaks above refuse their layers too.
+    refused_layers, refused_codes = set(fn_layers), set()
     for code, (_ln, _sw, _on, with_bp) in probes.items():
         for o in _graded(_broken(code), reviser.lex, with_bp)[0][
                 "refused_obligations"]:
@@ -9082,67 +9761,53 @@ def test_the_stop_rules():
     check("...and each row's stated word unit says what its tokenizer "
           "keeps and what splits a word", not unit_bad, unit_bad)
 
-    # THE WORD A LINE OPENS ON, read off the anaphora row's own reader
-    # (`SlopFloor._anaphora`): two lines open on one word when their rate
-    # is 1. A mark is trimmed when it is cut at both ends of a word.
-    import string
-
-    def _same_opening(a, b):
-        return floor_._anaphora([a, b])[0] == 1.0
-    marks = sorted(set(string.punctuation) | set(
-        "\u2018\u2019\u201c\u201d\u2014\u2013\u2026\u00ab\u00bb"))
-    read_open = {
-        "trimmed": {m for m in marks if _same_opening(m + "ab", "ab")
-                    and _same_opening("ab" + m, "ab")},
-        "case_folded": _same_opening("Ab", "ab"),
-        "apostrophes_folded": _same_opening("a\u2019b", "a'b")}
-    split_on_space = (_same_opening("ab cd", "ab ef")
-                      and not _same_opening("ab-cd", "ab"))
-    open_rows = {c for c, r in PLN.STOP_RULES.items() if "opening" in r}
-    opening = PLN.STOP_RULES.get("ANAPHORA_OVERLOAD", {}).get("opening") or {}
-    got_open = dict(opening, trimmed=set(opening.get("trimmed", "")))
-    check("...and the anaphora row carries how its reader takes the word a "
-          "line opens on, probed from `SlopFloor._anaphora`, and no other "
-          "row carries one", open_rows == {"ANAPHORA_OVERLOAD"}
-          and split_on_space and got_open == read_open
-          and len(opening.get("trimmed", "")) == len(read_open["trimmed"]),
-          (open_rows, split_on_space, got_open, read_open))
-    said_open = PLN._limit_opening_word(opening)
-    open_bad = [m for m in read_open["trimmed"]
-                if f" {m} " not in said_open and f" {m} cut" not in said_open]
-    if "everything before its first space" not in said_open:
-        open_bad.append("first space")
-    if ("in any case" in said_open) != read_open["case_folded"]:
-        open_bad.append("case")
-    if ("a curly apostrophe and a straight one make different words"
-            in said_open) == read_open["apostrophes_folded"]:
-        open_bad.append("apostrophes")
-    for mark, chars in (("a quote mark", '"\u201c'), ("a bracket", "([")):
-        if (mark in said_open) != (not set(chars) & read_open["trimmed"]):
-            open_bad.append(mark)
-    check("...and the anaphora row's stated opening word says what that "
-          "reader cuts, keeps and folds", not open_bad, (open_bad, said_open))
+    # THE WORD A LINE OPENS ON. REPINNED 2026-11-22 (owner's ruling): the
+    # same-first-word and word-variety checks are removed, so ~~the anaphora
+    # row carries how its reader takes the word a line opens on, probed from
+    # `SlopFloor._anaphora`, and states it~~. Now: there is no such row, no
+    # such reader, and no wording helper for either.
+    gone_rows = {"ANAPHORA_OVERLOAD", "LEXICAL_MONOTONY",
+                 "MATTR_WINDOW_UNCALIBRATED"}
+    # REPINNED 2026-11-22: ~~the anaphora row carries how its reader takes
+    # the word a line opens on, probed from `SlopFloor._anaphora`, and no
+    # other row carries one~~.
+    check("...and no stop row is left for the removed checks, no row "
+          "carries an opening reader, and the floor's reader is gone",
+          not (gone_rows & set(PLN.STOP_RULES))
+          and not any("opening" in r for r in PLN.STOP_RULES.values())
+          and not hasattr(floor_, "_anaphora"),
+          sorted(gone_rows & set(PLN.STOP_RULES)))
+    # REPINNED 2026-11-22: ~~the anaphora row's stated opening word says what
+    # that reader cuts, keeps and folds~~.
+    left = [f for f in ("_limit_opening_word", "_limit_openings",
+                        "_limit_variety", "_opening_cap", "_matched_openings",
+                        "_verbatim_classes") if hasattr(PLN, f)]
+    check("...and the brief has no wording left for the word a line opens "
+          "on, the opening share or the word-variety limit",
+          not left and not {"openings", "variety"} & set(PLN._STOP_LIMITS),
+          left)
 
     # THE NEVER ROWS: each stated reason, checked against the code.
     never = {c for c, r in PLN.STOP_RULES.items() if r["applies"] == "never"}
     fit_never = {"ZERO_DURATION", "BEAT_OUTSIDE_CYCLE",
                  "START_BEFORE_SECTION", "OVERRUNS_SECTION", "START_OFF_GRID"}
+    # REPINNED 2026-11-22: ~~MATTR_WINDOW_UNCALIBRATED~~ left the never
+    # rows with its check (owner's ruling).
     check("...and the rows marked never are the five placement codes, "
-          "HOOK_ABSENT, HOOK_DOES_NOT_RECUR, CLICHE_PAIR, "
-          "MATTR_WINDOW_UNCALIBRATED and the meter codes the grade cannot "
-          "raise, each with a stated reason",
+          "HOOK_ABSENT, HOOK_DOES_NOT_RECUR, CLICHE_PAIR and the meter codes "
+          "the grade cannot raise, each with a stated reason",
           never == fit_never | {"HOOK_ABSENT", "HOOK_DOES_NOT_RECUR",
-                                "CLICHE_PAIR",
-                                "MATTR_WINDOW_UNCALIBRATED"} | never_meter
+                                "CLICHE_PAIR"} | never_meter
           and all(PLN.STOP_RULES[c].get("never") for c in never),
           sorted(never))
     decl = _F.FloorDeclaration()
     check("...CLICHE_PAIR: the default declaration lists no banned pairs",
           decl.cliche_pairs == frozenset(), f"{decl.cliche_pairs}")
-    check("...MATTR_WINDOW_UNCALIBRATED: the default window is the "
-          "calibrated one",
-          decl.mattr_window == _F.CALIBRATION["mattr_window"]["value"],
-          f"{decl.mattr_window}")
+    check("...and the declaration has no word-variety window left for a "
+          "never row to speak for (REPINNED 2026-11-22 from ~~the default "
+          "window is the calibrated one~~)",
+          not hasattr(decl, "mattr_window")
+          and "mattr_window" not in _F.CALIBRATION)
 
     # THE HOOK ROWS, READ OFF THE PLANNED GRADE (2026-11-18). A drawn plan's
     # own draft, every returned line copied by the plan's rows, is put to
@@ -9258,23 +9923,20 @@ def test_the_stop_rules():
     mis_rows, mis_nums, not_last, fit_hits, hook_bad, pair_bad = \
         [], [], [], [], [], []
     clause_bad, units_scoped, band_bad = [], [], []
+    compared_bad = []
     capped_n = under_lo = 0
     seen = Counter()
     pair_counts = Counter()
-    from quality.features import QualityFeatures as _QF
-    # THE SHORT-SONG CLAUSE'S BRANCH, read off the statistic itself: at the
-    # window's length or under, the variety measure is the plain share of
-    # distinct words (`QualityFeatures._mattr`, `len(words) <= window`).
-    w_ = decl.mattr_window
-    import random as _rnd
-    _r = _rnd.Random(w_)
-    toks = [f"w{_r.randrange(w_ // 2)}" for _ in range(w_ + 1)]
-    check("...the short-song clause's branch is the statistic's own: at "
-          "the window's length the measure is the plain share of distinct "
-          "words, one word past it it is not that share",
-          _QF._mattr(toks[:w_], w_) == len(set(toks[:w_])) / w_
-          and _QF._mattr(toks, w_) != len(set(toks)) / len(toks),
-          f"{_QF._mattr(toks[:w_], w_)} {_QF._mattr(toks, w_)}")
+    # THE SHORT-SONG CLAUSE'S BRANCH. REPINNED 2026-11-22: ~~read off the
+    # statistic itself, at the window's length the variety measure is the
+    # plain share of distinct words~~ — the variety row is removed with its
+    # check (owner's ruling), so no row states a window or a whole-song
+    # clause, and the band sentence below covers the grammar-word row alone.
+    check("...no stop row states a word-variety window or its whole-song "
+          "clause any more",
+          PLN.LENGTH_LIMIT_CODES == ("FUNCTION_WORD_HEAVY",)
+          and "LEXICAL_MONOTONY" not in PLN.STOP_RULES,
+          PLN.LENGTH_LIMIT_CODES)
     for kw, seed, p in plans:
         tag = (str(kw), seed)
         n = p["total_lines"]
@@ -9318,17 +9980,16 @@ def test_the_stop_rules():
         if PLN._floor_pairs(p) != fpairs:
             pair_bad.append((tag, PLN._floor_pairs(p)[:3], fpairs[:3]))
         # THE TWO "A NOTE INSTEAD" CLAUSES, against the floor the grader
-        # builds for this plan (`Reviser._floor_for`): the openings clause
-        # when it declares lines that open alike, the variety clause when it
-        # declares word-for-word copies to drop.
+        # builds for this plan (`Reviser._floor_for`). REPINNED 2026-11-22:
+        # ~~the openings clause when it declares lines that open alike, the
+        # variety clause when it declares word-for-word copies to drop~~ —
+        # both rows are removed (owner's ruling), so no row may carry the
+        # clause, and the grader's floor carries no declared classes.
         fl_ = reviser._floor_for(m_)[0]
-        clause_want = {
-            "ANAPHORA_OVERLOAD": bool(fl_.declared_opening_classes),
-            "LEXICAL_MONOTONY": bool(fl_.declared_lexical_classes)}
-        clause_got = {c: "a note instead" in rows[c][1]
-                      for c in clause_want if c in rows}
-        if any(clause_got[c] != clause_want[c] for c in clause_got):
-            clause_bad.append((tag, clause_got, clause_want))
+        if (any("a note instead" in text for _k, text in rows.values())
+                or hasattr(fl_, "declared_opening_classes")
+                or hasattr(fl_, "declared_lexical_classes")):
+            clause_bad.append((tag, "a note instead"))
         # THE WORD BAND, from fit's own slot count: a word has at least one
         # syllable and fit flags SLOTS_EXCEEDED past one syllable a slot, so
         # the song's slots bound its words. Where they fall below the
@@ -9358,11 +10019,10 @@ def test_the_stop_rules():
         if any(c in rows for c in PLN.LENGTH_LIMIT_CODES) and not any(
                 said_band in ln for ln in block):
             band_bad.append((tag, "range sentence", said_band))
-        if "LEXICAL_MONOTONY" in rows:
-            lo_n = b_lo
-            if (("over the whole song at " in rows["LEXICAL_MONOTONY"][1])
-                    != (lo_n <= decl.mattr_window)):
-                clause_bad.append((tag, "whole-song clause", lo_n))
+        # REPINNED 2026-11-22: ~~the LEXICAL_MONOTONY whole-song clause
+        # under the window~~ — the row is removed; no row may say it.
+        if any("over the whole song at " in text for _k, text in rows.values()):
+            clause_bad.append((tag, "whole-song clause"))
         if "SCHEME_VIOLATION" in rows and "same word" in rows[
                 "SCHEME_VIOLATION"][1]:
             # The grader charges a repeated word only on a pair that already
@@ -9372,7 +10032,8 @@ def test_the_stop_rules():
             clause_bad.append((tag, "SCHEME_VIOLATION same word"))
         band = range(b_lo, b_hi + 1)
         limits = {}
-        for key in ("anaphora_max", "function_word_ratio_max", "mattr_min"):
+        # REPINNED 2026-11-22: ~~anaphora_max, mattr_min~~ removed.
+        for key in ("function_word_ratio_max",):
             vals = set()
             for nt in band:
                 prof, exact = _F.declaration_for(nt, n)
@@ -9385,9 +10046,7 @@ def test_the_stop_rules():
                 "HOMEOTELEUTON", "MODAL_RHYME"} | {
             c for c in live_unjudged
             if PLN.STOP_RULES[c]["layer"] == "rhyme"}
-        for code, key in (("ANAPHORA_OVERLOAD", "anaphora_max"),
-                          ("FUNCTION_WORD_HEAVY", "function_word_ratio_max"),
-                          ("LEXICAL_MONOTONY", "mattr_min")):
+        for code, key in (("FUNCTION_WORD_HEAVY", "function_word_ratio_max"),):
             if limits[key]:
                 want.add(code)
         if n >= _SH.ADOPTED["MIN_LINES"]:
@@ -9404,6 +10063,35 @@ def test_the_stop_rules():
         # the planned grade gives no such flag, so the row is a never row.
         if p.get("hook_slot") and p.get("title"):
             want.add("TITLE_NOT_IN_HOOK")
+            want.add("TITLE_LONGER_THAN_HOOK")
+        # THE SECTIONS THE GRADER COMPARES (2026-11-23), read off its own
+        # report on this plan's draft: the song-function rows print where
+        # it compares some, and name exactly the sections it compares.
+        song_f, hooks_f = G.song_from_blueprint(fill_plan(p, dummy_draft(p)))
+        rep_f = G.song_function_report(song_f, hooks=hooks_f)
+        got_f = {"returns": [(x.name, y.name)
+                             for rets in rep_f["returns"].values()
+                             for x, y, _r in rets],
+                 "reprises": [(x.name, y.name)
+                              for reps in rep_f["reprises"].values()
+                              for x, y, _r in reps],
+                 "contrasts": list(rep_f["contrasts"])}
+        mine_f = PLN._compared_sections(p)
+        mine_f = {"returns": [(x["name"], y["name"])
+                              for x, y in mine_f["returns"]],
+                  "reprises": [(x["name"], y["name"])
+                               for x, y in mine_f["reprises"]],
+                  "contrasts": list(mine_f["contrasts"])}
+        if got_f != mine_f:
+            compared_bad.append((tag, got_f, mine_f))
+        if got_f["returns"] or got_f["reprises"]:
+            want.add("END_WORD_UNREADABLE")
+        if got_f["returns"]:
+            want.update(("STUB_RETURN", "RETURN_SLOTS_UNRESOLVED"))
+        if got_f["reprises"]:
+            want.update(("REPRISE_STUB", "REPRISE_SIDE_HAS_NO_WORDS"))
+        if got_f["contrasts"]:
+            want.add("CHANNEL_NOT_MEASURED")
         # ~~A floor-pair flag needs a second pair, so the row asks for two~~
         # REMOVED 2026-11-20 (owner's ruling: a word may rhyme with itself):
         # REPEAT_IN_VERSE is a note at every pair count, so no plan carries
@@ -9416,20 +10104,10 @@ def test_the_stop_rules():
         # EACH NUMBER, the grader's own, computed here independently.
         exp = {"OUT_OF_CALIBRATED_LENGTH":
                [f"fewer than {reach_lo} or more than {reach_hi} words"]}
-        if "ANAPHORA_OVERLOAD" in want:
-            caps = sorted({max(c for c in range(n + 1) if not c / n > t)
-                           for t in limits["anaphora_max"]})
-            exp["ANAPHORA_OVERLOAD"] = [
-                f"more than {_span(caps, str)} of the {n} lines open",
-                f"({said_open})"]
         if "FUNCTION_WORD_HEAVY" in want:
             exp["FUNCTION_WORD_HEAVY"] = [
                 f"more than {_span(limits['function_word_ratio_max'], _pct)}"
                 f" of the song's words"]
-        if "LEXICAL_MONOTONY" in want:
-            exp["LEXICAL_MONOTONY"] = [
-                f"each run of {decl.mattr_window} words",
-                f"fall below {_span(limits['mattr_min'], lambda v: f'{v:.3f}')}"]
         if "STACKED_DRAFT" in want:
             a = _SH.ADOPTED
             k = min(c for c in range(n + 1)
@@ -9461,6 +10139,9 @@ def test_the_stop_rules():
                 hook_bad.append(tag)
         if "TITLE_NOT_IN_HOOK" in want:
             exp["TITLE_NOT_IN_HOOK"] = [f"inside line {p['hook_slot']}"]
+            exp["TITLE_LONGER_THAN_HOOK"] = [
+                f"more words than line {p['hook_slot']}",
+                f"until line {p['hook_slot']} has at least as many words"]
         exp["MODAL_RHYME"] = [
             f"among the {_RV.ReviseDeclaration().modal_exclusion} or fewer"]
         for code, frags in exp.items():
@@ -9477,6 +10158,10 @@ def test_the_stop_rules():
           f"refused {refused}")
     check("...and its rows are exactly the rules whose condition holds for "
           "the plan", not mis_rows, mis_rows[:3])
+    check("...and the sections the song-function rows name are the ones "
+          "the grader's report compares on each drawn plan's draft "
+          "(`plan._compared_sections` against `grid.song_function_report`)",
+          not compared_bad, compared_bad[:2])
     check("...and each row that counts words is named in the sentence that "
           "states its own grader's word unit, on every drawn plan",
           not units_scoped, units_scoped[:3])
@@ -9496,9 +10181,9 @@ def test_the_stop_rules():
           "and two or more (none of them carries a REPEAT_IN_VERSE row: a "
           "self-rhyme is a note since 2026-11-20)",
           all(pair_counts[k] for k in (0, 1, 2)), dict(pair_counts))
-    check("...and each exception clause shows exactly when the grader's "
-          "own floor for the plan has it: openings that match, copies to "
-          "drop, the whole-song reading under the window; and the group "
+    check("...and no row carries an exception clause for the removed "
+          "checks (openings that match, copies to drop, the whole-song "
+          "reading under the window: REPINNED 2026-11-22), and the group "
           "row does not say a repeated word counts against a pair",
           not clause_bad, clause_bad[:3])
     check("...and the word band the length limits are read at is the "
@@ -9519,6 +10204,100 @@ def test_the_stop_rules():
     check("...and HOOK_ABSENT cannot fire: a hook line is in the draft, and "
           "a plan with no hook line asks for no hook", not hook_bad,
           hook_bad[:3])
+    # A POINTER IS READ IN THE SONG'S LANGUAGE (2026-11-23). The grader's
+    # pointer spellings are keyed by language (`LH.CHORUS_STUB_FORMS`), and
+    # the function layer asked every language's: an English planned song
+    # whose line ended in another language's pointer was refused for a
+    # reason no writer of it could guess. Read off the grader, on plans
+    # found by seed and their own drafts: a free line of a section the
+    # grader compares (one that an own-language pointer at its end stops)
+    # and a free reprise line are each ended in every spelling the table
+    # lists; the song's own language's spellings still stop the song, and
+    # no other language's does.
+    lang_own = reviser._relation_phonology().language
+    spellings = {}
+    for _langs, _label, _pat in _LH.CHORUS_STUB_FORMS:
+        for _sp in _label.split(" (")[0].split(" / "):
+            spellings[_sp.strip()] = lang_own in _langs
+    mine = sorted(s for s, ok in spellings.items() if ok)
+    theirs = sorted(s for s, ok in spellings.items() if not ok)
+
+    def _lang_grade(p, lines):
+        gs = [g.split(",") for g in p["groups"].split(";")] if p["groups"] else []
+        rets = ([[int(x) for x in r.split(",")] for r in p["returns"].split(";")]
+                if p["returns"] else None)
+        m = SC.mandate(gs, n_lines=p["total_lines"], returns=rets,
+                       relations=p.get("relations"),
+                       default_relation=p.get("relation"))
+        got = reviser.inspect(list(lines), m, blueprint=fill_plan(p, lines),
+                              subdivision=_FT.Subdivision(
+                                  p["subdivision"], source="test_plan pointer"))
+        return got["coverage"]
+
+    def _bound(p):
+        out = set()
+        for g in (p["groups"] or "").split(";"):
+            out.update(int(x.split(".")[0]) for x in g.split(",") if x.strip())
+        for r in (p["returns"] or "").split(";"):
+            out.update(int(x) for x in r.split(",") if x.strip())
+        return out
+
+    def _free_lines(p, later_of):
+        at = {}
+        for sl in p["line_slots"]:
+            at.setdefault(sl["section"], []).append(sl["line"])
+        seen, out = set(), []
+        for s in p["sections"]:
+            fn = s["function"]
+            if later_of(fn, seen):
+                out += [ln for ln in at.get(s["name"], ())
+                        if ln not in _bound(p)]
+            seen.add(fn)
+        return out
+
+    def _function_refused(cov):
+        return [o for o in cov["refused_obligations"]
+                if str(o).startswith("function:")]
+
+    lang_cases = {}
+    for label, later_of, kinds in (
+            ("a section sung again", lambda fn, seen: fn in seen,
+             [dict(form="verse-chorus", lines=16), dict(form="open", lines=16)]),
+            ("a reprise", lambda fn, seen: fn == "reprise" and "chorus" in seen,
+             [dict(functions=["verse", "chorus", "verse", "chorus", "reprise"],
+                   lines=16)])):
+        for kw in kinds:
+            for _seed in range(1, 200):
+                if label in lang_cases:
+                    break
+                try:
+                    p = make_plan(seed=_seed, **kw)
+                except PLN.PlanRefused:
+                    continue
+                if not p.get("line_slots"):
+                    continue
+                clean = dummy_draft(p)
+                for ln in _free_lines(p, later_of)[:2]:
+                    hit = list(clean)
+                    hit[ln - 1] = clean[ln - 1] + " " + mine[0]
+                    if (_lang_grade(p, clean)["certified"]
+                            and _function_refused(_lang_grade(p, hit))):
+                        lang_cases[label] = (_seed, kw, p, ln, clean)
+                        break
+    lang_bad = []
+    for label, (_seed, kw, p, ln, clean) in lang_cases.items():
+        for sp in mine + theirs:
+            hit = list(clean)
+            hit[ln - 1] = clean[ln - 1] + " " + sp
+            stopped = bool(_function_refused(_lang_grade(p, hit)))
+            if stopped != (sp in mine):
+                lang_bad.append((label, _seed, ln, sp, stopped))
+    check("a line's pointer is read in the song's language: on a section "
+          "sung again and on a reprise, found by seed, a line ending in one "
+          f"of the {lang_own!r} spellings ({mine}) stops the song, and one "
+          f"ending in another language's ({theirs}) does not",
+          len(lang_cases) == 2 and mine and theirs and not lang_bad,
+          (sorted(lang_cases), lang_bad))
 
 
 def test_a_late_start_is_named_as_the_grader_names_it():
@@ -9982,6 +10761,7 @@ _SECTIONS = (
     test_the_delegated_rulings,
     test_the_overhang_group,
     test_the_planner_plans_the_whole_line,
+    test_a_tied_word_sits_where_real_words_sit,
     test_the_end_rhyme_pass_is_additive,
     test_the_relation_draw,
     test_the_grade_it_line_runs,

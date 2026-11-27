@@ -52,7 +52,8 @@ const CONNECTION_FAMILIES = Object.freeze({
   'schema:db6a3aa4d90bfe7f6c28f817': 'rhyme', // sung-delivery rhyme
   'schema:1bc0e774d8c9a0e7e091c042': 'rhyme', // syllabic rhyme
   'schema:8ccd66a90da0cd797d67a344': 'rhyme', // transformative / bent rhyme
-  'schema:9fb03ec150fcd70d4aebfc55': 'rhyme', // trite rhyme
+  // ~~'schema:9fb03ec150fcd70d4aebfc55': 'rhyme', // trite rhyme~~ removed
+  // 2026-11-22 with the pattern (owner's ruling: the declared trite pairs go).
   'shared_sound:ffdfe1a5e8803b0ed1cb8759': 'assonance', // vowel@v1
   'schema:fec49e7b83fc13743feba016': 'rhyme', // wrenched rhyme
 });

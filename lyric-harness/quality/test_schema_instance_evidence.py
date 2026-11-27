@@ -436,8 +436,11 @@ class DisownedTypesTests(unittest.TestCase):
             self.assertEqual(LH.relation_label({"RHYME", name}), "RHYME")
 
     def test_the_relation_label_leaves_disowned_types_out(self):
+        # REPINNED 2026-11-22: ~~`"trite rhyme"`~~ left this fixture when
+        # the schema came out of the registry (owner's ruling);
+        # `homoioteleuton` still carries the disowned case.
         self.assertEqual(LH.relation_label(
-            {"relations": frozenset({"RHYME", "perfect rhyme", "trite rhyme",
+            {"relations": frozenset({"RHYME", "perfect rhyme",
                                      "homoioteleuton"})}), "RHYME+perfect rhyme")
         self.assertEqual(LH.relation_label({"homoioteleuton"}), "NO_ATTESTED_RELATION")
         self.assertEqual(LH.relation_label(set()), "NO_RELATION")

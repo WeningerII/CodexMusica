@@ -23,6 +23,17 @@ So `check()` returns findings a writer or a revision loop can act on, each with
 the measurement that triggered it. A caller that wants a single number has to
 invent its own weighting, in the open, and own it.
 
+TWO CHECKS REMOVED (owner's ruling, 22 Nov 2026)
+
+The word-variety check (LEXICAL_MONOTONY, its declared-repeat note
+LEXICAL_REPETITION_DECLARED and its window note MATTR_WINDOW_UNCALIBRATED)
+and the same-first-word check (ANAPHORA_OVERLOAD and its declared-repeat note
+ANAPHORA_DECLARED) are gone from the floor and from the planner's stop rules.
+Their only evidence was the one comparison below, of the 152 sonnets with 40
+machine-written ones; it was never repeated, never made for songs, and the
+machine-written file it used was deleted on 27 Oct 2026. The history below
+still names them where it records what was measured then.
+
 THE HONEST LIMITS OF THE CALIBRATION
 
 Thresholds are derived from 152 Shakespeare sonnets against 40 sonnets written
@@ -61,9 +72,10 @@ MORE uniform than the model (AUC 0.350). In a fixed form, uniformity is the
 form. It is retained as a calibrated "outside the human range" note and is
 explicitly not slop evidence.
 
-One check is unregistered. ANAPHORA_OVERLOAD separates at |0.853|, third-best
+~~One check is unregistered. ANAPHORA_OVERLOAD separates at |0.853|, third-best
 of the set, and was never pre-registered — so it is a post-hoc finding and
-owes its own replication before anyone leans on it.
+owes its own replication before anyone leans on it.~~ REMOVED 2026-11-22: the
+replication never came, and the check was taken out (see above).
 
 One check is a NOTE for a reason that changed under it. PREDICTABLE_RHYME, this
 project's former candidate universal, was recorded here as reproducing its own
@@ -349,13 +361,8 @@ CALIBRATION = {
                     "class, no AUC, and its evidence is a held-out "
                     "false-positive rate on human song text -- see that "
                     "profile's own source and note.",
-    #: LENGTH IS A COORDINATE, not a detail. MATTR is a moving average over
-    #: `FloorDeclaration.mattr_window` tokens (50); below that the
-    #: implementation falls back to plain TTR,
-    #: which is the length-confounded statistic MATTR exists to avoid. A
-    #: 4-line chorus runs 30-36 tokens, so applying the sonnet threshold to it
-    #: compares one statistic against another statistic's percentile and
-    #: returns a confident number for a measurement that was never made.
+    #: LENGTH IS A COORDINATE, not a detail: a share measured over 14-line
+    #: texts is not the share a 4-line chorus should be held to.
     #:
     #: So each profile carries its own percentiles and its own measured
     #: separation, and `declaration_for` refuses to serve text that falls in
@@ -377,7 +384,7 @@ CALIBRATION = {
     # field. `test_floor.py`'s "no threshold can hide outside both
     # lists" is what caught it; nothing about the source looked wrong.
     "definitional": ["predictability_max", "radif_min_pair_fraction",
-                     "cliche_pairs", "mattr_window"],
+                     "cliche_pairs"],
     #: A THIRD CATEGORY, DECLARED 2026-08-23, and the census that demanded it
     #: was right to. `test_floor.py`'s "no threshold can hide outside both
     #: lists" requires every valued `FloorDeclaration` field to be either
@@ -415,118 +422,6 @@ CALIBRATION = {
             "inexact case. It is exercised only by the suite's own "
             "`_narrowed_lyric`.",
     },
-    #: `mattr_window` is definitional in the SAME sense and in that sense
-    #: only -- it defines what MATTR IS, so moving it moves what every
-    #: `mattr_min` percentile is a percentile of. It is emphatically NOT
-    #: inconsequential, and the entry below prices it.
-    #: THE SWEEP BEHIND `FloorDeclaration.mattr_window`, 2026-08-14.
-    #:
-    #: Recorded here so a future disagreement about the window lands in a
-    #: coordinate rather than in a function signature. Until this date the 50
-    #: was a bare default in `features.QualityFeatures._mattr`: no comment
-    #: justifying it (the docstring justified MATTR, not the window), no
-    #: declaration field, no CALIBRATION entry, no results document, four
-    #: call sites and not one of them passing `window=`.
-    #:
-    #: THE VALUE DID NOT MOVE. This entry is a record, not a retune.
-    "mattr_window": {
-        "value": 50,
-        "unit": "tokens",
-        "swept": "2026-08-14, over the SAME 152 Shakespeare sonnets vs 40 "
-                 "generated ones that Experiment 2 reports. `mattr`-alone "
-                 "AUC, the statistic test_discriminate.PINNED['abs_exp2'] "
-                 "pins at window 50.",
-        #: window -> sonnet-level mattr AUC (Exp 2). Reproduced independently
-        #: on 2026-08-14; the instrument returns 0.8695723684210527 at window
-        #: 50, which is the shipped pin to the last digit, so it is faithful.
-        "auc_by_window": {20: 0.928, 25: 0.915, 30: 0.907, 40: 0.891,
-                          50: 0.870, 60: 0.850, 80: 0.811, 100: 0.750},
-        "shape": "MONOTONICALLY DECREASING across the whole swept range. 50 "
-                 "sits 0.059 below the sweep's best, on the DESCENDING LIMB "
-                 "-- it is a SLOPE, not a plateau, and nothing here licenses "
-                 "the sentence 'the window does not matter'. Paired "
-                 "bootstrap over the same items, 2000 draws: AUC(w=40) - "
-                 "AUC(w=50) = +0.021 [+0.009, +0.034], CI excluding zero.",
-        "flat_fpr_is_a_tautology": (
-            "The song profile's held-out mattr false-positive rate is FLAT "
-            "across a 10x change in window -- median 5.08-5.43% over windows "
-            "20 to 200, 200 author-held-out seeds each (5.10 / 5.09 / 5.32 / "
-            "5.43 / 5.33 / 5.24 / 5.08 at 20/25/40/50/60/100/200; the "
-            "window-50 reading is the shipped 5.43) -- and that flatness is "
-            "NOT evidence that the window is unimportant. It is a tautology "
-            "of percentile calibration: the threshold is the 5th percentile "
-            "of the same recomputed statistic, so ~5% of held-out items fall "
-            "below it whatever the window is. A reader who concludes 'FPR "
-            "flat therefore window inconsequential' has read the "
-            "calibration RULE and not the data. What moves under the flat "
-            "rate is WHICH items: +/-10 tokens of window changes 13-16% of "
-            "the flagged set (Jaccard 0.869 at w=40, 0.840 at w=60; 13.1% "
-            "and 16.0% of the union changes hands, on 92-93 flagged items "
-            "with the cut itself moving 0.7529 -> 0.7226 -> 0.6959). The "
-            "rate is stable; the accusations are not. And below window 25 "
-            "the calibrated BAND itself moves -- window 20 makes the band "
-            "rule return 100-350 (2,953 items, 132 authors) instead of "
-            "150-400 (1,859, 108), so every threshold there is a percentile "
-            "of a DIFFERENT population. 25 through 100 all return the "
-            "shipped band."),
-        #: THE CONSTRAINT NOBODY HAD WRITTEN DOWN, and the one most worth
-        #: having. `_mattr` falls back to plain TTR when `len(words) <=
-        #: window`, so a window is admissible only if EVERY item in a
-        #: profile's calibration set falls on the SAME side of that branch.
-        #: Otherwise one profile reports a mixture of two statistics under a
-        #: single threshold -- the defect doctrine 15 names.
-        "admissible": "[1,20] union [38,88] (stanza populations only, 2026-09-14)",
-        "admissible_measured": (
-            "Current stanza ranges after normalization: section 21-38, sonnet 89-130 "
-            "over both human and generated classes. Window 50 remains homogeneous within each "
-            "stanza profile. The lyric profile intentionally spans TTR and MATTR. "
-            "Historical calibration-set token ranges, measured 2026-08-14: section "
-            "quatrains 23-40 (456 human, 120 generated), sonnets 94-133 "
-            "(152 human, 40 generated), song band 150-400 (1,859 items). "
-            "Homogeneity per profile therefore admits [1,22] u [40,+inf) "
-            "for section, [1,93] u [133,+inf) for sonnet, [1,149] u "
-            "[400,+inf) for song. The intersection is [1,22] u [40,93] u "
-            "[133,149] u [400,+inf) -- and the last two branches are "
-            "DEGENERATE: at 133 and above the sonnet profile has collapsed "
-            "to plain TTR too, so 'MATTR' has stopped being a moving "
-            "average anywhere the gate measures it. The usable admissible "
-            "set is [1,22] u [40,93]. 50 is inside it. 25, 30, 38, 39 and "
-            "100 are NOT. A naive retune toward the AUC gradient -- which "
-            "points DOWN, at 20 -- that stopped at 25 or 30 would land on "
-            "an inadmissible value and nothing in this codebase would have "
-            "said so."),
-        #: THE LIVE DEFECT THE SWEEP FOUND, recorded next to the number that
-        #: caused it rather than in a changelog. See the `section` profile's
-        #: own note for the corrected label.
-        "section_profile_is_plain_ttr": (
-            "Re-measured 2026-09-14: at window 50 all 456 human and 120 generated "
-            "quatrains are plain TTR. Human fifth percentile 0.7697478991596639; "
-            "item-level AUC 0.7999269005847953. All units have 21-38 tokens; "
-            "every window >=38 yields the same statistic. Historical values "
-            "0.7567567568 and AUC 0.7755573830 described the previous tokenizer."),
-        "kept_because": (
-            "DOCTRINE 19, not inconsequence. The honest sentence is: the "
-            "shipped value costs ~0.06 AUC against the sweep's best and is "
-            "kept because an in-sample argmax is not a calibration. The "
-            "sweep's peak is read off the SAME 152-vs-40 corpus that "
-            "reports the AUC, so window 20 is an in-sample optimum with no "
-            "held-out standing; moving there would also be a threshold "
-            "change with no calibration behind the new number (doctrine "
-            "58). Window size is additionally a GENRE question -- 20 tokens "
-            "is about two lines of English verse, 50 about five -- and "
-            "doctrine 6 says a number like that belongs in a declaration "
-            "rather than in a constant. Hence: declared, priced, unmoved. "
-            "Any future move must be argued, repinned with its date, and "
-            "land inside [1,22] or [40,93]."),
-        "pinned_by": ("quality/test_discriminate.py PINNED['abs_exp1']"
-                      "['features']['mattr'] and PINNED['abs_exp2']"
-                      "['features']['mattr']; quality/test_floor.py's song "
-                      "percentile dict; quality/song_profile_calibration.py "
-                      "--check. Not one of the four NAMED the window before "
-                      "2026-08-14; each carries a comment saying so now, and "
-                      "`--check` additionally judges the window's "
-                      "admissibility at the song band."),
-    },
     #: Three results that contradict what this module was built expecting.
     #: Kept in the block that report() prints, not in a changelog.
     "failed_expectations": (
@@ -535,9 +430,7 @@ CALIBRATION = {
         "Shakespeare's sonnets are MORE uniform than the model's (AUC 0.350). "
         "In a fixed form uniformity is the form. The check is retained as a "
         "calibrated 'outside the human range' note and must NOT be cited as "
-        "slop evidence. || ANAPHORA_OVERLOAD was never pre-registered and "
-        "separates at |0.853|, third-best here; being unregistered it is a "
-        "post-hoc finding and needs its own replication. || "
+        "slop evidence. || "
         "PREDICTABLE_RHYME was this project's candidate universal and is not "
         "one. Cold, the predictability-only joint reaches 0.645 on "
         "human-vs-generated against 0.967 for the ten-feature joint on the "
@@ -666,9 +559,6 @@ class Profile:
     #: to serve it without a length: a curve is not a number until N is
     #: known, and guessing N is the doctrine-15 error one layer down.
     curves: dict = field(default_factory=dict)
-    #: Exact population mix used to fit a MATTR curve, at its source window.
-    #: This is provenance, not a threshold; the calibration check re-counts it.
-    mattr_ttr_population: dict = field(default_factory=dict)
     #: The name of the profile that SUPERSEDED this one, or "". A superseded
     #: row stays in `PROFILES` — its calibration `--check` and the results
     #: documents still find it by name, and the record of what it measured
@@ -796,13 +686,9 @@ PROFILES = [
     Profile(
         name="section", unit='4-line quatrain, 28-36 tokens',
         lo=28, hi=36, n_lines=4, n_human=456, n_generated=120,
-        percentiles={'mattr_min': 0.7697478991596639,
- 'function_word_ratio_max': 0.5281862745098039,
- 'anaphora_max': 0.5,
+        percentiles={'function_word_ratio_max': 0.5281862745098039,
  'line_length_cv_min': 0.05248638810814779},
-        measured_auc={'mattr': 0.7999269005847953,
- 'function_word_ratio': 0.234859283625731,
- 'anaphora': 0.24512975146198832,
+        measured_auc={'function_word_ratio': 0.234859283625731,
  'line_length_cv': 0.4244152046783626},
         note=('Re-adopted 2026-09-14 after Unicode/apostrophe token normalization. Measured on all 152 '
  'human and 40 generated sonnets; section units are their first three quatrains. Window '
@@ -830,14 +716,10 @@ PROFILES = [
     Profile(
         name="sonnet", unit='14-line sonnet, 105-123 tokens',
         lo=105, hi=123, n_lines=14, n_human=152, n_generated=40,
-        percentiles={'mattr_min': 0.7614869281045752,
- 'function_word_ratio_max': 0.48983114446529075,
- 'anaphora_max': 0.2857142857142857,
+        percentiles={'function_word_ratio_max': 0.48983114446529075,
  'line_length_cv_min': 0.09386625364959131,
  'predictable_pair_fraction_max': 1.0},
-        measured_auc={'mattr': 0.884375,
- 'function_word_ratio': 0.17105263157894737,
- 'anaphora': 0.14654605263157894,
+        measured_auc={'function_word_ratio': 0.17105263157894737,
  'line_length_cv': 0.3504111842105263,
  'predictability': 0.38421052631578945},
         note=('Re-adopted 2026-09-14 after Unicode/apostrophe token normalization. Measured on all 152 '
@@ -1292,17 +1174,14 @@ PROFILES.append(
 PROFILES.append(
     Profile(
         name="lyric", unit='whole lyric sheet, 9-3244 tokens, thresholds a function of ln N',
-        mattr_ttr_population={'window': 50, 'items': 527},
         lo=9, hi=3244, n_lines=0, n_human=8585, n_generated=0,
         # The owner's call (2026-10-16): keep 4-8 token lyrics graded. No human
         # item under 9 tokens remains, so 4-8 is reached, not measured (notes only).
         reach_lo=4,
         tolerance=1.0,
         percentiles={},
-        curves={'anaphora_max': (1.159351078159644, -0.24565802370055595, 0.0162678855573942),
- 'line_length_cv_min': (-0.09554810132361943, 0.059242040873681165, -0.003946093229030391),
+        curves={'line_length_cv_min': (-0.09554810132361943, 0.059242040873681165, -0.003946093229030391),
  'function_word_ratio_max': (0.5645396935593514, -0.01483956064252975),
- 'mattr_min': (0.48319711244849844, 0.040082486571361216),
  'predictable_pair_fraction_max': {'knots': [(3.5553480614894135, 1.0),
                                              (3.970291913552122, 1.0),
                                              (4.23410650459726, 1.0),
@@ -1325,11 +1204,8 @@ PROFILES.append(
                                              (6.041444479413003, 0.8888888888888888),
                                              (6.48768401848461, 0.8416842105263157)]}},
         measured_auc={},
-        held_out_fpr={'ANY': (18.53785570033035, 14.71516622478776, 23.287691000568543),
- 'anaphora': (5.033664977759858, 3.4134536505332242, 6.948981880542939),
- 'line_length_cv': (5.10604146491997, 4.107251938609697, 6.357106489142334),
+        held_out_fpr={'line_length_cv': (5.10604146491997, 4.107251938609697, 6.357106489142334),
  'function_word_ratio': (5.093638271362783, 3.3001132452702655, 7.6197913767614835),
- 'mattr': (4.882628110290107, 3.0918370790757983, 7.864804397778608),
  'predictability': (3.0086361739954173, 1.509628053497828, 4.676858661314768)},
         held_out_scope={'predictability': '. This rate pools all 9-3244-token works, including lengths through 140 where '
                    'the threshold equals 1.0 and cannot fire. It is not conditional on lengths '
@@ -1407,9 +1283,7 @@ CALIBRATION["profiles"] = {p.name: p for p in PROFILES}
 #: for exactly this one check, which is why both are written out rather than
 #: derived from each other.
 LENGTH_SENSITIVE = {
-    "LEXICAL_MONOTONY": ("mattr_min", "mattr"),
     "FUNCTION_WORD_HEAVY": ("function_word_ratio_max", "function_word_ratio"),
-    "ANAPHORA_OVERLOAD": ("anaphora_max", "anaphora"),
     "UNIFORM_LINE_LENGTH": ("line_length_cv_min", "line_length_cv"),
     "PREDICTABLE_RHYME": ("predictable_pair_fraction_max", "predictability"),
 }
@@ -1530,10 +1404,9 @@ class Finding:
 #: draft under a declared allowance, not an ungraded one.
 #: `FloorDeclaration.require_exact_length` is the coordinate for a caller who
 #: disagrees, and it says what it costs.
-# A metric window is part of the calibrated question, just as item length is.
 # Preserve the historical export used by CLI/census readers while naming the
 # complete floor gate explicitly. A note in this set cannot certify the floor.
-FLOOR_GATE_CODES = ("OUT_OF_CALIBRATED_LENGTH", "MATTR_WINDOW_UNCALIBRATED")
+FLOOR_GATE_CODES = ("OUT_OF_CALIBRATED_LENGTH",)
 LENGTH_GATE_CODES = FLOOR_GATE_CODES
 
 
@@ -1608,23 +1481,8 @@ class FloorDeclaration:
     `predictability_max` is the one number that is not a percentile. It
     defines what counts as "obvious" inside a candidate field — an axis, not a
     cut — so it has a real default.
-
-    `mattr_window` is the second, added 2026-08-14, and it was a bare default
-    in `features.QualityFeatures._mattr` until then — undeclared, unswept,
-    unquoted, and not passed by any of its four call sites. It is declared
-    here at the value it always had; nothing moved. What is new is that the
-    number is now a coordinate, and that
-    `CALIBRATION["mattr_window"]` prices it: the sweep is a monotone SLOPE
-    rather than a plateau, the flat false-positive column that looks like
-    reassurance is a tautology of percentile calibration, and only
-    [1,22] u [40,93] keeps a profile's calibration set on one side of the
-    plain-TTR fallback. The shipped 50 costs ~0.06 AUC against the sweep's
-    best and is kept because an in-sample argmax is not a calibration
-    (doctrine 19).
     """
-    mattr_min: float = None
     function_word_ratio_max: float = None
-    anaphora_max: float = None
     line_length_cv_min: float = None
     predictable_pair_fraction_max: float = None
     predictability_max: float = 0.90
@@ -1760,22 +1618,6 @@ class FloorDeclaration:
     #: enforced whatever it contains. `CLICHE_PAIRS` stays importable for a
     #: caller who wants to declare it.
     cliche_pairs: frozenset = field(default_factory=frozenset)
-    #: MATTR's moving-average window, in TOKENS. Definitional in the same
-    #: sense `predictability_max` is — it states what the statistic IS, so
-    #: moving it moves what every `mattr_min` percentile above is a
-    #: percentile OF, and a `mattr_min` measured at one window may not be
-    #: compared against a MATTR computed at another. NOT definitional in the
-    #: sense of "harmless": see `CALIBRATION["mattr_window"]` for the sweep,
-    #: for the admissible set [1,22] u [40,93] that any future move must land
-    #: inside, and for why 50 is kept rather than retuned toward the gradient.
-    #:
-    #: It is NOT resolvable from a profile: `resolve()` serves the four
-    #: percentile fields, and a window is not a percentile of anything, so no
-    #: profile carries one. That is deliberate — a per-profile window would
-    #: mean two profiles reporting two different statistics under the one
-    #: name `mattr`, which is exactly the mixture this coordinate exists to
-    #: keep out of a single profile.
-    mattr_window: int = 50
 
     def resolve(self, key, profile, n_tokens=None):
         """Override if set, else the profile's measurement AT THIS LENGTH
@@ -1790,7 +1632,7 @@ class FloorDeclaration:
 
 # These are the only extracted features used by the floor. The remaining
 # checks use their own declared statistics below; none require concreteness.
-FLOOR_FEATURES = ("mattr", "function_word_ratio")
+FLOOR_FEATURES = ("function_word_ratio",)
 
 
 #: One default `Lexicon()` per process for the `QualityFeatures` a floor builds
@@ -1822,17 +1664,7 @@ class SlopFloor:
 
     def __init__(self, decl=None, qf=None):
         self.decl = decl or FloorDeclaration()
-        if type(self.decl.mattr_window) is not int or self.decl.mattr_window <= 0:
-            raise ValueError("FloorDeclaration.mattr_window must be a positive integer")
-        # The DECLARATION owns the window, not this feature extractor: a
-        # caller may hand in a shared `QualityFeatures` (test_floor.py does),
-        # and stamping the declaration's window onto it would silently move
-        # the other holder's statistic. So the window travels per call in
-        # `check()` instead, and this only sets the default for a `qf` this
-        # constructor builds itself.
-        self.qf = qf or QualityFeatures(
-            mattr_window=self.decl.mattr_window, features=FLOOR_FEATURES,
-            lex=_default_lexicon())
+        self.qf = qf or QualityFeatures(features=FLOOR_FEATURES, lex=_default_lexicon())
         # THE PERSISTENT FIELD STORE (`MISSING.md` M-244's remaining lever).
         # `PREDICTABLE_RHYME` below is the floor's expensive check and it is
         # `RhymeField.field` all the way down -- M-244 profiled it at 151.5 s
@@ -1863,29 +1695,6 @@ class SlopFloor:
                              "fingerprint": None, "database": None, "rows": 0})
 
     # -- individual checks ------------------------------------------------
-
-    def _anaphora(self, lines):
-        """Share of lines opening with the most frequent opening word.
-
-        The tie break is FIRST OCCURRENCE, and that is not cosmetic. This read
-        `max(set(firsts), key=firsts.count)` until 2026-08-11, and iterating a
-        set of strings is iterating a hash order that Python randomises per
-        process: on a four-line text opening Alpha/Beta/Alpha/Beta the RATE was
-        a stable 0.5 and the reported word alternated between 'alpha' and
-        'beta' across `PYTHONHASHSEED` 0-5, taking the finding's `locations`
-        with it. A tie broken by iterating a set is a result that does not
-        reproduce (doctrine 66) -- and here it was the evidence and the line
-        numbers, i.e. exactly the part a writer acts on.
-        """
-        firsts = [(l.split() or [""])[0].lower().strip(",.;:!?—-")
-                  for l in lines]
-        if not firsts:
-            return 0.0, ""
-        counts = Counter(firsts)
-        # Counter retains first occurrence order, preserving the declared
-        # tie-break without rescanning every line for every candidate.
-        top = max(counts, key=counts.get)
-        return counts[top] / len(firsts), top
 
     @staticmethod
     def _line_length_cv(lines):
@@ -2051,11 +1860,6 @@ class SlopFloor:
                 f"length-sensitive checks did not run",
                 f"profiles cover {', '.join(f'{p.name} {p.lo}-{p.hi} (reach {p.band()[0]}-{p.band()[1]})' for p in live_profiles())} "
                 f"tokens, each with its own declared reach. "
-                f"MATTR in particular is a moving average over a "
-                f"{d.mattr_window}-token window (declared: "
-                f"FloorDeclaration.mattr_window) and silently degrades to "
-                f"plain type-token ratio below that, so a threshold measured "
-                f"at one length is a different statistic at another. "
                 f"WHAT DID RUN: "
                 f"the relation-level checks (self-rhyme, radif, cliche, "
                 f"shared suffix), which read no percentile and do not depend "
@@ -2091,9 +1895,9 @@ class SlopFloor:
                 f"and an extrapolation may not reject. WHICH CHECKS THAT "
                 f"COVERS, because 'every finding below' was FALSE here until "
                 f"2026-08-14 and false in the direction that makes a "
-                f"surviving flag look impossible: the five length-sensitive "
-                f"checks (LEXICAL_MONOTONY, FUNCTION_WORD_HEAVY, "
-                f"ANAPHORA_OVERLOAD, UNIFORM_LINE_LENGTH, PREDICTABLE_RHYME) "
+                f"surviving flag look impossible: the three length-sensitive "
+                f"checks (FUNCTION_WORD_HEAVY, UNIFORM_LINE_LENGTH, "
+                f"PREDICTABLE_RHYME) "
                 f"are downgraded, and so is CLICHE_PAIR — not because a "
                 f"percentile was extrapolated for it, it has none, but "
                 f"because its false-positive rate was only ever measured "
@@ -2118,103 +1922,12 @@ class SlopFloor:
                 f"notes at every length: a word may rhyme with itself "
                 f"(owner's ruling, 2026-11-20)"))
 
-        # THE WINDOW TRAVELS WITH THE DECLARATION. Without this the threshold
-        # would come from the declaration and the statistic from whatever
-        # window the `QualityFeatures` instance happened to be built with,
-        # which is doctrine 1's failure mode: a declared coordinate silently
-        # outranked by another layer's default.
-        v = self.qf.extract(lines, scheme, mattr_window=d.mattr_window,
-                            features=FLOOR_FEATURES)
-
-        # 1. lexical monotony -- the strongest single separator observed.
-        #    NAME THE STATISTIC THAT WAS ACTUALLY COMPUTED. `_mattr` returns
-        #    plain TTR whenever the item is no longer than the window; at the
-        #    shipped window that is EVERY item inside the section profile's
-        #    measured range. Reporting it as "MATTR" is the label defect the
-        #    2026-08-14 window sweep found; see CALIBRATION["mattr_window"].
-        stat = "TTR" if n_tok <= d.mattr_window else "MATTR"
-        thr = d.resolve("mattr_min", prof, n_tok)
-        m = v.get("mattr")
-        calibrated_window = CALIBRATION["mattr_window"]["value"]
-        if d.mattr_window != calibrated_window and not declared("mattr_min"):
-            out.append(Finding(
-                "MATTR_WINDOW_UNCALIBRATED", "note",
-                "the declared lexical-diversity window has no applicable calibrated cut",
-                f"MATTR/TTR measured {m:.6f} at the declared {d.mattr_window}-token "
-                f"window. The {prof.name} profile's lexical threshold and held-out "
-                f"rates were measured at {calibrated_window} tokens and are WITHDRAWN "
-                f"for this different statistic. Lexical monotony remains UNJUDGED; "
-                f"the other floor coordinates still run. Supply an explicit "
-                f"FloorDeclaration.mattr_min to use a caller-owned cut, or use "
-                f"the calibrated window. No alternate window was calibrated here."))
-            thr = None
-
-        if thr is not None and m == m and m is not None and m < thr:
-            # Required verbatim copies add performance tokens, not independent
-            # wording choices. Keep that measured outlier visible; discharge
-            # only when the independent wording passes the same maintained
-            # metric and length-conditioned band. No other floor is changed.
-            from quality.grid import normalise_line
-            redundant = set()
-            for cls in getattr(self, "declared_lexical_classes", ()):
-                valid = sorted({i for i in cls if 1 <= i <= len(lines)})
-                if valid and len({normalise_line(lines[i - 1]) for i in valid}) == 1:
-                    redundant.update(valid[1:])
-            independent = [line for i, line in enumerate(lines, 1) if i not in redundant]
-            forced_only, disposition = False, ""
-            if redundant:
-                independent_n = sum(len(self.qf._tokens(line)) for line in independent)
-                independent_thr = d.resolve("mattr_min", prof, independent_n)
-                independent_m = self.qf.extract(independent, mattr_window=d.mattr_window,
-                                                features=("mattr",)).get("mattr")
-                forced_only = (independent_thr is not None and independent_m is not None
-                               and independent_m == independent_m and independent_m >= independent_thr)
-                if forced_only:
-                    disposition = (f" Required verbatim-return copies account for this outlier: "
-                                   f"{len(independent)} independent line(s), {independent_n} tokens, "
-                                   f"same declared metric {independent_m:.3f} >= {independent_thr:.4f}. "
-                                   f"The full performance measurement above remains unchanged.")
-            mix = prof.mattr_ttr_population
-            ttr_mix = (
-                f"{mix['items']:,} ({100 * mix['items'] / prof.n_human:.2f}%, measured "
-                f"at the calibration's {mix['window']}-token window) degenerate to TTR "
-                f"and {prof.n_human - mix['items']:,} do not"
-                if mix and prof.n_human else
-                "the proportion degenerating to TTR was not separately registered")
-            out.append(Finding(
-                "LEXICAL_REPETITION_DECLARED" if forced_only else "LEXICAL_MONOTONY",
-                "note" if forced_only else sev("flag"),
-                "vocabulary repeats more than human verse did in calibration",
-                f"{stat} {m:.3f} < {thr:.4f} "
-                f"({source('mattr_min', '5th percentile')}); "
-                f"{rests_on('mattr_min', 'mattr')}. "
-                + (f"THE STATISTIC HERE IS PLAIN TTR, NOT MATTR: {n_tok} "
-                   f"tokens does not exceed the declared "
-                   f"{d.mattr_window}-token window, so the moving average "
-                   f"degenerates to one type/token ratio over the whole "
-                   f"item. "
-                   + (f"~~The {prof.name} threshold was read off items "
-                      f"that degenerate the same way, so the comparison is "
-                      f"like for like~~ -- STRUCK 2026-09-05 (`MISSING.md` "
-                      f"M-239) AND THE CORRECTION IS NOT IN YOUR FAVOUR: "
-                      f"that was true of the STANZA profiles, whose whole "
-                      f"calibration set is short enough to degenerate. The "
-                      f"{prof.name} threshold at this length comes from a "
-                      f"curve fit over the WHOLE corpus, {prof.n_human:,} items; "
-                      f"{ttr_mix} -- so this is a TTR read against a cut "
-                      f"fit mostly on moving averages, which is the mixture "
-                      f"`quality/features.py` discloses as inadmissible "
-                      f"rather than repairs. "
-                      if prof.curves else
-                      f"The {prof.name} threshold was read off items that "
-                      f"degenerate the same way, so the comparison is like "
-                      f"for like. ")
-                   + f"A MATTR quoted from another profile is not "
-                   f"the same statistic and may not be compared with it. "
-                   if stat == "TTR" else "")
-                + f"Caveat: within Shakespeare the direction REVERSES "
-                f"(0.366), so a low value is not evidence against a poem, "
-                f"only outside the range this corpus occupied" + disposition))
+        # The word-variety and same-first-word checks (LEXICAL_MONOTONY,
+        # ANAPHORA_OVERLOAD and their declared-repeat notes) were removed by
+        # the owner's ruling, 22 Nov 2026: their only evidence was one
+        # comparison of the 152 sonnets with 40 machine-written sonnets,
+        # never repeated and never made for songs.
+        v = self.qf.extract(lines, scheme, features=FLOOR_FEATURES)
 
         # 2. function-word load
         thr = d.resolve("function_word_ratio_max", prof, n_tok)
@@ -2231,73 +1944,6 @@ class SlopFloor:
                 f"is a register signal with no within-tradition support. "
                 f"Presumes a clean function/content split and does not "
                 f"transfer to agglutinative or polysynthetic languages"))
-
-        # 3. anaphora -- repeated line openings
-        thr = d.resolve("anaphora_max", prof, n_tok)
-        a, word = self._anaphora(lines)
-        if thr is not None and a > thr:
-            hits = [i + 1 for i, l in enumerate(lines)
-                    if (l.split() or [""])[0].lower().strip(",.;:!?—-") == word]
-            # Assess how much opening identity is actually discretionary.
-            # Collapsing required identity classes is a diagnostic, not a
-            # newly calibrated population; it can only remove an impossible
-            # demand to vary the exact feature the mandate fixes.
-            classes = getattr(self, "declared_opening_classes", ())
-            parent = {i: i for i in range(1, len(lines) + 1)}
-            def leader(i):
-                while parent[i] != i:
-                    parent[i] = parent[parent[i]]
-                    i = parent[i]
-                return i
-            for cls in classes:
-                valid = [i for i in cls if i in parent]
-                for i in valid[1:]:
-                    parent[leader(i)] = leader(valid[0])
-            discretionary = [lines[i - 1] for i in parent if leader(i) == i]
-            da, _ = self._anaphora(discretionary)
-            forced_only = bool(classes) and (len(discretionary) < 2 or da <= thr)
-            out.append(Finding(
-                "ANAPHORA_DECLARED" if forced_only else "ANAPHORA_OVERLOAD",
-                "note" if forced_only else sev("flag"),
-                # The count is the lines listed. `int(a * len(lines))` cut
-                # a rate back to a count and lost one where the division did
-                # not round-trip: 15 of 22 printed as 14 (bug hunt
-                # 2026-11-20, finding 34).
-                f"{len(hits)} of {len(lines)} lines open with the "
-                f"same word",
-                ("Required return/anaphora identity accounts for this outlier; "
-                 "the declaration is preserved, not offered as a prose repair. "
-                 if forced_only else "") +
-                f"opening {word!r} at {a:.0%} of lines > {thr:.2%} "
-                f"({source('anaphora_max', '95th percentile')}); "
-                f"{rests_on('anaphora_max', 'anaphora')}. "
-                f"POST-HOC: this check was not pre-registered, so it needs its "
-                f"own replication before it is trusted"
-                + (". PERIOD CAUTION WITHDRAWN 2026-08-20 (doctrine 17): "
-                   "this clause used to read that anaphora carries a measured "
-                   "PERIOD slope -- author-level Spearman +0.275 against "
-                   "birth year, p_perm 0.0042 -- and that part of what it "
-                   "reads at this length is WHEN the words were written. "
-                   "Re-derived over 407 dated authors against the original "
-                   "108, it does not reproduce: rho -0.008, p_perm 0.8695. "
-                   "Not weaker, ABSENT and sign-flipped, so the caution is "
-                   "withdrawn rather than softened -- on the wider corpus "
-                   "this check does not look like it is reading the calendar. "
-                   "TWO THINGS THAT ARE NOT CLAIMED: the re-derivation drops "
-                   "472 undated authors and they are NOT missing at random, "
-                   "so this is a failure to reproduce and not a clean bill; "
-                   "and `mattr`/`fwr` DO now carry slopes, so period-reading "
-                   "moved rather than left (doctrine 11)"
-                   + (". FOR THE LENGTH CURVES (M-239) THE PERIOD QUESTION "
-                      "WAS NOT RE-ASKED: the band readings above are the "
-                      "only ones on record, and a curve fit across the same "
-                      "authors inherits whatever they carry — not measured, "
-                      "so not claimed either way (doctrine 20)"
-                      if prof.name == "lyric" else "")
-                   if prof.name in ("song", "lyric") else "")
-                + f". Deliberate anaphora is a figure, so the finding is a "
-                f"decision handed back, not a verdict", hits,
-                obligations=tuple((ln,) for ln in hits)))
 
         # 4. metronomic line length
         thr = d.resolve("line_length_cv_min", prof, n_tok)
@@ -2844,13 +2490,7 @@ class SlopFloor:
 
     def banner(self, stream=sys.stdout):
         """What the thresholds came from and what they failed at. Printed once
-        per run — repeating it per section trains the reader to skip it.
-
-        An instance method since 2026-08-14, so it can print the DECLARED
-        MATTR window rather than a module default. A banner that quoted 50
-        while the caller's declaration said something else would be the
-        report lying about the run it is reporting.
-        """
+        per run — repeating it per section trains the reader to skip it."""
         if not CALIBRATION.get("calibrated"):
             print("\n  *** THRESHOLDS ARE PROVISIONAL — estimates, not yet "
                   "derived from the calibration corpora. Findings indicate "
@@ -2859,11 +2499,6 @@ class SlopFloor:
               f"{CALIBRATION['negative_class']}", file=stream)
         print(f"  NOT validated outside {CALIBRATION['language']} or outside "
               f"the {CALIBRATION['form']}.", file=stream)
-        w = self.decl.mattr_window
-        print(f"  MATTR window {w} tokens (declared: "
-              f"FloorDeclaration.mattr_window; historical sweep 2026-08-14; "
-              f"current stanza admissibility {CALIBRATION['mattr_window']['admissible']} — "
-              f"CALIBRATION['mattr_window'])", file=stream)
         # WHAT THE BANNER MAY SAY IS APPLIED (M-239, repinned 2026-09-05).
         # This loop printed `applied a-b (t x)` for every row in `PROFILES`,
         # so a reader was told the `song` and `short` bands were applied
@@ -2879,14 +2514,6 @@ class SlopFloor:
                        else f"applied {a}-{b} ({p.tolerance:g}x)")
             print(f"  profile {p.name:<8} {p.unit:<32} measured {p.lo}-{p.hi} "
                   f"tok, {applied}", file=stream)
-            # A profile whose whole MEASURED range sits inside the window is
-            # not reporting MATTR at all, and the banner is where a reader
-            # who never opens this file finds that out.
-            if p.hi <= w:
-                print(f"           `mattr` here is PLAIN TTR: the measured "
-                      f"range ends at {p.hi} tokens, inside the {w}-token "
-                      f"window, so no moving average is taken and the "
-                      f"figure is frozen in the window", file=stream)
             # A profile with no generated class cannot be read as a separation
             # and the banner has to say so where the reader is, not only in a
             # docstring three hundred lines up.
@@ -2968,8 +2595,7 @@ if __name__ == "__main__":
         # false accusation by construction. The per-section pass above owns
         # that half.
         if len(secs) > 1:
-            SIZED = {"LEXICAL_MONOTONY", "FUNCTION_WORD_HEAVY",
-                     "ANAPHORA_OVERLOAD", "UNIFORM_LINE_LENGTH",
+            SIZED = {"FUNCTION_WORD_HEAVY", "UNIFORM_LINE_LENGTH",
                      "PREDICTABLE_RHYME", "OUT_OF_CALIBRATED_LENGTH",
                      "EXTRAPOLATED_LENGTH"}
             allls = [l for _, ls in secs for l in ls]

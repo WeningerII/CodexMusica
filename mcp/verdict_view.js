@@ -166,7 +166,12 @@ const lineList = (lines) => 'L' + [...new Set(lines)].sort((a, b) => a - b).join
 // The grader's floor gate (quality/floor.py FLOOR_GATE_CODES): a note with one
 // of these codes is why `floor:draft` is refused. A copy, held equal to the
 // Python tuple by test_verdict_view.mjs.
-export const FLOOR_GATE_CODES = ['OUT_OF_CALIBRATED_LENGTH', 'MATTR_WINDOW_UNCALIBRATED'];
+// REPINNED 2026-11-23 (merge of main into the removal branch): ~~[
+// 'OUT_OF_CALIBRATED_LENGTH', 'MATTR_WINDOW_UNCALIBRATED']~~. The owner ruled
+// on 22 Nov 2026 that the word-variety check comes out of the grader, and
+// MATTR_WINDOW_UNCALIBRATED went with it, so the floor gate is the length gate
+// alone.
+export const FLOOR_GATE_CODES = ['OUT_OF_CALIBRATED_LENGTH'];
 // Why a refused whole-draft row was refused, where the record says. The short
 // view counts notes and prints none, and the one finding that explains a
 // too-short draft is a note, so the row read "floor:draft" and gave no reason
