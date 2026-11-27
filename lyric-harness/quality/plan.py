@@ -5468,6 +5468,15 @@ def _make_plan_candidate(seed, form=DEFAULT_FORM, lines=None, relation=None,
         # grammar's section-per-line ceiling. Its resolver validates the
         # actual placement, form and lengths; counts must describe that
         # sequence, not a hypothetical pattern the sampler could draw.
+        # This is a plan refusal, not a seed refusal, and that holds only
+        # because the seed never chooses WHICH sections the catalog form
+        # has: `resolve_catalog_shape` (quality/catalog_shape.py) takes its
+        # section list from the contract as written, and `rng` draws the
+        # total, the bars and the line shares alone. The count atoms (`sections`, `sections.<row>`)
+        # read that list, so every seed answers them alike. If the resolver
+        # ever lets the seed add, drop or choose a section, a miss here
+        # depends on the seed and must be raised as `SeedRefused`, as the
+        # resolver's tag-length miss is.
         for atom in recurrence["atoms"]:
             want = parse_sweep_want(atom)
             if not sweep_holds(catalog, want):

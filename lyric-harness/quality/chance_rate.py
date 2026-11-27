@@ -393,11 +393,20 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 # syllable key had pruned: more random pairs hold some schema. Measured
 # before G1 (45bcce8e36) every band held; after it only these two moved.
 # This records the instrument's new result, not a relaxed acceptance band.
+# REPINNED 2026-11-24, READER SCHEME v2 (moved at ded2284947: the reader's
+# smoothing, contractions, hyphen-joined words, ligatures and standalone
+# `&`). ~~any (1122, 1144), admit (64, 88), schema (1120, 1143)~~ -> the
+# values below, measured by `--check` over GRID at the same seed; rhyme held.
+# More words read, so a few more random pairs hold some relation.
+# This records the instrument's new result, not a relaxed acceptance band.
+# Re-measured 2026-11-26 on the final reader of #913, with the standalone
+# `&` reading taken back out: ANY 1124, ADMIT 88, RHYME 7, SCHEMA 1122, every
+# band held, so nothing below changes.
 ADOPTED = {
-    "any": (1122, 1144),
-    "admit": (64, 88),
+    "any": (1124, 1146),
+    "admit": (64, 89),
     "rhyme": (1, 7),
-    "schema": (1120, 1143),
+    "schema": (1122, 1145),
 }
 
 

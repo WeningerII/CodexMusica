@@ -569,6 +569,36 @@ def test_the_relation_is_a_coordinate():
               unreadable)
 
 
+def test_one_spelling_is_one_word():
+    """THE POPULATION COUNTS A WORD ONCE, HOWEVER IT WAS TYPESET (2026-11-24,
+    found while repinning #913). Reader scheme v2 reads a Latin ligature
+    letter as its letters (bug-hunt finding 14), so a spelling the frequency
+    table holds with one (an OCR'd `\ufb01` for `fi`) became readable and
+    entered the population beside the word it spells, as a second word, and
+    in two families as a second class. Capacity is a count of words; one
+    word typeset two ways is not two."""
+    print("\n12. one spelling the reader reads alike is one word")
+    import lyric_harness as LH
+    pop = CAP.population(R.lex)
+    read_as = {}
+    for w in pop:
+        read_as.setdefault(LH.expand_ligatures(w), []).append(w)
+    shared = {k: v for k, v in read_as.items() if len(v) > 1}
+    check("no two words of the population are one spelling to the reader",
+          not shared, f"{len(shared)} spellings held twice: "
+          f"{sorted(shared.items())[:8]}")
+    typeset = [w for w in R.lex.freq_rank
+               if LH.expand_ligatures(w) != w]
+    check("and the premise holds: the frequency table does hold spellings "
+          "with a ligature letter, so the check above can fail",
+          bool(typeset), f"{len(typeset)} such spellings")
+    check("a ligature spelling reads as the word it spells, letter for "
+          "letter (the reader's own table)",
+          all(R.lex.transcribe_word(w) == R.lex.transcribe_word(
+              LH.expand_ligatures(w)) for w in typeset
+              if LH.expand_ligatures(w) in R.lex.entries))
+
+
 if __name__ == "__main__":
     # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
     # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_CAPACITY_SHARD=k/n`
@@ -583,7 +613,8 @@ if __name__ == "__main__":
                test_certification_uses_the_named_relation,
                test_parts_cannot_reuse_an_old_judge,
                test_source_capsule_tracks_judge_helpers,
-               test_published_rows_retain_actual_proof_source)
+               test_published_rows_retain_actual_proof_source,
+               test_one_spelling_is_one_word)
     sys.exit(run_sections(_SECTIONS, "TEST_CAPACITY_SHARD", FAILURES,
                           footer="capacity states what the language holds, in the judge's own "
           "units — and grades nothing"))
