@@ -6661,8 +6661,12 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # hunt 2026-11-21, finding 17), so 'way' / 'holiday' is one spelled
     # ending and the candidate is REJECTED (HOMEOTELEUTON, measured).
     # 'ballet' rhymes with 'way', is spelled differently from that vowel on
-    # and is outside the modal head (measured: 'weigh', 'obey' and 'sleigh'
-    # are each MODAL_RHYME here).
+    # and is outside the modal head (measured: ~~'weigh'~~, 'obey' and
+    # 'sleigh' are each MODAL_RHYME here).
+    # RE-MEASURED 2026-11-27 under the 3-partner ban (owner's ruling of 22
+    # Nov 2026): 'obey' and 'sleigh' still draw MODAL_RHYME against 'way',
+    # and 'weigh' no longer does ('way' was the sixth of its partners).
+    # 'ballet' draws neither ban under 3 partners or under 6.
     rc, out, _ = run("tryline", draft, "5", "Stay by the door until the ballet",
                      "--seed=566", "--form=verse-chorus", "--lines=12", REL, f"--propose=defer:{st}",
                      expect_rc=0)
