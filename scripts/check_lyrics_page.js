@@ -3874,6 +3874,31 @@ async function browserChecks(chromium) {
         w.tag === 'H3' && w.main && /Rhythm/.test(w.text),
         `opening Rhythm does not focus its heading in the centre: ${JSON.stringify(w)}`
       );
+      // The closed Song forms control shares a row with the document toolbar.
+      // A tool view hides that toolbar, so its heading has to start below the
+      // control, on the left edge the rest of the view uses, not beside it.
+      const edge = await page.evaluate(() => {
+        const box = (selector) => {
+          const r = document.querySelector(selector)?.getBoundingClientRect();
+          return r && r.width
+            ? { left: Math.round(r.left), top: Math.round(r.top), bottom: Math.round(r.bottom) }
+            : null;
+        };
+        return {
+          forms: box('#surface-lyrics .ly-song-forms:not([open]) > summary'),
+          view: box('#surface-lyrics #ly-tool-main .ly-tool-view'),
+          head: box('#surface-lyrics #ly-tool-main .ly-view-head'),
+        };
+      });
+      check(
+        edge.forms &&
+          edge.view &&
+          edge.head &&
+          edge.head.top >= edge.forms.bottom &&
+          edge.head.left === edge.view.left &&
+          edge.forms.left === edge.view.left,
+        `an open tool's heading is not below Song forms on the view's left edge: ${JSON.stringify(edge)}`
+      );
       w = await press('[data-ui="ly-rhythm-copy"]');
       check(w.ui === 'ly-rhythm-copy', `Copy to other sections drops focus: ${JSON.stringify(w)}`);
       await page.locator('#ly-r-meter').fill('3/4');
@@ -5033,6 +5058,22 @@ async function browserChecks(chromium) {
         `phone navigation: ${JSON.stringify(s)}`
       );
       check(s.wide <= 0, `the phone page scrolls sideways by ${s.wide}px`);
+      // The narrow page's inset is smaller than the wide one's: the closed
+      // Song forms control keeps it, on the left edge the brief above it uses.
+      const inset = await page.evaluate(() => {
+        const left = (selector) => {
+          const r = document.querySelector(selector)?.getBoundingClientRect();
+          return r && r.width ? Math.round(r.left) : null;
+        };
+        return {
+          forms: left('#surface-lyrics .ly-song-forms:not([open]) > summary'),
+          brief: left('#surface-lyrics .ly-brief-label'),
+        };
+      });
+      check(
+        inset.forms !== null && inset.forms === inset.brief,
+        `the phone Song forms control is off the brief's left edge: ${JSON.stringify(inset)}`
+      );
       await page.evaluate(() => LY_ACTIONS['ly-mobile']('tools'));
       const tools = await page.evaluate(() => ({
         rows: document.querySelectorAll('.ly-toolrow').length,
