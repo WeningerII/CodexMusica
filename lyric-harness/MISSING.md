@@ -8018,6 +8018,44 @@ identity, failed controls, actual retries, environment limits and the measured
 scope. The separate round-trip fixture work belongs to M-146 and already
 merged in PR #324; it is preserved here.
 
+**A THIRD REACH, 2026-11-27, AND IT STOPPED A RELEASE.** The harness resolves
+a catalog form by launching `node scripts/song_forms.mjs`, which imports from
+`<repo>/src` and reads `<repo>/data/song-forms.json`. Neither directory was
+in the shadow, so every suite that touches a catalog form was red at the
+mutation baseline while reading PASS at head. On 2026-11-27 `test_grid.py`
+gained such a check. Of the two suites QG1 declares it is the one that
+catches QG1, so QG1 escalated to the whole tree and mutation shard 4/16 ran
+out of its 7,200 s budget in the two production qualification runs that
+followed (121 min and `incomplete` on the first, 120.8 min on the second,
+against 9.9 min on the last passing run). **FIXED**: `SIBLING_RULES` gains
+`("src", "tree")` and `("data", "tree")`. Measured locally with the shard's
+own command: its 8 baseline suites pass, QG1 is caught by `test_grid.py`,
+and nothing escalates. Five suites go from red to green in the shadow with
+no Python path set, as on the hosted runner: `test_grid`,
+`test_meter_honesty`, `test_production_journal`, `test_sound_inventory` and
+`test_taxonomy`. §3f gains the two files Python itself opens there, RUNS
+`test_meter_honesty.py` in the shadow (of the suites timed there, the
+cheapest that resolves a catalog form), and now DERIVES one kind of reach:
+the files each script the harness launches with node loads (4 scripts, 21
+files; 17 absent before). Removing either entry alone reds all three
+additions.
+**NOT COVERED, SO STILL PARTIAL**: a path a script builds from pieces, a
+launch through a shell string, and a file Python itself opens are still a
+declared list. **AND ONE MORE CAUSE, NOT FIXED HERE**: five suites
+(`test_catalog_line_fit`, `test_catalog_plan`,
+`test_catalog_section_arrangements`, `test_catalog_shape`,
+`test_catalog_word_roles`) import `quality` or `lyric_harness` without
+putting the harness on the path, so they are ERROR in every shadow on the
+hosted runner, which sets no Python path. They are no mutation's declared
+catcher today, so no sweep fails for it; an escalation loses them.
+**SEEN ONCE, CAUSE NOT FOUND**: on 2026-11-27 `test_shard.py`, which §3f
+runs inside a shadow, failed 1 time in 9 there with `pool with 1 shard count
+runs the whole 119-module inventory once` (`FAIL in 32.1s`), in a `--static`
+run on the tree with this repair; the other 8 runs passed. That check does
+not read `src` or `data`. Its full output was not kept: §3f prints only the
+first 120 characters of a suite's tail, which is a defect of its own and is
+not repaired here. A second sighting should be matched to this one.
+
 ### M-23 · `Structure` has no `kind="partition"`, and that is the same missing kind four times `OPEN`
 **Found 2026-08-21, and it is the one change that serves every spec-shaped
 structural source this project has located.**

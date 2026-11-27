@@ -234,8 +234,19 @@ SKIP_NAMES = {"__pycache__", ".git", ".pytest_cache", ".mypy_cache",
 #: it is the suite whose section 6 pins the duplicate-run contract. The
 #: shape is M-176's exactly, one directory further out, which is why the
 #: check below is now DERIVED from the suites instead of listing paths.
+#:
+#: `src` AND `data` JOINED 2026-11-27, AFTER A RELEASE STOPPED ON THEM. The
+#: harness resolves a catalog form by launching `node scripts/song_forms.mjs`,
+#: which imports from `<repo>/src` and reads `<repo>/data/song-forms.json`.
+#: With neither in the shadow, every suite that touches a catalog form was
+#: red at the baseline; when `test_grid.py` became one of them, QG1 lost
+#: the one suite that catches it, escalated to the whole tree, and its shard
+#: ran out of its budget in production qualification. Both are trees:
+#: `src` is 3.2 MB, and `data` is 11 files (2.6 MB) with no subdirectory
+#: today, mirrored whole so that a later one arrives too.
+#: `test_mutation.py` section 3f now derives what a launched script loads.
 SIBLING_RULES = ((".github", "tree"), ("mcp", "tree"), (".claude", "files"),
-                 ("scripts", "tree"))
+                 ("scripts", "tree"), ("src", "tree"), ("data", "tree"))
 
 #: The harness copy's directory name inside a shadow -- derived from the real
 #: tree, so relative reaches like `../.github` resolve at the same depth in

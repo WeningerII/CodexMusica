@@ -746,6 +746,88 @@ def test_the_shards_partition_the_list():
           max(sizes) - min(sizes) <= 1, str(sizes))
 
 
+def _files_a_node_launch_loads(repo):
+    """-> (launched, loaded): what the harness's `node` launches load.
+
+    `launched` maps each JavaScript file a harness Python file both names
+    and can launch (the Python file starts an argument list with `node`) to
+    the harness files naming it. `loaded` maps every file such a script
+    loads -- itself included -- to the launched script it is loaded for.
+
+    A load is a relative path written out in the script's own text: a
+    static or dynamic `import`, an `export ... from`, a `require(...)`, or
+    a `new URL('<path>', ...)` read. Each loaded script is followed in turn.
+    Only paths that exist at head are kept, so text that merely looks like
+    a load asks for nothing. A dependency tree (`SKIP_NAMES`) is left out,
+    as the shadow leaves it out.
+
+    WHAT THIS CANNOT SEE: a path a script builds from pieces, a launch
+    through a shell string, and a file Python itself opens. It also asks
+    for more than is needed when a file is named beside a launch but only
+    read as text. A red from it names the file and the script, so the
+    answer is either a `SIBLING_RULES` entry or a narrower rule here.
+    """
+    import re
+    launches = re.compile(r"""\[\s*["']node["']\s*,""")
+    named = re.compile(r"""["'](?:[^"'\s]*/)?([^"'\s/]+\.m?js)["']""")
+    loads = re.compile(
+        r"""(?:\bfrom\s*|\bimport\s*\(?\s*|\brequire\s*\(\s*|"""
+        r"""\bnew\s+URL\s*\(\s*)["'](\.{1,2}/[^"']+)["']""")
+    scripts = (".js", ".mjs")
+    # `.claude` is left out with the harness: locally it carries a working
+    # area that is not part of the repository (see SIBLING_RULES).
+    not_at_root = {mutate.HARNESS_DIRNAME, ".claude"}
+    by_name = {}
+    for directory, names, files in os.walk(repo):
+        names[:] = sorted(n for n in names if n not in mutate.SKIP_NAMES
+                          and not (directory == repo and n in not_at_root))
+        for name in files:
+            if name.endswith(scripts):
+                by_name.setdefault(name, []).append(os.path.relpath(
+                    os.path.join(directory, name), repo))
+    launched = {}
+    for directory, names, files in os.walk(mutate.ROOT):
+        names[:] = sorted(n for n in names if n not in mutate.SKIP_NAMES)
+        for name in sorted(files):
+            if not name.endswith(".py"):
+                continue
+            path = os.path.join(directory, name)
+            try:
+                with open(path, encoding="utf-8") as stream:
+                    text = stream.read()
+            except (OSError, UnicodeDecodeError):
+                continue
+            if not launches.search(text):
+                continue
+            for match in named.finditer(text):
+                for script in by_name.get(match.group(1), ()):
+                    who = launched.setdefault(script, [])
+                    rel = os.path.relpath(path, mutate.ROOT)
+                    if rel not in who:
+                        who.append(rel)
+    loaded = {}
+    queue = [(script, script) for script in sorted(launched)]
+    while queue:
+        path, origin = queue.pop()
+        if path in loaded:
+            continue
+        loaded[path] = origin
+        full = os.path.join(repo, path)
+        if not (path.endswith(scripts) and os.path.isfile(full)):
+            continue
+        with open(full, encoding="utf-8", errors="replace") as stream:
+            text = stream.read()
+        for match in loads.finditer(text):
+            target = os.path.normpath(
+                os.path.join(os.path.dirname(path), match.group(1)))
+            if (target.startswith("..")
+                    or set(target.split(os.sep)) & mutate.SKIP_NAMES
+                    or not os.path.exists(os.path.join(repo, target))):
+                continue
+            queue.append((target, origin))
+    return launched, loaded
+
+
 def test_the_shadow_reaches_what_the_suites_read():
     """3f. THE SHADOW HAS THE REPO'S SHAPE (`MISSING.md` M-176).
 
@@ -795,6 +877,32 @@ def test_the_shadow_reaches_what_the_suites_read():
     instead is EXECUTION: `test_shard.py` now RUNS inside the shadow, where
     an import and a subprocess are exercised rather than asserted about.
     THE CLASS REMAINS OPEN and `MISSING.md` M-30 says so.
+
+    A THIRD TIME, 2026-11-27, AND THIS ONE STOPPED A RELEASE. The harness
+    resolves a catalog form by launching `node scripts/song_forms.mjs`,
+    which imports from `<repo>/src` and reads `<repo>/data/song-forms.json`.
+    Neither directory was in the shadow, so every suite that touches a
+    catalog form was red at the mutation baseline while reading PASS at
+    head. On 2026-11-27 `test_grid.py` gained such a check. Of the two
+    suites QG1 declares it is the one that catches QG1, so QG1 escalated to
+    the whole tree and its shard ran out of its 7,200 s budget in
+    production qualification (measured on the hosted runner: 121 min,
+    against 9.9 min on the last passing run). `test_sound_inventory.py`
+    and `test_taxonomy.py` open a file in the same two directories
+    themselves and were red in the shadow for it.
+
+    Three things are added. The two files those suites open join the
+    declared list. `test_meter_honesty.py` RUNS inside the shadow: of the
+    suites timed there it is the cheapest that resolves a catalog form
+    (6.6 s, measured), and it is red with either directory missing. And
+    one kind of reach is now DERIVED, because it can be read off the
+    source without the earlier attempt's fault:
+    `_files_a_node_launch_loads` follows what each script the harness
+    launches loads, and every such file must be in the shadow. Measured on
+    2026-11-27: 4 launched scripts load 21 files; 17 of them are absent
+    without the two directories, 16 without `src` alone and 1 without
+    `data` alone. What it cannot see is in its own docstring, and for
+    those reaches the class is still open.
     """
     print("\n3f. the shadow reaches what the suites read (M-176)")
     import shutil
@@ -811,7 +919,12 @@ def test_the_shadow_reaches_what_the_suites_read():
                    # path and the other through a node subprocess, and only
                    # the first raised.
                    "../scripts/production_qualification.py",
-                   "../scripts/verify_qualification.mjs")
+                   "../scripts/verify_qualification.mjs",
+                   # src/ and data/ joined 2026-11-27 -- see SIBLING_RULES.
+                   # `test_sound_inventory.py` opens the first and
+                   # `test_taxonomy.py` the second.
+                   "../src/pages/lyrics.js",
+                   "../data/song-forms.json")
         missing = [r for r in reaches
                    if not os.path.exists(os.path.normpath(
                        os.path.join(tree, r)))]
@@ -851,9 +964,13 @@ print('source printings 2, declared work votes 1')
         # its reach is resolved by an IMPORT and by a node subprocess with
         # cwd at the repo root, neither of which an os.path.exists above can
         # exercise. It costs 0.9s in the shadow.
+        # `test_meter_honesty.py` joined 2026-11-27: its catalog check has
+        # the harness launch node on `scripts/song_forms.mjs`, which loads
+        # from `<repo>/src` and `<repo>/data`. It costs 6.6s in the shadow.
         for t in (os.path.join("quality", "test_render_form.py"),
                   os.path.join("quality", "test_verify_entries.py"),
-                  os.path.join("quality", "test_shard.py")):
+                  os.path.join("quality", "test_shard.py"),
+                  os.path.join("quality", "test_meter_honesty.py")):
             st, dt, tail = mutate.run_test(tree, t, timeout=600)
             check(f"{t} is GREEN inside the shadow, as at head",
                   st == "PASS", f"{st} in {dt}s: {tail[:120]}")
@@ -875,6 +992,24 @@ print('source printings 2, declared work votes 1')
         check("every SIBLING_RULES directory present at the repo root is "
               "present in the shadow", not absent,
               f"declared {declared}, absent {absent or 'none'}")
+        # WHAT A LAUNCHED SCRIPT LOADS IS READ OFF THE SOURCE, so the next
+        # script to import from an unmirrored directory fails here and not
+        # in a release. The premise keeps an empty derivation from passing.
+        launched, loaded = _files_a_node_launch_loads(repo)
+        check("PREMISE: the harness's own node launch is among those "
+              "derived, and it loads more than itself",
+              any("lyric_harness.py" in who for who in launched.values())
+              and len(loaded) > len(launched),
+              f"{len(launched)} launched script(s) load {len(loaded)} "
+              f"file(s): {sorted(launched)}")
+        unmirrored = sorted(f for f in loaded if not os.path.exists(
+            os.path.join(mutate.shadow_root(tree), f)))
+        check("every file a node launch from the harness loads is in the "
+              "shadow", not unmirrored,
+              f"{len(unmirrored)} of {len(loaded)} absent: " + (", ".join(
+                  f"{f} (loaded for {loaded[f]})" for f in unmirrored[:6])
+                  + (" ..." if len(unmirrored) > 6 else "")
+                  if unmirrored else "none"))
         # The copy policy must also isolate writes. A planted defect may write
         # its own input, but cannot poison the original or the frozen snapshot.
         import hashlib
